@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31004.235
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp", "OpenTransSharp\OpenTransSharp.csproj", "{ED725EA5-EDB2-48E7-A98B-E1B46D18BDE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{EE89FD38-12E2-430A-B5BF-819AC29B9ED6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "en", "en", "{2C009E74-5514-4EDF-BF1B-5E8BFD279B3C}"
+	ProjectSection(SolutionItems) = preProject
+		Content\en\opentrans_2_1_en - DISPATCHNOTIFICATION.pdf = Content\en\opentrans_2_1_en - DISPATCHNOTIFICATION.pdf
+		Content\en\opentrans_2_1_en - INVOICE.pdf = Content\en\opentrans_2_1_en - INVOICE.pdf
+		Content\en\opentrans_2_1_en - INVOICELIST.pdf = Content\en\opentrans_2_1_en - INVOICELIST.pdf
+		Content\en\opentrans_2_1_en - ORDER.pdf = Content\en\opentrans_2_1_en - ORDER.pdf
+		Content\en\opentrans_2_1_en - ORDERCHANGE.pdf = Content\en\opentrans_2_1_en - ORDERCHANGE.pdf
+		Content\en\opentrans_2_1_en - ORDERRESPONSE.pdf = Content\en\opentrans_2_1_en - ORDERRESPONSE.pdf
+		Content\en\opentrans_2_1_en - QUOTATION.pdf = Content\en\opentrans_2_1_en - QUOTATION.pdf
+		Content\en\opentrans_2_1_en - RECEIPTACKNOWLEDGEMENT.pdf = Content\en\opentrans_2_1_en - RECEIPTACKNOWLEDGEMENT.pdf
+		Content\en\opentrans_2_1_en - REMITTANCEADVICE.pdf = Content\en\opentrans_2_1_en - REMITTANCEADVICE.pdf
+		Content\en\opentrans_2_1_en - RFQ.pdf = Content\en\opentrans_2_1_en - RFQ.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{18FAC5AD-EC02-4A9F-AA3B-915FCD777A90}"
+	ProjectSection(SolutionItems) = preProject
+		Content\de\opentrans_2_1_de - DISPATCHNOTIFICATION.pdf = Content\de\opentrans_2_1_de - DISPATCHNOTIFICATION.pdf
+		Content\de\opentrans_2_1_de - INVOICE.pdf = Content\de\opentrans_2_1_de - INVOICE.pdf
+		Content\de\opentrans_2_1_de - INVOICELIST.pdf = Content\de\opentrans_2_1_de - INVOICELIST.pdf
+		Content\de\opentrans_2_1_de - ORDER.pdf = Content\de\opentrans_2_1_de - ORDER.pdf
+		Content\de\opentrans_2_1_de - ORDERCHANGE.pdf = Content\de\opentrans_2_1_de - ORDERCHANGE.pdf
+		Content\de\opentrans_2_1_de - ORDERRESPONSE.pdf = Content\de\opentrans_2_1_de - ORDERRESPONSE.pdf
+		Content\de\opentrans_2_1_de - QUOTATION.pdf = Content\de\opentrans_2_1_de - QUOTATION.pdf
+		Content\de\opentrans_2_1_de - REMITTANCEADVICE.pdf = Content\de\opentrans_2_1_de - REMITTANCEADVICE.pdf
+		Content\de\opentrans_2_1_de - RFQ.pdf = Content\de\opentrans_2_1_de - RFQ.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED725EA5-EDB2-48E7-A98B-E1B46D18BDE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED725EA5-EDB2-48E7-A98B-E1B46D18BDE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED725EA5-EDB2-48E7-A98B-E1B46D18BDE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED725EA5-EDB2-48E7-A98B-E1B46D18BDE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C009E74-5514-4EDF-BF1B-5E8BFD279B3C} = {EE89FD38-12E2-430A-B5BF-819AC29B9ED6}
+		{18FAC5AD-EC02-4A9F-AA3B-915FCD777A90} = {EE89FD38-12E2-430A-B5BF-819AC29B9ED6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {931C047F-C277-410A-8351-D9A71F7B58C7}
+	EndGlobalSection
+EndGlobal

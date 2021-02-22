@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Content\bmecat_2005_1.xsd" />
+    <None Remove="Content\opentrans_2_1.xsd" />
+    <None Remove="Content\xmldsig-core-schema.xsd" />
+    <None Remove="Content\xmlmime.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Content\bmecat_2005_1.xsd" />
+    <EmbeddedResource Include="Content\opentrans_2_1.xsd" />
+    <EmbeddedResource Include="Content\xmldsig-core-schema.xsd" />
+    <EmbeddedResource Include="Content\xmlmime.xsd" />
+  </ItemGroup>
+
+</Project>
