@@ -1,0 +1,55 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace OpenTransSharp
+{
+    /// <summary>
+    /// (Reference to an (electronic) product catalog)<br/>
+    /// <br/>
+    /// In the CATALOG_REFERENCE element reference is made to an (electronic) product catalog which serves as a quotation for the order.<br/>
+    /// This element can also be used as a reference to a price list.
+    /// </summary>
+    public class CatalogReference
+    {
+        /// <summary>
+        /// (required) Catalog ID<br/>
+        /// <br/>
+        /// Unique catalog identification.<br/>
+        /// This ID is usually assigned by the supplier when the catalog is generated and remains unchanged throughout the entire lifecycle of the catalog.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [Required]
+        [BMEXmlElement("CATALOG_ID")]
+        public string CatalogId { get; set; }
+
+        /// <summary>
+        /// (required) Catalog version<br/>
+        /// <br/>
+        /// Version number of the catalog.<br/>
+        /// May only be reset on the target system in conjunction with a T_NEW_CATALOG transaction and not in the case of updates, see also example (Interaction of various transactions).<br/>
+        /// <br/>
+        /// Format: "MajorVersion"."MinorVersion" (maximum xxx.yyy)<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [Required]
+        [BMEXmlElement("CATALOG_VERSION")]
+        public string CatalogVersion { get; set; }
+
+        /// <summary>
+        /// (optional) Catalog name<br/>
+        /// <br/>
+        /// Any name that describes the catalog.<br/>
+        /// <br/>
+        /// Example: Fall/Winter 2005/2006<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlElement("CATALOG_NAME")]
+        public List<MultiLingualString>? CatalogNames { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CatalogNamesSpecified => CatalogNames?.Count > 0;
+    }
+}

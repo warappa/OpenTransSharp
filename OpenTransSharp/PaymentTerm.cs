@@ -1,0 +1,46 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
+
+namespace OpenTransSharp
+{
+    public class PaymentTerm
+    {
+        public PaymentTerm()
+        {
+
+        }
+
+        public PaymentTerm(string value)
+        {
+            Value = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type">For predefined values see <see cref="PaymentTermTypeValues"/>. Custom values can be used.</param>
+        public PaymentTerm(string value, string type)
+            : this(value)
+        {
+            Type = type;
+        }
+
+        /// <summary>
+        /// (optional) Verfahren, nach dem die Zahlweise codiert wird.<br/>
+        /// <br/>
+        /// For predefined values see <see cref="PaymentTermTypeValues"/>. Custom values can be used.
+        /// </summary>
+        [XmlAttribute("type")]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// (required)<br/>
+        /// <br/>
+        /// Max length: 250
+        /// </summary>
+        [Required]
+        [XmlText]
+        public string Value { get; set; }
+    }
+}

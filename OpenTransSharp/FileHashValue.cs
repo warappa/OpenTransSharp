@@ -1,0 +1,48 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
+
+namespace OpenTransSharp
+{
+    /// <summary>
+    /// (Hash value of a file)<br/>
+    /// <br/>
+    /// The element contains a hash value to an external refered file.<br/>
+    /// The hash value can be used to check if the file was changed since the last generation of the hash value.<br/>
+    /// Generally hash values serve as input for data comparison tasks.<br/>
+    /// <br/>
+    /// Caution:<br/>
+    /// This element can only be used once per language in a document.
+    /// </summary>
+    public class FileHashValue
+    {
+        /// <summary>
+        /// (required) Methods of Hashing<br/>
+        /// <br/>
+        /// The attribute indicates the used hash-function - see <see cref="FileHashValueTypeValues"/>.<br/>
+        /// In germany the BNetzA or BSI guidelines are fundamental for legal certainity, therefore the used hash-function should match the guidelines.<br/>
+        /// <br/>
+        /// Max length: 50
+        /// </summary>
+        [Required]
+        [XmlAttribute("type")]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// (optional) Language version of the file<br/>
+        /// <br/>
+        /// The attribute "lang" indicates the language of the referenced file in MIME_SOURCE.
+        /// </summary>
+        [Required]
+        [XmlAttribute("lang")]
+        public Languages? Language { get; set; }
+
+        /// <summary>
+        /// (required)<br/>
+        /// <br/>
+        /// Max length: 100
+        /// </summary>
+        [Required]
+        [XmlText]
+        public string Value { get; set; }
+    }
+}
