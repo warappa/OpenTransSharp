@@ -18,7 +18,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Valid start date<br/>
         /// <br/>
-        /// Dates for the beginning of the period of validity.
+        /// Date for the beginning of the period of validity.
         /// </summary>
         [BMEXmlElement("VALID_START_DATE")]
         public DateTime? ValidStartDate { get; set; }

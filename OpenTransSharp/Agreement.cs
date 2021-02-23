@@ -31,9 +31,9 @@ namespace OpenTransSharp
         /// This attribute marks a standard agreement.
         /// </summary>
         [XmlAttribute("default")]
-        public bool Default { get; set; }
+        public bool? Default { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DefaultSpecified => Default;
+        public bool DefaultSpecified => Default == true;
 
         /// <summary>
         /// (required) Skeleton agreement ID<br/>
@@ -56,7 +56,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AGREEMENT_LINE_ID")]
-        public string AgreementLineId { get; set; }
+        public string? AgreementLineId { get; set; }
 
         /// <summary>
         /// (optional) Start date of the skeleton agreement<br/>
@@ -90,7 +90,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref SupplierIdref { get; set; }
+        public SupplierIdref? SupplierIdref { get; set; }
 
         /// <summary>
         /// (optional) Description of the skeleton agreement<br/>
@@ -98,7 +98,7 @@ namespace OpenTransSharp
         /// This element is used to describe the skeleton agreement.
         /// </summary>
         [XmlElement("AGREEMENT_DESCR")]
-        public List<MultiLingualString> AgreementDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? AgreementDescriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementDescriptionsSpecified => AgreementDescriptions?.Count > 0;
 

@@ -8,10 +8,10 @@ namespace OpenTransSharp
     /// <summary>
     /// (Item line)<br/>
     /// <br/>
-    /// An item line contains the requested order information about exactly one item.<br/>
-    /// Any number of item lines may be used, but at least one item line must be used.
+    /// A item line contains order information about exactly one item.<br/>
+    /// Any number of item lines can be used, although at least one item line must be used.
     /// </summary>
-    public class RfqItem
+    public class OrderItem
     {
         /// <summary>
         /// (required) Item number<br/>
@@ -99,24 +99,6 @@ namespace OpenTransSharp
         public bool PriceLineAmountSpecified => PriceLineAmount.HasValue;
 
         /// <summary>
-        /// (optional) Reference to a skeleton agreement<br/>
-        /// <br/>
-        /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
-        /// </summary>
-        [XmlElement("AGREEMENT")]
-        public List<Agreement> Agreements { get; set; } = new List<Agreement>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AgreementsSpecified => Agreements?.Count > 0;
-
-        /// <summary>
-        /// (optional) Reference to an (electronic) product catalog<br/>
-        /// <br/>
-        /// Order reference to a catalog. This element can also be used as a reference to a price list.
-        /// </summary>
-        [XmlElement("CATALOG_REFERENCE")]
-        public CatalogReference? CatalogReference { get; set; }
-
-        /// <summary>
         /// (optional) Partial shipment allowed<br/>
         /// <br/>
         /// Flag to indicate whether partial shipment is allowed. If allowed the value is TRUE, FALSE otherwise.<br/>
@@ -144,6 +126,41 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("DELIVERY_DATE")]
         public DeliveryDate? DeliveryDate { get; set; }
+
+        /// <summary>
+        /// (optional) Partial shipment list<br/>
+        /// <br/>
+        /// Information related to items of outstanding partial shipments.
+        /// </summary>
+        [XmlElement("PARTIAL_DELIVERY_LIST")]
+        public PartialDeliveryList? PartialDeliveryList { get; set; }
+
+        /// <summary>
+        /// (optional) Sourcing information<br/>
+        /// <br/>
+        /// Information about previous quotations, catalog references, skeleton agreements.
+        /// </summary>
+        [XmlElement("SOURCING_INFO")]
+        public SourcingInformation? SourcingInformation { get; set; }
+
+        /// <summary>
+        /// (optional) Customer order reference<br/>
+        /// <br/>
+        /// The element is related to an item and refers to the previous order where the item was ordered by the customer (purchasing party).
+        /// </summary>
+        [XmlElement("CUSTOMER_ORDER_REFERENCE")]
+        public CustomerOrderReference? CustomerOrderReference { get; set; }
+
+        /// <summary>
+        /// (optional) Accounting information<br/>
+        /// <br/>
+        /// Information on the accounting treatment of costs incurred by the buyer as a result of the order.<br/>
+        /// This information is supplied by the buyer to allow the supplier to include it in the following invoice, thereby making invoice verification by the buyer easier.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlElement("ACCOUNTING_INFO")]
+        public AccountingInformation? AccountingInformation { get; set; }
 
         /// <summary>
         /// (optional) Shipment parties<br/>

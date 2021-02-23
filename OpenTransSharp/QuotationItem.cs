@@ -8,10 +8,10 @@ namespace OpenTransSharp
     /// <summary>
     /// (Item line)<br/>
     /// <br/>
-    /// An item line contains the requested order information about exactly one item.<br/>
-    /// Any number of item lines may be used, but at least one item line must be used.
+    /// An item line contains the quotation information about exactly one item.<br/>
+    /// Any number of item lines may be used, at least one item line must be used.
     /// </summary>
-    public class RfqItem
+    public class QuotationItem
     {
         /// <summary>
         /// (required) Item number<br/>
@@ -128,7 +128,7 @@ namespace OpenTransSharp
         /// Caution:<br/>
         /// If the element is used in the context ORDER_HEADER, the element must not be used on item level ORDER_ITEM.
         /// </summary>
-        [XmlElement("PARTIAL_SHIPMENT_ALLOWED")]
+        [XmlElement("PARTIAL_SHIPMENT")] // Yes, without "_ALLOWED"...
         public bool? PartialShipmentAllowed { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PartialShipmentAllowedSpecified => PartialShipmentAllowed.HasValue;
@@ -144,6 +144,14 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("DELIVERY_DATE")]
         public DeliveryDate? DeliveryDate { get; set; }
+
+        /// <summary>
+        /// (optional) Partial shipment list<br/>
+        /// <br/>
+        /// Information related to items of outstanding partial shipments.
+        /// </summary>
+        [XmlElement("PARTIAL_DELIVERY_LIST")]
+        public PartialDeliveryList? PartialDeliveryList { get; set; }
 
         /// <summary>
         /// (optional) Shipment parties<br/>
