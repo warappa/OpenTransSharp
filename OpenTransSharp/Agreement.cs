@@ -109,6 +109,6 @@ namespace OpenTransSharp
         /// For instance the sceleton agreement of the document could be added.
         /// </summary>
         [XmlElement("MIME_INFO")]
-        public MimeInfo MimeInfo { get; set; }
+        public MimeInfo? MimeInfo { get; set; }
     }
 }

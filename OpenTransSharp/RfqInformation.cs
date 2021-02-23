@@ -41,7 +41,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Date of shipment.<br/>
         /// <br/>
-        /// The delivery date specifies the date the commissioned goods are accepted by the buyer. If the delivery date deviates from the one specified in the header, the         delivery date on item level is valid.<br/>
+        /// The delivery date specifies the date the commissioned goods are accepted by the buyer. If the delivery date deviates from the one specified in the header, the delivery date on item level is valid.<br/>
         /// <br/>
         /// To specify exact one date for the shipment, e.g. in the RECEIPTACKNOWLEDGEMENT-document, both sub-elements the DELIVERY_DATE and the DELIVERY_END_DATE should be the equal.
         /// </summary>

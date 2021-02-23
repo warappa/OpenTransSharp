@@ -46,7 +46,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Refers to business partners integrated in the process of the goods delivery procedure.
         /// </summary>
-
         [XmlElement("SHIPMENT_PARTIES_REFERENCE")]
         public ShipmentPartiesReference? ShipmentPartiesReference { get; set; }
     }

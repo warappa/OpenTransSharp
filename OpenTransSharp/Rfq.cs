@@ -64,13 +64,4 @@ namespace OpenTransSharp
         [XmlElement("RFQ_SUMMARY")]
         public RfqSummary RfqSummary { get; set; } = new RfqSummary();
     }
-    public class RfqItem
-    {
-
-    }
-
-    public class RfqSummary
-    {
-
-    }
 }

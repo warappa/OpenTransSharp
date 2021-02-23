@@ -69,6 +69,6 @@ namespace OpenTransSharp
         /// For example logos, company profiles or other business partner related documents could be added here.
         /// </summary>
         [XmlElement("MIME_INFO")]
-        public MimeInfo MimeInfo { get; set; }
+        public MimeInfo? MimeInfo { get; set; }
     }
 }
