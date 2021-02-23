@@ -7,11 +7,11 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Order change information)<br/>
+    /// (Information on the business document)<br/>
     /// <br/>
-    /// In the element ORDERCHANGE_INFO administrative information on this order is summarized.
+    /// In the element ORDERRESPONSE_INFO administrative information on this order is summarized.
     /// </summary>
-    public class OrderChangeInformation
+    public class OrderResponseInformation
     {
         /// <summary>
         /// (required) Order number of buyer<br/>
@@ -25,13 +25,13 @@ namespace OpenTransSharp
         public string OrderId { get; set; }
 
         /// <summary>
-        /// (required) Date of order change<br/>
+        /// (required) Date of confirmation of order<br/>
         /// <br/>
-        /// Date of the alteration in the order.
+        /// Date of confirmation of order receipt.
         /// </summary>
         [Required]
-        [XmlElement("ORDERCHANGE_DATE")]
-        public DateTime OrderChangeDate { get; set; }
+        [XmlElement("ORDERRESPONSE_DATE")]
+        public DateTime OrderResponseDate { get; set; }
 
         /// <summary>
         /// (optional) Date of the order<br/>
@@ -62,15 +62,14 @@ namespace OpenTransSharp
         public string? SupplierOrderId { get; set; }
 
         /// <summary>
-        /// (required) Order change sequence<br/>
+        /// (optional) Order change sequence<br/>
         /// <br/>
         /// The alteration sequence is increased by one with the dispatch of each ORDERCHANGE business document.<br/>
         /// <br/>
         /// The numbering begins at 1.
         /// </summary>
-        [Required]
         [XmlElement("ORDERCHANGE_SEQUENCE_ID")]
-        public int OrderchangeSequenceId { get; set; }
+        public int OrderChangeSequenceId { get; set; }
 
         /// <summary>
         /// (optional) Delivery date <br/>
@@ -151,44 +150,6 @@ namespace OpenTransSharp
         [MaxLength(3)]
         [BMEXmlElement("CURRENCY")]
         public string Currency { get; set; }
-
-        /// <summary>
-        /// (optional) Mode of payment<br/>
-        /// <br/>
-        /// Payment procedure<br/>
-        /// <br/>
-        /// Caution:<br/>
-        /// The PAYMENT element is to be interpreted by the recipient of the document as a requested mode of payment. The binding payment procedure is laid down in the order.
-        /// </summary>
-        [XmlElement("PAYMENT")]
-        public Payment? Payment { get; set; }
-
-        /// <summary>
-        /// (optional) GTC<br/>
-        /// <br/>
-        /// General terms and conditions.
-        /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
-        [XmlElement("TERMS_AND_CONDITIONS")]
-        public string? TermsAndConditions { get; set; }
-
-        /// <summary>
-        /// (optional) Partial shipment allowed<br/>
-        /// <br/>
-        /// Flag to indicate whether partial shipment is allowed. If allowed the value is TRUE, FALSE otherwise.<br/>
-        /// The flag is binding for the order, i.e. if the value is set to FALSE and only partial shipments can be made by the recipient of the order, the order shall be invalid.<br/>
-        /// Additionally one can provide concrete dates for the shipment.<br/>
-        /// <br/>
-        /// In contrast to the general possibility for partial shipments one can use the element PARTIAL_DELIVERY_LIST for concrete dates for partial shipments. In this case the element PARTIAL_SHIPMENT_ALLOWED is not used.<br/>
-        /// <br/>
-        /// Caution:<br/>
-        /// If the element is used in the context ORDER_HEADER, the element must not be used on item level ORDER_ITEM.
-        /// </summary>
-        [XmlElement("PARTIAL_SHIPMENT_ALLOWED")]
-        public bool? PartialShipmentAllowed { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PartialShipmentAllowedSpecified => PartialShipmentAllowed.HasValue;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
