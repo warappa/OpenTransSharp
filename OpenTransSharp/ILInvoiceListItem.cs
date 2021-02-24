@@ -83,7 +83,7 @@ namespace OpenTransSharp
         public TotalTax TotalTax { get; set; }
 
         /// <summary>
-        /// (required) Number of item lines<br/>
+        /// (required) Total amount<br/>
         /// <br/>
         /// Total amount covering all items in this business document.<br/>
         /// <br/>

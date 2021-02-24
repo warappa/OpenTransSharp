@@ -34,7 +34,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (required) Header level<br/>
         /// <br/>
-        /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
+        /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level (e.g.date of delivery).
         /// </summary>
         [Required]
         [XmlElement("INVOICE_HEADER")]
@@ -43,7 +43,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (required) Item level<br/>
         /// <br/>
-        /// The item level lists the individual positions of the order change.
+        /// The item level lists the individual positions of the invoice.
         /// </summary>
         [Required]
         [XmlArray("INVOICE_ITEM_LIST")]
@@ -53,7 +53,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (required) Summary<br/>
         /// <br/>
-        /// Summary of the request for orderchange information. The information in this element is redundant.
+        /// Summary of the invoice information. The information in this element is generally redundant.
         /// </summary>
         [Required]
         [XmlElement("INVOICE_SUMMARY")]

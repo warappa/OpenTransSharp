@@ -7,33 +7,32 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Invoice information)<br/>
+    /// (Information related to the remittance advice)<br/>
     /// <br/>
-    /// In the element, INVOICE _INFO information is summarized on the procurement activities which preceded this order.<br/>
-    /// When the element INVOICE _INFO is used, at least one of the following elements must be specified.
+    /// The element REMITTANCEADVICE_INFO specifies the scope of the remittance advice.<br/>
+    /// If this element is used at least one of the following elements must be used.
     /// </summary>
-    public class InvoiceInformation
+    public class RemittanceAdviceInformation
     {
         /// <summary>
-        /// (required) Invoice number<br/>
+        /// (required) Number of the remittance advice<br/>
         /// <br/>
-        /// Unique invoice number of the supplier.
+        /// Unique identifier of the remittance advice.
         /// </summary>
         [Required]
         [MinLength(1)]
         [MaxLength(250)]
-        [XmlElement("INVOICE_ID")]
-        public string InvoiceId { get; set; }
+        [XmlElement("REMITTANCEADVICE_ID")]
+        public string RemittanceAdviceId { get; set; }
 
         /// <summary>
-        /// (required) Invoice date<br/>
+        /// (required) Remittance/Payment advice date<br/>
         /// <br/>
-        /// Dates of the invoice.<br/>
-        /// In case of a credit card statement, INVOICE_DATE is the charge-date (the date, when the transaction occured).
+        /// Date of the payment advice.
         /// </summary>
         [Required]
-        [XmlElement("INVOICE_DATE")]
-        public DateTime InvoiceDate { get; set; }
+        [XmlElement("REMITTANCEADVICE_DATE")]
+        public DateTime RemittanceAdviceDate { get; set; }
 
         /// <summary>
         /// (optional) Intended purpose<br/>
@@ -44,55 +43,12 @@ namespace OpenTransSharp
         public string? ReasonForTransfer { get; set; }
 
         /// <summary>
-        /// (optional) Invoice type<br/>
+        /// (optional) Remittance/Payment advice type<br/>
         /// <br/>
-        /// Specifies if the document is an invoice, an invoice copy, an advice of amendment or a credit memo (in the sense of german Value Added Tax Act).<br/>
-        /// <br/>
-        /// In the case of the credit memo the creator is the buying partner and it replaces the invoice of the supplying company.
+        /// Describes the roles of the sender and recipient of the payment advice, i.e. specifies if the remittee triggers the direct debit and uses the payment advice as additional information for the payer or if the payer uses the advice of payment to document the payment.
         /// </summary>
-        [XmlElement("INVOICE_TYPE")]
-        public InvoiceType? InvoiceType { get; set; }
-
-        /// <summary>
-        /// (optional) Invoice coverage<br/>
-        /// <br/>
-        /// The element describes the scope of the invoice, i.e. if it is about a single invoice or a collective invoice.<br/>
-        /// An individual or single invoice contains only items refering to one order.<br/>
-        /// A collective invoice comprises of items refering to several orders.
-        /// </summary>
-        [XmlElement("INVOICE_COVERAGE")]
-        public InvoiceCoverage? InvoiceCoverage { get; set; }
-
-        /// <summary>
-        /// (optional) Delivery note number<br/>
-        /// <br/>
-        /// Unique delivery note number.<br/>
-        /// <br/>
-        /// Max length: 250
-        /// </summary>
-        [XmlElement("DELIVERYNOTE_ID")]
-        public string? DeliverynoteId { get; set; }
-
-        /// <summary>
-        /// (optional) Delivery date<br/>
-        /// <br/>
-        /// Date of shipment.<br/>
-        /// <br/>
-        /// The delivery date specifies the date the commissioned goods are accepted by the buyer.<br/>
-        /// If the delivery date deviates from the one specified in the header, the delivery date on item level is valid.<br/>
-        /// To specify exact one date for the shipment, e.g. in the RECEIPTACKNOWLEDGEMENT-document, both sub-elements the DELIVERY_DATE and the DELIVERY_END_DATE should be the equal.
-        /// </summary>
-        [XmlElement("DELIVERY_DATE")]
-        public DeliveryDate? DeliveryDate { get; set; }
-
-        /// <summary>
-        /// (optional) Reference to final recipient<br/>
-        /// <br/>
-        /// Reference to the unique identifier of the final recipient (shipping address and contact).<br/>
-        /// The element has to refer to a PARTY_ID in the same document.
-        /// </summary>
-        [XmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref? DeliveryIdref { get; set; }
+        [XmlElement("REMITTANCEADVICE_TYPE")]
+        public RemittanceAdviceType? RemittanceAdviceType { get; set; }
 
         /// <summary>
         /// (optional) Language<br/>
@@ -131,23 +87,49 @@ namespace OpenTransSharp
         public List<Party> Parties { get; set; } = new List<Party>();
 
         /// <summary>
-        /// (requireed) Reference to invoicing party<br/>
+        /// (required) Reference to the payer<br/>
+        /// <br/>
+        /// Reference to a unique identifier of the payer.<br/>
+        /// The element refers to a PARTY_ID in the same document.
+        /// </summary>
+        [Required]
+        [XmlElement("PAYER_IDREF")]
+        public PayerIdref? PayerIdref { get; set; }
+
+        /// <summary>
+        /// (required) Reference to a remittee<br/>
+        /// <br/>
+        /// Refers to a unique identifier of the remittee.<br/>
+        /// The elemente refers to the PARTY_ID of the remittee in the same document.
+        /// </summary>
+        [Required]
+        [XmlElement("REMITTEE_IDREF")]
+        public RemitteeIdref? RemitteeIdref { get; set; }
+
+        /// <summary>
+        /// (optional) Reference to invoicing party<br/>
         /// <br/>
         /// Reference to an unique identifier of the invoicing party. The element refers to a PARTY_ID in the same document.<br/>
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_ISSUER_IDREF")]
-        public InvoiceIssuerIdref InvoiceIssuerIdref { get; set; }
+        public InvoiceIssuerIdref? InvoiceIssuerIdref { get; set; }
 
         /// <summary>
-        /// (required) Reference to the recipient of the invoice<br/>
+        /// (optional) Reference to the recipient of the invoice<br/>
         /// <br/>
         /// Reference to an unique identifier to the recipient of the invoice.<br/>
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
         public InvoiceRecipientIdref InvoiceRecipientIdref { get; set; }
+
+        /// <summary>
+        /// (optional) Document exchange parties<br/>
+        /// <br/>
+        /// Reference to the business partners who take part in the document exchange.
+        /// </summary>
+        [XmlElement("DOCEXCHANGE_PARTIES_REFERENCE")]
+        public DocexchangePartiesReference? DocexchangePartiesReference { get; set; }
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>
@@ -170,32 +152,6 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
         public SupplierIdref? SupplierIdref { get; set; }
-
-        /// <summary>
-        /// (optional) Reference to the payer<br/>
-        /// <br/>
-        /// Reference to a unique identifier of the payer.<br/>
-        /// The element refers to a PARTY_ID in the same document.
-        /// </summary>
-        [XmlElement("PAYER_IDREF")]
-        public PayerIdref? PayerIdref { get; set; }
-
-        /// <summary>
-        /// (optional) Reference to a remittee<br/>
-        /// <br/>
-        /// Refers to a unique identifier of the remittee.<br/>
-        /// The elemente refers to the PARTY_ID of the remittee in the same document.
-        /// </summary>
-        [XmlElement("REMITTEE_IDREF")]
-        public RemitteeIdref? RemitteeIdref { get; set; }
-
-        /// <summary>
-        /// (optional) Document exchange parties<br/>
-        /// <br/>
-        /// Reference to the business partners who take part in the document exchange.
-        /// </summary>
-        [XmlElement("DOCEXCHANGE_PARTIES_REFERENCE")]
-        public DocexchangePartiesReference? DocexchangePartiesReference { get; set; }
 
         /// <summary>
         /// (required) Currency<br/>
@@ -225,6 +181,17 @@ namespace OpenTransSharp
         public Payment? Payment { get; set; }
 
         /// <summary>
+        /// (required) Time for payment<br/>
+        /// <br/>
+        /// Time where the payment is supposed to be done.
+        /// </summary>
+        [Required]
+        [XmlElement("PAYMENT_DATE")]
+        public DateTime? PaymentDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool PaymentDateSpecified => PaymentDate.HasValue;
+
+        /// <summary>
         /// (optional) GTC<br/>
         /// <br/>
         /// General terms and conditions.
@@ -244,22 +211,6 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("ACCOUNTING_INFO")]
         public AccountingInformation? AccountingInformation { get; set; }
-
-        /// <summary>
-        /// (optional) E-Billing informations<br/>
-        /// <br/>
-        /// Informations according E-Billing.
-        /// </summary>
-        [BMEXmlElement("E_BILLING")]
-        public EBilling? EBilling { get; set; }
-
-        /// <summary>
-        /// (optional) Logistics information<br/>
-        /// <br/>
-        /// The element contains logistical details in document level (HEADER).
-        /// </summary>
-        [BMEXmlElement("LOGISTIC_DETAILS_INFO")]
-        public LogisticDetailsInformation? LogisticDetailsInformation { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

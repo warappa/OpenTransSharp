@@ -23,7 +23,7 @@ namespace OpenTransSharp
         public int TotalItemCount { get; set; }
 
         /// <summary>
-        /// (optional) Number of item lines<br/>
+        /// (optional) Total amount<br/>
         /// <br/>
         /// Total amount covering all items in this business document.<br/>
         /// <br/>

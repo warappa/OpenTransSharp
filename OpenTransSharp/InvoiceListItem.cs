@@ -100,7 +100,9 @@ namespace OpenTransSharp
         /// The information is redundant and is for the purposes of statistical evaluation (e.g. by an intermediary) if appropriate.
         /// </summary>
         [XmlElement("TOTAL_ITEM_NUM")]
-        public int TotalItemCount { get; set; }
+        public int? TotalItemCount { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TotalItemCountSpecified => TotalItemCount.HasValue;
 
         /// <summary>
         /// (required) Net value <br/>
@@ -130,7 +132,7 @@ namespace OpenTransSharp
         public AllowOrChargesFix AllowOrChargesFix { get; set; }
 
         /// <summary>
-        /// (required) Number of item lines<br/>
+        /// (required) Total amount<br/>
         /// <br/>
         /// Total amount covering all items in this business document.<br/>
         /// <br/>
