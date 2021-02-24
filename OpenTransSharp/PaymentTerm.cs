@@ -27,7 +27,9 @@ namespace OpenTransSharp
         }
 
         /// <summary>
-        /// (optional) Verfahren, nach dem die Zahlweise codiert wird.<br/>
+        /// (optional) Term of payment.<br/>
+        /// <br/>
+        /// <br/>Procedure according to which the term of payment is coded.<br/>
         /// <br/>
         /// For predefined values see <see cref="PaymentTermTypeValues"/>. Custom values can be used.
         /// </summary>
