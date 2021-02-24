@@ -8,7 +8,7 @@ namespace OpenTransSharp
     /// <br/>The summary contains information on the number of item lines in the receipt acknowledgement.<br/>
     /// This figure is used for control purposes to make sure that all items have been transferred.
     /// </summary>
-    public class ReceiptAcknowlegementSummary
+    public class ReceiptAcknowledgementSummary
     {
         /// <summary>
         /// (required) Number of item lines<br/>

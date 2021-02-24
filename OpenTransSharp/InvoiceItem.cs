@@ -18,10 +18,14 @@ namespace OpenTransSharp
         /// <br/>
         /// Specifies the content of an invoice line item in the sense of being an ordered product or an additional charge(e.g.handling charge).
         /// </summary>
-        [XmlAttribute("type")]
+        [XmlIgnore]
         public InvoiceItemType? Type { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TypeSpecified => Type.HasValue;
+        [XmlAttribute("type")]
+        public InvoiceItemType TypeForSerializer { get => Type ?? InvoiceItemType.Undefined; set => Type = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TypeForSerializerSpecified => Type.HasValue;
 
         /// <summary>
         /// (required) Item number<br/>

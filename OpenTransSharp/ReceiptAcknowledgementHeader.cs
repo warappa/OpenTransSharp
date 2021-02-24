@@ -9,7 +9,7 @@ namespace OpenTransSharp
     /// The header is specified by the RECEIPTACKNOWLEDGEMENT_HEADER element.<br/>
     /// RECEIPTACKNOWLEDGEMENT_HEADER is used to transfer information about the business partners and the business document and enter default settings which can basically be overwritten on item level (RECEIPTACKNOWLEDGEMENT).
     /// </summary>
-    public class ReceiptAcknowlegementHeader
+    public class ReceiptAcknowledgementHeader
     {
         /// <summary>
         /// (optional) Control information<br/>
@@ -25,7 +25,7 @@ namespace OpenTransSharp
         /// Information on the business partners and for identification of the business document.
         /// </summary>
         [Required]
-        [XmlElement("RECEIPTACKNOWLEGEMENT_INFO")]
-        public ReceiptAcknowlegementInformation Information { get; set; } = new ReceiptAcknowlegementInformation();
+        [XmlElement("RECEIPTACKNOWLEDGEMENT_INFO")]
+        public ReceiptAcknowledgementInformation Information { get; set; } = new ReceiptAcknowledgementInformation();
     }
 }

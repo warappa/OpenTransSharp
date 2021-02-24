@@ -88,7 +88,7 @@ namespace OpenTransSharp
         /// Representation of the document in human readable form (e.g. as PDF-file or graphic).
         /// </summary>
         [XmlEnum("original_document")]
-        Original_document,
+        OriginalDocument,
         /// <summary>
         /// Repair instructions<br/>
         /// <br/>
@@ -116,7 +116,7 @@ namespace OpenTransSharp
         /// Description of the offered service or produkt.
         /// </summary>
         [XmlEnum("service_descr")]
-        ServiceDescr,
+        ServiceDescription,
         /// <summary>
         /// Service record<br/>
         /// <br/>
@@ -137,7 +137,7 @@ namespace OpenTransSharp
         /// Report of verification or test-processes.
         /// </summary>
         [XmlEnum("verification_report")]
-        Verification_report,
+        VerificationReport,
         /// <summary>
         /// Warranty<br/>
         /// <br/>

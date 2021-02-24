@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// In the element RECEIPTACKNOWLEDGEMENT_INFO administrative information on this order is summarized.
     /// </summary>
-    public class ReceiptAcknowlegementInformation
+    public class ReceiptAcknowledgementInformation
     {
         /// <summary>
         /// (required) Receipt acknowledgement number<br/>

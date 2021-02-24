@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -24,6 +26,14 @@ namespace OpenTransSharp
         [BMEXmlElement("CATALOG_ID")]
         public string CatalogId { get; set; }
 
+        [Required]
+        [BMEXmlElement("CATALOG_VERSION")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string CatalogVersionString
+        {
+            get => CatalogVersion.ToString(2);
+            set => CatalogVersion = value is null ? null : new Version(value);
+        }
         /// <summary>
         /// (required) Catalog version<br/>
         /// <br/>
@@ -34,9 +44,8 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
-        [BMEXmlElement("CATALOG_VERSION")]
-        public string CatalogVersion { get; set; }
+        [XmlIgnore]
+        public Version CatalogVersion { get; set; }
 
         /// <summary>
         /// (optional) Catalog name<br/>

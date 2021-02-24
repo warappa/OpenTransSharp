@@ -30,10 +30,14 @@ namespace OpenTransSharp
         /// <br/>
         /// This attribute marks a standard agreement.
         /// </summary>
-        [XmlAttribute("default")]
+        [XmlIgnore]
         public bool? Default { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DefaultSpecified => Default == true;
+        [XmlAttribute("default")]
+        public bool DefaultForSerializer { get => Default ?? false; set => Default = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DefaultForSerializerSpecified => Default == true;
 
         /// <summary>
         /// (required) Skeleton agreement ID<br/>

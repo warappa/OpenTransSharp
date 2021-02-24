@@ -14,7 +14,7 @@ namespace OpenTransSharp
     public class Transport
     {
         /// <summary>
-        /// INCOTERM<br/>
+        /// (required) INCOTERM<br/>
         /// <br/>
         /// International coding of transport, costs and insurance according to INCOTERMS 2000, UN/ECE, Recommendation No.5 (ECE/TRADE/259), (see http://www.unece.org/cefact/recommendations/rec05/rec05_ecetrd259.pdf). <br/>
         /// <br/>

@@ -135,7 +135,7 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FAX")]
+        [BMEXmlElement("EMAILS")]
         public List<Email>? Emails { get; set; } = new List<Email>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool EmailsSpecified => Emails?.Count > 0;

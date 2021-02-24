@@ -19,10 +19,14 @@ namespace OpenTransSharp
         /// <br/>
         /// Specifies the type of the referenced business document (invoice or invoice list).
         /// </summary>
-        [XmlAttribute("type")]
+        [XmlIgnore]
         public InvoiceType? Type { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TypeSpecified => Type.HasValue;
+        [XmlAttribute("type")]
+        public InvoiceType TypeForSerializer { get => Type ?? InvoiceType.Undefined; set => Type = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TypeForSerializerSpecified => Type.HasValue;
 
         /// <summary>
         /// (required) Invoice number<br/>

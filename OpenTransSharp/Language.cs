@@ -14,7 +14,7 @@ namespace OpenTransSharp
         {
             Value = value;
         }
-        public Language(Languages value)
+        public Language(LanguageCodes value)
             : this(value.ToString())
         {
         }
@@ -25,7 +25,7 @@ namespace OpenTransSharp
             Default = isDefault;
         }
 
-        public Language(Languages value, bool isDefault)
+        public Language(LanguageCodes value, bool isDefault)
             : this(value.ToString(), isDefault)
         {
         }
@@ -35,10 +35,14 @@ namespace OpenTransSharp
         /// <br/>
         /// This element determines the default language of all language-dependent information in the document.
         /// </summary>
-        [XmlAttribute("default")]
+        [XmlIgnore]
         public bool? Default { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DefaultSpecified => Default == true;
+        [XmlAttribute("default")]
+        public bool DefaultForSerializer { get => Default ?? false; set => Default = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DefaultForSerializerSpecified => Default == true;
 
         /// <summary>
         /// (required)

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using OpenTransSharp.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -26,6 +28,9 @@ namespace OpenTransSharp
     [Serializable]
     public class OrderResponse
     {
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;
+
         /// <summary>
         /// (required) Indicates the version of the openTRANS® Standard to which the business document corresponds.<br/>
         /// <br/>

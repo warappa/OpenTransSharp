@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// </summary>
         [MaxLength(20)]
         [XmlAttribute("type")]
-        public DeliveryDateType? Type { get; set; } = DeliveryDateType.Fixed;
+        public DeliveryDateType Type { get; set; } = DeliveryDateType.Fixed;
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TypeSpecified => Type != DeliveryDateType.Fixed;
 

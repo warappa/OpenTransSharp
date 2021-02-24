@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -23,9 +24,14 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 20
         /// </summary>
-        [XmlAttribute("type")]
+        [XmlIgnore]
         public ReferenceFeatureGroupIdType? Type { get; set; }
-        public bool TypeSpecified => Type is object;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("type")]
+        public ReferenceFeatureGroupIdType TypeForSerializer { get => Type ?? ReferenceFeatureGroupIdType.Undefined; set => Type = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TypeForSerializerSpecified => Type.HasValue;
 
         /// <summary>
         /// (required)<br/>

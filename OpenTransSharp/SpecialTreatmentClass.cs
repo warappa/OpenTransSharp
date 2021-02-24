@@ -13,6 +13,24 @@ namespace OpenTransSharp
     /// </summary>
     public class SpecialTreatmentClass
     {
+        public SpecialTreatmentClass()
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type">Name of the special treatment rule<br/>
+        /// <br/>
+        /// Short term for the special treatment regulation, e.g., GGVS (Hazardous Goods Order for Road Traffic)
+        /// </param>
+        public SpecialTreatmentClass(string value, string type)
+        {
+            Value = value;
+            Type = type;
+        }
         /// <summary>
         /// Name of the special treatment rule<br/>
         /// <br/>

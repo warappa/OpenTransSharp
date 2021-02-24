@@ -78,7 +78,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Dates of the delivery note.
         /// </summary>
-        [XmlElement("ORDER_DATE")]
+        [XmlElement("DELIVERYNOTE_DATE", IsNullable = true)]
         public DateTime? DeliverynoteDate { get; set; }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace OpenTransSharp
     /// An item line contains the information on precisely one position of the receipt acknowledgement.<br/>
     /// Any number of item lines may be used, and at least one must be used.
     /// </summary>
-    public class ReceiptAcknowlegementItem
+    public class ReceiptAcknowledgementItem
     {
         /// <summary>
         /// (required) Item number<br/>

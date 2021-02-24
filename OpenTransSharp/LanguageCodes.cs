@@ -1,7 +1,8 @@
 ﻿namespace OpenTransSharp
 {
-    public enum Languages
+    public enum LanguageCodes
     {
+        Undefined,
         aar,
         abk,
         ace,

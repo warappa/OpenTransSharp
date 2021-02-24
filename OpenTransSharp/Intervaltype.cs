@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -20,6 +21,8 @@ namespace OpenTransSharp
         /// Indicates that the value is not part of the domain.
         /// </summary>
         [XmlEnum("exclude")]
-        Exclude
+        Exclude,
+        //[EditorBrowsable(EditorBrowsableState.Never)]
+        Undefined
     }
 }

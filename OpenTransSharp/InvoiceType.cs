@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -27,6 +28,8 @@ namespace OpenTransSharp
         /// The document is an invoice.
         /// </summary>
         [XmlEnum("invoice_copy")]
-        InvoiceCopy
+        InvoiceCopy,
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        Undefined
     }
 }

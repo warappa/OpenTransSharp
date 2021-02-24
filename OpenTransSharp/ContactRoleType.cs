@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -49,5 +50,7 @@ namespace OpenTransSharp
         /// </summary>
         [XmlEnum("others")]
         Other,
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        Undefined
     }
 }

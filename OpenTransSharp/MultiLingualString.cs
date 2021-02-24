@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -9,18 +10,22 @@ namespace OpenTransSharp
         {
 
         }
+
         public MultiLingualString(string value)
         {
             Value = value;
         }
-        public MultiLingualString(string value, string? language)
+
+        public MultiLingualString(string value, LanguageCodes language)
         {
             Value = value;
             Language = language;
         }
 
         [XmlAttribute("lang")]
-        public string? Language { get; set; }
+        public LanguageCodes Language { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool LanguageSpecified => Language != LanguageCodes.Undefined;
 
         /// <summary>
         /// (required)

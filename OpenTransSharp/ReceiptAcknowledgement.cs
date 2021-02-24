@@ -1,6 +1,8 @@
-﻿using System;
+﻿using OpenTransSharp.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -22,10 +24,13 @@ namespace OpenTransSharp
     /// Caution:<br/>
     /// The document RECEIPTACKNOWLEDGEMENT may only be send once per article or article list, i.e.multiple confirmation of receipt of the goods, e.g.through the goods receiving department and the final recipient is not permitted.
     /// </summary>
-    [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "RECEIPTACKNOWLEGEMENT")]
+    [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "RECEIPTACKNOWLEDGEMENT")]
     [Serializable]
-    public class ReceiptAcknowlegement
+    public class ReceiptAcknowledgement
     {
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;
+
         /// <summary>
         /// (required) Indicates the version of the openTRANS® Standard to which the business document corresponds.<br/>
         /// <br/>
@@ -41,8 +46,8 @@ namespace OpenTransSharp
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
         [Required]
-        [XmlElement("RECEIPTACKNOWLEGEMENT_HEADER")]
-        public ReceiptAcknowlegementHeader Header { get; set; } = new ReceiptAcknowlegementHeader();
+        [XmlElement("RECEIPTACKNOWLEDGEMENT_HEADER")]
+        public ReceiptAcknowledgementHeader Header { get; set; } = new ReceiptAcknowledgementHeader();
 
         /// <summary>
         /// (required) Item level<br/>
@@ -50,9 +55,9 @@ namespace OpenTransSharp
         /// The item level lists the individual positions of the order.
         /// </summary>
         [Required]
-        [XmlArray("RECEIPTACKNOWLEGEMENT_ITEM_LIST")]
-        [XmlArrayItem("RECEIPTACKNOWLEGEMENT_ITEM")]
-        public List<ReceiptAcknowlegementItem> Items { get; set; } = new List<ReceiptAcknowlegementItem>();
+        [XmlArray("RECEIPTACKNOWLEDGEMENT_ITEM_LIST")]
+        [XmlArrayItem("RECEIPTACKNOWLEDGEMENT_ITEM")]
+        public List<ReceiptAcknowledgementItem> Items { get; set; } = new List<ReceiptAcknowledgementItem>();
 
         /// <summary>
         /// (required) Summary<br/>
@@ -60,7 +65,7 @@ namespace OpenTransSharp
         /// Summary of the request for order information. The information in this element is redundant.
         /// </summary>
         [Required]
-        [XmlElement("RECEIPTACKNOWLEGEMENT_SUMMARY")]
-        public ReceiptAcknowlegementSummary Summary { get; set; } = new ReceiptAcknowlegementSummary();
+        [XmlElement("RECEIPTACKNOWLEDGEMENT_SUMMARY")]
+        public ReceiptAcknowledgementSummary Summary { get; set; } = new ReceiptAcknowledgementSummary();
     }
 }

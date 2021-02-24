@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -29,8 +30,14 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) This attribute contains the role or position as a machine-readable code.
         /// </summary>
-        [XmlAttribute("type")]
+        [XmlIgnore]
         public ContactRoleType? Type { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlAttribute("type")]
+        public ContactRoleType TypeForSerializer { get => Type ?? ContactRoleType.Undefined; set => Type = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TypeForSerializerSpecified => Type.HasValue;
 
         /// <summary>
         /// (required)

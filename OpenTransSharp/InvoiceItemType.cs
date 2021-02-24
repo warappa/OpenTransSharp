@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -27,6 +28,8 @@ namespace OpenTransSharp
         /// The invoice line item refers to a deposit (e.g. pallet, cable extension reel) which was not explicilty ordered and is refunded on return.
         /// </summary>
         [XmlEnum("pledge_item")]
-        PledgeItem
+        PledgeItem,
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        Undefined
     }
 }

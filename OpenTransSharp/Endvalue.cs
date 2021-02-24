@@ -18,10 +18,14 @@ namespace OpenTransSharp
         /// <br/>
         /// This attribute indicates whether the value is part of the domain or not.
         /// </summary>
-        [XmlAttribute("intervaltype")]
+        [XmlIgnore]
         public Intervaltype? Intervaltype { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IntervaltypeSpecified => Intervaltype.HasValue;
+        [XmlAttribute("intervaltype")]
+        public Intervaltype IntervaltypeForSerializer { get => Intervaltype ?? OpenTransSharp.Intervaltype.Undefined; set => Intervaltype = value; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool IntervaltypeForSerializerSpecified => Intervaltype.HasValue;
 
         /// <summary>
         /// (required)<br/>

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -17,6 +18,8 @@ namespace OpenTransSharp
         /// The group ID describes the position of the respective group in the hierarchy.
         /// </summary>
         [XmlEnum("hierarchy")]
-        Hierarchy
+        Hierarchy,
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        Undefined
     }
 }

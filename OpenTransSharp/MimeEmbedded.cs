@@ -24,7 +24,9 @@ namespace OpenTransSharp
         /// In case of specifying more than one single-declared element to support a multilingual document all "lang"-attributes must contain different values(one unique value per language).
         /// </summary>
         [XmlAttribute("lang")]
-        public Languages? Language { get; set; }
+        public LanguageCodes Language { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool LanguageSpecified => Language != LanguageCodes.Undefined;
 
         /// <summary>
         /// (required) Coded deata of the file<br/>

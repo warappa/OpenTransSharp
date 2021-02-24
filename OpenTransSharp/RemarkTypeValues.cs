@@ -10,13 +10,13 @@
         /// <br/>
         /// The remark is identified for use in the business document DELIVERYNOTE (general presumption that the delivery note currently exists in paper form only, as document accompanying the goods).
         /// </summary>
-        public const string Deliverynote = "deliverynote";
+        public const string DeliveryNote = "deliverynote";
         /// <summary>
         /// Dispatch notification<br/>
         /// <br/>
         /// The remark is identified for use in the business document DISPATCHNOTIFICATION.
         /// </summary>
-        public const string Dispatchnotification = "dispatchnotification";
+        public const string DispatchNotification = "dispatchnotification";
         /// <summary>
         /// General<br/>
         /// <br/>
@@ -40,13 +40,13 @@
         /// <br/>
         /// The remark is identified for use in the business document ORDERCHANGE.
         /// </summary>
-        public const string Orderchange = "orderchange";
+        public const string OrderChange = "orderchange";
         /// <summary>
         /// Order response<br/>
         /// <br/>
         /// The remark is identified for use in the business document ORDERRESPONSE.
         /// </summary>
-        public const string Orderresponse = "orderresponse";
+        public const string OrderResponse = "orderresponse";
         /// <summary>
         /// Quotation<br/>
         /// <br/>
@@ -58,19 +58,19 @@
         /// <br/>
         /// The remark is identified for use in the business document RECEIPTACKNOWLEDGEMENT.
         /// </summary>
-        public const string Receiptacknowledgement = "receiptacknowledgement";
+        public const string ReceiptAcknowledgement = "receiptacknowledgement";
         /// <summary>
         /// Payment advice<br/>
         /// <br/>
         /// The remark is identified for use in the business document REMITTANCEADVICE.
         /// </summary>
-        public const string Remittanceadvice = "remittanceadvice";
+        public const string RemittanceAdvice = "remittanceadvice";
         /// <summary>
         /// Invoice list<br/>
         /// <br/>
         /// The remark is identified for use in the business document INVOICELIST.
         /// </summary>
-        public const string Invoicelist = "invoicelist";
+        public const string InvoiceList = "invoicelist";
         /// <summary>
         /// Request for submission of quotation<br/>
         /// <br/>
