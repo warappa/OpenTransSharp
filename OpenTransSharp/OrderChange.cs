@@ -56,7 +56,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (required) Summary<br/>
         /// <br/>
-        /// Summary of the request for order information. The information in this element is redundant.
+        /// Summary of the request for orderchange information. The information in this element is redundant.
         /// </summary>
         [Required]
         [XmlElement("ORDERCHANGE_SUMMARY")]

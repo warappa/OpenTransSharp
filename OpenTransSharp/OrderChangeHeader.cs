@@ -20,7 +20,7 @@ namespace OpenTransSharp
         public ControlInformation? ControlInformation { get; set; }
 
         /// <summary>
-        /// (required) Buyer information<br/>
+        /// (required) Order change information<br/>
         /// <br/>
         /// Order information on this business document.
         /// </summary>
