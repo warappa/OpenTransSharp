@@ -4,21 +4,18 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Reference to the recipient of the invoice)<br/>
+    /// (Reference to the payer)<br/>
     /// <br/>
-    /// Reference to an unique identifier to the recipient of the invoice.<br/>
-    /// The element refers to a PARTY_ID of an invoice recipient in the same document.<br/>
-    /// <br/>
-    /// Caution:<br/>
-    /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_RECIPIENT_IDREF is also the supplier.
+    /// Reference to a unique identifier of the payer.<br/>
+    /// The element refers to a PARTY_ID in the same document.
     /// </summary>
-    public class InvoiceRecipientIdref : PartyRef<InvoiceRecipientIdref>
+    public class PayerIdref : PartyRef<PayerIdref>
     {
-        public InvoiceRecipientIdref()
+        public PayerIdref()
         {
         }
 
-        public InvoiceRecipientIdref(string value)
+        public PayerIdref(string value)
         {
             Value = value;
         }
@@ -28,7 +25,7 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public InvoiceRecipientIdref(string value, string type)
+        public PayerIdref(string value, string type)
             : this(value)
         {
             Type = type;
@@ -38,12 +35,10 @@ namespace OpenTransSharp
         /// (optional) Coding standard<br/>
         /// <br/>
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined.<br/>
-        /// <br/>
-        /// See <see cref="PartyTypeValues"/>.
+        /// The most common coding standards are predefined.
         /// </summary>
         [XmlAttribute("type")]
-        public override string? Type { get; set; }
+        public override string Type { get; set; }
 
         /// <summary>
         /// (required)<br/>
@@ -54,7 +49,7 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(InvoiceRecipientIdref idRef)
+        public static explicit operator PartyId(PayerIdref idRef)
         {
             if (idRef is null)
             {

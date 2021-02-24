@@ -40,7 +40,7 @@ namespace OpenTransSharp
         /// Date of the order.
         /// </summary>
         [XmlElement("ORDER_DATE")]
-        public DateTime OrderDate { get; set; }
+        public DateTime? OrderDate { get; set; }
 
         /// <summary>
         /// (optional) Description of the order<br/>

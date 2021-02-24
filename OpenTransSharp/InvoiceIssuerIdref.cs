@@ -4,21 +4,21 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Reference to the recipient of the invoice)<br/>
+    /// (Reference to invoicing party)<br/>
     /// <br/>
-    /// Reference to an unique identifier to the recipient of the invoice.<br/>
-    /// The element refers to a PARTY_ID of an invoice recipient in the same document.<br/>
+    /// Reference to an unique identifier of the invoicing party.<br/>
+    /// The element refers to a PARTY_ID in the same document.<br/>
     /// <br/>
     /// Caution:<br/>
-    /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_RECIPIENT_IDREF is also the supplier.
+    /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_ISSUER_IDREF is additionally the recipient of the benefit/buyer.
     /// </summary>
-    public class InvoiceRecipientIdref : PartyRef<InvoiceRecipientIdref>
+    public class InvoiceIssuerIdref : PartyRef<InvoiceIssuerIdref>
     {
-        public InvoiceRecipientIdref()
+        public InvoiceIssuerIdref()
         {
         }
 
-        public InvoiceRecipientIdref(string value)
+        public InvoiceIssuerIdref(string value)
         {
             Value = value;
         }
@@ -28,7 +28,7 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public InvoiceRecipientIdref(string value, string type)
+        public InvoiceIssuerIdref(string value, string type)
             : this(value)
         {
             Type = type;
@@ -54,7 +54,7 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(InvoiceRecipientIdref idRef)
+        public static explicit operator PartyId(InvoiceIssuerIdref idRef)
         {
             if (idRef is null)
             {
