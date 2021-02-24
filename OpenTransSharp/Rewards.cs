@@ -1,0 +1,55 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
+
+namespace OpenTransSharp
+{
+    /// <summary>
+    /// (Rewards)<br/>
+    /// <br/>
+    /// This element provides the possibilty to publish the rewards points which appeared with transactions.<br/>
+    /// The element can be used directly for transactions in IL_INVOICE_LIST_ITEM and as summary in the element INVOICELIST_ITEM.
+    /// </summary>
+    public class Rewards
+    {
+        /// <summary>
+        /// (required) Rewards points<br/>
+        /// <br/>
+        /// The rewards points earned with (some of) the transactions of the document.
+        /// </summary>
+        [Required]
+        [XmlElement("REWARDS_POINTS")]
+        public decimal RewardsPoints { get; set; }
+
+        /// <summary>
+        /// (optional) Rewards summary<br/>
+        /// <br/>
+        /// This is the record of the rewards points you have earned/redeemed till date.
+        /// </summary>
+        [XmlElement("REWARDS_SUMMARY")]
+        public decimal? RewardsSummary { get; set; }
+
+        /// <summary>
+        /// (required) Name of the rewards system<br/>
+        /// <br/>
+        /// Name of the rewards system, e.g. frequent flyer program.
+        /// </summary>
+        [Required]
+        [XmlElement("REWARDS_SYSTEM")]
+        public List<MultiLingualString>? RewardsSystem { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool RewardsSystemSpecified => RewardsSystem?.Count > 0;
+
+        /// <summary>
+        /// (required) Rewards description <br/>
+        /// <br/>
+        /// Description of the rewards system.
+        /// </summary>
+        [Required]
+        [XmlElement("REWARDS_DESCR")]
+        public List<MultiLingualString>? RewardsDescriptions { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool RewardsDescriptionsSpecified => RewardsDescriptions?.Count > 0;
+    }
+}

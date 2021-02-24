@@ -7,33 +7,32 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Invoice information)<br/>
+    /// (Invoice list informations)<br/>
     /// <br/>
-    /// In the element, INVOICE _INFO information is summarized on the procurement activities which preceded this order.<br/>
-    /// When the element INVOICE _INFO is used, at least one of the following elements must be specified.
+    /// The element specifies the scope of the invoice list.<br/>
+    /// If this element is used at least one of the following elements has to be specified.
     /// </summary>
-    public class InvoiceInformation
+    public class InvoiceListInformation
     {
         /// <summary>
-        /// (required) Invoice number<br/>
+        /// (required) Invoice list ID<br/>
         /// <br/>
-        /// Unique invoice number of the supplier.
+        /// Unique ID of the invoice list.
         /// </summary>
         [Required]
         [MinLength(1)]
         [MaxLength(250)]
-        [XmlElement("INVOICE_ID")]
-        public string InvoiceId { get; set; }
+        [XmlElement("INVOICELIST_ID")]
+        public string InvoiceListId { get; set; }
 
         /// <summary>
-        /// (required) Invoice date<br/>
+        /// (required) Date of the invoice list <br/>
         /// <br/>
-        /// Dates of the invoice.<br/>
-        /// In case of a credit card statement, INVOICE_DATE is the charge-date (the date, when the transaction occured).
+        /// Date of the invoice list.
         /// </summary>
         [Required]
-        [XmlElement("INVOICE_DATE")]
-        public DateTime InvoiceDate { get; set; }
+        [XmlElement("INVOICELIST_DATE")]
+        public DateTime InvoiceListDate { get; set; }
 
         /// <summary>
         /// (optional) Intended purpose<br/>
@@ -44,55 +43,21 @@ namespace OpenTransSharp
         public string? ReasonForTransfer { get; set; }
 
         /// <summary>
-        /// (optional) Invoice type<br/>
+        /// (optional) Intended purpose<br/>
         /// <br/>
-        /// Specifies if the document is an invoice, an invoice copy, an advice of amendment or a credit memo (in the sense of german Value Added Tax Act).<br/>
-        /// <br/>
-        /// In the case of the credit memo the creator is the buying partner and it replaces the invoice of the supplying company.
+        /// Intended purpose especially regarding financial transactions and particularly bank transfers.
         /// </summary>
-        [XmlElement("INVOICE_TYPE")]
-        public InvoiceType? InvoiceType { get; set; }
+        [XmlElement("INVOICELIST_TYPE")]
+        public InvoiceListType? InvoiceListType { get; set; }
 
         /// <summary>
-        /// (optional) Invoice coverage<br/>
+        /// (required) Accounting period<br/>
         /// <br/>
-        /// The element describes the scope of the invoice, i.e. if it is about a single invoice or a collective invoice.<br/>
-        /// An individual or single invoice contains only items refering to one order.<br/>
-        /// A collective invoice comprises of items refering to several orders.
+        /// IntendedThe time period reflected by a set of invoices.
         /// </summary>
-        [XmlElement("INVOICE_COVERAGE")]
-        public InvoiceCoverage? InvoiceCoverage { get; set; }
-
-        /// <summary>
-        /// (optional) Delivery note number<br/>
-        /// <br/>
-        /// Unique delivery note number.<br/>
-        /// <br/>
-        /// Max length: 250
-        /// </summary>
-        [XmlElement("DELIVERYNOTE_ID")]
-        public string? DeliverynoteId { get; set; }
-
-        /// <summary>
-        /// (optional) Delivery date<br/>
-        /// <br/>
-        /// Date of shipment.<br/>
-        /// <br/>
-        /// The delivery date specifies the date the commissioned goods are accepted by the buyer.<br/>
-        /// If the delivery date deviates from the one specified in the header, the delivery date on item level is valid.<br/>
-        /// To specify exact one date for the shipment, e.g. in the RECEIPTACKNOWLEDGEMENT-document, both sub-elements the DELIVERY_DATE and the DELIVERY_END_DATE should be the equal.
-        /// </summary>
-        [XmlElement("DELIVERY_DATE")]
-        public DeliveryDate? DeliveryDate { get; set; }
-
-        /// <summary>
-        /// (optional) Reference to final recipient<br/>
-        /// <br/>
-        /// Reference to the unique identifier of the final recipient (shipping address and contact).<br/>
-        /// The element has to refer to a PARTY_ID in the same document.
-        /// </summary>
-        [XmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref? DeliveryIdref { get; set; }
+        [Required]
+        [XmlElement("ACCOUNTING_PERIOD")]
+        public AccountingPeriod AccountingPeriod { get; set; }
 
         /// <summary>
         /// (optional) Language<br/>
@@ -106,7 +71,7 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LanguagesSpecified => Languages?.Count > 0;
 
-        /// <summary>
+        // <summary>
         /// (optional) MIME root directory<br/>
         /// <br/>
         /// A relative directory can be entered here (and/or a URI), i.e. one to which the relative paths in MIME_SOURCE refer.<br/>
@@ -147,7 +112,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref InvoiceRecipientIdref { get; set; }
+        public InvoiceRecipientIdref? InvoiceRecipientIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>
@@ -207,9 +172,9 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
+        [Required]
         [MinLength(3)]
         [MaxLength(3)]
-        [Required]
         [BMEXmlElement("CURRENCY")]
         public string Currency { get; set; }
 
@@ -252,14 +217,6 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("E_BILLING")]
         public EBilling? EBilling { get; set; }
-
-        /// <summary>
-        /// (optional) Logistics information<br/>
-        /// <br/>
-        /// The element contains logistical details in document level (HEADER).
-        /// </summary>
-        [BMEXmlElement("LOGISTIC_DETAILS_INFO")]
-        public LogisticDetailsInformation? LogisticDetailsInformation { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
