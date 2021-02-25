@@ -9,7 +9,12 @@ namespace OpenTransSharp
         {
             using var ms = new MemoryStream();
 
-            serializer.Serialize(ms, obj);
+            using var streamWriter = System.Xml.XmlWriter.Create(ms, new System.Xml.XmlWriterSettings
+            {
+                Encoding = new System.Text.UTF8Encoding(false),
+                Indent = true
+            });
+            serializer.Serialize(streamWriter, obj);
             ms.Position = 0;
             using var streamReader = new StreamReader(ms);
             return streamReader.ReadToEnd();

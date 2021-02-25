@@ -57,8 +57,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CATALOG_NAME")]
-        public List<MultiLingualString>? CatalogNames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool CatalogNamesSpecified => CatalogNames?.Count > 0;
+        public MultiLingualString? CatalogName { get; set; }
     }
 }

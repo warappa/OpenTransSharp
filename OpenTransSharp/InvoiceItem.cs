@@ -131,6 +131,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("EXCHANGE_RATE")]
         public decimal? ExchangeRate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ExchangeRateSpecified => ExchangeRate.HasValue;
 
         /// <summary>
         /// (optional) Invoice correction<br/>

@@ -49,6 +49,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("INVOICELIST_TYPE")]
         public InvoiceListType? InvoiceListType { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool InvoiceListTypeSpecified => InvoiceListType.HasValue;
 
         /// <summary>
         /// (required) Accounting period<br/>
@@ -81,9 +83,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public List<MultiLingualString>? MimeRoots { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MimeRootsSpecified => MimeRoots?.Count > 0;
+        public MultiLingualString? MimeRoot { get; set; }
 
         /// <summary>
         /// (required) Parties<br/>

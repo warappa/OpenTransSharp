@@ -39,11 +39,40 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             var model = new RemittanceAdviceItem();
 
             model.LineItemId = "1";
+            model.RaInvoiceList = new RaInvoiceList
+            {
+                Items = new List<RaInvoiceListItem>
+                {
+                    new RaInvoiceListItem
+                    {
+                        InvoiceReference = new InvoiceReference
+                        {
+                            InvoiceId = "1"
+                        },
+                        OriginalInvoiceSummary = new OriginalInvoiceSummary
+                        {
+                            NetValueGoods = 1,
+                            TotalAmount = 1,
+                            TotalTax = new TotalTax
+                            {
+                                TaxDetailsFixes =new List<TaxDetailsFix>
+                                {
+                                    new TaxDetailsFix
+                                    {
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            model.TotalAmount = 1;
             model.Remarks = new List<Remark>
             {
                 new Remark("Be careful", RemarkTypeValues.RemittanceAdvice)
             };
-            
+
             return model;
         }
 
@@ -73,11 +102,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = GetMimeInfo();
-            model.MimeRoots = new List<MultiLingualString>
-            {
-                new MultiLingualString("ftp://server/de", LanguageCodes.deu),
-                new MultiLingualString("ftp://server/en", LanguageCodes.eng)
-            };
+            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
             model.RemittanceAdviceDate = DateTime.UtcNow;
             model.RemittanceAdviceId = "RemittanceAdviceId";
             model.Parties = new List<Party>
@@ -85,6 +110,8 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
                 GetBuyerParty(),
                 GetSupplierParty()
             };
+            model.PayerIdref = GetPayerIdRef();
+            model.RemitteeIdref = GetRemitteeIdRef();
             model.Remarks = new List<Remark>
             {
                 new Remark("Handle with care", RemarkTypeValues.Transport),
@@ -92,6 +119,16 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             };
 
             return model;
+        }
+
+        private RemitteeIdref GetRemitteeIdRef()
+        {
+            return new RemitteeIdref("Supplier", PartyTypeValues.PartySpecific);
+        }
+
+        private PayerIdref GetPayerIdRef()
+        {
+            return new PayerIdref("Buyer", PartyTypeValues.PartySpecific);
         }
 
         private Party GetSupplierParty()
@@ -152,11 +189,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
                     new MultiLingualString("A text file", LanguageCodes.eng)
                 },
                 MimePurpose = MimePurpose.Others,
-                MimeSources = new List<MultiLingualString>
-                {
-                    new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
-                    new MultiLingualString("ftp://server/en/", LanguageCodes.eng)
-                },
+                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain",
                 MimeEmbeddeds = new List<MimeEmbedded>
                 {
@@ -165,14 +198,14 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
                         FileName = "Lies mich.txt",
                         Language = LanguageCodes.deu,
                         FileSize = 33,
-                        MimeData = new MimeData("Gut gemacht, Sie haben es gelesen", "text/plain")
+                        MimeData = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
                         Language = LanguageCodes.eng,
                         FileSize = 22,
-                        MimeData = new MimeData("Well done, you read it", "text/plain")
+                        MimeData = MimeData.FromText("Well done, you read it")
                     }
                 }
             };
@@ -213,11 +246,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             return new CatalogReference
             {
                 CatalogId = "2021-02",
-                CatalogNames = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                    new MultiLingualString("Test Katalog 2021", LanguageCodes.deu)
-                },
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 CatalogVersion = new Version(2, 1)
             };
         }

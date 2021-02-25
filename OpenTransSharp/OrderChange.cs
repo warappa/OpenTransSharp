@@ -25,7 +25,7 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "ORDERCHANGE")]
     [Serializable]
-    public class OrderChange
+    public class OrderChange : IValidatable
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;
@@ -55,8 +55,8 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlArray("ORDERCHANGE_ITEM_LIST")]
-        [XmlArrayItem("ORDERCHANGE_ITEM")]
-        public List<OrderChangeItem> Items { get; set; } = new List<OrderChangeItem>();
+        [XmlArrayItem("ORDER_ITEM")]
+        public List<OrderItem> Items { get; set; } = new List<OrderItem>();
 
         /// <summary>
         /// (required) Summary<br/>

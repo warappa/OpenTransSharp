@@ -28,5 +28,15 @@ namespace OpenTransSharp.Tests.Rfqs
             Action action = () => serializer.Serialize(order);
             action.Should().NotThrow();
         }
+
+        [Test]
+        public void Can_validate_Rfq()
+        {
+            var order = testConfig.Rfqs.GetRfq();
+
+            var serializer = new XmlSerializer(order.GetType());
+            //var serialized = serializer.Serialize(order);
+            order.IsValid(serializer).Should().Be(true);
+        }
     }
 }

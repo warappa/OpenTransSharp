@@ -41,12 +41,20 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.LineItemId = "1";
             model.OrderUnit = "C62";
             model.Quantity = 2;
-            
+            model.OrderReference = new OrderReference
+            {
+                OrderId = "OrderId",
+                LineItemId = "1"
+            };
+            model.ShipmentPartiesReference = new ShipmentPartiesReference
+            {
+                DeliveryIdref = GetDeliveryRef()
+            };
             model.Remarks = new List<Remark>
             {
                 new Remark("Be careful", RemarkTypeValues.DispatchNotification)
             };
-            
+
             model.ProductId = new ProductId
             {
                 SupplierPid = new SupplierPid("Supplier ProductId", SupplierPidTypeValues.SupplierSpecific),
@@ -83,17 +91,19 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = GetMimeInfo();
-            model.MimeRoots = new List<MultiLingualString>
-            {
-                new MultiLingualString("ftp://server/de", LanguageCodes.deu),
-                new MultiLingualString("ftp://server/en", LanguageCodes.eng)
-            };
+            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
             model.DispatchNotificationDate = DateTime.UtcNow;
             model.DispatchNotificationId = "DispatchNotificationId";
             model.Parties = new List<Party>
             {
                 GetBuyerParty(),
                 GetSupplierParty()
+            };
+            model.SupplierIdref = GetSupplierIdRef();
+            model.BuyerIdref = GetBuyerIdRef();
+            model.ShipmentPartiesReference = new ShipmentPartiesReference
+            {
+                DeliveryIdref = GetDeliveryRef()
             };
             model.Remarks = new List<Remark>
             {
@@ -102,6 +112,11 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             };
 
             return model;
+        }
+
+        private DeliveryIdref GetDeliveryRef()
+        {
+            return new DeliveryIdref("Buyer", PartyTypeValues.PartySpecific);
         }
 
         private Party GetSupplierParty()
@@ -162,11 +177,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
                     new MultiLingualString("A text file", LanguageCodes.eng)
                 },
                 MimePurpose = MimePurpose.Others,
-                MimeSources = new List<MultiLingualString>
-                {
-                    new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
-                    new MultiLingualString("ftp://server/en/", LanguageCodes.eng)
-                },
+                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain",
                 MimeEmbeddeds = new List<MimeEmbedded>
                 {
@@ -175,14 +186,14 @@ namespace OpenTransSharp.Tests.DispatchNotifications
                         FileName = "Lies mich.txt",
                         Language = LanguageCodes.deu,
                         FileSize = 33,
-                        MimeData = new MimeData("Gut gemacht, Sie haben es gelesen", "text/plain")
+                        MimeData = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
                         Language = LanguageCodes.eng,
                         FileSize = 22,
-                        MimeData = new MimeData("Well done, you read it", "text/plain")
+                        MimeData = MimeData.FromText("Well done, you read it")
                     }
                 }
             };
@@ -190,12 +201,12 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 
         private DocumentRecipientIdref GetDocumentRecipientIdRef()
         {
-            return new DocumentRecipientIdref("Unit Test Recipient", PartyTypeValues.PartySpecific);
+            return new DocumentRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
         }
 
         private DocumentIssuerIdref GetDocumentIssuerIdRef()
         {
-            return new DocumentIssuerIdref("Unit Test Issuer", PartyTypeValues.PartySpecific);
+            return new DocumentIssuerIdref("Supplier", PartyTypeValues.PartySpecific);
         }
 
         private DeliveryDate GetDeliveryDate()
@@ -223,11 +234,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             return new CatalogReference
             {
                 CatalogId = "2021-02",
-                CatalogNames = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                    new MultiLingualString("Test Katalog 2021", LanguageCodes.deu)
-                },
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 CatalogVersion = new Version(2, 1)
             };
         }

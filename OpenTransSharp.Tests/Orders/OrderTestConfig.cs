@@ -69,7 +69,7 @@ namespace OpenTransSharp.Tests.Orders
                         },
                         Tax = 0.20m,
                         TaxAmount = 2,
-                        TaxCategory = "Standard rate"
+                        TaxCategory = TaxCategoryValues.StandardRate
                     }
                 },
                 PriceBaseFix = new PriceBaseFix
@@ -91,13 +91,9 @@ namespace OpenTransSharp.Tests.Orders
                                 new MultiLingualString("pen", LanguageCodes.eng),
                             },
                             AllowOrChargeType = AllowOrChargeTypeValues.ProjectBonus,
-                            AllowOrChargeValue = new AllowOrChargeValue
-                            {
-                                AocAdditionalItems = 1,
-                                AocOrderUnitsCount = new AocOrderUnitsCount(0, AocOrderUnitsCountType.Exclusive),
-                                AocPercentageFactor = 0,
-                                AocMonetaryAmount = 1
-                            }
+                            AllowOrChargeValue = AllowOrChargeValue.Units(
+                               new AocOrderUnitsCount(0, AocOrderUnitsCountType.Exclusive)
+                               )
                         }
                     }
                 }
@@ -159,11 +155,7 @@ namespace OpenTransSharp.Tests.Orders
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = GetMimeInfo();
-            model.MimeRoots = new List<MultiLingualString>
-            {
-                new MultiLingualString("ftp://server/de", LanguageCodes.deu),
-                new MultiLingualString("ftp://server/en", LanguageCodes.eng)
-            };
+            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
             model.OrderDate = DateTime.UtcNow;
             model.OrderId = "OrderId";
             model.OrderPartiesReference = new OrderPartiesReference
@@ -243,11 +235,7 @@ namespace OpenTransSharp.Tests.Orders
                     new MultiLingualString("A text file", LanguageCodes.eng)
                 },
                 MimePurpose = MimePurpose.Others,
-                MimeSources = new List<MultiLingualString>
-                {
-                    new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
-                    new MultiLingualString("ftp://server/en/", LanguageCodes.eng)
-                },
+                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain",
                 MimeEmbeddeds = new List<MimeEmbedded>
                 {
@@ -256,14 +244,14 @@ namespace OpenTransSharp.Tests.Orders
                         FileName = "Lies mich.txt",
                         Language = LanguageCodes.deu,
                         FileSize = 33,
-                        MimeData = new MimeData("Gut gemacht, Sie haben es gelesen", "text/plain")
+                        MimeData = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
                         Language = LanguageCodes.eng,
                         FileSize = 22,
-                        MimeData = new MimeData("Well done, you read it", "text/plain")
+                        MimeData = MimeData.FromText("Well done, you read it")
                     }
                 }
             };
@@ -304,11 +292,7 @@ namespace OpenTransSharp.Tests.Orders
             return new CatalogReference
             {
                 CatalogId = "2021-02",
-                CatalogNames = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                    new MultiLingualString("Test Katalog 2021", LanguageCodes.deu)
-                },
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 CatalogVersion = new Version(2, 1)
             };
         }

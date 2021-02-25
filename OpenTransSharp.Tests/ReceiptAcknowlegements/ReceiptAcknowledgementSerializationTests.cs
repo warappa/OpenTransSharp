@@ -28,5 +28,15 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             Action action = () => serializer.Serialize(order);
             action.Should().NotThrow();
         }
+
+        [Test]
+        public void Can_validate_ReceiptAcknowledgement()
+        {
+            var order = testConfig.ReceiptAcknowledgements.GetReceiptAcknowledgement();
+
+            var serializer = new XmlSerializer(order.GetType());
+            //var serialized = serializer.Serialize(order);
+            order.IsValid(serializer).Should().Be(true);
+        }
     }
 }

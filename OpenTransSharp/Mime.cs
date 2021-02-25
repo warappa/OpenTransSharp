@@ -24,7 +24,7 @@ namespace OpenTransSharp
         public string? MimeType { get; set; }
 
         /// <summary>
-        /// (required) Source<br/>
+        /// (required - if not MIME_EMBEDDED) Source<br/>
         /// <br/>
         /// The relative path and the file name or URL address.<br/>
         /// The MIME_SOURCE string is combined with the base path (MIME_ROOT) specified in the header of the document (attached to it by means of a simple contecatenation).<br/>
@@ -32,11 +32,8 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("MIME_SOURCE")]
-        public List<MultiLingualString> MimeSources { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MimeSourcesSpecified => MimeSources?.Count > 0;
+        public MultiLingualString? MimeSource { get; set; }
 
         /// <summary>
         /// (optional) Hash value of a file<br/>
@@ -49,7 +46,7 @@ namespace OpenTransSharp
         public bool FileHashValuesSpecified => FileHashValues?.Count > 0;
 
         /// <summary>
-        /// (required) Embedded document<br/>
+        /// (required - if not MIME_SOURCE) Embedded document<br/>
         /// <br/>
         /// Element containing a binary-coded file and additional information.
         /// </summary>

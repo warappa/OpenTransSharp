@@ -31,6 +31,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("RECEIPTACKNOWLEDGEMENT_DATE")]
         public DateTime? ReceiptAcknowledgementDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ReceiptAcknowledgementDateSpecified => ReceiptAcknowledgementDate.HasValue;
 
         /// <summary>
         /// (required) Receipt date<br/>
@@ -40,7 +42,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("RECEIPT_DATE")]
-        public DateTime OrderDate { get; set; }
+        public DateTime ReceiptDate { get; set; }
 
         /// <summary>
         /// (optional) Language<br/>
@@ -64,9 +66,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public List<MultiLingualString>? MimeRoots { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MimeRootsSpecified => MimeRoots?.Count > 0;
+        public MultiLingualString? MimeRoot { get; set; }
 
         /// <summary>
         /// (required) Parties<br/>

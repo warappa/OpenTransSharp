@@ -54,7 +54,7 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "INVOICELIST")]
     [Serializable]
-    public class InvoiceList
+    public class InvoiceList : IValidatable
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;

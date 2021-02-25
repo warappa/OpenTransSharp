@@ -49,6 +49,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("REMITTANCEADVICE_TYPE")]
         public RemittanceAdviceType? RemittanceAdviceType { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool RemittanceAdviceTypeSpecified => RemittanceAdviceType.HasValue;
 
         /// <summary>
         /// (optional) Language<br/>
@@ -72,9 +74,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public List<MultiLingualString>? MimeRoots { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MimeRootsSpecified => MimeRoots?.Count > 0;
+        public MultiLingualString? MimeRoot { get; set; }
 
         /// <summary>
         /// (required) Parties<br/>

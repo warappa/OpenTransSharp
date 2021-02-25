@@ -26,7 +26,7 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "ORDERRESPONSE")]
     [Serializable]
-    public class OrderResponse
+    public class OrderResponse : IValidatable
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;

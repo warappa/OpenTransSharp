@@ -52,6 +52,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("ORDER_DATE")]
         public DateTime? OrderDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool OrderDateSpecified => OrderDate.HasValue;
 
         /// <summary>
         /// (optional) Description of the order<br/>
@@ -80,6 +82,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("DELIVERYNOTE_DATE", IsNullable = true)]
         public DateTime? DeliverynoteDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DeliverynoteDateSpecified => DeliverynoteDate.HasValue;
 
         /// <summary>
         /// (optional) Reference to a skeleton agreement<br/>

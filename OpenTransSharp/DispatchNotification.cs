@@ -21,7 +21,7 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "DISPATCHNOTIFICATION")]
     [Serializable]
-    public class DispatchNotification
+    public class DispatchNotification : IValidatable
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;

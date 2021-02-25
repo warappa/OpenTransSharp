@@ -58,6 +58,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("INVOICE_DATE")]
         public DateTime? InvoiceDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool InvoiceDateSpecified => InvoiceDate.HasValue;
 
         /// <summary>
         /// (optional) Post date<br/>
@@ -66,6 +68,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("POST_DATE")]
         public DateTime? PostDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool PostDateSpecified => PostDate.HasValue;
 
         /// <summary>
         /// (optional) Intended purpose <br/>

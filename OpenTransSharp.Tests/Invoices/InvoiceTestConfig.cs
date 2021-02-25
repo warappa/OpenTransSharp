@@ -30,6 +30,18 @@ namespace OpenTransSharp.Tests.Invoices
             var model = new InvoiceSummary();
 
             model.TotalItemCount = 1;
+            model.NetValueGoods = 1;
+            model.TotalAmount = 1;
+            model.TotalTax = new TotalTax
+            {
+                TaxDetailsFixes = new List<TaxDetailsFix>
+                {
+                    new TaxDetailsFix
+                    {
+
+                    }
+                }
+            };
 
             return model;
         }
@@ -64,7 +76,7 @@ namespace OpenTransSharp.Tests.Invoices
                         },
                         Tax = 0.20m,
                         TaxAmount = 2,
-                        TaxCategory = "Standard rate"
+                        TaxCategory = TaxCategoryValues.StandardRate
                     }
                 },
                 PriceBaseFix = new PriceBaseFix
@@ -86,13 +98,9 @@ namespace OpenTransSharp.Tests.Invoices
                                 new MultiLingualString("pen", LanguageCodes.eng),
                             },
                             AllowOrChargeType = AllowOrChargeTypeValues.ProjectBonus,
-                            AllowOrChargeValue = new AllowOrChargeValue
-                            {
-                                AocAdditionalItems = 1,
-                                AocOrderUnitsCount = new AocOrderUnitsCount(0, AocOrderUnitsCountType.Exclusive),
-                                AocPercentageFactor = 0,
-                                AocMonetaryAmount = 1
-                            }
+                            AllowOrChargeValue = AllowOrChargeValue.Units(
+                               new AocOrderUnitsCount(0, AocOrderUnitsCountType.Exclusive)
+                               )
                         }
                     }
                 }
@@ -119,7 +127,17 @@ namespace OpenTransSharp.Tests.Invoices
 
             header.Information = GetInvoiceInformation();
 
+            header.OrderHistory = GetOrderHistory();
+
             return header;
+        }
+
+        private OrderHistory GetOrderHistory()
+        {
+            return new OrderHistory
+            {
+                OrderId = "OrderId"
+            };
         }
 
         private InvoiceInformation GetInvoiceInformation()
@@ -138,13 +156,11 @@ namespace OpenTransSharp.Tests.Invoices
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = GetMimeInfo();
-            model.MimeRoots = new List<MultiLingualString>
-            {
-                new MultiLingualString("ftp://server/de", LanguageCodes.deu),
-                new MultiLingualString("ftp://server/en", LanguageCodes.eng)
-            };
+            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
             model.InvoiceDate = DateTime.UtcNow;
             model.InvoiceId = "InvoiceId";
+            model.InvoiceIssuerIdref = GetInvoiceIssuerIdRef();
+            model.InvoiceRecipientIdref = GetInvoiceRecipientIdRef();
             model.Parties = new List<Party>
             {
                 GetBuyerParty(),
@@ -157,6 +173,16 @@ namespace OpenTransSharp.Tests.Invoices
             };
 
             return model;
+        }
+
+        private InvoiceRecipientIdref GetInvoiceRecipientIdRef()
+        {
+            return new InvoiceRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
+        }
+
+        private InvoiceIssuerIdref GetInvoiceIssuerIdRef()
+        {
+            return new InvoiceIssuerIdref("Supplier", PartyTypeValues.PartySpecific);
         }
 
         private Party GetSupplierParty()
@@ -217,11 +243,7 @@ namespace OpenTransSharp.Tests.Invoices
                     new MultiLingualString("A text file", LanguageCodes.eng)
                 },
                 MimePurpose = MimePurpose.Others,
-                MimeSources = new List<MultiLingualString>
-                {
-                    new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
-                    new MultiLingualString("ftp://server/en/", LanguageCodes.eng)
-                },
+                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain",
                 MimeEmbeddeds = new List<MimeEmbedded>
                 {
@@ -230,14 +252,14 @@ namespace OpenTransSharp.Tests.Invoices
                         FileName = "Lies mich.txt",
                         Language = LanguageCodes.deu,
                         FileSize = 33,
-                        MimeData = new MimeData("Gut gemacht, Sie haben es gelesen", "text/plain")
+                        MimeData = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
                         Language = LanguageCodes.eng,
                         FileSize = 22,
-                        MimeData = new MimeData("Well done, you read it", "text/plain")
+                        MimeData = MimeData.FromText("Well done, you read it")
                     }
                 }
             };
@@ -278,11 +300,7 @@ namespace OpenTransSharp.Tests.Invoices
             return new CatalogReference
             {
                 CatalogId = "2021-02",
-                CatalogNames = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                    new MultiLingualString("Test Katalog 2021", LanguageCodes.deu)
-                },
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 CatalogVersion = new Version(2, 1)
             };
         }

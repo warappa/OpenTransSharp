@@ -61,6 +61,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("TOTAL_ITEM_NUM")]
         public int? TotalItemCount { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TotalItemCountSpecified => TotalItemCount.HasValue;
 
         /// <summary>
         /// (required) Number of item lines<br/>

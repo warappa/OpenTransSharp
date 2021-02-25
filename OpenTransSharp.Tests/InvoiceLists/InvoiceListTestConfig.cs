@@ -30,6 +30,17 @@ namespace OpenTransSharp.Tests.InvoiceLists
             var model = new InvoiceListSummary();
 
             model.TotalItemCount = 1;
+            model.TotalAmount = 1;
+            model.TotalTax = new TotalTax
+            {
+                TaxDetailsFixes = new List<TaxDetailsFix>
+                {
+                    new TaxDetailsFix
+                    {
+
+                    }
+                }
+            };
 
             return model;
         }
@@ -39,6 +50,44 @@ namespace OpenTransSharp.Tests.InvoiceLists
             var model = new InvoiceListItem();
 
             model.LineItemId = "1";
+            model.ILInvoiceList = new ILInvoiceList
+            {
+                Items = new List<ILInvoiceListItem>
+                {
+                    new ILInvoiceListItem
+                    {
+                        InvoiceReference = new InvoiceReference
+                        {
+                            InvoiceId = "InvoiceId"
+                        },
+                        NetValueGoods = 1,
+                        TotalTax = new TotalTax
+                        {
+                            TaxDetailsFixes = new List<TaxDetailsFix>
+                            {
+                                new TaxDetailsFix
+                                {
+
+                                }
+                            }
+                        },
+                        TotalAmount = 1
+                    }
+                }
+            };
+
+            model.NetValueGoods = 10;
+            model.TotalAmount = 10;
+            model.TotalTax = new TotalTax
+            {
+                TaxDetailsFixes = new List<TaxDetailsFix>
+                {
+                    new TaxDetailsFix
+                    {
+
+                    }
+                }
+            };
 
             model.Remarks = new List<Remark>
             {
@@ -83,14 +132,15 @@ namespace OpenTransSharp.Tests.InvoiceLists
                     GetDocumentRecipientIdRef()
                 }
             };
+            model.AccountingPeriod = new AccountingPeriod
+            {
+                AccountingPeriodStartDate = DateTime.UtcNow.AddDays(2),
+                AccountingPeriodEndDate = DateTime.UtcNow.AddDays(4),
+            };
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = GetMimeInfo();
-            model.MimeRoots = new List<MultiLingualString>
-            {
-                new MultiLingualString("ftp://server/de", LanguageCodes.deu),
-                new MultiLingualString("ftp://server/en", LanguageCodes.eng)
-            };
+            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
             model.InvoiceListDate = DateTime.UtcNow;
             model.InvoiceListId = "InvoiceListId";
             model.Parties = new List<Party>
@@ -165,11 +215,7 @@ namespace OpenTransSharp.Tests.InvoiceLists
                     new MultiLingualString("A text file", LanguageCodes.eng)
                 },
                 MimePurpose = MimePurpose.Others,
-                MimeSources = new List<MultiLingualString>
-                {
-                    new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
-                    new MultiLingualString("ftp://server/en/", LanguageCodes.eng)
-                },
+                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain",
                 MimeEmbeddeds = new List<MimeEmbedded>
                 {
@@ -178,14 +224,14 @@ namespace OpenTransSharp.Tests.InvoiceLists
                         FileName = "Lies mich.txt",
                         Language = LanguageCodes.deu,
                         FileSize = 33,
-                        MimeData = new MimeData("Gut gemacht, Sie haben es gelesen", "text/plain")
+                        MimeData = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
                         Language = LanguageCodes.eng,
                         FileSize = 22,
-                        MimeData = new MimeData("Well done, you read it", "text/plain")
+                        MimeData = MimeData.FromText("Well done, you read it")
                     }
                 }
             };
@@ -226,11 +272,7 @@ namespace OpenTransSharp.Tests.InvoiceLists
             return new CatalogReference
             {
                 CatalogId = "2021-02",
-                CatalogNames = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                    new MultiLingualString("Test Katalog 2021", LanguageCodes.deu)
-                },
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 CatalogVersion = new Version(2, 1)
             };
         }

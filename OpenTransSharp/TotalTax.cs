@@ -16,6 +16,6 @@ namespace OpenTransSharp
         /// Information to an applied tax.
         /// </summary>
         [XmlElement("TAX_DETAILS_FIX")]
-        public List<TaxDetailsFix> Remarks { get; set; } = new List<TaxDetailsFix>();
+        public List<TaxDetailsFix> TaxDetailsFixes { get; set; } = new List<TaxDetailsFix>();
     }
 }

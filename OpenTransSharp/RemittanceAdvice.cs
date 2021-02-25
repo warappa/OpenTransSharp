@@ -21,7 +21,7 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "REMITTANCEADVICE")]
     [Serializable]
-    public class RemittanceAdvice
+    public class RemittanceAdvice : IValidatable
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;

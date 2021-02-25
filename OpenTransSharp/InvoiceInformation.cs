@@ -52,6 +52,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("INVOICE_TYPE")]
         public InvoiceType? InvoiceType { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool InvoiceTypeSpecified => InvoiceType.HasValue;
 
         /// <summary>
         /// (optional) Invoice coverage<br/>
@@ -62,6 +64,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("INVOICE_COVERAGE")]
         public InvoiceCoverage? InvoiceCoverage { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool InvoiceCoverageSpecified => InvoiceCoverage.HasValue;
 
         /// <summary>
         /// (optional) Delivery note number<br/>
@@ -116,9 +120,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public List<MultiLingualString>? MimeRoots { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MimeRootsSpecified => MimeRoots?.Count > 0;
+        public MultiLingualString? MimeRoot { get; set; }
 
         /// <summary>
         /// (required) Parties<br/>

@@ -41,6 +41,15 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             model.LineItemId = "1";
             model.OrderUnit = "C62";
             model.Quantity = 2;
+            model.OrderReference = new OrderReference
+            {
+                OrderId = "OrderId",
+                LineItemId = "1"
+            };
+            model.DeliveryReference = new DeliveryReference
+            {
+                DeliveryIdref = GetDeliveryIdRef()
+            };
             model.Remarks = new List<Remark>
             {
                 new Remark("Be careful", RemarkTypeValues.DeliveryNote)
@@ -80,17 +89,19 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = GetMimeInfo();
-            model.MimeRoots = new List<MultiLingualString>
-            {
-                new MultiLingualString("ftp://server/de", LanguageCodes.deu),
-                new MultiLingualString("ftp://server/en", LanguageCodes.eng)
-            };
-            model.OrderDate = DateTime.UtcNow;
+            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
+            model.ReceiptDate = DateTime.UtcNow;
             model.ReceiptAcknowledgementId = "ReceiptAcknowledgementId";
+            model.ReceiptDate = DateTime.UtcNow;
             model.Parties = new List<Party>
             {
                 GetBuyerParty(),
                 GetSupplierParty()
+            };
+            model.SupplierIdref = GetSupplierIdRef();
+            model.ShipmentPartiesReference = new ShipmentPartiesReference
+            {
+                DeliveryIdref = GetDeliveryIdRef()
             };
             model.Remarks = new List<Remark>
             {
@@ -99,6 +110,11 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             };
 
             return model;
+        }
+
+        private DeliveryIdref GetDeliveryIdRef()
+        {
+            return new DeliveryIdref("Buyer", PartyTypeValues.PartySpecific);
         }
 
         private Party GetSupplierParty()
@@ -159,11 +175,7 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
                     new MultiLingualString("A text file", LanguageCodes.eng)
                 },
                 MimePurpose = MimePurpose.Others,
-                MimeSources = new List<MultiLingualString>
-                {
-                    new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
-                    new MultiLingualString("ftp://server/en/", LanguageCodes.eng)
-                },
+                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain",
                 MimeEmbeddeds = new List<MimeEmbedded>
                 {
@@ -172,14 +184,14 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
                         FileName = "Lies mich.txt",
                         Language = LanguageCodes.deu,
                         FileSize = 33,
-                        MimeData = new MimeData("Gut gemacht, Sie haben es gelesen", "text/plain")
+                        MimeData = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
                         Language = LanguageCodes.eng,
                         FileSize = 22,
-                        MimeData = new MimeData("Well done, you read it", "text/plain")
+                        MimeData = MimeData.FromText("Well done, you read it")
                     }
                 }
             };
@@ -220,11 +232,7 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             return new CatalogReference
             {
                 CatalogId = "2021-02",
-                CatalogNames = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                    new MultiLingualString("Test Katalog 2021", LanguageCodes.deu)
-                },
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 CatalogVersion = new Version(2, 1)
             };
         }

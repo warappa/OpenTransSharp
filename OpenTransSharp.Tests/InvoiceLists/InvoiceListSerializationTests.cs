@@ -28,5 +28,15 @@ namespace OpenTransSharp.Tests.InvoiceLists
             Action action = () => serializer.Serialize(order);
             action.Should().NotThrow();
         }
+
+        [Test]
+        public void Can_validate_InvoiceList()
+        {
+            var order = testConfig.InvoiceLists.GetInvoiceList();
+
+            var serializer = new XmlSerializer(order.GetType());
+            //var serialized = serializer.Serialize(order);
+            order.IsValid(serializer).Should().Be(true);
+        }
     }
 }
