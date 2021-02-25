@@ -5,11 +5,11 @@ using System.Xml.Serialization;
 
 namespace OpenTransSharp.Microsoft.AspNetCore
 {
-    public class OpenTransXmlSerializerInputFormatter : XmlSerializerInputFormatter
+    public class OpenTransSharpXmlSerializerInputFormatter : XmlSerializerInputFormatter
     {
         private readonly IOpenTransXmlSerializerFactory openTransXmlSerializerFactory;
 
-        public OpenTransXmlSerializerInputFormatter(MvcOptions options, IOpenTransXmlSerializerFactory openTransXmlSerializerFactory)
+        public OpenTransSharpXmlSerializerInputFormatter(MvcOptions options, IOpenTransXmlSerializerFactory openTransXmlSerializerFactory)
             : base(options)
         {
             this.openTransXmlSerializerFactory = openTransXmlSerializerFactory ?? throw new ArgumentNullException(nameof(openTransXmlSerializerFactory));
