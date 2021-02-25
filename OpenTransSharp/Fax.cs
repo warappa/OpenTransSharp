@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class Fax
+    public class Fax : MultiLingualString
     {
         public Fax()
         {

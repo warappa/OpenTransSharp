@@ -28,7 +28,9 @@ namespace OpenTransSharp
         /// (optional) Territory<br/>
         /// <br/>
         /// Territory (i.e. country, state, region) coded according to ISO 3166<br/>
-        /// The element specifies here to which territories the customs tariff number is related.
+        /// The element specifies here to which territories the customs tariff number is related.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TERRITORY")]
         public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();

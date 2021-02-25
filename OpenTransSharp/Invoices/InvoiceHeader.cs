@@ -7,7 +7,7 @@ namespace OpenTransSharp
     /// (Header level)<br/>
     /// <br/>
     /// The header is specified by the INVOICE_HEADER element.<br/>
-    /// INVOICE _HEADER is used to transfer information about the business partners and the business document and enter default settings which can basically be overwritten on item level (INVOICE_ITEM).
+    /// INVOICE_HEADER is used to transfer information about the business partners and the business document and enter default settings which can basically be overwritten on item level (INVOICE_ITEM).
     /// </summary>
     public class InvoiceHeader
     {

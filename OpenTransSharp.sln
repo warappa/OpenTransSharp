@@ -9,6 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "en", "en", "{2C009E74-5514-4EDF-BF1B-5E8BFD279B3C}"
 	ProjectSection(SolutionItems) = preProject
+		Content\en\bmecat_2005_CLASS_en.pdf = Content\en\bmecat_2005_CLASS_en.pdf
+		Content\en\bmecat_2005_CONF_en.pdf = Content\en\bmecat_2005_CONF_en.pdf
+		Content\en\bmecat_2005_en.pdf = Content\en\bmecat_2005_en.pdf
+		Content\en\bmecat_2005_FORM_en.pdf = Content\en\bmecat_2005_FORM_en.pdf
+		Content\en\bmecat_2005_IPP_en.pdf = Content\en\bmecat_2005_IPP_en.pdf
 		Content\en\opentrans_2_1_en - DISPATCHNOTIFICATION.pdf = Content\en\opentrans_2_1_en - DISPATCHNOTIFICATION.pdf
 		Content\en\opentrans_2_1_en - INVOICE.pdf = Content\en\opentrans_2_1_en - INVOICE.pdf
 		Content\en\opentrans_2_1_en - INVOICELIST.pdf = Content\en\opentrans_2_1_en - INVOICELIST.pdf
@@ -23,6 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "en", "en", "{2C009E74-5514-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{18FAC5AD-EC02-4A9F-AA3B-915FCD777A90}"
 	ProjectSection(SolutionItems) = preProject
+		Content\de\bmecat_2005.pdf = Content\de\bmecat_2005.pdf
+		Content\de\bmecat_2005_CLASS.pdf = Content\de\bmecat_2005_CLASS.pdf
+		Content\de\bmecat_2005_CONF.pdf = Content\de\bmecat_2005_CONF.pdf
+		Content\de\bmecat_2005_FORM.pdf = Content\de\bmecat_2005_FORM.pdf
+		Content\de\bmecat_2005_IPP.pdf = Content\de\bmecat_2005_IPP.pdf
 		Content\de\opentrans_2_1_de - DISPATCHNOTIFICATION.pdf = Content\de\opentrans_2_1_de - DISPATCHNOTIFICATION.pdf
 		Content\de\opentrans_2_1_de - INVOICE.pdf = Content\de\opentrans_2_1_de - INVOICE.pdf
 		Content\de\opentrans_2_1_de - INVOICELIST.pdf = Content\de\opentrans_2_1_de - INVOICELIST.pdf
@@ -34,11 +44,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{18FAC5AD-EC02-
 		Content\de\opentrans_2_1_de - RFQ.pdf = Content\de\opentrans_2_1_de - RFQ.pdf
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.Tests", "OpenTransSharp.Tests\OpenTransSharp.Tests.csproj", "{CA797BF4-8EF3-46EC-B1C4-A882E3A68CD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Tests", "OpenTransSharp.Tests\OpenTransSharp.Tests.csproj", "{CA797BF4-8EF3-46EC-B1C4-A882E3A68CD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.Microsoft.Extensions.DependencyInjection", "OpenTransSharp.Microsoft.Extensions.DependencyInjection\OpenTransSharp.Microsoft.Extensions.DependencyInjection.csproj", "{CA5C99B7-0B04-4A23-8464-1B7FB7A6BBB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Microsoft.Extensions.DependencyInjection", "OpenTransSharp.Microsoft.Extensions.DependencyInjection\OpenTransSharp.Microsoft.Extensions.DependencyInjection.csproj", "{CA5C99B7-0B04-4A23-8464-1B7FB7A6BBB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.Microsoft.AspNetCore", "OpenTransSharp.Microsoft.AspNetCore\OpenTransSharp.Microsoft.AspNetCore.csproj", "{75A23855-9351-4301-9849-AD55F35118D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Microsoft.AspNetCore", "OpenTransSharp.Microsoft.AspNetCore\OpenTransSharp.Microsoft.AspNetCore.csproj", "{75A23855-9351-4301-9849-AD55F35118D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,8 +9,8 @@ namespace OpenTransSharp
     /// <summary>
     /// (Invoice information)<br/>
     /// <br/>
-    /// In the element, INVOICE _INFO information is summarized on the procurement activities which preceded this order.<br/>
-    /// When the element INVOICE _INFO is used, at least one of the following elements must be specified.
+    /// In the element, INVOICE_INFO information is summarized on the procurement activities which preceded this order.<br/>
+    /// When the element INVOICE_INFO is used, at least one of the following elements must be specified.
     /// </summary>
     public class InvoiceInformation
     {

@@ -7,7 +7,9 @@ namespace OpenTransSharp
     /// <summary>
     /// (Contact)<br/>
     /// <br/>
-    /// This element contains informations about a contact person.
+    /// This element contains informations about a contact person.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
     public class ContactDetails
     {

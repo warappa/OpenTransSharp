@@ -97,7 +97,9 @@ namespace OpenTransSharp
         /// <br/>
         /// Territory (i.e. country, state, region) coded according to ISO 3166.<br/>
         /// <br/>
-        /// The element specifies in which territories (regions, states, countries, continents) the prices are vaild which means that the products from the catalog are available.
+        /// The element specifies in which territories (regions, states, countries, continents) the prices are vaild which means that the products from the catalog are available.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TERRITORY")]
         public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();

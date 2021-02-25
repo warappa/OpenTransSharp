@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class Phone
+    public class Phone : MultiLingualString
     {
         public Phone()
         {
