@@ -4,15 +4,15 @@ using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp.Tests.OrderResponses
+namespace OpenTransSharp.Tests.ReceiptAcknowledgements
 {
-    public class OrderResponseSerializationTests
+    public class ReceiptAcknowledgementSerializationTests
     {
         private TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 
-        public OrderResponseSerializationTests()
+        public ReceiptAcknowledgementSerializationTests()
         {
             testConfig = new TestConfig();
         }
@@ -29,31 +29,31 @@ namespace OpenTransSharp.Tests.OrderResponses
 
             serializerFactory = new OpenTransXmlSerializerFactory(options);
 
-            target = serializerFactory.Create<OrderResponse>();
+            target = serializerFactory.Create<ReceiptAcknowledgement>();
         }
 
         [Test]
-        public void Can_serialize_OrderResponse()
+        public void Can_serialize_ReceiptAcknowledgement()
         {
-            var order = testConfig.OrderResponses.GetOrderResponse();
+            var order = testConfig.ReceiptAcknowledgements.GetReceiptAcknowledgement();
 
             Action action = () => target.Serialize(order);
             action.Should().NotThrow();
         }
 
         [Test]
-        public void Can_validate_OrderResponse()
+        public void Can_validate_ReceiptAcknowledgement()
         {
-            var order = testConfig.OrderResponses.GetOrderResponse();
+            var order = testConfig.ReceiptAcknowledgements.GetReceiptAcknowledgement();
 
             //var serialized = target.Serialize(order);
             order.IsValid(target).Should().Be(true);
         }
 
         [Test]
-        public void Can_validate_OrderResponse_with_UDX()
+        public void Can_validate_ReceiptAcknowledgement_with_UDX()
         {
-            var order = testConfig.OrderResponses.GetOrderResponseWithUdx();
+            var order = testConfig.ReceiptAcknowledgements.GetReceiptAcknowledgementWithUdx();
 
             var serialized = target.Serialize(order);
             Debug.WriteLine(serialized);

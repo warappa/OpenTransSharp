@@ -123,6 +123,39 @@ namespace OpenTransSharp.Tests.Quotations
             return model;
         }
 
+        internal Quotation GetQuotationWithUdx()
+        {
+            var model = GetQuotation();
+
+            model.Header.Information.HeaderUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            model.Header.Information.HeaderUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            model.Items[0].ItemUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            model.Items[0].ItemUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            return model;
+        }
+
         private QuotationHeader GetHeader()
         {
             var header = new QuotationHeader();

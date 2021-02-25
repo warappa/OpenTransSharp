@@ -123,6 +123,39 @@ namespace OpenTransSharp.Tests.OrderChanges
             return model;
         }
 
+        internal OrderChange GetOrderChangeWithUdx()
+        {
+            var model = GetOrderChange();
+
+            model.Header.Information.HeaderUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            model.Header.Information.HeaderUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            model.Items[0].ItemUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            model.Items[0].ItemUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            return model;
+        }
+
         private OrderChangeHeader GetHeader()
         {
             var header = new OrderChangeHeader();

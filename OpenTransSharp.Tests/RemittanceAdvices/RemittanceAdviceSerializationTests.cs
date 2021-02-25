@@ -1,6 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.RemittanceAdvices
@@ -8,6 +9,8 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
     public class RemittanceAdviceSerializationTests
     {
         private TestConfig testConfig;
+        private OpenTransXmlSerializerFactory serializerFactory;
+        private XmlSerializer target;
 
         public RemittanceAdviceSerializationTests()
         {
@@ -17,6 +20,16 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
         [SetUp]
         public void Setup()
         {
+            var options = new OpenTransOptions();
+            options.Serialization.IncludeUdxTypes = new[]
+            {
+                typeof(CustomData),
+                typeof(CustomData2)
+            };
+
+            serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+            target = serializerFactory.Create<RemittanceAdvice>();
         }
 
         [Test]
@@ -24,8 +37,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
         {
             var order = testConfig.RemittanceAdvices.GetRemittanceAdvice();
 
-            var serializer = new XmlSerializer(order.GetType());
-            Action action = () => serializer.Serialize(order);
+            Action action = () => target.Serialize(order);
             action.Should().NotThrow();
         }
 
@@ -34,9 +46,18 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
         {
             var order = testConfig.RemittanceAdvices.GetRemittanceAdvice();
 
-            var serializer = new XmlSerializer(order.GetType());
-            //var serialized = serializer.Serialize(order);
-            order.IsValid(serializer).Should().Be(true);
+            //var serialized = target.Serialize(order);
+            order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_validate_RemittanceAdvice_with_UDX()
+        {
+            var order = testConfig.RemittanceAdvices.GetRemittanceAdviceWithUdx();
+
+            var serialized = target.Serialize(order);
+            Debug.WriteLine(serialized);
+            order.IsValid(target).Should().Be(true);
         }
     }
 }

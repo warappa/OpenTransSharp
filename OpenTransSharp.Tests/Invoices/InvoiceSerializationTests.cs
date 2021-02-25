@@ -1,6 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.Invoices
@@ -8,6 +9,8 @@ namespace OpenTransSharp.Tests.Invoices
     public class InvoiceSerializationTests
     {
         private TestConfig testConfig;
+        private OpenTransXmlSerializerFactory serializerFactory;
+        private XmlSerializer target;
 
         public InvoiceSerializationTests()
         {
@@ -17,6 +20,16 @@ namespace OpenTransSharp.Tests.Invoices
         [SetUp]
         public void Setup()
         {
+            var options = new OpenTransOptions();
+            options.Serialization.IncludeUdxTypes = new[]
+            {
+                typeof(CustomData),
+                typeof(CustomData2)
+            };
+
+            serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+            target = serializerFactory.Create<Invoice>();
         }
 
         [Test]
@@ -24,8 +37,7 @@ namespace OpenTransSharp.Tests.Invoices
         {
             var order = testConfig.Invoices.GetInvoice();
 
-            var serializer = new XmlSerializer(order.GetType());
-            Action action = () => serializer.Serialize(order);
+            Action action = () => target.Serialize(order);
             action.Should().NotThrow();
         }
 
@@ -34,9 +46,18 @@ namespace OpenTransSharp.Tests.Invoices
         {
             var order = testConfig.Invoices.GetInvoice();
 
-            var serializer = new XmlSerializer(order.GetType());
-            //var serialized = serializer.Serialize(order);
-            order.IsValid(serializer).Should().Be(true);
+            //var serialized = target.Serialize(order);
+            order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_validate_Invoice_with_UDX()
+        {
+            var order = testConfig.Invoices.GetInvoiceWithUdx();
+
+            var serialized = target.Serialize(order);
+            Debug.WriteLine(serialized);
+            order.IsValid(target).Should().Be(true);
         }
     }
 }

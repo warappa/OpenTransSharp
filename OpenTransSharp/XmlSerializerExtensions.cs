@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -14,7 +15,14 @@ namespace OpenTransSharp
                 Encoding = new System.Text.UTF8Encoding(false),
                 Indent = true
             });
-            serializer.Serialize(streamWriter, obj);
+            try
+            {
+                serializer.Serialize(streamWriter, obj);
+            }
+            catch (InvalidOperationException exc) when (exc.InnerException?.Message.Contains("XmlInclude") == true)
+            {
+                throw new InvalidOperationException("A type was not found. Did you include it in OpenTransOptions.IncludeUdxTypes?", exc);
+            }
             ms.Position = 0;
             using var streamReader = new StreamReader(ms);
             return streamReader.ReadToEnd();

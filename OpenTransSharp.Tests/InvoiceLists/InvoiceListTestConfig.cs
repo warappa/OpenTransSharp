@@ -25,6 +25,39 @@ namespace OpenTransSharp.Tests.InvoiceLists
             return model;
         }
 
+        internal InvoiceList GetInvoiceListWithUdx()
+        {
+            var model = GetInvoiceList();
+
+            model.Header.Information.HeaderUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            model.Header.Information.HeaderUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            model.Items[0].ItemUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            model.Items[0].ItemUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            return model;
+        }
+
         private InvoiceListSummary GetSummary()
         {
             var model = new InvoiceListSummary();

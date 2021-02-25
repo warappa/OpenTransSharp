@@ -1,6 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.Rfqs
@@ -8,6 +9,8 @@ namespace OpenTransSharp.Tests.Rfqs
     public class RfqSerializationTests
     {
         private TestConfig testConfig;
+        private OpenTransXmlSerializerFactory serializerFactory;
+        private XmlSerializer target;
 
         public RfqSerializationTests()
         {
@@ -17,6 +20,16 @@ namespace OpenTransSharp.Tests.Rfqs
         [SetUp]
         public void Setup()
         {
+            var options = new OpenTransOptions();
+            options.Serialization.IncludeUdxTypes = new[]
+            {
+                typeof(CustomData),
+                typeof(CustomData2)
+            };
+
+            serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+            target = serializerFactory.Create<Rfq>();
         }
 
         [Test]
@@ -24,8 +37,7 @@ namespace OpenTransSharp.Tests.Rfqs
         {
             var order = testConfig.Rfqs.GetRfq();
 
-            var serializer = new XmlSerializer(order.GetType());
-            Action action = () => serializer.Serialize(order);
+            Action action = () => target.Serialize(order);
             action.Should().NotThrow();
         }
 
@@ -34,9 +46,18 @@ namespace OpenTransSharp.Tests.Rfqs
         {
             var order = testConfig.Rfqs.GetRfq();
 
-            var serializer = new XmlSerializer(order.GetType());
-            //var serialized = serializer.Serialize(order);
-            order.IsValid(serializer).Should().Be(true);
+            //var serialized = target.Serialize(order);
+            order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_validate_Rfq_with_UDX()
+        {
+            var order = testConfig.Rfqs.GetRfqWithUdx();
+
+            var serialized = target.Serialize(order);
+            Debug.WriteLine(serialized);
+            order.IsValid(target).Should().Be(true);
         }
     }
 }

@@ -126,6 +126,39 @@ namespace OpenTransSharp.Tests.Orders
             return model;
         }
 
+        internal Order GetOrderWithUdx()
+        {
+            var order = GetOrder();
+
+            order.Header.Information.HeaderUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            order.Header.Information.HeaderUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            order.Items[0].ItemUdx.Add(new CustomData()
+            {
+                Names = new List<string>
+                {
+                    "Name 1",
+                    "Name 2"
+                }
+            });
+            order.Items[0].ItemUdx.Add(new CustomData2()
+            {
+                Name = "Name 3"
+            });
+
+            return order;
+        }
+
         private OrderHeader GetHeader()
         {
             var header = new OrderHeader();
