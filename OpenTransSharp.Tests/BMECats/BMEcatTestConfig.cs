@@ -12,7 +12,7 @@ namespace OpenTransSharp.Tests.BMEcats
             this.parent = parent;
         }
 
-        public BMEcat GetBMEcat()
+        public BMEcat GetBMEcatNewCatalog()
         {
             var model = new BMEcat();
 
@@ -23,9 +23,76 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        public BMEcat GetBMEcatWithUdx()
+        public BMEcat GetBMEcatUpdateProducts()
         {
-            var model = GetBMEcat();
+            var model = new BMEcat();
+
+            model.Header = GetHeader();
+            model.UpdateProducts = GetUpdateProducts();
+
+
+            return model;
+        }
+
+        public BMEcat GetBMEcatUpdatePrices()
+        {
+            var model = new BMEcat();
+
+            model.Header = GetHeader();
+            model.UpdatePrices = GetUpdatePrices();
+
+
+            return model;
+        }
+
+        private UpdatePrices GetUpdatePrices()
+        {
+            var model = new UpdatePrices();
+            model.PreviousVersion = 1;
+            //model.Formulas.Add(GetFormula());
+            model.Products.Add(GetUpdatePricesProduct());
+            return model;
+        }
+
+        private UpdatePricesProduct GetUpdatePricesProduct()
+        {
+            var model = new UpdatePricesProduct();
+            model.SupplierPid = parent.GetSupplierPid();
+            model.ProductPriceDetails.Add(GetProductPriceDetails());
+
+            return model;
+        }
+
+        private UpdateProducts GetUpdateProducts()
+        {
+            var model = new UpdateProducts();
+            model.PreviousVersion = 1;
+            //model.Formulas.Add(GetFormula());
+            model.Products.Add(GetUpdateProductsProduct());
+            return model;
+        }
+
+        private UpdateProductsProduct GetUpdateProductsProduct()
+        {
+            var model = new UpdateProductsProduct();
+            model.Mode = UpdateProductsProductMode.Update;
+            model.SupplierPid = parent.GetSupplierPid();
+            model.ProductDetails = GetProductDetails();
+            model.ProductOrderDetails = GetProductOrderDetails();
+            model.ProductPriceDetails.Add(GetProductPriceDetails());
+
+            return model;
+        }
+
+        private Formula GetFormula()
+        {
+            var model = new Formula();
+            return model;
+        }
+
+        public BMEcat GetBMEcatNewCatalogWithUdx()
+        {
+            var model = GetBMEcatNewCatalog();
 
             model.Header.UserDefinedExtensions.Add(new CustomData()
             {

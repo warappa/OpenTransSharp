@@ -7,7 +7,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public enum ProductToCataloggroupMapMode
+    public enum NewCatalogProductToCataloggroupMapMode
     {
         /// <summary>
         /// New<br/>
@@ -15,13 +15,6 @@ namespace OpenTransSharp
         /// Assignment of the product to a catalog group is redefined.
         /// </summary>
         [XmlEnum("new")]
-        New,
-        /// <summary>
-        /// Delete<br/>
-        /// <br/>
-        /// The existing assignment is deleted.
-        /// </summary>
-        [XmlEnum("delete")]
-        Delete
+        New
     }
 }

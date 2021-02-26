@@ -19,8 +19,11 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Supplier ID<br/>
         /// <br/>
-        /// Unique identifier of the supplier, which can be used by the buyer for internal processes; the "type" attribute determines the ID type.
+        /// Unique identifier of the supplier, which can be used by the buyer for internal processes; the "type" attribute determines the ID type.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("SUPPLIER_ID")]
         public List<SupplierId>? SupplierIds { get; set; } = new List<SupplierId>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -29,17 +32,33 @@ namespace OpenTransSharp
         /// <summary>
         /// (required) Supplier name<br/>
         /// <br/>
-        /// Name of the supplying company respectively organization.
+        /// Name of the supplying company respectively organization.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [Required]
-        [BMEXmlElement("SUPPLIER_ID")]
+        [BMEXmlElement("SUPPLIER_NAME")]
         public string SupplierName { get; set; }
+
+        /// <summary>
+        /// (optional - deprecated) Address<br/>
+        /// <br/>
+        /// Address information of a business partner.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [Obsolete("This element will not be used in the future.")]
+        [BMEXmlElement("ADDRESS")]
+        public Address? Address { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
         /// <br/>
         /// Information about multimedia files.<br/>
-        /// For example logos, company profiles or other supplier related documents could be added here.
+        /// For example logos, company profiles or other supplier related documents could be added here.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
         public MimeInfo? MimeInfo { get; set; }

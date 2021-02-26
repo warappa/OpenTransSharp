@@ -33,18 +33,55 @@ namespace OpenTransSharp.Tests.BMEcats
         }
 
         [Test]
-        public void Can_serialize_BMEcat()
+        public void Can_serialize_BMEcatNewCatalog()
         {
-            var order = testConfig.BMEcats.GetBMEcat();
+            var order = testConfig.BMEcats.GetBMEcatNewCatalog();
 
             Action action = () => target.Serialize(order);
             action.Should().NotThrow();
         }
 
         [Test]
-        public void Can_validate_BMEcat()
+        public void Can_serialize_BMEcatUpdateProducts()
         {
-            var order = testConfig.BMEcats.GetBMEcat();
+            var order = testConfig.BMEcats.GetBMEcatUpdateProducts();
+
+            Action action = () => target.Serialize(order);
+            action.Should().NotThrow();
+        }
+
+        [Test]
+        public void Can_serialize_BMEcatUpdatePrices()
+        {
+            var order = testConfig.BMEcats.GetBMEcatUpdatePrices();
+
+            Action action = () => target.Serialize(order);
+            action.Should().NotThrow();
+        }
+
+        [Test]
+        public void Can_validate_BMEcatNewCatalog()
+        {
+            var order = testConfig.BMEcats.GetBMEcatNewCatalog();
+
+            //var serialized = target.Serialize(order);
+            order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_validate_BMEcatUpdateProducts()
+        {
+            var order = testConfig.BMEcats.GetBMEcatUpdateProducts();
+
+            var serialized = target.Serialize(order);
+            //Debug.WriteLine(serialized);
+            order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_validate_BMEcatUpdatePrices()
+        {
+            var order = testConfig.BMEcats.GetBMEcatUpdatePrices();
 
             //var serialized = target.Serialize(order);
             order.IsValid(target).Should().Be(true);
@@ -53,7 +90,7 @@ namespace OpenTransSharp.Tests.BMEcats
         [Test]
         public void Can_validate_BMEcat_with_UDX()
         {
-            var order = testConfig.BMEcats.GetBMEcatWithUdx();
+            var order = testConfig.BMEcats.GetBMEcatNewCatalogWithUdx();
 
             var serialized = target.Serialize(order);
             Debug.WriteLine(serialized);

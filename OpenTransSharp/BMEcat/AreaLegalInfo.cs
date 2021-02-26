@@ -15,7 +15,7 @@ namespace OpenTransSharp
     public class AreaLegalInfo
     {
         /// <summary>
-        /// (optional) Territory<br/>
+        /// (optional - choice Territories/AreaRefs) Territory<br/>
         /// <br/>
         /// Territory (i.e. country, state, region) coded according to ISO 3166.<br/>
         /// <br/>
@@ -29,7 +29,7 @@ namespace OpenTransSharp
         public bool TerritoriesSpecified => Territories?.Count > 0;
 
         /// <summary>
-        /// (optional) Area references<br/>
+        /// (optional - choice Territories/AreaRefs) Area references<br/>
         /// <br/>
         /// List of references to areas.<br/>
         /// <br/>

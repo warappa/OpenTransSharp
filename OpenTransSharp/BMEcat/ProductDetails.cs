@@ -73,7 +73,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_ALT_PID")]
-        public SupplierAltPid? SupplierAltPid { get; set; }
+        public string? SupplierAltPid { get; set; }
 
         /// <summary>
         /// (optional) Product ID of the buying company<br/>
@@ -96,7 +96,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_PID")]
-        public ManufacturerPid? ManufacturerPid { get; set; }
+        public string? ManufacturerPid { get; set; }
 
         /// <summary>
         /// (optional) Reference to the manufacturer<br/>

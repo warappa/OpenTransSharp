@@ -63,7 +63,7 @@ namespace OpenTransSharp
         public string? AgreementLineId { get; set; }
 
         /// <summary>
-        /// (optional) Start date of the skeleton agreement<br/>
+        /// (optional - choice AgreementEndDate/(deprecated)Datetime) Start date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp of the time, when the skeleton agreement begins.<br/>
         /// <br/>
@@ -75,7 +75,7 @@ namespace OpenTransSharp
         public bool AgreementStartDateSpecified => AgreementStartDate.HasValue;
 
         /// <summary>
-        /// (required) End date of the skeleton agreement<br/>
+        /// (required - with AgreementEndDate) End date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp for the time when the skeleton agreement ends.<br/>
         /// <br/>
@@ -84,6 +84,21 @@ namespace OpenTransSharp
         [Required]
         [BMEXmlElement("AGREEMENT_END_DATE")]
         public DateTime AgreementEndDate { get; set; }
+
+        /// <summary>
+        /// (required - deprecated - choice AgreementEndDate/(deprecated)Datetime) End date of the skeleton agreement<br/>
+        /// <br/>
+        /// Unique time stamp for the time when the skeleton agreement ends.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [Obsolete("The element DATETIME in the context of AGREEMENT with the attributes 'agreement_start_date' and 'agreement_end_date' will be replaced by the elements AGREEMENT_START_DATE and AGREEMENT_END_DATE in future versions and will be omitted then.")]
+        [MaxLength(2)]
+        [Required]
+        [BMEXmlElement("DATETIME")]
+        public List<BMEcatDatetime> Datetimes { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DatetimesSpecified => Datetimes?.Count > 0;
 
         /// <summary>
         /// (optional) Reference to supplier<br/>

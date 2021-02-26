@@ -15,10 +15,6 @@ namespace OpenTransSharp
         /// See also example (combination of different transactions)".
         /// </summary>
         [XmlEnum("new")]
-        New,
-        [XmlEnum("update")]
-        Update,
-        [XmlEnum("delete")]
-        Delete
+        New
     }
 }

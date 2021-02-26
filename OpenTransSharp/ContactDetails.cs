@@ -71,7 +71,9 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Role<br/>
         /// <br/>
-        /// Role or position of a contact.
+        /// Role or position of a contact.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_ROLE")]
         public List<ContactRole>? ContactRoles { get; set; } = new List<ContactRole>();
@@ -111,7 +113,9 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Internet address<br/>
         /// <br/>
-        /// URL of the web site, e.g., http://www.bmecat.org
+        /// URL of the web site, e.g., http://www.bmecat.org.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("URL")]
         public string? Url { get; set; }
@@ -132,7 +136,8 @@ namespace OpenTransSharp
         /// <br/>
         /// Authentification information.<br/>
         /// <br/>
-        /// XML-namespace: BMECAT
+        /// XML-namespace: BMECAT<br/>
+        /// <br/>
         /// Compatibility warning: in OpenTrans, not in BMEcat!
         /// </summary>
         [BMEXmlElement("AUTHENTIFICATION")]

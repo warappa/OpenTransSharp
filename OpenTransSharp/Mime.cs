@@ -9,7 +9,9 @@ namespace OpenTransSharp
     /// (Multimedia document)<br/>
     /// <br/>
     /// Information about a multimedia file.<br/>
-    /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.
+    /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
     public class Mime
     {
@@ -24,7 +26,7 @@ namespace OpenTransSharp
         public string? MimeType { get; set; }
 
         /// <summary>
-        /// (required - if not MIME_EMBEDDED) Source<br/>
+        /// (required - choice MimeSource/MimeEmbeddeds) Source<br/>
         /// <br/>
         /// The relative path and the file name or URL address.<br/>
         /// The MIME_SOURCE string is combined with the base path (MIME_ROOT) specified in the header of the document (attached to it by means of a simple contecatenation).<br/>
@@ -36,7 +38,7 @@ namespace OpenTransSharp
         public MultiLingualString? MimeSource { get; set; }
 
         /// <summary>
-        /// (optional) Hash value of a file<br/>
+        /// (optional - with MimeSource) Hash value of a file<br/>
         /// <br/>
         /// Element contains a hash value related to an external file
         /// </summary>
@@ -46,7 +48,7 @@ namespace OpenTransSharp
         public bool FileHashValuesSpecified => FileHashValues?.Count > 0;
 
         /// <summary>
-        /// (required - if not MIME_SOURCE) Embedded document<br/>
+        /// (required - choice MimeSource/MimeEmbeddeds) Embedded document<br/>
         /// <br/>
         /// Element containing a binary-coded file and additional information.
         /// </summary>
@@ -88,5 +90,18 @@ namespace OpenTransSharp
         public MimePurpose? MimePurpose { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool MimePurposeSpecified => MimePurpose.HasValue;
+
+        /// <summary>
+        /// (optional) Order<br/>
+        /// <br/>
+        /// Order in which the additional data is to be represented in the target system.<br/>
+        /// When additional documents are listed they should be represented in ascending order (the first document is the one with the lowest number).<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [XmlElement("MIME_ORDER")]
+        public int? MimeOrder { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool MimeOrderSpecified => MimeOrder.HasValue;
     }
 }
