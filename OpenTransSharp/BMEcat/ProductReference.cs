@@ -41,9 +41,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlAttribute("quantity")]
-        public int? Quantity { get; set; }
+        public int Quantity { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool QuantitySpecified => Quantity.HasValue;
+        public bool QuantitySpecified => Quantity != 0;
 
         /// <summary>
         /// (required) Reference product<br/>

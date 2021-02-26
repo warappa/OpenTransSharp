@@ -21,10 +21,10 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot("BMECAT", Namespace = "http://www.bmecat.org/bmecat/2005")]
     [Serializable]
-    public class BMEcat
+    public class BMEcat : IValidatable
     {
         [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;
+        public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.XmlnsBMEcat;
 
         /// <summary>
         /// (required) Version<br/>
@@ -276,7 +276,7 @@ namespace OpenTransSharp
         /// Therefore, if the T_NEW_CATALOG transaction uses the transfer mode(PRODUCT -->mode in context T_NEW_CATALOG) 'delete' or 'update', the mode is wrong, and the product should not be imported at all.
         /// </summary>
         [XmlAttribute("mode")]
-        public NewCatalogProductMode? Mode { get; set; }
+        public NewCatalogProductMode Mode { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ModeSpecified => Mode != NewCatalogProductMode.New;
 

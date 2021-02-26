@@ -251,6 +251,8 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("COUNTRY_OF_ORIGIN")]
         public CountryCode? CountryOfOrigin { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CountryOfOriginSpecified => CountryOfOrigin.HasValue;
 
         /// <summary>
         /// (optional) Delivery time.<br/>

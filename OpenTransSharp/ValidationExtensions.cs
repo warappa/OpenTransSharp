@@ -34,6 +34,7 @@ namespace OpenTransSharp
             };
 
             using var opentrans = XmlUtils.GetEmbeddedXsd("http://www.opentrans.org/XMLSchema/2.1/opentrans_2_1.xsd", schemaSet);
+            using var bmeCatUdxExtension = XmlUtils.GetEmbeddedXsd("http://www.opentrans.org/XMLSchema/2.1/bmecat_2005_any_udx_extension.xsd", schemaSet);
             using var ms = new MemoryStream();
 
             serializer.Serialize(ms, model);

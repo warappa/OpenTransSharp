@@ -49,7 +49,7 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("CONTENT_UNIT")]
+        [BMEXmlElement("NO_CU_PER_OU")]
         public decimal? NumberContentUnitsPerOrderUnit { get; set; } = 1;
 
         /// <summary>

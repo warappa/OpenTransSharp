@@ -29,9 +29,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlAttribute("mode")]
-        public ProductToCataloggroupMapMode? Mode { get; set; }
+        public ProductToCataloggroupMapMode Mode { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ModeSpecified => Mode.HasValue;
+        public bool ModeSpecified => Mode != ProductToCataloggroupMapMode.New;
 
         /// <summary>
         /// (required) Product ID<br/>

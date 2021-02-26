@@ -91,12 +91,19 @@ namespace OpenTransSharp
             ConfigureHeaderUdx<RfqInformation>(x => x.HeaderUdx, mappings, overrides);
             ConfigureItemUdx<RfqItem>(x => x.ItemUdx, mappings, overrides);
 
+            ConfigureUdx<BMEcatHeader>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+
             if (options.Serialization.ConfigureOverrides is not null)
             {
                 options.Serialization.ConfigureOverrides(overrides);
             }
 
             return new XmlSerializer(type, overrides);
+        }
+
+        private static void ConfigureUdx<T>(Expression<Func<T, object?>> udxProperty, string tagName, IDictionary<string, Type> userDefinedExtensionTypeMapping, XmlAttributeOverrides overrides)
+        {
+            ConfigureUdx<T>(udxProperty.GetPropertyName(), tagName, userDefinedExtensionTypeMapping, overrides);
         }
 
         private static void ConfigureHeaderUdx<T>(Expression<Func<T, object?>> udxProperty, IDictionary<string, Type> userDefinedExtensionTypeMapping, XmlAttributeOverrides overrides)

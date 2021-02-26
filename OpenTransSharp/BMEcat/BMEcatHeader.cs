@@ -36,7 +36,7 @@ namespace OpenTransSharp
         public Catalog Catalog { get; set; }
 
         /// <summary>
-        /// (optional - optional choice: BuyerIdref/BUYER) Reference to the buyer<br/>
+        /// (optional - optional choice: BuyerIdref/Buyer) Reference to the buyer<br/>
         /// <br/>
         /// Reference to the buyer.<br/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document (PARTY element ).<br/>
@@ -47,7 +47,7 @@ namespace OpenTransSharp
         public BuyerIdref? BuyerIdref { get; set; }
 
         /// <summary>
-        /// (optional - deprecated - optional choice: BuyerIdref/BUYER) Buyer information<br/>
+        /// (optional - deprecated - optional choice: BuyerIdref/Buyer) Buyer information<br/>
         /// <br/>
         /// Information on the buyer.<br/>
         /// The element BUYER will be replaced by the element BUYER_IDREF together with the element PARTY in future versions and will be omitted then.<br/>
@@ -81,7 +81,7 @@ namespace OpenTransSharp
         public LegalInfo? LegalInfo { get; set; }
 
         /// <summary>
-        /// (required) Reference to supplier<br/>
+        /// (required - choice Supplier/SupplierIdref/DocumentCreatorIdref) Reference to supplier<br/>
         /// <br/>
         /// Reference to the supplier.<br/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document(element PARTY).<br/>
@@ -93,7 +93,7 @@ namespace OpenTransSharp
         public SupplierIdref SupplierIdref { get; set; }
 
         /// <summary>
-        /// (required) Supplier<br/>
+        /// (required - choice Supplier/SupplierIdref/DocumentCreatorIdref) Supplier<br/>
         /// <br/>
         /// Information on the supplier.<br/>
         /// The element SUPPLIER will be replaced by the element SUPPLIER_IDREF together with the element PARTY in future versions and will be omitted then.<br/>
@@ -106,7 +106,7 @@ namespace OpenTransSharp
         public Supplier Supplier { get; set; }
 
         /// <summary>
-        /// (required) Document creator<br/>
+        /// (required - choice Supplier/SupplierIdref/DocumentCreatorIdref) Document creator<br/>
         /// <br/>
         /// Reference to the document creator.<bre/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document (element PARTY).<br/>
@@ -119,28 +119,30 @@ namespace OpenTransSharp
         public DocumentCreatorIdref DocumentCreatorIdref { get; set; }
 
         /// <summary>
-        /// (required) Parties<br/>
+        /// (optional) Parties<br/>
         /// <br/>
         /// List of parties that are relevant to this business document.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlArray("PARTIES")]
         [BMEXmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool PartiesSpecified => Parties?.Count > 0;
 
         /// <summary>
-        /// (required) Areas<br/>
+        /// (optional) Areas<br/>
         /// <br/>
         /// List of areas.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlArray("AREAS")]
         [BMEXmlArrayItem("AREA")]
         public List<Area> Areas { get; set; } = new List<Area>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool AreasSpecified => Areas?.Count > 0;
 
         /// <summary>
         /// (optional) User-defined extension<br/>
