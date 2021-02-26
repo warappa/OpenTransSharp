@@ -55,7 +55,7 @@ namespace OpenTransSharp
         [XmlElement("PACKING_UNIT_DESCR")]
         public List<MultiLingualString>? PackingUnitDescriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PackingUnitDescriptionsSpecified => PackageDescriptions?.Count > 0;
+        public bool PackingUnitDescriptionsSpecified => PackingUnitDescriptions?.Count > 0;
 
         /// <summary>
         /// (optional) Number of units per package<br/>

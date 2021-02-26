@@ -40,9 +40,11 @@ namespace OpenTransSharp
         /// Reference to a business partner.<br/>
         /// It contains the unique identifier (PARTY_ID) of the respective party (element PARTY).<br/>
         /// <br/>
-        /// In this context the element is used to reference the organisation which is responsible for the specification of the element.
+        /// In this context the element is used to reference the organisation which is responsible for the specification of the element.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARTY_IDREF")]
-        public PartyIdref PartyIdref { get; set; }
+        public PartyIdref? PartyIdref { get; set; }
     }
 }

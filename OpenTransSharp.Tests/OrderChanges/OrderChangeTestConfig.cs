@@ -116,7 +116,7 @@ namespace OpenTransSharp.Tests.OrderChanges
             model.ProductId = new ProductId
             {
                 SupplierPid = new SupplierPid("Supplier ProductId", SupplierPidTypeValues.SupplierSpecific),
-                ProductType = ProductTypeValues.Physical,
+                ProductType = ProductType.Physical,
                 SupplierIdref = GetSupplierIdRef()
             };
 

@@ -154,7 +154,7 @@ namespace OpenTransSharp
         /// Characterizes the product with regard to its general type, i.e. being tangible or service.
         /// </summary>
         [BMEXmlElement("PRODUCT_TYPE")]
-        public ProductTypeValues? ProductType { get; set; }
+        public ProductType? ProductType { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ProductTypeSpecified => ProductType != null;
     }

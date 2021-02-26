@@ -5,7 +5,7 @@ namespace OpenTransSharp
     /// <summary>
     /// Predefined values for <see cref="ProductId.ProductType"/>
     /// </summary>
-    public enum ProductTypeValues
+    public enum ProductType
     {
         /// <summary>
         /// Product bundle<br/>

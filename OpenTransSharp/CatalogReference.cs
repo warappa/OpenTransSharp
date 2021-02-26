@@ -26,14 +26,6 @@ namespace OpenTransSharp
         [BMEXmlElement("CATALOG_ID")]
         public string CatalogId { get; set; }
 
-        [Required]
-        [BMEXmlElement("CATALOG_VERSION")]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public string CatalogVersionString
-        {
-            get => CatalogVersion.ToString(2);
-            set => CatalogVersion = value is null ? null : new Version(value);
-        }
         /// <summary>
         /// (required) Catalog version<br/>
         /// <br/>
@@ -46,6 +38,14 @@ namespace OpenTransSharp
         /// </summary>
         [XmlIgnore]
         public Version CatalogVersion { get; set; }
+        [Required]
+        [BMEXmlElement("CATALOG_VERSION")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string CatalogVersionString
+        {
+            get => CatalogVersion.ToString(2);
+            set => CatalogVersion = value is null ? null : new Version(value);
+        }
 
         /// <summary>
         /// (optional) Catalog name<br/>

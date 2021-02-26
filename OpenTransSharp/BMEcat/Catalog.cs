@@ -238,7 +238,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_TYPE")]
-        public ProductTypeValues? ProductType { get; set; }
+        public ProductType? ProductType { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ProductTypeSpecified => ProductType != null;
 
@@ -253,14 +253,16 @@ namespace OpenTransSharp
         public CountryCode? CountryOfOrigin { get; set; }
 
         /// <summary>
-        /// (optional) Country of origin.<br/>
+        /// (optional) Delivery time.<br/>
         /// <br/>
-        /// Contains the country of origin of the product. By using a subdivision code it is possible to reference a region.<br/>
+        /// Information on the delivery time<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("DELIVERY_TIMES")]
-        public DeliveryTimes? DeliveryTimes { get; set; }
+        public List<DeliveryTimes>? DeliveryTimes { get; set; } = new List<DeliveryTimes>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DeliveryTimesSpecified => DeliveryTimes?.Count > 0;
 
         /// <summary>
         /// (optional) Transport<br/>
