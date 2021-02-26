@@ -74,7 +74,7 @@ namespace OpenTransSharp
         public MultiLingualString? Department { get; set; }
 
         /// <summary>
-        /// (optional - choice ContactDetails/Contact) Contact<br/>
+        /// (optional - choice ContactDetails/(deprecated)Contact) Contact<br/>
         /// <br/>
         /// Information on a contact person.
         /// <br/>
@@ -86,7 +86,7 @@ namespace OpenTransSharp
         public bool ContactDetailsSpecified => ContactDetails?.Count > 0;
 
         /// <summary>
-        /// (optional - deprecated - choice ContactDetails/Contact) Contact name<br/>
+        /// (optional - deprecated - choice ContactDetails/(deprecated)Contact) Contact name<br/>
         /// <br/>
         /// This element contains the name of the contact person.<br/>
         /// The element CONTACT will be replaced by the element CONTACT_DETAILS in future versions and will be omitted then.<br/>

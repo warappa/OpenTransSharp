@@ -50,7 +50,7 @@ namespace OpenTransSharp
         public BMEcatHeader Header { get; set; } = new BMEcatHeader();
 
         /// <summary>
-        /// (required - choice) Transaction area 'new catalog'<br/>
+        /// (required - choice NewCatalog/UpdateProducts/UpdatePrices) Transaction area 'new catalog'<br/>
         /// <br/>
         /// Transfer a of new catalog.<br/>
         /// <br/>
@@ -60,7 +60,7 @@ namespace OpenTransSharp
         public NewCatalog? NewCatalog { get; set; }
 
         /// <summary>
-        /// (required - choice) Transaction area 'product update'<br/>
+        /// (required - choice NewCatalog/UpdateProducts/UpdatePrices) Transaction area 'product update'<br/>
         /// <br/>
         /// Updating of product data.<br/>
         /// <br/>
@@ -70,7 +70,7 @@ namespace OpenTransSharp
         public UpdateProducts? UpdateProducts { get; set; }
 
         /// <summary>
-        /// (required - choice) Transaction area 'price update'<br/>
+        /// (required - choice NewCatalog/UpdateProducts/UpdatePrices) Transaction area 'price update'<br/>
         /// <br/>
         /// Updating of price information.<br/>
         /// <br/>
@@ -188,7 +188,7 @@ namespace OpenTransSharp
         public IppDefinitions? IppDefinitions { get; set; }
 
         /// <summary>
-        /// (optional) Product<br/>
+        /// (optional - choice Product/ProductToCataloggroupMap) Product<br/>
         /// <br/>
         /// Information about a product.<br/>
         /// <br/>
@@ -200,7 +200,7 @@ namespace OpenTransSharp
         public bool ProductsSpecified => Products?.Count > 0;
 
         /// <summary>
-        /// (optional - deprecated) Mapping to catalog group<br/>
+        /// (optional - deprecated - choice Product/ProductToCataloggroupMap) Mapping to catalog group<br/>
         /// <br/>
         /// Mapping of the product to a group of a catalog group system Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element PRODUCT_TO_CATALOGGROUP_MAP in context T_NEW_CATALOG will be omitted then.<br/>
         /// The mapping of products to group is realized only with the element REFERENCE_FEATURE_GROUP_ID then.<br/>
@@ -213,7 +213,7 @@ namespace OpenTransSharp
         public bool ProductToCataloggroupMapSpecified => ProductToCataloggroupMap?.Count > 0;
 
         /// <summary>
-        /// (optional - deprecated) Product<br/>
+        /// (optional - deprecated - choice Article/ArticleToCataloggroupMap) Article<br/>
         /// <br/>
         /// Information about a product.<br/>
         /// This element has been replaced by the PRODUCT in context T_NEW_CATALOG element.<br/>
@@ -228,7 +228,7 @@ namespace OpenTransSharp
         public bool ArticlesSpecified => Articles?.Count > 0;
 
         /// <summary>
-        /// (optional - deprecated) Assigning products to catalog groups<br/>
+        /// (optional - deprecated - <b>choice</b> <see cref="Articles"/>/<see cref="ArticleToCataloggroupMap"/>) Assigning products to catalog groups<br/>
         /// <br/>
         /// This element is used to assign a product to a group of a catalog group system.<br/>
         /// This element has been replaced by the new PRODUCT_TO_CATALOGGROUP_MAP in context T_NEW_CATALOG element.<br/>
@@ -276,7 +276,7 @@ namespace OpenTransSharp
         /// Therefore, if the T_NEW_CATALOG transaction uses the transfer mode(PRODUCT -->mode in context T_NEW_CATALOG) 'delete' or 'update', the mode is wrong, and the product should not be imported at all.
         /// </summary>
         [XmlAttribute("mode")]
-        public NewCatalogProductMode Mode { get; set; }
+        public NewCatalogProductMode Mode { get; set; } = NewCatalogProductMode.New;
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ModeSpecified => Mode != NewCatalogProductMode.New;
 

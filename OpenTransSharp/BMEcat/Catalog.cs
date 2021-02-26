@@ -99,7 +99,7 @@ namespace OpenTransSharp
         public MultiLingualString? CatalogName { get; set; }
 
         /// <summary>
-        /// (optional - choice GenerationDate/Date) Generation date<br/>
+        /// (optional - choice GenerationDate/(deprecated)Date) Generation date<br/>
         /// <br/>
         /// Date of the generation of the catalog document.<br/>
         /// <br/>
@@ -111,7 +111,7 @@ namespace OpenTransSharp
         public bool GenerationDateSpecified => GenerationDate.HasValue;
 
         /// <summary>
-        /// (optional - deprecated - choice GenerationDate/Date) Date<br/>
+        /// (optional - deprecated - choice GenerationDate/(deprecated)Date) Date<br/>
         /// <br/>
         /// The element is used to precisely define a time.<br/>
         /// It is made up of the three elements date, time and time zone.<br/>

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Buyer information)<br/>
+    /// (Buyer information - deprecated)<br/>
     /// <br/>
     /// This element contains information on the buyer.<br/>
     /// This element will not be used in the future.<br/>
@@ -15,34 +15,37 @@ namespace OpenTransSharp
     public class Buyer
     {
         /// <summary>
-        /// (optional) ID of the buying company<br/>
+        /// (optional - deprecated) ID of the buying company<br/>
         /// <br/>
         /// Unique number of the buying company; the optional attribute "type" determines the type of ID.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("BUYER_ID")]
         public BuyerId? BuyerId { get; set; }
 
         /// <summary>
-        /// (required) ID of the buying company<br/>
+        /// (required - deprecated) ID of the buying company<br/>
         /// <br/>
         /// Unique number of the buying company; the optional attribute "type" determines the type of ID.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [Required]
         [BMEXmlElement("BUYER_NAME")]
         public string? BuyerName { get; set; }
 
         /// <summary>
-        /// (optional) Address<br/>
+        /// (optional - deprecated) Address<br/>
         /// <br/>
         /// Address information of a business partner.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("BUYER_NAME")]
+        [Obsolete("This element will not be used in the future.")]
+        [BMEXmlElement("ADDRESS")]
         public BMEBuyerAddress? Address { get; set; }
     }
 }

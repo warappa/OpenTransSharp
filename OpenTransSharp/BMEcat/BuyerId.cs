@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (ID of the buying company)<br/>
+    /// (ID of the buying company - deprecated)<br/>
     /// <br/>
     /// This element contains the unique number of the buying company; the optional attribute "type" determines the type of ID.<br/>
     /// This element will not be used in the future.<br/>
@@ -47,6 +47,7 @@ namespace OpenTransSharp
         /// <br/>
         /// See <see cref="PartyTypeValues"/>.
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [XmlAttribute("type")]
         public string? Type { get; set; }
 
@@ -55,6 +56,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 250
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [Required]
         [XmlText]
         public string Value { get; set; }

@@ -41,7 +41,7 @@ namespace OpenTransSharp
         public BankCode? BankCode { get; set; }
 
         /// <summary>
-        /// (optiona) Bank name<br/>
+        /// (optional) Bank name<br/>
         /// <br/>
         /// Name of the bank.
         /// </summary>

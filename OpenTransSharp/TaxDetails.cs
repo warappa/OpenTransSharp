@@ -74,8 +74,6 @@ namespace OpenTransSharp
         /// Tax jurisdiction.
         /// </summary>
         [BMEXmlElement("JURISDICTION")]
-        public List<MultiLingualString>? Jurisdictions { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool JurisdictionsSpecified => Jurisdictions?.Count > 0;
+        public MultiLingualString? Jurisdiction { get; set; }
     }
 }

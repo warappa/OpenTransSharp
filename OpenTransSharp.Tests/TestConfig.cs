@@ -58,6 +58,11 @@ namespace OpenTransSharp.Tests
             };
         }
 
+        public SupplierPid GetSupplierPid()
+        {
+            return new SupplierPid("ProductId", SupplierPidTypeValues.SupplierSpecific);
+        }
+
         public List<Remark> GetRemarks()
         {
             return new List<Remark>

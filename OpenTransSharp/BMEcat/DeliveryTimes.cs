@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace OpenTransSharp
 {
@@ -14,7 +15,7 @@ namespace OpenTransSharp
     public class DeliveryTimes
     {
         /// <summary>
-        /// (optional) Territory<br/>
+        /// (optional - choice Territories/AreaRefs) Territory<br/>
         /// <br/>
         /// Territory (i.e. country, state, region) coded according to ISO 3166.<br/>
         /// <br/>
@@ -28,7 +29,7 @@ namespace OpenTransSharp
         public bool TerritoriesSpecified => Territories?.Count > 0;
 
         /// <summary>
-        /// (optional) Area references<br/>
+        /// (optional - choice Territories/AreaRefs) Area references<br/>
         /// <br/>
         /// List of references to areas.<br/>
         /// <br/>
@@ -43,7 +44,7 @@ namespace OpenTransSharp
         public bool AreaRefsSpecified => AreaRefs?.Count > 0;
 
         /// <summary>
-        /// (optional) Time span<br/>
+        /// (required) Time span<br/>
         /// <br/>
         /// List of references to areas.<br/>
         /// <br/>
@@ -51,6 +52,7 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
+        [Required]
         [BMEXmlElement("TIME_SPAN")]
         public List<BMETimeSpan>? TimeSpans { get; set; } = new List<BMETimeSpan>();
         [EditorBrowsable(EditorBrowsableState.Never)]

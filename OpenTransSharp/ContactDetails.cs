@@ -14,7 +14,7 @@ namespace OpenTransSharp
     public class ContactDetails
     {
         /// <summary>
-        /// (optional) Contact ID<br/>
+        /// (required) Contact ID<br/>
         /// <br/>
         /// Unique ID of the contact person.<br/>
         /// <br/>
@@ -22,8 +22,9 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
+        [Required]
         [BMEXmlElement("CONTACT_ID")]
-        public string? ContactId { get; set; }
+        public string ContactId { get; set; }
 
         /// <summary>
         /// (required) Contact name<br/>
@@ -35,9 +36,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [Required]
         [BMEXmlElement("CONTACT_NAME")]
-        public List<MultiLingualString>? ContactNames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ContactNamesSpecified => ContactNames?.Count > 0;
+        public MultiLingualString? ContactName { get; set; }
 
         /// <summary>
         /// (optional) First name <br/>
@@ -47,9 +46,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FIRST_NAME")]
-        public List<MultiLingualString>? Firstnames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FirstnamesSpecified => Firstnames?.Count > 0;
+        public MultiLingualString? Firstname { get; set; }
 
         /// <summary>
         /// (optional) Title<br/>
@@ -59,9 +56,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TITLE")]
-        public List<MultiLingualString>? Titles { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TitlesSpecified => Titles?.Count > 0;
+        public MultiLingualString? Title { get; set; }
 
         /// <summary>
         /// (optional) Academic title<br/>
@@ -71,9 +66,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ACADEMIC_TITLE")]
-        public List<MultiLingualString>? AcademicTitles { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AcademicTitlesSpecified => AcademicTitles?.Count > 0;
+        public MultiLingualString? AcademicTitle { get; set; }
 
         /// <summary>
         /// (optional) Role<br/>
@@ -93,9 +86,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_DESCR")]
-        public List<MultiLingualString>? ContactDescriptions { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ContactDescriptionsSpecified => ContactDescriptions?.Count > 0;
+        public MultiLingualString? ContactDescription { get; set; }
 
         /// <summary>
         /// (optional) Phone number<br/>
@@ -105,9 +96,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PHONE")]
-        public List<Phone>? Phones { get; set; } = new List<Phone>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PhonesSpecified => Phones?.Count > 0;
+        public Phone? Phone { get; set; }
 
         /// <summary>
         /// (optional) Fax number<br/>
@@ -117,9 +106,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FAX")]
-        public List<Fax>? Faxes { get; set; } = new List<Fax>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FaxesSpecified => Faxes?.Count > 0;
+        public Fax? Fax { get; set; }
 
         /// <summary>
         /// (optional) Internet address<br/>
@@ -138,9 +125,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EMAILS")]
-        public List<Email>? Emails { get; set; } = new List<Email>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool EmailsSpecified => Emails?.Count > 0;
+        public Email? Email { get; set; }
 
         /// <summary>
         /// (optional) Authentification information<br/>
@@ -148,8 +133,9 @@ namespace OpenTransSharp
         /// Authentification information.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
+        /// Compatibility warning: in OpenTrans, not in BMEcat!
         /// </summary>
         [BMEXmlElement("AUTHENTIFICATION")]
-        public Authentification Authentification { get; set; }
+        public Authentification? Authentification { get; set; }
     }
 }

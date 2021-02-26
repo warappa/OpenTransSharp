@@ -43,7 +43,7 @@ namespace OpenTransSharp
         public MultiLingualString? DescriptionLong { get; set; }
 
         /// <summary>
-        /// (optional) International product number<br/>
+        /// (optional - choice InternationPids/(obsolete)Ean) International product number<br/>
         /// <br/>
         /// Indicates an international product number (e.g., EAN).<br/>
         /// The underlying standard respectively organisation is given in the 'type' attribute.
@@ -54,7 +54,7 @@ namespace OpenTransSharp
         public bool InternationalPidsSpecified => InternationalPids?.Count > 0;
 
         /// <summary>
-        /// (optional) EAN<br/>
+        /// (optional - choice InternationPids/(obsolete)Ean) EAN<br/>
         /// <br/>
         /// This element contains the European Article Number (http://www.ean-int.org).<br/>
         /// The element EAN will be replaced by the element INTERNATIONAL_PID with the attribute type = ean in future versions and will be omitted then.<br/>
@@ -307,5 +307,7 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("PRODUCT_CATEGORY")]
         public ProductCategory? ProductCategory { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ProductCategorySpecified => ProductCategory.HasValue;
     }
 }
