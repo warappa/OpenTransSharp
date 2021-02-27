@@ -19,8 +19,9 @@ namespace OpenTransSharp
 
                 return result.IsValid;
             }
-            catch
+            catch (Exception exc)
             {
+                Debug.WriteLine(exc.Message);
                 return false;
             }
         }
@@ -28,48 +29,78 @@ namespace OpenTransSharp
         public static ValidationResult Validate(this IValidatable model, XmlSerializer serializer)
         {
             var validationErrors = new List<string>();
+            
             var schemaSet = new XmlSchemaSet
             {
                 XmlResolver = XmlUtils.XmlResolver
             };
 
-            using var opentrans = XmlUtils.GetEmbeddedXsd("http://www.opentrans.org/XMLSchema/2.1/opentrans_2_1.xsd", schemaSet);
-            using var bmeCatUdxExtension = XmlUtils.GetEmbeddedXsd("http://www.opentrans.org/XMLSchema/2.1/bmecat_2005_any_udx_extension.xsd", schemaSet);
-            using var ms = new MemoryStream();
-
-            serializer.Serialize(ms, model);
-            ms.Position = 0;
-
-            using var reader = new StreamReader(ms);
-            var document = XDocument.Load(reader);
-            var isValid = true;
-
-            document.Validate(schemaSet, (s, e) =>
+            try
             {
-                isValid = false;
+                // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
+                schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
 
-                var name = "";
-                if (s is XElement xe)
+                if (model is BMEcat)
                 {
-                    name = xe.GetAbsoluteXPath();
+                    XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005.xsd", schemaSet);
+                    // fix udx support in original bmecat
+                    XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005_any_udx_extension.xsd", schemaSet);
                 }
-                else if (s is XAttribute xa)
+                else
                 {
-                    name = xa.GetAbsoluteXPath();
+                    XmlUtils.GetEmbeddedXsd("file://fake/opentrans_2_1.xsd", schemaSet);
                 }
 
-                validationErrors.Add($"{name}: {e.Message}");
-            });
+                using var ms = new MemoryStream();
+                serializer.Serialize(ms, model);
+                ms.Position = 0;
 
-            if (!isValid)
-            {   
-                return new ValidationResult
+                using var reader = new StreamReader(ms);
+                var document = XDocument.Load(reader);
+                var isValid = true;
+
+                document.Validate(schemaSet, (s, e) =>
                 {
-                    Errors = validationErrors.ToArray()
-                };
+                    isValid = false;
+
+                    var name = "";
+                    if (s is XElement xe)
+                    {
+                        name = xe.GetAbsoluteXPath();
+                    }
+                    else if (s is XAttribute xa)
+                    {
+                        name = xa.GetAbsoluteXPath();
+                    }
+
+                    validationErrors.Add($"{name}: {e.Message}");
+                });
+
+                if (!isValid)
+                {
+                    Debug.WriteLine(string.Join(Environment.NewLine, validationErrors));
+                    return new ValidationResult
+                    {
+                        Errors = validationErrors.ToArray()
+                    };
+                }
+
+                return new ValidationResult();
+            }
+            finally
+            {
+                schemaSet.ValidationEventHandler -= SchemaSet_ValidationEventHandler;
+            }
+        }
+
+        private static void SchemaSet_ValidationEventHandler(object sender, ValidationEventArgs e)
+        {
+            if (!e.Exception.Message.Contains("has already been declared"))
+            {
+                throw e.Exception;
             }
 
-            return new ValidationResult();
+            Debug.WriteLine("Error: " + e.Exception.Message);
         }
     }
 }

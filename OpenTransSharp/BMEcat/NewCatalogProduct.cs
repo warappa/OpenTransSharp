@@ -134,7 +134,7 @@ namespace OpenTransSharp
         /// For instance the sceleton agreement of the document could be added.
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
-        public MimeInfo? MimeInfo { get; set; }
+        public BMEcatMimeInfo? MimeInfo { get; set; }
 
         /// <summary>
         /// (optional) User-defined extension<br/>

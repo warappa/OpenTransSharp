@@ -31,22 +31,153 @@ namespace OpenTransSharp.Tests
             BMEcats = new BMEcatTestConfig(this);
         }
 
+        public ProductPriceFix GetProductPriceFix()
+        {
+            var model = new ProductPriceFix
+            {
+                PriceAmount = 20,
+                PriceQuantity = 4,
+                PriceBaseFix = GetPriceBaseFix(),
+                AllowOrChargesFix = GetAllowOrChargesFix()
+            };
+
+            model.PriceFlags.AddRange(new[]
+            {
+                new PriceFlag(PriceFlagTypes.IncludingPacking, true),
+                new PriceFlag(PriceFlagTypes.IncludingAssurance, false)
+            });
+            model.TaxDetailsFixes.Add(GetTaxDetailsFix());
+
+            return model;
+        }
+
         public OrderTestConfig Orders { get; }
         public RfqTestConfig Rfqs { get; }
         public QuotationTestConfig Quotations { get; }
         public OrderChangeTestConfig OrderChanges { get; }
+
+        public InvoiceReference GetInvoiceReference()
+        {
+            return new InvoiceReference
+            {
+                InvoiceId = "InvoiceId"
+            };
+        }
+
+        public DeliveryIdref GetDeliveryIdRef()
+        {
+            return new DeliveryIdref("Delivery", PartyTypeValues.PartySpecific);
+        }
+
+        public AccountingPeriod GetAccountingPeriod()
+        {
+            return new AccountingPeriod
+            {
+                AccountingPeriodStartDate = DateTime.UtcNow.AddDays(2),
+                AccountingPeriodEndDate = DateTime.UtcNow.AddDays(4),
+            };
+        }
+
         public OrderResponseTestConfig OrderResponses { get; }
         public DispatchNotificationTestConfig DispatchNotifications { get; }
         public ReceiptAcknowledgementTestConfig ReceiptAcknowledgements { get; }
+
+        public PriceBaseFix GetPriceBaseFix()
+        {
+            var model = new PriceBaseFix
+            {
+                PriceUnit = "C62",
+                PriceUnitFactor = 1,
+                PriceUnitValue = 1
+            };
+
+            return model;
+        }
+
         public InvoiceTestConfig Invoices { get; }
         public InvoiceListTestConfig InvoiceLists { get; }
 
         public RemittanceAdviceTestConfig RemittanceAdvices { get; }
         public BMEcatTestConfig BMEcats { get; }
 
+        public TaxDetailsFix GetTaxDetailsFix()
+        {
+            var model = new TaxDetailsFix();
+            model.TaxType = "vat";
+            model.CalculationSequence = 1;
+            model.Jurisdictions.AddRange(new[]
+            {
+                new MultiLingualString("Österreich", LanguageCodes.deu),
+                new MultiLingualString("Austria", LanguageCodes.eng)
+            });
+            model.Tax = 0.20m;
+            model.TaxAmount = 2;
+            model.TaxCategory = TaxCategoryValues.StandardRate;
+
+            return model;
+        }
+
+        public DocexchangePartiesReference GetDocexchangePartiesReference()
+        {
+            var model = new DocexchangePartiesReference
+            {
+                DocumentIssuerIdref = GetDocumentIssuerIdRef(),
+                
+            };
+            model.DocumentRecipientIdrefs.Add(GetDocumentRecipientIdRef());
+
+            return model;
+        }
+
+        public AllowOrCharge GetAllowOrCharge()
+        {
+            var model = new AllowOrCharge();
+            model.Type = AllowOrChargeType.Allowance;
+            model.AllowOrChargeNames.AddRange(new[]
+            {
+                new MultiLingualString("Kugelschreiber", LanguageCodes.deu),
+                new MultiLingualString("pen", LanguageCodes.eng)
+            });
+            model.AllowOrChargeType = AllowOrChargeTypeValues.ProjectBonus;
+            model.AllowOrChargeValue = AllowOrChargeValue.Units(GetAocOrderUnitsCount());
+
+            return model;
+        }
+
+        public AllowOrChargesFix GetAllowOrChargesFix()
+        {
+            var model = new AllowOrChargesFix();
+            model.AllowOrChargeList.Add(GetAllowOrCharge());
+
+            return model;
+        }
+
+        public TotalTax GetTotalTax()
+        {
+            var model = new TotalTax();
+            model.TaxDetailsFixes.Add(GetTaxDetailsFix());
+
+            return model;
+        }
+
+        public AocOrderUnitsCount GetAocOrderUnitsCount()
+        {
+            return new AocOrderUnitsCount(0, AocOrderUnitsCountType.Exclusive);
+        }
+
         public string GetCatalogId()
         {
             return "Catalog Spring";
+        }
+
+        public CatalogReference GetCatalogReference()
+        {
+            return new CatalogReference
+            {
+                CatalogId = "2021-02",
+                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
+                CatalogVersion = new Version(2, 1)
+            };
         }
 
         public OrderReference GetOrderReference()
@@ -67,8 +198,13 @@ namespace OpenTransSharp.Tests
         {
             return new List<Remark>
             {
-                new Remark("Be careful", RemarkTypeValues.DispatchNotification)
+                GetRemark()
             };
+        }
+
+        public Remark GetRemark()
+        {
+            return new Remark("Be careful", RemarkTypeValues.DispatchNotification);
         }
 
         public ProductId GetProductId()
@@ -120,11 +256,35 @@ namespace OpenTransSharp.Tests
             return new BuyerIdref("Buyer", PartyTypeValues.CustomerSpecific);
         }
 
+        public InvoiceRecipientIdref GetInvoiceRecipientIdRef()
+        {
+            return new InvoiceRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
+        }
+
+        public InvoiceIssuerIdref GetInvoiceIssuerIdRef()
+        {
+            return new InvoiceIssuerIdref("Supplier", PartyTypeValues.PartySpecific);
+        }
+
         public MimeInfo GetMimeInfo()
         {
             var model = new MimeInfo();
 
             model.Mimes.Add(GetMime());
+
+            return model;
+        }
+
+        public MultiLingualString GetMimeRoot()
+        {
+            return new MultiLingualString("ftp://server/de", LanguageCodes.deu);
+        }
+
+        public BMEcatMimeInfo GetBMEcatMimeInfo()
+        {
+            var model = new BMEcatMimeInfo();
+
+            model.Mimes.Add(GetBMEcatMime());
 
             return model;
         }
@@ -166,6 +326,26 @@ namespace OpenTransSharp.Tests
             };
         }
 
+        public static BMEcatMime GetBMEcatMime()
+        {
+            return new BMEcatMime
+            {
+                MimeAlternativeTexts = new List<MultiLingualString>
+                {
+                    new MultiLingualString("Bitte Lesen", LanguageCodes.deu),
+                    new MultiLingualString("Readme", LanguageCodes.eng)
+                },
+                MimeDescriptions = new List<MultiLingualString>
+                {
+                    new MultiLingualString("Eine Text Datei", LanguageCodes.deu),
+                    new MultiLingualString("A text file", LanguageCodes.eng)
+                },
+                MimePurpose = MimePurpose.Others,
+                MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
+                MimeType = "text/plain"
+            };
+        }
+
         public DocumentRecipientIdref GetDocumentRecipientIdRef()
         {
             return new DocumentRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
@@ -185,6 +365,24 @@ namespace OpenTransSharp.Tests
             model.Type = DeliveryDateType.Optional;
 
             return model;
+        }
+
+        public SourcingInformation GetSourcingInformation()
+        {
+            var model = new SourcingInformation();
+
+            model.CatalogReference = GetCatalogReference();
+
+            return model;
+        }
+        public ControlInformation GetControlInformation()
+        {
+            var controlInformation = new ControlInformation();
+            controlInformation.GenerationDate = DateTime.UtcNow;
+            controlInformation.GeneratorInfo = "Testing";
+            controlInformation.StopAutomaticProcessing = "For unit tests only";
+
+            return controlInformation;
         }
     }
 }

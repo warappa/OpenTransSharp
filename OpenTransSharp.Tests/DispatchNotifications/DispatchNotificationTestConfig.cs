@@ -135,16 +135,6 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             return model;
         }
 
-        private static CatalogReference GetCatalogReference()
-        {
-            return new CatalogReference
-            {
-                CatalogId = "2021-02",
-                CatalogName = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
-                CatalogVersion = new Version(2, 1)
-            };
-        }
-
         private ControlInformation GetControlInformation()
         {
             var controlInformation = new ControlInformation();

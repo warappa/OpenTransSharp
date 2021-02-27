@@ -31,8 +31,11 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FT_FACETS")]
-        public FeatureTemplateFacets? FeatureTemplateFacets { get; set; }
+        [BMEXmlArray("FT_FACETS")]
+        [BMEXmlArrayItem("FT_FACET")]
+        public List<FeatureTemplateFacet>? FeatureTemplateFacets { get; set; } = new List<FeatureTemplateFacet>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool FeatureTemplateFacetsSpecified => FeatureTemplateFacets?.Count > 0;
 
         /// <summary>
         /// (optional) Feature domain values<br/>
@@ -41,8 +44,10 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FT_VALUES")]
-        public FeatureTemplateValues? FeatureTemplateValues { get; set; }
+        [BMEXmlArray("FT_VALUES")]
+        [BMEXmlArrayItem("FT_VALUE")]
+        public List<FeatureTemplateValue>? FeatureTemplateValues { get; set; } = new List<FeatureTemplateValue>();
+        public bool FeatureTemplateValuesSpecified => FeatureTemplateValues?.Count > 0;
 
         /// <summary>
         /// (optional) Feature valency<br/>
@@ -138,7 +143,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
-        public MimeInfo? MimeInfo { get; set; }
+        public BMEcatMimeInfo? MimeInfo { get; set; }
 
         /// <summary>
         /// (optional) Feature source<br/>

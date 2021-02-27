@@ -60,6 +60,6 @@ namespace OpenTransSharp
         /// For instance the general terms and conditions or other documents could be added here.
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
-        public MimeInfo? MimeInfo { get; set; }
+        public BMEcatMimeInfo? MimeInfo { get; set; }
     }
 }

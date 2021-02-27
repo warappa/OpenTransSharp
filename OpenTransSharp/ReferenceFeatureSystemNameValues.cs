@@ -5,7 +5,7 @@ namespace OpenTransSharp
     /// <summary>
     /// For <see cref="ProductFeatures.ReferenceFeatureSystemName"/>.
     /// </summary>
-    public static class ReferenceFeatureSystemNameValues
+    public class ReferenceFeatureSystemNameValues
     {
         /// <summary>
         /// CPV<br/>

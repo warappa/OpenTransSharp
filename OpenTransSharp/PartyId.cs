@@ -72,5 +72,15 @@ namespace OpenTransSharp
         {
             return !(left == right);
         }
+
+        public static implicit operator PartyIdref(PartyId id)
+        {
+            if (id is null)
+            {
+                return null;
+            }
+
+            return new PartyIdref(id.Value, id.Type);
+        }
     }
 }

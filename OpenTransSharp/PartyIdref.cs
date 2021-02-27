@@ -49,5 +49,15 @@ namespace OpenTransSharp
         [Required]
         [XmlText]
         public override string Value { get; set; }
+
+        public static explicit operator PartyId(PartyIdref idRef)
+        {
+            if (idRef is null)
+            {
+                return null;
+            }
+
+            return new PartyId(idRef.Value, idRef.Type);
+        }
     }
 }

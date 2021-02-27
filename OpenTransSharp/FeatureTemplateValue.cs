@@ -14,7 +14,7 @@ namespace OpenTransSharp
     public class FeatureTemplateValue
     {
         /// <summary>
-        /// (required) Reference to a value<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Reference to a value<br/>
         /// <br/>
         /// Reference to the unique identifier of a value.<br/>
         /// <br/>
@@ -28,7 +28,7 @@ namespace OpenTransSharp
         public string ValueIdref { get; set; }
 
         /// <summary>
-        /// (required) Atomic value<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Atomic value<br/>
         /// <br/>
         /// A single, atomic value.<br/>
         /// <br/>
@@ -39,7 +39,7 @@ namespace OpenTransSharp
         public string ValueSimple { get; set; }
 
         /// <summary>
-        /// (required) Text value<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Text value<br/>
         /// <br/>
         /// This element contains a text.<br/>
         /// <br/>
@@ -52,7 +52,7 @@ namespace OpenTransSharp
         public bool ValueTextsSpecified => ValueTexts?.Count > 0;
 
         /// <summary>
-        /// (required) Interval of values<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Interval of values<br/>
         /// <br/>
         /// Definition of an interval of values.<br/>
         /// <br/>
@@ -72,7 +72,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
-        public MimeInfo? MimeInfo { get; set; }
+        public BMEcatMimeInfo? MimeInfo { get; set; }
 
         /// <summary>
         /// (optional) Configuration information<br/>

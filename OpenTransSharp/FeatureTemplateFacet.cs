@@ -12,6 +12,17 @@ namespace OpenTransSharp
     /// </summary>
     public class FeatureTemplateFacet
     {
+        public FeatureTemplateFacet()
+        {
+
+        }
+
+        public FeatureTemplateFacet(string value, FeatureTemplateFacetType type)
+        {
+            Type = type;
+            Value = value;
+        }
+
         /// <summary>
         /// (required) Restriction type<br/>
         /// <br/>

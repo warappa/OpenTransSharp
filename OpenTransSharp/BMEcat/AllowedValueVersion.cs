@@ -6,13 +6,13 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Version of the feature)<br/>
+    /// (Version of the allowed value)<br/>
     /// <br/>
-    /// This element contains detailled information on the version of the feature and its version history.<br/>
+    /// This element contains detailled information on the version of the allowed value and its version history.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureTemplateVersion
+    public class AllowedValueVersion
     {
         /// <summary>
         /// (required) Version<br/>
@@ -21,16 +21,20 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
+        [XmlIgnore]
+        public Version Version { get; set; }
+
         [Required]
         [BMEXmlElement("VERSION")]
-        public string Version { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string VersionForSerialization { get => Version.ToString(2); set => Version = new Version(value); }
 
         /// <summary>
         /// (optional) Version date<br/>
         /// <br/>
         /// Date of the given version.<br/>
         /// <br/>
-        /// XML-namespace: BMECAT<br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VERSION_DATE")]
         public DateTime? VersionDate { get; set; }
@@ -40,7 +44,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Revision<br/>
         /// <br/>
-        /// Revision number of the given version<br/>
+        /// Revision number of the given version.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>

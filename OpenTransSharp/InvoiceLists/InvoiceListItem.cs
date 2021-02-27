@@ -90,8 +90,11 @@ namespace OpenTransSharp
         /// <br/>
         /// List of every single invoices in a group of invoices.
         /// </summary>
-        [XmlElement("IL_INVOICE_LIST")]
-        public ILInvoiceList ILInvoiceList { get; set; }
+        [XmlArray("IL_INVOICE_LIST")]
+        [XmlArrayItem("IL_INVOICE_LIST_ITEM")]
+        public List<ILInvoiceListItem> ILInvoiceList { get; set; } = new List<ILInvoiceListItem>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ILInvoiceListSpecified => ILInvoiceList?.Count > 0;
 
         /// <summary>
         /// (optional) Number of item lines<br/>

@@ -114,6 +114,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
-        public MimeInfo? MimeInfo { get; set; }
+        public BMEcatMimeInfo? MimeInfo { get; set; }
     }
 }

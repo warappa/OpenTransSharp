@@ -98,8 +98,4 @@ namespace OpenTransSharp
     public class CatalogGroupSystem
     {
     }
-
-    public class ClassificationSystem
-    {
-    }
 }
