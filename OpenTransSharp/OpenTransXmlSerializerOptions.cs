@@ -7,6 +7,6 @@ namespace OpenTransSharp
     {
         public Type[]? IncludeUdxTypes { get; set; }
 
-        public Action<XmlAttributeOverrides>? ConfigureOverrides = null;
+        public Action<XmlAttributeOverrides>? ConfigureXmlAttributeOverrides { get; set; }
     }
 }

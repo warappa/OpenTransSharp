@@ -38,5 +38,10 @@ namespace OpenTransSharp
         {
             return (T)serializer.Deserialize(value);
         }
+
+        public static T Deserialize<T>(this XmlSerializer serializer, Stream stream)
+        {
+            return (T)serializer.Deserialize(stream);
+        }
     }
 }

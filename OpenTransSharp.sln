@@ -50,6 +50,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Microsoft.Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Microsoft.AspNetCore", "OpenTransSharp.Microsoft.AspNetCore\OpenTransSharp.Microsoft.AspNetCore.csproj", "{75A23855-9351-4301-9849-AD55F35118D9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{CE93CE31-A3B1-4F6C-BF61-ED3E7221F611}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.Samples.AspNetCore", "OpenTransSharp.Samples.AspNetCore\OpenTransSharp.Samples.AspNetCore.csproj", "{FA900190-37AE-4A7B-8031-F011065C26F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +76,10 @@ Global
 		{75A23855-9351-4301-9849-AD55F35118D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75A23855-9351-4301-9849-AD55F35118D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75A23855-9351-4301-9849-AD55F35118D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA900190-37AE-4A7B-8031-F011065C26F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA900190-37AE-4A7B-8031-F011065C26F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA900190-37AE-4A7B-8031-F011065C26F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA900190-37AE-4A7B-8031-F011065C26F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +87,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2C009E74-5514-4EDF-BF1B-5E8BFD279B3C} = {EE89FD38-12E2-430A-B5BF-819AC29B9ED6}
 		{18FAC5AD-EC02-4A9F-AA3B-915FCD777A90} = {EE89FD38-12E2-430A-B5BF-819AC29B9ED6}
+		{FA900190-37AE-4A7B-8031-F011065C26F8} = {CE93CE31-A3B1-4F6C-BF61-ED3E7221F611}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {931C047F-C277-410A-8351-D9A71F7B58C7}

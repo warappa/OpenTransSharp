@@ -15,9 +15,9 @@ namespace OpenTransSharp
         {
             try
             {
-                Validate(model, serializer);
+                var result = Validate(model, serializer);
 
-                return true;
+                return result.IsValid;
             }
             catch
             {
@@ -25,7 +25,7 @@ namespace OpenTransSharp
             }
         }
 
-        private static void Validate(IValidatable model, XmlSerializer serializer)
+        public static ValidationResult Validate(this IValidatable model, XmlSerializer serializer)
         {
             var validationErrors = new List<string>();
             var schemaSet = new XmlSchemaSet
@@ -62,11 +62,14 @@ namespace OpenTransSharp
             });
 
             if (!isValid)
-            {
-                var messages = string.Join(Environment.NewLine, validationErrors);
-                Debug.WriteLine(messages);
-                throw new InvalidDataException($"Invalid OpenTrans/BMEcat document:{Environment.NewLine}{messages}");
+            {   
+                return new ValidationResult
+                {
+                    Errors = validationErrors.ToArray()
+                };
             }
+
+            return new ValidationResult();
         }
     }
 }

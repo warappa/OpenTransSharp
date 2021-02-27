@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OpenTransSharp.Microsoft.Extensions.DependencyInjection\OpenTransSharp.Microsoft.Extensions.DependencyInjection.csproj" />
     <ProjectReference Include="..\OpenTransSharp\OpenTransSharp.csproj" />
   </ItemGroup>
 

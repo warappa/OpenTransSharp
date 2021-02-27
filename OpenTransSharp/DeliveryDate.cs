@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Specifies the delivery date.
         /// </summary>
-        [MaxLength(20)]
         [XmlAttribute("type")]
         public DeliveryDateType Type { get; set; } = DeliveryDateType.Fixed;
         [EditorBrowsable(EditorBrowsableState.Never)]

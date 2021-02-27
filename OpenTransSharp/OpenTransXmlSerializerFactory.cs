@@ -93,9 +93,9 @@ namespace OpenTransSharp
 
             ConfigureUdx<BMEcatHeader>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
 
-            if (options.Serialization.ConfigureOverrides is not null)
+            if (options.Serialization.ConfigureXmlAttributeOverrides is not null)
             {
-                options.Serialization.ConfigureOverrides(overrides);
+                options.Serialization.ConfigureXmlAttributeOverrides(overrides);
             }
 
             return new XmlSerializer(type, overrides);
