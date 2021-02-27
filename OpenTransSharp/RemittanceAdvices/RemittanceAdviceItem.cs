@@ -50,8 +50,11 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
         [Required]
-        [XmlElement("RA_INVOICE_LIST")]
-        public RaInvoiceList RaInvoiceList { get; set; }
+        [XmlArray("RA_INVOICE_LIST")]
+        [XmlArrayItem("RA_INVOICE_LIST_ITEM")]
+        public List<RaInvoiceListItem> RaInvoiceList { get; set; } = new List<RaInvoiceListItem>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool RaInvoiceListSpecified => RaInvoiceList?.Count > 0;
 
         /// <summary>
         /// (optional) Number of item lines<br/>

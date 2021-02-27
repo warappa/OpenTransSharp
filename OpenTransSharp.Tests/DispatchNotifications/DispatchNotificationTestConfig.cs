@@ -44,7 +44,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.OrderReference = parent.GetOrderReference();
             model.ShipmentPartiesReference = new ShipmentPartiesReference
             {
-                DeliveryIdref = parent.GetDeliveryRef()
+                DeliveryIdref = parent.GetDeliveryIdref()
             };
             model.Remarks = parent.GetRemarks();
 
@@ -124,7 +124,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.BuyerIdref = parent.GetBuyerIdref();
             model.ShipmentPartiesReference = new ShipmentPartiesReference
             {
-                DeliveryIdref = parent.GetDeliveryRef()
+                DeliveryIdref = parent.GetDeliveryIdref()
             };
             model.Remarks = new List<Remark>
             {

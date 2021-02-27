@@ -31,6 +31,35 @@ namespace OpenTransSharp.Tests
             BMEcats = new BMEcatTestConfig(this);
         }
 
+        public DeliveryReference GetDeliveryReference()
+        {
+            return new DeliveryReference
+            {
+                DeliveryIdref = GetDeliveryIdRef()
+            };
+        }
+
+        public SpecialTreatmentClass GetSpecialTreatmentClass()
+        {
+            return new SpecialTreatmentClass("Attention", "GGVS");
+        }
+
+        public Transport GetTransport()
+        {
+            var model = new Transport
+            {
+                Incoterm = "EXW",
+                Location = "Warehouse"
+            };
+            model.TransportRemarks.AddRange(new[]
+            {
+                new MultiLingualString("Zerbrechlich", LanguageCodes.deu),
+                new MultiLingualString("fragile", LanguageCodes.eng)
+            });
+
+            return model;
+        }
+
         public ProductPriceFix GetProductPriceFix()
         {
             var model = new ProductPriceFix
@@ -78,7 +107,35 @@ namespace OpenTransSharp.Tests
             };
         }
 
+        public RemitteeIdref GetRemitteeIdRef()
+        {
+            return new RemitteeIdref("Supplier", PartyTypeValues.PartySpecific);
+        }
+
+        public PayerIdref GetPayerIdRef()
+        {
+            return new PayerIdref("Buyer", PartyTypeValues.PartySpecific);
+        }
+
+        public ShipmentPartiesReference GetShipmentPartiesReference()
+        {
+            return new ShipmentPartiesReference
+            {
+                DeliveryIdref = GetDeliveryIdRef()
+            };
+        }
+
         public OrderResponseTestConfig OrderResponses { get; }
+
+        public OrderPartiesReference GetOrderPartiesReference()
+        {
+            return new OrderPartiesReference
+            {
+                BuyerIdref = GetBuyerIdref(),
+                SupplierIdref = GetSupplierIdRef()
+            };
+        }
+
         public DispatchNotificationTestConfig DispatchNotifications { get; }
         public ReceiptAcknowledgementTestConfig ReceiptAcknowledgements { get; }
 
@@ -122,7 +179,7 @@ namespace OpenTransSharp.Tests
             var model = new DocexchangePartiesReference
             {
                 DocumentIssuerIdref = GetDocumentIssuerIdRef(),
-                
+
             };
             model.DocumentRecipientIdrefs.Add(GetDocumentRecipientIdRef());
 
@@ -150,6 +207,15 @@ namespace OpenTransSharp.Tests
             model.AllowOrChargeList.Add(GetAllowOrCharge());
 
             return model;
+        }
+
+        public List<Party> GetParties()
+        {
+            return new List<Party>
+            {
+                GetBuyerParty(),
+                GetSupplierParty()
+            };
         }
 
         public TotalTax GetTotalTax()
@@ -217,7 +283,7 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public DeliveryIdref GetDeliveryRef()
+        public DeliveryIdref GetDeliveryIdref()
         {
             return new DeliveryIdref("Buyer", PartyTypeValues.PartySpecific);
         }
