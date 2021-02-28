@@ -106,7 +106,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_DEFINITIONS")]
-        public IppDefinitions? IppDefinitions { get; set; }
+        public List<IppDefinition>? IppDefinitions { get; set; } = new List<IppDefinition>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool IppDefinitionsSpecified => IppDefinitions?.Count > 0;
 
         /// <summary>
         /// (optional - choice Product/Article) Product<br/>

@@ -1,0 +1,61 @@
+﻿using System;
+using System.ComponentModel;
+using System.Xml;
+using System.Xml.Serialization;
+
+namespace OpenTransSharp
+{
+    /// <summary>
+    /// (IPP return)<br/>
+    /// <br/>
+    /// This element contains information about the exchange format used for the IPP return and the exchanged parameter.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
+    /// </summary>
+    public class IppInbound
+    {
+        /// <summary>
+        /// (required) Exchange format<br/>
+        /// <br/>
+        /// Exchange format used for implementing the IPP operation, e.g., OCI 4.0 (Open Catalog Interface).<br/>
+        /// <br/>
+        /// <see cref="IppInboundFormatValues"/>
+        /// </summary>
+        [BMEXmlElement("IPP_INBOUND_FORMAT")]
+        public string IppInboundFormat { get; set; }
+
+        /// <summary>
+        /// (optional) IPP output parameters<br/>
+        /// <br/>
+        /// List of output parameters and their allowed values of the IPP application.
+        /// </summary>
+        [BMEXmlElement("IPP_INBOUND_PARAMS")]
+        public IppInboundParams? IppInboundParams { get; set; }
+
+        /// <summary>
+        /// (optional) Response time<br/>
+        /// <br/>
+        /// Guaranteed response time of the IPP application.<br/>
+        /// If no response is received after this time beginning with the IPP initiation, the transaction has failed.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [XmlIgnore]
+        public TimeSpan? IppResponseTime { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlElement(ElementName = "IPP_RESPONSE_TIME", DataType = "duration")]
+        public string? IppResponseTimeXmlFormatted
+        {
+            get
+            {
+                return IppResponseTime is null ? null : XmlConvert.ToString(IppResponseTime.Value);
+            }
+            set
+            {
+                IppResponseTime = string.IsNullOrEmpty(value) ?
+                    null : XmlConvert.ToTimeSpan(value);
+            }
+        }
+    }
+}

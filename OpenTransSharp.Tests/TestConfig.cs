@@ -201,6 +201,11 @@ namespace OpenTransSharp.Tests
             return model;
         }
 
+        public Authentification GetAuthentification()
+        {
+            return new Authentification("login", "password");
+        }
+
         public AllowOrChargesFix GetAllowOrChargesFix()
         {
             var model = new AllowOrChargesFix();

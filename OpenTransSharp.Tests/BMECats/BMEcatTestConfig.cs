@@ -20,7 +20,6 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Header = GetHeader();
             model.NewCatalog = GetNewCatalog();
 
-
             return model;
         }
 
@@ -87,6 +86,84 @@ namespace OpenTransSharp.Tests.BMEcats
         private Formula GetFormula()
         {
             var model = new Formula();
+            model.FormulaId = "Formula id";
+            model.FormulaVersion = GetFormulaVersion();
+            model.FormulaName = new MultiLingualString("Formula name", LanguageCodes.eng);
+            model.FormulaDescription = new MultiLingualString("Formula description", LanguageCodes.eng);
+            model.FormulaSource = GetFormulaSource();
+            model.MimeInfo = parent.GetBMEcatMimeInfo();
+            model.FormulaFunction = GetFormulaFunction();
+            model.ParameterDefinitions.Add(GetParameterDefinintion());
+
+            return model;
+        }
+
+        private ParameterDefinition GetParameterDefinintion()
+        {
+            var model = new ParameterDefinition();
+            model.ParameterSymbol = "$";
+            model.ParameterBasics = GetParameterBasics();
+            model.ParameterOrigin = GetParameterOrigin();
+            model.ParameterDefaultValue = "false";
+            model.ParameterMeaning = ParameterMeaning.AllowOrCharge;
+            model.ParameterOrder = 1;
+
+            return model;
+        }
+
+        private ParameterOrigin GetParameterOrigin()
+        {
+            return new ParameterOrigin("Formula id", ParameterOriginType.Formula);
+        }
+
+        private ParameterBasics GetParameterBasics()
+        {
+            var model = new ParameterBasics();
+            model.ParameterName = new MultiLingualString("Parameter name", LanguageCodes.eng);
+            model.ParameterDescription = new MultiLingualString("Parameter description", LanguageCodes.eng);
+            model.ParameterUnit = new MultiLingualString("Parameter unit", LanguageCodes.eng);
+
+            return model;
+        }
+
+        private FormulaFunction GetFormulaFunction()
+        {
+            var model = new FormulaFunction();
+            model.Terms.Add(GetTerm());
+
+            return model;
+        }
+
+        private Term GetTerm()
+        {
+            var model = new Term();
+            model.Type = TermType.Constraint;
+            model.Id = "Term id";
+            model.Condition = "$ > 5";
+            model.Expression = "true";
+
+            return model;
+        }
+
+        private FormulaSource GetFormulaSource()
+        {
+            var model = new FormulaSource();
+            model.SourceName = new MultiLingualString("Source name", LanguageCodes.eng);
+            model.SourceUri = "https://fake-uri/";
+            model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
+
+            return model;
+        }
+
+        private FormulaVersion GetFormulaVersion()
+        {
+            var model = new FormulaVersion();
+            model.Version = new Version(2, 1);
+            model.VersionDate = DateTime.UtcNow;
+            model.Revision = "2";
+            model.RevisionDate = DateTime.UtcNow.AddDays(-1);
+            model.OriginalDate = DateTime.UtcNow.AddDays(-2);
+
             return model;
         }
 
@@ -150,8 +227,159 @@ namespace OpenTransSharp.Tests.BMEcats
 
             model.Products.Add(GetProduct());
             model.ClassificationSystem.Add(GetClassificationSystem());
+            model.IppDefinitions.Add(GetIppDefinition());
+            model.Formulas.Add(GetFormula());
             
             return model;
+        }
+
+        private IppDefinition GetIppDefinition()
+        {
+            var model = new IppDefinition();
+            model.IppId = "Ipp id";
+            model.IppType = IppType.ProductRequest;
+            model.IppOperatorIdref = GetIppOperatorIdref();
+            model.IppDescription = new MultiLingualString("Ipp description", LanguageCodes.eng);
+            model.IppOperations.Add(GetIppOperation());
+
+            return model;
+        }
+
+        private IppOperation GetIppOperation()
+        {
+            var model = new IppOperation();
+            model.IppOperationId = "Ipp operation id";
+            model.IppOperationType = IppOperationType.Show;
+            model.IppOperationDescription = new MultiLingualString("Ipp operation description");
+            model.IppOutbounds.Add(GetIppOutbound());
+            model.IppInbounds.Add(GetIppInbound());
+            
+            return model;
+        }
+
+        private IppInbound GetIppInbound()
+        {
+            var model = new IppInbound();
+            model.IppInboundFormat = IppInboundFormatValues.Mail;
+            model.IppInboundParams = GetIppInboundParams();
+            model.IppResponseTime = TimeSpan.FromMinutes(1);
+
+            return model;
+        }
+
+        private IppInboundParams GetIppInboundParams()
+        {
+            var model = new IppInboundParams();
+            model.IppParamDefinitions.Add(GetIppParamDefinition());
+
+            return model;
+        }
+
+        private IppOutbound GetIppOutbound()
+        {
+            var model = new IppOutbound();
+            model.IppOutboundFormat = IppOutboundFormatValues.BMEcat2005;
+            model.IppOutboundParams = GetIppOutboundParams();
+            model.IppUris.Add("https://someuri/");
+
+            return model;
+        }
+
+        private IppOutboundParams GetIppOutboundParams()
+        {
+            var model = new IppOutboundParams();
+            model.IppLanguages = GetIppLanguages();
+            model.IppTerritories = GetIppTerritories();
+            model.IppPriceCurrencies = GetIppPriceCurrencies();
+            model.IppPriceTypes = GetIppPriceTypes();
+            model.IppSupplierPid = GetIppSupplierPid();
+            model.IppProductconfigIdref = GetIppProductconfigIdref();
+            model.IppProductlistIdref = GetIppProductlistIdref();
+            model.IppUserInfo = GetIppUserInfo();
+            model.IppAuthentificationInfo = GetIppAuthentificationInfo();
+            model.IppParamDefinitions.Add(GetIppParamDefinition());
+
+            return model;
+        }
+
+        private IppParamDefinition GetIppParamDefinition()
+        {
+            var model = new IppParamDefinition();
+            model.Occurrence = IppOccurrence.Mandatory;
+            model.IppParamName = "Param name";
+            model.IppParamDescription = new MultiLingualString("Ipp param description");
+
+            return model;
+        }
+
+        private IppAuthentificationInfo GetIppAuthentificationInfo()
+        {
+            var model = new IppAuthentificationInfo();
+            model.Occurrence = IppOccurrence.Optional;
+            model.Authentifications.Add(parent.GetAuthentification());
+
+            return model;
+        }
+
+        private IppUserInfo GetIppUserInfo()
+        {
+            return new IppUserInfo("User info", IppOccurrence.Optional);
+        }
+
+        private IppProductlistIdref GetIppProductlistIdref()
+        {
+            return new IppProductlistIdref("Product list id", IppOccurrence.Optional);
+        }
+
+        private IppProductconfigIdref GetIppProductconfigIdref()
+        {
+            return new IppProductconfigIdref("Product configuration id", IppOccurrence.Optional);
+        }
+
+        private IppSupplierPid GetIppSupplierPid()
+        {
+            return new IppSupplierPid("Supplier pid", IppOccurrence.Optional);
+        }
+
+        private IppPriceTypes GetIppPriceTypes()
+        {
+            var model = new IppPriceTypes();
+            model.Occurrence = IppOccurrence.Optional;
+            model.PriceTypes.Add(ProductPriceValues.NetCustomer);
+
+            return model;
+        }
+
+        private IppPriceCurrencies GetIppPriceCurrencies()
+        {
+            var model = new IppPriceCurrencies();
+            model.Occurrence = IppOccurrence.Mandatory;
+            model.PriceCurrencies.Add("EUR");
+
+            return model;
+        }
+
+        private IppTerritories GetIppTerritories()
+        {
+            var model = new IppTerritories();
+            model.Occurrence = IppOccurrence.Optional;
+            model.Territories.Add(CountryCode.AT);
+
+            return model;
+        }
+
+        private IppLanguages GetIppLanguages()
+        {
+            var model = new IppLanguages();
+            model.Occurrence = IppOccurrence.Optional;
+            model.Languages.Add(new Language(LanguageCodes.eng));
+
+            return model;
+        }
+
+        private IppOperatorIdref GetIppOperatorIdref()
+        {
+            return new IppOperatorIdref("Ipp operator id", PartyTypeValues.PartySpecific);
         }
 
         private ClassificationSystem GetClassificationSystem()
