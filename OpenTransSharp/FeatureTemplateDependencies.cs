@@ -21,6 +21,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_IDREF")]
-        public List<string> FeatureTemplateIdref { get; set; } = new List<string>();
+        public List<string> FeatureTemplateIdrefs { get; set; } = new List<string>();
     }
 }

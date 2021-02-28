@@ -412,6 +412,12 @@ namespace OpenTransSharp.Tests
             };
         }
 
+        public InternationalPid GetInternationalPid()
+        {
+            var model = new InternationalPid("1234", "Organization");
+            return model;
+        }
+
         public DocumentRecipientIdref GetDocumentRecipientIdRef()
         {
             return new DocumentRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
@@ -429,6 +435,56 @@ namespace OpenTransSharp.Tests
             model.DeliveryStartDate = DateTime.UtcNow.AddDays(2);
             model.DeliveryEndDate = model.DeliveryStartDate.AddDays(3);
             model.Type = DeliveryDateType.Optional;
+
+            return model;
+        }
+
+        public ProductPriceDetails GetProductPriceDetails()
+        {
+            var model = new ProductPriceDetails();
+            model.ValidStartDate = DateTime.UtcNow;
+            model.ValidEndDate = DateTime.UtcNow.AddDays(1);
+            model.DailyPrice = false;
+            model.ProductPrices.Add(GetProductPrice());
+            return model;
+        }
+
+        public ProductPrice GetProductPrice()
+        {
+            var model = new ProductPrice();
+            model.PriceType = ProductPriceValues.NetCustomer;
+            model.PriceFormula = GetPriceFormula();
+            model.PriceCurrency = "EUR";
+            model.TaxDetails.Add(GetTaxDetails());
+            return model;
+        }
+
+        private TaxDetails GetTaxDetails()
+        {
+            var model = new TaxDetails();
+            model.CalculationSequence = 1;
+            model.TaxCategory = TaxCategoryValues.StandardRate;
+            model.TaxType = "vat";
+            model.Tax = 0.20m;
+            model.Jurisdiction = new MultiLingualString("Vienna", LanguageCodes.eng);
+
+            return model;
+        }
+
+        public PriceFormula GetPriceFormula()
+        {
+            var model = new PriceFormula();
+            model.FormulaIdref = "Formula id";
+            model.Parameters.Add(GetParameter());
+
+            return model;
+        }
+
+        public Parameter GetParameter()
+        {
+            var model = new Parameter();
+            model.ParameterSymbolRef = "$";
+            model.ParameterValue = "10";
 
             return model;
         }

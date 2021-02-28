@@ -43,7 +43,7 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string CatalogVersionString
         {
-            get => CatalogVersion.ToString(2);
+            get => CatalogVersion.ToString();
             set => CatalogVersion = value is null ? null : new Version(value);
         }
 

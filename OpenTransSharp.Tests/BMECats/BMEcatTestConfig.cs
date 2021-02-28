@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework.Constraints;
+using System;
 using System.Collections.Generic;
 
 namespace OpenTransSharp.Tests.BMEcats
@@ -149,7 +150,7 @@ namespace OpenTransSharp.Tests.BMEcats
 
             model.Products.Add(GetProduct());
             model.ClassificationSystem.Add(GetClassificationSystem());
-
+            
             return model;
         }
 
@@ -344,6 +345,122 @@ namespace OpenTransSharp.Tests.BMEcats
             model.ProductDetails = GetProductDetails();
             model.ProductOrderDetails = GetProductOrderDetails();
             model.ProductPriceDetails.Add(GetProductPriceDetails());
+            model.ProductConfigDetails = GetProductConfigDetails();
+
+            return model;
+        }
+
+        private ProductConfigDetails GetProductConfigDetails()
+        {
+            var model = new ProductConfigDetails();
+            model.ConfigurationSteps.Add(GetConfigurationStep());
+            model.PredefinedConfigurations = GetPredefinedConfigurations();
+            model.ConfigurationRules.Add(GetConfigurationRule());
+            model.ConfigurationFormulas.Add(GetConfigurationFormula());
+
+            return model;
+        }
+
+        private PredefinedConfigurations GetPredefinedConfigurations()
+        {
+            var model = new PredefinedConfigurations();
+            model.PredefinedConfigCoverage = PredefinedConfigCoverage.Partial;
+            model.Configurations.Add(GetPredefinedConfiguration());
+            return model;
+        }
+
+        private PredefinedConfiguration GetPredefinedConfiguration()
+        {
+            var model = new PredefinedConfiguration();
+            model.PredefinedConfigDescription = "-red";
+            model.PredefinedConfigName = new MultiLingualString("Predefined configuration");
+            model.PredefinedConfigDescription = new MultiLingualString("Predefined configuration description");
+            model.PredefinedConfigOrder = 1;
+            model.ProductPriceDetails = GetProductPriceDetails();
+            model.SupplierPid = parent.GetSupplierPid();
+            model.InternationalPids.Add(parent.GetInternationalPid());
+
+            return model;
+        }
+
+        private ConfigurationFormula GetConfigurationFormula()
+        {
+            var model = new ConfigurationFormula();
+            model.FormulaIdref = "Configuraton formula id";
+            model.Parameters.Add(parent.GetParameter());
+            return model;
+        }
+
+        private Term GetConfigurationRule()
+        {
+            var model = new Term();
+            model.Type = TermType.Constraint;
+            model.Id = "Rule id";
+            model.Condition = "$ < 5";
+            model.Expression = "true";
+
+            return model;
+        }
+
+        private ConfigurationStep GetConfigurationStep()
+        {
+            var model = new ConfigurationStep();
+            model.StepId = "Step id";
+            model.StepHeader = "This is a step";
+            model.StepDescriptionShort = new MultiLingualString("A short description", LanguageCodes.eng);
+            model.StepDescriptionLong = new MultiLingualString("A long description", LanguageCodes.eng);
+            model.StepOrder = 1;
+            model.StepInteractionType = StepInteractionType.ForceUserinput;
+            model.ConfigCode = "-red";
+            model.ProductPriceDetails = parent.GetProductPriceDetails();
+            model.ConfigurationFeature = GetConfigurationFeature();
+            model.MinimumOccurance = 1;
+            model.MaximumOccurance = 2;
+
+            return model;
+        }
+
+        private ConfigurationFeature GetConfigurationFeature()
+        {
+            var model = new ConfigurationFeature();
+            //model.FeatureReference = GetFeatureReference();
+            model.FeatureTemplate = GetFeatureTemplate();
+            model.MimeInfo = parent.GetBMEcatMimeInfo();
+
+            return model;
+        }
+
+        private FeatureTemplate GetFeatureTemplate()
+        {
+            var model = new FeatureTemplate();
+            model.FeatureTemplateId = "Feature id";
+            model.FeatureTemplateName = new MultiLingualString("Feature");
+            model.FeatureTemplateShortName = new MultiLingualString("Feature short");
+            model.FeatureTemplateDescription = new MultiLingualString("Feature description");
+            model.FeatureTemplateVersion = GetFeatureTemplateVersion();
+            model.FeatureTemplateGroupName = new MultiLingualString("Feature group");
+            model.FeatureContent = GetFeatureContent();
+
+            return model;
+        }
+
+        private FeatureTemplateVersion GetFeatureTemplateVersion()
+        {
+            var model = new FeatureTemplateVersion();
+            model.Version = new Version(2, 1);
+            model.VersionDate = DateTime.UtcNow;
+            model.Revision = "2";
+            model.RevisionDate = DateTime.UtcNow;
+            model.OriginalDate = DateTime.UtcNow.AddDays(-1);
+
+            return model;
+        }
+
+        private FeatureReference GetFeatureReference()
+        {
+            var model = new FeatureReference();
+            model.ReferenceFeatureSystemName = ReferenceFeatureSystemNameValues.EClass(new Version(4, 1));
+            model.FeatureIdref = "Feature id";
 
             return model;
         }
@@ -351,7 +468,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private ProductPriceDetails GetProductPriceDetails()
         {
             var model = new ProductPriceDetails();
-
+            model.ValidStartDate = DateTime.UtcNow;
+            model.DailyPrice = false;
             model.ProductPrices.Add(GetProductPrice());
 
             return model;
@@ -364,6 +482,29 @@ namespace OpenTransSharp.Tests.BMEcats
             model.PriceAmount = 5;
             model.PriceCurrency = "EUR";
             model.TaxDetails.Add(GetTaxDetails());
+            model.PriceFactor = 1;
+            model.LowerBound = 2;
+            model.AreaRefs.Add("Area ref");
+            model.PriceBase = GetPriceBase();
+            model.PriceFlags.Add(GetPriceFlag());
+
+            return model;
+        }
+
+        private PriceFlag GetPriceFlag()
+        {
+            var model = new PriceFlag();
+            model.Type = PriceFlagTypes.IncludingPacking;
+            model.Value = true;
+
+            return model;
+        }
+
+        private PriceBase GetPriceBase()
+        {
+            var model = new PriceBase();
+            model.PriceUnit = "C62";
+            model.PriceUnitFactor = 2;
 
             return model;
         }

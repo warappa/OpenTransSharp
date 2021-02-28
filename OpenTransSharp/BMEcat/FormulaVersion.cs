@@ -6,13 +6,11 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Version of the allowed value)<br/>
+    /// (Formula version)<br/>
     /// <br/>
-    /// This element contains detailled information on the version of the allowed value and its version history.<br/>
-    /// <br/>
-    /// XML-namespace: BMECAT
+    /// This element contains detailled information on the version of the formula.
     /// </summary>
-    public class AllowedValueVersion
+    public class FormulaVersion
     {
         /// <summary>
         /// (required) Version<br/>

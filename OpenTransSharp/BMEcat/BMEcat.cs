@@ -78,14 +78,6 @@ namespace OpenTransSharp
         public UpdatePrices? UpdatePrices { get; set; }
     }
 
-    public class Formula
-    {
-    }
-
-    public class ProductConfigDetails
-    {
-    }
-
     public class ProductIppDetails
     {
     }

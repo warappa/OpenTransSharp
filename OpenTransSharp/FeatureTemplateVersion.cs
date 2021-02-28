@@ -21,9 +21,13 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
+        [XmlIgnore]
+        public Version Version { get; set; }
+
         [BMEXmlElement("VERSION")]
-        public string Version { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }
+
 
         /// <summary>
         /// (optional) Version date<br/>

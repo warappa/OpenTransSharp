@@ -13,6 +13,22 @@ namespace OpenTransSharp
     /// </summary>
     public class InternationalPid
     {
+        public InternationalPid()
+        {
+
+        }
+
+        public InternationalPid(string value)
+        {
+            Value = value;
+        }
+
+        public InternationalPid(string value, string type)
+            : this(value)
+        {
+            Type = type;
+        }
+
         /// <summary>
         /// (optional)<br/>
         /// <br/>

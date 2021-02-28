@@ -35,9 +35,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_NAME")]
-        public List<MultiLingualString> FeatureTemplateNames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateNamesSpecified => FeatureTemplateNames?.Count > 0;
+        public MultiLingualString FeatureTemplateName { get; set; }
 
         /// <summary>
         /// (optional) Feature short name<br/>
@@ -47,9 +45,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SHORTNAME")]
-        public List<MultiLingualString>? FeatureTemplateShortNames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateShortNamesSpecified => FeatureTemplateShortNames?.Count > 0;
+        public MultiLingualString? FeatureTemplateShortName { get; set; }
 
         /// <summary>
         /// (optional) Feature description<br/>
@@ -61,9 +57,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_DESCR")]
-        public List<MultiLingualString>? FeatureTemplateDescriptions { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateDescriptionsSpecified => FeatureTemplateDescriptions?.Count > 0;
+        public MultiLingualString? FeatureTemplateDescription { get; set; }
 
         /// <summary>
         /// (optional) Version of the feature<br/>
@@ -94,9 +88,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_NAME")]
-        public List<MultiLingualString>? FeatureTemplateGroupNames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateGroupNamesSpecified => FeatureTemplateGroupNames?.Count > 0;
+        public MultiLingualString? FeatureTemplateGroupName { get; set; }
 
         /// <summary>
         /// (optional) Feature dependencies<br/>
