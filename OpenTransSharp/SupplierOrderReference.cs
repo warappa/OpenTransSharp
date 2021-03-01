@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 250
         /// </summary>
-        [Required]
         [XmlElement("SUPPLIER_ORDER_ID")]
         public string Id { get; set; }
 
@@ -30,7 +29,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [Required]
         [XmlElement("SUPPLIER_ORDER_ITEM_ID")]
         public string ItemId { get; set; }
     }

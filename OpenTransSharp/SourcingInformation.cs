@@ -18,8 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique quotation number allocated by the supplier.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("QUOTATION_ID")]
         public string? QuotationId { get; set; }
 

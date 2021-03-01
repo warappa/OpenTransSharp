@@ -31,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -40,7 +39,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("REMITTANCEADVICE_HEADER")]
         public RemittanceAdviceHeader Header { get; set; } = new RemittanceAdviceHeader();
 
@@ -49,7 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists all inoivce groups in a payment advice.
         /// </summary>
-        [Required]
         [XmlArray("REMITTANCEADVICE_ITEM_LIST")]
         [XmlArrayItem("REMITTANCEADVICE_ITEM")]
         public List<RemittanceAdviceItem> Items { get; set; } = new List<RemittanceAdviceItem>();
@@ -59,7 +56,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the payment advice information. Usually the information in this element is redundant.
         /// </summary>
-        [Required]
         [XmlElement("REMITTANCEADVICE_SUMMARY")]
         public RemittanceAdviceSummary Summary { get; set; } = new RemittanceAdviceSummary();
     }

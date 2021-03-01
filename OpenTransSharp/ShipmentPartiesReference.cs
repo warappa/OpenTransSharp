@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// Reference to the unique identifier of the final recipient (shipping address and contact).<br/>
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
-        [Required]
         [XmlElement("DELIVERY_IDREF")]
         public DeliveryIdref DeliveryIdref { get; set; }
 

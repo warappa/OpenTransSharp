@@ -43,7 +43,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MaxLength(3)]
         [BMEXmlElement("PACKING_UNIT_CODE")]
         public string PackingUnitCode { get; set; }
 

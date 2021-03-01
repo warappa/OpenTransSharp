@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_DATATYPE")]
         public FeatureDataTypeValues DataType { get; set; } = new FeatureDataTypeValues();
 

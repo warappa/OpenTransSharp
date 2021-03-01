@@ -45,7 +45,6 @@ namespace OpenTransSharp
         /// <br/>
         /// See <see cref="ProductStatusType"/>.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public ProductStatusType Type { get; set; }
 
@@ -54,7 +53,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 20
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

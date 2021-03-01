@@ -25,8 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MaxLength(3)]
-        [Required]
         [BMEXmlElement("ORDER_UNIT")]
         public string OrderUnit { get; set; }
 
@@ -37,8 +35,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MaxLength(3)]
-        [Required]
         [BMEXmlElement("CONTENT_UNIT")]
         public string ContentUnit { get; set; }
 

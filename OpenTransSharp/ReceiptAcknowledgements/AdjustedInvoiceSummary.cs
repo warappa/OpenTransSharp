@@ -15,7 +15,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Total amout of all items in this invoice excluding taxes.
         /// </summary>
-        [Required]
         [XmlElement("NET_VALUE_GOODS")]
         public decimal NetValueGoods { get; set; }
 

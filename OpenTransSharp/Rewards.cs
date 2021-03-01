@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The rewards points earned with (some of) the transactions of the document.
         /// </summary>
-        [Required]
         [XmlElement("REWARDS_POINTS")]
         public decimal Points { get; set; }
 
@@ -35,7 +34,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Name of the rewards system, e.g. frequent flyer program.
         /// </summary>
-        [Required]
         [XmlElement("REWARDS_SYSTEM")]
         public List<MultiLingualString>? System { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -46,7 +44,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Description of the rewards system.
         /// </summary>
-        [Required]
         [XmlElement("REWARDS_DESCR")]
         public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]

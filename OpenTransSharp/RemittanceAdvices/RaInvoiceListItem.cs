@@ -15,7 +15,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Information according to the invoice reference.<br/>
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_REFERENCE")]
         public InvoiceReference InvoiceReference { get; set; }
         /// <summary>
@@ -23,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the original invoice.<br/>
         /// </summary>
-        [Required]
         [XmlElement("ORIGINAL_INVOICE_SUMMARY")]
         public OriginalInvoiceSummary OriginalInvoiceSummary { get; set; }
 

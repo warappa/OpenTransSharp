@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("EMAIL")]
         public string EmailAddress { get; set; }
 

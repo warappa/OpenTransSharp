@@ -18,9 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique order number of the buyer.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("ORDER_ID")]
         public string Id { get; set; }
 
@@ -29,7 +26,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Date of confirmation of order receipt.
         /// </summary>
-        [Required]
         [XmlElement("ORDERRESPONSE_DATE")]
         public DateTime Date { get; set; }
 
@@ -58,8 +54,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique order number of the supplier.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("SUPPLIER_ORDER_ID")]
         public string? SupplierOrderId { get; set; }
 
@@ -114,7 +108,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of parties that are relevant to this business document.
         /// </summary>
-        [Required]
         [XmlArray("PARTIES")]
         [XmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
@@ -124,7 +117,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Reference to the business partners integrated in the process of the document flow.
         /// </summary>
-        [Required]
         [XmlElement("ORDER_PARTIES_REFERENCE")]
         public OrderPartiesReference OrderPartiesReference { get; set; } = new OrderPartiesReference();
 
@@ -146,8 +138,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MinLength(3)]
-        [MaxLength(3)]
         [BMEXmlElement("CURRENCY")]
         public string Currency { get; set; }
 

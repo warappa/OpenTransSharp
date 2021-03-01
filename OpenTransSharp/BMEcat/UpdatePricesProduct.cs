@@ -74,7 +74,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_PID")]
         public SupplierPid SupplierPid { get; set; }
 
@@ -98,7 +97,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PRODUCT_PRICE_DETAILS")]
         public List<ProductPriceDetails> PriceDetails { get; set; } = new List<ProductPriceDetails>();
 

@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// Reference to a unique identifier to the organization that verified the signature.<br/>
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
-        [Required]
         [XmlElement("VERIFICATION_PARTY_IDREF")]
         public VerificationPartyIdRef PartyIdRef { get; set; }
 
@@ -27,7 +26,6 @@ namespace OpenTransSharp
         /// The element summarizes the result of the signature verification.<br/>
         /// A successful verification evaluates to 'true' otherwise to 'false'.
         /// </summary>
-        [Required]
         [XmlElement("VERIFICATION_SUCCESS")]
         public bool Success { get; set; }
 
@@ -36,7 +34,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Report related to the verification of a signature.
         /// </summary>
-        [Required]
         [XmlElement("VERIFICATION_REPORT")]
         public VerificationReport Report { get; set; }
     }

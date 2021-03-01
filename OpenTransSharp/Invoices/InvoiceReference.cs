@@ -33,9 +33,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique invoice number of the supplier.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("INVOICE_ID")]
         public string Id { get; set; }
 

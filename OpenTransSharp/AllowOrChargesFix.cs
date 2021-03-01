@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Description of a fixed surcharge or allowance. Please notice the usage-advice at ALLOW_OR_CHARGE.
         /// </summary>
-        [Required]
         [XmlElement("ALLOW_OR_CHARGE")]
         public List<AllowOrCharge> List { get; set; } = new List<AllowOrCharge>();
 

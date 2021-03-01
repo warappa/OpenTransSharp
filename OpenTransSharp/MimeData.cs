@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// base64 encoded.
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
 

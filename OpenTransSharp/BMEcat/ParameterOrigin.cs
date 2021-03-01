@@ -41,7 +41,6 @@ namespace OpenTransSharp
         /// <br/>
         /// regex: .{1.6000}
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

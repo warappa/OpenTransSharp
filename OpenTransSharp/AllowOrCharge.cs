@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Indicates if the element is about an allowance or a surcharge.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public AllowOrChargeType Type { get; set; } = OpenTransSharp.AllowOrChargeType.Surcharge;
 

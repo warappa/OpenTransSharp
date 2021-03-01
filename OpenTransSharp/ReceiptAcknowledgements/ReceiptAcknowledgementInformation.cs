@@ -18,9 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique receipt acknowledgement number of the buyer.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("RECEIPTACKNOWLEDGEMENT_ID")]
         public string Id { get; set; }
 
@@ -40,7 +37,6 @@ namespace OpenTransSharp
         /// Dates the commissioned goods are received by the buyer.<br/>
         /// If the receipt date deviates from the one specified on the header, the delivery date on itemlevel applies.
         /// </summary>
-        [Required]
         [XmlElement("RECEIPT_DATE")]
         public DateTime ReceiptDate { get; set; }
 
@@ -73,7 +69,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of parties that are relevant to this business document.
         /// </summary>
-        [Required]
         [XmlArray("PARTIES")]
         [XmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
@@ -105,7 +100,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Refers to business partners integrated in the process of the goods delivery procedure.
         /// </summary>
-        [Required]
         [XmlElement("SHIPMENT_PARTIES_REFERENCE")]
         public ShipmentPartiesReference ShipmentPartiesReference { get; set; }
 

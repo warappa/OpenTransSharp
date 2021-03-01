@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PARTY_ID")]
         public List<PartyId> Ids { get; set; } = new List<PartyId>();
 

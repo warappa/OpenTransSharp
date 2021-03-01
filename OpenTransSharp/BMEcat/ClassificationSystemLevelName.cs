@@ -28,7 +28,6 @@ namespace OpenTransSharp
         /// The hierarchy levels are sorted according to their order by this attribute.<br/>
         /// The highest level starts with level number 1.
         /// </summary>
-        [Required]
         [XmlAttribute("level")]
         public int Level { get; set; }
 
@@ -37,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 80
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

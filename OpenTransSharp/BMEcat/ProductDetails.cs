@@ -25,7 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Abbreviations of essential product characteristics should be avoided (e.g., bw for black and white). However, abbreviations of organisations and standards can be used (e.g., ISO, VDE).
         /// </summary>
-        [Required]
         [BMEXmlElement("DESCRIPTION_SHORT")]
         public MultiLingualString DescriptionShort { get; set; }
 

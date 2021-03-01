@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_IDREF")]
         public List<string> Idrefs { get; set; } = new List<string>();
     }

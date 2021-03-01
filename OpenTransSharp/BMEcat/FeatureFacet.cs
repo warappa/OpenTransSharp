@@ -28,7 +28,6 @@ namespace OpenTransSharp
         /// <br/>
         /// This attribute contains the type of the restriction.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public FeatureFacetType Type { get; set; }
 
@@ -37,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 20
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

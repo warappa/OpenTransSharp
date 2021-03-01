@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("INCOTERM")]
         public string Incoterm { get; set; }
 

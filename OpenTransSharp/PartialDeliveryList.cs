@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Information to a partial shipment.
         /// </summary>
-        [Required]
         [XmlElement("PARTIAL_DELIVERY")]
         public List<PartialDelivery> PartialDeliveries { get; set; } = new List<PartialDelivery>();
     }

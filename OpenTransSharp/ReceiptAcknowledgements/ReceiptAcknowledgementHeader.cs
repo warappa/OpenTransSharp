@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Information on the business partners and for identification of the business document.
         /// </summary>
-        [Required]
         [XmlElement("RECEIPTACKNOWLEDGEMENT_INFO")]
         public ReceiptAcknowledgementInformation Information { get; set; } = new ReceiptAcknowledgementInformation();
     }

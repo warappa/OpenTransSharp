@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("COST_CATEGORY_ID")]
         public CostCategoryId? CostCategoryId { get; set; }
 
@@ -32,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("COST_TYPE")]
         public string? CostType { get; set; }
 
@@ -43,7 +41,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("COST_ACCOUNT")]
         public string? CostAccount { get; set; }
     }

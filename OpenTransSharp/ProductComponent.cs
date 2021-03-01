@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [XmlElement("PRODUCT_ID")]
         public ProductId ProductId { get; set; }
 
@@ -48,7 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Quantity.
         /// </summary>
-        [Required]
         [XmlElement("QUANTITY")]
         public decimal Quantity { get; set; }
 
@@ -64,7 +62,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("ORDER_UNIT")]
         public string OrderUnit { get; set; }
 

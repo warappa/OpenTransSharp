@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SYNONYM")]
         public List<MultiLingualString> Synonyms { get; set; } = new List<MultiLingualString>();
     }

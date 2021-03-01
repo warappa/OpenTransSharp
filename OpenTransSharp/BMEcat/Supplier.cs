@@ -37,7 +37,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
-        [Required]
         [BMEXmlElement("SUPPLIER_NAME")]
         public string Name { get; set; }
 

@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// General information related to this business document.
         /// </summary>
-        [Required]
         [XmlElement("REMITTANCEADVICE_INFO")]
         public RemittanceAdviceInformation Information { get; set; } = new RemittanceAdviceInformation();
     }

@@ -58,7 +58,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Definition of a price for the product.
         /// </summary>
-        [Required]
         [BMEXmlElement("PRODUCT_PRICE")]
         public List<ProductPrice> ProductPrices { get; set; } = new List<ProductPrice>();
     }

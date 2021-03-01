@@ -40,7 +40,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PROD_ID")]
         public string ProductId { get; set; }
 
@@ -63,7 +62,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CATALOG_GROUP_ID")]
         public string CatalogGroupId { get; set; }
 
@@ -76,7 +74,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PRODUCT_TO_CATALOGGROUP_MAP_ORDER")]
         public int? ProductToCataloggroupMapOrder { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

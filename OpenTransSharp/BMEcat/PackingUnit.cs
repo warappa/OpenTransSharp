@@ -23,7 +23,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("QUANTITY_MIN")]
         public decimal? MinimumQuantity { get; set; } = 1;
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -36,7 +35,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("QUANTITY_MAX")]
         public decimal? MaximumQuantity { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -49,8 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
-        [MaxLength(3)]
         [BMEXmlElement("PACKING_UNIT_CODE")]
         public string Code { get; set; }
 
@@ -82,7 +78,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_PID")]
         public SupplierPid SupplierPid { get; set; }
 
@@ -95,7 +90,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_PIDREF")]
         public string? SupplierPIdref { get; set; }
 

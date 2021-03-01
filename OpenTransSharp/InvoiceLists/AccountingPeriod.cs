@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique timestamp for the date where the accounting period begins.<br/>
         /// </summary>
-        [Required]
         [XmlElement("ACCOUNTING_PERIOD_START_DATE")]
         public DateTime StartDate { get; set; }
 
@@ -26,7 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique timestamp for the date where the accounting period ends.<br/>
         /// </summary>
-        [Required]
         [XmlElement("ACCOUNTING_PERIOD_END_DATE")]
         public DateTime EndDate { get; set; }
     }

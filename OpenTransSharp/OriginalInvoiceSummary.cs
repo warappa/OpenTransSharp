@@ -15,7 +15,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Total amout of all items in this invoice excluding taxes.
         /// </summary>
-        [Required]
         [XmlElement("NET_VALUE_GOODS")]
         public decimal NetValueGoods { get; set; }
 
@@ -24,7 +23,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of the tax amount.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_TAX")]
         public TotalTax TotalTax { get; set; }
 
@@ -38,7 +36,6 @@ namespace OpenTransSharp
         /// Gross price including surcharges, deductions and all taxes.<br/>
         /// Where no price per item can be given as the item level (e.g.bills of materials where explosion is not possible), the total price can be entered here.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_AMOUNT")]
         public decimal TotalAmount { get; set; }
     }

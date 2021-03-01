@@ -31,7 +31,6 @@ namespace OpenTransSharp
         /// <summary>
         /// (required)
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

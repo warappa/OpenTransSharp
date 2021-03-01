@@ -16,7 +16,6 @@ namespace OpenTransSharp
         /// Contains the total number of item lines in the business document.<br/>
         /// The information is redundant and is for the purposes of statistical evaluation (e.g. by an intermediary) if appropriate.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_ITEM_NUM")]
         public int TotalItemCount { get; set; }
     }

@@ -18,9 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique dispatch notification number of the supplier.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("DISPATCHNOTIFICATION_ID")]
         public string Id { get; set; }
 
@@ -73,7 +70,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of parties that are relevant to this business document.
         /// </summary>
-        [Required]
         [XmlArray("PARTIES")]
         [XmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
@@ -86,7 +82,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_IDREF")]
         public SupplierIdref SupplierIdref { get; set; }
 
@@ -106,7 +101,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Refers to business partners integrated in the process of the goods delivery procedure.
         /// </summary>
-        [Required]
         [XmlElement("SHIPMENT_PARTIES_REFERENCE")]
         public ShipmentPartiesReference ShipmentPartiesReference { get; set; }
 

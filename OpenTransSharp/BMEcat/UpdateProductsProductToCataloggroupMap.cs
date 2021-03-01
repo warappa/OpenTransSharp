@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [Obsolete("This element will not be used in the future")]
-        [Required]
         [BMEXmlElement("PROD_ID")]
         public string ProductId { get; set; }
 
@@ -61,7 +60,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [Obsolete("This element will not be used in the future")]
-        [Required]
         [BMEXmlElement("CATALOG_GROUP_ID")]
         public string CatalogGroupId { get; set; }
 

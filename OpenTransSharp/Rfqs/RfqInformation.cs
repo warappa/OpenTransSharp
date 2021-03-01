@@ -21,9 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique number for the request for quotation from the buyer.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("RFQ_ID")]
         public string Id { get; set; }
 
@@ -32,7 +29,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Date of the request for quotation.
         /// </summary>
-        [Required]
         [XmlElement("RFQ_DATE")]
         public DateTime Date { get; set; }
 
@@ -77,7 +73,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of parties that are relevant to this business document.
         /// </summary>
-        [Required]
         [XmlArray("PARTIES")]
         [XmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
@@ -87,7 +82,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Reference to the business partners integrated in the process of the document flow.
         /// </summary>
-        [Required]
         [XmlElement("ORDER_PARTIES_REFERENCE")]
         public OrderPartiesReference OrderPartiesReference { get; set; } = new OrderPartiesReference();
 
@@ -127,9 +121,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
-        [MinLength(3)]
-        [MaxLength(3)]
         [BMEXmlElement("CURRENCY")]
         public string Currency { get; set; }
 
@@ -149,8 +140,6 @@ namespace OpenTransSharp
         /// <br/>
         /// General terms and conditions.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("TERMS_AND_CONDITIONS")]
         public string? TermsAndConditions { get; set; }
 

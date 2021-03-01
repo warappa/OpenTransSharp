@@ -52,7 +52,6 @@ namespace OpenTransSharp
         /// Some target systems are not able to accept all 32 characters (e.g., SAP max. 18 characters).<br/>
         /// It is therefore advisable to keep product identifications as short as possible.
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Total amount, net value and taxes of the revised invoice.<br/>
         /// </summary>
-        [Required]
         [XmlElement("ADJUSTED_INVOICE_SUMMARY")]
         public AdjustedInvoiceSummary AdjustedInvoiceSummary { get; set; }
 
@@ -36,7 +35,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Coded reason for the adjustment.<br/>
         /// </summary>
-        [Required]
         [XmlElement("ADJUSTMENT_REASON_CODE")]
         public string? ReasonCode { get; set; }
     }

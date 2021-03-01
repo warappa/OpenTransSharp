@@ -60,7 +60,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 64000
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

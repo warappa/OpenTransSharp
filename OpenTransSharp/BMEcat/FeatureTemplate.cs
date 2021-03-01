@@ -22,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_ID")]
         public string Id { get; set; }
 
@@ -33,7 +32,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_NAME")]
         public MultiLingualString Name { get; set; }
 

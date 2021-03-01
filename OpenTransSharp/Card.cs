@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The type of the card. See <see cref="CardTypeValues"/>.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public string Type { get; set; }
 
@@ -26,7 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Number of the credit or purchasing card.
         /// </summary>
-        [Required]
         [XmlElement("CARD_NUM")]
         public string Number { get; set; }
 
@@ -52,7 +50,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Expiration date Example: "2001-03" for 03/2001.
         /// </summary>
-        [Required]
         [XmlElement("CARD_EXPIRATION_DATE")]
         public DateTime? ExpirationDate { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -63,7 +60,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Name of the card holder the credit card has been issued to.
         /// </summary>
-        [Required]
         [XmlElement("CARD_HOLDER_NAME")]
         public string HolderName { get; set; }
     }

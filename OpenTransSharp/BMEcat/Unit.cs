@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("UNIT_ID")]
         public string UnitId { get; set; }
 

@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("LANGUAGE")]
         public List<Language> Languages { get; set; } = new List<Language>();
         [EditorBrowsable(EditorBrowsableState.Never)]

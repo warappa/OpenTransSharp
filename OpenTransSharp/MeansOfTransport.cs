@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public string? Type { get; set; }
 
@@ -32,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [Required]
         [BMEXmlElement("MEANS_OF_TRANSPORT_ID")]
         public string Id { get; set; }
 

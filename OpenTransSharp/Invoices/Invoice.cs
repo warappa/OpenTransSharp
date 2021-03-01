@@ -32,7 +32,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -41,7 +40,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level (e.g.date of delivery).
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_HEADER")]
         public InvoiceHeader Header { get; set; } = new InvoiceHeader();
 
@@ -50,7 +48,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists the individual positions of the invoice.
         /// </summary>
-        [Required]
         [XmlArray("INVOICE_ITEM_LIST")]
         [XmlArrayItem("INVOICE_ITEM")]
         public List<InvoiceItem> Items { get; set; } = new List<InvoiceItem>();
@@ -60,7 +57,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the invoice information. The information in this element is generally redundant.
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_SUMMARY")]
         public InvoiceSummary Summary { get; set; } = new InvoiceSummary();
     }

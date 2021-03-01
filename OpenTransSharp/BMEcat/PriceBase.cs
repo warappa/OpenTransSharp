@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PRICE_UNIT")]
         public string Unit { get; set; }
 

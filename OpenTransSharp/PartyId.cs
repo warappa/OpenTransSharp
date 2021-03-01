@@ -32,8 +32,6 @@ namespace OpenTransSharp
         /// The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.<br/>
         /// But custom values are also possible
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlAttribute("type")]
         public string? Type { get; set; }
 
@@ -42,9 +40,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 250
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
-        [Required]
         [XmlText]
         public string Value { get; set; }
 

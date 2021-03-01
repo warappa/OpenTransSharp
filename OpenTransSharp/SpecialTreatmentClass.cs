@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Short term for the special treatment regulation, e.g., GGVS (Hazardous Goods Order for Road Traffic).
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public string Type { get; set; }
 
@@ -45,7 +44,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 20
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

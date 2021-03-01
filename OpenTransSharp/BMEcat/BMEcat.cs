@@ -33,7 +33,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public BMEcatVersion Version { get; set; } = BMEcatVersion.v2005;
 
@@ -45,7 +44,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("HEADER")]
         public BMEcatHeader Header { get; set; } = new BMEcatHeader();
 

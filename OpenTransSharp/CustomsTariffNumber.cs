@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 60
         /// </summary>
-        [Required]
         [BMEXmlElement("CUSTOMS_NUMBER")]
         public string CustomsNumber { get; set; }
 

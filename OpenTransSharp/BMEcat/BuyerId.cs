@@ -57,7 +57,6 @@ namespace OpenTransSharp
         /// Max length: 250
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

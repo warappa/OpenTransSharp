@@ -22,7 +22,6 @@ namespace OpenTransSharp
         [XmlIgnore]
         public Version Version { get; set; }
 
-        [Required]
         [BMEXmlElement("VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }

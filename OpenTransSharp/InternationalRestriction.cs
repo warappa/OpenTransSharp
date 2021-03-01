@@ -34,7 +34,6 @@ namespace OpenTransSharp
         /// Specifies the type of international delivery restriction.
         /// See <see cref="InternationalRestrictionTypeValues"/>.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public string Type { get; set; }
 
@@ -43,7 +42,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 250
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Time where the payment is supposed to be done.
         /// </summary>
-        [Required]
         [XmlElement("PAYMENT_DATE")]
         public DateTime PaymentDate { get; set; }
 
@@ -29,7 +28,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Time designation by days.
         /// </summary>
-        [Required]
         [XmlElement("DAYS")]
         public int Days { get; set; }
 

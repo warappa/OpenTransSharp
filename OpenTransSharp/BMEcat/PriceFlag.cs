@@ -44,7 +44,6 @@ namespace OpenTransSharp
         /// <summary>
         /// (required)
         /// </summary>
-        [Required]
         [XmlText]
         public bool Value { get; set; }
     }

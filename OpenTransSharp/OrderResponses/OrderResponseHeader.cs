@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Order information on this business document
         /// </summary>
-        [Required]
         [XmlElement("ORDERRESPONSE_INFO")]
         public OrderResponseInformation Information { get; set; } = new OrderResponseInformation();
     }

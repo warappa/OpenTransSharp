@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// Coded protocol record.<br/>
         /// Since a lack of standards in the area of signature verification reports the used coding-standard should be constituted between the partners.
         /// </summary>
-        [Required]
         [XmlElement("RESULT_CODE")]
         public string ResultCode { get; set; }
 

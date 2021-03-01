@@ -48,7 +48,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CLASSIFICATION_GROUP_ID")]
         public ClassificationGroupId Id { get; set; }
 
@@ -61,7 +60,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CLASSIFICATION_GROUP_ID2")]
         public ClassificationGroupId? Id2 { get; set; }
 
@@ -84,7 +82,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CLASSIFICATION_GROUP_NAME")]
         public MultiLingualString Name { get; set; }
 

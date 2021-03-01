@@ -31,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -40,7 +39,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Specifies the type of request for quotation.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public OrderType Type { get; set; } = OrderType.Standard;
 
@@ -49,7 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("ORDER_HEADER")]
         public OrderHeader Header { get; set; } = new OrderHeader();
 
@@ -58,7 +55,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists the individual positions of the order.
         /// </summary>
-        [Required]
         [XmlArray("ORDER_ITEM_LIST")]
         [XmlArrayItem("ORDER_ITEM")]
         public List<OrderItem> Items { get; set; } = new List<OrderItem>();
@@ -68,7 +64,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the request for order information. The information in this element is redundant.
         /// </summary>
-        [Required]
         [XmlElement("ORDER_SUMMARY")]
         public OrderSummary Summary { get; set; } = new OrderSummary();
     }

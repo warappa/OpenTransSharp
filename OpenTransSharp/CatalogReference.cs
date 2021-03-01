@@ -22,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CATALOG_ID")]
         public string Id { get; set; }
 
@@ -38,7 +37,6 @@ namespace OpenTransSharp
         /// </summary>
         [XmlIgnore]
         public Version Version { get; set; }
-        [Required]
         [BMEXmlElement("CATALOG_VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string VersionForSerializer

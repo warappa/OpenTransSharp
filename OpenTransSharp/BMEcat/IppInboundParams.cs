@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("IPP_PARAM_DEFINITION")]
         public List<IppParamDefinition> Definitions { get; set; } = new List<IppParamDefinition>();
     }

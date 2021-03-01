@@ -23,7 +23,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("VALUE_IDREF")]
         public string Idref { get; set; }
 
@@ -34,7 +33,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("VALUE_SIMPLE")]
         public string Simple { get; set; }
 
@@ -45,7 +43,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("VALUE_TEXT")]
         public MultiLingualString Text { get; set; }
 
@@ -56,7 +53,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("VALUE_RANGE")]
         public ValueRange Range { get; set; }
 

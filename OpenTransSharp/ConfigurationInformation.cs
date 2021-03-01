@@ -22,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CONFIG_CODE")]
         public string ConfigurationCode { get; set; }
 

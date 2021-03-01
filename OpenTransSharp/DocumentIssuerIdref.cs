@@ -40,7 +40,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 250
         /// </summary>
-        [Required]
         [XmlText]
         public override string Value { get; set; }
 

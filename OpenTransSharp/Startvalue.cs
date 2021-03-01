@@ -32,7 +32,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 20
         /// </summary>
-        [Required]
         [XmlText]
         public decimal Value { get; set; }
     }

@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// An electronic signature of the business document can be inserted here.
         /// </summary>
-        [Required]
         [XmlElement("Signature", Namespace = "http://www.w3.org/2000/09/xmldsig#")]
         public string Signature { get; set; }
     }

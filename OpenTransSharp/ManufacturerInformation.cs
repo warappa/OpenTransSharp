@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("MANUFACTURER_IDREF")]
         public ManufacturerIdref Idref { get; set; }
 
@@ -30,7 +29,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("MANUFACTURER_PID")]
         public string Pid { get; set; }
 

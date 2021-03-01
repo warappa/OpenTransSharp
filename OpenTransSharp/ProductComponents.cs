@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [XmlElement("PRODUCT_COMPONENT")]
         public List<ProductComponent> Components { get; set; } = new List<ProductComponent>();
     }

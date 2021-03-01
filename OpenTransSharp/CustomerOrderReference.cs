@@ -18,8 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique order number of the buyer.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("ORDER_ID")]
         public string? OrderId { get; set; }
 

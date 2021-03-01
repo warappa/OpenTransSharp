@@ -42,7 +42,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("LANGUAGE")]
         public Language Language { get; set; }
 
@@ -53,7 +52,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CATALOG_ID")]
         public string Id { get; set; }
 
@@ -75,7 +73,6 @@ namespace OpenTransSharp
         [XmlIgnore]
         public Version Version { get; set; }
 
-        [Required]
         [BMEXmlElement("CATALOG_VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string? VersionForSerializer
@@ -164,8 +161,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MinLength(3)]
-        [MaxLength(3)]
         [BMEXmlElement("CURRENCY")]
         public string? Currency { get; set; }
 

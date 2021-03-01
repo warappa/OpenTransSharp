@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Start value of the interval; the value is part of the interval.
         /// </summary>
-        [Required]
         [BMEXmlElement("STARTVALUE")]
         public Startvalue Startvalue { get; set; }
 
@@ -26,7 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// End value of the interval; the value is part of the interval.
         /// </summary>
-        [Required]
         [BMEXmlElement("ENDVALUE")]
         public Endvalue Endvalue { get; set; }
 

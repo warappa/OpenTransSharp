@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Use of credit cards, purchase cards etc.
         /// </summary>
-        [Required]
         [XmlElement("CARD")]
         public Card Card { get; set; }
 
@@ -28,7 +27,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Bank account details.
         /// </summary>
-        [Required]
         [XmlElement("ACCOUNT")]
         public List<Account> Accounts { get; set; }
 
@@ -37,7 +35,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The element DEBIT specifies the credit note procedure as payment system.
         /// </summary>
-        [Required]
         [XmlElement("DEBIT")]
         public bool Debit { get; set; }
 
@@ -46,7 +43,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The element CHECK specifies paying by check as payment system.
         /// </summary>
-        [Required]
         [XmlElement("CHECK")]
         public bool Check { get; set; }
 
@@ -55,7 +51,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The element CASH specifies cash payment as payment system.
         /// </summary>
-        [Required]
         [XmlElement("CASH")]
         public bool Cash { get; set; }
 

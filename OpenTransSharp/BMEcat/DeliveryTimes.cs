@@ -52,7 +52,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("TIME_SPAN")]
         public List<BMETimeSpan>? TimeSpans { get; set; } = new List<BMETimeSpan>();
         [EditorBrowsable(EditorBrowsableState.Never)]

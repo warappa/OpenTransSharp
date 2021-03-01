@@ -23,7 +23,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Order information on this business document.
         /// </summary>
-        [Required]
         [XmlElement("QUOTATION_INFO")]
         public QuotationInformation Information { get; set; } = new QuotationInformation();
     }

@@ -52,7 +52,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PROD_ID_TO")]
         public string ProductIdTo { get; set; }
 

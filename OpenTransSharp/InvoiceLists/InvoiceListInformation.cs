@@ -19,9 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique ID of the invoice list.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("INVOICELIST_ID")]
         public string Id { get; set; }
 
@@ -30,7 +27,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Date of the invoice list.
         /// </summary>
-        [Required]
         [XmlElement("INVOICELIST_DATE")]
         public DateTime Date { get; set; }
 
@@ -57,7 +53,6 @@ namespace OpenTransSharp
         /// <br/>
         /// IntendedThe time period reflected by a set of invoices.
         /// </summary>
-        [Required]
         [XmlElement("ACCOUNTING_PERIOD")]
         public AccountingPeriod AccountingPeriod { get; set; }
 
@@ -90,7 +85,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of parties that are relevant to this business document.
         /// </summary>
-        [Required]
         [XmlArray("PARTIES")]
         [XmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
@@ -100,7 +94,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Reference to an unique identifier of the invoicing party. The element refers to a PARTY_ID in the same document.<br/>
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_ISSUER_IDREF")]
         public InvoiceIssuerIdref? InvoiceIssuerIdref { get; set; }
 
@@ -110,7 +103,6 @@ namespace OpenTransSharp
         /// Reference to an unique identifier to the recipient of the invoice.<br/>
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
         public InvoiceRecipientIdref? InvoiceRecipientIdref { get; set; }
 
@@ -172,9 +164,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
-        [MinLength(3)]
-        [MaxLength(3)]
         [BMEXmlElement("CURRENCY")]
         public string Currency { get; set; }
 
@@ -194,8 +183,6 @@ namespace OpenTransSharp
         /// <br/>
         /// General terms and conditions.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("TERMS_AND_CONDITIONS")]
         public string? TermsAndConditions { get; set; }
 

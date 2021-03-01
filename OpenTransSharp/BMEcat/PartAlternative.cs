@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_PIDREF")]
         public string? SupplierPIdref { get; set; }
 

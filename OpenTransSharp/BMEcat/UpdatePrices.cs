@@ -26,7 +26,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [XmlAttribute("prev_version")]
         public int PreviousVersion { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

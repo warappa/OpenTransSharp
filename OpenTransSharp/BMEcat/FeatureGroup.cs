@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_GROUP_ID")]
         public string Id { get; set; }
 
@@ -31,7 +30,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_GROUP_NAME")]
         public MultiLingualString? Name { get; set; }
 
@@ -42,7 +40,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_GROUP_DESCR")]
         public MultiLingualString? Description { get; set; }
 
@@ -54,7 +51,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_GROUP_PARENT_ID")]
         public List<string> ParentIds { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]

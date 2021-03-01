@@ -47,7 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("AGREEMENT_ID")]
         public string Id { get; set; }
 
@@ -81,7 +80,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("AGREEMENT_END_DATE")]
         public DateTime EndDate { get; set; }
 
@@ -93,8 +91,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [Obsolete("The element DATETIME in the context of AGREEMENT with the attributes 'agreement_start_date' and 'agreement_end_date' will be replaced by the elements AGREEMENT_START_DATE and AGREEMENT_END_DATE in future versions and will be omitted then.")]
-        [MaxLength(2)]
-        [Required]
         [BMEXmlElement("DATETIME")]
         public List<BMEcatDatetime> Datetimes { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

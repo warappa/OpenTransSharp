@@ -22,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CONTACT_ID")]
         public string ContactId { get; set; }
 
@@ -33,8 +32,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MinLength(1)]
-        [Required]
         [BMEXmlElement("CONTACT_NAME")]
         public MultiLingualString? ContactName { get; set; }
 

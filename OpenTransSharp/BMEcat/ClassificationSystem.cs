@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CLASSIFICATION_SYSTEM_NAME")]
         public string Name { get; set; }
 

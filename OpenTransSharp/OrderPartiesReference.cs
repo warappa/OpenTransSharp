@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("BUYER_IDREF")]
         public BuyerIdref BuyerIdref { get; set; }
 
@@ -28,7 +27,6 @@ namespace OpenTransSharp
         /// Reference to the supplier.<br/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document(element PARTY).
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_IDREF")]
         public SupplierIdref SupplierIdref { get; set; }
 

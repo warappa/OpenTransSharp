@@ -16,7 +16,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Reference to the unique identifier of a formula. The reference must point to a formula defined in the document (FORMULA element identified by FORMULA_ID).
         /// </summary>
-        [Required]
         [BMEXmlElement("FORMULA_IDREF")]
         public string Idref { get; set; }
 

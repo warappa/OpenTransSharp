@@ -26,7 +26,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Information about this business document.
         /// </summary>
-        [Required]
         [XmlElement("RFQ_INFO")]
         public RfqInformation Information { get; set; } = new RfqInformation();
     }

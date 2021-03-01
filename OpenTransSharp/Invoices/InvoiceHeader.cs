@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Invoice information on the business document.
         /// </summary>
-        [Required]
         [XmlElement("INVOICE_INFO")]
         public InvoiceInformation Information { get; set; } = new InvoiceInformation();
 
@@ -33,7 +32,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Information on previous orders, catalog references, skeleton agreements.
         /// </summary>
-        [Required]
         [XmlElement("ORDER_HISTORY")]
         public OrderHistory OrderHistory { get; set; } = new OrderHistory();
     }

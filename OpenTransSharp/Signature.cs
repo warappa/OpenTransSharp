@@ -19,7 +19,6 @@ namespace OpenTransSharp
         /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.<br/>
         /// For example logos, company profiles or other business partner related documents could be added here.
         /// </summary>
-        [Required]
         [XmlElement("MIME")]
         public Mime Mime { get; set; }
 
@@ -31,7 +30,6 @@ namespace OpenTransSharp
         /// Notice: The element cannot evaluate to 'false'.<br/>
         /// To express that the signature is not in the original document one simply do not use this element and one of the other two options is being used(MIME or XML_SIGNATURE).
         /// </summary>
-        [Required]
         [XmlElement("SIGNATURE_IN_ORIGINAL")]
         public bool SignatureInOriginal { get; set; }
 

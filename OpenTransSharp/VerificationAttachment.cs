@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.<br/>
         /// For example logos, company profiles or other business partner related documents could be added here.
         /// </summary>
-        [Required]
         [XmlElement("MIME")]
         public Mime Mime { get; set; }
     }

@@ -25,7 +25,6 @@ namespace OpenTransSharp
         /// Information about a multimedia file.<br/>
         /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.
         /// </summary>
-        [Required]
         [XmlElement("MIME")]
         public List<Mime> Mimes { get; set; } = new List<Mime>();
     }

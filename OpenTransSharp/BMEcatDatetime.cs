@@ -27,7 +27,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public BMEcatDatetimeType Type { get; set; }
 
@@ -38,7 +37,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("DATE")]
         public DateTime Date { get; set; }
 

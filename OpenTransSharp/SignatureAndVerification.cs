@@ -15,7 +15,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Signature information.<br/>
         /// </summary>
-        [Required]
         [XmlElement("SIGNATURE")]
         public Signature Signature { get; set; }
 

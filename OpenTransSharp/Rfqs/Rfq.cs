@@ -30,7 +30,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -39,7 +38,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Specifies the type of request for quotation.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public OrderType Type { get; set; } = OrderType.Standard;
 
@@ -48,7 +46,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("RFQ_HEADER")]
         public RfqHeader Header { get; set; } = new RfqHeader();
 
@@ -57,7 +54,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists the individual positions of the request for quotation.
         /// </summary>
-        [Required]
         [XmlArray("RFQ_ITEM_LIST")]
         [XmlArrayItem("RFQ_ITEM")]
         public List<RfqItem> Items { get; set; } = new List<RfqItem>();
@@ -67,7 +63,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the request for quotation information. The information in this element is redundant.
         /// </summary>
-        [Required]
         [XmlElement("RFQ_SUMMARY")]
         public RfqSummary Summary { get; set; } = new RfqSummary();
     }

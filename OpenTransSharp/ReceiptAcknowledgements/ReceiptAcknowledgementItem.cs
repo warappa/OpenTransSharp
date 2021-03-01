@@ -22,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Example.: P100012
         /// </summary>
-        [Required]
         [XmlElement("LINE_ITEM_ID")]
         public string LineItemId { get; set; }
 
@@ -32,7 +31,6 @@ namespace OpenTransSharp
         /// Identifier of the product.<br/>
         /// The included elements ensure the capability of a unique identification of a product.
         /// </summary>
-        [Required]
         [XmlElement("PRODUCT_ID")]
         public ProductId ProductId { get; set; }
 
@@ -41,7 +39,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Quantity.
         /// </summary>
-        [Required]
         [XmlElement("QUANTITY")]
         public decimal Quantity { get; set; }
 
@@ -57,8 +54,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MaxLength(3)]
-        [Required]
         [BMEXmlElement("ORDER_UNIT")]
         public string OrderUnit { get; set; }
 
@@ -90,7 +85,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The element is related to an item and refers to the previous order.
         /// </summary>
-        [Required]
         [XmlElement("ORDER_REFERENCE")]
         public OrderReference OrderReference { get; set; }
 

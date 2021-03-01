@@ -26,7 +26,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FNAME")]
         public MultiLingualString Name { get; set; }
 
@@ -37,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FT_IDREF")]
         public string Idref { get; set; }
 
@@ -48,7 +46,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FTEMPLATE")]
         public FeatureTemplate Template { get; set; }
 
@@ -64,7 +61,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("FVALUE")]
         public List<MultiLingualString> Values { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -80,7 +76,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("VALUE_IDREF")]
         public List<string> ValueIdrefs { get; set; } = new List<string>();
 

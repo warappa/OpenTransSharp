@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Example: SigRepo-7.14.
         /// </summary>
-        [Required]
         [XmlElement("XML_FORMAT")]
         public string XmlFormat { get; set; }
 

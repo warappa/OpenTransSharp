@@ -41,7 +41,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("IPP_URI")]
         public List<MultiLingualString> Uris { get; set; } = new List<MultiLingualString>();
     }

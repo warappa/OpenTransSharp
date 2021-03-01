@@ -21,7 +21,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PRICE_AMOUNT")]
         public decimal Amount { get; set; }
 

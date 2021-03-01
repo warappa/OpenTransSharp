@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PARTY_IDREF")]
         public PartyIdref PartyIdRef { get; set; }
 
@@ -31,7 +30,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CONTACT_IDREF")]
         public List<string> ContactIdref { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]

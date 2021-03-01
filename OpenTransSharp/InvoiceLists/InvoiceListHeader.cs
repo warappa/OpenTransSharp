@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Order information on this business document.
         /// </summary>
-        [Required]
         [XmlElement("INVOICELIST_INFO")]
         public InvoiceListInformation Information { get; set; } = new InvoiceListInformation();
 

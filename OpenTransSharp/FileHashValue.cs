@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public string Type { get; set; }
 
@@ -33,7 +32,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The attribute "lang" indicates the language of the referenced file in MIME_SOURCE.
         /// </summary>
-        [Required]
         [XmlAttribute("lang")]
         public LanguageCodes Language { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -44,7 +42,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 100
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

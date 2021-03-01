@@ -30,7 +30,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("LOGIN")]
         public string Login { get; set; }
 

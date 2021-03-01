@@ -16,7 +16,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Name of the account holder.
         /// </summary>
-        [Required]
         [XmlElement("HOLDER")]
         public string Holder { get; set; }
 
@@ -28,7 +27,6 @@ namespace OpenTransSharp
         /// Caution:<br/>
         /// Many coding-standards do not allow that the credit institution or bank is stored in the account number. In those cases the credit institution is quoted via the BANK_CODEelement.
         /// </summary>
-        [Required]
         [XmlElement("BANK_ACCOUNT")]
         public BankAccount BankAccount { get; set; } = new BankAccount();
 

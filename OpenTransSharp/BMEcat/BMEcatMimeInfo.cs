@@ -28,7 +28,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("MIME")]
         public List<BMEcatMime> Mimes { get; set; } = new List<BMEcatMime>();
     }

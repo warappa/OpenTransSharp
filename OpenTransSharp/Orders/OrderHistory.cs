@@ -19,9 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique order number of the buyer.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
-        [Required]
         [XmlElement("ORDER_ID")]
         public string Id { get; set; }
 
@@ -40,8 +37,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique order number of the supplier.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("SUPPLIER_ORDER_ID")]
         public string? SupplierOrderId { get; set; }
 

@@ -31,7 +31,6 @@ namespace OpenTransSharp
         /// Unique date for the start of the delivery period.<br/>
         /// If an exact delivery date has to be determined, e.g. in the RECEIPTACKNOWLEDGEMENT-document, DELIVERY_START_DATE = DELIVERY_END_DATE is set.
         /// </summary>
-        [Required]
         [XmlElement("DELIVERY_START_DATE")]
         public DateTime DeliveryStartDate { get; set; }
 
@@ -41,7 +40,6 @@ namespace OpenTransSharp
         /// Unique date for the end of the delivery period.<br/>
         /// If an exact delivery date has to be determined, e.g. in the RECEIPTACKNOWLEDGEMENT-document, DELIVERY_START_DATE = DELIVERY_END_DATE is set.
         /// </summary>
-        [Required]
         [XmlElement("DELIVERY_END_DATE")]
         public DateTime DeliveryEndDate { get; set; }
     }

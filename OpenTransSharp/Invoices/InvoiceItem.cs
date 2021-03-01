@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [Required]
         [XmlElement("LINE_ITEM_ID")]
         public string LineItemId { get; set; }
 
@@ -46,7 +45,6 @@ namespace OpenTransSharp
         /// Identifier of the product.<br/>
         /// The included elements ensure the capability of a unique identification of a product.
         /// </summary>
-        [Required]
         [XmlElement("PRODUCT_ID")]
         public ProductId ProductId { get; set; }
 
@@ -71,7 +69,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Quantity.
         /// </summary>
-        [Required]
         [XmlElement("QUANTITY")]
         public decimal Quantity { get; set; }
 
@@ -87,8 +84,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MaxLength(3)]
-        [Required]
         [BMEXmlElement("ORDER_UNIT")]
         public string OrderUnit { get; set; }
 
@@ -97,7 +92,6 @@ namespace OpenTransSharp
         /// <br/>
         /// A fixed product price.
         /// </summary>
-        [Required]
         [XmlElement("PRODUCT_PRICE_FIX")]
         public ProductPriceFix? ProductPriceFix { get; set; }
 
@@ -109,7 +103,6 @@ namespace OpenTransSharp
         /// The element PRICE_LINE_AMOUNT can result from multiplying PRICE_AMOUNT and PRICE_UNIT_VALUE if the price is not connected to the ordered unit but to another price-unit.<br/>
         /// See PRICE_BASE_FIX for details.
         /// </summary>
-        [Required]
         [XmlElement("PRICE_LINE_AMOUNT")]
         public decimal? PriceLineAmount { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -182,7 +175,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The element contains logistic details on item line level.
         /// </summary>
-        [Required]
         [XmlElement("LOGISTIC_DETAILS")]
         public LogisticDetails? LogisticDetails { get; set; }
 

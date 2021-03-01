@@ -15,7 +15,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Quantity.
         /// </summary>
-        [Required]
         [XmlElement("QUANTITY")]
         public decimal Quantity { get; set; }
 

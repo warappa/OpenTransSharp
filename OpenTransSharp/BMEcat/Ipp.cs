@@ -24,7 +24,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("IPP_IDREF")]
         public string Idref { get; set; }
 
@@ -36,7 +35,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("IPP_OPERATION_IDREF")]
         public List<string> OperationIdrefs { get; set; } = new List<string>();
 

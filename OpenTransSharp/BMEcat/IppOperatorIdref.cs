@@ -54,7 +54,6 @@ namespace OpenTransSharp
         /// Der Verweis muss auf eine zuvor definierte PARTY_ID zeigen.
         /// regex: .{1,250}
         /// </summary>
-        [Required]
         [XmlText]
         public override string Value { get => base.Value; set => base.Value = value; }
     }

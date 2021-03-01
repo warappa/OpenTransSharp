@@ -20,7 +20,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("ALLOWED_VALUE_ID")]
         public string Id { get; set; }
 
@@ -32,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("ALLOWED_VALUE_NAME")]
         public MultiLingualString Name { get; set; }
 

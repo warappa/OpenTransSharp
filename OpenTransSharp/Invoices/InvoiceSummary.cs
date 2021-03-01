@@ -17,7 +17,6 @@ namespace OpenTransSharp
         /// Contains the total number of item lines in the business document.<br/>
         /// The information is redundant and is for the purposes of statistical evaluation (e.g. by an intermediary) if appropriate.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_ITEM_NUM")]
         public int TotalItemCount { get; set; }
 
@@ -26,7 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Total amout of all items in this invoice excluding taxes.
         /// </summary>
-        [Required]
         [XmlElement("NET_VALUE_GOODS")]
         public decimal NetValueGoods { get; set; }
 

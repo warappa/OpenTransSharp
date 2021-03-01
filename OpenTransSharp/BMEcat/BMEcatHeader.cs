@@ -31,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("CATALOG")]
         public Catalog Catalog { get; set; }
 
@@ -88,7 +87,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("SUPPLIER_IDREF")]
         public SupplierIdref SupplierIdref { get; set; }
 
@@ -101,7 +99,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [Obsolete("The element SUPPLIER will be replaced by the element SUPPLIER_IDREF together with the element PARTY in future versions and will be omitted then.")]
-        [Required]
         [BMEXmlElement("SUPPLIER_IDREF")]
         public Supplier Supplier { get; set; }
 
@@ -114,7 +111,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("DOCUMENT_CREATOR_IDREF")]
         public DocumentCreatorIdref DocumentCreatorIdref { get; set; }
 

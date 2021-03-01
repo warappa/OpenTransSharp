@@ -31,7 +31,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -40,7 +39,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("DISPATCHNOTIFICATION_HEADER")]
         public DispatchNotificationHeader Header { get; set; } = new DispatchNotificationHeader();
 
@@ -49,7 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists the individual positions of the notification of the dispatch notification.
         /// </summary>
-        [Required]
         [XmlArray("DISPATCHNOTIFICATION_ITEM_LIST")]
         [XmlArrayItem("DISPATCHNOTIFICATION_ITEM")]
         public List<DispatchNotificationItem> Items { get; set; } = new List<DispatchNotificationItem>();
@@ -59,7 +56,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the item information on the dispatch notification. The information in this element is redundant..
         /// </summary>
-        [Required]
         [XmlElement("DISPATCHNOTIFICATION_SUMMARY")]
         public DispatchNotificationSummary Summary { get; set; } = new DispatchNotificationSummary();
     }

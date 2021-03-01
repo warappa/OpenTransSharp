@@ -39,7 +39,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Reference to a verification report as a file or binary-coded and integrated in the document.
         /// </summary>
-        [Required]
         [XmlElement("VERIFICATION_ATTACHMENT")]
         public VerificationAttachment Attachment { get; set; }
 
@@ -48,7 +47,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Verification report as XML protocol.
         /// </summary>
-        [Required]
         [XmlElement("VERIFICATION_PROTOCOL")]
         public VerificationProtocol Protocol { get; set; }
 
@@ -57,7 +55,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Verification report in XML-structure.
         /// </summary>
-        [Required]
         [XmlElement("VERIFICATION_XMLREPORT")]
         public VerificationXmlReport XmlReport { get; set; }
     }

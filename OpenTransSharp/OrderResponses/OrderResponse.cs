@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -45,7 +44,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("ORDERRESPONSE_HEADER")]
         public OrderResponseHeader Header { get; set; } = new OrderResponseHeader();
 
@@ -54,7 +52,6 @@ namespace OpenTransSharp
         /// <br/>
         /// In the item level the individual order items being confirmed are listed.
         /// </summary>
-        [Required]
         [XmlArray("ORDERRESPONSE_ITEM_LIST")]
         [XmlArrayItem("ORDERRESPONSE_ITEM")]
         public List<OrderResponseItem> Items { get; set; } = new List<OrderResponseItem>();
@@ -64,7 +61,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the request for orderresponse information. The information in this element is redundant.
         /// </summary>
-        [Required]
         [XmlElement("ORDERRESPONSE_SUMMARY")]
         public OrderResponseSummary Summary { get; set; } = new OrderResponseSummary();
     }

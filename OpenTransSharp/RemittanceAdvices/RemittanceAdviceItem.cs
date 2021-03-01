@@ -22,7 +22,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [Required]
         [XmlElement("LINE_ITEM_ID")]
         public string LineItemId { get; set; }
 
@@ -49,7 +48,6 @@ namespace OpenTransSharp
         /// Reference to an unique identifier to the recipient of the invoice.<br/>
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
-        [Required]
         [XmlArray("RA_INVOICE_LIST")]
         [XmlArrayItem("RA_INVOICE_LIST_ITEM")]
         public List<RaInvoiceListItem> InvoiceList { get; set; } = new List<RaInvoiceListItem>();
@@ -77,7 +75,6 @@ namespace OpenTransSharp
         /// Gross price including surcharges, deductions and all taxes.<br/>
         /// Where no price per item can be given as the item level (e.g.bills of materials where explosion is not possible), the total price can be entered here.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_AMOUNT")]
         public decimal TotalAmount { get; set; }
 

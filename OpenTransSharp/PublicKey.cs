@@ -33,7 +33,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Example.: PGP-6.5.1
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public string Type { get; set; }
 
@@ -42,7 +41,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 64000
         /// </summary>
-        [Required]
         [XmlText]
         public string Value { get; set; }
     }

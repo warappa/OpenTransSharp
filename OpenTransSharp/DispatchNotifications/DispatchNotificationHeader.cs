@@ -25,7 +25,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Information on the business partners and on the identification of the business document.
         /// </summary>
-        [Required]
         [XmlElement("DISPATCHNOTIFICATION_INFO")]
         public DispatchNotificationInformation Information { get; set; } = new DispatchNotificationInformation();
     }

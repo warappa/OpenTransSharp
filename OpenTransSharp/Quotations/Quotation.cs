@@ -29,7 +29,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -38,7 +37,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("QUOTATION_HEADER")]
         public QuotationHeader Header { get; set; } = new QuotationHeader();
 
@@ -47,7 +45,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists the individual positions of the quotation.
         /// </summary>
-        [Required]
         [XmlArray("QUOTATION_ITEM_LIST")]
         [XmlArrayItem("QUOTATION_ITEM")]
         public List<QuotationItem> Items { get; set; } = new List<QuotationItem>();
@@ -57,7 +54,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the request for quotation information. The information in this element is redundant.
         /// </summary>
-        [Required]
         [XmlElement("QUOTATION_SUMMARY")]
         public QuotationSummary Summary { get; set; } = new QuotationSummary();
     }

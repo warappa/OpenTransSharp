@@ -19,9 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Unique identifier of the remittance advice.
         /// </summary>
-        [Required]
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("REMITTANCEADVICE_ID")]
         public string Id { get; set; }
 
@@ -30,7 +27,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Date of the payment advice.
         /// </summary>
-        [Required]
         [XmlElement("REMITTANCEADVICE_DATE")]
         public DateTime Date { get; set; }
 
@@ -81,7 +77,6 @@ namespace OpenTransSharp
         /// <br/>
         /// List of parties that are relevant to this business document.
         /// </summary>
-        [Required]
         [XmlArray("PARTIES")]
         [XmlArrayItem("PARTY")]
         public List<Party> Parties { get; set; } = new List<Party>();
@@ -92,7 +87,6 @@ namespace OpenTransSharp
         /// Reference to a unique identifier of the payer.<br/>
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
-        [Required]
         [XmlElement("PAYER_IDREF")]
         public PayerIdref? PayerIdref { get; set; }
 
@@ -102,7 +96,6 @@ namespace OpenTransSharp
         /// Refers to a unique identifier of the remittee.<br/>
         /// The elemente refers to the PARTY_ID of the remittee in the same document.
         /// </summary>
-        [Required]
         [XmlElement("REMITTEE_IDREF")]
         public RemitteeIdref? RemitteeIdref { get; set; }
 
@@ -163,9 +156,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [MinLength(3)]
-        [MaxLength(3)]
-        [Required]
         [BMEXmlElement("CURRENCY")]
         public string Currency { get; set; }
 
@@ -185,7 +175,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Time where the payment is supposed to be done.
         /// </summary>
-        [Required]
         [XmlElement("PAYMENT_DATE")]
         public DateTime? PaymentDate { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -196,8 +185,6 @@ namespace OpenTransSharp
         /// <br/>
         /// General terms and conditions.
         /// </summary>
-        [MinLength(1)]
-        [MaxLength(250)]
         [XmlElement("TERMS_AND_CONDITIONS")]
         public string? TermsAndConditions { get; set; }
 

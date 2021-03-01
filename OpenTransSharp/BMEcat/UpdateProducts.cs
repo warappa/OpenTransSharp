@@ -35,7 +35,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [XmlAttribute("prev_version")]
         public int PreviousVersion { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -61,7 +60,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("PRODUCT")]
         public List<UpdateProductsProduct> Products { get; set; } = new List<UpdateProductsProduct>();
 

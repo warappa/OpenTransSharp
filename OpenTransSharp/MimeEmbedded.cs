@@ -33,7 +33,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Element contains binary-coded file (base64).
         /// </summary>
-        [Required]
         [XmlElement("MIME_DATA")]
         public MimeData Data { get; set; }
 

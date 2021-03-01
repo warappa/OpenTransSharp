@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Required]
         [BMEXmlElement("AGREEMENT_IDREF")]
         public string IdReference { get; set; }
 

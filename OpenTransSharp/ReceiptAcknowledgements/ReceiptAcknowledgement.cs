@@ -36,7 +36,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Value range: "Major Version"."Minor Version" (Example: "1.0")
         /// </summary>
-        [Required]
         [XmlAttribute("version")]
         public OpenTransVersion Version { get; set; } = OpenTransVersion.v2_1;
 
@@ -45,7 +44,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
-        [Required]
         [XmlElement("RECEIPTACKNOWLEDGEMENT_HEADER")]
         public ReceiptAcknowledgementHeader Header { get; set; } = new ReceiptAcknowledgementHeader();
 
@@ -54,7 +52,6 @@ namespace OpenTransSharp
         /// <br/>
         /// The item level lists the individual positions of the order.
         /// </summary>
-        [Required]
         [XmlArray("RECEIPTACKNOWLEDGEMENT_ITEM_LIST")]
         [XmlArrayItem("RECEIPTACKNOWLEDGEMENT_ITEM")]
         public List<ReceiptAcknowledgementItem> Items { get; set; } = new List<ReceiptAcknowledgementItem>();
@@ -64,7 +61,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Summary of the request for order information. The information in this element is redundant.
         /// </summary>
-        [Required]
         [XmlElement("RECEIPTACKNOWLEDGEMENT_SUMMARY")]
         public ReceiptAcknowledgementSummary Summary { get; set; } = new ReceiptAcknowledgementSummary();
     }

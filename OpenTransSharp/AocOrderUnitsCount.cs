@@ -26,14 +26,12 @@ namespace OpenTransSharp
         /// <br/>
         /// Indicates a bonus or an additional unit.
         /// </summary>
-        [Required]
         [XmlAttribute("type")]
         public AocOrderUnitsCountType Type { get; set; }
 
         /// <summary>
         /// (required)
         /// </summary>
-        [Required]
         [XmlText]
         public decimal Value { get; set; }
     }

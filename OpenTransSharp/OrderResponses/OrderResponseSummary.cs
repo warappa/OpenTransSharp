@@ -18,7 +18,6 @@ namespace OpenTransSharp
         /// Contains the total number of item lines in the business document.<br/>
         /// The information is redundant and is for the purposes of statistical evaluation (e.g. by an intermediary) if appropriate.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_ITEM_NUM")]
         public int TotalItemCount { get; set; }
 
@@ -32,7 +31,6 @@ namespace OpenTransSharp
         /// Gross price including surcharges, deductions and all taxes.<br/>
         /// Where no price per item can be given as the item level (e.g.bills of materials where explosion is not possible), the total price can be entered here.
         /// </summary>
-        [Required]
         [XmlElement("TOTAL_AMOUNT")]
         public decimal? TotalAmount { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

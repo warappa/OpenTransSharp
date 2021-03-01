@@ -16,8 +16,6 @@ namespace OpenTransSharp
         /// The element should only be used in justified exceptional cases (e.g. "Import test – NO processing is necessary")!
         /// </summary>
         [XmlElement("STOP_AUTOMATIC_PROCESSING")]
-        [MinLength(1)]
-        [MaxLength(250)]
         public string? StopAutomaticProcessing { get; set; }
 
         /// <summary>
