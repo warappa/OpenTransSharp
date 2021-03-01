@@ -21,7 +21,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_IDREF")]
-        public string FormulaIdref { get; set; }
+        public string Idref { get; set; }
 
         /// <summary>
         /// (optional) Paramters<br/>

@@ -108,7 +108,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("GROUP_SYSTEM_ID")]
-        public string? GroupSystemId { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// (optional - deprecated) Catalog group system name<br/>
@@ -118,7 +118,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("GROUP_SYSTEM_NAME")]
-        public MultiLingualString? GroupSystemName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (required - deprecated) Catalog structure element<br/>
@@ -140,6 +140,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("GROUP_SYSTEM_DESCRIPTION")]
-        public MultiLingualString? GroupSystemDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
     }
 }

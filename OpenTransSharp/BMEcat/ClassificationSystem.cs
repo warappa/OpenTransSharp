@@ -26,7 +26,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CLASSIFICATION_SYSTEM_NAME")]
-        public string ClassificationSystemName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// (optional) Complete name of the classification system<br/>
@@ -36,7 +36,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_FULLNAME")]
-        public string ClassificationSystemFullname { get; set; }
+        public string Fullname { get; set; }
 
         /// <summary>
         /// (optional - choice ClassificationSystemVersionDetails/(deprecated)ClassificationSystemVersion) Version of the classification system<br/>
@@ -46,7 +46,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_VERSION_DETAILS")]
-        public ClassificationSystemVersionDetails ClassificationSystemVersionDetails { get; set; }
+        public ClassificationSystemVersionDetails VersionDetails { get; set; }
 
         /// <summary>
         /// (optional) Version of the classification system<br/>
@@ -61,7 +61,7 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_VERSION")]
         [Obsolete("The element CLASSIFICATION_SYSTEM_VERSION will be replaced by the element CLASSIFICATION_SYSTEM_VERSION_DETAILS in future versions and will be omitted then.")]
-        public string ClassificationSystemVersion { get; set; }
+        public string Version { get; set; }
 
         /// <summary>
         /// (optional) Classification system description<br/>
@@ -71,7 +71,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_DESCR")]
-        public string ClassificationSystemDescripiton { get; set; }
+        public string Descripiton { get; set; }
 
         /// <summary>
         /// (optional) Reference to classification system party<br/>
@@ -98,9 +98,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_LEVELS")]
-        public int? ClassificationSystemLevels { get; set; }
+        public int? Levels { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationSystemLevelsSpecified => ClassificationSystemLevels.HasValue;
+        public bool LevelsSpecified => Levels.HasValue;
 
         /// <summary>
         /// (optional) Designation of the hierarchical levels<br/>
@@ -111,9 +111,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_SYSTEM_LEVEL_NAMES")]
         [BMEXmlArrayItem("CLASSIFICATION_SYSTEM_LEVEL_NAME")]
-        public List<ClassificationSystemLevelName> ClassificationSystemLevelNames { get; set; } = new List<ClassificationSystemLevelName>();
+        public List<ClassificationSystemLevelName> LevelNames { get; set; } = new List<ClassificationSystemLevelName>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationSystemLevelNamesSpecified => ClassificationSystemLevelNames?.Count > 0;
+        public bool LevelNamesSpecified => LevelNames?.Count > 0;
 
         /// <summary>
         /// (optional) Classification system type<br/>
@@ -123,7 +123,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_TYPE")]
-        public ClassificationSystemType ClassificationSystemType { get; set; }
+        public ClassificationSystemType Type { get; set; }
 
         /// <summary>
         /// (optional) Allowed values<br/>
@@ -173,9 +173,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_SYSTEM_FEATURE_TEMPLATES")]
         [BMEXmlArrayItem("CLASSIFICATION_SYSTEM_FEATURE_TEMPLATE")]
-        public List<ClassificationSystemFeatureTemplate> ClassificationSystemFeatureTemplates { get; set; } = new List<ClassificationSystemFeatureTemplate>();
+        public List<ClassificationSystemFeatureTemplate> FeatureTemplates { get; set; } = new List<ClassificationSystemFeatureTemplate>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationSystemFeatureTemplatesSpecified => ClassificationSystemFeatureTemplates?.Count > 0;
+        public bool FeatureTemplatesSpecified => FeatureTemplates?.Count > 0;
 
         /// <summary>
         /// (optional) Classification groups<br/>
@@ -186,8 +186,8 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_GROUPS")]
         [BMEXmlArrayItem("CLASSIFICATION_GROUP")]
-        public List<ClassificationGroup> ClassificationGroups { get; set; } = new List<ClassificationGroup>();
+        public List<ClassificationGroup> Groups { get; set; } = new List<ClassificationGroup>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationGroupsSpecified => ClassificationGroups?.Count > 0;
+        public bool GroupsSpecified => Groups?.Count > 0;
     }
 }

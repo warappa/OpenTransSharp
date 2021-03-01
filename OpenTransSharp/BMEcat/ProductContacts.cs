@@ -33,6 +33,7 @@ namespace OpenTransSharp
         /// <br/>
         /// In this context the element is used to reference the organisation which is responsible for the specification of the element.
         /// </summary>
+        // TODO: PartyIdref?
         [BMEXmlElement("CONTACT_IDREF")]
         public List<string> ContactIdrefs { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]

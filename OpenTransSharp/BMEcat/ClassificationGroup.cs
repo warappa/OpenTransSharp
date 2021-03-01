@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CLASSIFICATION_GROUP_ID")]
-        public ClassificationGroupId ClassificationGroupId { get; set; }
+        public ClassificationGroupId Id { get; set; }
 
         /// <summary>
         /// (optional) Additional group ID<br/>
@@ -63,7 +63,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CLASSIFICATION_GROUP_ID2")]
-        public ClassificationGroupId? ClassificationGroupId2 { get; set; }
+        public ClassificationGroupId? Id2 { get; set; }
 
         /// <summary>
         /// (optional) Group version<br/>
@@ -73,7 +73,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_VERSION")]
-        public ClassificationGroupVersion? ClassificationGroupVersion { get; set; }
+        public ClassificationGroupVersion? Version { get; set; }
 
         /// <summary>
         /// (required) Specifies the unique name of the group within the classification system.<br/>
@@ -86,7 +86,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CLASSIFICATION_GROUP_NAME")]
-        public MultiLingualString ClassificationGroupName { get; set; }
+        public MultiLingualString Name { get; set; }
 
         /// <summary>
         /// (optional) Group short name<br/>
@@ -96,7 +96,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_SHORTNAME")]
-        public MultiLingualString? ClassificationGroupShortname { get; set; }
+        public MultiLingualString? Shortname { get; set; }
 
         /// <summary>
         /// (optional) Additional description of the group<br/>
@@ -108,7 +108,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_DESCR")]
-        public MultiLingualString? ClassificationGroupDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Group source<br/>
@@ -118,7 +118,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_SOURCE")]
-        public ClassificationGroupSource? ClassificationGroupSource { get; set; }
+        public ClassificationGroupSource? Source { get; set; }
 
         /// <summary>
         /// (optional) Classification group note<br/>
@@ -130,7 +130,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_NOTE")]
-        public MultiLingualString? ClassificationGroupNote { get; set; }
+        public MultiLingualString? Note { get; set; }
 
         /// <summary>
         /// (optional) Group remark<br/>
@@ -142,7 +142,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_REMARK")]
-        public MultiLingualString? ClassificationGroupRemark { get; set; }
+        public MultiLingualString? Remark { get; set; }
 
         /// <summary>
         /// (optional) Classification group contacts<br/>
@@ -152,7 +152,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_CONTACTS")]
-        public ClassificationGroupContacts? ClassificationGroupContacts { get; set; }
+        public ClassificationGroupContacts? Contacts { get; set; }
 
         /// <summary>
         /// (optional) Group order<br/>
@@ -163,9 +163,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_ORDER")]
-        public int? ClassificationGroupOrder { get; set; }
+        public int? Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationGroupOrderSpecified => ClassificationGroupOrder.HasValue;
+        public bool OrderSpecified => Order.HasValue;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
@@ -187,9 +187,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_GROUP_SYNONYMS")]
         [BMEXmlArrayItem("SYNONYM")]
-        public List<string>? ClassificationGroupSynonyms { get; set; } = new List<string>();
+        public List<string>? Synonyms { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationGroupSynonymsSpecified => ClassificationGroupSynonyms?.Count > 0;
+        public bool SynonymsSpecified => Synonyms?.Count > 0;
 
         /// <summary>
         /// (optional) Features of the group<br/>
@@ -200,9 +200,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_GROUP_FEATURE_TEMPLATES")]
         [BMEXmlArrayItem("CLASSIFICATION_GROUP_FEATURE_TEMPLATE")]
-        public List<string>? ClassificationGroupFeatureTemplates { get; set; } = new List<string>();
+        public List<string>? FeatureTemplates { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationGroupFeatureTemplatesSpecified => ClassificationGroupFeatureTemplates?.Count > 0;
+        public bool FeatureTemplatesSpecified => FeatureTemplates?.Count > 0;
 
         /// <summary>
         /// (optional) Parent group<br/>
@@ -215,7 +215,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_PARENT_ID")]
-        public string? ClassificationGroupParentId { get; set; }
+        public string? ParentId { get; set; }
 
         /// <summary>
         /// (optional) User-defined extensions<br/>
@@ -234,8 +234,8 @@ namespace OpenTransSharp
         /// This enables the user to define even complex structures according to his own requirements.
         /// </summary>
         [XmlArray("CLASSIFICATION_GROUP_UDX")]
-        public List<object>? ClassificationGroupUdx { get; set; } = new List<object>();
+        public List<object>? Udx { get; set; } = new List<object>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ClassificationGroupUdxSpecified => ClassificationGroupUdx?.Count > 0;
+        public bool UdxSpecified => Udx?.Count > 0;
     }
 }

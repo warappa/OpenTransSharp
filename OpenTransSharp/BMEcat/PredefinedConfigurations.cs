@@ -29,6 +29,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_COVERAGE")]
-        public PredefinedConfigCoverage? PredefinedConfigCoverage { get; set; } = OpenTransSharp.PredefinedConfigCoverage.Partial;
+        public PredefinedConfigurationCoverage? Coverage { get; set; } = OpenTransSharp.PredefinedConfigurationCoverage.Partial;
     }
 }

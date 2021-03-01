@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="ConfigurationParts.PartSelectionType"/>.
+    /// For <see cref="ConfigurationParts.SelectionType"/>.
     /// </summary>
     public enum PartSelectionType
     {

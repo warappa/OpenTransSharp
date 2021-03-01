@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="ProductDetails.ProductCategory"/>.
+    /// For <see cref="ProductDetails.Category"/>.
     /// </summary>
     public enum ProductCategory
     {

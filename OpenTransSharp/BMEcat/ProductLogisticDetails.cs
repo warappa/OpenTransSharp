@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// Information on the product dimension from the view of business logistics.
         /// </summary>
         [BMEXmlElement("PRODUCT_DIMENSIONS")]
-        public ProductDimensions? ProductDimensions { get; set; }
+        public ProductDimensions? Dimensions { get; set; }
 
         /// <summary>
         /// (optional) Delivery time.<br/>

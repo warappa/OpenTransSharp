@@ -100,7 +100,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("PRODUCT_PRICE_DETAILS")]
-        public List<ProductPriceDetails> ProductPriceDetails { get; set; } = new List<ProductPriceDetails>();
+        public List<ProductPriceDetails> PriceDetails { get; set; } = new List<ProductPriceDetails>();
 
         /// <summary>
         /// (optional) User-defined extension<br/>

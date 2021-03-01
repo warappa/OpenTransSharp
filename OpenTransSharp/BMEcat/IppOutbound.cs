@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OUTBOUND_FORMAT")]
-        public string IppOutboundFormat { get; set; }
+        public string Format { get; set; }
 
         /// <summary>
         /// (optional) IPP input parameters<br/>
@@ -32,7 +32,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OUTBOUND_PARAMS")]
-        public IppOutboundParams? IppOutboundParams { get; set; }
+        public IppOutboundParams? Params { get; set; }
 
         /// <summary>
         /// (required) IPP operation URL<br/>
@@ -43,6 +43,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("IPP_URI")]
-        public List<MultiLingualString> IppUris { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString> Uris { get; set; } = new List<MultiLingualString>();
     }
 }

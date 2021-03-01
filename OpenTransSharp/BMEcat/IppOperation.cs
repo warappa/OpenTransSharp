@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATION_ID")]
-        public string IppOperationId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) IPP operation type<br/>
@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATION_TYPE")]
-        public IppOperationType IppOperationType { get; set; }
+        public IppOperationType Type { get; set; }
 
         /// <summary>
         /// (required) Description of the IPP operation<br/>
@@ -40,7 +40,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATION_DESCR")]
-        public MultiLingualString? IppOperationDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (required) IPP call<br/>
@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OUTBOUND")]
-        public List<IppOutbound> IppOutbounds { get; set; } = new List<IppOutbound>();
+        public List<IppOutbound> Outbounds { get; set; } = new List<IppOutbound>();
 
         /// <summary>
         /// (required) IPP return<br/>
@@ -60,6 +60,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_INBOUND")]
-        public List<IppInbound> IppInbounds { get; set; } = new List<IppInbound>();
+        public List<IppInbound> Inbounds { get; set; } = new List<IppInbound>();
     }
 }

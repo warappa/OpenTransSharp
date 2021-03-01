@@ -21,7 +21,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_ID")]
-        public string FormulaId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Formula version<br/>
@@ -31,7 +31,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_VERSION")]
-        public FormulaVersion? FormulaVersion { get; set; }
+        public FormulaVersion? Version { get; set; }
 
         /// <summary>
         /// (optional) Formula name<br/>
@@ -41,7 +41,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_NAME")]
-        public MultiLingualString? FormulaName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional) Description of the formula<br/>
@@ -51,7 +51,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_DESC")]
-        public MultiLingualString? FormulaDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Formula source<br/>
@@ -61,7 +61,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_SOURCE")]
-        public FormulaSource FormulaSource { get; set; }
+        public FormulaSource? Source { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
@@ -72,7 +72,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_INFO")]
-        public BMEcatMimeInfo MimeInfo { get; set; }
+        public BMEcatMimeInfo? MimeInfo { get; set; }
 
         /// <summary>
         /// (optional) Function of the formula<br/>
@@ -82,7 +82,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_FUNCTION")]
-        public FormulaFunction FormulaFunction { get; set; }
+        public FormulaFunction? Function { get; set; }
 
         /// <summary>
         /// (required) Parameter definitions<br/>

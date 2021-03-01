@@ -89,7 +89,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("PRODUCT_DETAILS")]
-        public ProductDetails ProductDetails { get; set; }
+        public ProductDetails Details { get; set; }
 
         /// <summary>
         /// (optional) Product features<br/>
@@ -99,9 +99,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_FEATURES")]
-        public List<ProductFeatures>? ProductFeatures { get; set; } = new List<ProductFeatures>();
+        public List<ProductFeatures>? Features { get; set; } = new List<ProductFeatures>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ProductFeaturesSpecified => ProductFeatures?.Count > 0;
+        public bool ProductFeaturesSpecified => Features?.Count > 0;
 
         /// <summary>
         /// (required) Order details<br/>
@@ -112,7 +112,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("PRODUCT_ORDER_DETAILS")]
-        public ProductOrderDetails ProductOrderDetails { get; set; }
+        public ProductOrderDetails OrderDetails { get; set; }
 
         /// <summary>
         /// (required) Order details<br/>
@@ -125,7 +125,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("PRODUCT_PRICE_DETAILS")]
-        public List<ProductPriceDetails> ProductPriceDetails { get; set; } = new List<ProductPriceDetails>();
+        public List<ProductPriceDetails> PriceDetails { get; set; } = new List<ProductPriceDetails>();
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
@@ -165,9 +165,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_REFERENCE")]
-        public List<ProductReference>? ProductReferences { get; set; } = new List<ProductReference>();
+        public List<ProductReference>? References { get; set; } = new List<ProductReference>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ProductReferencesSpecified => ProductReferences?.Count > 0;
+        public bool ReferencesSpecified => References?.Count > 0;
 
         /// <summary>
         /// (optional) Product contacts<br/>
@@ -177,7 +177,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_CONTACTS")]
-        public ProductContacts? ProductContacts { get; set; }
+        public ProductContacts? Contacts { get; set; }
 
         /// <summary>
         /// (optional) IPP details<br/>
@@ -187,7 +187,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_IPP_DETAILS")]
-        public ProductIppDetails? ProductIppDetails { get; set; }
+        public ProductIppDetails? IppDetails { get; set; }
 
         /// <summary>
         /// (optional) Logistics information<br/>
@@ -197,7 +197,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_LOGISTIC_DETAILS")]
-        public ProductLogisticDetails? ProductLogisticDetails { get; set; }
+        public ProductLogisticDetails? LogisticDetails { get; set; }
 
         /// <summary>
         /// (optional) Product configuration information<br/>
@@ -207,6 +207,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_CONFIG_DETAILS")]
-        public ProductConfigDetails? ProductConfigDetails { get; set; }
+        public ProductConfigurationDetails? ConfigDetails { get; set; }
     }
 }

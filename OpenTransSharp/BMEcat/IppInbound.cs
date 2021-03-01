@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// <see cref="IppInboundFormatValues"/>
         /// </summary>
         [BMEXmlElement("IPP_INBOUND_FORMAT")]
-        public string IppInboundFormat { get; set; }
+        public string InboundFormat { get; set; }
 
         /// <summary>
         /// (optional) IPP output parameters<br/>
@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// List of output parameters and their allowed values of the IPP application.
         /// </summary>
         [BMEXmlElement("IPP_INBOUND_PARAMS")]
-        public IppInboundParams? IppInboundParams { get; set; }
+        public IppInboundParams? InboundParams { get; set; }
 
         /// <summary>
         /// (optional) Response time<br/>
@@ -41,19 +41,19 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlIgnore]
-        public TimeSpan? IppResponseTime { get; set; }
+        public TimeSpan? ResponseTime { get; set; }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [XmlElement(ElementName = "IPP_RESPONSE_TIME", DataType = "duration")]
-        public string? IppResponseTimeXmlFormatted
+        public string? ResponseTimeXmlFormatted
         {
             get
             {
-                return IppResponseTime is null ? null : XmlConvert.ToString(IppResponseTime.Value);
+                return ResponseTime is null ? null : XmlConvert.ToString(ResponseTime.Value);
             }
             set
             {
-                IppResponseTime = string.IsNullOrEmpty(value) ?
+                ResponseTime = string.IsNullOrEmpty(value) ?
                     null : XmlConvert.ToTimeSpan(value);
             }
         }

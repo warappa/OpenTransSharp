@@ -23,7 +23,7 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("BUYER_ID")]
-        public BuyerId? BuyerId { get; set; }
+        public BuyerId? Id { get; set; }
 
         /// <summary>
         /// (required - deprecated) ID of the buying company<br/>
@@ -35,7 +35,7 @@ namespace OpenTransSharp
         [Obsolete("This element will not be used in the future.")]
         [Required]
         [BMEXmlElement("BUYER_NAME")]
-        public string? BuyerName { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// (optional - deprecated) Address<br/>

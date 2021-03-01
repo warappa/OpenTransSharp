@@ -17,7 +17,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM_NAME")]
-        public string IppParamName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// (optional) Description of the parameter<br/>
@@ -27,6 +27,6 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM_DESCR")]
-        public MultiLingualString? IppParamDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
     }
 }

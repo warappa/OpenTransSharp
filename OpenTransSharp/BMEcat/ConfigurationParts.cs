@@ -13,16 +13,16 @@ namespace OpenTransSharp
     public class ConfigurationParts
     {
         /// <summary>
-        /// (required) Maximum occurence step<br/>
+        /// (required) Variant components<br/>
         /// <br/>
-        /// This element contains the maximum number of components respectively feature values which can be selected.<br/>
+        /// Contains information about the componente, e.g. reference to the product and implications to the order code and configuration price.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PART_ALTERNATIVE")]
-        public List<PartAlternative> PartAlternatives { get; set; } = new List<PartAlternative>();
+        public List<PartAlternative> Alternatives { get; set; } = new List<PartAlternative>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PartAlternativesSpecified => PartAlternatives?.Count > 0;
+        public bool AlternativesSpecified => Alternatives?.Count > 0;
 
         /// <summary>
         /// (optional) Selection type <br/>
@@ -36,8 +36,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PART_SELECTION_TYPE")]
-        public PartSelectionType PartSelectionType { get; set; } = PartSelectionType.NonDistinct;
+        public PartSelectionType SelectionType { get; set; } = PartSelectionType.NonDistinct;
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PartSelectionTypeSpecified => PartSelectionType != PartSelectionType.NonDistinct;
+        public bool SelectionTypeSpecified => SelectionType != PartSelectionType.NonDistinct;
     }
 }

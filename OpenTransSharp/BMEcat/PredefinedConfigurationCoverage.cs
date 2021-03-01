@@ -3,9 +3,9 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="PredefinedConfigurations.PredefinedConfigCoverage"/>.
+    /// For <see cref="PredefinedConfigurations.Coverage"/>.
     /// </summary>
-    public enum PredefinedConfigCoverage
+    public enum PredefinedConfigurationCoverage
     {
         /// <summary>
         /// Partial coverage<br/>

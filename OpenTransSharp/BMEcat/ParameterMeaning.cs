@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// See <see cref="ParameterDefinition.ParameterMeaning"/>.
+    /// See <see cref="ParameterDefinition.Meaning"/>.
     /// </summary>
     public enum ParameterMeaning
     {

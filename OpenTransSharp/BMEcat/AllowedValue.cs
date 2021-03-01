@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("ALLOWED_VALUE_ID")]
-        public string AllowedValueId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Name of the allowed value<br/>
@@ -34,7 +34,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("ALLOWED_VALUE_NAME")]
-        public MultiLingualString AllowedValueName { get; set; }
+        public MultiLingualString Name { get; set; }
 
         /// <summary>
         /// (optional) Version of the allowed value<br/>
@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_VERSION")]
-        public AllowedValueVersion? AllowedValueVersion { get; set; }
+        public AllowedValueVersion? Version { get; set; }
 
         /// <summary>
         /// (optional) Short name of the allowed value<br/>
@@ -54,7 +54,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_SHORTNAME")]
-        public MultiLingualString? AllowedValueShortname { get; set; }
+        public MultiLingualString? Shortname { get; set; }
 
         /// <summary>
         /// (optional) Description of the allowed value<br/>
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_DESCR")]
-        public MultiLingualString? AllowedValueDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Allowed value synonyms<br/>
@@ -78,9 +78,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("ALLOWED_VALUE_SYNONYMS")]
         [BMEXmlArrayItem("SYNONYM")]
-        public List<MultiLingualString>? AllowedValueSynonyms { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Synonyms { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowedValueSynonymsSpecified => AllowedValueSynonyms?.Count > 0;
+        public bool SynonymsSpecified => Synonyms?.Count > 0;
 
         /// <summary>
         /// (optional) Allowed value source<br/>
@@ -90,6 +90,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_SOURCE")]
-        public AllowedValueSource? AllowedValueSource { get; set; }
+        public AllowedValueSource? Source { get; set; }
     }
 }

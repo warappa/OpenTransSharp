@@ -18,7 +18,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_NAME")]
-        public MultiLingualString ParameterName { get; set; }
+        public MultiLingualString Name { get; set; }
 
         /// <summary>
         /// (optional) Parameter description<br/>
@@ -28,7 +28,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_DESCR")]
-        public MultiLingualString? ParameterDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Parameter description<br/>
@@ -39,7 +39,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_UNIT")]
-        public MultiLingualString? ParameterUnit { get; set; }
+        public MultiLingualString? Unit { get; set; }
 
     }
 }

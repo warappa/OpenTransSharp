@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="IppOperation.IppOperationType"/>.
+    /// For <see cref="IppOperation.Type"/>.
     /// </summary>
     public enum IppOperationType
     {

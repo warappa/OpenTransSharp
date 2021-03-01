@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_ID")]
-        public string StepId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Header of the configuration step<br/>
@@ -29,7 +29,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_HEADER")]
-        public MultiLingualString StepHeader { get; set; }
+        public MultiLingualString Header { get; set; }
 
         /// <summary>
         /// (optional) Configuration step short description<br/>
@@ -39,7 +39,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_DESCR_SHORT")]
-        public MultiLingualString? StepDescriptionShort { get; set; }
+        public MultiLingualString? DescriptionShort { get; set; }
 
         /// <summary>
         /// (optional) Configuration step long description<br/>
@@ -49,7 +49,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_DESCR_LONG")]
-        public MultiLingualString? StepDescriptionLong { get; set; }
+        public MultiLingualString? DescriptionLong { get; set; }
 
         /// <summary>
         /// (optional) Order of configuration step<br/>
@@ -60,7 +60,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_ORDER")]
-        public int? StepOrder { get; set; }
+        public int? Order { get; set; }
 
         /// <summary>
         /// (optional) Configuration type<br/>
@@ -70,9 +70,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_INTERACTION_TYPE")]
-        public StepInteractionType? StepInteractionType { get; set; } = OpenTransSharp.StepInteractionType.ForceUserinput;
+        public StepInteractionType? InteractionType { get; set; } = OpenTransSharp.StepInteractionType.ForceUserinput;
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool StepInteractionTypeSpecified => StepInteractionType != OpenTransSharp.StepInteractionType.ForceUserinput;
+        public bool InteractionTypeSpecified => InteractionType != OpenTransSharp.StepInteractionType.ForceUserinput;
 
         /// <summary>
         /// (optional) Order number extension<br/>
@@ -86,7 +86,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_CODE")]
-        public string? ConfigCode { get; set; }
+        public string? ConfigurationCode { get; set; }
 
         /// <summary>
         /// (optional) Price details<br/>

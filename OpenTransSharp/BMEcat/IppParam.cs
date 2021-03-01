@@ -17,7 +17,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM_NAMEREF")]
-        public string IppParamNameref { get; set; }
+        public string Nameref { get; set; }
 
         /// <summary>
         /// (required) IPP parameter value<br/>
@@ -27,6 +27,6 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM_VALUE")]
-        public string IppParamValue { get; set; }
+        public string Value { get; set; }
     }
 }

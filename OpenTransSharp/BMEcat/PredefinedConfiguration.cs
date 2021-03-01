@@ -24,7 +24,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_CODE")]
-        public string PredefinedConfigCoverage { get; set; }
+        public string Coverage { get; set; }
 
         /// <summary>
         /// (optional) Name of the configuration<br/>
@@ -34,7 +34,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_NAME")]
-        public MultiLingualString? PredefinedConfigName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional) Description of the configuration<br/>
@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_DESCR")]
-        public MultiLingualString? PredefinedConfigDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Configuration order<br/>
@@ -56,9 +56,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_ORDER")]
-        public int? PredefinedConfigOrder { get; set; }
+        public int? Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PredefinedConfigOrderSpecified => PredefinedConfigOrder.HasValue;
+        public bool OrderSpecified => Order.HasValue;
 
         /// <summary>
         /// (optional) Price details<br/>

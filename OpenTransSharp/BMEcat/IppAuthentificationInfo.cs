@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AUTHENTIFICATION")]
-        public List<Authentification> Authentifications { get; set; } = new List<Authentification>();
+        public List<Authentification>? Authentifications { get; set; } = new List<Authentification>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AuthentificationsSpecified => Authentifications?.Count > 0;
     }

@@ -10,7 +10,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class ProductConfigDetails
+    public class ProductConfigurationDetails
     {
         /// <summary>
         /// (required) Configuration step<br/>
@@ -20,9 +20,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_STEP")]
-        public List<ConfigurationStep> ConfigurationSteps { get; set; } = new List<ConfigurationStep>();
+        public List<ConfigurationStep> Steps { get; set; } = new List<ConfigurationStep>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ConfigurationStepsSpecified => ConfigurationSteps?.Count > 0;
+        public bool StepsSpecified => Steps?.Count > 0;
 
         /// <summary>
         /// (optional) Predefined configurations<br/>
@@ -60,9 +60,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CONFIG_RULES")]
         [BMEXmlArrayItem("TERM")]
-        public List<Term> ConfigurationRules { get; set; } = new List<Term>();
+        public List<Term> Rules { get; set; } = new List<Term>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ConfigurationRulesSpecified => ConfigurationRules?.Count > 0;
+        public bool RulesSpecified => Rules?.Count > 0;
 
         /// <summary>
         /// (required) Configuration formulas<br/>
@@ -73,8 +73,8 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("CONFIG_FORMULAS")]
         [BMEXmlArrayItem("CONFIG_FORMULA")]
-        public List<ConfigurationFormula> ConfigurationFormulas { get; set; } = new List<ConfigurationFormula>();
+        public List<ConfigurationFormula> Formulas { get; set; } = new List<ConfigurationFormula>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ConfigurationFormulasSpecified => ConfigurationFormulas?.Count > 0;
+        public bool FormulasSpecified => Formulas?.Count > 0;
     }
 }

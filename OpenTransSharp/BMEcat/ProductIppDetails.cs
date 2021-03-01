@@ -19,6 +19,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP")]
-        public List<Ipp> IppOperations { get; set; } = new List<Ipp>();
+        public List<Ipp> Ipps { get; set; } = new List<Ipp>();
     }
 }

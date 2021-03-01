@@ -17,7 +17,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SOURCE_NAME")]
-        public MultiLingualString? SourceName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional) URI of the source<br/>
@@ -27,7 +27,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SOURCE_URI")]
-        public MultiLingualString? SourceUri { get; set; }
+        public MultiLingualString? Uri { get; set; }
 
         /// <summary>
         /// (optional) Reference to a business partner.<br/>

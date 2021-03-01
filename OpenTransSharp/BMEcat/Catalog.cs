@@ -55,7 +55,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CATALOG_ID")]
-        public string CatalogId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Catalog version <br/>
@@ -96,7 +96,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CATALOG_NAME")]
-        public MultiLingualString? CatalogName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional - choice GenerationDate/(deprecated)Date) Generation date<br/>

@@ -26,7 +26,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_SYMBOL")]
-        public string ParameterSymbol { get; set; }
+        public string Symbol { get; set; }
 
         /// <summary>
         /// (required) Basic parameter information<br/>
@@ -36,7 +36,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_BASICS")]
-        public ParameterBasics ParameterBasics { get; set; }
+        public ParameterBasics Basics { get; set; }
 
         /// <summary>
         /// (required) Reference to a feature<br/>
@@ -56,7 +56,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_ORIGIN")]
-        public ParameterOrigin? ParameterOrigin { get; set; }
+        public ParameterOrigin? Origin { get; set; }
 
         /// <summary>
         /// (optional) Default value of the parameter<br/>
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_DEFAULT_VALUE")]
-        public string? ParameterDefaultValue { get; set; }
+        public string? DefaultValue { get; set; }
 
         /// <summary>
         /// (optional) Parameter type<br/>
@@ -77,7 +77,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_MEANING")]
-        public ParameterMeaning? ParameterMeaning { get; set; }
+        public ParameterMeaning? Meaning { get; set; }
 
         /// <summary>
         /// <br/>
@@ -85,8 +85,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_ORDER")]
-        public int? ParameterOrder { get; set; }
+        public int? Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ParameterOrderSpecified => ParameterOrder.HasValue;
+        public bool OrderSpecified => Order.HasValue;
     }
 }

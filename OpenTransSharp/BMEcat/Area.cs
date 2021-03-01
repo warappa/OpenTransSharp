@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AREA_ID")]
-        public string AreaId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Name of the area<br/>
@@ -29,7 +29,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AREA_NAME")]
-        public MultiLingualString? AreaName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (required) Description of the area<br/>
@@ -39,7 +39,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AREA_DESCR")]
-        public MultiLingualString? AreaDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Countries and regions<br/>

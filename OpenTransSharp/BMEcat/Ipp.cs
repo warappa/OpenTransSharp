@@ -26,7 +26,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("IPP_IDREF")]
-        public string IppIdref { get; set; }
+        public string Idref { get; set; }
 
         /// <summary>
         /// (required) Reference to an IPP operation<br/>
@@ -38,7 +38,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("IPP_OPERATION_IDREF")]
-        public List<string> IppOperationIdrefs { get; set; } = new List<string>();
+        public List<string> OperationIdrefs { get; set; } = new List<string>();
 
         /// <summary>
         /// (optional) Guaranteed response time of the IPP application.<br/>
@@ -48,19 +48,19 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlIgnore]
-        public TimeSpan? IppResponseTime { get; set; }
+        public TimeSpan? ResponseTime { get; set; }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [XmlElement(ElementName = "IPP_RESPONSE_TIME", DataType = "duration")]
-        public string? IppResponseTimeXmlFormatted
+        public string? ResponseTimeXmlFormatted
         {
             get
             {
-                return IppResponseTime is null ? null : XmlConvert.ToString(IppResponseTime.Value);
+                return ResponseTime is null ? null : XmlConvert.ToString(ResponseTime.Value);
             }
             set
             {
-                IppResponseTime = string.IsNullOrEmpty(value) ?
+                ResponseTime = string.IsNullOrEmpty(value) ?
                     null : XmlConvert.ToTimeSpan(value);
             }
         }
@@ -73,9 +73,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_URI")]
-        public List<string>? IppUris { get; set; } = new List<string>();
+        public List<string>? Uris { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IppUrisSpecified => IppUris?.Count > 0;
+        public bool UrisSpecified => Uris?.Count > 0;
 
         /// <summary>
         /// (optional) IPP transfered parameter<br/>
@@ -85,8 +85,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM")]
-        public List<IppParam>? IppParameters { get; set; } = new List<IppParam>();
+        public List<IppParam>? Parameters { get; set; } = new List<IppParam>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IppParametersSpecified => IppParameters?.Count > 0;
+        public bool ParametersSpecified => Parameters?.Count > 0;
     }
 }

@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_GROUP_ID")]
-        public string FtGroupId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Feature group name<br/>
@@ -33,7 +33,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_GROUP_NAME")]
-        public MultiLingualString? FtGroupName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional) Feature group description<br/>
@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_GROUP_DESCR")]
-        public MultiLingualString? FtGroupDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Parent group of the feature group<br/>
@@ -56,8 +56,8 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_GROUP_PARENT_ID")]
-        public List<string> FtGroupParentIds { get; set; } = new List<string>();
+        public List<string> ParentIds { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FtGroupParentIdsSpecified => FtGroupParentIds?.Count > 0;
+        public bool ParentIdsSpecified => ParentIds?.Count > 0;
     }
 }

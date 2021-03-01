@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="IppInbound.IppInboundFormat"/>.
+    /// For <see cref="IppInbound.InboundFormat"/>.
     /// </summary>
     public static class IppInboundFormatValues
     {

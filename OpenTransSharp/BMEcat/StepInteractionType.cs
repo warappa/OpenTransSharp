@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="ConfigurationStep.StepInteractionType"/>.
+    /// For <see cref="ConfigurationStep.InteractionType"/>.
     /// </summary>
     public enum StepInteractionType
     {

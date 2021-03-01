@@ -20,7 +20,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_LANGUAGES")]
-        public IppLanguages? IppLanguages { get; set; } = new IppLanguages();
+        public IppLanguages? Languages { get; set; } = new IppLanguages();
 
         /// <summary>
         /// (optional) IPP countries and regions<br/>
@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_TERRITORIES")]
-        public IppTerritories? IppTerritories { get; set; }
+        public IppTerritories? Territories { get; set; }
 
         /// <summary>
         /// (optional) IPP currencies<br/>
@@ -40,7 +40,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PRICE_CURRENCIES")]
-        public IppPriceCurrencies? IppPriceCurrencies { get; set; }
+        public IppPriceCurrencies? PriceCurrencies { get; set; }
 
         /// <summary>
         /// (optional) IPP price types<br/>
@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PRICE_TYPES")]
-        public IppPriceTypes? IppPriceTypes { get; set; }
+        public IppPriceTypes? PriceTypes { get; set; }
 
         /// <summary>
         /// (optional) IPP product ID<br/>
@@ -60,7 +60,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_SUPPLIER_PID")]
-        public IppSupplierPid? IppSupplierPid { get; set; }
+        public IppSupplierPid? SupplierPid { get; set; }
 
         /// <summary>
         /// (optional) Reference to an IPP product configuration<br/>
@@ -70,7 +70,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PRODUCTCONFIG_IDREF")]
-        public IppProductconfigIdref? IppProductconfigIdref { get; set; }
+        public IppProductconfigIdref? ProductconfigIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to an IPP shopping cart<br/>
@@ -80,7 +80,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PRODUCTLIST_IDREF")]
-        public IppProductlistIdref? IppProductlistIdref { get; set; }
+        public IppProductlistIdref? ProductlistIdref { get; set; }
 
         /// <summary>
         /// (optional) IPP user information<br/>
@@ -90,7 +90,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_USER_INFO")]
-        public IppUserInfo? IppUserInfo { get; set; }
+        public IppUserInfo? UserInfo { get; set; }
 
         /// <summary>
         /// (optional) IPP authentification information<br/>
@@ -100,7 +100,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_AUTHENTIFICATION_INFO")]
-        public IppAuthentificationInfo? IppAuthentificationInfo { get; set; }
+        public IppAuthentificationInfo? AuthentificationInfo { get; set; }
 
         /// <summary>
         /// (optional) Other IPP input parameters<br/>
@@ -110,8 +110,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM_DEFINITION")]
-        public List<IppParamDefinition>? IppParamDefinitions { get; set; } = new List<IppParamDefinition>();
+        public List<IppParamDefinition>? Definitions { get; set; } = new List<IppParamDefinition>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool IppParamDefinitionsSpecified => IppParamDefinitions?.Count > 0;
+        public bool DefinitionsSpecified => Definitions?.Count > 0;
     }
 }

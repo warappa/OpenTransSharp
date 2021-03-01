@@ -30,7 +30,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("REFERENCE_FEATURE_SYSTEM_NAME")]
-        public string ReferenceFeatureSystemName { get; set; }
+        public string SystemName { get; set; }
 
         /// <summary>
         /// (required) Feature reference<br/>
@@ -40,6 +40,6 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_IDREF")]
-        public string FeatureIdref { get; set; }
+        public string Idref { get; set; }
     }
 }

@@ -74,7 +74,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_CODE")]
-        public string? ConfigCode { get; set; }
+        public string? ConfigurationCode { get; set; }
 
         /// <summary>
         /// (optional) Price details<br/>

@@ -1,7 +1,7 @@
 ﻿namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="ClassificationSystem.ClassificationSystemName"/>.
+    /// For <see cref="ClassificationSystem.Name"/>.
     /// </summary>
     public class ClassificationSystemNameValues : ReferenceFeatureSystemNameValues
     {

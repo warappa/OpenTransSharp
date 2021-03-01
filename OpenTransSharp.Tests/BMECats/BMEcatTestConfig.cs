@@ -57,7 +57,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new UpdatePricesProduct();
             model.SupplierPid = parent.GetSupplierPid();
-            model.ProductPriceDetails.Add(GetProductPriceDetails());
+            model.PriceDetails.Add(GetProductPriceDetails());
 
             return model;
         }
@@ -76,9 +76,9 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new UpdateProductsProduct();
             model.Mode = UpdateProductsProductMode.Update;
             model.SupplierPid = parent.GetSupplierPid();
-            model.ProductDetails = GetProductDetails();
-            model.ProductOrderDetails = GetProductOrderDetails();
-            model.ProductPriceDetails.Add(GetProductPriceDetails());
+            model.Details = GetProductDetails();
+            model.OrderDetails = GetProductOrderDetails();
+            model.PriceDetails.Add(GetProductPriceDetails());
 
             return model;
         }
@@ -86,13 +86,13 @@ namespace OpenTransSharp.Tests.BMEcats
         private Formula GetFormula()
         {
             var model = new Formula();
-            model.FormulaId = "Formula id";
-            model.FormulaVersion = GetFormulaVersion();
-            model.FormulaName = new MultiLingualString("Formula name", LanguageCodes.eng);
-            model.FormulaDescription = new MultiLingualString("Formula description", LanguageCodes.eng);
-            model.FormulaSource = GetFormulaSource();
+            model.Id = "Formula id";
+            model.Version = GetFormulaVersion();
+            model.Name = new MultiLingualString("Formula name", LanguageCodes.eng);
+            model.Description = new MultiLingualString("Formula description", LanguageCodes.eng);
+            model.Source = GetFormulaSource();
             model.MimeInfo = parent.GetBMEcatMimeInfo();
-            model.FormulaFunction = GetFormulaFunction();
+            model.Function = GetFormulaFunction();
             model.ParameterDefinitions.Add(GetParameterDefinintion());
 
             return model;
@@ -101,12 +101,12 @@ namespace OpenTransSharp.Tests.BMEcats
         private ParameterDefinition GetParameterDefinintion()
         {
             var model = new ParameterDefinition();
-            model.ParameterSymbol = "$";
-            model.ParameterBasics = GetParameterBasics();
-            model.ParameterOrigin = GetParameterOrigin();
-            model.ParameterDefaultValue = "false";
-            model.ParameterMeaning = ParameterMeaning.AllowOrCharge;
-            model.ParameterOrder = 1;
+            model.Symbol = "$";
+            model.Basics = GetParameterBasics();
+            model.Origin = GetParameterOrigin();
+            model.DefaultValue = "false";
+            model.Meaning = ParameterMeaning.AllowOrCharge;
+            model.Order = 1;
 
             return model;
         }
@@ -119,9 +119,9 @@ namespace OpenTransSharp.Tests.BMEcats
         private ParameterBasics GetParameterBasics()
         {
             var model = new ParameterBasics();
-            model.ParameterName = new MultiLingualString("Parameter name", LanguageCodes.eng);
-            model.ParameterDescription = new MultiLingualString("Parameter description", LanguageCodes.eng);
-            model.ParameterUnit = new MultiLingualString("Parameter unit", LanguageCodes.eng);
+            model.Name = new MultiLingualString("Parameter name", LanguageCodes.eng);
+            model.Description = new MultiLingualString("Parameter description", LanguageCodes.eng);
+            model.Unit = new MultiLingualString("Parameter unit", LanguageCodes.eng);
 
             return model;
         }
@@ -148,8 +148,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private FormulaSource GetFormulaSource()
         {
             var model = new FormulaSource();
-            model.SourceName = new MultiLingualString("Source name", LanguageCodes.eng);
-            model.SourceUri = "https://fake-uri/";
+            model.Name = new MultiLingualString("Source name", LanguageCodes.eng);
+            model.Uri = "https://fake-uri/";
             model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
 
             return model;
@@ -215,7 +215,7 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new Catalog();
 
             model.Language = new Language(LanguageCodes.deu);
-            model.CatalogId = parent.GetCatalogId();
+            model.Id = parent.GetCatalogId();
             model.Version = new Version("1.1");
 
             return model;
@@ -236,11 +236,11 @@ namespace OpenTransSharp.Tests.BMEcats
         private IppDefinition GetIppDefinition()
         {
             var model = new IppDefinition();
-            model.IppId = "Ipp id";
-            model.IppType = IppType.ProductRequest;
-            model.IppOperatorIdref = GetIppOperatorIdref();
-            model.IppDescription = new MultiLingualString("Ipp description", LanguageCodes.eng);
-            model.IppOperations.Add(GetIppOperation());
+            model.Id = "Ipp id";
+            model.Type = IppType.ProductRequest;
+            model.OperatorIdref = GetIppOperatorIdref();
+            model.Description = new MultiLingualString("Ipp description", LanguageCodes.eng);
+            model.Operations.Add(GetIppOperation());
 
             return model;
         }
@@ -248,11 +248,11 @@ namespace OpenTransSharp.Tests.BMEcats
         private IppOperation GetIppOperation()
         {
             var model = new IppOperation();
-            model.IppOperationId = "Ipp operation id";
-            model.IppOperationType = IppOperationType.Show;
-            model.IppOperationDescription = new MultiLingualString("Ipp operation description");
-            model.IppOutbounds.Add(GetIppOutbound());
-            model.IppInbounds.Add(GetIppInbound());
+            model.Id = "Ipp operation id";
+            model.Type = IppOperationType.Show;
+            model.Description = new MultiLingualString("Ipp operation description");
+            model.Outbounds.Add(GetIppOutbound());
+            model.Inbounds.Add(GetIppInbound());
             
             return model;
         }
@@ -260,9 +260,9 @@ namespace OpenTransSharp.Tests.BMEcats
         private IppInbound GetIppInbound()
         {
             var model = new IppInbound();
-            model.IppInboundFormat = IppInboundFormatValues.Mail;
-            model.IppInboundParams = GetIppInboundParams();
-            model.IppResponseTime = TimeSpan.FromMinutes(1);
+            model.InboundFormat = IppInboundFormatValues.Mail;
+            model.InboundParams = GetIppInboundParams();
+            model.ResponseTime = TimeSpan.FromMinutes(1);
 
             return model;
         }
@@ -270,7 +270,7 @@ namespace OpenTransSharp.Tests.BMEcats
         private IppInboundParams GetIppInboundParams()
         {
             var model = new IppInboundParams();
-            model.IppParamDefinitions.Add(GetIppParamDefinition());
+            model.Definitions.Add(GetIppParamDefinition());
 
             return model;
         }
@@ -278,9 +278,9 @@ namespace OpenTransSharp.Tests.BMEcats
         private IppOutbound GetIppOutbound()
         {
             var model = new IppOutbound();
-            model.IppOutboundFormat = IppOutboundFormatValues.BMEcat2005;
-            model.IppOutboundParams = GetIppOutboundParams();
-            model.IppUris.Add("https://someuri/");
+            model.Format = IppOutboundFormatValues.BMEcat2005;
+            model.Params = GetIppOutboundParams();
+            model.Uris.Add("https://someuri/");
 
             return model;
         }
@@ -288,16 +288,16 @@ namespace OpenTransSharp.Tests.BMEcats
         private IppOutboundParams GetIppOutboundParams()
         {
             var model = new IppOutboundParams();
-            model.IppLanguages = GetIppLanguages();
-            model.IppTerritories = GetIppTerritories();
-            model.IppPriceCurrencies = GetIppPriceCurrencies();
-            model.IppPriceTypes = GetIppPriceTypes();
-            model.IppSupplierPid = GetIppSupplierPid();
-            model.IppProductconfigIdref = GetIppProductconfigIdref();
-            model.IppProductlistIdref = GetIppProductlistIdref();
-            model.IppUserInfo = GetIppUserInfo();
-            model.IppAuthentificationInfo = GetIppAuthentificationInfo();
-            model.IppParamDefinitions.Add(GetIppParamDefinition());
+            model.Languages = GetIppLanguages();
+            model.Territories = GetIppTerritories();
+            model.PriceCurrencies = GetIppPriceCurrencies();
+            model.PriceTypes = GetIppPriceTypes();
+            model.SupplierPid = GetIppSupplierPid();
+            model.ProductconfigIdref = GetIppProductconfigIdref();
+            model.ProductlistIdref = GetIppProductlistIdref();
+            model.UserInfo = GetIppUserInfo();
+            model.AuthentificationInfo = GetIppAuthentificationInfo();
+            model.Definitions.Add(GetIppParamDefinition());
 
             return model;
         }
@@ -306,8 +306,8 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new IppParamDefinition();
             model.Occurrence = IppOccurrence.Mandatory;
-            model.IppParamName = "Param name";
-            model.IppParamDescription = new MultiLingualString("Ipp param description");
+            model.Name = "Param name";
+            model.Description = new MultiLingualString("Ipp param description");
 
             return model;
         }
@@ -385,18 +385,18 @@ namespace OpenTransSharp.Tests.BMEcats
         private ClassificationSystem GetClassificationSystem()
         {
             var model = new ClassificationSystem();
-            model.ClassificationSystemName = ClassificationSystemNameValues.EClass(new Version(2, 1));
-            model.ClassificationSystemFullname = "Classification system full name";
-            model.ClassificationSystemVersionDetails = GetClassificationSystemVersionDetails();
-            model.ClassificationSystemDescripiton = "Classification system description";
+            model.Name = ClassificationSystemNameValues.EClass(new Version(2, 1));
+            model.Fullname = "Classification system full name";
+            model.VersionDetails = GetClassificationSystemVersionDetails();
+            model.Descripiton = "Classification system description";
             model.ClassificationSystemPartyIdref = GetClassificationSystemPartyIdref();
-            model.ClassificationSystemLevels = 1;
-            model.ClassificationSystemLevelNames.Add(GetClassificationSystemLevelName());
-            model.ClassificationSystemType = GetClassificationSystemType();
+            model.Levels = 1;
+            model.LevelNames.Add(GetClassificationSystemLevelName());
+            model.Type = GetClassificationSystemType();
             model.AllowedValues.Add(GetAllowedValue());
             model.Units.Add(GetUnit());
             model.FtGroups.Add(GetFeatureGroup());
-            model.ClassificationSystemFeatureTemplates.Add(GetClassificationSystemFeatureTemplate());
+            model.FeatureTemplates.Add(GetClassificationSystemFeatureTemplate());
 
             return model;
         }
@@ -404,14 +404,14 @@ namespace OpenTransSharp.Tests.BMEcats
         private ClassificationSystemFeatureTemplate GetClassificationSystemFeatureTemplate()
         {
             var model = new ClassificationSystemFeatureTemplate();
-            model.FtId = "Feature id";
-            model.FtName = "Feature name";
-            model.FtShortame = "Feature group";
-            model.FtDescription = "Feature description";
-            model.FtVersion = GetFeatureVersion();
-            model.FtGroupIdref = "Feature groupd id";
-            model.FtDependencies.Add(GetFeatureDependency());
-            model.FeatureContent = GetFeatureContent();
+            model.Id = "Feature id";
+            model.Name = "Feature name";
+            model.Shortame = "Feature group";
+            model.Description = "Feature description";
+            model.Version = GetFeatureVersion();
+            model.GroupIdref = "Feature groupd id";
+            model.Dependencies.Add(GetFeatureDependency());
+            model.Content = GetFeatureContent();
 
             return model;
         }
@@ -472,10 +472,10 @@ namespace OpenTransSharp.Tests.BMEcats
         private FtGroup GetFeatureGroup()
         {
             var model = new FtGroup();
-            model.FtGroupId = "Feature group id";
-            model.FtGroupName = "Feature group name";
-            model.FtGroupDescription = "Feature group description";
-            model.FtGroupParentIds.Clear();
+            model.Id = "Feature group id";
+            model.Name = "Feature group name";
+            model.Description = "Feature group description";
+            model.ParentIds.Clear();
 
             return model;
         }
@@ -497,13 +497,13 @@ namespace OpenTransSharp.Tests.BMEcats
         private AllowedValue GetAllowedValue()
         {
             var model = new AllowedValue();
-            model.AllowedValueId = "Allowed Value ID";
-            model.AllowedValueName = new MultiLingualString("Allowed value", LanguageCodes.eng);
-            model.AllowedValueVersion = GetAllowedValueVersion();
-            model.AllowedValueShortname = "Allowed Value Short";
-            model.AllowedValueDescription = "Allowed Value Description";
-            model.AllowedValueSynonyms.Add(new MultiLingualString("Allowed Value long text", LanguageCodes.eng));
-            model.AllowedValueSource = GetAllowedValueSource();
+            model.Id = "Allowed Value ID";
+            model.Name = new MultiLingualString("Allowed value", LanguageCodes.eng);
+            model.Version = GetAllowedValueVersion();
+            model.Shortname = "Allowed Value Short";
+            model.Description = "Allowed Value Description";
+            model.Synonyms.Add(new MultiLingualString("Allowed Value long text", LanguageCodes.eng));
+            model.Source = GetAllowedValueSource();
 
             return model;
         }
@@ -511,8 +511,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private AllowedValueSource GetAllowedValueSource()
         {
             var model = new AllowedValueSource();
-            model.SourceName = "External";
-            model.SourceUri = "ftp://external/";
+            model.Name = "External";
+            model.Uri = "ftp://external/";
             model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
 
             return model;
@@ -570,21 +570,21 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new NewCatalogProduct();
 
             model.SupplierPid = parent.GetSupplierPid();
-            model.ProductDetails = GetProductDetails();
-            model.ProductOrderDetails = GetProductOrderDetails();
-            model.ProductPriceDetails.Add(GetProductPriceDetails());
-            model.ProductConfigDetails = GetProductConfigDetails();
+            model.Details = GetProductDetails();
+            model.OrderDetails = GetProductOrderDetails();
+            model.PriceDetails.Add(GetProductPriceDetails());
+            model.ConfigDetails = GetProductConfigDetails();
 
             return model;
         }
 
-        private ProductConfigDetails GetProductConfigDetails()
+        private ProductConfigurationDetails GetProductConfigDetails()
         {
-            var model = new ProductConfigDetails();
-            model.ConfigurationSteps.Add(GetConfigurationStep());
+            var model = new ProductConfigurationDetails();
+            model.Steps.Add(GetConfigurationStep());
             model.PredefinedConfigurations = GetPredefinedConfigurations();
-            model.ConfigurationRules.Add(GetConfigurationRule());
-            model.ConfigurationFormulas.Add(GetConfigurationFormula());
+            model.Rules.Add(GetConfigurationRule());
+            model.Formulas.Add(GetConfigurationFormula());
 
             return model;
         }
@@ -592,7 +592,7 @@ namespace OpenTransSharp.Tests.BMEcats
         private PredefinedConfigurations GetPredefinedConfigurations()
         {
             var model = new PredefinedConfigurations();
-            model.PredefinedConfigCoverage = PredefinedConfigCoverage.Partial;
+            model.Coverage = PredefinedConfigurationCoverage.Partial;
             model.Configurations.Add(GetPredefinedConfiguration());
             return model;
         }
@@ -600,10 +600,10 @@ namespace OpenTransSharp.Tests.BMEcats
         private PredefinedConfiguration GetPredefinedConfiguration()
         {
             var model = new PredefinedConfiguration();
-            model.PredefinedConfigDescription = "-red";
-            model.PredefinedConfigName = new MultiLingualString("Predefined configuration");
-            model.PredefinedConfigDescription = new MultiLingualString("Predefined configuration description");
-            model.PredefinedConfigOrder = 1;
+            model.Description = "-red";
+            model.Name = new MultiLingualString("Predefined configuration");
+            model.Description = new MultiLingualString("Predefined configuration description");
+            model.Order = 1;
             model.ProductPriceDetails = GetProductPriceDetails();
             model.SupplierPid = parent.GetSupplierPid();
             model.InternationalPids.Add(parent.GetInternationalPid());
@@ -614,7 +614,7 @@ namespace OpenTransSharp.Tests.BMEcats
         private ConfigurationFormula GetConfigurationFormula()
         {
             var model = new ConfigurationFormula();
-            model.FormulaIdref = "Configuraton formula id";
+            model.Idref = "Configuraton formula id";
             model.Parameters.Add(parent.GetParameter());
             return model;
         }
@@ -633,13 +633,13 @@ namespace OpenTransSharp.Tests.BMEcats
         private ConfigurationStep GetConfigurationStep()
         {
             var model = new ConfigurationStep();
-            model.StepId = "Step id";
+            model.Id = "Step id";
             model.StepHeader = "This is a step";
-            model.StepDescriptionShort = new MultiLingualString("A short description", LanguageCodes.eng);
-            model.StepDescriptionLong = new MultiLingualString("A long description", LanguageCodes.eng);
-            model.StepOrder = 1;
-            model.StepInteractionType = StepInteractionType.ForceUserinput;
-            model.ConfigCode = "-red";
+            model.DescriptionShort = new MultiLingualString("A short description", LanguageCodes.eng);
+            model.DescriptionLong = new MultiLingualString("A long description", LanguageCodes.eng);
+            model.Order = 1;
+            model.InteractionType = StepInteractionType.ForceUserinput;
+            model.ConfigurationCode = "-red";
             model.ProductPriceDetails = parent.GetProductPriceDetails();
             model.ConfigurationFeature = GetConfigurationFeature();
             model.MinimumOccurance = 1;
@@ -687,8 +687,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private FeatureReference GetFeatureReference()
         {
             var model = new FeatureReference();
-            model.ReferenceFeatureSystemName = ReferenceFeatureSystemNameValues.EClass(new Version(4, 1));
-            model.FeatureIdref = "Feature id";
+            model.SystemName = ReferenceFeatureSystemNameValues.EClass(new Version(4, 1));
+            model.Idref = "Feature id";
 
             return model;
         }

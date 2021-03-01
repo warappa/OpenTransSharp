@@ -47,7 +47,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("NAME2")]
-        public MultiLingualString? Names2 { get; set; }
+        public MultiLingualString? Name2 { get; set; }
 
         /// <summary>
         /// (optional) Address line 3<br/>
@@ -59,7 +59,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("NAME3")]
-        public MultiLingualString? Names3 { get; set; }
+        public MultiLingualString? Name3 { get; set; }
 
         /// <summary>
         /// (optional) Department<br/>
@@ -270,6 +270,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ADDRESS_REMARKS")]
-        public MultiLingualString? AddressRemarks { get; set; }
+        public MultiLingualString? Remarks { get; set; }
     }
 }

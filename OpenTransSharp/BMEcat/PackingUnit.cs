@@ -52,7 +52,7 @@ namespace OpenTransSharp
         [Required]
         [MaxLength(3)]
         [BMEXmlElement("PACKING_UNIT_CODE")]
-        public string PackingUnitCode { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// (optional) Packing unit description <br/>
@@ -60,9 +60,9 @@ namespace OpenTransSharp
         /// Description of the packing unit, i.e. explaination, additional information, hints etc.
         /// </summary>
         [XmlElement("PACKING_UNIT_DESCR")]
-        public List<MultiLingualString>? PackingUnitDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PackingUnitDescriptionsSpecified => PackingUnitDescriptions?.Count > 0;
+        public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
         /// <summary>
         /// (required) Supplier's product ID<br/>

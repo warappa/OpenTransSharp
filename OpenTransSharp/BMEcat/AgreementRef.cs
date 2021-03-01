@@ -5,9 +5,11 @@ namespace OpenTransSharp
     /// <summary>
     /// (Skeleton agreement reference)<br/>
     /// <br/>
-    /// This element contains a reference to a skeleton agreement (AGREEMENT), which has been named in the document header.
+    /// This element contains a reference to a skeleton agreement (AGREEMENT), which has been named in the document header.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
-    public class AgreementRef
+    public class AgreementReference
     {
         /// <summary>
         /// (required) Skeleton agreement ID reference<br/>
@@ -18,7 +20,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("AGREEMENT_IDREF")]
-        public string AgreementIdRef { get; set; }
+        public string IdReference { get; set; }
 
         /// <summary>
         /// (optional) Line ID reference<br/>
@@ -28,6 +30,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AGREEMENT_LINE_IDREF")]
-        public string? AgreementLineIdref { get; set; }
+        public string? LineIdReference { get; set; }
     }
 }

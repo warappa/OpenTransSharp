@@ -21,6 +21,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("IPP_PARAM_DEFINITION")]
-        public List<IppParamDefinition> IppParamDefinitions { get; set; } = new List<IppParamDefinition>();
+        public List<IppParamDefinition> Definitions { get; set; } = new List<IppParamDefinition>();
     }
 }

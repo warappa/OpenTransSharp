@@ -25,9 +25,9 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("SUPPLIER_ID")]
-        public List<SupplierId>? SupplierIds { get; set; } = new List<SupplierId>();
+        public List<SupplierId>? Ids { get; set; } = new List<SupplierId>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool SupplierIdsSpecified => SupplierIds?.Count > 0;
+        public bool IdsSpecified => Ids?.Count > 0;
 
         /// <summary>
         /// (required) Supplier name<br/>
@@ -39,7 +39,7 @@ namespace OpenTransSharp
         [Obsolete("This element will not be used in the future.")]
         [Required]
         [BMEXmlElement("SUPPLIER_NAME")]
-        public string SupplierName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// (optional - deprecated) Address<br/>

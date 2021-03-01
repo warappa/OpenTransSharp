@@ -73,7 +73,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_ALT_PID")]
-        public string? SupplierAltPid { get; set; }
+        public string? SupplierAlternativePid { get; set; }
 
         /// <summary>
         /// (optional) Product ID of the buying company<br/>
@@ -225,9 +225,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_ORDER")]
-        public int? ProductOrder { get; set; }
+        public int? Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ProductOrderSpecified => ProductOrder.HasValue;
+        public bool OrderSpecified => Order.HasValue;
 
         /// <summary>
         /// (optional) Special product status<br/>
@@ -248,8 +248,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_STATUS")]
-        public List<ProductStatus>? ProductStatuses { get; set; } = new List<ProductStatus>();
-        public bool ProductStatusesSpecified => ProductStatuses?.Count > 0;
+        public List<ProductStatus>? Statuses { get; set; } = new List<ProductStatus>();
+        public bool StatusesSpecified => Statuses?.Count > 0;
 
         /// <summary>
         /// (optional) International delivery restrictions<br/>
@@ -282,7 +282,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AGREEMENT_REF")]
-        public List<AgreementRef>? AgreementRefs { get; set; } = new List<AgreementRef>();
+        public List<AgreementReference>? AgreementRefs { get; set; } = new List<AgreementReference>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementRefsSpecified => AgreementRefs?.Count > 0;
 
@@ -294,9 +294,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_TYPE")]
-        public List<ProductType>? ProductTypes { get; set; } = new List<ProductType>();
+        public List<ProductType>? Types { get; set; } = new List<ProductType>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ProductTypesSpecified => ProductTypes?.Count > 0;
+        public bool TypesSpecified => Types?.Count > 0;
 
         /// <summary>
         /// (optional) Product category<br/>
@@ -306,8 +306,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRODUCT_CATEGORY")]
-        public ProductCategory? ProductCategory { get; set; }
+        public ProductCategory? Category { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ProductCategorySpecified => ProductCategory.HasValue;
+        public bool CategorySpecified => Category.HasValue;
     }
 }

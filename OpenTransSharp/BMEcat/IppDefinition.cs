@@ -20,7 +20,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_ID")]
-        public string IppId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) IPP application<br/>
@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_TYPE")]
-        public IppType IppType { get; set; }
+        public IppType Type { get; set; }
 
         /// <summary>
         /// (optional) Reference to IPP provider.<br/>
@@ -41,7 +41,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATOR_IDREF")]
-        public IppOperatorIdref? IppOperatorIdref { get; set; }
+        public IppOperatorIdref? OperatorIdref { get; set; }
 
         /// <summary>
         /// (optional) Description of the IPP application<br/>
@@ -51,7 +51,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_DESCR")]
-        public MultiLingualString? IppDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (required) IPP operation<br/>
@@ -62,6 +62,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("IPP_OPERATION")]
-        public List<IppOperation> IppOperations { get; set; } = new List<IppOperation>();
+        public List<IppOperation> Operations { get; set; } = new List<IppOperation>();
     }
 }
