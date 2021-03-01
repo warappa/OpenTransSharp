@@ -102,7 +102,7 @@ namespace OpenTransSharp.Tests.Invoices
         {
             return new OrderHistory
             {
-                Id = "OrderId"
+                OrderId = "OrderId"
             };
         }
 

@@ -30,6 +30,6 @@ namespace OpenTransSharp
         /// Max length: 50
         /// </summary>
         [XmlElement("SUPPLIER_ORDER_ITEM_ID")]
-        public string ItemId { get; set; }
+        public string LineItemId { get; set; }
     }
 }

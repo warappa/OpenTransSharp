@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// Unique order number of the buyer.
         /// </summary>
         [XmlElement("ORDER_ID")]
-        public string Id { get; set; }
+        public string OrderId { get; set; }
 
         /// <summary>
         /// (required) Date of confirmation of order<br/>

@@ -98,7 +98,7 @@ namespace OpenTransSharp.Tests.OrderResponses
         private OrderResponseInformation GetOrderResponseInformation()
         {
             var model = new OrderResponseInformation();
-            model.Id = "OrderResponseId";
+            model.OrderId = "OrderResponseId";
             model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
             model.Languages.Add(new Language(LanguageCodes.deu, true));

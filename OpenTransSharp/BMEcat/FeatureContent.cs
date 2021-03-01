@@ -129,8 +129,11 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FT_SYNONYMS")]
-        public FeatureSynonyms? Synonyms { get; set; }
+        [BMEXmlArray("FT_SYNONYMS")]
+        [BMEXmlArrayItem("SYNONYM")]
+        public List<MultiLingualString>? Synonyms { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SynonymsSpecified => Synonyms?.Count > 0;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
