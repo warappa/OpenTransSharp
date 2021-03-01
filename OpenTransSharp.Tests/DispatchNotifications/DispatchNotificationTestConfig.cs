@@ -115,11 +115,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.MimeRoot = parent.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.Id = "DispatchNotificationId";
-            model.Parties = new List<Party>
-            {
-                parent.GetBuyerParty(),
-                parent.GetSupplierParty()
-            };
+            model.Parties = parent.GetParties();
             model.SupplierIdref = parent.GetSupplierIdRef();
             model.BuyerIdref = parent.GetBuyerIdref();
             model.ShipmentPartiesReference = new ShipmentPartiesReference

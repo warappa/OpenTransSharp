@@ -212,9 +212,9 @@ namespace OpenTransSharp.Tests
             return model;
         }
 
-        public List<Party> GetParties()
+        public List<OpenTransParty> GetParties()
         {
-            return new List<Party>
+            return new List<OpenTransParty>
             {
                 GetBuyerParty(),
                 GetSupplierParty()
@@ -293,9 +293,9 @@ namespace OpenTransSharp.Tests
             return new DeliveryIdref("Buyer", PartyTypeValues.PartySpecific);
         }
 
-        public Party GetSupplierParty()
+        public OpenTransParty GetSupplierParty()
         {
-            return new Party
+            return new OpenTransParty
             {
                 Roles = new List<PartyRole> { PartyRole.Supplier },
                 Ids = new List<PartyId>
@@ -305,9 +305,9 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public Party GetBuyerParty()
+        public OpenTransParty GetBuyerParty()
         {
-            var model = new Party
+            var model = new OpenTransParty
             {
                 Ids = new List<PartyId>
                 {
@@ -445,9 +445,9 @@ namespace OpenTransSharp.Tests
             return new Phone("+43123456789", type);
         }
 
-        private ContactDetails GetContactDetails()
+        private OpenTransContactDetails GetContactDetails()
         {
-            var model = new ContactDetails();
+            var model = new OpenTransContactDetails();
             model.Id = "Contact id";
             model.Surname.Add(new MultiLingualString("Surname"));
             model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
@@ -523,9 +523,9 @@ namespace OpenTransSharp.Tests
             return new InvoiceIssuerIdref("Supplier", PartyTypeValues.PartySpecific);
         }
 
-        public MimeInfo GetMimeInfo()
+        public OpenTransMimeInfo GetMimeInfo()
         {
-            var model = new MimeInfo();
+            var model = new OpenTransMimeInfo();
 
             model.Mimes.Add(GetMime());
 
@@ -546,9 +546,9 @@ namespace OpenTransSharp.Tests
             return model;
         }
 
-        public static Mime GetMime()
+        public static OpenTransMime GetMime()
         {
-            return new Mime
+            return new OpenTransMime
             {
                 AlternativeTexts = new List<MultiLingualString>
                 {

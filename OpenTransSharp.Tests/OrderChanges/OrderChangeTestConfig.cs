@@ -112,11 +112,7 @@ namespace OpenTransSharp.Tests.OrderChanges
             model.OrderId = "OrderChangeId";
             model.SequenceId = 1;
             model.OrderPartiesReference = parent.GetOrderPartiesReference();
-            model.Parties = new List<Party>
-            {
-                parent.GetBuyerParty(),
-                parent.GetSupplierParty()
-            };
+            model.Parties = parent.GetParties();
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;

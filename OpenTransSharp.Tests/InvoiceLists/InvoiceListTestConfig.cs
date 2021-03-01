@@ -120,11 +120,7 @@ namespace OpenTransSharp.Tests.InvoiceLists
             model.MimeRoot = parent.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.Id = "InvoiceListId";
-            model.Parties = new List<Party>
-            {
-                parent.GetBuyerParty(),
-                parent.GetSupplierParty()
-            };
+            model.Parties = parent.GetParties();
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;

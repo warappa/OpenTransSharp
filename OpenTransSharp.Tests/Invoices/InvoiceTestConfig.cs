@@ -121,11 +121,7 @@ namespace OpenTransSharp.Tests.Invoices
             model.Id = "InvoiceId";
             model.IssuerIdref = parent.GetInvoiceIssuerIdRef();
             model.RecipientIdref = parent.GetInvoiceRecipientIdRef();
-            model.Parties.AddRange(new[]
-            {
-                parent.GetBuyerParty(),
-                parent.GetSupplierParty()
-            });
+            model.Parties = parent.GetParties();
             model.Remarks.Add(parent.GetRemark());
 
             return model;
