@@ -54,7 +54,7 @@ namespace OpenTransSharp
         /// (required) Order unit<br/>
         /// <br/>
         /// Unit in which the product can be ordered; it is only possible to order multiples of the product unit.<br/>
-        /// The price also always refers to this unit(or to part of or multiples of it).<br/>
+        /// The price also always refers to this unit (or to part of or multiples of it).<br/>
         /// <br/>
         /// Example: Crate of mineral water with 6 bottles<br/>
         /// Order unit: "crate", contents unit/unit of the article: "bottle"<br/>

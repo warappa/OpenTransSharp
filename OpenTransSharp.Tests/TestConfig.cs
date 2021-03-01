@@ -35,7 +35,7 @@ namespace OpenTransSharp.Tests
         {
             return new DeliveryReference
             {
-                DeliveryIdref = GetDeliveryIdRef()
+                Idref = GetDeliveryIdRef()
             };
         }
 

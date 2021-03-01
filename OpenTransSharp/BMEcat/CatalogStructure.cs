@@ -40,7 +40,7 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_ID")]
-        public string? GroupSystemId { get; set; }
+        public string? GroupId { get; set; }
 
         /// <summary>
         /// (required - deprecated) Group name<br/>

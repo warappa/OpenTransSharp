@@ -91,9 +91,9 @@ namespace OpenTransSharp
         /// </summary>
         [XmlArray("IL_INVOICE_LIST")]
         [XmlArrayItem("IL_INVOICE_LIST_ITEM")]
-        public List<ILInvoiceListItem> ILInvoiceList { get; set; } = new List<ILInvoiceListItem>();
+        public List<ILInvoiceListItem> InvoiceList { get; set; } = new List<ILInvoiceListItem>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ILInvoiceListSpecified => ILInvoiceList?.Count > 0;
+        public bool InvoiceListSpecified => InvoiceList?.Count > 0;
 
         /// <summary>
         /// (optional) Number of item lines<br/>

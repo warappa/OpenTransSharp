@@ -484,12 +484,12 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new Unit();
             model.System = UnitSystemValues.SI;
-            model.UnitId = "Unit id";
-            model.UnitName = new MultiLingualString("Piece", LanguageCodes.eng);
-            model.UnitShortname = new MultiLingualString("pcs", LanguageCodes.eng);
-            model.UnitDescription = new MultiLingualString("Whole pieces", LanguageCodes.eng);
-            model.UnitCode = "piece";
-            model.UnitUri = "https://example/specification";
+            model.Id = "Unit id";
+            model.Name = new MultiLingualString("Piece", LanguageCodes.eng);
+            model.Shortname = new MultiLingualString("pcs", LanguageCodes.eng);
+            model.Description = new MultiLingualString("Whole pieces", LanguageCodes.eng);
+            model.Code = "piece";
+            model.Uri = "https://example/specification";
 
             return model;
         }

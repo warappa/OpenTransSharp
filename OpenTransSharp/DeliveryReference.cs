@@ -43,7 +43,7 @@ namespace OpenTransSharp
         /// To specify exact one date for the shipment, e.g. in the RECEIPTACKNOWLEDGEMENT-document, both sub-elements the DELIVERY_DATE and the DELIVERY_END_DATE should be the equal.
         /// </summary>
         [XmlElement("DELIVERY_DATE")]
-        public DeliveryDate? DeliveryDate { get; set; }
+        public DeliveryDate? Date { get; set; }
 
         /// <summary>
         /// (optional) Reference to final recipient<br/>
@@ -52,6 +52,6 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref? DeliveryIdref { get; set; }
+        public DeliveryIdref? Idref { get; set; }
     }
 }

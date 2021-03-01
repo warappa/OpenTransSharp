@@ -74,7 +74,7 @@ namespace OpenTransSharp.Tests.InvoiceLists
             var model = new InvoiceListItem();
 
             model.LineItemId = "1";
-            model.ILInvoiceList.Add(GetILInvoiceListItem());
+            model.InvoiceList.Add(GetILInvoiceListItem());
             model.NetValueGoods = 10;
             model.TotalAmount = 10;
             model.TotalTax = parent.GetTotalTax();

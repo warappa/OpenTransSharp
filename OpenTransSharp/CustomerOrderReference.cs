@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -19,7 +16,7 @@ namespace OpenTransSharp
         /// Unique order number of the buyer.
         /// </summary>
         [XmlElement("ORDER_ID")]
-        public string? OrderId { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// (Optional) Item number<br/>
@@ -38,7 +35,7 @@ namespace OpenTransSharp
         /// Date of the order.
         /// </summary>
         [XmlElement("ORDER_DATE")]
-        public DateTime? OrderDate { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// (optional) Description of the order<br/>
@@ -46,9 +43,7 @@ namespace OpenTransSharp
         /// Textual description of the order.
         /// </summary>
         [XmlElement("ORDER_DESCR")]
-        public List<MultiLingualString> OrderDescriptions { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool OrderDescriptionsSpecified => OrderDescriptions?.Count > 0;
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (Optional) Reference to a customer<br/>

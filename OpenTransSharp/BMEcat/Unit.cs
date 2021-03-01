@@ -37,7 +37,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_ID")]
-        public string UnitId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Unit name<br/>
@@ -47,7 +47,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_NAME")]
-        public MultiLingualString? UnitName { get; set; }
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional) Unit short name<br/>
@@ -57,7 +57,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_SHORTNAME")]
-        public MultiLingualString? UnitShortname { get; set; }
+        public MultiLingualString? Shortname { get; set; }
 
         /// <summary>
         /// (optional) Unit description<br/>
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_DESCR")]
-        public MultiLingualString? UnitDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Code of the unit<br/>
@@ -77,7 +77,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_CODE")]
-        public string? UnitCode { get; set; }
+        public string? Code { get; set; }
 
         /// <summary>
         /// (optional) URI of the unit <br/>
@@ -87,6 +87,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_URI")]
-        public string? UnitUri { get; set; }
+        public string? Uri { get; set; }
     }
 }

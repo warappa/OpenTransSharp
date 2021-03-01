@@ -23,7 +23,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_ID")]
-        public string ContactId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Contact name<br/>

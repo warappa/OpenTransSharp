@@ -65,7 +65,7 @@ namespace OpenTransSharp
         /// The numbering begins at 1.
         /// </summary>
         [XmlElement("ORDERCHANGE_SEQUENCE_ID")]
-        public int OrderchangeSequenceId { get; set; }
+        public int SequenceId { get; set; }
 
         /// <summary>
         /// (optional) Delivery date <br/>
