@@ -56,7 +56,9 @@ namespace OpenTransSharp
         /// Textual description of the order.
         /// </summary>
         [BMEXmlElement("ORDER_DESCR")]
-        public MultiLingualString? OrderDescription { get; set; }
+        public List<MultiLingualString>? OrderDescription { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool OrderDescriptionSpecified => OrderDescription?.Count > 0;
 
         /// <summary>
         /// (optional) Delivery note number<br/>

@@ -27,7 +27,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FNAME")]
-        public MultiLingualString Name { get; set; }
+        public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (required) Feature reference<br/>
@@ -128,7 +128,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FDESCR")]
-        public MultiLingualString? FeatureDescription { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (optional) Additional details about the feature value<br/>
@@ -140,7 +142,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FVALUE_DETAILS")]
-        public MultiLingualString? FeatureValueDetails { get; set; }
+        public List<MultiLingualString>? ValueDetails { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ValueDetailsSpecified => ValueDetails?.Count > 0;
 
         /// <summary>
         /// (optional) Feature value type<br/>
@@ -150,8 +154,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FVALUE_TYPE")]
-        public FeatureValueType? FeatureValueType { get; set; }
+        public FeatureValueType? ValueType { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureValueTypeSpecified => FeatureValueType.HasValue;
+        public bool ValueTypeSpecified => ValueType.HasValue;
     }
 }

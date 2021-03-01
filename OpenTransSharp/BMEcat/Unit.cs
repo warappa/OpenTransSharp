@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -47,7 +49,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_NAME")]
-        public MultiLingualString? Name { get; set; }
+        public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool NameSpecified => Name?.Count > 0;
 
         /// <summary>
         /// (optional) Unit short name<br/>
@@ -57,7 +61,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_SHORTNAME")]
-        public MultiLingualString? Shortname { get; set; }
+        public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShortnameSpecified => Shortname?.Count > 0;
 
         /// <summary>
         /// (optional) Unit description<br/>
@@ -67,7 +73,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("UNIT_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (optional) Code of the unit<br/>

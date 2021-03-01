@@ -17,6 +17,18 @@ namespace OpenTransSharp
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type">This attribute indicates the Public Key coding process in which the e-mail is coded.<br/>
+        /// Must comply with the format "&lt;Name&gt;-&lt;MajorVersion&gt;.&lt;MinorVersions&gt;".<br/>
+        /// <br/>
+        /// Max length: 50<br/>
+        /// <br/>
+        /// Example.: PGP-6.5.1<br/>
+        /// <br/>
+        /// See <see cref="PublicKeyTypeValues"/>.</param>
         public PublicKey(string value, string type)
         {
             Value = value;
@@ -31,7 +43,9 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50<br/>
         /// <br/>
-        /// Example.: PGP-6.5.1
+        /// Example.: PGP-6.5.1<br/>
+        /// <br/>
+        /// See <see cref="PublicKeyTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public string Type { get; set; }

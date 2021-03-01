@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -40,7 +41,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATION_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (required) IPP call<br/>

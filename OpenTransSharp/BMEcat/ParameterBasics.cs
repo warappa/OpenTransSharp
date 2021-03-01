@@ -1,4 +1,7 @@
-﻿namespace OpenTransSharp
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace OpenTransSharp
 {
     /// <summary>
     /// (Basic parameter information)<br/>
@@ -18,7 +21,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_NAME")]
-        public MultiLingualString Name { get; set; }
+        public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (optional) Parameter description<br/>
@@ -28,7 +31,9 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (optional) Parameter description<br/>
@@ -39,7 +44,9 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_UNIT")]
-        public MultiLingualString? Unit { get; set; }
+        public List<MultiLingualString>? Unit { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool UnitSpecified => Unit?.Count > 0;
 
     }
 }

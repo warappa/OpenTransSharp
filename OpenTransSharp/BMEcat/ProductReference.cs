@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml;
@@ -97,12 +98,16 @@ namespace OpenTransSharp
         }
 
         /// <summary>
-        /// (optional) Dieses Element kann genutzt werden, um die Produktreferenz zu beschreiben.<br/>
+        /// (optional) Reference description<br/>
+        /// <br/>
+        /// This element can be used to describe the reference.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("REFERENCE_DESCR")]
-        public MultiLingualString? ReferenceDescription { get; set; }
+        public List<MultiLingualString>? ReferenceDescription { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ReferenceDescriptionSpecified => ReferenceDescription?.Count > 0;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

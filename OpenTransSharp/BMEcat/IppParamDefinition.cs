@@ -1,4 +1,7 @@
-﻿namespace OpenTransSharp
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace OpenTransSharp
 {
     /// <summary>
     /// (Other IPP input parameters)<br/>
@@ -27,6 +30,8 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PARAM_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
     }
 }

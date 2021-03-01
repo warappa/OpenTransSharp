@@ -43,7 +43,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("GROUP_SYSTEM_NAME")]
-        public MultiLingualString? Name { get; set; }
+        public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool NameSpecified => Name?.Count > 0;
 
         /// <summary>
         /// (required - deprecated) Catalog structure element<br/>
@@ -65,6 +67,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("GROUP_SYSTEM_DESCRIPTION")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
     }
 }

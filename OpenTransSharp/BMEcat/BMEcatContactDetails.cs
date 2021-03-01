@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
     /// <summary>
     /// (Contact)<br/>
     /// <br/>
-    /// This element contains informations about a contact person.
+    /// This element contains informations about a contact person.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
-    public class ContactDetails
+    public class BMEcatContactDetails
     {
         /// <summary>
         /// (required) Contact ID<br/>
@@ -79,7 +79,7 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [XmlElement("CONTACT_ROLE")]
+        [BMEXmlElement("CONTACT_ROLE")]
         public List<ContactRole>? ContactRoles { get; set; } = new List<ContactRole>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ContactRolesSpecified => ContactRoles?.Count > 0;
@@ -104,9 +104,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PHONE")]
-        public List<Phone>? Phones { get; set; } = new List<Phone>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PhonesSpecified => Phones?.Count > 0;
+        public Phone? Phone { get; set; }
 
         /// <summary>
         /// (optional) Fax number<br/>
@@ -116,9 +114,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FAX")]
-        public List<Fax>? Faxes { get; set; } = new List<Fax>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FaxesSpecified => Faxes?.Count > 0;
+        public Fax? Fax { get; set; }
 
         /// <summary>
         /// (optional) Internet address<br/>
@@ -140,17 +136,5 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("EMAILS")]
         public Email? Email { get; set; }
-
-        /// <summary>
-        /// (optional) Authentification information<br/>
-        /// <br/>
-        /// Authentification information.<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT<br/>
-        /// <br/>
-        /// Compatibility warning: in OpenTrans, not in BMEcat!
-        /// </summary>
-        [BMEXmlElement("AUTHENTIFICATION")]
-        public Authentification? Authentification { get; set; }
     }
 }

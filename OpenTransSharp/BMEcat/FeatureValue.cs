@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureTemplateValue
+    public class FeatureValue
     {
         /// <summary>
         /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Reference to a value<br/>
@@ -44,7 +44,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_TEXT")]
-        public MultiLingualString Text { get; set; }
+        public List<MultiLingualString> Text { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TextSpecified => Text?.Count > 0;
 
         /// <summary>
         /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Interval of values<br/>

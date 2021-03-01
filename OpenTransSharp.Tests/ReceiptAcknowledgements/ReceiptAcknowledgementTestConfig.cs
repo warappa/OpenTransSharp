@@ -101,7 +101,7 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             model.ReceiptDate = DateTime.UtcNow;
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
-            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
+            model.MimeRoot = parent.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
             model.SupplierIdref = parent.GetSupplierIdRef();
             model.BuyerIdref = parent.GetBuyerIdref();

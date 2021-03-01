@@ -100,7 +100,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EXEMPTION_REASON")]
-        public MultiLingualString? ExemptionReason { get; set; }
+        public List<MultiLingualString>? ExemptionReason { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ExemptionReasonSpecified => ExemptionReason?.Count > 0;
 
         /// <summary>
         /// (optional) Jurisdiction<br/>
@@ -108,6 +110,8 @@ namespace OpenTransSharp
         /// Tax jurisdiction.
         /// </summary>
         [BMEXmlElement("JURISDICTION")]
-        public MultiLingualString? Jurisdiction { get; set; }
+        public List<MultiLingualString>? Jurisdiction { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool JurisdictionSpecified => Jurisdiction?.Count > 0;
     }
 }

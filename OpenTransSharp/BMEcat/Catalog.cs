@@ -93,7 +93,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CATALOG_NAME")]
-        public MultiLingualString? Name { get; set; }
+        public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool NameSpecified => Name?.Count > 0;
 
         /// <summary>
         /// (optional - choice GenerationDate/(deprecated)Date) Generation date<br/>
@@ -174,7 +176,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public MultiLingualString? MimeRoot { get; set; }
+        public List<MultiLingualString>? MimeRoot { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool MimeRootSpecified => MimeRoot?.Count > 0;
 
         /// <summary>
         /// (optional) Price flag<br/>

@@ -52,7 +52,7 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_NAME")]
-        public MultiLingualString GroupName { get; set; }
+        public List<MultiLingualString>? GroupName { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (required - deprecated) Group description <br/>
@@ -63,7 +63,7 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_DESCRIPTION")]
-        public MultiLingualString GroupDescription { get; set; }
+        public List<MultiLingualString> GroupDescription { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (required - deprecated) Superordinate leven<br/>
@@ -76,7 +76,7 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("PARENT_ID")]
-        public MultiLingualString ParentId { get; set; }
+        public string ParentId { get; set; }
 
         /// <summary>
         /// (optional - deprecated) Catalog group order<br/>

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -10,21 +8,11 @@ namespace OpenTransSharp
     /// (Address)<br/>
     /// <br/>
     /// This element is used to transfer address information of a business partner.<br/>
-    /// This element will not be used in the future.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
-    public class BMESupplierAddress
+    public class BMEcatAddress
     {
-        /// <summary>
-        /// (required) Address type<br/>
-        /// <br/>
-        /// Contains the address type.
-        /// </summary>
-        [XmlAttribute("type")]
-        public BMESupplierAddressType Type { get; set; }
-
         /// <summary>
         /// (optional) Address line<br/>
         /// <br/>
@@ -82,30 +70,14 @@ namespace OpenTransSharp
         public bool DepartmentSpecified => Department?.Count > 0;
 
         /// <summary>
-        /// (optional - choice ContactDetails/Contact) Contact<br/>
+        /// (optional) Contact<br/>
         /// <br/>
         /// Information on a contact person.
-        /// <br/>
-        /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("CONTACT_DETAILS")]
-        public List<ContactDetails>? ContactDetails { get; set; } = new List<ContactDetails>();
+        [XmlElement("CONTACT_DETAILS")]
+        public List<BMEcatContactDetails>? ContactDetails { get; set; } = new List<BMEcatContactDetails>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ContactDetailsSpecified => ContactDetails?.Count > 0;
-
-        /// <summary>
-        /// (optional - deprecated - choice ContactDetails/Contact) Contact name<br/>
-        /// <br/>
-        /// This element contains the name of the contact person.<br/>
-        /// The element CONTACT will be replaced by the element CONTACT_DETAILS in future versions and will be omitted then.<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [Obsolete("The element CONTACT will be replaced by the element CONTACT_DETAILS in future versions and will be omitted then.")]
-        [BMEXmlElement("CONTACT")]
-        public List<MultiLingualString>? Contact { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ContactSpecified => Contact?.Count > 0;
 
         /// <summary>
         /// (optional) Street<br/>
@@ -132,6 +104,7 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("ZIP")]
         public List<MultiLingualString>? Zip { get; set; } = new List<MultiLingualString>();
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ZipSpecified => Zip?.Count > 0;
 
@@ -251,8 +224,6 @@ namespace OpenTransSharp
         /// (required) E-mail address<br/>
         /// <br/>
         /// e-mail address<br/>
-        /// The e-mail address refers to the organization only.<br/>
-        /// E-mail address for individuals within this organization can be stored in the container element CONTACT_DETAILS and its sub-element EMAIL.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>

@@ -51,7 +51,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("LEGAL_TEXT")]
-        public MultiLingualString? LegalText { get; set; }
+        public List<MultiLingualString>? LegalText { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool LegalTextSpecified => LegalText?.Count > 0;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

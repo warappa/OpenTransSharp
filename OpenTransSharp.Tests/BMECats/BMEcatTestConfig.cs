@@ -88,8 +88,10 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new Formula();
             model.Id = "Formula id";
             model.Version = GetFormulaVersion();
-            model.Name = new MultiLingualString("Formula name", LanguageCodes.eng);
-            model.Description = new MultiLingualString("Formula description", LanguageCodes.eng);
+            model.Name.Add(new MultiLingualString("Formula name", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Formel Name", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Formula description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Formel Beschreibung", LanguageCodes.deu));
             model.Source = GetFormulaSource();
             model.MimeInfo = parent.GetBMEcatMimeInfo();
             model.Function = GetFormulaFunction();
@@ -119,9 +121,12 @@ namespace OpenTransSharp.Tests.BMEcats
         private ParameterBasics GetParameterBasics()
         {
             var model = new ParameterBasics();
-            model.Name = new MultiLingualString("Parameter name", LanguageCodes.eng);
-            model.Description = new MultiLingualString("Parameter description", LanguageCodes.eng);
-            model.Unit = new MultiLingualString("Parameter unit", LanguageCodes.eng);
+            model.Name.Add(new MultiLingualString("Parameter name", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Parameter Name", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Parameter description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Parameter Beschreibung", LanguageCodes.deu));
+            model.Unit.Add(new MultiLingualString("Parameter unit", LanguageCodes.eng));
+            model.Unit.Add(new MultiLingualString("Parameter Einheit", LanguageCodes.deu));
 
             return model;
         }
@@ -148,7 +153,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private FormulaSource GetFormulaSource()
         {
             var model = new FormulaSource();
-            model.Name = new MultiLingualString("Source name", LanguageCodes.eng);
+            model.Name.Add(new MultiLingualString("Source name", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Quellen-Name", LanguageCodes.deu));
             model.Uri = "https://fake-uri/";
             model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
 
@@ -239,7 +245,8 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Id = "Ipp id";
             model.Type = IppType.ProductRequest;
             model.OperatorIdref = GetIppOperatorIdref();
-            model.Description = new MultiLingualString("Ipp description", LanguageCodes.eng);
+            model.Description.Add(new MultiLingualString("Ipp description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Ipp Beschreibung", LanguageCodes.deu));
             model.Operations.Add(GetIppOperation());
 
             return model;
@@ -250,7 +257,8 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new IppOperation();
             model.Id = "Ipp operation id";
             model.Type = IppOperationType.Show;
-            model.Description = new MultiLingualString("Ipp operation description");
+            model.Description.Add(new MultiLingualString("Ipp operation description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Ipp Operation Beschreibung", LanguageCodes.deu));
             model.Outbounds.Add(GetIppOutbound());
             model.Inbounds.Add(GetIppInbound());
             
@@ -307,7 +315,8 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new IppParamDefinition();
             model.Occurrence = IppOccurrence.Mandatory;
             model.Name = "Param name";
-            model.Description = new MultiLingualString("Ipp param description");
+            model.Description.Add(new MultiLingualString("Ipp param description"));
+            model.Description.Add(new MultiLingualString("Ipp Parameter Beschreibung", LanguageCodes.deu));
 
             return model;
         }
@@ -405,9 +414,12 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new ClassificationSystemFeatureTemplate();
             model.Id = "Feature id";
-            model.Name = "Feature name";
-            model.Shortame = "Feature group";
-            model.Description = "Feature description";
+            model.Name.Add(new MultiLingualString("Feature name", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Feature Name", LanguageCodes.deu));
+            model.Shortname.Add(new MultiLingualString("Feature group", LanguageCodes.eng));
+            model.Shortname.Add(new MultiLingualString("Feature Gruppe", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Feature description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Feature Beschreibung", LanguageCodes.deu));
             model.Version = GetFeatureVersion();
             model.GroupIdref = "Feature groupd id";
             model.Dependencies.Add(GetFeatureDependency());
@@ -426,9 +438,9 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        private FeatureTemplateValue GetFeatureTemplateValue()
+        private FeatureValue GetFeatureTemplateValue()
         {
-            var model = new FeatureTemplateValue();
+            var model = new FeatureValue();
             model.Simple = "10";
             model.MimeInfo = parent.GetBMEcatMimeInfo();
             model.ConfigurationInformation = GetConfigInfo();
@@ -473,8 +485,10 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new FeatureGroup();
             model.Id = "Feature group id";
-            model.Name = "Feature group name";
-            model.Description = "Feature group description";
+            model.Name.Add(new MultiLingualString("Feature group name", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Feature Gruppenname", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Feature group description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Feature Gruppenbeschreibung", LanguageCodes.deu));
             model.ParentIds.Clear();
 
             return model;
@@ -485,9 +499,12 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new Unit();
             model.System = UnitSystemValues.SI;
             model.Id = "Unit id";
-            model.Name = new MultiLingualString("Piece", LanguageCodes.eng);
-            model.Shortname = new MultiLingualString("pcs", LanguageCodes.eng);
-            model.Description = new MultiLingualString("Whole pieces", LanguageCodes.eng);
+            model.Name.Add(new MultiLingualString("Piece", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Stück", LanguageCodes.deu));
+            model.Shortname.Add(new MultiLingualString("pcs", LanguageCodes.eng));
+            model.Shortname.Add(new MultiLingualString("stk", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Whole pieces", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Ganze Stücke", LanguageCodes.deu));
             model.Code = "piece";
             model.Uri = "https://example/specification";
 
@@ -498,11 +515,15 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new AllowedValue();
             model.Id = "Allowed Value ID";
-            model.Name = new MultiLingualString("Allowed value", LanguageCodes.eng);
+            model.Name.Add(new MultiLingualString("Allowed value", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Erlaubter Wert", LanguageCodes.deu));
             model.Version = GetAllowedValueVersion();
-            model.Shortname = "Allowed Value Short";
-            model.Description = "Allowed Value Description";
-            model.Synonyms.Add(new MultiLingualString("Allowed Value long text", LanguageCodes.eng));
+            model.Shortname.Add(new MultiLingualString("Allowed value short", LanguageCodes.eng));
+            model.Shortname.Add(new MultiLingualString("Erlaubter Wert Kurz", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Allowed value description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Erlaubter Wert Beschreibung", LanguageCodes.deu));
+            model.Synonyms.Add(new MultiLingualString("Allowed value synonym", LanguageCodes.eng));
+            model.Synonyms.Add(new MultiLingualString("Erlaubter Wert Synonym", LanguageCodes.deu));
             model.Source = GetAllowedValueSource();
 
             return model;
@@ -511,7 +532,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private AllowedValueSource GetAllowedValueSource()
         {
             var model = new AllowedValueSource();
-            model.Name = "External";
+            model.Name.Add(new MultiLingualString("External", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Extern", LanguageCodes.deu));
             model.Uri = "ftp://external/";
             model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
 
@@ -600,9 +622,12 @@ namespace OpenTransSharp.Tests.BMEcats
         private PredefinedConfiguration GetPredefinedConfiguration()
         {
             var model = new PredefinedConfiguration();
-            model.Description = "-red";
-            model.Name = new MultiLingualString("Predefined configuration");
-            model.Description = new MultiLingualString("Predefined configuration description");
+            model.Description.Add(new MultiLingualString("-red", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("-rot", LanguageCodes.deu));
+            model.Name.Add(new MultiLingualString("Predefined configuration", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Vordefinierte Konfiguration", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Predefined configuration description", LanguageCodes.eng));
+            model.Description.Add(new MultiLingualString("Vordefinierte Konfiguration Beschreibung", LanguageCodes.deu));
             model.Order = 1;
             model.ProductPriceDetails = GetProductPriceDetails();
             model.SupplierPid = parent.GetSupplierPid();
@@ -634,9 +659,12 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new ConfigurationStep();
             model.Id = "Step id";
-            model.Header = "This is a step";
-            model.DescriptionShort = new MultiLingualString("A short description", LanguageCodes.eng);
-            model.DescriptionLong = new MultiLingualString("A long description", LanguageCodes.eng);
+            model.Header.Add(new MultiLingualString("This is a step"));
+            model.Header.Add(new MultiLingualString("Das ist ein Schritt", LanguageCodes.deu));
+            model.DescriptionShort.Add(new MultiLingualString("A short description", LanguageCodes.eng));
+            model.DescriptionShort.Add(new MultiLingualString("Eine kurze Beschreibung", LanguageCodes.deu));
+            model.DescriptionLong.Add(new MultiLingualString("A short description", LanguageCodes.eng));
+            model.DescriptionLong.Add(new MultiLingualString("Eine lange Beschreibung", LanguageCodes.deu));
             model.Order = 1;
             model.InteractionType = StepInteractionType.ForceUserinput;
             model.ConfigurationCode = "-red";
@@ -662,11 +690,15 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new FeatureTemplate();
             model.Id = "Feature id";
-            model.Name = new MultiLingualString("Feature");
-            model.ShortName = new MultiLingualString("Feature short");
-            model.Description = new MultiLingualString("Feature description");
+            model.Name.Add(new MultiLingualString("Feature"));
+            model.Name.Add(new MultiLingualString("Feature", LanguageCodes.deu));
+            model.Shortname.Add(new MultiLingualString("Feature short name"));
+            model.Shortname.Add(new MultiLingualString("Feature Kurzname", LanguageCodes.deu));
+            model.Description.Add(new MultiLingualString("Feature description"));
+            model.Description.Add(new MultiLingualString("Feature Beschreibung", LanguageCodes.deu));
             model.Version = GetFeatureTemplateVersion();
-            model.GroupName = new MultiLingualString("Feature group");
+            model.GroupName.Add(new MultiLingualString("Feature group name"));
+            model.GroupName.Add(new MultiLingualString("Feature Gruppenname", LanguageCodes.deu));
             model.Content = GetFeatureContent();
 
             return model;
@@ -742,7 +774,8 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new TaxDetails();
             model.Category = TaxCategoryValues.StandardRate;
             model.Tax = 1;
-            model.Jurisdiction = "Vienna";
+            model.Jurisdiction.Add(new MultiLingualString("Vienna"));
+            model.Jurisdiction.Add(new MultiLingualString("Wien", LanguageCodes.deu));
 
             return model;
         }
@@ -760,7 +793,8 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new ProductDetails();
 
-            model.DescriptionShort = "Product description";
+            model.DescriptionShort.Add(new MultiLingualString("Product description short"));
+            model.DescriptionShort.Add(new MultiLingualString("Produktbeschreibung kurz", LanguageCodes.deu));
 
             return model;
         }

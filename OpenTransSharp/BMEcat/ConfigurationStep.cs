@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -29,7 +30,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_HEADER")]
-        public MultiLingualString Header { get; set; }
+        public List<MultiLingualString> Header { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (optional) Configuration step short description<br/>
@@ -39,7 +40,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_DESCR_SHORT")]
-        public MultiLingualString? DescriptionShort { get; set; }
+        public List<MultiLingualString>? DescriptionShort { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionShortSpecified => DescriptionShort?.Count > 0;
 
         /// <summary>
         /// (optional) Configuration step long description<br/>
@@ -49,7 +52,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_DESCR_LONG")]
-        public MultiLingualString? DescriptionLong { get; set; }
+        public List<MultiLingualString>? DescriptionLong { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionLongSpecified => DescriptionLong?.Count > 0;
 
         /// <summary>
         /// (optional) Order of configuration step<br/>

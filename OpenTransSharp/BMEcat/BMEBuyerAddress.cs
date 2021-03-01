@@ -35,7 +35,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("NAME")]
-        public MultiLingualString? Name { get; set; }
+        public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool NameSpecified => Name?.Count > 0;
 
         /// <summary>
         /// (optional) Address line 2<br/>
@@ -47,7 +49,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("NAME2")]
-        public MultiLingualString? Name2 { get; set; }
+        public List<MultiLingualString>? Name2 { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool Name2Specified => Name2?.Count > 0;
 
         /// <summary>
         /// (optional) Address line 3<br/>
@@ -59,7 +63,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("NAME3")]
-        public MultiLingualString? Name3 { get; set; }
+        public List<MultiLingualString>? Name3 { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool Name3Specified => Name3?.Count > 0;
 
         /// <summary>
         /// (optional) Department<br/>
@@ -71,7 +77,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("DEPARTMENT")]
-        public MultiLingualString? Department { get; set; }
+        public List<MultiLingualString>? Department { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DepartmentSpecified => Department?.Count > 0;
 
         /// <summary>
         /// (optional - choice ContactDetails/(deprecated)Contact) Contact<br/>
@@ -95,7 +103,9 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("The element CONTACT will be replaced by the element CONTACT_DETAILS in future versions and will be omitted then.")]
         [BMEXmlElement("CONTACT")]
-        public MultiLingualString? Contact { get; set; }
+        public List<MultiLingualString>? Contact { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ContactSpecified => Contact?.Count > 0;
 
         /// <summary>
         /// (optional) Street<br/>
@@ -107,7 +117,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STREET")]
-        public MultiLingualString? Street { get; set; }
+        public List<MultiLingualString>? Street { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool StreetSpecified => Street?.Count > 0;
 
         /// <summary>
         /// (optional) Zip code<br/>
@@ -119,7 +131,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ZIP")]
-        public MultiLingualString? Zip { get; set; }
+        public List<MultiLingualString>? Zip { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ZipSpecified => Zip?.Count > 0;
 
         /// <summary>
         /// (optional) P.O. Box<br/>
@@ -131,7 +145,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BOXNO")]
-        public MultiLingualString? BoxNo { get; set; }
+        public List<MultiLingualString>? BoxNo { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool BoxNoSpecified => BoxNo?.Count > 0;
 
         /// <summary>
         /// (optional) Zip code of P.O. Box<br/>
@@ -143,7 +159,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ZIPBOX")]
-        public MultiLingualString? ZipBoxNo { get; set; }
+        public List<MultiLingualString>? ZipBox { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ZipBoxSpecified => ZipBox?.Count > 0;
 
         /// <summary>
         /// (optional) Town or city<br/>
@@ -155,7 +173,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CITY")]
-        public MultiLingualString? City { get; set; }
+        public List<MultiLingualString>? City { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CitySpecified => City?.Count > 0;
 
         /// <summary>
         /// (optional) Federal state<br/>
@@ -167,7 +187,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STATE")]
-        public MultiLingualString? State { get; set; }
+        public List<MultiLingualString>? State { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool StateSpecified => State?.Count > 0;
 
         /// <summary>
         /// (optional) Country<br/>
@@ -179,7 +201,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("COUNTRY")]
-        public MultiLingualString? Country { get; set; }
+        public List<MultiLingualString>? Country { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CountrySpecified => Country?.Count > 0;
 
         /// <summary>
         /// (optional) Country code<br/>

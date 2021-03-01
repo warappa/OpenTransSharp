@@ -33,7 +33,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_SOURCE")]
-        public MultiLingualString? Source { get; set; }
+        public List<MultiLingualString>? Source { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SourceSpecified => Source?.Count > 0;
 
         /// <summary>
         /// (optional - with MimeSource) Hash value of a file<br/>

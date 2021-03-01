@@ -1,4 +1,7 @@
-﻿namespace OpenTransSharp
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace OpenTransSharp
 {
     /// <summary>
     /// (Group source)<br/>
@@ -17,7 +20,9 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SOURCE_NAME")]
-        public MultiLingualString? Name { get; set; }
+        public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool NameSpecified => Name?.Count > 0;
 
         /// <summary>
         /// (optional) URI of the source<br/>
@@ -27,7 +32,7 @@
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SOURCE_URI")]
-        public MultiLingualString? Uri { get; set; }
+        public string? Uri { get; set; }
 
         /// <summary>
         /// (optional) Reference to a business partner.<br/>

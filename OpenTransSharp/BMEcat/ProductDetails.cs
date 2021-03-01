@@ -26,7 +26,7 @@ namespace OpenTransSharp
         /// Abbreviations of essential product characteristics should be avoided (e.g., bw for black and white). However, abbreviations of organisations and standards can be used (e.g., ISO, VDE).
         /// </summary>
         [BMEXmlElement("DESCRIPTION_SHORT")]
-        public MultiLingualString DescriptionShort { get; set; }
+        public List<MultiLingualString> DescriptionShort { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (optional) Long description<br/>
@@ -39,7 +39,9 @@ namespace OpenTransSharp
         /// Example: '&lt;' = &amp;lt; or '&gt;' = &amp;gt;
         /// </summary>
         [BMEXmlElement("DESCRIPTION_LONG")]
-        public MultiLingualString? DescriptionLong { get; set; }
+        public List<MultiLingualString>? DescriptionLong { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionLongSpecified => DescriptionLong?.Count > 0;
 
         /// <summary>
         /// (optional - choice InternationPids/(obsolete)Ean) International product number<br/>
@@ -129,7 +131,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_TYPE_DESCR")]
-        public MultiLingualString? ManufacturerTypeDescription { get; set; }
+        public List<MultiLingualString>? ManufacturerTypeDescription { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ManufacturerTypeDescriptionSpecified => ManufacturerTypeDescription?.Count > 0;
 
         /// <summary>
         /// (optional) ERP material group of the buying company<br/>
@@ -212,7 +216,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SEGMENT")]
-        public MultiLingualString? Segment { get; set; }
+        public List<MultiLingualString>? Segment { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SegmentSpecified => Segment?.Count > 0;
 
         /// <summary>
         /// (optional) Product order<br/>

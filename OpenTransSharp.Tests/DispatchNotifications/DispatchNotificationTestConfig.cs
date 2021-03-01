@@ -112,7 +112,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
-            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
+            model.MimeRoot = parent.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.Id = "DispatchNotificationId";
             model.Parties = new List<Party>

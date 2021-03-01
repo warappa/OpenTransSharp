@@ -33,7 +33,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_NAME")]
-        public MultiLingualString Name { get; set; }
+        public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (optional) Feature short name<br/>
@@ -43,7 +43,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SHORTNAME")]
-        public MultiLingualString? ShortName { get; set; }
+        public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShortnameSpecified => Shortname?.Count > 0;
 
         /// <summary>
         /// (optional) Feature description<br/>
@@ -55,7 +57,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (optional) Version of the feature<br/>
@@ -86,7 +90,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_NAME")]
-        public MultiLingualString? GroupName { get; set; }
+        public List<MultiLingualString>? GroupName { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool GroupNameSpecified => GroupName?.Count > 0;
 
         /// <summary>
         /// (optional) Feature dependencies<br/>

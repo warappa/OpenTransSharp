@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -43,7 +45,9 @@ namespace OpenTransSharp
         /// Textual description of the order.
         /// </summary>
         [XmlElement("ORDER_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (Optional) Reference to a customer<br/>

@@ -45,7 +45,7 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("FT_VALUES")]
         [BMEXmlArrayItem("FT_VALUE")]
-        public List<FeatureTemplateValue>? Values { get; set; } = new List<FeatureTemplateValue>();
+        public List<FeatureValue>? Values { get; set; } = new List<FeatureValue>();
         public bool ValuesSpecified => Values?.Count > 0;
 
         /// <summary>
@@ -182,6 +182,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_REMARK")]
-        public MultiLingualString? Remark { get; set; }
+        public List<MultiLingualString>? Remark { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool RemarkSpecified => Remark?.Count > 0;
     }
 }

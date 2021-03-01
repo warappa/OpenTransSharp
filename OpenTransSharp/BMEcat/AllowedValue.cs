@@ -32,7 +32,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_NAME")]
-        public MultiLingualString Name { get; set; }
+        public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (optional) Version of the allowed value<br/>
@@ -52,7 +52,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_SHORTNAME")]
-        public MultiLingualString? Shortname { get; set; }
+        public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShortnameSpecified => Shortname?.Count > 0;
 
         /// <summary>
         /// (optional) Description of the allowed value<br/>
@@ -65,7 +67,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ALLOWED_VALUE_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (optional) Allowed value synonyms<br/>

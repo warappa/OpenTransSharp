@@ -116,7 +116,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             model.Date = DateTime.UtcNow;
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
-            model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
+            model.MimeRoot = parent.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
             model.PayerIdref = parent.GetPayerIdRef();
             model.RemitteeIdref = parent.GetRemitteeIdRef();

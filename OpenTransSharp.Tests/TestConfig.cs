@@ -1,4 +1,5 @@
-﻿using OpenTransSharp.Tests.BMEcats;
+﻿using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions;
+using OpenTransSharp.Tests.BMEcats;
 using OpenTransSharp.Tests.DispatchNotifications;
 using OpenTransSharp.Tests.InvoiceLists;
 using OpenTransSharp.Tests.Invoices;
@@ -162,7 +163,8 @@ namespace OpenTransSharp.Tests
             var model = new TaxDetailsFix();
             model.Type = "vat";
             model.CalculationSequence = 1;
-            model.Jurisdiction = new MultiLingualString("Österreich", LanguageCodes.deu);
+            model.Jurisdiction.Add(new MultiLingualString("Austria", LanguageCodes.eng));
+            model.Jurisdiction.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
             model.Tax = 0.20m;
             model.Amount = 2;
             model.Category = TaxCategoryValues.StandardRate;
@@ -239,12 +241,14 @@ namespace OpenTransSharp.Tests
 
         public CatalogReference GetCatalogReference()
         {
-            return new CatalogReference
+            var model = new CatalogReference
             {
                 Id = "2021-02",
-                Name = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng),
                 Version = new Version(2, 1)
             };
+            model.Name = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng);
+
+            return model;
         }
 
         public OrderReference GetOrderReference()
@@ -303,14 +307,200 @@ namespace OpenTransSharp.Tests
 
         public Party GetBuyerParty()
         {
-            return new Party
+            var model = new Party
             {
-                Roles = new List<PartyRole> { PartyRole.Buyer },
                 Ids = new List<PartyId>
                 {
                     (PartyId)GetBuyerIdref()
-                }
+                },
+                Roles = new List<PartyRole> { PartyRole.Buyer }
             };
+            
+            model.Addresses.Add(GetAddress());
+            model.Addresses.Add(GetAddress());
+            model.Accounts.Add(GetAccount());
+            model.Accounts.Add(GetAccount());
+            model.MimeInfo = GetMimeInfo();
+
+            return model;
+        }
+
+        private Account GetAccount()
+        {
+            var model = new Account();
+            model.Holder = "Holder";
+            model.BankAccount = GetBankAccount();
+            model.BankCode = GetBankCode();
+            model.BankName = "Reiffeisen";
+            model.BankCountry = CountryCode.AT;
+
+            return model;
+        }
+
+        private BankCode GetBankCode()
+        {
+            return new BankCode("RZOOAT2L", BankCodeTypeValues.Bic);
+        }
+
+        private BankAccount GetBankAccount()
+        {
+            return new BankAccount("Bank account", BankAccountTypeValues.Iban);
+        }
+
+        private Address GetAddress()
+        {
+            var model = new Address();
+            model.Name.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Name2.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name2.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Name3.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name3.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Department.Add(new MultiLingualString("Department", LanguageCodes.eng));
+            model.Department.Add(new MultiLingualString("Abteilung", LanguageCodes.deu));
+            model.ContactDetails.Add(GetContactDetails());
+            model.Street.Add(new MultiLingualString("Street", LanguageCodes.eng));
+            model.Street.Add(new MultiLingualString("Straße", LanguageCodes.deu));
+            model.Zip.Add(new MultiLingualString("Zip", LanguageCodes.eng));
+            model.Zip.Add(new MultiLingualString("PLZ", LanguageCodes.deu));
+            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.eng));
+            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.deu));
+            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.eng));
+            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.deu));
+            model.City.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
+            model.City.Add(new MultiLingualString("Wien", LanguageCodes.deu));
+            model.State.Add(new MultiLingualString("Upper Austria", LanguageCodes.eng));
+            model.State.Add(new MultiLingualString("Oberösterreich", LanguageCodes.deu));
+            model.Country.Add(new MultiLingualString("Austria", LanguageCodes.eng));
+            model.Country.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
+            model.CountryCoded = CountryCode.AT;
+            model.VatId = "UID1234";
+            model.TaxNumber = "ST1234";
+            model.Phones.Add(GetPhone());
+            model.Phones.Add(GetPhone(PhoneTypeValues.Office));
+            model.Faxes.Add(GetFax());
+            model.Faxes.Add(GetFax(FaxTypeValues.Private));
+            model.Email = "mail@example.com";
+            model.PublicKeys.Add(GetPublicKey());
+            model.Url = "https://example.com";
+            model.Remarks.Add(new MultiLingualString("Remark"));
+            model.Remarks.Add(new MultiLingualString("Bemerkung", LanguageCodes.deu));
+
+            return model;
+        }
+
+
+
+        private BMEcatAddress GetBMEcatAddress()
+        {
+            var model = new BMEcatAddress();
+            model.Name.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Name2.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name2.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Name3.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name3.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Department.Add(new MultiLingualString("Department", LanguageCodes.eng));
+            model.Department.Add(new MultiLingualString("Abteilung", LanguageCodes.deu));
+            model.ContactDetails.Add(GetBMEcatContactDetails());
+            model.Street.Add(new MultiLingualString("Street", LanguageCodes.eng));
+            model.Street.Add(new MultiLingualString("Straße", LanguageCodes.deu));
+            model.Zip.Add(new MultiLingualString("Zip", LanguageCodes.eng));
+            model.Zip.Add(new MultiLingualString("PLZ", LanguageCodes.deu));
+            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.eng));
+            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.deu));
+            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.eng));
+            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.deu));
+            model.City.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
+            model.City.Add(new MultiLingualString("Wien", LanguageCodes.deu));
+            model.State.Add(new MultiLingualString("Upper Austria", LanguageCodes.eng));
+            model.State.Add(new MultiLingualString("Oberösterreich", LanguageCodes.deu));
+            model.Country.Add(new MultiLingualString("Austria", LanguageCodes.eng));
+            model.Country.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
+            model.CountryCoded = CountryCode.AT;
+            model.VatId = "UID1234";
+            model.Phone = GetPhone();
+            model.Fax = GetFax();
+            model.Email = "mail@example.com";
+            model.PublicKeys.Add(GetPublicKey());
+            model.Url = "https://example.com";
+            model.Remarks.Add(new MultiLingualString("Remark"));
+            model.Remarks.Add(new MultiLingualString("Bemerkung", LanguageCodes.deu));
+
+            return model;
+        }
+
+        private PublicKey GetPublicKey(string type = null)
+        {
+            return new PublicKey("1234", type ?? PublicKeyTypeValues.PGP(new Version(6, 5, 1)));
+        }
+
+        private Fax GetFax(string type = "office")
+        {
+            return new Fax("+43234567890", type);
+        }
+
+        private Phone GetPhone(string type = "mobile")
+        {
+            return new Phone("+43123456789", type);
+        }
+
+        private ContactDetails GetContactDetails()
+        {
+            var model = new ContactDetails();
+            model.Id = "Contact id";
+            model.Surname.Add(new MultiLingualString("Surname"));
+            model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
+            model.FirstName.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Title.Add(new MultiLingualString("Eng.", LanguageCodes.eng));
+            model.Title.Add(new MultiLingualString("Ing.", LanguageCodes.deu));
+            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.eng));
+            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.deu));
+            model.ContactRoles.Add(GetContactRole());
+            model.Phones.Add(GetPhone());
+            model.Phones.Add(GetPhone(PhoneTypeValues.Private));
+            model.Faxes.Add(GetFax());
+            model.Faxes.Add(GetFax(FaxTypeValues.Private));
+            model.Url = "https://example.com";
+            model.Email = GetEmail();
+            model.Authentification = GetAuthentification();
+
+            return model;
+        }
+
+        private BMEcatContactDetails GetBMEcatContactDetails()
+        {
+            var model = new BMEcatContactDetails();
+            model.Id = "Contact id";
+            model.Surname.Add(new MultiLingualString("Surname"));
+            model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
+            model.FirstName.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Title.Add(new MultiLingualString("Eng.", LanguageCodes.eng));
+            model.Title.Add(new MultiLingualString("Ing.", LanguageCodes.deu));
+            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.eng));
+            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.deu));
+            model.ContactRoles.Add(GetContactRole());
+            model.Phone = GetPhone();
+            model.Fax = GetFax();
+            model.Url = "https://example.com";
+            model.Email = GetEmail();
+            
+            return model;
+        }
+
+        private Email GetEmail()
+        {
+            var model = new Email();
+            model.EmailAddress = "mail@example.com";
+            model.PublicKeys.Add(GetPublicKey());
+            model.PublicKeys.Add(GetPublicKey("etc"));
+
+            return model;
+        }
+
+        private ContactRole GetContactRole()
+        {
+            return new ContactRole("Contact", ContactRoleType.Technical);
         }
 
         public SupplierIdref GetSupplierIdRef()
@@ -344,7 +534,7 @@ namespace OpenTransSharp.Tests
 
         public MultiLingualString GetMimeRoot()
         {
-            return new MultiLingualString("ftp://server/de", LanguageCodes.deu);
+            return new MultiLingualString("ftp://server/en", LanguageCodes.eng);
         }
 
         public BMEcatMimeInfo GetBMEcatMimeInfo()
@@ -395,22 +585,19 @@ namespace OpenTransSharp.Tests
 
         public static BMEcatMime GetBMEcatMime()
         {
-            return new BMEcatMime
+            var model = new BMEcatMime
             {
-                AlternativeTexts = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Bitte Lesen", LanguageCodes.deu),
-                    new MultiLingualString("Readme", LanguageCodes.eng)
-                },
-                Descriptions = new List<MultiLingualString>
-                {
-                    new MultiLingualString("Eine Text Datei", LanguageCodes.deu),
-                    new MultiLingualString("A text file", LanguageCodes.eng)
-                },
                 Purpose = MimePurpose.Others,
-                Source = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
                 MimeType = "text/plain"
             };
+            model.AlternativeTexts.Add(new MultiLingualString("Readme", LanguageCodes.eng));
+            model.AlternativeTexts.Add(new MultiLingualString("Bitte Lesen", LanguageCodes.deu));
+            model.Descriptions.Add(new MultiLingualString("A text file", LanguageCodes.eng));
+            model.Descriptions.Add(new MultiLingualString("Eine Text Datei", LanguageCodes.deu));
+            model.Source.Add(new MultiLingualString("ftp://server/en/", LanguageCodes.eng));
+            model.Source.Add(new MultiLingualString("ftp://server/de/", LanguageCodes.deu));
+
+            return model;
         }
 
         public InternationalPid GetInternationalPid()
@@ -467,7 +654,8 @@ namespace OpenTransSharp.Tests
             model.Category = TaxCategoryValues.StandardRate;
             model.Type = "vat";
             model.Tax = 0.20m;
-            model.Jurisdiction = new MultiLingualString("Vienna", LanguageCodes.eng);
+            model.Jurisdiction.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
+            model.Jurisdiction.Add(new MultiLingualString("Wien", LanguageCodes.deu));
 
             return model;
         }

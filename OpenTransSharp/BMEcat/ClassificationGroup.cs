@@ -83,7 +83,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_NAME")]
-        public MultiLingualString Name { get; set; }
+        public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
         /// (optional) Group short name<br/>
@@ -93,7 +93,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_SHORTNAME")]
-        public MultiLingualString? Shortname { get; set; }
+        public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool ShortnameSpecified => Shortname?.Count > 0;
 
         /// <summary>
         /// (optional) Additional description of the group<br/>
@@ -105,7 +107,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_DESCR")]
-        public MultiLingualString? Description { get; set; }
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (optional) Group source<br/>
@@ -127,7 +131,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_NOTE")]
-        public MultiLingualString? Note { get; set; }
+        public List<MultiLingualString>? Note { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool NoteSpecified => Note?.Count > 0;
 
         /// <summary>
         /// (optional) Group remark<br/>
@@ -139,7 +145,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_GROUP_REMARK")]
-        public MultiLingualString? Remark { get; set; }
+        public List<MultiLingualString>? Remark { get; set; } = new List<MultiLingualString>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool RemarkSpecified => Remark?.Count > 0;
 
         /// <summary>
         /// (optional) Classification group contacts<br/>

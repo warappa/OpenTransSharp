@@ -51,7 +51,9 @@ namespace OpenTransSharp
         /// <br/>
         /// Attribute indicating the coding-standard for the account number.<br/>
         /// <br/>
-        /// Max length: 20
+        /// Max length: 20<br/>
+        /// <br/>
+        /// See <see cref="BankAccountTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public string? Type { get; set; }
