@@ -160,9 +160,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("FT_GROUPS")]
         [BMEXmlArrayItem("FT_GROUP")]
-        public List<FtGroup> FtGroups { get; set; } = new List<FtGroup>();
+        public List<FeatureGroup> FeatureGroups { get; set; } = new List<FeatureGroup>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FtGroupsSpecified => FtGroups?.Count > 0;
+        public bool FeatureGroupsSpecified => FeatureGroups?.Count > 0;
 
         /// <summary>
         /// (optional) Features of the classification system<br/>

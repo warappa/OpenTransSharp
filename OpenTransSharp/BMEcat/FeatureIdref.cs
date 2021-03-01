@@ -10,13 +10,13 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FtIdref
+    public class FeatureIdref
     {
-        public FtIdref()
+        public FeatureIdref()
         {
         }
 
-        public FtIdref(string value)
+        public FeatureIdref(string value)
         {
             Value = value;
         }

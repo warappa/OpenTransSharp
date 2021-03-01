@@ -69,10 +69,10 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_VERSION")]
-        public FtVersion? Version { get; set; }
+        public FeatureVersion? Version { get; set; }
 
         /// <summary>
-        /// (optional - choice FtGroupIdref/FtGroupName) Feature group ID reference<br/>
+        /// (optional - choice GroupIdref/GroupName) Feature group ID reference<br/>
         /// <br/>
         /// Reference to the unique ID of a feature group.<br/>
         /// The reference must point to a FT_GROUP_ID, which has been defined in the FT_GROUP element for the respective classification system.<br/>
@@ -83,7 +83,7 @@ namespace OpenTransSharp
         public string? GroupIdref { get; set; }
 
         /// <summary>
-        /// (optional - choice FtGroupIdref/FtGroupName) Feature group name<br/>
+        /// (optional - choice GroupIdref/GroupName) Feature group name<br/>
         /// <br/>
         /// Specifies the name of the feature group; e.g., "Technical features".<br/>
         /// <br/>
@@ -102,7 +102,7 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("FT_DEPENDENCIES")]
         [BMEXmlArrayItem("FT_IDREF")]
-        public List<FtIdref>? Dependencies { get; set; } = new List<FtIdref>();
+        public List<FeatureIdref>? Dependencies { get; set; } = new List<FeatureIdref>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DependenciesSpecified => Dependencies?.Count > 0;
 

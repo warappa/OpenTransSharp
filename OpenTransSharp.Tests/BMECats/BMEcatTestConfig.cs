@@ -395,7 +395,7 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Type = GetClassificationSystemType();
             model.AllowedValues.Add(GetAllowedValue());
             model.Units.Add(GetUnit());
-            model.FtGroups.Add(GetFeatureGroup());
+            model.FeatureGroups.Add(GetFeatureGroup());
             model.FeatureTemplates.Add(GetClassificationSystemFeatureTemplate());
 
             return model;
@@ -419,7 +419,7 @@ namespace OpenTransSharp.Tests.BMEcats
         private FeatureContent GetFeatureContent()
         {
             var model = new FeatureContent();
-            model.DataType = FeatureTemplateDataTypeValues.DateTime;
+            model.DataType = FeatureDataTypeValues.DateTime;
             model.Facets.Add(GetFeatureTemplateFacet());
             model.Values.Add(GetFeatureTemplateValue());
 
@@ -447,19 +447,19 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        private FeatureTemplateFacet GetFeatureTemplateFacet()
+        private FeatureFacet GetFeatureTemplateFacet()
         {
-            return new FeatureTemplateFacet("10", FeatureTemplateFacetType.TotalDigits);
+            return new FeatureFacet("10", FeatureFacetType.TotalDigits);
         }
 
-        private FtIdref GetFeatureDependency()
+        private FeatureIdref GetFeatureDependency()
         {
-            return new FtIdref("Other feature id");
+            return new FeatureIdref("Other feature id");
         }
 
-        private FtVersion GetFeatureVersion()
+        private FeatureVersion GetFeatureVersion()
         {
-            var model = new FtVersion();
+            var model = new FeatureVersion();
             model.Version = new Version(2, 1);
             model.VersionDate = DateTime.UtcNow;
             model.Revision = "1";
@@ -469,9 +469,9 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        private FtGroup GetFeatureGroup()
+        private FeatureGroup GetFeatureGroup()
         {
-            var model = new FtGroup();
+            var model = new FeatureGroup();
             model.Id = "Feature group id";
             model.Name = "Feature group name";
             model.Description = "Feature group description";
@@ -672,9 +672,9 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        private FeatureTemplateVersion GetFeatureTemplateVersion()
+        private FeatureVersion GetFeatureTemplateVersion()
         {
-            var model = new FeatureTemplateVersion();
+            var model = new FeatureVersion();
             model.Version = new Version(2, 1);
             model.VersionDate = DateTime.UtcNow;
             model.Revision = "2";

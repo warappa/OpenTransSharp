@@ -10,14 +10,14 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureTemplateFacet
+    public class FeatureFacet
     {
-        public FeatureTemplateFacet()
+        public FeatureFacet()
         {
 
         }
 
-        public FeatureTemplateFacet(string value, FeatureTemplateFacetType type)
+        public FeatureFacet(string value, FeatureFacetType type)
         {
             Type = type;
             Value = value;
@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlAttribute("type")]
-        public FeatureTemplateFacetType Type { get; set; }
+        public FeatureFacetType Type { get; set; }
 
         /// <summary>
         /// (required)<br/>

@@ -5,7 +5,7 @@ namespace OpenTransSharp
     /// <summary>
     /// For <see cref="Feature.FeatureValueType"/>.
     /// </summary>
-    public enum FeatureValueTypeValues
+    public enum FeatureValueType
     {
         /// <summary>
         /// Choice of value<br/>

@@ -5,7 +5,7 @@ namespace OpenTransSharp
     /// <summary>
     /// For <see cref="FeatureContent.Valency"/>.
     /// </summary>
-    public enum FeatureTemplateValencyValues
+    public enum FeatureValency
     {
         /// <summary>
         /// Univalent<br/>

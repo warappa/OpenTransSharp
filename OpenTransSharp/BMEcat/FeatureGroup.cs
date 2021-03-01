@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FtGroup
+    public class FeatureGroup
     {
         /// <summary>
         /// (required) Feature group ID<br/>

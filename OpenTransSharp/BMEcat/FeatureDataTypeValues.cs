@@ -5,7 +5,7 @@ namespace OpenTransSharp
     /// <summary>
     /// For <see cref="FeatureContent.DataType"/>.
     /// </summary>
-    public enum FeatureTemplateDataTypeValues
+    public enum FeatureDataTypeValues
     {
         /// <summary>
         /// Alphanumeric<br/>

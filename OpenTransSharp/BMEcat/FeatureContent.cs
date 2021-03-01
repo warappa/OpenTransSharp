@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_DATATYPE")]
-        public FeatureTemplateDataTypeValues DataType { get; set; } = new FeatureTemplateDataTypeValues();
+        public FeatureDataTypeValues DataType { get; set; } = new FeatureDataTypeValues();
 
         /// <summary>
         /// (optional) Data type restrictions<br/>
@@ -33,7 +33,7 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("FT_FACETS")]
         [BMEXmlArrayItem("FT_FACET")]
-        public List<FeatureTemplateFacet>? Facets { get; set; } = new List<FeatureTemplateFacet>();
+        public List<FeatureFacet>? Facets { get; set; } = new List<FeatureFacet>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FacetsSpecified => Facets?.Count > 0;
 
@@ -57,7 +57,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_VALENCY")]
-        public FeatureTemplateValencyValues? Valency { get; set; }
+        public FeatureValency? Valency { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ValencySpecified => Valency.HasValue;
 
@@ -131,7 +131,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SYNONYMS")]
-        public FeatureTemplateSynonyms? Synonyms { get; set; }
+        public FeatureSynonyms? Synonyms { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
@@ -153,7 +153,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SOURCE")]
-        public FeatureTemplateSource? Source { get; set; }
+        public FeatureSource? Source { get; set; }
 
         /// <summary>
         /// (optional) Feature note<br/>

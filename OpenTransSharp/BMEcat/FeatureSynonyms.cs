@@ -10,7 +10,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureTemplateSynonyms
+    public class FeatureSynonyms
     {
         /// <summary>
         /// (required) Synonym<br/>

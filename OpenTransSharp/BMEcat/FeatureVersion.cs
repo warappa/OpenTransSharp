@@ -12,12 +12,12 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureTemplateVersion
+    public class FeatureVersion
     {
         /// <summary>
         /// (required) Version<br/>
         /// <br/>
-        /// Detailled information on the version.<br/>
+        /// Detailled information on the version<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
@@ -28,13 +28,12 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }
 
-
         /// <summary>
         /// (optional) Version date<br/>
         /// <br/>
         /// Date of the given version.<br/>
         /// <br/>
-        /// XML-namespace: BMECAT<br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VERSION_DATE")]
         public DateTime? VersionDate { get; set; }
@@ -44,7 +43,7 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Revision<br/>
         /// <br/>
-        /// Revision number of the given version<br/>
+        /// Revision number of the given version.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>

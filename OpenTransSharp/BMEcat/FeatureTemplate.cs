@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_VERSION")]
-        public FeatureTemplateVersion? Version { get; set; }
+        public FeatureVersion? Version { get; set; }
 
         /// <summary>
         /// (optional) Feature group ID reference<br/>
@@ -98,7 +98,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_DEPENDENCIES")]
-        public FeatureTemplateDependencies? Dependencies { get; set; }
+        public FeatureDependencies? Dependencies { get; set; }
 
         /// <summary>
         /// (optional) Feature content definition<br/>

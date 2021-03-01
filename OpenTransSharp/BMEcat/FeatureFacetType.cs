@@ -2,7 +2,7 @@
 
 namespace OpenTransSharp
 {
-    public enum FeatureTemplateFacetType
+    public enum FeatureFacetType
     {
         /// <summary>
         /// Minimum length<br/>

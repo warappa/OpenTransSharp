@@ -10,7 +10,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureTemplateSource
+    public class FeatureSource
     {
         /// <summary>
         /// (optional) Source description<br/>
