@@ -25,7 +25,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("RFQ_ID")]
-        public string RfqId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Date of the request for quotation<br/>
@@ -34,7 +34,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("RFQ_DATE")]
-        public DateTime RfqDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Delivery date <br/>
@@ -207,7 +207,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 

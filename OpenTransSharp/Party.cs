@@ -23,7 +23,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("PARTY_ID")]
-        public List<PartyId> PartyIds { get; set; } = new List<PartyId>();
+        public List<PartyId> Ids { get; set; } = new List<PartyId>();
 
         /// <summary>
         /// (optional) Role of the business partner<br/>

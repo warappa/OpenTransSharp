@@ -28,7 +28,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("CARD_NUM")]
-        public string CardNum { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// (optional) PIN<br/>
@@ -37,7 +37,7 @@ namespace OpenTransSharp
         /// Not recommended for use for insecure transmission!
         /// </summary>
         [XmlElement("CARD_AUTH_CODE")]
-        public string? CardAuthCode { get; set; }
+        public string? PIN { get; set; }
 
         /// <summary>
         /// (optional) Reference number<br/>
@@ -45,7 +45,7 @@ namespace OpenTransSharp
         /// Customer reference number.
         /// </summary>
         [XmlElement("CARD_REF_NUM")]
-        public string? CardRefNum { get; set; }
+        public string? ReferenceNumber { get; set; }
 
         /// <summary>
         /// (required) Expiration date<br/>
@@ -54,9 +54,9 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("CARD_EXPIRATION_DATE")]
-        public DateTime? CardExpirationDate { get; set; }
+        public DateTime? ExpirationDate { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool CardExpirationDateSpecified => CardExpirationDate.HasValue;
+        public bool ExpirationDateSpecified => ExpirationDate.HasValue;
 
         /// <summary>
         /// (required) Card holder<br/>
@@ -65,6 +65,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("CARD_HOLDER_NAME")]
-        public string CardHolderName { get; set; }
+        public string HolderName { get; set; }
     }
 }

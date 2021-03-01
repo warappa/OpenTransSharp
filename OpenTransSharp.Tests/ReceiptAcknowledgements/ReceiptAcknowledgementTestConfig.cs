@@ -96,8 +96,8 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
         private ReceiptAcknowledgementInformation GetReceiptAcknowledgementInformation()
         {
             var model = new ReceiptAcknowledgementInformation();
-            model.ReceiptAcknowledgementId = "ReceiptAcknowledgementId";
-            model.ReceiptAcknowledgementDate = DateTime.UtcNow;
+            model.Id = "ReceiptAcknowledgementId";
+            model.Date = DateTime.UtcNow;
             model.ReceiptDate = DateTime.UtcNow;
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));

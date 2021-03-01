@@ -22,7 +22,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("ORDER_ID")]
-        public string OrderId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Date of confirmation of order<br/>
@@ -31,7 +31,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ORDERRESPONSE_DATE")]
-        public DateTime OrderResponseDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Date of the order<br/>

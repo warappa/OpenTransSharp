@@ -19,6 +19,6 @@ namespace OpenTransSharp
         /// The element can be used in a nested way together with the element SUB_PACKAGE to describe e.g.outer and inner packings.
         /// </summary>
         [XmlElement("PACKAGE")]
-        public List<Package>? Packages { get; set; } = new List<Package>();
+        public List<Package> Packages { get; set; } = new List<Package>();
     }
 }

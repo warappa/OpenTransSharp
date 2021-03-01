@@ -2,14 +2,14 @@
 
 namespace OpenTransSharp
 {
-    public class BMEXmlArray : XmlArrayAttribute
+    public class BMEXmlArrayAttribute : XmlArrayAttribute
     {
-        public BMEXmlArray()
+        public BMEXmlArrayAttribute()
         {
             Init();
         }
 
-        public BMEXmlArray(string elementName) : base(elementName)
+        public BMEXmlArrayAttribute(string elementName) : base(elementName)
         {
             Init();
         }

@@ -22,7 +22,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("QUOTATION_ID")]
-        public string QuotationId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Quotation date<br/>
@@ -31,7 +31,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("QUOTATION_DATE")]
-        public DateTime QuotationDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Valid start date<br/>
@@ -122,7 +122,7 @@ namespace OpenTransSharp
         /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
         /// </summary>
         [XmlElement("AGREEMENT")]
-        public List<Agreement> Agreements { get; set; } = new List<Agreement>();
+        public List<Agreement>? Agreements { get; set; } = new List<Agreement>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementsSpecified => Agreements?.Count > 0;
 
@@ -189,7 +189,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("INTERNALTIONAL_RESTRICTIONS")]
-        public List<InternationalRestriction> InternationalRestrictions { get; set; } = new List<InternationalRestriction>();
+        public List<InternationalRestriction>? InternationalRestrictions { get; set; } = new List<InternationalRestriction>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool InternationalRestrictionsSpecified => InternationalRestrictions?.Count > 0;
 
@@ -221,7 +221,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 

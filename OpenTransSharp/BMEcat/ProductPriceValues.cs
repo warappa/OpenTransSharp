@@ -1,7 +1,7 @@
 ﻿namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="ProductPrice.PriceType"/>.
+    /// For <see cref="ProductPrice.Type"/>.
     /// </summary>
     public static class ProductPriceValues
     {

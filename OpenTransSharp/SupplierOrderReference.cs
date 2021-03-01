@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("SUPPLIER_ORDER_ID")]
-        public string SupplierOrderId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Item number of the supplier.<br/>
@@ -32,6 +32,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("SUPPLIER_ORDER_ITEM_ID")]
-        public string SupplierOrderItemId { get; set; }
+        public string ItemId { get; set; }
     }
 }

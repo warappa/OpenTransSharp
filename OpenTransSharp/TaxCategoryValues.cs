@@ -1,7 +1,7 @@
 ﻿namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="TaxDetailsFix.TaxCategory"/>.
+    /// For <see cref="TaxDetailsFix.Category"/>.
     /// </summary>
     public static class TaxCategoryValues
     {

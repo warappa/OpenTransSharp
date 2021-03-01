@@ -49,7 +49,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("AGREEMENT_ID")]
-        public string AgreementId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Line number within the skeleton agreement<br/>
@@ -60,7 +60,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AGREEMENT_LINE_ID")]
-        public string? AgreementLineId { get; set; }
+        public string? LineId { get; set; }
 
         /// <summary>
         /// (optional - choice AgreementEndDate/(deprecated)Datetime) Start date of the skeleton agreement<br/>
@@ -70,9 +70,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AGREEMENT_START_DATE")]
-        public DateTime? AgreementStartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AgreementStartDateSpecified => AgreementStartDate.HasValue;
+        public bool StartDateSpecified => StartDate.HasValue;
 
         /// <summary>
         /// (required - with AgreementEndDate) End date of the skeleton agreement<br/>
@@ -83,7 +83,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("AGREEMENT_END_DATE")]
-        public DateTime AgreementEndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         /// <summary>
         /// (required - deprecated - choice AgreementEndDate/(deprecated)Datetime) End date of the skeleton agreement<br/>
@@ -117,9 +117,9 @@ namespace OpenTransSharp
         /// This element is used to describe the skeleton agreement.
         /// </summary>
         [XmlElement("AGREEMENT_DESCR")]
-        public List<MultiLingualString>? AgreementDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AgreementDescriptionsSpecified => AgreementDescriptions?.Count > 0;
+        public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

@@ -24,7 +24,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CATALOG_ID")]
-        public string CatalogId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Catalog version<br/>
@@ -37,14 +37,14 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlIgnore]
-        public Version CatalogVersion { get; set; }
+        public Version Version { get; set; }
         [Required]
         [BMEXmlElement("CATALOG_VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string CatalogVersionString
+        public string VersionForSerializer
         {
-            get => CatalogVersion.ToString();
-            set => CatalogVersion = value is null ? null : new Version(value);
+            get => Version.ToString();
+            set => Version = value is null ? null : new Version(value);
         }
 
         /// <summary>
@@ -57,6 +57,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CATALOG_NAME")]
-        public MultiLingualString? CatalogName { get; set; }
+        public MultiLingualString? Name { get; set; }
     }
 }

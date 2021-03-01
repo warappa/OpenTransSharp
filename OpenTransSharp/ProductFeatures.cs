@@ -45,7 +45,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("REFERENCE_FEATURE_SYSTEM_NAME")]
-        public string? ReferenceFeatureSystemName { get; set; }
+        public string? SystemName { get; set; }
 
         /// <summary>
         /// (optional) Group reference<br/>
@@ -55,9 +55,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("REFERENCE_FEATURE_GROUP_ID")]
-        public List<ReferenceFeatureGroupId>? ReferenceFeatureGroupIds { get; set; } = new List<ReferenceFeatureGroupId>();
+        public List<ReferenceFeatureGroupId>? GroupIds { get; set; } = new List<ReferenceFeatureGroupId>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ReferenceFeatureGroupIdsSpecified => ReferenceFeatureGroupIds?.Count > 0;
+        public bool GroupIdsSpecified => GroupIds?.Count > 0;
 
         /// <summary>
         /// (optional) Group name reference<br/>
@@ -72,9 +72,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("REFERENCE_FEATURE_GROUP_NAME")]
-        public List<MultiLingualString>? ReferenceFeatureGroupNames { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? GroupNames { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ReferenceFeatureGroupNamesSpecified => ReferenceFeatureGroupNames?.Count > 0;
+        public bool GroupNamesSpecified => GroupNames?.Count > 0;
 
         /// <summary>
         /// (optional) Additional group reference<br/>
@@ -88,9 +88,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("REFERENCE_FEATURE_GROUP_ID2")]
-        public List<ReferenceFeatureGroupId2>? ReferenceFeatureGroupId2s { get; set; } = new List<ReferenceFeatureGroupId2>();
+        public List<ReferenceFeatureGroupId2>? GroupId2s { get; set; } = new List<ReferenceFeatureGroupId2>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ReferenceFeatureGroupId2sSpecified => ReferenceFeatureGroupId2s?.Count > 0;
+        public bool GroupId2sSpecified => GroupId2s?.Count > 0;
 
         /// <summary>
         /// (optional) Classification group product order<br/>

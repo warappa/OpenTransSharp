@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_DATATYPE")]
-        public FeatureTemplateDataTypeValues FeatureTemplateDataType { get; set; } = new FeatureTemplateDataTypeValues();
+        public FeatureTemplateDataTypeValues DataType { get; set; } = new FeatureTemplateDataTypeValues();
 
         /// <summary>
         /// (optional) Data type restrictions<br/>
@@ -33,9 +33,9 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("FT_FACETS")]
         [BMEXmlArrayItem("FT_FACET")]
-        public List<FeatureTemplateFacet>? FeatureTemplateFacets { get; set; } = new List<FeatureTemplateFacet>();
+        public List<FeatureTemplateFacet>? Facets { get; set; } = new List<FeatureTemplateFacet>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateFacetsSpecified => FeatureTemplateFacets?.Count > 0;
+        public bool FacetsSpecified => Facets?.Count > 0;
 
         /// <summary>
         /// (optional) Feature domain values<br/>
@@ -46,8 +46,8 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlArray("FT_VALUES")]
         [BMEXmlArrayItem("FT_VALUE")]
-        public List<FeatureTemplateValue>? FeatureTemplateValues { get; set; } = new List<FeatureTemplateValue>();
-        public bool FeatureTemplateValuesSpecified => FeatureTemplateValues?.Count > 0;
+        public List<FeatureTemplateValue>? Values { get; set; } = new List<FeatureTemplateValue>();
+        public bool ValuesSpecified => Values?.Count > 0;
 
         /// <summary>
         /// (optional) Feature valency<br/>
@@ -57,9 +57,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_VALENCY")]
-        public FeatureTemplateValencyValues? FeatureTemplateValency { get; set; }
+        public FeatureTemplateValencyValues? Valency { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateValencySpecified => FeatureTemplateValency.HasValue;
+        public bool ValencySpecified => Valency.HasValue;
 
         /// <summary>
         /// (optional) Feature unit ID reference<br/>
@@ -73,7 +73,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_UNIT_IDREF")]
-        public string? FeatureTemplateUnitIdref { get; set; }
+        public string? UnitIdref { get; set; }
 
         /// <summary>
         /// (optional) Feature unit<br/>
@@ -83,9 +83,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_UNIT")]
-        public string? FeatureTemplateUnit { get; set; }
+        public string? Unit { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateUnitSpecified => FeatureTemplateUnit is string;
+        public bool UnitSpecified => Unit is string;
 
         /// <summary>
         /// (optional) Mandatory feature<br/>
@@ -95,9 +95,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_MANDATORY")]
-        public bool? FeatureTemplateMandatory { get; set; }
+        public bool? Mandatory { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateMandatorySpecified => FeatureTemplateMandatory.HasValue;
+        public bool MandatorySpecified => Mandatory.HasValue;
 
         /// <summary>
         /// (optional) Feature order<br/>
@@ -107,9 +107,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_Order")]
-        public int? FeatureTemplateOrder { get; set; }
+        public int? Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateOrderSpecified => FeatureTemplateOrder.HasValue;
+        public bool OrderSpecified => Order.HasValue;
 
         /// <summary>
         /// (optional) Feature symbol<br/>
@@ -119,9 +119,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SYMBOL")]
-        public List<MultiLingualString>? FeatureTemplateSymbols { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Symbols { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateSymbolsSpecified => FeatureTemplateSymbols?.Count > 0;
+        public bool SymbolsSpecified => Symbols?.Count > 0;
 
         /// <summary>
         /// (optional) Feature synonyms<br/>
@@ -131,7 +131,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SYNONYMS")]
-        public FeatureTemplateSynonyms? FeatureTemplatSynonyms { get; set; }
+        public FeatureTemplateSynonyms? Synonyms { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
@@ -153,7 +153,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SOURCE")]
-        public FeatureTemplateSource? FeatureTemplatSource { get; set; }
+        public FeatureTemplateSource? Source { get; set; }
 
         /// <summary>
         /// (optional) Feature note<br/>
@@ -166,9 +166,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_NOTE")]
-        public List<MultiLingualString>? FeatureTemplateNotes { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Notes { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FeatureTemplateNotesSpecified => FeatureTemplateNotes?.Count > 0;
+        public bool NotesSpecified => Notes?.Count > 0;
 
         /// <summary>
         /// (optional) Feature remark<br/>
@@ -180,6 +180,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_REMARK")]
-        public string FeatureTemplateRemark { get; set; }
+        public MultiLingualString? Remark { get; set; }
     }
 }

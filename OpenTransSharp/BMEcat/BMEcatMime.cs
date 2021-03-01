@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -9,9 +7,11 @@ namespace OpenTransSharp
     /// (Multimedia document)<br/>
     /// <br/>
     /// Information about a multimedia file.<br/>
-    /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.
+    /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
-    public class Mime
+    public class BMEcatMime
     {
         /// <summary>
         /// (optional) MIME type<br/>
@@ -34,26 +34,6 @@ namespace OpenTransSharp
         /// </summary>
         [BMEXmlElement("MIME_SOURCE")]
         public MultiLingualString? Source { get; set; }
-
-        /// <summary>
-        /// (optional - with MimeSource) Hash value of a file<br/>
-        /// <br/>
-        /// Element contains a hash value related to an external file
-        /// </summary>
-        [XmlElement("FILE_HASH_VALUE")]
-        public List<FileHashValue>? FileHashValues { get; set; } = new List<FileHashValue>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FileHashValuesSpecified => FileHashValues?.Count > 0;
-
-        /// <summary>
-        /// (required - choice MimeSource/MimeEmbeddeds) Embedded document<br/>
-        /// <br/>
-        /// Element containing a binary-coded file and additional information.
-        /// </summary>
-        [XmlElement("MIME_EMBEDDED")]
-        public List<MimeEmbedded> Embeddeds { get; set; } = new List<MimeEmbedded>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool EmbeddedsSpecified => Embeddeds?.Count > 0;
 
         /// <summary>
         /// (optional) Designation<br/>
@@ -82,9 +62,11 @@ namespace OpenTransSharp
         /// <summary>
         /// (optional) Purpose<br/>
         /// <br/>
-        /// Desired purpose for which the MIME document is to be used in the target system.
+        /// Desired purpose for which the MIME document is to be used in the target system.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
-        [XmlElement("MIME_PURPOSE")] // yes, not BMEcat
+        [BMEXmlElement("MIME_PURPOSE")]
         public MimePurpose? Purpose { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PurposeSpecified => Purpose.HasValue;

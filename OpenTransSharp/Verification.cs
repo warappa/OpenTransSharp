@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("VERIFICATION_PARTY_IDREF")]
-        public VerificationPartyIdRef VerificationPartyIdRef { get; set; }
+        public VerificationPartyIdRef PartyIdRef { get; set; }
 
         /// <summary>
         /// (required) Verification result<br/>
@@ -29,7 +29,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("VERIFICATION_SUCCESS")]
-        public bool VerificationSuccess { get; set; }
+        public bool Success { get; set; }
 
         /// <summary>
         /// (required) Verification report<br/>
@@ -38,6 +38,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("VERIFICATION_REPORT")]
-        public VerificationReport VerificationReport { get; set; }
+        public VerificationReport Report { get; set; }
     }
 }

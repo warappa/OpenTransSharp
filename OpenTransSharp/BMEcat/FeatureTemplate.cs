@@ -24,7 +24,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_ID")]
-        public string FeatureTemplateId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Feature name<br/>
@@ -35,7 +35,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FT_NAME")]
-        public MultiLingualString FeatureTemplateName { get; set; }
+        public MultiLingualString Name { get; set; }
 
         /// <summary>
         /// (optional) Feature short name<br/>
@@ -45,7 +45,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SHORTNAME")]
-        public MultiLingualString? FeatureTemplateShortName { get; set; }
+        public MultiLingualString? ShortName { get; set; }
 
         /// <summary>
         /// (optional) Feature description<br/>
@@ -57,7 +57,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_DESCR")]
-        public MultiLingualString? FeatureTemplateDescription { get; set; }
+        public MultiLingualString? Description { get; set; }
 
         /// <summary>
         /// (optional) Version of the feature<br/>
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_VERSION")]
-        public FeatureTemplateVersion? FeatureTemplateVersion { get; set; }
+        public FeatureTemplateVersion? Version { get; set; }
 
         /// <summary>
         /// (optional) Feature group ID reference<br/>
@@ -78,7 +78,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_IDREF")]
-        public string? FeatureTemplateGroupIdref { get; set; }
+        public string? GroupIdref { get; set; }
 
         /// <summary>
         /// (optional) Feature group name<br/>
@@ -88,7 +88,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_NAME")]
-        public MultiLingualString? FeatureTemplateGroupName { get; set; }
+        public MultiLingualString? GroupName { get; set; }
 
         /// <summary>
         /// (optional) Feature dependencies<br/>
@@ -98,7 +98,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_DEPENDENCIES")]
-        public FeatureTemplateDependencies? FeatureTemplateDependencies { get; set; }
+        public FeatureTemplateDependencies? Dependencies { get; set; }
 
         /// <summary>
         /// (optional) Feature content definition<br/>
@@ -108,6 +108,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FEATURE_CONTENT")]
-        public FeatureContent? FeatureContent { get; set; }
+        public FeatureContent? Content { get; set; }
     }
 }

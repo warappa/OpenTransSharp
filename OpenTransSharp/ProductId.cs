@@ -51,7 +51,7 @@ namespace OpenTransSharp
         /// The code can be determined via a configuration process or a remote call of a catalog (IPP).
         /// </summary>
         [XmlElement("CONFIG_CODE_FIX")]
-        public string? ConfigCodeFix { get; set; }
+        public string? ConfigurationCodeFix { get; set; }
 
         /// <summary>
         /// (optional) Lot number<br/>
@@ -146,7 +146,7 @@ namespace OpenTransSharp
         /// Information assigned to the article by the manufacturer is stored here.
         /// </summary>
         [XmlElement("MANUFACTURER_INFO")]
-        public ManufacturerInfo? ManufacturerInfo { get; set; }
+        public ManufacturerInformation? ManufacturerInfo { get; set; }
 
         /// <summary>
         /// (optional) Product type<br/>

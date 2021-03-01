@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// Permitted values vor <see cref="Mime.MimePurpose"/>.
+    /// Permitted values vor <see cref="Mime.Purpose"/>.
     /// </summary>
     public enum MimePurpose
     {

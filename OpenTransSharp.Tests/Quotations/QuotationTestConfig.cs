@@ -100,8 +100,8 @@ namespace OpenTransSharp.Tests.Quotations
         private QuotationInformation GetQuotationInformation()
         {
             var model = new QuotationInformation();
-            model.QuotationId = "QuotationId";
-            model.QuotationDate = DateTime.UtcNow;
+            model.Id = "QuotationId";
+            model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));

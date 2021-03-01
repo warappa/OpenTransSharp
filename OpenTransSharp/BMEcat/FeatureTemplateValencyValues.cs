@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="FeatureContent.FeatureTemplateValency"/>.
+    /// For <see cref="FeatureContent.Valency"/>.
     /// </summary>
     public enum FeatureTemplateValencyValues
     {

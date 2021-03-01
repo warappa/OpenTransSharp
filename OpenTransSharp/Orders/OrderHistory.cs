@@ -23,7 +23,7 @@ namespace OpenTransSharp
         [MaxLength(250)]
         [Required]
         [XmlElement("ORDER_ID")]
-        public string OrderId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Alternative order number of the buyer<br/>

@@ -22,9 +22,9 @@ namespace OpenTransSharp
         /// Max length: 50
         /// </summary>
         [XmlElement("PACKAGE_ID")]
-        public List<string>? Packages { get; set; } = new List<string>();
+        public List<string>? Ids { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PackagesSpecified => Packages?.Count > 0;
+        public bool IdsSpecified => Ids?.Count > 0;
 
         /// <summary>
         /// (optional) Package description <br/>
@@ -32,9 +32,9 @@ namespace OpenTransSharp
         /// Textual description of the package.
         /// </summary>
         [XmlElement("PACKAGE_DESCR")]
-        public List<MultiLingualString>? PackageDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PackageDescriptionsSpecified => PackageDescriptions?.Count > 0;
+        public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
         /// <summary>
         /// (optional) Packing unit code<br/>
@@ -63,9 +63,9 @@ namespace OpenTransSharp
         /// Number of order units (ORDER_UNIT) related to a package.
         /// </summary>
         [XmlElement("PACKAGE_ORDER_UNIT_QUANTITY")]
-        public decimal? PackageOrderUnitQuantity { get; set; }
+        public decimal? OrderUnitQuantity { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PackageOrderUnitQuantitySpecified => PackageOrderUnitQuantity.HasValue;
+        public bool OrderUnitQuantitySpecified => OrderUnitQuantity.HasValue;
 
         /// <summary>
         /// (optional) Number of packages<br/>
@@ -73,9 +73,9 @@ namespace OpenTransSharp
         /// Number of packages of a particular package type (PACKING_UNIT_CODE).
         /// </summary>
         [XmlElement("PACKAGE_QUANTITY")]
-        public decimal? PackageQuantity { get; set; }
+        public decimal? Quantity { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PackageQuantitySpecified => PackageQuantity.HasValue;
+        public bool QuantitySpecified => Quantity.HasValue;
 
         /// <summary>
         /// (optional) Package dimensions<br/>
@@ -83,7 +83,7 @@ namespace OpenTransSharp
         /// Information on the package dimension from the view of business logistics.<br/>
         /// </summary>
         [XmlElement("PACKAGE_DIMENSIONS")]
-        public PackageDimensions? PackageDimensions { get; set; }
+        public PackageDimensions? Dimensions { get; set; }
 
         /// <summary>
         /// (optional) Reference to means of transportation<br/>

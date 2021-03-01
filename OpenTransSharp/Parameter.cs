@@ -21,7 +21,7 @@ namespace OpenTransSharp
         [MaxLength(60)]
         [Required]
         [BMEXmlElement("PARAMETER_SYMBOLREF")]
-        public string ParameterSymbolRef { get; set; }
+        public string SymbolRef { get; set; }
 
         /// <summary>
         /// (required) Parameter value<br/>
@@ -34,6 +34,6 @@ namespace OpenTransSharp
         [MaxLength(250)]
         [Required]
         [BMEXmlElement("PARAMETER_VALUE")]
-        public string ParameterValue { get; set; }
+        public string Value { get; set; }
     }
 }

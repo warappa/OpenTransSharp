@@ -105,8 +105,8 @@ namespace OpenTransSharp.Tests.Orders
         {
             var model = new OrderInformation();
 
-            model.OrderId = "OrderId";
-            model.OrderDate = DateTime.UtcNow;
+            model.Id = "OrderId";
+            model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));

@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="ProductFeatures.ReferenceFeatureSystemName"/>.
+    /// For <see cref="ProductFeatures.SystemName"/>.
     /// </summary>
     public class ReferenceFeatureSystemNameValues
     {

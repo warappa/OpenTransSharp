@@ -98,8 +98,8 @@ namespace OpenTransSharp.Tests.OrderResponses
         private OrderResponseInformation GetOrderResponseInformation()
         {
             var model = new OrderResponseInformation();
-            model.OrderId = "OrderResponseId";
-            model.OrderResponseDate = DateTime.UtcNow;
+            model.Id = "OrderResponseId";
+            model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));

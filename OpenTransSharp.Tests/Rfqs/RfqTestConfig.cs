@@ -101,8 +101,8 @@ namespace OpenTransSharp.Tests.Rfqs
         private RfqInformation GetRfqInformation()
         {
             var model = new RfqInformation();
-            model.RfqId = "RfqId";
-            model.RfqDate = DateTime.UtcNow;
+            model.Id = "RfqId";
+            model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));

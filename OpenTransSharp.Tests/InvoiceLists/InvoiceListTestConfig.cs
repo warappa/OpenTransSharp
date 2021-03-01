@@ -118,8 +118,8 @@ namespace OpenTransSharp.Tests.InvoiceLists
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
             model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
-            model.InvoiceListDate = DateTime.UtcNow;
-            model.InvoiceListId = "InvoiceListId";
+            model.Date = DateTime.UtcNow;
+            model.Id = "InvoiceListId";
             model.Parties = new List<Party>
             {
                 parent.GetBuyerParty(),

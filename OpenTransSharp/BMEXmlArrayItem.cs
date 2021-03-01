@@ -3,24 +3,24 @@ using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
-    public class BMEXmlArrayItem : XmlArrayItemAttribute
+    public class BMEXmlArrayItemAttribute : XmlArrayItemAttribute
     {
-        public BMEXmlArrayItem()
+        public BMEXmlArrayItemAttribute()
         {
             Init();
         }
 
-        public BMEXmlArrayItem(string elementName) : base(elementName)
+        public BMEXmlArrayItemAttribute(string elementName) : base(elementName)
         {
             Init();
         }
 
-        public BMEXmlArrayItem(Type type) : base(type)
+        public BMEXmlArrayItemAttribute(Type type) : base(type)
         {
             Init();
         }
 
-        public BMEXmlArrayItem(string elementName, Type type) : base(elementName, type)
+        public BMEXmlArrayItemAttribute(string elementName, Type type) : base(elementName, type)
         {
             Init();
         }

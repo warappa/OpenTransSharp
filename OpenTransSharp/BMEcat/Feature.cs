@@ -9,7 +9,9 @@ namespace OpenTransSharp
     /// (Product feature)<br/>
     /// <br/>
     /// This element contains information on a product features (i.e., feature name, data type, explainations, domain).<br/>
-    /// Using the VARIANTS feature it is also possible to describe variants of the product.
+    /// Using the VARIANTS feature it is also possible to describe variants of the product.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
     public class Feature
     {

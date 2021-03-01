@@ -25,7 +25,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("VALUE_IDREF")]
-        public string ValueIdref { get; set; }
+        public string Idref { get; set; }
 
         /// <summary>
         /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Atomic value<br/>
@@ -36,7 +36,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("VALUE_SIMPLE")]
-        public string ValueSimple { get; set; }
+        public string Simple { get; set; }
 
         /// <summary>
         /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Text value<br/>
@@ -47,9 +47,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("VALUE_TEXT")]
-        public List<MultiLingualString> ValueTexts { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ValueTextsSpecified => ValueTexts?.Count > 0;
+        public MultiLingualString Text { get; set; }
 
         /// <summary>
         /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Interval of values<br/>
@@ -60,7 +58,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("VALUE_RANGE")]
-        public ValueRange ValueRange { get; set; }
+        public ValueRange Range { get; set; }
 
         /// <summary>
         /// (optional) Additonal multimedia information<br/>
@@ -82,7 +80,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_INFO")]
-        public ConfigInfo ConfigInfo { get; set; }
+        public ConfigurationInformation ConfigurationInformation { get; set; }
 
         /// <summary>
         /// (optional) Value order<br/>
@@ -92,9 +90,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_ORDER")]
-        public int? ValueOrder { get; set; }
+        public int? Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ValueOrderSpecified => ValueOrder.HasValue;
+        public bool OrderSpecified => Order.HasValue;
 
         /// <summary>
         /// (optional) Default flag<br/>

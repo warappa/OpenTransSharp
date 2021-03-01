@@ -34,9 +34,9 @@ namespace OpenTransSharp
         /// Afterwards the surcharges are being added and the allowances are subtracted and the surcharges of the next higher value are determined based on the new calculated amount.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_SEQUENCE")]
-        public int? AllowOrChargeSequence { get; set; }
+        public int? Sequence { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowOrChargeSequenceSpecified => AllowOrChargeSequence.HasValue;
+        public bool SequenceSpecified => Sequence.HasValue;
 
         /// <summary>
         /// (optional) Allowance or surcharge-name<br/>
@@ -44,9 +44,9 @@ namespace OpenTransSharp
         /// Short name for the allowance or surcharge (e.g. freight, packaging, ...).
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_NAME")]
-        public List<MultiLingualString>? AllowOrChargeNames { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Names { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowOrChargeNamesSpecified => AllowOrChargeNames?.Count > 0;
+        public bool NamesSpecified => Names?.Count > 0;
 
         /// <summary>
         /// (optional) Allowance or surcharge-type<br/>
@@ -55,7 +55,7 @@ namespace OpenTransSharp
         /// See <see cref="AllowOrChargetypeValues"/>.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_TYPE")]
-        public string? AllowOrChargeType { get; set; }
+        public string? SpecificType { get; set; }
 
         /// <summary>
         /// (optional) Allowance or surcharge description<br/>
@@ -66,9 +66,9 @@ namespace OpenTransSharp
         /// Examples: In case of island-surcharges the name of the island can be quoted here or the contract reference in case of project reimbursements.<br/>
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_DESCR")]
-        public List<MultiLingualString>? AllowOrChargeDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowOrChargeDescriptionsSpecified => AllowOrChargeDescriptions?.Count > 0;
+        public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
         /// <summary>
         /// (optional) Allowance or surcharge value<br/>
@@ -76,7 +76,7 @@ namespace OpenTransSharp
         /// Description of the structure of the allowance or surcharge.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_VALUE")]
-        public AllowOrChargeValue AllowOrChargeValue { get; set; }
+        public AllowOrChargeValue Value { get; set; }
 
         /// <summary>
         /// (optional) Allowance or surcharge-base<br/>
@@ -84,8 +84,8 @@ namespace OpenTransSharp
         /// If declared, this element is the calculation base for the allowance or surcharge instead of the original value or the previous allowance or surcharge-calculations.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_BASE")]
-        public decimal? AllowOrChargeBase { get; set; }
+        public decimal? Base { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowOrChargeBaseSpecified => AllowOrChargeBase.HasValue;
+        public bool BaseSpecified => Base.HasValue;
     }
 }

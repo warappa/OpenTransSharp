@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="InvoiceListInformation.InvoiceListType"/>.
+    /// For <see cref="InvoiceListInformation.Type"/>.
     /// </summary>
     public enum InvoiceListType
     {

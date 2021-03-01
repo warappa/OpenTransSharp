@@ -40,7 +40,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TAX_CATEGORY")]
-        public string? TaxCategory { get; set; }
+        public string? Category { get; set; }
 
         /// <summary>
         /// (optional) Tax type<br/>
@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TAX_TYPE")]
-        public string? TaxType { get; set; } = "vat";
+        public string? Type { get; set; } = "vat";
 
         /// <summary>
         /// (optional) Tax rate<br/>
@@ -76,9 +76,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlElement("TAX_AMOUNT")]
-        public decimal? TaxAmount { get; set; }
+        public decimal? Amount { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TaxAmountSpecified => TaxAmount.HasValue;
+        public bool AmountSpecified => Amount.HasValue;
 
         /// <summary>
         /// (optional) Tax base<br/>
@@ -88,9 +88,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlElement("TAX_BASE")]
-        public decimal? TaxBase { get; set; }
+        public decimal? Base { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TaxBaseSpecified => TaxBase.HasValue;
+        public bool BaseSpecified => Base.HasValue;
 
         /// <summary>
         /// (optional) Exemption reason<br/>
@@ -100,9 +100,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EXEMPTION_REASON")]
-        public List<MultiLingualString>? ExemptionReasons { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ExemptionReasonsSpecified => ExemptionReasons?.Count > 0;
+        public MultiLingualString? ExemptionReason { get; set; }
 
         /// <summary>
         /// (optional) Jurisdiction<br/>
@@ -110,8 +108,6 @@ namespace OpenTransSharp
         /// Tax jurisdiction.
         /// </summary>
         [BMEXmlElement("JURISDICTION")]
-        public List<MultiLingualString>? Jurisdictions { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool JurisdictionsSpecified => Jurisdictions?.Count > 0;
+        public MultiLingualString? Jurisdiction { get; set; }
     }
 }

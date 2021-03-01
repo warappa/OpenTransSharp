@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ACCOUNTING_PERIOD_START_DATE")]
-        public DateTime AccountingPeriodStartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         /// (required) End date of the accounting period<br/>
@@ -28,6 +28,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ACCOUNTING_PERIOD_END_DATE")]
-        public DateTime AccountingPeriodEndDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

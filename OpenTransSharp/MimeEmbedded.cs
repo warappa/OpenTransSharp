@@ -35,7 +35,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("MIME_DATA")]
-        public MimeData MimeData { get; set; }
+        public MimeData Data { get; set; }
 
         /// <summary>
         /// (optional) Filename<br/>

@@ -31,7 +31,7 @@ namespace OpenTransSharp
         /// The element can be used like the ITEM_UDX element.
         /// </summary>
         [XmlArray("REPORT_UDX")]
-        public List<object> ReportUdx { get; set; } = new List<object>();
+        public List<object>? ReportUdx { get; set; } = new List<object>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ReportUdxSpecified => ReportUdx?.Count > 0;
     }

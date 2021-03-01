@@ -23,7 +23,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("INVOICE_ID")]
-        public string InvoiceId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Invoice date<br/>
@@ -33,7 +33,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("INVOICE_DATE")]
-        public DateTime InvoiceDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Intended purpose<br/>
@@ -51,9 +51,9 @@ namespace OpenTransSharp
         /// In the case of the credit memo the creator is the buying partner and it replaces the invoice of the supplying company.
         /// </summary>
         [XmlElement("INVOICE_TYPE")]
-        public InvoiceType? InvoiceType { get; set; }
+        public InvoiceType? Type { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool InvoiceTypeSpecified => InvoiceType.HasValue;
+        public bool TypeSpecified => Type.HasValue;
 
         /// <summary>
         /// (optional) Invoice coverage<br/>
@@ -63,9 +63,9 @@ namespace OpenTransSharp
         /// A collective invoice comprises of items refering to several orders.
         /// </summary>
         [XmlElement("INVOICE_COVERAGE")]
-        public InvoiceCoverage? InvoiceCoverage { get; set; }
+        public InvoiceCoverage? Coverage { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool InvoiceCoverageSpecified => InvoiceCoverage.HasValue;
+        public bool CoverageSpecified => Coverage.HasValue;
 
         /// <summary>
         /// (optional) Delivery note number<br/>
@@ -139,7 +139,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("INVOICE_ISSUER_IDREF")]
-        public InvoiceIssuerIdref InvoiceIssuerIdref { get; set; }
+        public InvoiceIssuerIdref IssuerIdref { get; set; }
 
         /// <summary>
         /// (required) Reference to the recipient of the invoice<br/>
@@ -149,7 +149,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref InvoiceRecipientIdref { get; set; }
+        public InvoiceRecipientIdref RecipientIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>

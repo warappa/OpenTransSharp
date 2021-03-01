@@ -22,7 +22,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("RECEIPTACKNOWLEDGEMENT_ID")]
-        public string ReceiptAcknowledgementId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Date of order change<br/>
@@ -30,9 +30,9 @@ namespace OpenTransSharp
         /// Date of the alteration in the order.
         /// </summary>
         [XmlElement("RECEIPTACKNOWLEDGEMENT_DATE")]
-        public DateTime? ReceiptAcknowledgementDate { get; set; }
+        public DateTime? Date { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ReceiptAcknowledgementDateSpecified => ReceiptAcknowledgementDate.HasValue;
+        public bool DateSpecified => Date.HasValue;
 
         /// <summary>
         /// (required) Receipt date<br/>
@@ -131,7 +131,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 

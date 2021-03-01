@@ -20,9 +20,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SOURCE_NAME")]
-        public List<MultiLingualString>? SourceNames { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool SourceNamesSpecified => SourceNames?.Count > 0;
+        public MultiLingualString? Name { get; set; }
 
         /// <summary>
         /// (optional) URI of the source<br/>
@@ -32,7 +30,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SOURCE_URI")]
-        public string? SourceUri { get; set; }
+        public string? Uri { get; set; }
 
         /// <summary>
         /// (optional) Reference to a business partner<br/>

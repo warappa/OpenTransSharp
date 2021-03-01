@@ -29,7 +29,7 @@ namespace OpenTransSharp
         /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
         /// </summary>
         [XmlElement("AGREEMENT")]
-        public List<Agreement> Agreements { get; set; } = new List<Agreement>();
+        public List<Agreement>? Agreements { get; set; } = new List<Agreement>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementsSpecified => Agreements?.Count > 0;
 

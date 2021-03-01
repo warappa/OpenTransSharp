@@ -18,7 +18,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("FORMULA_IDREF")]
-        public string FormulaIdref { get; set; }
+        public string Idref { get; set; }
 
         /// <summary>
         /// (optional) Parameters<br/>

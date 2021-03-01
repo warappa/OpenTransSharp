@@ -108,8 +108,8 @@ namespace OpenTransSharp.Tests.OrderChanges
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
             model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);
-            model.OrderChangeDate = DateTime.UtcNow;
-            model.OrderId = "OrderChangeId";
+            model.Date = DateTime.UtcNow;
+            model.Id = "OrderChangeId";
             model.OrderchangeSequenceId = 1;
             model.OrderPartiesReference = parent.GetOrderPartiesReference();
             model.Parties = new List<Party>

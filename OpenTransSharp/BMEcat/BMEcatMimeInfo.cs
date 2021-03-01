@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -15,18 +14,22 @@ namespace OpenTransSharp
     /// This element can contain any number of MIME elements.<br/>
     /// Each of these elements represents exactly one reference to an additional document. The definition of the MIME element is based on the MIME format (Multipurpose Internet Mail Extensions).<br/>
     /// The MIME format serves to standardize data transfers over the Internet.<br/>
-    /// Additional examples can be found one the page describing the element MIME.
+    /// Additional examples can be found one the page describing the element MIME.<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
     /// </summary>
-    public class MimeInfo
+    public class BMEcatMimeInfo
     {
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>
         /// Information about a multimedia file.<br/>
-        /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.
+        /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
         /// </summary>
         [Required]
-        [XmlElement("MIME")]
-        public List<Mime> Mimes { get; set; } = new List<Mime>();
+        [BMEXmlElement("MIME")]
+        public List<BMEcatMime> Mimes { get; set; } = new List<BMEcatMime>();
     }
 }

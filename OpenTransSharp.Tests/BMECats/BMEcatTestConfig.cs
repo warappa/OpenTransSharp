@@ -419,9 +419,9 @@ namespace OpenTransSharp.Tests.BMEcats
         private FeatureContent GetFeatureContent()
         {
             var model = new FeatureContent();
-            model.FeatureTemplateDataType = FeatureTemplateDataTypeValues.DateTime;
-            model.FeatureTemplateFacets.Add(GetFeatureTemplateFacet());
-            model.FeatureTemplateValues.Add(GetFeatureTemplateValue());
+            model.DataType = FeatureTemplateDataTypeValues.DateTime;
+            model.Facets.Add(GetFeatureTemplateFacet());
+            model.Values.Add(GetFeatureTemplateValue());
 
             return model;
         }
@@ -429,19 +429,19 @@ namespace OpenTransSharp.Tests.BMEcats
         private FeatureTemplateValue GetFeatureTemplateValue()
         {
             var model = new FeatureTemplateValue();
-            model.ValueSimple = "10";
+            model.Simple = "10";
             model.MimeInfo = parent.GetBMEcatMimeInfo();
-            model.ConfigInfo = GetConfigInfo();
-            model.ValueOrder = 1;
+            model.ConfigurationInformation = GetConfigInfo();
+            model.Order = 1;
             model.DefaultFlag = true;
 
             return model;
         }
 
-        private ConfigInfo GetConfigInfo()
+        private ConfigurationInformation GetConfigInfo()
         {
-            var model = new ConfigInfo();
-            model.ConfigCode = "-red";
+            var model = new ConfigurationInformation();
+            model.ConfigurationCode = "-red";
             model.ProductPriceDetails = GetProductPriceDetails();
 
             return model;
@@ -634,7 +634,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new ConfigurationStep();
             model.Id = "Step id";
-            model.StepHeader = "This is a step";
+            model.Header = "This is a step";
             model.DescriptionShort = new MultiLingualString("A short description", LanguageCodes.eng);
             model.DescriptionLong = new MultiLingualString("A long description", LanguageCodes.eng);
             model.Order = 1;
@@ -661,13 +661,13 @@ namespace OpenTransSharp.Tests.BMEcats
         private FeatureTemplate GetFeatureTemplate()
         {
             var model = new FeatureTemplate();
-            model.FeatureTemplateId = "Feature id";
-            model.FeatureTemplateName = new MultiLingualString("Feature");
-            model.FeatureTemplateShortName = new MultiLingualString("Feature short");
-            model.FeatureTemplateDescription = new MultiLingualString("Feature description");
-            model.FeatureTemplateVersion = GetFeatureTemplateVersion();
-            model.FeatureTemplateGroupName = new MultiLingualString("Feature group");
-            model.FeatureContent = GetFeatureContent();
+            model.Id = "Feature id";
+            model.Name = new MultiLingualString("Feature");
+            model.ShortName = new MultiLingualString("Feature short");
+            model.Description = new MultiLingualString("Feature description");
+            model.Version = GetFeatureTemplateVersion();
+            model.GroupName = new MultiLingualString("Feature group");
+            model.Content = GetFeatureContent();
 
             return model;
         }
@@ -706,14 +706,14 @@ namespace OpenTransSharp.Tests.BMEcats
         private ProductPrice GetProductPrice()
         {
             var model = new ProductPrice();
-            model.PriceType = ProductPriceValues.NetCustomer;
-            model.PriceAmount = 5;
-            model.PriceCurrency = "EUR";
+            model.Type = ProductPriceValues.NetCustomer;
+            model.Amount = 5;
+            model.Currency = "EUR";
             model.TaxDetails.Add(GetTaxDetails());
-            model.PriceFactor = 1;
+            model.Factor = 1;
             model.LowerBound = 2;
             model.AreaRefs.Add("Area ref");
-            model.PriceBase = GetPriceBase();
+            model.Base = GetPriceBase();
             model.PriceFlags.Add(GetPriceFlag());
 
             return model;
@@ -731,8 +731,8 @@ namespace OpenTransSharp.Tests.BMEcats
         private PriceBase GetPriceBase()
         {
             var model = new PriceBase();
-            model.PriceUnit = "C62";
-            model.PriceUnitFactor = 2;
+            model.Unit = "C62";
+            model.UnitFactor = 2;
 
             return model;
         }
@@ -740,7 +740,7 @@ namespace OpenTransSharp.Tests.BMEcats
         private TaxDetails GetTaxDetails()
         {
             var model = new TaxDetails();
-            model.TaxCategory = TaxCategoryValues.StandardRate;
+            model.Category = TaxCategoryValues.StandardRate;
             model.Tax = 1;
             model.Jurisdiction = "Vienna";
 

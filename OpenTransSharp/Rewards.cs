@@ -20,7 +20,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("REWARDS_POINTS")]
-        public decimal RewardsPoints { get; set; }
+        public decimal Points { get; set; }
 
         /// <summary>
         /// (optional) Rewards summary<br/>
@@ -28,7 +28,7 @@ namespace OpenTransSharp
         /// This is the record of the rewards points you have earned/redeemed till date.
         /// </summary>
         [XmlElement("REWARDS_SUMMARY")]
-        public decimal? RewardsSummary { get; set; }
+        public decimal? Summary { get; set; }
 
         /// <summary>
         /// (required) Name of the rewards system<br/>
@@ -37,9 +37,9 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("REWARDS_SYSTEM")]
-        public List<MultiLingualString>? RewardsSystem { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? System { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool RewardsSystemSpecified => RewardsSystem?.Count > 0;
+        public bool SystemSpecified => System?.Count > 0;
 
         /// <summary>
         /// (required) Rewards description <br/>
@@ -48,8 +48,8 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("REWARDS_DESCR")]
-        public List<MultiLingualString>? RewardsDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool RewardsDescriptionsSpecified => RewardsDescriptions?.Count > 0;
+        public bool DescriptionsSpecified => Descriptions?.Count > 0;
     }
 }

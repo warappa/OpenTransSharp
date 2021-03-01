@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="InvoiceInformation.InvoiceType"/>.
+    /// For <see cref="InvoiceInformation.Type"/>.
     /// </summary>
     public enum InvoiceType
     {

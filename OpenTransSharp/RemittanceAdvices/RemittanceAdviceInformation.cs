@@ -23,7 +23,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("REMITTANCEADVICE_ID")]
-        public string RemittanceAdviceId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Remittance/Payment advice date<br/>
@@ -32,7 +32,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("REMITTANCEADVICE_DATE")]
-        public DateTime RemittanceAdviceDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Intended purpose<br/>
@@ -48,9 +48,9 @@ namespace OpenTransSharp
         /// Describes the roles of the sender and recipient of the payment advice, i.e. specifies if the remittee triggers the direct debit and uses the payment advice as additional information for the payer or if the payer uses the advice of payment to document the payment.
         /// </summary>
         [XmlElement("REMITTANCEADVICE_TYPE")]
-        public RemittanceAdviceType? RemittanceAdviceType { get; set; }
+        public RemittanceAdviceType? Type { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool RemittanceAdviceTypeSpecified => RemittanceAdviceType.HasValue;
+        public bool TypeSpecified => Type.HasValue;
 
         /// <summary>
         /// (optional) Language<br/>
@@ -226,7 +226,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 

@@ -37,7 +37,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("INVOICE_ID")]
-        public string InvoiceId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (Optional) Item number<br/>
@@ -57,9 +57,9 @@ namespace OpenTransSharp
         /// In case of a credit card statement, INVOICE_DATE is the charge-date (the date, when the transaction occured).
         /// </summary>
         [XmlElement("INVOICE_DATE")]
-        public DateTime? InvoiceDate { get; set; }
+        public DateTime? Date { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool InvoiceDateSpecified => InvoiceDate.HasValue;
+        public bool DateSpecified => Date.HasValue;
 
         /// <summary>
         /// (optional) Post date<br/>
@@ -85,8 +85,8 @@ namespace OpenTransSharp
         /// Textual description of the invoice.
         /// </summary>
         [XmlElement("INVOICE_DESCR")]
-        public List<MultiLingualString> InvoiceDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString> Descriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool InvoiceDescriptionsSpecified => InvoiceDescriptions?.Count > 0;
+        public bool DescriptionsSpecified => Descriptions?.Count > 0;
     }
 }

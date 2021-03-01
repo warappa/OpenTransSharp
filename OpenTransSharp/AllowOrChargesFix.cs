@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ALLOW_OR_CHARGE")]
-        public List<AllowOrCharge> AllowOrChargeList { get; set; } = new List<AllowOrCharge>();
+        public List<AllowOrCharge> List { get; set; } = new List<AllowOrCharge>();
 
         /// <summary>
         /// (optional) Total amount of the allowances and surcharges<br/>
@@ -28,9 +28,9 @@ namespace OpenTransSharp
         /// Only those allowances and surcharges are considered which have a real amount(AOC_MONETARY_AMOUNT) in ALLOW_OR_CHARGE_VALUE or can be calculated via a percentage(AOC_PERCENTAGE_FACTOR).
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGES_TOTAL_AMOUNT")]
-        public decimal? AllowOrChargesTotalAmount { get; set; }
+        public decimal? TotalAmount { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AllowOrChargesTotalAmountSpecified => AllowOrChargesTotalAmount.HasValue;
+        public bool TotalAmountSpecified => TotalAmount.HasValue;
 
     }
 }

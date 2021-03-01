@@ -27,9 +27,9 @@ namespace OpenTransSharp
         /// Textual description for the reason of the adjustment.
         /// </summary>
         [XmlElement("ADJUSTMENT_REASON_DESCR")]
-        public List<MultiLingualString>? AdjustmentReasonDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? ReasonDescriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool AdjustmentReasonDescriptionsSpecified => AdjustmentReasonDescriptions?.Count > 0;
+        public bool ReasonDescriptionsSpecified => ReasonDescriptions?.Count > 0;
 
         /// <summary>
         /// (optional) Adjustment reason<br/>
@@ -38,6 +38,6 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ADJUSTMENT_REASON_CODE")]
-        public string? AdjustmentReasonCode { get; set; }
+        public string? ReasonCode { get; set; }
     }
 }

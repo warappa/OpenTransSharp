@@ -19,6 +19,6 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 60
         /// </summary>
-        public List<string> AreaIdrefs { get; set; } = new List<string>();
+        public List<string> Idrefs { get; set; } = new List<string>();
     }
 }

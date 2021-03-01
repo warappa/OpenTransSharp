@@ -12,6 +12,17 @@ namespace OpenTransSharp
     /// </summary>
     public class PublicKey
     {
+        public PublicKey()
+        {
+
+        }
+
+        public PublicKey(string value, string type)
+        {
+            Value = value;
+            Type = type;
+        }
+
         /// <summary>
         /// (required) Type of coding process<br/>
         /// <br/>

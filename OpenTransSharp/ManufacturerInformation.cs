@@ -9,7 +9,7 @@ namespace OpenTransSharp
     /// <br/>
     /// The element MANUFACTURER_INFO contains information assigned to the article by the manufacturer.
     /// </summary>
-    public class ManufacturerInfo
+    public class ManufacturerInformation
     {
         /// <summary>
         /// (required) Reference to the manufacturer<br/>
@@ -21,7 +21,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("MANUFACTURER_IDREF")]
-        public ManufacturerIdref ManufacturerIdref { get; set; }
+        public ManufacturerIdref Idref { get; set; }
 
         /// <summary>
         /// (required) Product ID of the manufacturer<br/>
@@ -32,7 +32,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("MANUFACTURER_PID")]
-        public string ManufacturerPID { get; set; }
+        public string Pid { get; set; }
 
         /// <summary>
         /// (optional) Manufacturer type description<br/>
@@ -43,8 +43,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_TYPE_DESCR")]
-        public List<MultiLingualString>? ManufacturerTypeDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? TypeDescriptions { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ManufacturerTypeDescriptionsSpecified => ManufacturerTypeDescriptions?.Count > 0;
+        public bool TypeDescriptionsSpecified => TypeDescriptions?.Count > 0;
     }
 }

@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ORDER_ID")]
-        public string OrderId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Item number<br/>
@@ -43,9 +43,9 @@ namespace OpenTransSharp
         /// Date of the order.
         /// </summary>
         [XmlElement("ORDER_DATE")]
-        public DateTime? OrderDate { get; set; }
+        public DateTime? Date { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool OrderDateSpecified => OrderDate.HasValue;
+        public bool DateSpecified => Date.HasValue;
 
         /// <summary>
         /// (optional) Description of the order<br/>
@@ -55,7 +55,7 @@ namespace OpenTransSharp
         /// Max length: 300
         /// </summary>
         [XmlElement("ORDER_DESCR")]
-        public string? OrderDescription { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// (optional) Reference to a skeleton agreement<br/>

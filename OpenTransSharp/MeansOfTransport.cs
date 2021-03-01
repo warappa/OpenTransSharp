@@ -34,7 +34,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("MEANS_OF_TRANSPORT_ID")]
-        public string MeansOfTransportId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Name of the means of transport<br/>
@@ -44,6 +44,6 @@ namespace OpenTransSharp
         /// Max length: 50
         /// </summary>
         [BMEXmlElement("MEANS_OF_TRANSPORT_NAME")]
-        public string? MeansOfTransportName { get; set; }
+        public string? Name { get; set; }
     }
 }

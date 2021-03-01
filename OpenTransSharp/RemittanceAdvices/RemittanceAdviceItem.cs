@@ -52,9 +52,9 @@ namespace OpenTransSharp
         [Required]
         [XmlArray("RA_INVOICE_LIST")]
         [XmlArrayItem("RA_INVOICE_LIST_ITEM")]
-        public List<RaInvoiceListItem> RaInvoiceList { get; set; } = new List<RaInvoiceListItem>();
+        public List<RaInvoiceListItem> InvoiceList { get; set; } = new List<RaInvoiceListItem>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool RaInvoiceListSpecified => RaInvoiceList?.Count > 0;
+        public bool InvoiceListSpecified => InvoiceList?.Count > 0;
 
         /// <summary>
         /// (optional) Number of item lines<br/>
@@ -105,7 +105,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -125,7 +125,7 @@ namespace OpenTransSharp
         /// The definition of user-defined extensions takes place by additional XML DTD or XML.
         /// </summary>
         [XmlArray("ITEM_UDX")]
-        public List<object> ItemUdx { get; set; } = new List<object>();
+        public List<object>? ItemUdx { get; set; } = new List<object>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ItemUdxSpecified => ItemUdx?.Count > 0;
     }

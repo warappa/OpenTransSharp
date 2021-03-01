@@ -134,7 +134,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SPECIAL_TREATMENT_CLASS")]
-        public List<SpecialTreatmentClass> SpecialTreatmentClasses { get; set; } = new List<SpecialTreatmentClass>();
+        public List<SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<SpecialTreatmentClass>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool SpecialTreatmentClassesSpecified => SpecialTreatmentClasses?.Count > 0;
 
@@ -152,7 +152,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -172,7 +172,7 @@ namespace OpenTransSharp
         /// The definition of user-defined extensions takes place by additional XML DTD or XML.
         /// </summary>
         [XmlArray("ITEM_UDX")]
-        public List<object> ItemUdx { get; set; } = new List<object>();
+        public List<object>? ItemUdx { get; set; } = new List<object>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ItemUdxSpecified => ItemUdx?.Count > 0;
     }

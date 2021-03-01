@@ -22,7 +22,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("ORDER_ID")]
-        public string OrderId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Date of order change<br/>
@@ -31,7 +31,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("ORDERCHANGE_DATE")]
-        public DateTime OrderChangeDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Date of the order<br/>
@@ -204,7 +204,7 @@ namespace OpenTransSharp
         /// Remark related to a business document.
         /// </summary>
         [XmlElement("REMARKS")]
-        public List<Remark> Remarks { get; set; } = new List<Remark>();
+        public List<Remark>? Remarks { get; set; } = new List<Remark>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarksSpecified => Remarks?.Count > 0;
 

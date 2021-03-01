@@ -35,7 +35,7 @@ namespace OpenTransSharp
         /// See <see cref="TaxCategoryValues"/>.
         /// </summary>
         [BMEXmlElement("TAX_CATEGORY")]
-        public string? TaxCategory { get; set; }
+        public string? Category { get; set; }
 
         /// <summary>
         /// (optional) Tax type<br/>
@@ -43,7 +43,7 @@ namespace OpenTransSharp
         /// This element specifies the tax type; it should take place by using internationally accepted terms, such as VAT for value added tax.
         /// </summary>
         [BMEXmlElement("TAX_TYPE")]
-        public string? TaxType { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (optional) Tax rate<br/>

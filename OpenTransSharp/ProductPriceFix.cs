@@ -23,7 +23,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("PRICE_AMOUNT")]
-        public decimal PriceAmount { get; set; }
+        public decimal Amount { get; set; }
 
         /// <summary>
         /// (optional) Fixed allowance or surcharges<br/>
@@ -67,9 +67,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRICE_QUANTITY")]
-        public decimal? PriceQuantity { get; set; }
+        public decimal? Quantity { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PriceQuantitySpecified => PriceQuantity.HasValue;
+        public bool QuantitySpecified => Quantity.HasValue;
 
         /// <summary>
         /// (optional) Fixed price base<br/>
@@ -77,6 +77,6 @@ namespace OpenTransSharp
         /// Specifies the calculation of a price.
         /// </summary>
         [XmlElement("PRICE_BASE_FIX")]
-        public PriceBaseFix? PriceBaseFix { get; set; }
+        public PriceBaseFix? BaseFix { get; set; }
     }
 }

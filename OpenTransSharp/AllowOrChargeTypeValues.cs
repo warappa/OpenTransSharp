@@ -1,7 +1,7 @@
 ﻿namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="AllowOrCharge.AllowOrChargeType"/>.
+    /// For <see cref="AllowOrCharge.Type"/>.
     /// </summary>
     public static class AllowOrChargeTypeValues
     {

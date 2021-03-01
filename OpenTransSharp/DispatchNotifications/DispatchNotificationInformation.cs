@@ -22,7 +22,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("DISPATCHNOTIFICATION_ID")]
-        public string DispatchNotificationId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (optional) Date of order dispatch<br/>
@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// Date of the dispatch of the order.
         /// </summary>
         [XmlElement("DISPATCHNOTIFICATION_DATE")]
-        public DateTime? DispatchNotificationDate { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// (optional) Language<br/>

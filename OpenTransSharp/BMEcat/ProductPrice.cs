@@ -18,7 +18,7 @@ namespace OpenTransSharp
         /// See <see cref="ProductPriceValues"/>.
         /// </summary>
         [XmlAttribute("price_type")]
-        public string PriceType { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// (optional) Price amount<br/>
@@ -26,8 +26,8 @@ namespace OpenTransSharp
         /// Amount of the price.
         /// </summary>
         [BMEXmlElement("PRICE_AMOUNT")]
-        public decimal? PriceAmount { get; set; }
-        public bool PriceAmountSpecified => PriceAmount.HasValue;
+        public decimal? Amount { get; set; }
+        public bool AmountSpecified => Amount.HasValue;
 
         /// <summary>
         /// (optional) Price formula<br/>
@@ -35,7 +35,7 @@ namespace OpenTransSharp
         /// Formel for price calculation.
         /// </summary>
         [BMEXmlElement("PRICE_FORMULA")]
-        public PriceFormula? PriceFormula { get; set; }
+        public PriceFormula? Formula { get; set; }
 
         /// <summary>
         /// (optional) Price currency<br/>
@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// If nothing is specified in this field, the currency defined in the document header (HEADER) in the element CURRENCY is used for all prices.
         /// </summary>
         [BMEXmlElement("PRICE_CURRENCY")]
-        public string? PriceCurrency { get; set; }
+        public string? Currency { get; set; }
 
         /// <summary>
         /// (optional) Tax details<br/>
@@ -74,9 +74,9 @@ namespace OpenTransSharp
         /// The value of this element overwrites the default price factor, if such a default has been defined in the context of CATALOG.
         /// </summary>
         [BMEXmlElement("PRICE_FACTOR")]
-        public decimal? PriceFactor { get; set; }
+        public decimal? Factor { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PriceFactorSpecified => PriceFactor.HasValue;
+        public bool FactorSpecified => Factor.HasValue;
 
         /// <summary>
         /// (optional) Lower quantity bound<br/>
@@ -125,7 +125,7 @@ namespace OpenTransSharp
         /// Contains the price basis consisting of price unit and price factor, it defines the basis of a price.
         /// </summary>
         [BMEXmlElement("PRICE_BASE")]
-        public PriceBase? PriceBase { get; set; }
+        public PriceBase? Base { get; set; }
 
         /// <summary>
         /// (optional) Price flag<br/>

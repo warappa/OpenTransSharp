@@ -41,8 +41,8 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TRANSPORT_REMARK")]
-        public List<MultiLingualString>? TransportRemarks { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Remarks { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TransportRemarksSpecified => TransportRemarks?.Count > 0;
+        public bool RemarksSpecified => Remarks?.Count > 0;
     }
 }

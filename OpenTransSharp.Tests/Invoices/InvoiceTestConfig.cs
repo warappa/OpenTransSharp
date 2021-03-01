@@ -102,7 +102,7 @@ namespace OpenTransSharp.Tests.Invoices
         {
             return new OrderHistory
             {
-                OrderId = "OrderId"
+                Id = "OrderId"
             };
         }
 
@@ -117,10 +117,10 @@ namespace OpenTransSharp.Tests.Invoices
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
             model.MimeRoot = parent.GetMimeRoot();
-            model.InvoiceDate = DateTime.UtcNow;
-            model.InvoiceId = "InvoiceId";
-            model.InvoiceIssuerIdref = parent.GetInvoiceIssuerIdRef();
-            model.InvoiceRecipientIdref = parent.GetInvoiceRecipientIdRef();
+            model.Date = DateTime.UtcNow;
+            model.Id = "InvoiceId";
+            model.IssuerIdref = parent.GetInvoiceIssuerIdRef();
+            model.RecipientIdref = parent.GetInvoiceRecipientIdRef();
             model.Parties.AddRange(new[]
             {
                 parent.GetBuyerParty(),

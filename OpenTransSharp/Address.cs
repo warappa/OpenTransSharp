@@ -253,6 +253,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ADDRESS_REMARKS")]
-        public MultiLingualString? AddressRemarks { get; set; }
+        public MultiLingualString? Remarks { get; set; }
     }
 }

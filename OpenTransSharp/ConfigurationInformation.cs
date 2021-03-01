@@ -9,7 +9,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class ConfigInfo
+    public class ConfigurationInformation
     {
         /// <summary>
         /// (required) order number extension<br/>
@@ -24,7 +24,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [BMEXmlElement("CONFIG_CODE")]
-        public string ConfigCode { get; set; }
+        public string ConfigurationCode { get; set; }
 
         /// <summary>
         /// (optional) Price details<br/>

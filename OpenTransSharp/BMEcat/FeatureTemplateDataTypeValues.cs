@@ -3,7 +3,7 @@
 namespace OpenTransSharp
 {
     /// <summary>
-    /// For <see cref="FeatureContent.FeatureTemplateDataType"/>.
+    /// For <see cref="FeatureContent.DataType"/>.
     /// </summary>
     public enum FeatureTemplateDataTypeValues
     {

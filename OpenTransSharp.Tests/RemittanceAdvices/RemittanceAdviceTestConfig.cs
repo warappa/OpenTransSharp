@@ -39,7 +39,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             var model = new RemittanceAdviceItem();
 
             model.LineItemId = "1";
-            model.RaInvoiceList.Add(GetRaInvoiceListItem());
+            model.InvoiceList.Add(GetRaInvoiceListItem());
             model.TotalAmount = 1;
             model.Remarks.AddRange(parent.GetRemarks());
 
@@ -112,8 +112,8 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
         private RemittanceAdviceInformation GetRemittanceAdviceInformation()
         {
             var model = new RemittanceAdviceInformation();
-            model.RemittanceAdviceId = "RemittanceAdviceId";
-            model.RemittanceAdviceDate = DateTime.UtcNow;
+            model.Id = "RemittanceAdviceId";
+            model.Date = DateTime.UtcNow;
             model.Languages.Add(new Language(LanguageCodes.deu, true));
             model.Languages.Add(new Language(LanguageCodes.eng));
             model.MimeRoot = new MultiLingualString("ftp://server/de", LanguageCodes.deu);

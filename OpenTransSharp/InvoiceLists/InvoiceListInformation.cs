@@ -23,7 +23,7 @@ namespace OpenTransSharp
         [MinLength(1)]
         [MaxLength(250)]
         [XmlElement("INVOICELIST_ID")]
-        public string InvoiceListId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// (required) Date of the invoice list <br/>
@@ -32,7 +32,7 @@ namespace OpenTransSharp
         /// </summary>
         [Required]
         [XmlElement("INVOICELIST_DATE")]
-        public DateTime InvoiceListDate { get; set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// (optional) Intended purpose<br/>
@@ -48,9 +48,9 @@ namespace OpenTransSharp
         /// Intended purpose especially regarding financial transactions and particularly bank transfers.
         /// </summary>
         [XmlElement("INVOICELIST_TYPE")]
-        public InvoiceListType? InvoiceListType { get; set; }
+        public InvoiceListType? Type { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool InvoiceListTypeSpecified => InvoiceListType.HasValue;
+        public bool TypeSpecified => Type.HasValue;
 
         /// <summary>
         /// (required) Accounting period<br/>
