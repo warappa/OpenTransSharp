@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -39,7 +40,7 @@ namespace OpenTransSharp
         /// Description of the product by features and/or classification of the product.
         /// </summary>
         [OpenTransXmlElement("PRODUCT_FEATURES")]
-        public ProductFeatures? ProductFeatures { get; set; }
+        public global::BMEcatSharp.ProductFeatures? ProductFeatures { get; set; }
 
         /// <summary>
         /// (optional) Product components<br/>
@@ -132,7 +133,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SPECIAL_TREATMENT_CLASS")]
-        public List<SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<SpecialTreatmentClass>();
+        public List<global::BMEcatSharp.SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<global::BMEcatSharp.SpecialTreatmentClass>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool SpecialTreatmentClassesSpecified => SpecialTreatmentClasses?.Count > 0;
 

@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Reference to IPP provider)<br/>

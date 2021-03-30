@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -39,7 +40,7 @@ namespace OpenTransSharp
         /// Description of the product by features and/or classification of the product.
         /// </summary>
         [OpenTransXmlElement("PRODUCT_FEATURES")]
-        public ProductFeatures? ProductFeatures { get; set; }
+        public global::BMEcatSharp.ProductFeatures? ProductFeatures { get; set; }
 
         /// <summary>
         /// (optional) Product components<br/>
@@ -102,7 +103,7 @@ namespace OpenTransSharp
         /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
         /// </summary>
         [XmlElement("AGREEMENT")]
-        public List<Agreement>? Agreements { get; set; } = new List<Agreement>();
+        public List<global::BMEcatSharp.Agreement>? Agreements { get; set; } = new List<global::BMEcatSharp.Agreement>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementsSpecified => Agreements?.Count > 0;
 
@@ -167,7 +168,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TRANSPORT")]
-        public Transport? Transport { get; set; }
+        public global::BMEcatSharp.Transport? Transport { get; set; }
 
         /// <summary>
         /// (optional) International delivery restrictions<br/>
@@ -177,7 +178,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("INTERNALTIONAL_RESTRICTIONS")]
-        public List<InternationalRestriction>? InternationalRestrictions { get; set; } = new List<InternationalRestriction>();
+        public List<global::BMEcatSharp.InternationalRestriction>? InternationalRestrictions { get; set; } = new List<global::BMEcatSharp.InternationalRestriction>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool InternationalRestrictionsSpecified => InternationalRestrictions?.Count > 0;
 
@@ -189,7 +190,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SPECIAL_TREATMENT_CLASS")]
-        public List<SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<SpecialTreatmentClass>();
+        public List<global::BMEcatSharp.SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<global::BMEcatSharp.SpecialTreatmentClass>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool SpecialTreatmentClassesSpecified => SpecialTreatmentClasses?.Count > 0;
 

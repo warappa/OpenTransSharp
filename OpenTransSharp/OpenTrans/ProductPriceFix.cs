@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -42,7 +43,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRICE_FLAG")]
-        public List<PriceFlag> PriceFlags { get; set; } = new List<PriceFlag>();
+        public List<global::BMEcatSharp.PriceFlag> PriceFlags { get; set; } = new List<global::BMEcatSharp.PriceFlag>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PriceFlagsSpecified => PriceFlags?.Count > 0;
 

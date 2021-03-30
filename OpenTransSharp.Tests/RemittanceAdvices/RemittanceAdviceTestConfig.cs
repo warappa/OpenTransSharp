@@ -114,9 +114,9 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             var model = new RemittanceAdviceInformation();
             model.Id = "RemittanceAdviceId";
             model.Date = DateTime.UtcNow;
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
-            model.MimeRoot = parent.GetMimeRoot();
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
             model.PayerIdref = parent.GetPayerIdRef();
             model.RemitteeIdref = parent.GetRemitteeIdRef();

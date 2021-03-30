@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// <br/>

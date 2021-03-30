@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -35,7 +36,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_SOURCE")]
-        public List<MultiLingualString>? Source { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Source { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool SourceSpecified => Source?.Count > 0;
 
@@ -67,7 +68,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_DESCR")]
-        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
@@ -79,7 +80,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ALT")]
-        public List<MultiLingualString>? AlternativeTexts { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? AlternativeTexts { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AlternativeTextsSpecified => AlternativeTexts?.Count > 0;
 
@@ -89,7 +90,7 @@ namespace OpenTransSharp
         /// Desired purpose for which the MIME document is to be used in the target system.
         /// </summary>
         [OpenTransXmlElement("MIME_PURPOSE")] // yes, not BMEcat
-        public MimePurpose? Purpose { get; set; }
+        public global::BMEcatSharp.MimePurpose? Purpose { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PurposeSpecified => Purpose.HasValue;
 

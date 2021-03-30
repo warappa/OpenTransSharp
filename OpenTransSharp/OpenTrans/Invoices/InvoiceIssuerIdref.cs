@@ -12,7 +12,7 @@ namespace OpenTransSharp
     /// Caution:<br/>
     /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_ISSUER_IDREF is additionally the recipient of the benefit/buyer.
     /// </summary>
-    public class InvoiceIssuerIdref : PartyRef<InvoiceIssuerIdref>
+    public class InvoiceIssuerIdref : global::BMEcatSharp.PartyRef<InvoiceIssuerIdref>
     {
         public InvoiceIssuerIdref()
         {
@@ -53,14 +53,14 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(InvoiceIssuerIdref idRef)
+        public static explicit operator global::BMEcatSharp.PartyId(InvoiceIssuerIdref idRef)
         {
             if (idRef is null)
             {
                 return null;
             }
 
-            return new PartyId(idRef.Value, idRef.Type);
+            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
         }
     }
 }

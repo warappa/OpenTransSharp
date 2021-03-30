@@ -82,7 +82,7 @@ namespace OpenTransSharp
         /// Textual description of the invoice.
         /// </summary>
         [XmlElement("INVOICE_DESCR")]
-        public List<MultiLingualString> Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString> Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionsSpecified => Descriptions?.Count > 0;
     }

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (End value)<br/>
@@ -23,7 +24,7 @@ namespace OpenTransSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlAttribute("intervaltype")]
-        public Intervaltype IntervaltypeForSerializer { get => Intervaltype ?? OpenTransSharp.Intervaltype.Undefined; set => Intervaltype = value; }
+        public Intervaltype IntervaltypeForSerializer { get => Intervaltype ?? BMEcatSharp.Intervaltype.Undefined; set => Intervaltype = value; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IntervaltypeForSerializerSpecified => Intervaltype.HasValue;
 

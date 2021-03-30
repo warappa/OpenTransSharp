@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Catalog group system - deprecated)<br/>

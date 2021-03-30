@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel.DataAnnotations;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Authentification information)<br/>

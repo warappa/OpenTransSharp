@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Formula version)<br/>

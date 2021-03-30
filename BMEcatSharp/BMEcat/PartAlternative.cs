@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Variant componetnts)<br/>

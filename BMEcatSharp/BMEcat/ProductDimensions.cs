@@ -1,6 +1,7 @@
-﻿using System.ComponentModel;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Product dimensions)<br/>

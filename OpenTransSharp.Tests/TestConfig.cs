@@ -40,27 +40,6 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public SpecialTreatmentClass GetSpecialTreatmentClass()
-        {
-            return new SpecialTreatmentClass("Attention", "GGVS");
-        }
-
-        public Transport GetTransport()
-        {
-            var model = new Transport
-            {
-                Incoterm = "EXW",
-                Location = "Warehouse"
-            };
-            model.Remarks.AddRange(new[]
-            {
-                new MultiLingualString("Zerbrechlich", LanguageCodes.deu),
-                new MultiLingualString("fragile", LanguageCodes.eng)
-            });
-
-            return model;
-        }
-
         public ProductPriceFix GetProductPriceFix()
         {
             var model = new ProductPriceFix
@@ -73,8 +52,8 @@ namespace OpenTransSharp.Tests
 
             model.PriceFlags.AddRange(new[]
             {
-                new PriceFlag(PriceFlagTypes.IncludingPacking, true),
-                new PriceFlag(PriceFlagTypes.IncludingAssurance, false)
+                BMEcats.GetPriceFlag(global::BMEcatSharp.PriceFlagTypes.IncludingPacking, true),
+                BMEcats.GetPriceFlag(global::BMEcatSharp.PriceFlagTypes.IncludingAssurance, false)
             });
             model.TaxDetailsFixes.Add(GetTaxDetailsFix());
 
@@ -96,7 +75,7 @@ namespace OpenTransSharp.Tests
 
         public DeliveryIdref GetDeliveryIdRef()
         {
-            return new DeliveryIdref("Delivery", PartyTypeValues.PartySpecific);
+            return new DeliveryIdref("Delivery", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public AccountingPeriod GetAccountingPeriod()
@@ -110,12 +89,12 @@ namespace OpenTransSharp.Tests
 
         public RemitteeIdref GetRemitteeIdRef()
         {
-            return new RemitteeIdref("Supplier", PartyTypeValues.PartySpecific);
+            return new RemitteeIdref("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public PayerIdref GetPayerIdRef()
         {
-            return new PayerIdref("Buyer", PartyTypeValues.PartySpecific);
+            return new PayerIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public ShipmentPartiesReference GetShipmentPartiesReference()
@@ -132,8 +111,8 @@ namespace OpenTransSharp.Tests
         {
             return new OrderPartiesReference
             {
-                BuyerIdref = GetBuyerIdref(),
-                SupplierIdref = GetSupplierIdRef()
+                BuyerIdref = BMEcats.GetBuyerIdref(),
+                SupplierIdref = BMEcats.GetSupplierIdRef()
             };
         }
 
@@ -163,8 +142,8 @@ namespace OpenTransSharp.Tests
             var model = new TaxDetailsFix();
             model.Type = "vat";
             model.CalculationSequence = 1;
-            model.Jurisdiction.Add(new MultiLingualString("Austria", LanguageCodes.eng));
-            model.Jurisdiction.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
+            model.Jurisdiction.Add(new global::BMEcatSharp.MultiLingualString("Austria", global::BMEcatSharp.LanguageCodes.eng));
+            model.Jurisdiction.Add(new global::BMEcatSharp.MultiLingualString("Österreich", global::BMEcatSharp.LanguageCodes.deu));
             model.Tax = 0.20m;
             model.Amount = 2;
             model.Category = TaxCategoryValues.StandardRate;
@@ -190,18 +169,13 @@ namespace OpenTransSharp.Tests
             model.Type = AllowOrChargeType.Allowance;
             model.Names.AddRange(new[]
             {
-                new MultiLingualString("Kugelschreiber", LanguageCodes.deu),
-                new MultiLingualString("pen", LanguageCodes.eng)
+                new global::BMEcatSharp.MultiLingualString("Kugelschreiber", global::BMEcatSharp.LanguageCodes.deu),
+                new global::BMEcatSharp.MultiLingualString("pen", global::BMEcatSharp.LanguageCodes.eng)
             });
             model.SpecificType = AllowOrChargeTypeValues.ProjectBonus;
             model.Value = AllowOrChargeValue.Units(GetAocOrderUnitsCount());
 
             return model;
-        }
-
-        public Authentification GetAuthentification()
-        {
-            return new Authentification("login", "password");
         }
 
         public AllowOrChargesFix GetAllowOrChargesFix()
@@ -246,7 +220,7 @@ namespace OpenTransSharp.Tests
                 Id = "2021-02",
                 Version = new Version(2, 1)
             };
-            model.Name = new MultiLingualString("Test Catalog 2021", LanguageCodes.eng);
+            model.Name = new global::BMEcatSharp.MultiLingualString("Test Catalog 2021", global::BMEcatSharp.LanguageCodes.eng);
 
             return model;
         }
@@ -260,11 +234,6 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public SupplierPid GetSupplierPid()
-        {
-            return new SupplierPid("ProductId", SupplierPidTypeValues.SupplierSpecific);
-        }
-
         public List<Remark> GetRemarks()
         {
             return new List<Remark>
@@ -275,32 +244,32 @@ namespace OpenTransSharp.Tests
 
         public Remark GetRemark()
         {
-            return new Remark("Be careful", RemarkTypeValues.DispatchNotification);
+            return new Remark("Be careful", global::BMEcatSharp.RemarkTypeValues.DispatchNotification);
         }
 
         public ProductId GetProductId()
         {
             return new ProductId
             {
-                SupplierPid = new SupplierPid("Supplier ProductId", SupplierPidTypeValues.SupplierSpecific),
-                ProductType = ProductType.Physical,
-                SupplierIdref = GetSupplierIdRef()
+                SupplierPid = BMEcats.GetSupplierPid("Supplier ProductId", global::BMEcatSharp.SupplierPidTypeValues.SupplierSpecific),
+                ProductType = global::BMEcatSharp.ProductType.Physical,
+                SupplierIdref = BMEcats.GetSupplierIdRef()
             };
         }
 
         public DeliveryIdref GetDeliveryIdref()
         {
-            return new DeliveryIdref("Buyer", PartyTypeValues.PartySpecific);
+            return new DeliveryIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public OpenTransParty GetSupplierParty()
         {
             return new OpenTransParty
             {
-                Roles = new List<PartyRole> { PartyRole.Supplier },
-                Ids = new List<PartyId>
+                Roles = new List<global::BMEcatSharp.PartyRole> { global::BMEcatSharp.PartyRole.Supplier },
+                Ids = new List<global::BMEcatSharp.PartyId>
                 {
-                    (PartyId)GetSupplierIdRef()
+                    (global::BMEcatSharp.PartyId)BMEcats.GetSupplierIdRef()
                 }
             };
         }
@@ -309,11 +278,11 @@ namespace OpenTransSharp.Tests
         {
             var model = new OpenTransParty
             {
-                Ids = new List<PartyId>
+                Ids = new List<global::BMEcatSharp.PartyId>
                 {
-                    (PartyId)GetBuyerIdref()
+                    (global::BMEcatSharp.PartyId)BMEcats.GetBuyerIdref()
                 },
-                Roles = new List<PartyRole> { PartyRole.Buyer }
+                Roles = new List<global::BMEcatSharp.PartyRole> { global::BMEcatSharp.PartyRole.Buyer }
             };
             
             model.Addresses.Add(GetAddress());
@@ -332,7 +301,7 @@ namespace OpenTransSharp.Tests
             model.BankAccount = GetBankAccount();
             model.BankCode = GetBankCode();
             model.BankName = "Reiffeisen";
-            model.BankCountry = CountryCode.AT;
+            model.BankCountry = global::BMEcatSharp.CountryCode.AT;
 
             return model;
         }
@@ -350,177 +319,76 @@ namespace OpenTransSharp.Tests
         private Address GetAddress()
         {
             var model = new Address();
-            model.Name.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Name.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
-            model.Name2.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Name2.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
-            model.Name3.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Name3.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
-            model.Department.Add(new MultiLingualString("Department", LanguageCodes.eng));
-            model.Department.Add(new MultiLingualString("Abteilung", LanguageCodes.deu));
+            model.Name.Add(new global::BMEcatSharp.MultiLingualString("Steve", global::BMEcatSharp.LanguageCodes.eng));
+            model.Name.Add(new global::BMEcatSharp.MultiLingualString("Stefan", global::BMEcatSharp.LanguageCodes.deu));
+            model.Name2.Add(new global::BMEcatSharp.MultiLingualString("Steve", global::BMEcatSharp.LanguageCodes.eng));
+            model.Name2.Add(new global::BMEcatSharp.MultiLingualString("Stefan", global::BMEcatSharp.LanguageCodes.deu));
+            model.Name3.Add(new global::BMEcatSharp.MultiLingualString("Steve", global::BMEcatSharp.LanguageCodes.eng));
+            model.Name3.Add(new global::BMEcatSharp.MultiLingualString("Stefan", global::BMEcatSharp.LanguageCodes.deu));
+            model.Department.Add(new global::BMEcatSharp.MultiLingualString("Department", global::BMEcatSharp.LanguageCodes.eng));
+            model.Department.Add(new global::BMEcatSharp.MultiLingualString("Abteilung", global::BMEcatSharp.LanguageCodes.deu));
             model.ContactDetails.Add(GetContactDetails());
-            model.Street.Add(new MultiLingualString("Street", LanguageCodes.eng));
-            model.Street.Add(new MultiLingualString("Straße", LanguageCodes.deu));
-            model.Zip.Add(new MultiLingualString("Zip", LanguageCodes.eng));
-            model.Zip.Add(new MultiLingualString("PLZ", LanguageCodes.deu));
-            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.eng));
-            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.deu));
-            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.eng));
-            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.deu));
-            model.City.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
-            model.City.Add(new MultiLingualString("Wien", LanguageCodes.deu));
-            model.State.Add(new MultiLingualString("Upper Austria", LanguageCodes.eng));
-            model.State.Add(new MultiLingualString("Oberösterreich", LanguageCodes.deu));
-            model.Country.Add(new MultiLingualString("Austria", LanguageCodes.eng));
-            model.Country.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
-            model.CountryCoded = CountryCode.AT;
+            model.Street.Add(new global::BMEcatSharp.MultiLingualString("Street", global::BMEcatSharp.LanguageCodes.eng));
+            model.Street.Add(new global::BMEcatSharp.MultiLingualString("Straße", global::BMEcatSharp.LanguageCodes.deu));
+            model.Zip.Add(new global::BMEcatSharp.MultiLingualString("Zip", global::BMEcatSharp.LanguageCodes.eng));
+            model.Zip.Add(new global::BMEcatSharp.MultiLingualString("PLZ", global::BMEcatSharp.LanguageCodes.deu));
+            model.BoxNo.Add(new global::BMEcatSharp.MultiLingualString("1", global::BMEcatSharp.LanguageCodes.eng));
+            model.BoxNo.Add(new global::BMEcatSharp.MultiLingualString("1", global::BMEcatSharp.LanguageCodes.deu));
+            model.ZipBox.Add(new global::BMEcatSharp.MultiLingualString("1", global::BMEcatSharp.LanguageCodes.eng));
+            model.ZipBox.Add(new global::BMEcatSharp.MultiLingualString("1", global::BMEcatSharp.LanguageCodes.deu));
+            model.City.Add(new global::BMEcatSharp.MultiLingualString("Vienna", global::BMEcatSharp.LanguageCodes.eng));
+            model.City.Add(new global::BMEcatSharp.MultiLingualString("Wien", global::BMEcatSharp.LanguageCodes.deu));
+            model.State.Add(new global::BMEcatSharp.MultiLingualString("Upper Austria", global::BMEcatSharp.LanguageCodes.eng));
+            model.State.Add(new global::BMEcatSharp.MultiLingualString("Oberösterreich", global::BMEcatSharp.LanguageCodes.deu));
+            model.Country.Add(new global::BMEcatSharp.MultiLingualString("Austria", global::BMEcatSharp.LanguageCodes.eng));
+            model.Country.Add(new global::BMEcatSharp.MultiLingualString("Österreich", global::BMEcatSharp.LanguageCodes.deu));
+            model.CountryCoded = global::BMEcatSharp.CountryCode.AT;
             model.VatId = "UID1234";
             model.TaxNumber = "ST1234";
-            model.Phones.Add(GetPhone());
-            model.Phones.Add(GetPhone(PhoneTypeValues.Office));
-            model.Faxes.Add(GetFax());
-            model.Faxes.Add(GetFax(FaxTypeValues.Private));
+            model.Phones.Add(BMEcats.GetPhone());
+            model.Phones.Add(BMEcats.GetPhone(global::BMEcatSharp.PhoneTypeValues.Office));
+            model.Faxes.Add(BMEcats.GetFax());
+            model.Faxes.Add(BMEcats.GetFax(global::BMEcatSharp.FaxTypeValues.Private));
             model.Email = "mail@example.com";
-            model.PublicKeys.Add(GetPublicKey());
+            model.PublicKeys.Add(BMEcats.GetPublicKey());
             model.Url = "https://example.com";
-            model.Remarks.Add(new MultiLingualString("Remark"));
-            model.Remarks.Add(new MultiLingualString("Bemerkung", LanguageCodes.deu));
+            model.Remarks.Add(new global::BMEcatSharp.MultiLingualString("Remark"));
+            model.Remarks.Add(new global::BMEcatSharp.MultiLingualString("Bemerkung", global::BMEcatSharp.LanguageCodes.deu));
 
             return model;
-        }
-
-
-
-        private BMEcatAddress GetBMEcatAddress()
-        {
-            var model = new BMEcatAddress();
-            model.Name.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Name.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
-            model.Name2.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Name2.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
-            model.Name3.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Name3.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
-            model.Department.Add(new MultiLingualString("Department", LanguageCodes.eng));
-            model.Department.Add(new MultiLingualString("Abteilung", LanguageCodes.deu));
-            model.ContactDetails.Add(GetBMEcatContactDetails());
-            model.Street.Add(new MultiLingualString("Street", LanguageCodes.eng));
-            model.Street.Add(new MultiLingualString("Straße", LanguageCodes.deu));
-            model.Zip.Add(new MultiLingualString("Zip", LanguageCodes.eng));
-            model.Zip.Add(new MultiLingualString("PLZ", LanguageCodes.deu));
-            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.eng));
-            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.deu));
-            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.eng));
-            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.deu));
-            model.City.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
-            model.City.Add(new MultiLingualString("Wien", LanguageCodes.deu));
-            model.State.Add(new MultiLingualString("Upper Austria", LanguageCodes.eng));
-            model.State.Add(new MultiLingualString("Oberösterreich", LanguageCodes.deu));
-            model.Country.Add(new MultiLingualString("Austria", LanguageCodes.eng));
-            model.Country.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
-            model.CountryCoded = CountryCode.AT;
-            model.VatId = "UID1234";
-            model.Phone = GetPhone();
-            model.Fax = GetFax();
-            model.Email = "mail@example.com";
-            model.PublicKeys.Add(GetPublicKey());
-            model.Url = "https://example.com";
-            model.Remarks.Add(new MultiLingualString("Remark"));
-            model.Remarks.Add(new MultiLingualString("Bemerkung", LanguageCodes.deu));
-
-            return model;
-        }
-
-        private PublicKey GetPublicKey(string type = null)
-        {
-            return new PublicKey("1234", type ?? PublicKeyTypeValues.PGP(new Version(6, 5, 1)));
-        }
-
-        private Fax GetFax(string type = "office")
-        {
-            return new Fax("+43234567890", type);
-        }
-
-        private Phone GetPhone(string type = "mobile")
-        {
-            return new Phone("+43123456789", type);
         }
 
         private OpenTransContactDetails GetContactDetails()
         {
             var model = new OpenTransContactDetails();
             model.Id = "Contact id";
-            model.Surname.Add(new MultiLingualString("Surname"));
-            model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
-            model.FirstName.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Title.Add(new MultiLingualString("Eng.", LanguageCodes.eng));
-            model.Title.Add(new MultiLingualString("Ing.", LanguageCodes.deu));
-            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.eng));
-            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.deu));
-            model.ContactRoles.Add(GetContactRole());
-            model.Phones.Add(GetPhone());
-            model.Phones.Add(GetPhone(PhoneTypeValues.Private));
-            model.Faxes.Add(GetFax());
-            model.Faxes.Add(GetFax(FaxTypeValues.Private));
+            model.Surname.Add(new global::BMEcatSharp.MultiLingualString("Surname"));
+            model.Surname.Add(new global::BMEcatSharp.MultiLingualString("Nachname", global::BMEcatSharp.LanguageCodes.deu));
+            model.FirstName.Add(new global::BMEcatSharp.MultiLingualString("Steve", global::BMEcatSharp.LanguageCodes.eng));
+            model.Title.Add(new global::BMEcatSharp.MultiLingualString("Eng.", global::BMEcatSharp.LanguageCodes.eng));
+            model.Title.Add(new global::BMEcatSharp.MultiLingualString("Ing.", global::BMEcatSharp.LanguageCodes.deu));
+            model.AcademicTitle.Add(new global::BMEcatSharp.MultiLingualString("Dr.", global::BMEcatSharp.LanguageCodes.eng));
+            model.AcademicTitle.Add(new global::BMEcatSharp.MultiLingualString("Dr.", global::BMEcatSharp.LanguageCodes.deu));
+            model.ContactRoles.Add(BMEcats.GetContactRole());
+            model.Phones.Add(BMEcats.GetPhone());
+            model.Phones.Add(BMEcats.GetPhone(global::BMEcatSharp.PhoneTypeValues.Private));
+            model.Faxes.Add(BMEcats.GetFax());
+            model.Faxes.Add(BMEcats.GetFax(global::BMEcatSharp.FaxTypeValues.Private));
             model.Url = "https://example.com";
-            model.Email = GetEmail();
-            model.Authentification = GetAuthentification();
+            model.Email = BMEcats.GetEmail();
+            model.Authentification = BMEcats.GetAuthentification();
 
             return model;
-        }
-
-        private BMEcatContactDetails GetBMEcatContactDetails()
-        {
-            var model = new BMEcatContactDetails();
-            model.Id = "Contact id";
-            model.Surname.Add(new MultiLingualString("Surname"));
-            model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
-            model.FirstName.Add(new MultiLingualString("Steve", LanguageCodes.eng));
-            model.Title.Add(new MultiLingualString("Eng.", LanguageCodes.eng));
-            model.Title.Add(new MultiLingualString("Ing.", LanguageCodes.deu));
-            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.eng));
-            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.deu));
-            model.ContactRoles.Add(GetContactRole());
-            model.Phone = GetPhone();
-            model.Fax = GetFax();
-            model.Url = "https://example.com";
-            model.Email = GetEmail();
-            
-            return model;
-        }
-
-        private Email GetEmail()
-        {
-            var model = new Email();
-            model.EmailAddress = "mail@example.com";
-            model.PublicKeys.Add(GetPublicKey());
-            model.PublicKeys.Add(GetPublicKey("etc"));
-
-            return model;
-        }
-
-        private ContactRole GetContactRole()
-        {
-            return new ContactRole("Contact", ContactRoleType.Technical);
-        }
-
-        public SupplierIdref GetSupplierIdRef()
-        {
-            return new SupplierIdref("Supplier", PartyTypeValues.SupplierSpecific);
-        }
-
-        public BuyerIdref GetBuyerIdref()
-        {
-            return new BuyerIdref("Buyer", PartyTypeValues.CustomerSpecific);
         }
 
         public InvoiceRecipientIdref GetInvoiceRecipientIdRef()
         {
-            return new InvoiceRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
+            return new InvoiceRecipientIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public InvoiceIssuerIdref GetInvoiceIssuerIdRef()
         {
-            return new InvoiceIssuerIdref("Supplier", PartyTypeValues.PartySpecific);
+            return new InvoiceIssuerIdref("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public OpenTransMimeInfo GetMimeInfo()
@@ -532,50 +400,36 @@ namespace OpenTransSharp.Tests
             return model;
         }
 
-        public MultiLingualString GetMimeRoot()
-        {
-            return new MultiLingualString("ftp://server/en", LanguageCodes.eng);
-        }
-
-        public BMEcatMimeInfo GetBMEcatMimeInfo()
-        {
-            var model = new BMEcatMimeInfo();
-
-            model.Mimes.Add(GetBMEcatMime());
-
-            return model;
-        }
-
         public static OpenTransMime GetMime()
         {
             return new OpenTransMime
             {
-                AlternativeTexts = new List<MultiLingualString>
+                AlternativeTexts = new List<global::BMEcatSharp.MultiLingualString>
                 {
-                    new MultiLingualString("Bitte Lesen", LanguageCodes.deu),
-                    new MultiLingualString("Readme", LanguageCodes.eng)
+                    new global::BMEcatSharp.MultiLingualString("Bitte Lesen", global::BMEcatSharp.LanguageCodes.deu),
+                    new global::BMEcatSharp.MultiLingualString("Readme", global::BMEcatSharp.LanguageCodes.eng)
                 },
-                Descriptions = new List<MultiLingualString>
+                Descriptions = new List<global::BMEcatSharp.MultiLingualString>
                 {
-                    new MultiLingualString("Eine Text Datei", LanguageCodes.deu),
-                    new MultiLingualString("A text file", LanguageCodes.eng)
+                    new global::BMEcatSharp.MultiLingualString("Eine Text Datei", global::BMEcatSharp.LanguageCodes.deu),
+                    new global::BMEcatSharp.MultiLingualString("A text file", global::BMEcatSharp.LanguageCodes.eng)
                 },
-                Purpose = MimePurpose.Others,
-                //MimeSource = new MultiLingualString("ftp://server/de/", LanguageCodes.deu),
+                Purpose = global::BMEcatSharp.MimePurpose.Others,
+                //MimeSource = new global::BMEcatSharp.MultiLingualString("ftp://server/de/", global::BMEcatSharp.LanguageCodes.deu),
                 MimeType = "text/plain",
                 Embeddeds = new List<MimeEmbedded>
                 {
                     new MimeEmbedded
                     {
                         FileName = "Lies mich.txt",
-                        Language = LanguageCodes.deu,
+                        Language = global::BMEcatSharp.LanguageCodes.deu,
                         FileSize = 33,
                         Data = MimeData.FromText("Gut gemacht, Sie haben es gelesen")
                     },
                     new MimeEmbedded
                     {
                         FileName = "Readme.txt",
-                        Language = LanguageCodes.eng,
+                        Language = global::BMEcatSharp.LanguageCodes.eng,
                         FileSize = 22,
                         Data = MimeData.FromText("Well done, you read it")
                     }
@@ -583,37 +437,14 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public static BMEcatMime GetBMEcatMime()
-        {
-            var model = new BMEcatMime
-            {
-                Purpose = MimePurpose.Others,
-                MimeType = "text/plain"
-            };
-            model.AlternativeTexts.Add(new MultiLingualString("Readme", LanguageCodes.eng));
-            model.AlternativeTexts.Add(new MultiLingualString("Bitte Lesen", LanguageCodes.deu));
-            model.Descriptions.Add(new MultiLingualString("A text file", LanguageCodes.eng));
-            model.Descriptions.Add(new MultiLingualString("Eine Text Datei", LanguageCodes.deu));
-            model.Source.Add(new MultiLingualString("ftp://server/en/", LanguageCodes.eng));
-            model.Source.Add(new MultiLingualString("ftp://server/de/", LanguageCodes.deu));
-
-            return model;
-        }
-
-        public InternationalPid GetInternationalPid()
-        {
-            var model = new InternationalPid("1234", "Organization");
-            return model;
-        }
-
         public DocumentRecipientIdref GetDocumentRecipientIdRef()
         {
-            return new DocumentRecipientIdref("Buyer", PartyTypeValues.PartySpecific);
+            return new DocumentRecipientIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public DocumentIssuerIdref GetDocumentIssuerIdRef()
         {
-            return new DocumentIssuerIdref("Supplier", PartyTypeValues.PartySpecific);
+            return new DocumentIssuerIdref("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public DeliveryDate GetDeliveryDate()
@@ -623,57 +454,6 @@ namespace OpenTransSharp.Tests
             model.DeliveryStartDate = DateTime.UtcNow.AddDays(2);
             model.DeliveryEndDate = model.DeliveryStartDate.AddDays(3);
             model.Type = DeliveryDateType.Optional;
-
-            return model;
-        }
-
-        public ProductPriceDetails GetProductPriceDetails()
-        {
-            var model = new ProductPriceDetails();
-            model.ValidStartDate = DateTime.UtcNow;
-            model.ValidEndDate = DateTime.UtcNow.AddDays(1);
-            model.DailyPrice = false;
-            model.ProductPrices.Add(GetProductPrice());
-            return model;
-        }
-
-        public ProductPrice GetProductPrice()
-        {
-            var model = new ProductPrice();
-            model.Type = ProductPriceValues.NetCustomer;
-            model.Formula = GetPriceFormula();
-            model.Currency = "EUR";
-            model.TaxDetails.Add(GetTaxDetails());
-            return model;
-        }
-
-        private TaxDetails GetTaxDetails()
-        {
-            var model = new TaxDetails();
-            model.CalculationSequence = 1;
-            model.Category = TaxCategoryValues.StandardRate;
-            model.Type = "vat";
-            model.Tax = 0.20m;
-            model.Jurisdiction.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
-            model.Jurisdiction.Add(new MultiLingualString("Wien", LanguageCodes.deu));
-
-            return model;
-        }
-
-        public PriceFormula GetPriceFormula()
-        {
-            var model = new PriceFormula();
-            model.Idref = "Formula id";
-            model.Parameters.Add(GetParameter());
-
-            return model;
-        }
-
-        public Parameter GetParameter()
-        {
-            var model = new Parameter();
-            model.SymbolRef = "$";
-            model.Value = "10";
 
             return model;
         }

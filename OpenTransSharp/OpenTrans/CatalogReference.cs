@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -56,6 +57,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CATALOG_NAME")]
-        public MultiLingualString? Name { get; set; }
+        public global::BMEcatSharp.MultiLingualString? Name { get; set; }
     }
 }

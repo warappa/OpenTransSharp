@@ -37,7 +37,7 @@ namespace OpenTransSharp
         /// Name of the rewards system, e.g. frequent flyer program.
         /// </summary>
         [OpenTransXmlElement("REWARDS_SYSTEM")]
-        public List<MultiLingualString>? System { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? System { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool SystemSpecified => System?.Count > 0;
 
@@ -47,7 +47,7 @@ namespace OpenTransSharp
         /// Description of the rewards system.
         /// </summary>
         [OpenTransXmlElement("REWARDS_DESCR")]
-        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionsSpecified => Descriptions?.Count > 0;
     }

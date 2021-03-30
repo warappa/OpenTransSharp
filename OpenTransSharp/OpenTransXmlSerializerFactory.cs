@@ -1,4 +1,4 @@
-﻿using OpenTransSharp.Internal;
+﻿using BMEcatSharp.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -91,11 +91,11 @@ namespace OpenTransSharp
             ConfigureHeaderUdx<RfqInformation>(x => x.HeaderUdx, mappings, overrides);
             ConfigureItemUdx<RfqItem>(x => x.ItemUdx, mappings, overrides);
 
-            ConfigureUdx<BMEcatHeader>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
-            ConfigureUdx<NewCatalogProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
-            ConfigureUdx<UpdatePricesProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
-            ConfigureUdx<UpdateProductsProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
-            ConfigureUdx<CatalogStructure>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+            ConfigureUdx<global::BMEcatSharp.BMEcatHeader>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+            ConfigureUdx<global::BMEcatSharp.NewCatalogProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+            ConfigureUdx<global::BMEcatSharp.UpdatePricesProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+            ConfigureUdx<global::BMEcatSharp.UpdateProductsProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+            ConfigureUdx<global::BMEcatSharp.CatalogStructure>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
 
             if (options.Serialization.ConfigureXmlAttributeOverrides is not null)
             {

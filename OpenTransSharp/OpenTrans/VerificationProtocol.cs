@@ -29,7 +29,7 @@ namespace OpenTransSharp
         /// Description of a protocol record in a human-readable form.<br/>
         /// </summary>
         [OpenTransXmlElement("RESULT_DESCR")]
-        public List<Language>? ResultDescriptions { get; set; } = new List<Language>();
+        public List<global::BMEcatSharp.Language>? ResultDescriptions { get; set; } = new List<global::BMEcatSharp.Language>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ResultDescriptionsSpecified => ResultDescriptions?.Count > 0;
     }

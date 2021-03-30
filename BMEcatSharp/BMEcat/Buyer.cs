@@ -1,7 +1,8 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Buyer information - deprecated)<br/>

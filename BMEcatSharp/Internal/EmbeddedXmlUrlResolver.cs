@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace OpenTransSharp.Internal
+namespace BMEcatSharp.Internal
 {
     internal class EmbeddedXmlUrlResolver : XmlUrlResolver
     {

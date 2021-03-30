@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -102,7 +103,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EXEMPTION_REASON")]
-        public List<MultiLingualString>? ExemptionReason { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? ExemptionReason { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ExemptionReasonSpecified => ExemptionReason?.Count > 0;
 
@@ -112,7 +113,7 @@ namespace OpenTransSharp
         /// Tax jurisdiction.
         /// </summary>
         [BMEXmlElement("JURISDICTION")]
-        public List<MultiLingualString>? Jurisdiction { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Jurisdiction { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool JurisdictionSpecified => Jurisdiction?.Count > 0;
     }

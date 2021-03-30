@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Reference to the manufacturer)<br/>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     [Obsolete("Use UpdateProductsProduct instead")]
     public class UpdateProductsArticle : UpdateProductsProduct { }

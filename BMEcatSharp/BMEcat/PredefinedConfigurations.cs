@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Predefined configurations)<br/>
@@ -29,6 +30,6 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_COVERAGE")]
-        public PredefinedConfigurationCoverage? Coverage { get; set; } = OpenTransSharp.PredefinedConfigurationCoverage.Partial;
+        public PredefinedConfigurationCoverage? Coverage { get; set; } = BMEcatSharp.PredefinedConfigurationCoverage.Partial;
     }
 }

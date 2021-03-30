@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// Permitted values vor <see cref="Mime.Purpose"/>.<br/>

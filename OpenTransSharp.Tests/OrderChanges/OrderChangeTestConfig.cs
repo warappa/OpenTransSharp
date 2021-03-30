@@ -46,8 +46,8 @@ namespace OpenTransSharp.Tests.OrderChanges
             model.Quantity = 2;
             model.ProductPriceFix = parent.GetProductPriceFix();
             model.Remarks.AddRange(parent.GetRemarks());
-            model.SpecialTreatmentClasses.Add(parent.GetSpecialTreatmentClass());
-            model.Transport = parent.GetTransport();
+            model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
+            model.Transport = parent.BMEcats.GetTransport();
             model.ProductId = parent.GetProductId();
 
             return model;
@@ -104,10 +104,10 @@ namespace OpenTransSharp.Tests.OrderChanges
             model.Currency = "EUR";
             model.DeliveryDate = parent.GetDeliveryDate();
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
-            model.MimeRoot = parent.GetMimeRoot();
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.OrderId = "OrderChangeId";
             model.SequenceId = 1;

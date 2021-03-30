@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 [assembly:InternalsVisibleTo("OpenTransSharp")]
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     public class MultiLingualString
     {

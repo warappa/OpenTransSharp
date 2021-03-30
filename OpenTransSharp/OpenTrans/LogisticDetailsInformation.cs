@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -22,7 +23,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("COUNTRY_OF_ORIGIN")]
-        public List<CountryCode>? CountriesOfOrigins { get; set; } = new List<CountryCode>();
+        public List<global::BMEcatSharp.CountryCode>? CountriesOfOrigins { get; set; } = new List<global::BMEcatSharp.CountryCode>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool CountriesOfOriginsSpecified => CountriesOfOrigins?.Count > 0;
 
@@ -34,7 +35,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TRANSPORT")]
-        public List<Transport>? Transports { get; set; } = new List<Transport>();
+        public List<global::BMEcatSharp.Transport>? Transports { get; set; } = new List<global::BMEcatSharp.Transport>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TransportsSpecified => Transports?.Count > 0;
 
@@ -57,7 +58,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MEANS_OF_TRANSPORT")]
-        public List<MeansOfTransport>? MeansOfTransports { get; set; } = new List<MeansOfTransport>();
+        public List<global::BMEcatSharp.MeansOfTransport>? MeansOfTransports { get; set; } = new List<global::BMEcatSharp.MeansOfTransport>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool MeansOfTransportsSpecified => MeansOfTransports?.Count > 0;
     }

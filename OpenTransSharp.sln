@@ -54,7 +54,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{CE93
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Samples.AspNetCore", "OpenTransSharp.Samples.AspNetCore\OpenTransSharp.Samples.AspNetCore.csproj", "{FA900190-37AE-4A7B-8031-F011065C26F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMEcatSharp", "BMEcatSharp\BMEcatSharp.csproj", "{915712B6-73CA-44A3-9388-A3170BCDBEFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMEcatSharp", "BMEcatSharp\BMEcatSharp.csproj", "{915712B6-73CA-44A3-9388-A3170BCDBEFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.XmlSchemaAnalyzer", "OpenTransSharp.XmlSchemaAnalyzer\OpenTransSharp.XmlSchemaAnalyzer.csproj", "{7386DEEC-8FCF-469B-8358-E0FE8288E85B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{915712B6-73CA-44A3-9388-A3170BCDBEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{915712B6-73CA-44A3-9388-A3170BCDBEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{915712B6-73CA-44A3-9388-A3170BCDBEFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7386DEEC-8FCF-469B-8358-E0FE8288E85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7386DEEC-8FCF-469B-8358-E0FE8288E85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7386DEEC-8FCF-469B-8358-E0FE8288E85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7386DEEC-8FCF-469B-8358-E0FE8288E85B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

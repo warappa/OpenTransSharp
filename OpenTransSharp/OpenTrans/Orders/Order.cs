@@ -1,4 +1,4 @@
-﻿using OpenTransSharp.Internal;
+﻿using BMEcatSharp.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

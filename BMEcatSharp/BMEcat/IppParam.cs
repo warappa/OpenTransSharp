@@ -1,4 +1,6 @@
-﻿namespace OpenTransSharp
+﻿using BMEcatSharp.Xml;
+
+namespace BMEcatSharp
 {
     /// <summary>
     /// (IPP transfered parameter)<br/>

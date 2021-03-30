@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -56,7 +57,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("LANGUAGE")]
-        public List<Language>? Languages { get; set; } = new List<Language>();
+        public List<global::BMEcatSharp.Language>? Languages { get; set; } = new List<global::BMEcatSharp.Language>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LanguagesSpecified => Languages?.Count > 0;
 
@@ -70,7 +71,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public MultiLingualString? MimeRoot { get; set; }
+        public global::BMEcatSharp.MultiLingualString? MimeRoot { get; set; }
 
         /// <summary>
         /// (required) Parties<br/>
@@ -133,7 +134,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public BuyerIdref? BuyerIdref { get; set; }
+        public global::BMEcatSharp.BuyerIdref? BuyerIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -144,7 +145,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
 
         /// <summary>
         /// (required) Currency<br/>
@@ -197,7 +198,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ACCOUNTING_INFO")]
-        public AccountingInformation? AccountingInformation { get; set; }
+        public global::BMEcatSharp.AccountingInformation? AccountingInformation { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

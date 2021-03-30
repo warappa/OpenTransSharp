@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Configuration step)<br/>
@@ -75,9 +76,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("STEP_INTERACTION_TYPE")]
-        public StepInteractionType? InteractionType { get; set; } = OpenTransSharp.StepInteractionType.ForceUserinput;
+        public StepInteractionType? InteractionType { get; set; } = BMEcatSharp.StepInteractionType.ForceUserinput;
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool InteractionTypeSpecified => InteractionType != OpenTransSharp.StepInteractionType.ForceUserinput;
+        public bool InteractionTypeSpecified => InteractionType != BMEcatSharp.StepInteractionType.ForceUserinput;
 
         /// <summary>
         /// (optional) Order number extension<br/>

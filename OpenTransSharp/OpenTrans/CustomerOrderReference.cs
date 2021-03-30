@@ -47,7 +47,7 @@ namespace OpenTransSharp
         /// Textual description of the order.
         /// </summary>
         [OpenTransXmlElement("ORDER_DESCR")]
-        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionSpecified => Description?.Count > 0;
 

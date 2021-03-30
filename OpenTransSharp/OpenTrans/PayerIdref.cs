@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class PayerIdref : PartyRef<PayerIdref>
+    public class PayerIdref : global::BMEcatSharp.PartyRef<PayerIdref>
     {
         public PayerIdref()
         {
@@ -50,14 +50,14 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(PayerIdref idRef)
+        public static explicit operator global::BMEcatSharp.PartyId(PayerIdref idRef)
         {
             if (idRef is null)
             {
                 return null;
             }
 
-            return new PartyId(idRef.Value, idRef.Type);
+            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
         }
     }
 }

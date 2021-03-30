@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     public abstract class PartyRef<TConcrete>
         where TConcrete : PartyRef<TConcrete>

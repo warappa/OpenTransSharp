@@ -11,7 +11,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class DeliveryIdref : PartyRef<DeliveryIdref>
+    public class DeliveryIdref : global::BMEcatSharp.PartyRef<DeliveryIdref>
     {
         public DeliveryIdref()
         {
@@ -49,14 +49,14 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(DeliveryIdref idRef)
+        public static explicit operator global::BMEcatSharp.PartyId(DeliveryIdref idRef)
         {
             if (idRef is null)
             {
                 return null;
             }
 
-            return new PartyId(idRef.Value, idRef.Type);
+            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
         }
     }
 }

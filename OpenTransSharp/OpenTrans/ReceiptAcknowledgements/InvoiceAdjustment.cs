@@ -26,7 +26,7 @@ namespace OpenTransSharp
         /// Textual description for the reason of the adjustment.
         /// </summary>
         [XmlElement("ADJUSTMENT_REASON_DESCR")]
-        public List<MultiLingualString>? ReasonDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? ReasonDescriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ReasonDescriptionsSpecified => ReasonDescriptions?.Count > 0;
 

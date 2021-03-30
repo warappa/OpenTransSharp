@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -21,7 +22,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public BuyerIdref BuyerIdref { get; set; }
+        public global::BMEcatSharp.BuyerIdref BuyerIdref { get; set; }
 
         /// <summary>
         /// (required) Reference to supplier<br/>
@@ -30,7 +31,7 @@ namespace OpenTransSharp
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document(element PARTY).
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdref SupplierIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to the recipient of the invoice<br/>

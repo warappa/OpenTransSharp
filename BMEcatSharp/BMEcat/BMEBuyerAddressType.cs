@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// For <see cref="BMEBuyerAddress"/>.

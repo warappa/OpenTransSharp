@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     [Obsolete("Use UpdateProductsProductToCataloggroupMap instead")]
     public class UpdateProductsArticleToCataloggroupMap : UpdateProductsProductToCataloggroupMap

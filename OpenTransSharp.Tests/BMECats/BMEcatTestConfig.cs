@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework.Constraints;
 using System;
 using System.Collections.Generic;
+using BMEcatSharp;
 
 namespace OpenTransSharp.Tests.BMEcats
 {
@@ -13,9 +14,9 @@ namespace OpenTransSharp.Tests.BMEcats
             this.parent = parent;
         }
 
-        public BMEcat GetBMEcatNewCatalog()
+        public BMEcatDocument GetBMEcatNewCatalog()
         {
-            var model = new BMEcat();
+            var model = new BMEcatDocument();
 
             model.Header = GetHeader();
             model.NewCatalog = GetNewCatalog();
@@ -23,9 +24,9 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        public BMEcat GetBMEcatUpdateProducts()
+        public BMEcatDocument GetBMEcatUpdateProducts()
         {
-            var model = new BMEcat();
+            var model = new BMEcatDocument();
 
             model.Header = GetHeader();
             model.UpdateProducts = GetUpdateProducts();
@@ -33,9 +34,9 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        public BMEcat GetBMEcatUpdatePrices()
+        public BMEcatDocument GetBMEcatUpdatePrices()
         {
-            var model = new BMEcat();
+            var model = new BMEcatDocument();
 
             model.Header = GetHeader();
             model.UpdatePrices = GetUpdatePrices();
@@ -56,7 +57,7 @@ namespace OpenTransSharp.Tests.BMEcats
         private UpdatePricesProduct GetUpdatePricesProduct()
         {
             var model = new UpdatePricesProduct();
-            model.SupplierPid = parent.GetSupplierPid();
+            model.SupplierPid = GetSupplierPid();
             model.PriceDetails.Add(GetProductPriceDetails());
 
             return model;
@@ -75,7 +76,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new UpdateProductsProduct();
             model.Mode = UpdateProductsProductMode.Update;
-            model.SupplierPid = parent.GetSupplierPid();
+            model.SupplierPid = GetSupplierPid();
             model.Details = GetProductDetails();
             model.OrderDetails = GetProductOrderDetails();
             model.PriceDetails.Add(GetProductPriceDetails());
@@ -93,9 +94,35 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Description.Add(new MultiLingualString("Formula description", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("Formel Beschreibung", LanguageCodes.deu));
             model.Source = GetFormulaSource();
-            model.MimeInfo = parent.GetBMEcatMimeInfo();
+            model.MimeInfo = GetBMEcatMimeInfo();
             model.Function = GetFormulaFunction();
             model.ParameterDefinitions.Add(GetParameterDefinintion());
+
+            return model;
+        }
+
+        public PriceFlag GetPriceFlag(string includingPacking, bool value)
+        {
+            return new PriceFlag(includingPacking, value);
+        }
+
+        public BuyerIdref GetBuyerIdref()
+        {
+            return new BuyerIdref("Buyer", PartyTypeValues.CustomerSpecific);
+        }
+
+        public Transport GetTransport()
+        {
+            var model = new Transport
+            {
+                Incoterm = "EXW",
+                Location = "Warehouse"
+            };
+            model.Remarks.AddRange(new[]
+            {
+                new MultiLingualString("Zerbrechlich", global::BMEcatSharp.LanguageCodes.deu),
+                new MultiLingualString("fragile", global::BMEcatSharp.LanguageCodes.eng)
+            });
 
             return model;
         }
@@ -156,7 +183,7 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Name.Add(new MultiLingualString("Source name", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Quellen-Name", LanguageCodes.deu));
             model.Uri = "https://fake-uri/";
-            model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
+            model.PartyIdref = (PartyId)parent.BMEcats.GetSupplierIdRef();
 
             return model;
         }
@@ -173,7 +200,7 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
-        public BMEcat GetBMEcatNewCatalogWithUdx()
+        public BMEcatDocument GetBMEcatNewCatalogWithUdx()
         {
             var model = GetBMEcatNewCatalog();
 
@@ -211,7 +238,7 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new BMEcatHeader();
 
             model.Catalog = GetCatalog();
-            model.SupplierIdref = parent.GetSupplierIdRef();
+            model.SupplierIdref = parent.BMEcats.GetSupplierIdRef();
 
             return model;
         }
@@ -275,6 +302,22 @@ namespace OpenTransSharp.Tests.BMEcats
             return model;
         }
 
+        public SupplierPid GetSupplierPid(string value, string supplierSpecific)
+        {
+            return new SupplierPid(value, supplierSpecific);
+        }
+
+        public SpecialTreatmentClass GetSpecialTreatmentClass()
+        {
+            return new SpecialTreatmentClass("Attention", "GGVS");
+        }
+
+        public InternationalPid GetInternationalPid()
+        {
+            var model = new InternationalPid("1234", "Organization");
+            return model;
+        }
+
         private IppInboundParams GetIppInboundParams()
         {
             var model = new IppInboundParams();
@@ -325,7 +368,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new IppAuthentificationInfo();
             model.Occurrence = IppOccurrence.Optional;
-            model.Authentifications.Add(parent.GetAuthentification());
+            model.Authentifications.Add(GetAuthentification());
 
             return model;
         }
@@ -442,7 +485,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new FeatureValue();
             model.Simple = "10";
-            model.MimeInfo = parent.GetBMEcatMimeInfo();
+            model.MimeInfo = GetBMEcatMimeInfo();
             model.ConfigurationInformation = GetConfigInfo();
             model.Order = 1;
             model.DefaultFlag = true;
@@ -535,7 +578,7 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Name.Add(new MultiLingualString("External", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Extern", LanguageCodes.deu));
             model.Uri = "ftp://external/";
-            model.PartyIdref = (PartyId)parent.GetSupplierIdRef();
+            model.PartyIdref = (PartyId)parent.BMEcats.GetSupplierIdRef();
 
             return model;
         }
@@ -591,7 +634,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new NewCatalogProduct();
 
-            model.SupplierPid = parent.GetSupplierPid();
+            model.SupplierPid = GetSupplierPid();
             model.Details = GetProductDetails();
             model.OrderDetails = GetProductOrderDetails();
             model.PriceDetails.Add(GetProductPriceDetails());
@@ -630,8 +673,8 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Description.Add(new MultiLingualString("Vordefinierte Konfiguration Beschreibung", LanguageCodes.deu));
             model.Order = 1;
             model.ProductPriceDetails = GetProductPriceDetails();
-            model.SupplierPid = parent.GetSupplierPid();
-            model.InternationalPids.Add(parent.GetInternationalPid());
+            model.SupplierPid = GetSupplierPid();
+            model.InternationalPids.Add(parent.BMEcats.GetInternationalPid());
 
             return model;
         }
@@ -640,7 +683,7 @@ namespace OpenTransSharp.Tests.BMEcats
         {
             var model = new ConfigurationFormula();
             model.Idref = "Configuraton formula id";
-            model.Parameters.Add(parent.GetParameter());
+            model.Parameters.Add(GetParameter());
             return model;
         }
 
@@ -668,7 +711,7 @@ namespace OpenTransSharp.Tests.BMEcats
             model.Order = 1;
             model.InteractionType = StepInteractionType.ForceUserinput;
             model.ConfigurationCode = "-red";
-            model.ProductPriceDetails = parent.GetProductPriceDetails();
+            model.ProductPriceDetails = GetProductPriceDetails();
             model.ConfigurationFeature = GetConfigurationFeature();
             model.MinimumOccurance = 1;
             model.MaximumOccurance = 2;
@@ -681,7 +724,7 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new ConfigurationFeature();
             //model.FeatureReference = GetFeatureReference();
             model.FeatureTemplate = GetFeatureTemplate();
-            model.MimeInfo = parent.GetBMEcatMimeInfo();
+            model.MimeInfo = GetBMEcatMimeInfo();
 
             return model;
         }
@@ -797,6 +840,194 @@ namespace OpenTransSharp.Tests.BMEcats
             model.DescriptionShort.Add(new MultiLingualString("Produktbeschreibung kurz", LanguageCodes.deu));
 
             return model;
+        }
+
+        private BMEcatContactDetails GetBMEcatContactDetails()
+        {
+            var model = new BMEcatContactDetails();
+            model.Id = "Contact id";
+            model.Surname.Add(new MultiLingualString("Surname"));
+            model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
+            model.FirstName.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Title.Add(new MultiLingualString("Eng.", LanguageCodes.eng));
+            model.Title.Add(new MultiLingualString("Ing.", LanguageCodes.deu));
+            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.eng));
+            model.AcademicTitle.Add(new MultiLingualString("Dr.", LanguageCodes.deu));
+            model.ContactRoles.Add(GetContactRole());
+            model.Phone = GetPhone();
+            model.Fax = GetFax();
+            model.Url = "https://example.com";
+            model.Email = GetEmail();
+
+            return model;
+        }
+
+        public ContactRole GetContactRole()
+        {
+            return new ContactRole("Contact", global::BMEcatSharp.ContactRoleType.Technical);
+        }
+
+        public PublicKey GetPublicKey(string type = null)
+        {
+            return new PublicKey("1234", type ?? global::BMEcatSharp.PublicKeyTypeValues.PGP(new Version(6, 5, 1)));
+        }
+
+        public Fax GetFax(string type = "office")
+        {
+            return new Fax("+43234567890", type);
+        }
+
+        public Phone GetPhone(string type = "mobile")
+        {
+            return new Phone("+43123456789", type);
+        }
+
+        public Email GetEmail()
+        {
+            var model = new Email();
+            model.EmailAddress = "mail@example.com";
+            model.PublicKeys.Add(GetPublicKey());
+            model.PublicKeys.Add(GetPublicKey("etc"));
+
+            return model;
+        }
+
+        public SupplierIdref GetSupplierIdRef()
+        {
+            return new SupplierIdref("Supplier", PartyTypeValues.SupplierSpecific);
+        }
+
+
+
+        private BMEcatAddress GetBMEcatAddress()
+        {
+            var model = new BMEcatAddress();
+            model.Name.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Name2.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name2.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Name3.Add(new MultiLingualString("Steve", LanguageCodes.eng));
+            model.Name3.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
+            model.Department.Add(new MultiLingualString("Department", LanguageCodes.eng));
+            model.Department.Add(new MultiLingualString("Abteilung", LanguageCodes.deu));
+            model.ContactDetails.Add(GetBMEcatContactDetails());
+            model.Street.Add(new MultiLingualString("Street", LanguageCodes.eng));
+            model.Street.Add(new MultiLingualString("Straße", LanguageCodes.deu));
+            model.Zip.Add(new MultiLingualString("Zip", LanguageCodes.eng));
+            model.Zip.Add(new MultiLingualString("PLZ", LanguageCodes.deu));
+            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.eng));
+            model.BoxNo.Add(new MultiLingualString("1", LanguageCodes.deu));
+            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.eng));
+            model.ZipBox.Add(new MultiLingualString("1", LanguageCodes.deu));
+            model.City.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
+            model.City.Add(new MultiLingualString("Wien", LanguageCodes.deu));
+            model.State.Add(new MultiLingualString("Upper Austria", LanguageCodes.eng));
+            model.State.Add(new MultiLingualString("Oberösterreich", LanguageCodes.deu));
+            model.Country.Add(new MultiLingualString("Austria", LanguageCodes.eng));
+            model.Country.Add(new MultiLingualString("Österreich", LanguageCodes.deu));
+            model.CountryCoded = CountryCode.AT;
+            model.VatId = "UID1234";
+            model.Phone = GetPhone();
+            model.Fax = GetFax();
+            model.Email = "mail@example.com";
+            model.PublicKeys.Add(GetPublicKey());
+            model.Url = "https://example.com";
+            model.Remarks.Add(new MultiLingualString("Remark"));
+            model.Remarks.Add(new MultiLingualString("Bemerkung", LanguageCodes.deu));
+
+            return model;
+        }
+
+        public BMEcatMimeInfo GetBMEcatMimeInfo()
+        {
+            var model = new BMEcatMimeInfo();
+
+            model.Mimes.Add(GetBMEcatMime());
+
+            return model;
+        }
+
+        public static BMEcatMime GetBMEcatMime()
+        {
+            var model = new BMEcatMime
+            {
+                Purpose = MimePurpose.Others,
+                MimeType = "text/plain"
+            };
+            model.AlternativeTexts.Add(new MultiLingualString("Readme", LanguageCodes.eng));
+            model.AlternativeTexts.Add(new MultiLingualString("Bitte Lesen", LanguageCodes.deu));
+            model.Descriptions.Add(new MultiLingualString("A text file", LanguageCodes.eng));
+            model.Descriptions.Add(new MultiLingualString("Eine Text Datei", LanguageCodes.deu));
+            model.Source.Add(new MultiLingualString("ftp://server/en/", LanguageCodes.eng));
+            model.Source.Add(new MultiLingualString("ftp://server/de/", LanguageCodes.deu));
+
+            return model;
+        }
+
+        //public ProductPriceDetails GetProductPriceDetails()
+        //{
+        //    var model = new ProductPriceDetails();
+        //    model.ValidStartDate = DateTime.UtcNow;
+        //    model.ValidEndDate = DateTime.UtcNow.AddDays(1);
+        //    model.DailyPrice = false;
+        //    model.ProductPrices.Add(GetProductPrice());
+        //    return model;
+        //}
+
+        //public ProductPrice GetProductPrice()
+        //{
+        //    var model = new ProductPrice();
+        //    model.Type = ProductPriceValues.NetCustomer;
+        //    model.Formula = GetPriceFormula();
+        //    model.Currency = "EUR";
+        //    model.TaxDetails.Add(GetTaxDetails());
+        //    return model;
+        //}
+
+        //private TaxDetails GetTaxDetails()
+        //{
+        //    var model = new TaxDetails();
+        //    model.CalculationSequence = 1;
+        //    model.Category = TaxCategoryValues.StandardRate;
+        //    model.Type = "vat";
+        //    model.Tax = 0.20m;
+        //    model.Jurisdiction.Add(new MultiLingualString("Vienna", LanguageCodes.eng));
+        //    model.Jurisdiction.Add(new MultiLingualString("Wien", LanguageCodes.deu));
+
+        //    return model;
+        //}
+
+        public PriceFormula GetPriceFormula()
+        {
+            var model = new PriceFormula();
+            model.Idref = "Formula id";
+            model.Parameters.Add(GetParameter());
+
+            return model;
+        }
+
+        public Parameter GetParameter()
+        {
+            var model = new Parameter();
+            model.SymbolRef = "$";
+            model.Value = "10";
+
+            return model;
+        }
+
+        public SupplierPid GetSupplierPid()
+        {
+            return new SupplierPid("ProductId", SupplierPidTypeValues.SupplierSpecific);
+        }
+
+        public Authentification GetAuthentification()
+        {
+            return new Authentification("login", "password");
+        }
+
+        public MultiLingualString GetMimeRoot()
+        {
+            return new MultiLingualString("ftp://server/en", global::BMEcatSharp.LanguageCodes.eng);
         }
     }
 }

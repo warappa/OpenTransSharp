@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -11,7 +10,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class DelivererIdref : PartyRef<DelivererIdref>
+    public class DelivererIdref : global::BMEcatSharp.PartyRef<DelivererIdref>
     {
         public DelivererIdref()
         {
@@ -49,14 +48,14 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(DelivererIdref idRef)
+        public static explicit operator global::BMEcatSharp.PartyId(DelivererIdref idRef)
         {
             if (idRef is null)
             {
                 return null;
             }
 
-            return new PartyId(idRef.Value, idRef.Type);
+            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
         }
 
     }

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -12,7 +11,7 @@ namespace OpenTransSharp
     /// Caution:<br/>
     /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_RECIPIENT_IDREF is also the supplier.
     /// </summary>
-    public class InvoiceRecipientIdref : PartyRef<InvoiceRecipientIdref>
+    public class InvoiceRecipientIdref : global::BMEcatSharp.PartyRef<InvoiceRecipientIdref>
     {
         public InvoiceRecipientIdref()
         {
@@ -53,14 +52,14 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(InvoiceRecipientIdref idRef)
+        public static explicit operator global::BMEcatSharp.PartyId(InvoiceRecipientIdref idRef)
         {
             if (idRef is null)
             {
                 return null;
             }
 
-            return new PartyId(idRef.Value, idRef.Type);
+            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
         }
     }
 }

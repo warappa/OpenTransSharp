@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -34,7 +35,7 @@ namespace OpenTransSharp
         /// Textual description of the package.
         /// </summary>
         [OpenTransXmlElement("PACKAGE_DESCR")]
-        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
@@ -54,7 +55,7 @@ namespace OpenTransSharp
         /// Description of the packing unit, i.e. explaination, additional information, hints etc.
         /// </summary>
         [BMEXmlElement("PACKING_UNIT_DESCR")]
-        public List<MultiLingualString>? PackingUnitDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? PackingUnitDescriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PackingUnitDescriptionsSpecified => PackingUnitDescriptions?.Count > 0;
 

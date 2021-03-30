@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -54,7 +55,7 @@ namespace OpenTransSharp
         /// Description of the product by features and/or classification of the product.
         /// </summary>
         [OpenTransXmlElement("PRODUCT_FEATURES")]
-        public ProductFeatures? ProductFeatures { get; set; }
+        public global::BMEcatSharp.ProductFeatures? ProductFeatures { get; set; }
 
         /// <summary>
         /// (optional) Product components<br/>
@@ -190,7 +191,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ACCOUNTING_INFO")]
-        public AccountingInformation? AccountingInformation { get; set; }
+        public global::BMEcatSharp.AccountingInformation? AccountingInformation { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -124,7 +125,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to final recipient<br/>

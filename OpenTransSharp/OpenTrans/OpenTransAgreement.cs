@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -94,7 +95,7 @@ namespace OpenTransSharp
         /// </summary>
         [Obsolete("The element DATETIME in the context of AGREEMENT with the attributes 'agreement_start_date' and 'agreement_end_date' will be replaced by the elements AGREEMENT_START_DATE and AGREEMENT_END_DATE in future versions and will be omitted then.")]
         [BMEXmlElement("DATETIME")]
-        public List<BMEcatDatetime> Datetimes { get; set; }
+        public List<global::BMEcatSharp.BMEcatDatetime> Datetimes { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DatetimesSpecified => Datetimes?.Count > 0;
 
@@ -107,7 +108,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
 
         /// <summary>
         /// (optional) Description of the skeleton agreement<br/>
@@ -115,7 +116,7 @@ namespace OpenTransSharp
         /// This element is used to describe the skeleton agreement.
         /// </summary>
         [OpenTransXmlElement("AGREEMENT_DESCR")]
-        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionsSpecified => Descriptions?.Count > 0;
 

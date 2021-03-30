@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
@@ -34,7 +35,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_NAME")]
-        public List<MultiLingualString>? Surname { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Surname { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool SurnameSpecified => Surname?.Count > 0;
 
@@ -46,7 +47,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FIRST_NAME")]
-        public List<MultiLingualString>? FirstName { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? FirstName { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FirstNameSpecified => FirstName?.Count > 0;
 
@@ -58,7 +59,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TITLE")]
-        public List<MultiLingualString>? Title { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Title { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TitleSpecified => Title?.Count > 0;
 
@@ -70,7 +71,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ACADEMIC_TITLE")]
-        public List<MultiLingualString>? AcademicTitle { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? AcademicTitle { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AcademicTitleSpecified => AcademicTitle?.Count > 0;
 
@@ -82,7 +83,7 @@ namespace OpenTransSharp
         /// XML-namespace: OpenTrans
         /// </summary>
         [OpenTransXmlElement("CONTACT_ROLE")]
-        public List<ContactRole>? ContactRoles { get; set; } = new List<ContactRole>();
+        public List<global::BMEcatSharp.ContactRole>? ContactRoles { get; set; } = new List<global::BMEcatSharp.ContactRole>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ContactRolesSpecified => ContactRoles?.Count > 0;
 
@@ -94,7 +95,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_DESCR")]
-        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -106,7 +107,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PHONE")]
-        public List<Phone>? Phones { get; set; } = new List<Phone>();
+        public List<global::BMEcatSharp.Phone>? Phones { get; set; } = new List<global::BMEcatSharp.Phone>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PhonesSpecified => Phones?.Count > 0;
 
@@ -118,7 +119,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FAX")]
-        public List<Fax>? Faxes { get; set; } = new List<Fax>();
+        public List<global::BMEcatSharp.Fax>? Faxes { get; set; } = new List<global::BMEcatSharp.Fax>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FaxesSpecified => Faxes?.Count > 0;
 
@@ -141,7 +142,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EMAILS")]
-        public Email? Email { get; set; }
+        public global::BMEcatSharp.Email? Email { get; set; }
 
         /// <summary>
         /// (optional) Authentification information<br/>
@@ -153,6 +154,6 @@ namespace OpenTransSharp
         /// Compatibility warning: in OpenTrans, not in BMEcat!
         /// </summary>
         [BMEXmlElement("AUTHENTIFICATION")]
-        public Authentification? Authentification { get; set; }
+        public global::BMEcatSharp.Authentification? Authentification { get; set; }
     }
 }

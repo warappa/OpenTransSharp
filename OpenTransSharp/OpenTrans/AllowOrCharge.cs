@@ -45,7 +45,7 @@ namespace OpenTransSharp
         /// Short name for the allowance or surcharge (e.g. freight, packaging, ...).
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_NAME")]
-        public List<MultiLingualString>? Names { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Names { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool NamesSpecified => Names?.Count > 0;
 
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// Examples: In case of island-surcharges the name of the island can be quoted here or the contract reference in case of project reimbursements.<br/>
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_DESCR")]
-        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionsSpecified => Descriptions?.Count > 0;
 

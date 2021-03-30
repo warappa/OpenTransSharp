@@ -1,4 +1,4 @@
-﻿namespace OpenTransSharp
+﻿namespace BMEcatSharp
 {
     /// <summary>
     /// Predefined values for <see cref="Fax"/>.<br/>

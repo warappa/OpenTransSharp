@@ -45,7 +45,7 @@ namespace OpenTransSharp.Tests.OrderResponses
             model.ProductPriceFix = parent.GetProductPriceFix();
             model.PriceLineAmount = 10;
             model.DeliveryDate = parent.GetDeliveryDate();
-            model.SpecialTreatmentClasses.Add(parent.GetSpecialTreatmentClass());
+            model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;
@@ -101,9 +101,9 @@ namespace OpenTransSharp.Tests.OrderResponses
             model.OrderId = "OrderResponseId";
             model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
-            model.MimeRoot = parent.GetMimeRoot();
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
             model.OrderPartiesReference = parent.GetOrderPartiesReference();
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();

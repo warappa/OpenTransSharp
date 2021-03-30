@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -33,7 +34,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_PID")]
-        public SupplierPid? SupplierPid { get; set; }
+        public global::BMEcatSharp.SupplierPid? SupplierPid { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -44,7 +45,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
 
         /// <summary>
         /// (optional) Configurationcode<br/>
@@ -86,7 +87,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("INTERNATIONAL_PID")]
-        public List<InternationalPid>? InternationalPids { get; set; } = new List<InternationalPid>();
+        public List<global::BMEcatSharp.InternationalPid>? InternationalPids { get; set; } = new List<global::BMEcatSharp.InternationalPid>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool InternationalPidsSpecified => InternationalPids?.Count > 0;
 
@@ -100,7 +101,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_PID")]
-        public List<BuyerPid>? BuyerPids { get; set; } = new List<BuyerPid>();
+        public List<global::BMEcatSharp.BuyerPid>? BuyerPids { get; set; } = new List<global::BMEcatSharp.BuyerPid>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool BuyerPidsSpecified => BuyerPids?.Count > 0;
 
@@ -117,7 +118,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("DESCRIPTION_SHORT")]
-        public List<MultiLingualString>? DescriptionShorts { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? DescriptionShorts { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionShortsSpecified => DescriptionShorts?.Count > 0;
 
@@ -138,7 +139,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("DESCRIPTION_LONG")]
-        public List<MultiLingualString>? DescriptionLongs { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? DescriptionLongs { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionLongsSpecified => DescriptionLongs?.Count > 0;
 
@@ -156,7 +157,7 @@ namespace OpenTransSharp
         /// Characterizes the product with regard to its general type, i.e. being tangible or service.
         /// </summary>
         [BMEXmlElement("PRODUCT_TYPE")]
-        public ProductType? ProductType { get; set; }
+        public global::BMEcatSharp.ProductType? ProductType { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ProductTypeSpecified => ProductType != null;
     }

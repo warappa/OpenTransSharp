@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp.Xml
 {
     public class BMEXmlElementAttribute : XmlElementAttribute
     {

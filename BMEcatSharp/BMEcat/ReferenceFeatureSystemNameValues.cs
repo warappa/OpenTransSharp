@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// For <see cref="ProductFeatures.SystemName"/>.<br/>

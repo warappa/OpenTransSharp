@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Group reference)<br/>

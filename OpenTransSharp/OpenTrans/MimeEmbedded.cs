@@ -26,9 +26,9 @@ namespace OpenTransSharp
         /// In case of specifying more than one single-declared element to support a multilingual document all "lang"-attributes must contain different values(one unique value per language).
         /// </summary>
         [OpenTransXmlAttribute("lang")]
-        public LanguageCodes Language { get; set; }
+        public global::BMEcatSharp.LanguageCodes Language { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool LanguageSpecified => Language != LanguageCodes.Undefined;
+        public bool LanguageSpecified => Language != global::BMEcatSharp.LanguageCodes.Undefined;
 
         /// <summary>
         /// (required) Coded deata of the file<br/>

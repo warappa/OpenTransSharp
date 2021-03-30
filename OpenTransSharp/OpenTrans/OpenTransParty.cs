@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -21,7 +22,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARTY_ID")]
-        public List<PartyId> Ids { get; set; } = new List<PartyId>();
+        public List<global::BMEcatSharp.PartyId> Ids { get; set; } = new List<global::BMEcatSharp.PartyId>();
 
         /// <summary>
         /// (optional) Role of the business partner<br/>
@@ -35,7 +36,7 @@ namespace OpenTransSharp
         /// Max length: 20
         /// </summary>
         [XmlElement("PARTY_ROLE")]
-        public List<PartyRole>? Roles { get; set; } = new List<PartyRole>();
+        public List<global::BMEcatSharp.PartyRole>? Roles { get; set; } = new List<global::BMEcatSharp.PartyRole>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RolesSpecified => Roles?.Count > 0;
 

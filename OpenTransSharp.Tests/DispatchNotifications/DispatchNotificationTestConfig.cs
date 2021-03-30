@@ -109,23 +109,23 @@ namespace OpenTransSharp.Tests.DispatchNotifications
                     parent.GetDocumentRecipientIdRef()
                 }
             };
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
-            model.MimeRoot = parent.GetMimeRoot();
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.Id = "DispatchNotificationId";
             model.Parties = parent.GetParties();
-            model.SupplierIdref = parent.GetSupplierIdRef();
-            model.BuyerIdref = parent.GetBuyerIdref();
+            model.SupplierIdref = parent.BMEcats.GetSupplierIdRef();
+            model.BuyerIdref = parent.BMEcats.GetBuyerIdref();
             model.ShipmentPartiesReference = new ShipmentPartiesReference
             {
                 DeliveryIdref = parent.GetDeliveryIdref()
             };
             model.Remarks = new List<Remark>
             {
-                new Remark("Handle with care", RemarkTypeValues.Transport),
-                new Remark("Ring 4 times", RemarkTypeValues.DeliveryNote)
+                new Remark("Handle with care", global::BMEcatSharp.RemarkTypeValues.Transport),
+                new Remark("Ring 4 times", global::BMEcatSharp.RemarkTypeValues.DeliveryNote)
             };
 
             return model;

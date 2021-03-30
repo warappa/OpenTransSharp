@@ -114,10 +114,10 @@ namespace OpenTransSharp.Tests.InvoiceLists
             model.Currency = "EUR";
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
             model.AccountingPeriod = parent.GetAccountingPeriod();
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();
-            model.MimeRoot = parent.GetMimeRoot();
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.Id = "InvoiceListId";
             model.Parties = parent.GetParties();

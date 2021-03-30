@@ -4,7 +4,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 
-namespace OpenTransSharp.Internal
+namespace BMEcatSharp.Internal
 {
     internal static class XmlUtils
     {

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Fax number)<br/>

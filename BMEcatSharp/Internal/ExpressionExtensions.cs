@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace OpenTransSharp.Internal
+namespace BMEcatSharp.Internal
 {
     internal static class ExpressionExtensions
     {

@@ -47,8 +47,8 @@ namespace OpenTransSharp.Tests.Rfqs
             model.PriceLineAmount = 10;
             model.PartialShipmentAllowed = false;
             model.DeliveryDate = parent.GetDeliveryDate();
-            model.Transport = parent.GetTransport();
-            model.SpecialTreatmentClasses.Add(parent.GetSpecialTreatmentClass());
+            model.Transport = parent.BMEcats.GetTransport();
+            model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;
@@ -104,9 +104,9 @@ namespace OpenTransSharp.Tests.Rfqs
             model.Id = "RfqId";
             model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
-            model.MimeRoot = parent.GetMimeRoot();
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
             model.OrderPartiesReference = parent.GetOrderPartiesReference();;
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();

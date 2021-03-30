@@ -1,9 +1,39 @@
 ﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
+    //public enum CountryCode  { }
+    //public enum LanguageCodes
+    //{
+    //    Undefined,
+    //    deu,
+    //    eng
+    //}
+    //public class MultiLingualString : global::BMEcatSharp.MultiLingualString
+    //{
+    //    public MultiLingualString()
+    //    {
+    //    }
+
+    //    public MultiLingualString(string value) : base(value)
+    //    {
+    //    }
+
+    //    public MultiLingualString(string value, BMEcatSharp.LanguageCodes language) : base(value, language)
+    //    {
+    //    }
+    //}
+    public interface IValidatable : global::BMEcatSharp.IValidatable
+    {
+
+    }
+    //public class AccountingInformation : global::BMEcatSharp.AccountingInformation { }
+    //public class CustomsTariffNumber : global::BMEcatSharp.CustomsTariffNumber { }
+    //public class ProductDimensions : global::BMEcatSharp.ProductDimensions { }
+    //public class Transport : global::BMEcatSharp.Transport { }
+    //public class MeansOfTransport : global::BMEcatSharp.MeansOfTransport { }
+    //public class BMEcatDatetime : global::BMEcatSharp.BMEcatDatetime { }
     /// <summary>
     /// (Bank account)<br/>
     /// <br/>
@@ -52,7 +82,7 @@ namespace OpenTransSharp
         /// Country in which the bank account is managed.
         /// </summary>
         [XmlElement("BANK_COUNTRY")]
-        public CountryCode? BankCountry { get; set; }
+        public global::BMEcatSharp.CountryCode? BankCountry { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool BankCountrySpecified => BankCountry.HasValue;
     }

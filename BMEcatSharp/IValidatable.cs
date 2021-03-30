@@ -1,4 +1,4 @@
-﻿namespace OpenTransSharp
+﻿namespace BMEcatSharp
 {
     public interface IValidatable
     {

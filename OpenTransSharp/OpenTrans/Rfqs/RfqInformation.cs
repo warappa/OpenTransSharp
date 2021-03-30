@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -52,7 +53,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("LANGUAGE")]
-        public List<Language>? Languages { get; set; } = new List<Language>();
+        public List<global::BMEcatSharp.Language>? Languages { get; set; } = new List<global::BMEcatSharp.Language>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LanguagesSpecified => Languages?.Count > 0;
 
@@ -66,7 +67,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MIME_ROOT")]
-        public MultiLingualString? MimeRoot { get; set; }
+        public global::BMEcatSharp.MultiLingualString? MimeRoot { get; set; }
 
         /// <summary>
         /// (required) Parties<br/>
@@ -99,7 +100,7 @@ namespace OpenTransSharp
         /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
         /// </summary>
         [XmlElement("AGREEMENT")]
-        public List<Agreement> Agreements { get; set; } = new List<Agreement>();
+        public List<global::BMEcatSharp.Agreement> Agreements { get; set; } = new List<global::BMEcatSharp.Agreement>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementsSpecified => Agreements?.Count > 0;
 
@@ -168,7 +169,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TRANSPORT")]
-        public Transport? Transport { get; set; }
+        public global::BMEcatSharp.Transport? Transport { get; set; }
 
         /// <summary>
         /// (optional) International delivery restrictions<br/>
@@ -178,7 +179,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("INTERNALTIONAL_RESTRICTIONS")]
-        public List<InternationalRestriction> InternationalRestrictions { get; set; } = new List<InternationalRestriction>();
+        public List<global::BMEcatSharp.InternationalRestriction> InternationalRestrictions { get; set; } = new List<global::BMEcatSharp.InternationalRestriction>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool InternationalRestrictionsSpecified => InternationalRestrictions?.Count > 0;
 

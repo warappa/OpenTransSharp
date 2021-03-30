@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace OpenTransSharp
@@ -16,7 +17,7 @@ namespace OpenTransSharp
         /// (optional) Information on the customs tariff number.
         /// </summary>
         [BMEXmlElement("CUSTOMS_TARIFF_NUMBER")]
-        public List<CustomsTariffNumber>? CustomsTariffNumbers { get; set; } = new List<CustomsTariffNumber>();
+        public List<global::BMEcatSharp.CustomsTariffNumber>? CustomsTariffNumbers { get; set; } = new List<global::BMEcatSharp.CustomsTariffNumber>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool CustomsTariffNumbersSpecified => CustomsTariffNumbers?.Count > 0;
 
@@ -40,7 +41,7 @@ namespace OpenTransSharp
         /// Contains the country of origin of the product. By using a subdivision code it is possible to reference a region.
         /// </summary>
         [BMEXmlElement("COUNTRY_OF_ORIGIN")]
-        public List<CountryCode>? CountryOfOrigins { get; set; } = new List<CountryCode>();
+        public List<global::BMEcatSharp.CountryCode>? CountryOfOrigins { get; set; } = new List<global::BMEcatSharp.CountryCode>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool CountryOfOriginsSpecified => CountryOfOrigins?.Count > 0;
 
@@ -50,7 +51,7 @@ namespace OpenTransSharp
         /// Information on the product dimension from the view of business logistics.
         /// </summary>
         [BMEXmlElement("PRODUCT_DIMENSIONS")]
-        public ProductDimensions? ProductDimensions { get; set; }
+        public global::BMEcatSharp.ProductDimensions? ProductDimensions { get; set; }
 
         /// <summary>
         /// (optional) Special treatment class<br/>
@@ -59,7 +60,7 @@ namespace OpenTransSharp
         /// The "type" attribute specifies the dangerous goods classification scheme.
         /// </summary>
         [BMEXmlElement("SPECIAL_TREATMENT_CLASS")]
-        public SpecialTreatmentClass? SpecialTreatmentClass { get; set; }
+        public global::BMEcatSharp.SpecialTreatmentClass? SpecialTreatmentClass { get; set; }
 
         /// <summary>
         /// (optional) Transport<br/>
@@ -67,7 +68,7 @@ namespace OpenTransSharp
         /// Information about the terms of transport.
         /// </summary>
         [BMEXmlElement("TRANSPORT")]
-        public List<Transport>? Transports { get; set; } = new List<Transport>();
+        public List<global::BMEcatSharp.Transport>? Transports { get; set; } = new List<global::BMEcatSharp.Transport>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TransportsSpecified => Transports?.Count > 0;
 
@@ -88,7 +89,7 @@ namespace OpenTransSharp
         /// Means of transport with which the goods to be delivered are´transported.
         /// </summary>
         [BMEXmlElement("MEANS_OF_TRANSPORT")]
-        public List<MeansOfTransport> MeansOfTransports { get; set; } = new List<MeansOfTransport>();
+        public List<global::BMEcatSharp.MeansOfTransport> MeansOfTransports { get; set; } = new List<global::BMEcatSharp.MeansOfTransport>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool MeansOfTransportsSpecified => MeansOfTransports?.Count > 0;
     }

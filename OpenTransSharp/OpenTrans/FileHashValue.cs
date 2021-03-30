@@ -35,9 +35,9 @@ namespace OpenTransSharp
         /// The attribute "lang" indicates the language of the referenced file in MIME_SOURCE.
         /// </summary>
         [OpenTransXmlAttribute("lang")]
-        public LanguageCodes Language { get; set; }
+        public global::BMEcatSharp.LanguageCodes Language { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool LanguageSpecified => Language != LanguageCodes.Undefined;
+        public bool LanguageSpecified => Language != global::BMEcatSharp.LanguageCodes.Undefined;
 
         /// <summary>
         /// (required)<br/>

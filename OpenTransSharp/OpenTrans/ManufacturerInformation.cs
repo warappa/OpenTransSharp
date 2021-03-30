@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BMEcatSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -22,7 +23,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_IDREF")]
-        public ManufacturerIdref Idref { get; set; }
+        public global::BMEcatSharp.ManufacturerIdref Idref { get; set; }
 
         /// <summary>
         /// (required) Product ID of the manufacturer<br/>
@@ -43,7 +44,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_TYPE_DESCR")]
-        public List<MultiLingualString>? TypeDescriptions { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? TypeDescriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TypeDescriptionsSpecified => TypeDescriptions?.Count > 0;
     }

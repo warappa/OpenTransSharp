@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -56,7 +57,7 @@ namespace OpenTransSharp
         /// Textual description of the order.
         /// </summary>
         [BMEXmlElement("ORDER_DESCR")]
-        public List<MultiLingualString>? OrderDescription { get; set; } = new List<MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? OrderDescription { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool OrderDescriptionSpecified => OrderDescription?.Count > 0;
 
@@ -86,7 +87,7 @@ namespace OpenTransSharp
         /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
         /// </summary>
         [XmlElement("AGREEMENT")]
-        public List<Agreement>? Agreements { get; set; } = new List<Agreement>();
+        public List<global::BMEcatSharp.Agreement>? Agreements { get; set; } = new List<global::BMEcatSharp.Agreement>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AgreementsSpecified => Agreements?.Count > 0;
 

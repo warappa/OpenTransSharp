@@ -99,12 +99,12 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             model.Id = "ReceiptAcknowledgementId";
             model.Date = DateTime.UtcNow;
             model.ReceiptDate = DateTime.UtcNow;
-            model.Languages.Add(new Language(LanguageCodes.deu, true));
-            model.Languages.Add(new Language(LanguageCodes.eng));
-            model.MimeRoot = parent.GetMimeRoot();
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+            model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
-            model.SupplierIdref = parent.GetSupplierIdRef();
-            model.BuyerIdref = parent.GetBuyerIdref();
+            model.SupplierIdref = parent.BMEcats.GetSupplierIdRef();
+            model.BuyerIdref = parent.BMEcats.GetBuyerIdref();
             model.ShipmentPartiesReference = parent.GetShipmentPartiesReference();
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
             model.MimeInfo = parent.GetMimeInfo();

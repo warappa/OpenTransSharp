@@ -1,10 +1,11 @@
-﻿using OpenTransSharp.Internal;
+﻿using BMEcatSharp.Internal;
+using BMEcatSharp.Xml;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
     /// (Root element)<br/>
@@ -19,7 +20,7 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot("BMECAT", Namespace = "http://www.bmecat.org/bmecat/2005")]
     [Serializable]
-    public class BMEcat : IValidatable
+    public class BMEcatDocument : IValidatable
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.XmlnsBMEcat;

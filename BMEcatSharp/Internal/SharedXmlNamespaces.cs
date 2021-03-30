@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp.Internal
+namespace BMEcatSharp.Internal
 {
     internal class SharedXmlNamespaces
     {

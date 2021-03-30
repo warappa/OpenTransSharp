@@ -1,4 +1,5 @@
-﻿using OpenTransSharp.Internal;
+﻿using BMEcatSharp.Internal;
+using OpenTransSharp.Validation;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,15 +8,15 @@ using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace OpenTransSharp.Validation
 {
     public static class ValidationExtensions
     {
-        public static bool IsValid(this IValidatable model, XmlSerializer serializer)
+        public static bool IsValid(this global::BMEcatSharp.IValidatable model, XmlSerializer serializer)
         {
             try
             {
-                var result = Validate(model, serializer);
+                var result = model.Validate(serializer);
 
                 return result.IsValid;
             }
@@ -26,10 +27,10 @@ namespace OpenTransSharp
             }
         }
 
-        public static ValidationResult Validate(this IValidatable model, XmlSerializer serializer)
+        public static ValidationResult Validate(this global::BMEcatSharp.IValidatable model, XmlSerializer serializer)
         {
             var validationErrors = new List<string>();
-            
+
             var schemaSet = new XmlSchemaSet
             {
                 XmlResolver = XmlUtils.XmlResolver
@@ -40,7 +41,7 @@ namespace OpenTransSharp
                 // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
                 schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
 
-                if (model is BMEcat)
+                if (model is BMEcatSharp.BMEcatDocument)
                 {
                     XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005.xsd", schemaSet);
                     // fix udx support in original bmecat

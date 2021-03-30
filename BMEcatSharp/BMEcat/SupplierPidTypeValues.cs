@@ -1,4 +1,4 @@
-﻿namespace OpenTransSharp
+﻿namespace BMEcatSharp
 {
     /// <summary>
     /// For <see cref="SupplierPid"/>.<br/>
