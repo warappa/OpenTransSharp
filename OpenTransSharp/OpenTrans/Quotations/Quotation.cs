@@ -1,7 +1,5 @@
-﻿using BMEcatSharp.Internal;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -22,7 +20,7 @@ namespace OpenTransSharp
     public class Quotation : IValidatable
     {
         [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.Xmlns;
+        public XmlSerializerNamespaces Xmlns = global::BMEcatSharp.Internal.SharedXmlNamespaces.Xmlns;
 
         /// <summary>
         /// (required) Indicates the version of the openTRANS® Standard to which the business document corresponds.<br/>
