@@ -96,7 +96,7 @@ namespace OpenTransSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [OpenTransXmlElement("DELIVERY_COMPLETED")]
-        public string DeliveryCompletedForSerializer { get => DeliveryCompleted is null ? null! : DeliveryCompleted == true ? "true" : "false"; set => DeliveryCompleted = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        public string? DeliveryCompletedForSerializer { get => DeliveryCompleted is null ? null : DeliveryCompleted == true ? "true" : "false"; set => DeliveryCompleted = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DeliveryCompletedForSerializerSpecified => DeliveryCompleted == true;
 

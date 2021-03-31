@@ -62,7 +62,7 @@ namespace BMEcatSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlElement("DEFAULT_FLAG")]
-        public string DefaultFlagForSerializer { get => DefaultFlag is null ? null! : DefaultFlag == true ? "true" : "false"; set => DefaultFlag = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        public string? DefaultFlagForSerializer { get => DefaultFlag is null ? null : DefaultFlag == true ? "true" : "false"; set => DefaultFlag = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DefaultFlagForSerializerSpecified => DefaultFlag == true;
 

@@ -114,7 +114,7 @@ namespace OpenTransSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [XmlElement("PARTIAL_SHIPMENT_ALLOWED")]
-        public string PartialShipmentAllowedForSerializer { get => PartialShipmentAllowed is null ? null! : PartialShipmentAllowed == true ? "true" : "false"; set => PartialShipmentAllowed = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        public string? PartialShipmentAllowedForSerializer { get => PartialShipmentAllowed is null ? null : PartialShipmentAllowed == true ? "true" : "false"; set => PartialShipmentAllowed = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PartialShipmentAllowedForSerializerSpecified => PartialShipmentAllowed == true;
 

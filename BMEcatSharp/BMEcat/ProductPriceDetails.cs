@@ -54,7 +54,7 @@ namespace BMEcatSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlElement("DAILY_PRICE")]
-        public string DailyPriceForSerializer { get => DailyPrice is null ? null! : DailyPrice == true ? "true" : "false"; set => DailyPrice = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        public string? DailyPriceForSerializer { get => DailyPrice is null ? null : DailyPrice == true ? "true" : "false"; set => DailyPrice = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DailyPriceForSerializerSpecified => DailyPrice == true;
 

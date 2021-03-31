@@ -32,7 +32,7 @@ namespace BMEcatSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlElement("GROUPID_HIERARCHY")]
-        public string GroupidHierarchyForSerializer { get => GroupidHierarchy is null ? null! : GroupidHierarchy == true ? "true" : "false"; set => GroupidHierarchy = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        public string? GroupidHierarchyForSerializer { get => GroupidHierarchy is null ? null : GroupidHierarchy == true ? "true" : "false"; set => GroupidHierarchy = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool GroupidHierarchyForSerializerSpecified => GroupidHierarchy == true;
 
@@ -70,7 +70,7 @@ namespace BMEcatSharp
         public bool? Balancedtree { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlElement("BALANCEDTREE")]
-        public string BalancedtreeForSerializer { get => Balancedtree is null ? null! : Balancedtree == true ? "true" : "false"; set => Balancedtree = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        public string? BalancedtreeForSerializer { get => Balancedtree is null ? null : Balancedtree == true ? "true" : "false"; set => Balancedtree = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool BalancedtreeForSerializerSpecified => Balancedtree == true;
 
@@ -89,7 +89,7 @@ namespace BMEcatSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlElement("INHERITANCE")]
-        public string InheritanceForSerializer { get => Inheritance is null ? null! : Inheritance == true ? "true" : "false"; set => Inheritance = value?.ToLowerInvariant() == "true" ? true : false; }
+        public string? InheritanceForSerializer { get => Inheritance is null ? null : Inheritance == true ? "true" : "false"; set => Inheritance = value?.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool InheritanceSpecified => Inheritance.HasValue;
     }

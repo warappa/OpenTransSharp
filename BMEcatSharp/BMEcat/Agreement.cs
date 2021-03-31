@@ -37,7 +37,7 @@ namespace BMEcatSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [XmlAttribute("default")]
-        public string DefaultForSerializer { get => Default is null ? null! : Default == true ? "true" : "false"; set => Default = value?.ToLowerInvariant() == "true" ? true : false; }
+        public string? DefaultForSerializer { get => Default is null ? null : Default == true ? "true" : "false"; set => Default = value?.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DefaultForSerializerSpecified => Default == true;
 
