@@ -1,7 +1,8 @@
-﻿namespace OpenTransSharp
+﻿using BMEcatSharp;
+
+namespace OpenTransSharp
 {
-    public class OpenTransOptions
+    public class OpenTransOptions : BMEcatOptions
     {
-        public OpenTransXmlSerializerOptions Serialization { get; set; } = new OpenTransXmlSerializerOptions();
     }
 }

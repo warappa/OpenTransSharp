@@ -1,7 +1,8 @@
 using BMEcatSharp;
+using BMEcatSharp.Validation;
+using BMEcatSharp.Xml;
 using FluentAssertions;
 using NUnit.Framework;
-using OpenTransSharp.Validation;
 using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
@@ -11,7 +12,7 @@ namespace OpenTransSharp.Tests.BMEcats
     public class BMEcatSerializationTests
     {
         private TestConfig testConfig;
-        private OpenTransXmlSerializerFactory serializerFactory;
+        private BMEcatXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 
         public BMEcatSerializationTests()
@@ -29,7 +30,7 @@ namespace OpenTransSharp.Tests.BMEcats
                 typeof(CustomData2)
             };
 
-            serializerFactory = new OpenTransXmlSerializerFactory(options);
+            serializerFactory = new BMEcatXmlSerializerFactory(options);
 
             target = serializerFactory.Create<BMEcatDocument>();
         }

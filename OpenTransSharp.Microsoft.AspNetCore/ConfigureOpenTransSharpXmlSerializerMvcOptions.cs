@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using OpenTransSharp.Xml;
 
 namespace OpenTransSharp.Microsoft.AspNetCore
 {

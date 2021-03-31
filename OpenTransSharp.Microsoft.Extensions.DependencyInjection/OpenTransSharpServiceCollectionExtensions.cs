@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using OpenTransSharp;
+using OpenTransSharp.Xml;
 using System;
 
 namespace Microsoft.Extensions.DependencyInjection
