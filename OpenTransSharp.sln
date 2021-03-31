@@ -56,7 +56,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Samples.AspN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMEcatSharp", "BMEcatSharp\BMEcatSharp.csproj", "{915712B6-73CA-44A3-9388-A3170BCDBEFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.XmlSchemaAnalyzer", "OpenTransSharp.XmlSchemaAnalyzer\OpenTransSharp.XmlSchemaAnalyzer.csproj", "{7386DEEC-8FCF-469B-8358-E0FE8288E85B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.XmlSchemaAnalyzer", "OpenTransSharp.XmlSchemaAnalyzer\OpenTransSharp.XmlSchemaAnalyzer.csproj", "{7386DEEC-8FCF-469B-8358-E0FE8288E85B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrations", "Integrations", "{A73434BC-1673-4D8D-AA7B-6FFCDAAE378C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2C009E74-5514-4EDF-BF1B-5E8BFD279B3C} = {EE89FD38-12E2-430A-B5BF-819AC29B9ED6}
 		{18FAC5AD-EC02-4A9F-AA3B-915FCD777A90} = {EE89FD38-12E2-430A-B5BF-819AC29B9ED6}
+		{CA5C99B7-0B04-4A23-8464-1B7FB7A6BBB6} = {A73434BC-1673-4D8D-AA7B-6FFCDAAE378C}
+		{75A23855-9351-4301-9849-AD55F35118D9} = {A73434BC-1673-4D8D-AA7B-6FFCDAAE378C}
 		{FA900190-37AE-4A7B-8031-F011065C26F8} = {CE93CE31-A3B1-4F6C-BF61-ED3E7221F611}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
