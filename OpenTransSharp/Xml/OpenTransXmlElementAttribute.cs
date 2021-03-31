@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace OpenTransSharp.Xml
 {
     public class OpenTransXmlElementAttribute : XmlElementAttribute
     {

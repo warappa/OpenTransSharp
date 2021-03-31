@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OpenTransSharp.Xml;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 

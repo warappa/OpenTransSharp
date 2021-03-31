@@ -1,4 +1,6 @@
-﻿namespace OpenTransSharp
+﻿using OpenTransSharp.Xml;
+
+namespace OpenTransSharp
 {
     /// <summary>
     /// (Verification report<br/>

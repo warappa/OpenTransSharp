@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using OpenTransSharp.Xml;
 
 namespace OpenTransSharp
 {

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
