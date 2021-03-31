@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -100,9 +101,12 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("DEFAULT_FLAG")]
+        [XmlIgnore]
         public bool? DefaultFlag { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DefaultFlagSpecified => DefaultFlag.HasValue;
+        [BMEXmlElement("DEFAULT_FLAG")]
+        public string DefaultFlagForSerializer { get => DefaultFlag is null ? null! : DefaultFlag == true ? "true" : "false"; set => DefaultFlag = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DefaultFlagForSerializerSpecified => DefaultFlag == true;
     }
 }

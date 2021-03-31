@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -26,8 +27,14 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("GROUPID_HIERARCHY")]
+        [XmlIgnore]
         public bool? GroupidHierarchy { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [BMEXmlElement("GROUPID_HIERARCHY")]
+        public string GroupidHierarchyForSerializer { get => GroupidHierarchy is null ? null! : GroupidHierarchy == true ? "true" : "false"; set => GroupidHierarchy = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool GroupidHierarchyForSerializerSpecified => GroupidHierarchy == true;
 
         /// <summary>
         /// (optional) Product mapping type<br/>
@@ -59,10 +66,13 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("BALANCEDTREE")]
+        [XmlIgnore]
         public bool? Balancedtree { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool BalancedtreeSpecified => Balancedtree.HasValue;
+        [BMEXmlElement("BALANCEDTREE")]
+        public string BalancedtreeForSerializer { get => Balancedtree is null ? null! : Balancedtree == true ? "true" : "false"; set => Balancedtree = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool BalancedtreeForSerializerSpecified => Balancedtree == true;
 
         /// <summary>
         /// (optional) Feature inheritance<br/>
@@ -73,8 +83,13 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("INHERITANCE")]
+
+        [XmlIgnore]
         public bool? Inheritance { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [BMEXmlElement("INHERITANCE")]
+        public string InheritanceForSerializer { get => Inheritance is null ? null! : Inheritance == true ? "true" : "false"; set => Inheritance = value?.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool InheritanceSpecified => Inheritance.HasValue;
     }

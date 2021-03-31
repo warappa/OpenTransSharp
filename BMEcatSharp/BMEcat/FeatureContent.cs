@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -94,10 +95,13 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FT_MANDATORY")]
+        [XmlIgnore]
         public bool? Mandatory { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MandatorySpecified => Mandatory.HasValue;
+        [BMEXmlElement("FT_MANDATORY")]
+        public string MandatoryForSerializer { get => Mandatory is null ? null! : Mandatory == true ? "true" : "false"; set => Mandatory = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool MandatoryForSerializerSpecified => Mandatory == true;
 
         /// <summary>
         /// (optional) Feature order<br/>

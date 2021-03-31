@@ -65,10 +65,14 @@ namespace OpenTransSharp
         /// If the element is TRUE, the relevant order item has been delivered in full.<br/>
         /// In the case of FALSE, at least a part of the order remains to be delivered.
         /// </summary>
-        [XmlElement("DELIVERY_COMPLETED")]
+        [XmlIgnore]
         public bool? DeliveryCompleted { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DeliveryCompletedSpecified => DeliveryCompleted.HasValue;
+        [XmlElement("DELIVERY_COMPLETED")]
+        public string DeliveryCompletedForSerializer { get => DeliveryCompleted is null ? null! : DeliveryCompleted == true ? "true" : "false"; set => DeliveryCompleted = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DeliveryCompletedForSerializerSpecified => DeliveryCompleted == true;
 
         /// <summary>
         /// (optional) Receipt date<br/>

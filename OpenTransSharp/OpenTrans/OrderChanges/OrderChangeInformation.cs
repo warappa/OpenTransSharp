@@ -173,10 +173,14 @@ namespace OpenTransSharp
         /// Caution:<br/>
         /// If the element is used in the context ORDER_HEADER, the element must not be used on item level ORDER_ITEM.
         /// </summary>
-        [XmlElement("PARTIAL_SHIPMENT_ALLOWED")]
+        [XmlIgnore]
         public bool? PartialShipmentAllowed { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PartialShipmentAllowedSpecified => PartialShipmentAllowed.HasValue;
+        [XmlElement("PARTIAL_SHIPMENT_ALLOWED")]
+        public string PartialShipmentAllowedForSerializer { get => PartialShipmentAllowed is null ? null! : PartialShipmentAllowed == true ? "true" : "false"; set => PartialShipmentAllowed = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool PartialShipmentAllowedForSerializerSpecified => PartialShipmentAllowed == true;
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

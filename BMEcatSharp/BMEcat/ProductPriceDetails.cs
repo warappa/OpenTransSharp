@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -49,10 +50,14 @@ namespace BMEcatSharp
         /// The exact prices must then be calculated either using an external system or manually (e.g., by contacting the supplier).<br/>
         /// If nothing is specified in this field or if "false" is specified, the prices are assumed to be fixed
         /// </summary>
-        [BMEXmlElement("DAILY_PRICE")]
+        [XmlIgnore]
         public bool? DailyPrice { get; set; }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DailyPriceSpecified => DailyPrice.HasValue;
+        [BMEXmlElement("DAILY_PRICE")]
+        public string DailyPriceForSerializer { get => DailyPrice is null ? null! : DailyPrice == true ? "true" : "false"; set => DailyPrice = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DailyPriceForSerializerSpecified => DailyPrice == true;
 
         /// <summary>
         /// (required) Product price<br/>
