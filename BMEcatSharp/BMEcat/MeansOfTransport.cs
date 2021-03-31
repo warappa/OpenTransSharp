@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -20,7 +21,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>

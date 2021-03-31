@@ -25,7 +25,7 @@ namespace OpenTransSharp
         /// Some target systems are not in a position to interpret other values than the pre-defined ones.
         /// See <see cref="AgreementTypeValues"/>.
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace OpenTransSharp
         public bool? Default { get; set; }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [OpenTransXmlAttribute("default")]
+        [XmlAttribute("default")]
         public string DefaultForSerializer { get => Default is null ? null! : Default == true? "true" : "false"; set => Default = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DefaultForSerializerSpecified => Default == true;

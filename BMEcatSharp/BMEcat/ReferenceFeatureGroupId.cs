@@ -27,7 +27,7 @@ namespace BMEcatSharp
         public ReferenceFeatureGroupIdType? Type { get; set; }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public ReferenceFeatureGroupIdType TypeForSerializer { get => Type ?? ReferenceFeatureGroupIdType.Undefined; set => Type = value; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TypeForSerializerSpecified => Type.HasValue;

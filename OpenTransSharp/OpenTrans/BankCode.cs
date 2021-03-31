@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 20
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

@@ -56,7 +56,7 @@ namespace OpenTransSharp
         /// <br/>
         /// See <see cref="BankAccountTypeValues"/>.
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>

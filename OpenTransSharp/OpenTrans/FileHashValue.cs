@@ -25,7 +25,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace OpenTransSharp
         /// <br/>
         /// The attribute "lang" indicates the language of the referenced file in MIME_SOURCE.
         /// </summary>
-        [OpenTransXmlAttribute("lang")]
+        [XmlAttribute("lang")]
         public global::BMEcatSharp.LanguageCodes Language { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LanguageSpecified => Language != global::BMEcatSharp.LanguageCodes.Undefined;

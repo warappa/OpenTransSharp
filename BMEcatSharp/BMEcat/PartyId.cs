@@ -40,7 +40,7 @@ namespace BMEcatSharp
         /// The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.<br/>
         /// But custom values are also possible
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>

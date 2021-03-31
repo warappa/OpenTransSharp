@@ -47,7 +47,7 @@ namespace BMEcatSharp
         /// <br/>
         /// See <see cref="PublicKeyTypeValues"/>.
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

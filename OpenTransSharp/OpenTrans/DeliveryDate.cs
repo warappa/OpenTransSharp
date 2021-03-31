@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -20,7 +21,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Specifies the delivery date.
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public DeliveryDateType Type { get; set; } = DeliveryDateType.Fixed;
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TypeSpecified => Type != DeliveryDateType.Fixed;

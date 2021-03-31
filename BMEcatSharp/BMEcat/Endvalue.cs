@@ -22,7 +22,7 @@ namespace BMEcatSharp
         public Intervaltype? Intervaltype { get; set; }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [BMEXmlAttribute("intervaltype")]
+        [XmlAttribute("intervaltype")]
         public Intervaltype IntervaltypeForSerializer { get => Intervaltype ?? BMEcatSharp.Intervaltype.Undefined; set => Intervaltype = value; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IntervaltypeForSerializerSpecified => Intervaltype.HasValue;

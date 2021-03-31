@@ -37,7 +37,7 @@ namespace OpenTransSharp
         /// <br/>
         /// For predefined values see <see cref="PaymentTermTypeValues"/>. Custom values can be used.
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

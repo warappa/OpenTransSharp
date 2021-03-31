@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -17,7 +18,7 @@ namespace OpenTransSharp
         /// <br/>
         /// The type of the card. See <see cref="CardTypeValues"/>.
         /// </summary>
-        [OpenTransXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

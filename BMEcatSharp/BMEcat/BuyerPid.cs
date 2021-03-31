@@ -41,7 +41,7 @@ namespace BMEcatSharp
         /// <br/>
         /// For predefined values see <see cref="BuyerPidTypeValues"/>. Custom values can be used.<br/>
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

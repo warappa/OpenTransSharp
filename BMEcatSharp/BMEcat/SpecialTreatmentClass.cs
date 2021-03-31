@@ -36,7 +36,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Short term for the special treatment regulation, e.g., GGVS (Hazardous Goods Order for Road Traffic).
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -23,7 +24,7 @@ namespace OpenTransSharp
         /// <br/>
         /// In case of specifying more than one single-declared element to support a multilingual document all "lang"-attributes must contain different values(one unique value per language).
         /// </summary>
-        [OpenTransXmlAttribute("lang")]
+        [XmlAttribute("lang")]
         public global::BMEcatSharp.LanguageCodes Language { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LanguageSpecified => Language != global::BMEcatSharp.LanguageCodes.Undefined;

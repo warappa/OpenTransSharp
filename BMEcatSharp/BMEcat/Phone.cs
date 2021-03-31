@@ -55,7 +55,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Max length: 50
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>

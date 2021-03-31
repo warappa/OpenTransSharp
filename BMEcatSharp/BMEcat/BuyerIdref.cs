@@ -38,7 +38,7 @@ namespace BMEcatSharp
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined.
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public override string Type { get; set; }
 
         /// <summary>

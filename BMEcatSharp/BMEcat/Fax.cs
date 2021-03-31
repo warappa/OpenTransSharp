@@ -55,7 +55,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Specifies the type of the phone number.
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>

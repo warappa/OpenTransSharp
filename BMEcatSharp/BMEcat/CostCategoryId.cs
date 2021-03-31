@@ -30,7 +30,7 @@ namespace BMEcatSharp
         /// It is specified here whether the costs are to be charged to a cost center, project or work order.<br/>
         /// If the attribute is not used no exact specification is made.
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public CostCategoryIdType Type { get; set; }
 
         /// <summary>

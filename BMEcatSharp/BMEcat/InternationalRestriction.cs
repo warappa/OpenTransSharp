@@ -34,7 +34,7 @@ namespace BMEcatSharp
         /// Specifies the type of international delivery restriction.
         /// See <see cref="InternationalRestrictionTypeValues"/>.
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string Type { get; set; }
 
         /// <summary>

@@ -34,7 +34,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Specification of the underlying standard respectively organisation.
         /// </summary>
-        [BMEXmlAttribute("type")]
+        [XmlAttribute("type")]
         public string? Type { get; set; }
 
         /// <summary>

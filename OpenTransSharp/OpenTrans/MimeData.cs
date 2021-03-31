@@ -32,7 +32,7 @@ namespace OpenTransSharp
         /// <br/>
         /// The attribute specifies the type of the embedded document according to the common used MIME-Types in the world wide web (ftp://ftp.isi.edu/in-notes/rfc1341.txt). The attribute is equivalent to the element MIME_TYPE but should be specified to ensure a better compatibility to the w3c-recommendation (http://www.w3.org/TR/xml-media-types/).
         /// </summary>
-        [OpenTransXmlAttribute("contentType", Namespace = "http://www.w3.org/2005/05/xmlmime")]
+        [XmlAttribute("contentType", Namespace = "http://www.w3.org/2005/05/xmlmime")]
         public string? ContentType { get; set; }
 
         /// <summary>
