@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -32,8 +33,12 @@ namespace OpenTransSharp
         /// Notice: The element cannot evaluate to 'false'.<br/>
         /// To express that the signature is not in the original document one simply do not use this element and one of the other two options is being used(MIME or XML_SIGNATURE).
         /// </summary>
-        [OpenTransXmlElement("SIGNATURE_IN_ORIGINAL")]
+        [XmlIgnore]
         public bool SignatureInOriginal { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [OpenTransXmlElement("SIGNATURE_IN_ORIGINAL")]
+        public string SignatureInOriginalForSerializer { get => SignatureInOriginal == true ? "true" : "false"; set => SignatureInOriginal = value.ToLowerInvariant() == "true" ? true : false; }
 
         /// <summary>
         /// (optional) Integrated signature<br/>

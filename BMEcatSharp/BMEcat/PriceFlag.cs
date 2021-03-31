@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -44,7 +45,11 @@ namespace BMEcatSharp
         /// <summary>
         /// (required)
         /// </summary>
-        [XmlText]
+        [XmlIgnore]
         public bool Value { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlText]
+        public string ValueForSerializer { get => Value == true ? "true" : "false"; set => Value = value.ToLowerInvariant() == "true" ? true : false; }
     }
 }

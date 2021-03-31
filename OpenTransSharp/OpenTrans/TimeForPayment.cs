@@ -18,23 +18,27 @@ namespace OpenTransSharp
     public class TimeForPayment
     {
         /// <summary>
-        /// (required) Time for payment<br/>
+        /// (required - choice PaymentDate/Days) Time for payment<br/>
         /// <br/>
         /// Time where the payment is supposed to be done.
         /// </summary>
         [OpenTransXmlElement("PAYMENT_DATE")]
-        public DateTime PaymentDate { get; set; }
+        public DateTime? PaymentDate { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool PaymentDateSpecified => PaymentDate.HasValue;
 
         /// <summary>
-        /// (required) Days<br/>
+        /// (required - choice PaymentDate/Days) Days<br/>
         /// <br/>
         /// Time designation by days.
         /// </summary>
         [OpenTransXmlElement("DAYS")]
-        public int Days { get; set; }
+        public int? Days { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DaysSpecified => Days.HasValue;
 
         /// <summary>
-        /// (optional) Cash discount factor<br/>
+        /// (optional - choice DiscountFactor/AllowOrChargesFix) Cash discount factor<br/>
         /// <br/>
         /// Factor to calculate the cash discount, e.g. 0.3 means 3% cash discount.
         /// </summary>
@@ -44,11 +48,11 @@ namespace OpenTransSharp
         public bool DiscountFactorSpecified => DiscountFactor.HasValue;
 
         /// <summary>
-        /// (optional) Fixed allowance or surcharges<br/>
+        /// (optional - choice DiscountFactor/AllowOrChargesFix) Fixed allowance or surcharges<br/>
         /// <br/>
         /// A list of fixed allowances or surcharges which are to be applied on the price.
         /// </summary>
         [OpenTransXmlElement("ALLOW_OR_CHARGES_FIX")]
-        public AllowOrChargesFix AllowOrChargesFix { get; set; }
+        public AllowOrChargesFix? AllowOrChargesFix { get; set; }
     }
 }

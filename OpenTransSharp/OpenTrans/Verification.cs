@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -28,8 +29,12 @@ namespace OpenTransSharp
         /// The element summarizes the result of the signature verification.<br/>
         /// A successful verification evaluates to 'true' otherwise to 'false'.
         /// </summary>
-        [OpenTransXmlElement("VERIFICATION_SUCCESS")]
+        [XmlIgnore]
         public bool Success { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [OpenTransXmlElement("VERIFICATION_SUCCESS")]
+        public string SuccessForSerializer { get => Success == true ? "true" : "false"; set => Success = value.ToLowerInvariant() == "true" ? true : false; }
 
         /// <summary>
         /// (required) Verification report<br/>

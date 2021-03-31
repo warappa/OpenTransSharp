@@ -17,7 +17,7 @@ namespace OpenTransSharp
     public class Payment
     {
         /// <summary>
-        /// (required) Card payment<br/>
+        /// (required - choice Card/Account/Debit/Check/Cash) Card payment<br/>
         /// <br/>
         /// Use of credit cards, purchase cards etc.
         /// </summary>
@@ -25,7 +25,7 @@ namespace OpenTransSharp
         public Card Card { get; set; }
 
         /// <summary>
-        /// (required) Bank account<br/>
+        /// (required - choice Card/Account/Debit/Check/Cash) Bank account<br/>
         /// <br/>
         /// Bank account details.
         /// </summary>
@@ -33,38 +33,60 @@ namespace OpenTransSharp
         public List<Account> Accounts { get; set; }
 
         /// <summary>
-        /// (required) Debit notification<br/>
+        /// (required - choice Card/Account/Debit/Check/Cash) Debit notification<br/>
         /// <br/>
         /// The element DEBIT specifies the credit note procedure as payment system.
         /// </summary>
+        [XmlIgnore]
+        public bool? Debit { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [OpenTransXmlElement("DEBIT")]
-        public bool Debit { get; set; }
+        public string DebitForSerializer { get => Debit is null ? null! : Debit == true ? "true" : "false"; set => Debit = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DebitForSerializerSpecified => Debit == true;
 
         /// <summary>
-        /// (required) Check payment<br/>
+        /// (required - choice Card/Account/Debit/Check/Cash) Check payment<br/>
         /// <br/>
         /// The element CHECK specifies paying by check as payment system.
         /// </summary>
+        [XmlIgnore]
+        public bool? Check { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [OpenTransXmlElement("CHECK")]
-        public bool Check { get; set; }
+        public string CheckForSerializer { get => Check is null ? null! : Check == true ? "true" : "false"; set => Check = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CheckForSerializerSpecified => Check == true;
 
         /// <summary>
-        /// (required) Cash payment<br/>
+        /// (required - choice Card/Account/Debit/Check/Cash) Cash payment<br/>
         /// <br/>
         /// The element CASH specifies cash payment as payment system.
         /// </summary>
+        [XmlIgnore]
+        public bool? Cash { get; set; }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [OpenTransXmlElement("CASH")]
-        public bool Cash { get; set; }
+        public string CashForSerializer { get => Cash is null ? null! : Cash == true ? "true" : "false"; set => Cash = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CashForSerializerSpecified => Cash == true;
 
         /// <summary>
         /// (optional) Centralized settlement<br/>
         /// <br/>
         /// Indicates if the payment process is transacted via a centralized settlement.
         /// </summary>
-        [OpenTransXmlElement("CENTRAL_REGULATION")]
+        [XmlIgnore]
         public bool CentralRegulation { get; set; } = false;
+
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool CentralRegulationSpecified => CentralRegulation;
+        [OpenTransXmlElement("CENTRAL_REGULATION")]
+        public string CentralRegulationForSerializer { get => CentralRegulation == true ? "true" : "false"; set => CentralRegulation = value.ToLowerInvariant() == "true" ? true : false; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool CentralRegulationForSerializerSpecified => CentralRegulation == true;
 
         [OpenTransXmlElement("PAYMENT_TERMS")]
         public PaymentTerms PaymentTerms { get; set; }
