@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OpenTransSharp.Validation;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.Invoices
@@ -59,6 +60,26 @@ namespace OpenTransSharp.Tests.Invoices
             var serialized = target.Serialize(order);
             Debug.WriteLine(serialized);
             order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_deserialize_sample_Invoice()
+        {
+            var stream = File.Open(@"Invoices\sample_invoice_opentrans_2_1.xml", FileMode.Open);
+
+            var invoice = target.Deserialize<Invoice>(stream);
+
+            invoice.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_deserialize_sample_Invoice2()
+        {
+            var stream = File.Open(@"Invoices\sample_invoice_opentrans_2_1_xml signature.xml", FileMode.Open);
+
+            var invoice = target.Deserialize<Invoice>(stream);
+
+            invoice.IsValid(target).Should().Be(true);
         }
     }
 }

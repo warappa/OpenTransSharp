@@ -17,7 +17,7 @@ namespace BMEcatSharp
     public class Feature
     {
         /// <summary>
-        /// (required) Feature name<br/>
+        /// (required - choice Name/Idref/Template) Feature name<br/>
         /// <br/>
         /// Unique name used to describe the feature within the PRODUCT_FEATURES element.<br/>
         /// <br/>
@@ -28,30 +28,30 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FNAME")]
-        public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
-        /// (required) Feature reference<br/>
+        /// (required - choice Name/Idref/Template) Feature reference<br/>
         /// <br/>
-        /// Reference to the unique ID of a feature (seeCLASSIFICATION_SYSTEM_FEATURE_TEMPLATE).<br/>
+        /// Reference to the unique ID of a feature (see CLASSIFICATION_SYSTEM_FEATURE_TEMPLATE).<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_IDREF")]
-        public string Idref { get; set; }
+        public string? Idref { get; set; }
 
         /// <summary>
-        /// (required) Feature definition<br/>
+        /// (required - choice Name/Idref/Template) Feature definition<br/>
         /// <br/>
         /// Definition of the feature.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FTEMPLATE")]
-        public FeatureTemplate Template { get; set; }
+        public FeatureTemplate? Template { get; set; }
 
         /// <summary>
-        /// (required) Feature value<br/>
+        /// (required - choice Values/ValueIdrefs) Feature value<br/>
         /// <br/>
         /// Actual value(s) of the respective feature.<br/>
         /// This element may only be specified if the element VARIANTS is not specified.<br/>
@@ -63,7 +63,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FVALUE")]
-        public List<MultiLingualString> Values { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Values { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ValuesSpecified => Values?.Count > 0;
 
@@ -78,7 +78,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_IDREF")]
-        public List<string> ValueIdrefs { get; set; } = new List<string>();
+        public List<string>? ValueIdrefs { get; set; } = new List<string>();
 
         /// <summary>
         /// (required - choice Variants/FValue_ValueIdref) Variants<br/>

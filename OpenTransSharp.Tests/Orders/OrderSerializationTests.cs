@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OpenTransSharp.Validation;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.Orders
@@ -58,6 +59,16 @@ namespace OpenTransSharp.Tests.Orders
 
             var serialized = target.Serialize(order);
             Debug.WriteLine(serialized);
+            order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_deserialize_sample_order()
+        {
+            var stream = File.Open(@"Orders\sample_order_opentrans_2_1_xml signature.xml", FileMode.Open);
+            
+            var order = target.Deserialize<Order>(stream);
+            
             order.IsValid(target).Should().Be(true);
         }
     }

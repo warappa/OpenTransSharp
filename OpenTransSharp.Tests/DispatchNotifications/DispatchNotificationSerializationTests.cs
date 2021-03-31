@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OpenTransSharp.Validation;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.DispatchNotifications
@@ -59,6 +60,16 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             var serialized = target.Serialize(order);
             Debug.WriteLine(serialized);
             order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_deserialize_sample_DispatchNotification()
+        {
+            var stream = File.Open(@"DispatchNotifications\sample_dispatchnotification_opentrans_2_1.xml", FileMode.Open);
+
+            var dispatchNotification = target.Deserialize<DispatchNotification>(stream);
+
+            dispatchNotification.IsValid(target).Should().Be(true);
         }
     }
 }

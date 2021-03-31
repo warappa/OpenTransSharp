@@ -30,6 +30,8 @@ namespace OpenTransSharp
         /// </summary>
         [OpenTransXmlElement("REWARDS_SUMMARY")]
         public decimal? Summary { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SummarySpecified => Summary.HasValue;
 
         /// <summary>
         /// (required) Name of the rewards system<br/>

@@ -7,6 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DispatchNotifications\sample_dispatchnotification_opentrans_2_1.xml" />
+    <None Remove="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml" />
+    <None Remove="Invoices\sample_invoice_opentrans_2_1.xml" />
+    <None Remove="Invoices\sample_invoice_opentrans_2_1_xml signature.xml" />
+    <None Remove="Orders\sample_order_opentrans_2_1_xml signature.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DispatchNotifications\sample_dispatchnotification_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Invoices\sample_invoice_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Invoices\sample_invoice_opentrans_2_1_xml signature.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Orders\sample_order_opentrans_2_1_xml signature.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="NUnit" Version="3.13.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />

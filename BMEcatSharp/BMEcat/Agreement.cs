@@ -94,7 +94,7 @@ namespace BMEcatSharp
         /// </summary>
         [Obsolete("The element DATETIME in the context of AGREEMENT with the attributes 'agreement_start_date' and 'agreement_end_date' will be replaced by the elements AGREEMENT_START_DATE and AGREEMENT_END_DATE in future versions and will be omitted then.")]
         [BMEXmlElement("DATETIME")]
-        public List<BMEcatDatetime> Datetimes { get; set; }
+        public List<BMEcatDatetime>? Datetimes { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DatetimesSpecified => Datetimes?.Count > 0;
 
