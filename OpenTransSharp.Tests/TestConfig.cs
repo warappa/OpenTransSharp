@@ -1,5 +1,4 @@
-﻿using OpenTransSharp.Tests.BMEcats;
-using OpenTransSharp.Tests.DispatchNotifications;
+﻿using OpenTransSharp.Tests.DispatchNotifications;
 using OpenTransSharp.Tests.InvoiceLists;
 using OpenTransSharp.Tests.Invoices;
 using OpenTransSharp.Tests.OrderChanges;
@@ -14,9 +13,10 @@ using System.Collections.Generic;
 
 namespace OpenTransSharp.Tests
 {
-    internal class TestConfig
+    internal class TestConfig : BMEcatSharp.Tests.TestConfig
     {
         public TestConfig()
+            : base()
         {
             Orders = new OrderTestConfig(this);
             Rfqs = new RfqTestConfig(this);
@@ -28,7 +28,6 @@ namespace OpenTransSharp.Tests
             Invoices = new InvoiceTestConfig(this);
             InvoiceLists = new InvoiceListTestConfig(this);
             RemittanceAdvices = new RemittanceAdviceTestConfig(this);
-            BMEcats = new BMEcatTestConfig(this);
         }
 
         public DeliveryReference GetDeliveryReference()
@@ -134,8 +133,7 @@ namespace OpenTransSharp.Tests
         public InvoiceListTestConfig InvoiceLists { get; }
 
         public RemittanceAdviceTestConfig RemittanceAdvices { get; }
-        public BMEcatTestConfig BMEcats { get; }
-
+        
         public TaxDetailsFix GetTaxDetailsFix()
         {
             var model = new TaxDetailsFix();
@@ -145,7 +143,7 @@ namespace OpenTransSharp.Tests
             model.Jurisdiction.Add(new global::BMEcatSharp.MultiLingualString("Österreich", global::BMEcatSharp.LanguageCodes.deu));
             model.Tax = 0.20m;
             model.Amount = 2;
-            model.Category = TaxCategoryValues.StandardRate;
+            model.Category = BMEcatSharp.TaxCategoryValues.StandardRate;
 
             return model;
         }
@@ -205,11 +203,6 @@ namespace OpenTransSharp.Tests
         public AocOrderUnitsCount GetAocOrderUnitsCount()
         {
             return new AocOrderUnitsCount(0, AocOrderUnitsCountType.Exclusive);
-        }
-
-        public string GetCatalogId()
-        {
-            return "Catalog Spring";
         }
 
         public CatalogReference GetCatalogReference()

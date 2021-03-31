@@ -40,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BMEcatSharp.Tests\BMEcatSharp.Tests.csproj" />
     <ProjectReference Include="..\OpenTransSharp\OpenTransSharp.csproj" />
   </ItemGroup>
 

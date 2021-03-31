@@ -1,8 +1,7 @@
-﻿using BMEcatSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace OpenTransSharp.Tests.BMEcats
+namespace BMEcatSharp.Tests
 {
     internal class BMEcatTestConfig
     {
@@ -11,6 +10,11 @@ namespace OpenTransSharp.Tests.BMEcats
         public BMEcatTestConfig(TestConfig parent)
         {
             this.parent = parent;
+        }
+
+        public string GetCatalogId()
+        {
+            return "Catalog Spring";
         }
 
         public BMEcatDocument GetBMEcatNewCatalog()
@@ -247,7 +251,7 @@ namespace OpenTransSharp.Tests.BMEcats
             var model = new Catalog();
 
             model.Language = new Language(LanguageCodes.deu);
-            model.Id = parent.GetCatalogId();
+            model.Id = GetCatalogId();
             model.Version = new Version("1.1");
 
             return model;

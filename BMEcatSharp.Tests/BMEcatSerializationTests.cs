@@ -5,9 +5,10 @@ using FluentAssertions;
 using NUnit.Framework;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp.Tests.BMEcats
+namespace BMEcatSharp.Tests
 {
     public class BMEcatSerializationTests
     {
@@ -23,7 +24,7 @@ namespace OpenTransSharp.Tests.BMEcats
         [SetUp]
         public void Setup()
         {
-            var options = new OpenTransOptions();
+            var options = new BMEcatOptions();
             options.Serialization.IncludeUdxTypes = new[]
             {
                 typeof(CustomData),
@@ -98,6 +99,16 @@ namespace OpenTransSharp.Tests.BMEcats
             var serialized = target.Serialize(order);
             Debug.WriteLine(serialized);
             order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_deserialize_BMEcat()
+        {
+            var stream = File.Open(@"bmecat-sample.xml", FileMode.Open);
+
+            var document = target.Deserialize<BMEcatDocument>(stream);
+
+            document.IsValid(target).Should().Be(true);
         }
     }
 }
