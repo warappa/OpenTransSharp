@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
-[assembly:InternalsVisibleTo("OpenTransSharp")]
+[assembly: InternalsVisibleTo("OpenTransSharp")]
 
 namespace BMEcatSharp
 {

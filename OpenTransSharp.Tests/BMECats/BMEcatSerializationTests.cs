@@ -1,10 +1,10 @@
 using BMEcatSharp;
 using FluentAssertions;
 using NUnit.Framework;
+using OpenTransSharp.Validation;
 using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
-using OpenTransSharp.Validation;
 
 namespace OpenTransSharp.Tests.BMEcats
 {

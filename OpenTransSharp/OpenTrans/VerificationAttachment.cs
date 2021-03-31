@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp
+﻿namespace OpenTransSharp
 {
     /// <summary>
     /// (Verification report as (integrated) file)<br/>

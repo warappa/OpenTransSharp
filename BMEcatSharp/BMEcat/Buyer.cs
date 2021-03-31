@@ -1,6 +1,5 @@
 ﻿using BMEcatSharp.Xml;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace BMEcatSharp
 {

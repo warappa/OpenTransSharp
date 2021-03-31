@@ -1,7 +1,6 @@
 ﻿using BMEcatSharp.Internal;
 using BMEcatSharp.Xml;
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.Xml;
 using System.Xml.Serialization;
 

@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions;
-using OpenTransSharp.Tests.BMEcats;
+﻿using OpenTransSharp.Tests.BMEcats;
 using OpenTransSharp.Tests.DispatchNotifications;
 using OpenTransSharp.Tests.InvoiceLists;
 using OpenTransSharp.Tests.Invoices;

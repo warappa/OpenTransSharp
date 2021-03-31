@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp

@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp
+﻿namespace OpenTransSharp
 {
     /// <summary>
     /// (Supplier order reference)<br/>

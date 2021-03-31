@@ -1,7 +1,6 @@
-﻿using NUnit.Framework.Constraints;
+﻿using BMEcatSharp;
 using System;
 using System.Collections.Generic;
-using BMEcatSharp;
 
 namespace OpenTransSharp.Tests.BMEcats
 {
