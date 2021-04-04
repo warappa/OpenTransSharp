@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -11,6 +12,19 @@ namespace OpenTransSharp
     /// </summary>
     public class SupplierOrderReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public SupplierOrderReference()
+        {
+            Id = null!;
+            LineItemId = null!;
+        }
+
+        public SupplierOrderReference(string id, string lineItemId)
+        {
+            Id = id;
+            LineItemId = lineItemId;
+        }
+
         /// <summary>
         /// (required) Supplier order number<br/>
         /// <br/>

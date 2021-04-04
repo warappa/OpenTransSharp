@@ -14,6 +14,20 @@ namespace OpenTransSharp
     /// </summary>
     public class QuotationItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public QuotationItem()
+            : this(null!, null!, 0, null!)
+        { }
+
+        public QuotationItem(string lineItemId, ProductId productId, decimal quantity,
+            string orderUnit)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+        }
+
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>

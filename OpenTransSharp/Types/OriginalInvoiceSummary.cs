@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -11,6 +12,18 @@ namespace OpenTransSharp
     /// </summary>
     public class OriginalInvoiceSummary
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OriginalInvoiceSummary()
+            : this(0, null!, 0)
+        { }
+
+        public OriginalInvoiceSummary(decimal netValueGoods, TotalTax totalTax, decimal totalAmount)
+        {
+            NetValueGoods = netValueGoods;
+            TotalTax = totalTax;
+            TotalAmount = totalAmount;
+        }
+
         /// <summary>
         /// (required) Net value <br/>
         /// <br/>

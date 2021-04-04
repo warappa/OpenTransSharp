@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -14,6 +15,24 @@ namespace OpenTransSharp
     /// </summary>
     public class RemittanceAdviceInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RemittanceAdviceInformation() 
+        {
+            Id = null!;
+            Currency = null!;
+        }
+
+        public RemittanceAdviceInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
+            PayerIdref payerIdref, RemitteeIdref remitteeIdref, string currency)
+        {
+            Id = id;
+            Date = date;
+            PayerIdref = payerIdref;
+            RemitteeIdref = remitteeIdref;
+            Currency = currency;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Number of the remittance advice<br/>
         /// <br/>
@@ -88,7 +107,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("PAYER_IDREF")]
-        public PayerIdref? PayerIdref { get; set; }
+        public PayerIdref PayerIdref { get; set; } = new PayerIdref();
 
         /// <summary>
         /// (required) Reference to a remittee<br/>
@@ -97,7 +116,7 @@ namespace OpenTransSharp
         /// The elemente refers to the PARTY_ID of the remittee in the same document.
         /// </summary>
         [XmlElement("REMITTEE_IDREF")]
-        public RemitteeIdref? RemitteeIdref { get; set; }
+        public RemitteeIdref RemitteeIdref { get; set; } = new RemitteeIdref();
 
         /// <summary>
         /// (optional) Reference to invoicing party<br/>
@@ -114,7 +133,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref InvoiceRecipientIdref { get; set; }
+        public InvoiceRecipientIdref? InvoiceRecipientIdref { get; set; }
 
         /// <summary>
         /// (optional) Document exchange parties<br/>
@@ -171,7 +190,7 @@ namespace OpenTransSharp
         public Payment? Payment { get; set; }
 
         /// <summary>
-        /// (required) Time for payment<br/>
+        /// (optional) Time for payment<br/>
         /// <br/>
         /// Time where the payment is supposed to be done.
         /// </summary>

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -11,7 +12,9 @@ namespace OpenTransSharp
     /// </summary>
     public class MeansOfTransportIdRef
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MeansOfTransportIdRef()
+            : this(null!)
         {
         }
 

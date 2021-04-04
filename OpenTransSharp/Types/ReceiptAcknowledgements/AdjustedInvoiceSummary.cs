@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -9,6 +10,15 @@ namespace OpenTransSharp
     /// </summary>
     public class AdjustedInvoiceSummary
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AdjustedInvoiceSummary() { }
+
+        public AdjustedInvoiceSummary(decimal netValueGoods, decimal totalAmount)
+        {
+            NetValueGoods = netValueGoods;
+            TotalAmount = totalAmount;
+        }
+
         /// <summary>
         /// (required) Net value <br/>
         /// <br/>
@@ -23,7 +33,7 @@ namespace OpenTransSharp
         /// List of the tax amount.
         /// </summary>
         [XmlElement("TOTAL_TAX")]
-        public TotalTax TotalTax { get; set; }
+        public TotalTax? TotalTax { get; set; }
 
         /// <summary>
         /// (required) Total amount<br/>

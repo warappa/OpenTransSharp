@@ -14,6 +14,21 @@ namespace OpenTransSharp
     /// </summary>
     public class ReceiptAcknowledgementItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ReceiptAcknowledgementItem()
+            : this(null!, null!, 0, null!, null!, null!)
+        { }
+
+        public ReceiptAcknowledgementItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
+            OrderReference orderReference, DeliveryReference deliveryReference)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+            OrderReference = orderReference;
+            DeliveryReference = deliveryReference;
+        }
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>

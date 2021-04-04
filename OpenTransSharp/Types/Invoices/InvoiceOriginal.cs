@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -9,6 +10,16 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceOriginal
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceOriginal()
+            : this(null!)
+        { }
+        
+        public InvoiceOriginal(OpenTransMime mime)
+        {
+            Mime = mime;
+        }
+
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>
@@ -17,6 +28,6 @@ namespace OpenTransSharp
         /// For example logos, company profiles or other business partner related documents could be added here.
         /// </summary>
         [XmlElement("MIME")]
-        public OpenTransMime Mime { get; set; }
+        public OpenTransMime Mime { get; set; } = new OpenTransMime();
     }
 }

@@ -14,6 +14,22 @@ namespace OpenTransSharp
     /// </summary>
     public class DispatchNotificationItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public DispatchNotificationItem()
+            : this(null!, null!, 0, null!, null!, null!)
+        { }
+
+        public DispatchNotificationItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
+            OrderReference orderReference, ShipmentPartiesReference shipmentPartiesReference)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+            OrderReference = orderReference;
+            ShipmentPartiesReference = shipmentPartiesReference;
+        }
+
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>
@@ -125,7 +141,7 @@ namespace OpenTransSharp
         /// The element is related to an item and refers to the previous order.
         /// </summary>
         [OpenTransXmlElement("ORDER_REFERENCE")]
-        public OrderReference OrderReference { get; set; }
+        public OrderReference OrderReference { get; set; } = new OrderReference();
 
         /// <summary>
         /// (optional) Supplier order reference<br/>
@@ -152,7 +168,7 @@ namespace OpenTransSharp
         /// Refers to business partners integrated in the process of the goods delivery procedure.
         /// </summary>
         [OpenTransXmlElement("SHIPMENT_PARTIES_REFERENCE")]
-        public ShipmentPartiesReference ShipmentPartiesReference { get; set; }
+        public ShipmentPartiesReference ShipmentPartiesReference { get; set; } = new ShipmentPartiesReference();
 
         /// <summary>
         /// (optional) Logistics information <br/>

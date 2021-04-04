@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,6 +14,24 @@ namespace OpenTransSharp
     /// </summary>
     public class QuotationInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public QuotationInformation()
+        {
+            Id = null!;
+            OrderPartiesReference = null!;
+            Currency = null!;
+        }
+        
+        public QuotationInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
+            OrderPartiesReference orderPartiesReference, string currency)
+        {
+            Id = id;
+            Date = date;
+            OrderPartiesReference = orderPartiesReference;
+            Currency = currency;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Supplier quotation number<br/>
         /// <br/>

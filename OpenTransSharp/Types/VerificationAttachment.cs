@@ -20,6 +20,6 @@ namespace OpenTransSharp
         /// For example logos, company profiles or other business partner related documents could be added here.
         /// </summary>
         [OpenTransXmlElement("MIME")]
-        public OpenTransMime Mime { get; set; }
+        public OpenTransMime Mime { get; set; } = new OpenTransMime();
     }
 }

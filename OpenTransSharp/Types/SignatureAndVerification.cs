@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -11,6 +12,16 @@ namespace OpenTransSharp
     /// </summary>
     public class SignatureAndVerification
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public SignatureAndVerification()
+            : this(null!)
+        { }
+
+        public SignatureAndVerification(Signature signature)
+        {
+            Signature = signature;
+        }
+
         /// <summary>
         /// (required) Signature-container<br/>
         /// <br/>

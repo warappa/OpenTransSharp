@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -12,17 +13,14 @@ namespace OpenTransSharp
     /// </summary>
     public class BankCode
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public BankCode()
+            : this(null!)
         {
         }
 
         public BankCode(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
-            }
-
             Value = value;
         }
 
@@ -51,7 +49,7 @@ namespace OpenTransSharp
         /// Max length: 20
         /// </summary>
         [XmlAttribute("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>

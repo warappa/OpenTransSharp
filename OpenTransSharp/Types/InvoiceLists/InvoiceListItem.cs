@@ -13,6 +13,20 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceListItem()
+            : this(null!, 0, 0, null!)
+        { }
+
+        public InvoiceListItem(string lineItemId, decimal netValueGoods, decimal totalAmount,
+            TotalTax totalTax)
+        {
+            LineItemId = lineItemId;
+            NetValueGoods = netValueGoods;
+            TotalAmount = totalAmount;
+            TotalTax = totalTax;
+        }
+
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>
@@ -129,7 +143,7 @@ namespace OpenTransSharp
         /// A list of fixed allowances or surcharges which are to be applied on the price.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGES_FIX")]
-        public AllowOrChargesFix AllowOrChargesFix { get; set; }
+        public AllowOrChargesFix? AllowOrChargesFix { get; set; }
 
         /// <summary>
         /// (required) Total amount<br/>
@@ -150,7 +164,7 @@ namespace OpenTransSharp
         /// List of the tax amount.
         /// </summary>
         [XmlElement("TOTAL_TAX")]
-        public TotalTax TotalTax { get; set; }
+        public TotalTax TotalTax { get; set; } = new TotalTax();
 
         /// <summary>
         /// (optional) Direct debit <br/>

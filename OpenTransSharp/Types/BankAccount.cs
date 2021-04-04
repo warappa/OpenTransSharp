@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -16,17 +17,14 @@ namespace OpenTransSharp
     /// </summary>
     public class BankAccount
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public BankAccount()
+            : this(null!)
         {
         }
 
         public BankAccount(string value)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
-            }
-
             Value = value;
         }
 

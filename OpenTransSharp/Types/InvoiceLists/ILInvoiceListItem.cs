@@ -11,6 +11,19 @@ namespace OpenTransSharp
     /// </summary>
     public class ILInvoiceListItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ILInvoiceListItem()
+            : this(null!, 0, null!, 0)
+        { }
+
+        public ILInvoiceListItem(InvoiceReference invoiceReference, decimal netValueGoods, TotalTax totalTax, decimal totalAmount)
+        {
+            InvoiceReference = invoiceReference;
+            NetValueGoods = netValueGoods;
+            TotalTax = totalTax;
+            TotalAmount = totalAmount;
+        }
+
         /// <summary>
         /// (required) Invoice reference<br/>
         /// <br/>
@@ -70,7 +83,7 @@ namespace OpenTransSharp
         /// A list of fixed allowances or surcharges which are to be applied on the price.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGES_FIX")]
-        public AllowOrChargesFix AllowOrChargesFix { get; set; }
+        public AllowOrChargesFix? AllowOrChargesFix { get; set; }
 
         /// <summary>
         /// (required) Total taxes <br/>
@@ -78,7 +91,7 @@ namespace OpenTransSharp
         /// List of the tax amount.
         /// </summary>
         [XmlElement("TOTAL_TAX")]
-        public TotalTax TotalTax { get; set; }
+        public TotalTax TotalTax { get; set; } = new TotalTax();
 
         /// <summary>
         /// (required) Total amount<br/>

@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -35,6 +36,17 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationReport
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public VerificationReport()
+            : this(null!, null!, null!)
+        { }
+
+        public VerificationReport(VerificationAttachment attachment, VerificationProtocol protocol, VerificationXmlReport xmlReport)
+        {
+            Attachment = attachment;
+            Protocol = protocol;
+            XmlReport = xmlReport;
+        }
         /// <summary>
         /// (required) Verification report as (integrated) file<br/>
         /// <br/>

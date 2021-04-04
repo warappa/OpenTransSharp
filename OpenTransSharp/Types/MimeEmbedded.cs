@@ -16,6 +16,17 @@ namespace OpenTransSharp
     /// </summary>
     public class MimeEmbedded
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public MimeEmbedded()
+            : this(null!)
+        {
+        }
+
+        public MimeEmbedded(MimeData data)
+        {
+            Data = data;
+        }
+
         /// <summary>
         /// (optional) Language version of the file<br/>
         /// <br/>
@@ -36,7 +47,7 @@ namespace OpenTransSharp
         /// Element contains binary-coded file (base64).
         /// </summary>
         [OpenTransXmlElement("MIME_DATA")]
-        public MimeData Data { get; set; }
+        public MimeData Data { get; set; } = new MimeData();
 
         /// <summary>
         /// (optional) Filename<br/>
@@ -44,7 +55,7 @@ namespace OpenTransSharp
         /// Name of file.
         /// </summary>
         [OpenTransXmlElement("FILE_NAME")]
-        public string FileName { get; set; }
+        public string? FileName { get; set; }
 
         /// <summary>
         /// (optional) Filesize<br/>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,6 +14,21 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderInformation()
+            : this(null!, DateTime.MinValue, null!, null!, null!)
+        { }
+
+        public OrderInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
+            OrderPartiesReference orderPartiesReference, string currency)
+        {
+            Id = id;
+            Date = date;
+            OrderPartiesReference = orderPartiesReference;
+            Currency = currency;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Order number of buyer<br/>
         /// <br/>

@@ -16,6 +16,8 @@ namespace OpenTransSharp
     /// </summary>
     public class Package
     {
+        public Package() { }
+
         /// <summary>
         /// (optional) Package number <br/>
         /// <br/>
@@ -46,7 +48,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PACKING_UNIT_CODE")]
-        public string PackingUnitCode { get; set; }
+        public string? PackingUnitCode { get; set; }
 
         /// <summary>
         /// (optional) Packing unit description <br/>

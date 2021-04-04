@@ -17,6 +17,16 @@ namespace OpenTransSharp
     /// </summary>
     public class AllowOrCharge
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AllowOrCharge()
+            : this(AllowOrChargeType.Allowance)
+        { }
+
+        public AllowOrCharge(AllowOrChargeType type)
+        {
+            Type = type;
+        }
+
         /// <summary>
         /// (required) Allowance or surcharge<br/>
         /// <br/>
@@ -76,7 +86,7 @@ namespace OpenTransSharp
         /// Description of the structure of the allowance or surcharge.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_VALUE")]
-        public AllowOrChargeValue Value { get; set; }
+        public AllowOrChargeValue? Value { get; set; }
 
         /// <summary>
         /// (optional) Allowance or surcharge-base<br/>

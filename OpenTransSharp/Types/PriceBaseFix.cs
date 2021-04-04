@@ -14,6 +14,18 @@ namespace OpenTransSharp
     /// </summary>
     public class PriceBaseFix
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PriceBaseFix()
+        {
+            Unit = null!;
+        }
+        
+        public PriceBaseFix(decimal unitValue, string unit)
+        {
+            UnitValue = unitValue;
+            Unit = unit;
+        }
+
         /// <summary>
         /// (required) Number of price units<br/>
         /// <br/>

@@ -13,6 +13,17 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationProtocol
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public VerificationProtocol() 
+        {
+            ResultCode = null!;
+        }
+        
+        public VerificationProtocol(string resultCode)
+        {
+            ResultCode = resultCode;
+        }
+
         /// <summary>
         /// (required) Coded protocol record<br/>
         /// <br/>

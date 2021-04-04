@@ -13,6 +13,17 @@ namespace OpenTransSharp
     /// </summary>
     public class ManufacturerInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ManufacturerInformation()
+            : this(null!, null!)
+        { }
+
+        public ManufacturerInformation(BMEcatSharp.ManufacturerIdref idref, string pid)
+        {
+            Idref = idref;
+            Pid = pid;
+        }
+
         /// <summary>
         /// (required) Reference to the manufacturer<br/>
         /// <br/>

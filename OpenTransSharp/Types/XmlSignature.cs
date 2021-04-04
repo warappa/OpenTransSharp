@@ -13,6 +13,16 @@ namespace OpenTransSharp
     /// </summary>
     public class XmlSignature
     {
+        public XmlSignature() 
+        {
+            Signature = null!;
+        }
+        
+        public XmlSignature(string signature)
+        {
+            Signature = signature;
+        }
+
         /// <summary>
         /// (required) Integrated signature<br/>
         /// <br/>

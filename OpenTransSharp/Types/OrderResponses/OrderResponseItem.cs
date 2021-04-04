@@ -14,6 +14,19 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderResponseItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderResponseItem()
+            : this(null!, null!, 0, null!)
+        { }
+
+        public OrderResponseItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+        }
+
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>
@@ -32,7 +45,7 @@ namespace OpenTransSharp
         /// The included elements ensure the capability of a unique identification of a product.
         /// </summary>
         [XmlElement("PRODUCT_ID")]
-        public ProductId ProductId { get; set; }
+        public ProductId ProductId { get; set; } = new ProductId();
 
         /// <summary>
         /// (optional) Product features<br/>

@@ -14,6 +14,17 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderItem()
+            : this(null!, null!, null!)
+        { }
+
+        public OrderItem(string lineItemId, ProductId productId, string orderUnit)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            OrderUnit = orderUnit;
+        }
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>

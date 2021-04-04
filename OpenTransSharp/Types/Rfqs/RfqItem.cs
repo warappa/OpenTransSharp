@@ -14,6 +14,22 @@ namespace OpenTransSharp
     /// </summary>
     public class RfqItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RfqItem()
+        {
+            LineItemId = null!;
+            ProductId = null!;
+            OrderUnit = null!;
+        }
+        
+        public RfqItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+        }
+
         /// <summary>
         /// (required) Item number<br/>
         /// <br/>

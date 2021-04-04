@@ -10,6 +10,19 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListSummary
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceListSummary()
+            : this(0, 0, 0, null!)
+        { }
+
+        public InvoiceListSummary(int totalItemCount, decimal netValueGoods, decimal totalAmount, TotalTax totalTax)
+        {
+            TotalItemCount = totalItemCount;
+            NetValueGoods = netValueGoods;
+            TotalAmount = totalAmount;
+            TotalTax = totalTax;
+        }
+
         /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>
@@ -38,9 +51,7 @@ namespace OpenTransSharp
         /// Where no price per item can be given as the item level (e.g.bills of materials where explosion is not possible), the total price can be entered here.
         /// </summary>
         [XmlElement("TOTAL_AMOUNT")]
-        public decimal? TotalAmount { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool TotalAmountSpecified => TotalAmount.HasValue;
+        public decimal TotalAmount { get; set; }
 
         /// <summary>
         /// (required) Total taxes <br/>
@@ -48,6 +59,6 @@ namespace OpenTransSharp
         /// List of the tax amount.
         /// </summary>
         [XmlElement("TOTAL_TAX")]
-        public TotalTax TotalTax { get; set; }
+        public TotalTax TotalTax { get; set; } = new TotalTax();
     }
 }

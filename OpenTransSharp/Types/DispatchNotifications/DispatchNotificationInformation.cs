@@ -1,7 +1,9 @@
-﻿using BMEcatSharp.Xml;
+﻿using BMEcatSharp;
+using BMEcatSharp.Xml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,6 +15,20 @@ namespace OpenTransSharp
     /// </summary>
     public class DispatchNotificationInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public DispatchNotificationInformation()
+            : this(null!, null!, null!, null!)
+        { }
+        
+        public DispatchNotificationInformation(string id, IEnumerable<OpenTransParty> parties, SupplierIdref supplierIdref,
+            ShipmentPartiesReference shipmentPartiesReference)
+        {
+            Id = id;
+            Parties = parties?.ToList() ?? new();
+            SupplierIdref = supplierIdref;
+            ShipmentPartiesReference = shipmentPartiesReference;
+        }
+
         /// <summary>
         /// (required) Dispatch notification number<br/>
         /// <br/>
@@ -102,7 +118,7 @@ namespace OpenTransSharp
         /// Refers to business partners integrated in the process of the goods delivery procedure.
         /// </summary>
         [XmlElement("SHIPMENT_PARTIES_REFERENCE")]
-        public ShipmentPartiesReference ShipmentPartiesReference { get; set; }
+        public ShipmentPartiesReference ShipmentPartiesReference { get; set; } = new ShipmentPartiesReference();
 
         /// <summary>
         /// (optional) Shipment ID<br/>

@@ -10,6 +10,17 @@ namespace OpenTransSharp
     /// </summary>
     public class Account
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Account()
+            : this(null!, null!)
+        { }
+        
+        public Account(string holder, BankAccount bankAccount)
+        {
+            Holder = holder;
+            BankAccount = bankAccount;
+        }
+
         /// <summary>
         /// (requrired) Account holder<br/>
         /// <br/>

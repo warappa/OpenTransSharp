@@ -13,6 +13,15 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceReference
     {
+        public InvoiceReference()
+            : this(null!)
+        { }
+
+        public InvoiceReference(string id)
+        {
+            Id = id;
+        }
+
         /// <summary>
         /// (optional) Invoice type<br/>
         /// <br/>

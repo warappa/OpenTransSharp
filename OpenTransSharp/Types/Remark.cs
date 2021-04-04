@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -23,7 +24,9 @@ namespace OpenTransSharp
     /// </summary>
     public class Remark
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Remark()
+            : this(null!)
         {
         }
 
@@ -54,7 +57,7 @@ namespace OpenTransSharp
         /// For predefined values see <see cref="RemarkTypeValues"/>. Custom values can be used.
         /// </summary>
         [XmlAttribute("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>

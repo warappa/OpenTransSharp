@@ -13,6 +13,16 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationXmlReport
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public VerificationXmlReport()
+            : this(null!)
+        { }
+
+        public VerificationXmlReport(string xmlFormat)
+        {
+            XmlFormat = xmlFormat;
+        }
+
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>

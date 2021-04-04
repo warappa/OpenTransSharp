@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,6 +14,20 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderChangeInformation
     {
+        public OrderChangeInformation()
+            : this(null!, DateTime.MinValue, 0, null!, null!)
+        { }
+
+        public OrderChangeInformation(string orderId, DateTime date, int sequenceId,
+            IEnumerable<OpenTransParty> parties, OrderPartiesReference orderPartiesReference)
+        {
+            OrderId = orderId;
+            Date = date;
+            SequenceId = sequenceId;
+            OrderPartiesReference = orderPartiesReference;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Order number of buyer<br/>
         /// <br/>
@@ -139,7 +154,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CURRENCY")]
-        public string Currency { get; set; }
+        public string? Currency { get; set; }
 
         /// <summary>
         /// (optional) Mode of payment<br/>

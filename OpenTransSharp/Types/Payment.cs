@@ -1,6 +1,7 @@
 ﻿using OpenTransSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -16,13 +17,35 @@ namespace OpenTransSharp
     /// </summary>
     public class Payment
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Payment()
+            : this((Card)null!)
+        { }
+
+        public Payment(Card card)
+        {
+            Card = card;
+        }
+
+        public Payment(IEnumerable<Account> accounts)
+        {
+            Accounts = accounts?.ToList() ?? new();
+        }
+
+        public Payment(bool debit, bool cash, bool check)
+        {
+            Debit = debit;
+            Cash = cash;
+            Check = check;
+        }
+
         /// <summary>
         /// (required - choice Card/Account/Debit/Check/Cash) Card payment<br/>
         /// <br/>
         /// Use of credit cards, purchase cards etc.
         /// </summary>
         [OpenTransXmlElement("CARD")]
-        public Card Card { get; set; }
+        public Card? Card { get; set; }
 
         /// <summary>
         /// (required - choice Card/Account/Debit/Check/Cash) Bank account<br/>
@@ -30,7 +53,7 @@ namespace OpenTransSharp
         /// Bank account details.
         /// </summary>
         [OpenTransXmlElement("ACCOUNT")]
-        public List<Account> Accounts { get; set; }
+        public List<Account>? Accounts { get; set; } = new List<Account>();
 
         /// <summary>
         /// (required - choice Card/Account/Debit/Check/Cash) Debit notification<br/>
@@ -88,7 +111,12 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool CentralRegulationForSerializerSpecified => CentralRegulation == true;
 
+        /// <summary>
+        /// (optional) Term of payment<br/>
+        /// <br/>
+        /// Information to payment terms.
+        /// </summary>
         [OpenTransXmlElement("PAYMENT_TERMS")]
-        public PaymentTerms PaymentTerms { get; set; }
+        public PaymentTerms? PaymentTerms { get; set; }
     }
 }

@@ -14,6 +14,18 @@ namespace OpenTransSharp
     /// </summary>
     public class Verification
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Verification()
+            : this(null!, false, null!)
+        { }
+
+        public Verification(VerificationPartyIdRef partyIdref, bool success, VerificationReport report)
+        {
+            PartyIdref = partyIdref;
+            Success = success;
+            Report = report;
+        }
+
         /// <summary>
         /// (required) Reference to the signature verifier<br/>
         /// <br/>
@@ -21,7 +33,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("VERIFICATION_PARTY_IDREF")]
-        public VerificationPartyIdRef PartyIdRef { get; set; }
+        public VerificationPartyIdRef PartyIdref { get; set; }
 
         /// <summary>
         /// (required) Verification result<br/>

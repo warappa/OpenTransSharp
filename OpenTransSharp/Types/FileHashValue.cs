@@ -17,6 +17,17 @@ namespace OpenTransSharp
     /// </summary>
     public class FileHashValue
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FileHashValue()
+            : this(null!, null!)
+        { }
+        
+        public FileHashValue(string type, string value)
+        {
+            Type = type;
+            Value = value;
+        }
+
         /// <summary>
         /// (required) Methods of Hashing<br/>
         /// <br/>

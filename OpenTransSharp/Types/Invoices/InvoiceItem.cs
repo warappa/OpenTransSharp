@@ -14,6 +14,22 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceItem()
+            : this(null!, null!, 0, null!, null!, 0)
+        { }
+
+        public InvoiceItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
+            ProductPriceFix productPriceFix, decimal priceLineAmount)
+        {
+            LineItemId = lineItemId;
+            ProductId = productId;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+            ProductPriceFix = productPriceFix;
+            PriceLineAmount = priceLineAmount;
+        }
+
         /// <summary>
         /// (optional) Characteristic of the item<br/>
         /// <br/>
@@ -47,7 +63,7 @@ namespace OpenTransSharp
         /// The included elements ensure the capability of a unique identification of a product.
         /// </summary>
         [XmlElement("PRODUCT_ID")]
-        public ProductId ProductId { get; set; }
+        public ProductId ProductId { get; set; } = new ProductId();
 
         /// <summary>
         /// (optional) Product features<br/>
@@ -97,7 +113,7 @@ namespace OpenTransSharp
         /// A fixed product price.
         /// </summary>
         [XmlElement("PRODUCT_PRICE_FIX")]
-        public ProductPriceFix? ProductPriceFix { get; set; }
+        public ProductPriceFix ProductPriceFix { get; set; } = new ProductPriceFix();
 
         /// <summary>
         /// (required) Total price of the position<br/>
@@ -108,9 +124,7 @@ namespace OpenTransSharp
         /// See PRICE_BASE_FIX for details.
         /// </summary>
         [XmlElement("PRICE_LINE_AMOUNT")]
-        public decimal? PriceLineAmount { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PriceLineAmountSpecified => PriceLineAmount.HasValue;
+        public decimal PriceLineAmount { get; set; }
 
         /// <summary>
         /// (optional) Foreign currency<br/>
@@ -145,7 +159,7 @@ namespace OpenTransSharp
         /// The element is related to an item and refers to the previous order.
         /// </summary>
         [XmlElement("ORDER_REFERENCE")]
-        public OrderReference OrderReference { get; set; }
+        public OrderReference? OrderReference { get; set; }
 
         /// <summary>
         /// (optional) Supplier order reference<br/>

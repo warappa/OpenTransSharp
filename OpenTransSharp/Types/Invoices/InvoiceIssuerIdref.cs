@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -13,7 +14,9 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceIssuerIdref : global::BMEcatSharp.PartyRef<InvoiceIssuerIdref>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceIssuerIdref()
+            : this(null!)
         {
         }
 
@@ -56,7 +59,7 @@ namespace OpenTransSharp
         {
             if (idRef is null)
             {
-                return null;
+                return null!;
             }
 
             return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);

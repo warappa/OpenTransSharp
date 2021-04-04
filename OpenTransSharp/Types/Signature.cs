@@ -15,6 +15,17 @@ namespace OpenTransSharp
     /// </summary>
     public class Signature
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Signature()
+            : this(null!, false)
+        { }
+
+        public Signature(OpenTransMime mime, bool signatureInOriginal)
+        {
+            Mime = mime;
+            SignatureInOriginal = signatureInOriginal;
+        }
+
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>
@@ -46,6 +57,6 @@ namespace OpenTransSharp
         /// An electronic signature of the business document can be inserted here.
         /// </summary>
         [OpenTransXmlElement("XML_SIGNATURE")]
-        public XmlSignature XmlSignature { get; set; }
+        public XmlSignature? XmlSignature { get; set; }
     }
 }

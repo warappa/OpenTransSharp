@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -9,9 +10,10 @@ namespace OpenTransSharp
     /// </summary>
     public class PaymentTerm
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public PaymentTerm()
+            : this(null!)
         {
-
         }
 
         public PaymentTerm(string value)
@@ -38,7 +40,7 @@ namespace OpenTransSharp
         /// For predefined values see <see cref="PaymentTermTypeValues"/>. Custom values can be used.
         /// </summary>
         [XmlAttribute("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -14,6 +15,23 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceListInformation()
+            : this(null!, DateTime.MinValue, null!, null!, null!, null!, null!)
+        { }
+
+        public InvoiceListInformation(string id, DateTime date, AccountingPeriod accountingPeriod, IEnumerable<OpenTransParty> parties,
+            InvoiceIssuerIdref invoiceIssuerIdref, InvoiceRecipientIdref invoiceRecipientIdref, string currency)
+        {
+            Id = id;
+            Date = date;
+            AccountingPeriod = accountingPeriod;
+            InvoiceIssuerIdref = invoiceIssuerIdref;
+            InvoiceRecipientIdref = invoiceRecipientIdref;
+            Currency = currency;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Invoice list ID<br/>
         /// <br/>
@@ -54,7 +72,7 @@ namespace OpenTransSharp
         /// IntendedThe time period reflected by a set of invoices.
         /// </summary>
         [XmlElement("ACCOUNTING_PERIOD")]
-        public AccountingPeriod AccountingPeriod { get; set; }
+        public AccountingPeriod AccountingPeriod { get; set; } = new AccountingPeriod();
 
         /// <summary>
         /// (optional) Language<br/>
@@ -95,7 +113,7 @@ namespace OpenTransSharp
         /// Reference to an unique identifier of the invoicing party. The element refers to a PARTY_ID in the same document.<br/>
         /// </summary>
         [XmlElement("INVOICE_ISSUER_IDREF")]
-        public InvoiceIssuerIdref? InvoiceIssuerIdref { get; set; }
+        public InvoiceIssuerIdref InvoiceIssuerIdref { get; set; } = new InvoiceIssuerIdref();
 
         /// <summary>
         /// (required) Reference to the recipient of the invoice<br/>
@@ -104,7 +122,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref? InvoiceRecipientIdref { get; set; }
+        public InvoiceRecipientIdref InvoiceRecipientIdref { get; set; } = new InvoiceRecipientIdref();
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>

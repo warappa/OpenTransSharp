@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -12,6 +13,17 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderPartiesReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderPartiesReference()
+            : this(null!, null!)
+        { }
+
+        public OrderPartiesReference(BMEcatSharp.BuyerIdref buyerIdref, BMEcatSharp.SupplierIdref supplierIdref)
+        {
+            BuyerIdref = buyerIdref;
+            SupplierIdref = supplierIdref;
+        }
+
         /// <summary>
         /// (required) Reference to the buyer<br/>
         /// <br/>

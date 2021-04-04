@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -12,7 +13,9 @@ namespace OpenTransSharp
     /// </summary>
     public class DelivererIdref : global::BMEcatSharp.PartyRef<DelivererIdref>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DelivererIdref()
+            : this(null!)
         {
         }
 
@@ -52,7 +55,7 @@ namespace OpenTransSharp
         {
             if (idRef is null)
             {
-                return null;
+                return null!;
             }
 
             return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);

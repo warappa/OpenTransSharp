@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -9,6 +10,16 @@ namespace OpenTransSharp
     /// </summary>
     public class RaInvoiceListItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RaInvoiceListItem()
+            : this(null!, null!)
+        { }
+
+        public RaInvoiceListItem(InvoiceReference invoiceReference, OriginalInvoiceSummary originalInvoiceSummary)
+        {
+            InvoiceReference = invoiceReference;
+            OriginalInvoiceSummary = originalInvoiceSummary;
+        }
         /// <summary>
         /// (required) Invoice reference<br/>
         /// <br/>

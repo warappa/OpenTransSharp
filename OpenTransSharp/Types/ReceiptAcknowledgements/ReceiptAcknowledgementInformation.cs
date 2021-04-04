@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,6 +14,20 @@ namespace OpenTransSharp
     /// </summary>
     public class ReceiptAcknowledgementInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ReceiptAcknowledgementInformation()
+            : this(null!, DateTime.MinValue, null!, null!)
+        { }
+
+        public ReceiptAcknowledgementInformation(string id, DateTime receiptDate, IEnumerable<OpenTransParty> parties,
+            ShipmentPartiesReference shipmentPartiesReference)
+        {
+            Id = id;
+            ReceiptDate = receiptDate;
+            ShipmentPartiesReference = shipmentPartiesReference;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Receipt acknowledgement number<br/>
         /// <br/>
@@ -101,7 +116,7 @@ namespace OpenTransSharp
         /// Refers to business partners integrated in the process of the goods delivery procedure.
         /// </summary>
         [XmlElement("SHIPMENT_PARTIES_REFERENCE")]
-        public ShipmentPartiesReference ShipmentPartiesReference { get; set; }
+        public ShipmentPartiesReference ShipmentPartiesReference { get; set; } = new ShipmentPartiesReference();
 
         /// <summary>
         /// (optional) Document exchange parties<br/>

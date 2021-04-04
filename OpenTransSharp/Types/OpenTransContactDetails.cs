@@ -2,6 +2,7 @@
 using OpenTransSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace OpenTransSharp
 {
@@ -14,6 +15,16 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransContactDetails
     {
+        public OpenTransContactDetails()
+            : this(null!, null!)
+        { }
+
+        public OpenTransContactDetails(string id, IEnumerable<BMEcatSharp.MultiLingualString> surname)
+        {
+            Id = id;
+            Surname = surname?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Contact ID<br/>
         /// <br/>

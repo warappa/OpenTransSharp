@@ -11,6 +11,16 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceAdjustment
     {
+        public InvoiceAdjustment()
+        {
+            AdjustedInvoiceSummary = null!;
+        }
+
+        public InvoiceAdjustment(AdjustedInvoiceSummary adjustedInvoiceSummary)
+        {
+            AdjustedInvoiceSummary = adjustedInvoiceSummary;
+        }
+
         /// <summary>
         /// (required) Adjusted invoice summary<br/>
         /// <br/>

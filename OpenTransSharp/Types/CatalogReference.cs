@@ -15,6 +15,17 @@ namespace OpenTransSharp
     /// </summary>
     public class CatalogReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public CatalogReference()
+            : this(null!, null!)
+        { }
+
+        public CatalogReference(string id, Version version)
+        {
+            Id = id;
+            Version = version;
+        }
+
         /// <summary>
         /// (required) Catalog ID<br/>
         /// <br/>
@@ -43,7 +54,7 @@ namespace OpenTransSharp
         public string VersionForSerializer
         {
             get => Version.ToString();
-            set => Version = value is null ? null : new Version(value);
+            set => Version = new Version(value);
         }
 
         /// <summary>

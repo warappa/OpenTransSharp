@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -11,6 +12,17 @@ namespace OpenTransSharp
     /// </summary>
     public class ShipmentPartiesReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ShipmentPartiesReference()
+        {
+            DeliveryIdref = null!;
+        }
+
+        public ShipmentPartiesReference(DeliveryIdref deliveryIdref)
+        {
+            DeliveryIdref = deliveryIdref;
+        }
+
         /// <summary>
         /// (required) Reference to final recipient<br/>
         /// <br/>

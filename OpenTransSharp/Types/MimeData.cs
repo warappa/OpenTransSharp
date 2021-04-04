@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -11,9 +12,10 @@ namespace OpenTransSharp
     /// </summary>
     public class MimeData
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MimeData()
         {
-
+            Value = null!;
         }
 
         public MimeData(byte[] value)

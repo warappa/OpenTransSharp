@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -12,7 +13,9 @@ namespace OpenTransSharp
     /// </summary>
     public class CustomerIdRef : global::BMEcatSharp.PartyRef<CustomerIdRef>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public CustomerIdRef()
+            : this(null!)
         {
         }
 
@@ -39,7 +42,7 @@ namespace OpenTransSharp
         /// The most common coding standards are predefined.
         /// </summary>
         [XmlAttribute("type")]
-        public override string Type { get; set; }
+        public override string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>
@@ -53,7 +56,7 @@ namespace OpenTransSharp
         {
             if (idRef is null)
             {
-                return null;
+                return null!;
             }
 
             return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);

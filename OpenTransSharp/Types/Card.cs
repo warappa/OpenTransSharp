@@ -14,6 +14,19 @@ namespace OpenTransSharp
     /// </summary>
     public class Card
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Card()
+            : this(null!, null!, DateTime.MinValue, null!)
+        { }
+        
+        public Card(string type, string number, DateTime expirationDate, string holderName)
+        {
+            Type = type;
+            Number = number;
+            ExpirationDate = expirationDate;
+            HolderName = holderName;
+        }
+
         /// <summary>
         /// (required) Card type<br/>
         /// <br/>
@@ -53,9 +66,7 @@ namespace OpenTransSharp
         /// Expiration date Example: "2001-03" for 03/2001.
         /// </summary>
         [OpenTransXmlElement("CARD_EXPIRATION_DATE")]
-        public DateTime? ExpirationDate { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ExpirationDateSpecified => ExpirationDate.HasValue;
+        public DateTime ExpirationDate { get; set; }
 
         /// <summary>
         /// (required) Card holder<br/>

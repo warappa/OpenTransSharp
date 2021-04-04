@@ -10,6 +10,18 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceSummary
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceSummary()
+            : this(0, 0, 0)
+        { }
+
+        public InvoiceSummary(int totalItemCount, decimal netValueGoods, decimal totalAmount)
+        {
+            TotalItemCount = totalItemCount;
+            NetValueGoods = netValueGoods;
+            TotalAmount = totalAmount;
+        }
+
         /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>
@@ -56,7 +68,7 @@ namespace OpenTransSharp
         /// A list of fixed allowances or surcharges which are to be applied on the price.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGES_FIX")]
-        public AllowOrChargesFix AllowOrChargesFix { get; set; }
+        public AllowOrChargesFix? AllowOrChargesFix { get; set; }
 
         /// <summary>
         /// (optional) Total taxes <br/>
@@ -64,6 +76,6 @@ namespace OpenTransSharp
         /// List of the tax amount.
         /// </summary>
         [XmlElement("TOTAL_TAX")]
-        public TotalTax TotalTax { get; set; }
+        public TotalTax? TotalTax { get; set; }
     }
 }

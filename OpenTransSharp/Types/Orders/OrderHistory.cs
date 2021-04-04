@@ -14,6 +14,15 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderHistory
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderHistory()
+            : this(null!)
+        { }
+
+        public OrderHistory(string orderId)
+        {
+            OrderId = orderId;
+        }
         /// <summary>
         /// (required) Order number of the buyer<br/>
         /// <br/>

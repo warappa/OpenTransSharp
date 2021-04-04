@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -16,6 +17,21 @@ namespace OpenTransSharp
     /// </summary>
     public class RfqInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RfqInformation()
+            : this(null!, DateTime.MinValue, null!, null!, null!)
+        { }
+
+        public RfqInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
+            OrderPartiesReference orderPartiesReference, string currency)
+        {
+            Id = id;
+            Date = date;
+            OrderPartiesReference = orderPartiesReference;
+            Currency = currency;
+            Parties = parties?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Number of the request for quotation<br/>
         /// <br/>

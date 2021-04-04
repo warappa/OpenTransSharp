@@ -16,6 +16,23 @@ namespace OpenTransSharp
     /// </summary>
     public class ProductComponent
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductComponent()
+        {
+            ProductId = null!;
+            ProductFeatures = null!;
+            OrderUnit = null!;
+        }
+
+        public ProductComponent(ProductId productId, BMEcatSharp.ProductFeatures productFeatures, decimal quantity,
+            string orderUnit)
+        {
+            ProductId = productId;
+            ProductFeatures = productFeatures;
+            Quantity = quantity;
+            OrderUnit = orderUnit;
+        }
+
         /// <summary>
         /// (required) Product number<br/>
         /// <br/>

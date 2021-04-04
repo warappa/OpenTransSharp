@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -12,6 +13,19 @@ namespace OpenTransSharp
     /// </summary>
     public class RemittanceAdviceItem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RemittanceAdviceItem()
+        {
+            LineItemId = null!;
+        }
+
+        public RemittanceAdviceItem(string lineItemId, IEnumerable<RaInvoiceListItem> invoiceList,
+            decimal totalAmount)
+        {
+            LineItemId = lineItemId;
+            TotalAmount = totalAmount;
+            InvoiceList = invoiceList?.ToList() ?? new();
+        }
         /// <summary>
         /// (required) Item number<br/>
         /// The item ID number is used to uniquely identify the item line of an order within that order.<br/>

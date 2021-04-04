@@ -14,6 +14,17 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderReference()
+            : this(null!, null!)
+        { }
+        
+        public OrderReference(string id, string lineItemId)
+        {
+            Id = id;
+            LineItemId = lineItemId;
+        }
+
         /// <summary>
         /// (required) Order number of buyer.<br/>
         /// <br/>
