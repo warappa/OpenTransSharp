@@ -16,6 +16,17 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class Supplier
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Supplier()
+            : this(null!)
+        {
+        }
+
+        public Supplier(string name)
+        {
+            Name = name;
+        }
+
         /// <summary>
         /// (optional) Supplier ID<br/>
         /// <br/>

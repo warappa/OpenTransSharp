@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,18 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureGroup
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FeatureGroup() 
+            : this(null!, null!)
+        { }
+
+        public FeatureGroup(string id, IEnumerable<MultiLingualString> name)
+        {
+            Id = id;
+            Name = name?.ToList() ?? new List<MultiLingualString>();
+        }
+
+
         /// <summary>
         /// (required) Feature group ID<br/>
         /// <br/>
@@ -56,7 +69,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_PARENT_ID")]
-        public List<string> ParentIds { get; set; } = new List<string>();
+        public List<string>? ParentIds { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ParentIdsSpecified => ParentIds?.Count > 0;
     }

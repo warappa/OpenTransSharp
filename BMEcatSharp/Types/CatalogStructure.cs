@@ -77,7 +77,7 @@ namespace BMEcatSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("PARENT_ID")]
-        public string ParentId { get; set; }
+        public string? ParentId { get; set; }
 
         /// <summary>
         /// (optional - deprecated) Catalog group order<br/>

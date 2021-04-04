@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -12,9 +13,10 @@ namespace BMEcatSharp
     /// </summary>
     public class SpecialTreatmentClass
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public SpecialTreatmentClass()
+            : this(null!, null!)
         {
-
         }
 
         /// <summary>
@@ -30,6 +32,7 @@ namespace BMEcatSharp
             Value = value;
             Type = type;
         }
+
         /// <summary>
         /// Name of the special treatment rule<br/>
         /// <br/>

@@ -15,6 +15,20 @@ namespace BMEcatSharp
     /// </summary>
     public class ParameterDefinition
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ParameterDefinition()
+            : this(null!, null!, null!)
+        {
+
+        }
+
+        public ParameterDefinition(string symbol, ParameterBasics basics, FeatureReference featureReference)
+        {
+            Symbol = symbol;
+            Basics = basics;
+            FeatureReference = featureReference;
+        }
+
         /// <summary>
         /// (required) Parameter symbol<br/>
         /// <br/>

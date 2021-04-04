@@ -13,6 +13,16 @@ namespace BMEcatSharp
     /// </summary>
     public class IppParamDefinition : IppParamsBase
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppParamDefinition()
+            : this(null!)
+        { }
+
+        public IppParamDefinition(string name)
+        {
+            Name = name;
+        }
+
         /// <summary>
         /// (required) Parameter name<br/>
         /// <br/>

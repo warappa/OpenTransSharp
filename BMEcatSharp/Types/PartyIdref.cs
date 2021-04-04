@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -12,7 +13,9 @@ namespace BMEcatSharp
     /// </summary>
     public class PartyIdref : PartyRef<PartyIdref>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public PartyIdref()
+            : this(null!)
         {
         }
 
@@ -27,7 +30,7 @@ namespace BMEcatSharp
         /// <param name="value"></param>
         /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined. See <see cref="PartyTypeValues"/>. Custom values can be used.</param>
-        public PartyIdref(string value, string type)
+        public PartyIdref(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -52,7 +55,7 @@ namespace BMEcatSharp
         {
             if (idRef is null)
             {
-                return null;
+                return null!;
             }
 
             return new PartyId(idRef.Value, idRef.Type);

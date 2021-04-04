@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +15,16 @@ namespace BMEcatSharp
     /// </summary>
     public class Variant
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Variant()
+            : this(null!)
+        { }
+
+        public Variant(IEnumerable<MultiLingualString> featureValues)
+        {
+            FeatureValues = featureValues?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Feature value<br/>
         /// <br/>
@@ -55,6 +67,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_AID_SUPPLEMENT")]
-        public string SupplierAidSupplement { get; set; }
+        [Obsolete]
+        public string? SupplierAidSupplement { get; set; }
     }
 }

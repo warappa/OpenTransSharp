@@ -13,6 +13,17 @@ namespace BMEcatSharp
     /// </summary>
     public class CustomsTariffNumber
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public CustomsTariffNumber()
+            : this(null!)
+        {
+        }
+
+        public CustomsTariffNumber(string customsNumber)
+        {
+            CustomsNumber = customsNumber;
+        }
+
         /// <summary>
         /// (required) Customs number<br/>
         /// <br/>

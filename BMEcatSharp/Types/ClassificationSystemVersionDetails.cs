@@ -20,11 +20,11 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlIgnore]
-        public Version Version { get; set; }
+        public Version Version { get; set; } = new();
 
         [BMEXmlElement("VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string VersionForSerialization { get => Version.ToString(); set => Version = value is null ? null : new Version(value); }
+        public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }
 
         /// <summary>
         /// (optional) Version date<br/>

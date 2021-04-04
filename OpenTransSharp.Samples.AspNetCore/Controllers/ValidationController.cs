@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using OpenTransSharp.Validation;
 using OpenTransSharp.Xml;
 using System;
-using System.Threading.Tasks;
 
 namespace OpenTransSharp.Samples.AspNetCore.Controllers
 {
@@ -27,7 +26,7 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("order-via-stream")]
         [RawTextRequest]
-        public async Task<ValidationResult> OrderViaStream()
+        public ValidationResult OrderViaStream()
         {
             var serializer = serializerFactory.Create<Order>();
             
@@ -38,7 +37,7 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         }
         
         [HttpPost("order-via-file")]
-        public async Task<ValidationResult> OrderViaFile(IFormFile file)
+        public ValidationResult OrderViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<Order>();
             

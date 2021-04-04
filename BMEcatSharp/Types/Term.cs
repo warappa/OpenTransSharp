@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -14,6 +15,18 @@ namespace BMEcatSharp
     /// </summary>
     public class Term
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Term()
+            : this(TermType.Function, null!, null!)
+        { }
+
+        public Term(TermType type, string id, string expression)
+        {
+            Type = type;
+            Id = id;
+            Expression = expression;
+        }
+
         /// <summary>
         /// (required) Term type<br/>
         /// <br/>

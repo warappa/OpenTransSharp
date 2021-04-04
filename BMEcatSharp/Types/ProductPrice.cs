@@ -12,6 +12,17 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductPrice
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductPrice()
+            : this(null!)
+        {
+        }
+
+        public ProductPrice(string type)
+        {
+            Type = type;
+        }
+
         /// <summary>
         /// (required) Price type<br/>
         /// <br/>
@@ -53,7 +64,7 @@ namespace BMEcatSharp
         /// Specification of one applicapable tax.
         /// </summary>
         [BMEXmlElement("TAX_DETAILS")]
-        public List<TaxDetails> TaxDetails { get; set; } = new List<TaxDetails>();
+        public List<TaxDetails>? TaxDetails { get; set; } = new List<TaxDetails>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TaxDetailsSpecified => TaxDetails?.Count > 0;
 

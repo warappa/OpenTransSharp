@@ -15,6 +15,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ReferenceFeatureGroupId
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ReferenceFeatureGroupId()
+            : this(null!)
+        { }
+
+        public ReferenceFeatureGroupId(string value)
+        {
+            Value = value;
+        }
+
         /// <summary>
         /// (optional) Codification<br/>
         /// <br/>

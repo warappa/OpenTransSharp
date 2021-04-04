@@ -2,6 +2,7 @@
 
 namespace BMEcatSharp.Samples.AspNetCore
 {
+    [AttributeUsage(AttributeTargets.Method)]
     public class RawTextRequestAttribute : Attribute
     {
         public RawTextRequestAttribute()

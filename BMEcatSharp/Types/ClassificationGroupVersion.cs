@@ -15,6 +15,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroupVersion
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ClassificationGroupVersion()
+            : this(null!)
+        { }
+
+        public ClassificationGroupVersion(Version version)
+        {
+            Version = version;
+        }
+
         /// <summary>
         /// (required) Version<br/>
         /// <br/>

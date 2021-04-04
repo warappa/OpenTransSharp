@@ -18,7 +18,6 @@ namespace BMEcatSharp
     /// XML-namespace: BMECAT
     /// </summary>
     [XmlRoot("BMECAT", Namespace = "http://www.bmecat.org/bmecat/2005")]
-    [Serializable]
     public class BMEcatDocument
     {
         [XmlNamespaceDeclarations]
@@ -32,7 +31,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlAttribute("version")]
-        public BMEcatVersion Version { get; set; } = BMEcatVersion.v2005;
+        public BMEcatVersion Version { get; set; } = BMEcatVersion.V2005;
 
 
         /// <summary>

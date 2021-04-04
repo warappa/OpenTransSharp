@@ -5,7 +5,7 @@ namespace BMEcatSharp.Tests
 {
     internal class BMEcatTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public BMEcatTestConfig(TestConfig parent)
         {
@@ -899,8 +899,6 @@ namespace BMEcatSharp.Tests
         {
             return new SupplierIdref("Supplier", PartyTypeValues.SupplierSpecific);
         }
-
-
 
         private BMEcatAddress GetBMEcatAddress()
         {

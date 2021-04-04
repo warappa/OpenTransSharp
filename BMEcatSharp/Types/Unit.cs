@@ -17,6 +17,17 @@ namespace BMEcatSharp
     /// </summary>
     public class Unit
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Unit()
+            : this(null!)
+        {
+        }
+
+        public Unit(string id)
+        {
+            Id = id;
+        }
+
         /// <summary>
         /// (optional) Unit system<br/>
         /// <br/>

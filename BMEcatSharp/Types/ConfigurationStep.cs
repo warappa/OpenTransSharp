@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,29 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationStep
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ConfigurationStep()
+            : this(null!, null!, 0,0, (ConfigurationFeature)null!)
+        { }
+
+        public ConfigurationStep(string id, IEnumerable<MultiLingualString> header, int minimumOccurance, int maximumOccurance, ConfigurationFeature configurationFeature)
+        {
+            Id = id;
+            Header = header?.ToList() ?? new List<MultiLingualString>();
+            MinimumOccurance = minimumOccurance;
+            MaximumOccurance = maximumOccurance;
+            ConfigurationFeature = configurationFeature;
+        }
+
+        public ConfigurationStep(string id, IEnumerable<MultiLingualString> header, int minimumOccurance, int maximumOccurance, ConfigurationParts configurationParts)
+        {
+            Id = id;
+            Header = header?.ToList() ?? new List<MultiLingualString>();
+            MinimumOccurance = minimumOccurance;
+            MaximumOccurance = maximumOccurance;
+            ConfigurationParts = configurationParts;
+        }
+
         /// <summary>
         /// (required) Identification of the configuration step<br/>
         /// <br/>
@@ -113,7 +137,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_FEATURE")]
-        public ConfigurationFeature ConfigurationFeature { get; set; }
+        public ConfigurationFeature? ConfigurationFeature { get; set; }
 
         /// <summary>
         /// (required - choice ConfigurationFeature/ConfigurationParts) Configuration component<br/>
@@ -123,7 +147,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_PARTS")]
-        public ConfigurationParts ConfigurationParts { get; set; }
+        public ConfigurationParts? ConfigurationParts { get; set; }
 
         /// <summary>
         /// (required) Minimum occurence step<br/>

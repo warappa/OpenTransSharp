@@ -1,5 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +14,17 @@ namespace BMEcatSharp
     /// </summary>
     public class IppOutbound
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppOutbound()
+            : this(null!, null!)
+        { }
+
+        public IppOutbound(string format, IEnumerable<MultiLingualString> uris)
+        {
+            Format = format;
+            Uris = uris?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Exchange format<br/>
         /// <br/>

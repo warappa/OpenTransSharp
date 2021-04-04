@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -12,7 +13,9 @@ namespace BMEcatSharp
     /// </summary>
     public class ManufacturerIdref : PartyRef<ManufacturerIdref>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ManufacturerIdref()
+            : this(null!)
         {
         }
 
@@ -54,7 +57,7 @@ namespace BMEcatSharp
         {
             if (idRef is null)
             {
-                return null;
+                return null!;
             }
 
             return new PartyId(idRef.Value, idRef.Type);

@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,17 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureTemplate
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FeatureTemplate()
+            : this(null!, null!)
+        { }
+
+        public FeatureTemplate(string id, IEnumerable<MultiLingualString> name)
+        {
+            Id = id;
+            Name = name?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Feature identifier<br/>
         /// <br/>

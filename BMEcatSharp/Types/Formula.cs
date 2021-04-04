@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -15,6 +16,17 @@ namespace BMEcatSharp
     /// </summary>
     public class Formula
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Formula()
+            : this(null!, null!)
+        { }
+
+        public Formula(string id, IEnumerable<ParameterDefinition> parameterDefinitions)
+        {
+            Id = id;
+            ParameterDefinitions = parameterDefinitions?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Formula ID<br/>
         /// <br/>

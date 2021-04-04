@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -11,7 +12,9 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystemLevelName
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationSystemLevelName()
+            : this(0, null!)
         {
         }
 

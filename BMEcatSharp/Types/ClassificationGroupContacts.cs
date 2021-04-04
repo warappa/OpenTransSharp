@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroupContacts
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ClassificationGroupContacts() 
+            : this(null!, null!)
+        { }
+
+        public ClassificationGroupContacts(PartyIdref partyIdref, IEnumerable<string> contactIdrefs)
+        {
+            PartyIdRef = partyIdref;
+            ContactIdrefs = contactIdrefs?.ToList() ?? new List<string>();
+        }
         /// <summary>
         /// (required) Reference to a business partner<br/>
         /// <br/>
@@ -31,8 +42,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_IDREF")]
-        public List<string> ContactIdref { get; set; } = new List<string>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ContactIdrefSpecified => ContactIdref?.Count > 0;
+        public List<string> ContactIdrefs { get; set; } = new List<string>();
     }
 }

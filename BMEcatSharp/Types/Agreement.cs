@@ -16,6 +16,17 @@ namespace BMEcatSharp
     /// </summary>
     public class Agreement
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Agreement() 
+        {
+            Id = null!;
+        }
+
+        public Agreement(string id)
+        {
+            Id = id;
+        }
+
         /// <summary>
         /// (optional) Agreement type<br/>
         /// <br/>
@@ -96,7 +107,9 @@ namespace BMEcatSharp
         [BMEXmlElement("DATETIME")]
         public List<BMEcatDatetime>? Datetimes { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable CS0618 // Type or member is obsolete
         public bool DatetimesSpecified => Datetimes?.Count > 0;
+#pragma warning restore CS0618 // Type or member is obsolete
 
         /// <summary>
         /// (optional) Reference to supplier<br/>

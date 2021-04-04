@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -6,6 +7,22 @@ namespace BMEcatSharp
     public abstract class PartyRef<TConcrete>
         where TConcrete : PartyRef<TConcrete>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PartyRef()
+            : this(null!)
+        { }
+
+        public PartyRef(string value)
+        {
+            Value = value;
+        }
+        public PartyRef(string value, string type)
+            : this(value)
+        {
+            Type = type;
+        }
+
+
         [XmlAttribute("type")]
         public virtual string? Type { get; set; }
 

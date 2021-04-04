@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -11,6 +12,18 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FeatureReference()
+            : this(null!, null!)
+        {
+        }
+
+        public FeatureReference(string systemName, string idref)
+        {
+            SystemName = systemName;
+            Idref = idref;
+        }
+
         /// <summary>
         /// (required) Classification or feature system<br/>
         /// <br/>

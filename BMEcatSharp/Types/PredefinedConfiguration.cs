@@ -16,6 +16,17 @@ namespace BMEcatSharp
     /// </summary>
     public class PredefinedConfiguration
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PredefinedConfiguration()
+            : this(null!)
+        {
+        }
+
+        public PredefinedConfiguration(string coverage)
+        {
+            Coverage = coverage;
+        }
+
         /// <summary>
         /// (required) Configuration code<br/>
         /// <br/>

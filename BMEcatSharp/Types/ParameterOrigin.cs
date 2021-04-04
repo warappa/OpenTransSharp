@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.ComponentModel;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -17,7 +18,9 @@ namespace BMEcatSharp
     /// </summary>
     public class ParameterOrigin
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ParameterOrigin()
+            : this(null!, ParameterOriginType.Config)
         {
         }
 

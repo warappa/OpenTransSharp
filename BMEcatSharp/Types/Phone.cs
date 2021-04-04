@@ -56,11 +56,5 @@ namespace BMEcatSharp
         /// </summary>
         [XmlAttribute("type")]
         public string? Type { get; set; }
-
-        /// <summary>
-        /// (required)
-        /// </summary>
-        [XmlText]
-        public string Value { get; set; }
     }
 }

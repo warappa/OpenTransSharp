@@ -7,9 +7,10 @@ namespace BMEcatSharp
 {
     public class MultiLingualString
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public MultiLingualString()
+            : this(null!)
         {
-
         }
 
         public MultiLingualString(string value)

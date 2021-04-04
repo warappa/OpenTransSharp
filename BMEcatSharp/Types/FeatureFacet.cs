@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -11,9 +12,10 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureFacet
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public FeatureFacet()
+            : this(null!, FeatureFacetType.MinLength)
         {
-
         }
 
         public FeatureFacet(string value, FeatureFacetType type)

@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -20,6 +21,16 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class BMEcatDatetime
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEcatDatetime()
+            : this(BMEcatDatetimeType.GenerationDate)
+        { }
+
+        public BMEcatDatetime(BMEcatDatetimeType type)
+        {
+            Type = type;
+        }
+
         /// <summary>
         /// (required - deprecated) Date type<br/>
         /// <br/>
@@ -31,7 +42,7 @@ namespace BMEcatSharp
         public BMEcatDatetimeType Type { get; set; }
 
         /// <summary>
-        /// (required - deprecated) Date<br/>
+        /// (required - choice Date/Time/Timezone - deprecated) Date<br/>
         /// <br/>
         /// Date.<br/>
         /// <br/>
@@ -41,7 +52,7 @@ namespace BMEcatSharp
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// (required - deprecated) Time<br/>
+        /// (required - choice Date/Time/Timezone - deprecated) Time<br/>
         /// <br/>
         /// Element for time.<br/>
         /// <br/>
@@ -52,13 +63,13 @@ namespace BMEcatSharp
         public bool TimeSpecified => Time.HasValue;
 
         /// <summary>
-        /// (required - deprecated) Time zone<br/>
+        /// (required - choice Date/Time/Timezone - deprecated) Time zone<br/>
         /// <br/>
         /// Element for timezone.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("TIMEZONE")]
-        public string Timezone { get; set; }
+        public string? Timezone { get; set; }
     }
 }

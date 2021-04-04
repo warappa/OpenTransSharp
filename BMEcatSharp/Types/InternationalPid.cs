@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -12,9 +13,10 @@ namespace BMEcatSharp
     /// </summary>
     public class InternationalPid
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public InternationalPid()
+            : this(null!)
         {
-
         }
 
         public InternationalPid(string value)

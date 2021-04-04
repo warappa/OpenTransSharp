@@ -16,6 +16,27 @@ namespace BMEcatSharp
     /// </summary>
     public class PackingUnit
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PackingUnit()
+            : this(1, 0, null!, (SupplierPid)null!)
+        { }
+
+        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, SupplierPid supplierPid)
+        {
+            MinimumQuantity = minimumQuantity;
+            MaximumQuantity = maximumQuantity;
+            Code = code;
+            SupplierPid = supplierPid;
+        }
+
+        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, string supplierPIdref)
+        {
+            MinimumQuantity = minimumQuantity;
+            MaximumQuantity = maximumQuantity;
+            Code = code;
+            SupplierPIdref = supplierPIdref;
+        }
+
         /// <summary>
         /// (required) Minimum quantity<br/>
         /// <br/>
@@ -24,9 +45,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("QUANTITY_MIN")]
-        public decimal? MinimumQuantity { get; set; } = 1;
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MinimumQuantitySpecified => MinimumQuantity.HasValue;
+        public decimal MinimumQuantity { get; set; } = 1;
 
         /// <summary>
         /// (required) Maximum quantity<br/>
@@ -36,9 +55,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("QUANTITY_MAX")]
-        public decimal? MaximumQuantity { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MaximumQuantitySpecified => MaximumQuantity.HasValue;
+        public decimal MaximumQuantity { get; set; }
 
         /// <summary>
         /// (required) Packing unit code<br/>
@@ -56,9 +73,9 @@ namespace BMEcatSharp
         /// Description of the packing unit, i.e. explaination, additional information, hints etc.
         /// </summary>
         [XmlElement("PACKING_UNIT_DESCR")]
-        public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DescriptionsSpecified => Descriptions?.Count > 0;
+        public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
         /// (required) Supplier's product ID<br/>
@@ -79,7 +96,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_PID")]
-        public SupplierPid SupplierPid { get; set; }
+        public SupplierPid? SupplierPid { get; set; }
 
         /// <summary>
         /// (required) Reference to a product number<br/>

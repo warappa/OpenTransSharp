@@ -11,6 +11,17 @@ namespace BMEcatSharp
     /// </summary>
     public class PriceFormula
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PriceFormula()
+            : this(null!)
+        {
+        }
+
+        public PriceFormula(string idRef)
+        {
+            Idref = idRef;
+        }
+
         /// <summary>
         /// (required) Reference to a formula<br/>
         /// <br/>

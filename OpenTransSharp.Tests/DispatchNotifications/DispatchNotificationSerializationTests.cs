@@ -11,7 +11,8 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 {
     public class DispatchNotificationSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
+
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 

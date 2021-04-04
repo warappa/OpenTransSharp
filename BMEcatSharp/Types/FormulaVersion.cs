@@ -12,6 +12,16 @@ namespace BMEcatSharp
     /// </summary>
     public class FormulaVersion
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FormulaVersion() 
+            : this(null!)
+        { }
+
+        public FormulaVersion(Version version)
+        {
+            Version = version;
+        }
+
         /// <summary>
         /// (required) Version<br/>
         /// <br/>
@@ -24,7 +34,7 @@ namespace BMEcatSharp
 
         [BMEXmlElement("VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }
+        public string? VersionForSerialization { get => Version?.ToString(); set => Version = new Version(value); }
 
         /// <summary>
         /// (optional) Version date<br/>

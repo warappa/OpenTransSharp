@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -12,6 +13,17 @@ namespace BMEcatSharp
     /// </summary>
     public class MeansOfTransport
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public MeansOfTransport()
+            : this(null!, null!)
+        { }
+        
+        public MeansOfTransport(string id, string type)
+        {
+            Id = id;
+            Type = type;
+        }
+
         /// <summary>
         /// (required) Type of transport means.<br/>
         /// <br/>
@@ -22,7 +34,7 @@ namespace BMEcatSharp
         /// Max length: 50
         /// </summary>
         [XmlAttribute("type")]
-        public string? Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// (required) Means of transport ID<br/>

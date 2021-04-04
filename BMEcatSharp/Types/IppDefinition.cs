@@ -13,6 +13,17 @@ namespace BMEcatSharp
     /// </summary>
     public class IppDefinition
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppDefinition() 
+            : this(null!, IppType.AvailabilityRequest)
+        { }
+
+        public IppDefinition(string id, IppType type)
+        {
+            Id = id;
+            Type = type;
+        }
+
         /// <summary>
         /// (required) IPP application ID<br/>
         /// <br/>

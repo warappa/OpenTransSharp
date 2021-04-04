@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,16 @@ namespace BMEcatSharp
     /// </summary>
     public class Area
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Area()
+            : this(null!)
+        { }
+
+        public Area(string id)
+        {
+            Id = id;
+        }
+
         /// <summary>
         /// (required) Area Identification<br/>
         /// <br/>
@@ -24,7 +35,7 @@ namespace BMEcatSharp
         public string Id { get; set; }
 
         /// <summary>
-        /// (required) Name of the area<br/>
+        /// (optional) Name of the area<br/>
         /// <br/>
         /// Name of the area, e.g., "European Union".<br/>
         /// <br/>
@@ -36,7 +47,7 @@ namespace BMEcatSharp
         public bool NameSpecified => Name?.Count > 0;
 
         /// <summary>
-        /// (required) Description of the area<br/>
+        /// (optional) Description of the area<br/>
         /// <br/>
         /// This element can be used to describe the area in more detail.<br/>
         /// <br/>

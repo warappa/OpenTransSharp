@@ -67,6 +67,8 @@ namespace BMEcatSharp
         [BMEXmlElement("ARTICLE")]
         public List<UpdatePricesArticle>? Articles { get; set; } = new List<UpdatePricesArticle>();
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable CS0618 // Type or member is obsolete
         public bool ArticlesSpecified => Articles?.Count > 0;
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

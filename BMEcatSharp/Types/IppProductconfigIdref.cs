@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.ComponentModel;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -13,7 +14,9 @@ namespace BMEcatSharp
     /// </summary>
     public class IppProductconfigIdref : IppParamsBase
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public IppProductconfigIdref()
+            : this(null!)
         {
         }
 

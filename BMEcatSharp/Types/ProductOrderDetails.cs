@@ -13,6 +13,17 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductOrderDetails
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductOrderDetails()
+            : this(null!, null!)
+        { }
+
+        public ProductOrderDetails(string orderUnit, string contentUnit)
+        {
+            OrderUnit = orderUnit;
+            ContentUnit = contentUnit;
+        }
+
         /// <summary>
         /// (required) Order unit<br/>
         /// <br/>

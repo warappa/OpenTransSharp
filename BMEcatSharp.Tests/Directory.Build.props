@@ -1,0 +1,7 @@
+<Project>
+
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);CA1822;IDE0017</NoWarn>
+  </PropertyGroup>
+
+</Project>

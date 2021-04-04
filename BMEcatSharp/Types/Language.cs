@@ -10,7 +10,9 @@ namespace BMEcatSharp
     /// </summary>
     public class Language
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Language()
+            : this(null!)
         {
         }
 
@@ -18,6 +20,7 @@ namespace BMEcatSharp
         {
             Value = value;
         }
+
         public Language(LanguageCodes value)
             : this(value.ToString())
         {

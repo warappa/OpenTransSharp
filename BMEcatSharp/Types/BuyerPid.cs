@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -13,7 +14,9 @@ namespace BMEcatSharp
     /// </summary>
     public class BuyerPid
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public BuyerPid()
+            : this(null!)
         {
         }
 
@@ -41,7 +44,7 @@ namespace BMEcatSharp
         /// For predefined values see <see cref="BuyerPidTypeValues"/>. Custom values can be used.<br/>
         /// </summary>
         [XmlAttribute("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>

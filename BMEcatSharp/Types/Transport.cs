@@ -13,6 +13,17 @@ namespace BMEcatSharp
     /// </summary>
     public class Transport
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Transport()
+            : this(null!)
+        {
+        }
+
+        public Transport(string incoterm)
+        {
+            Incoterm = incoterm;
+        }
+
         /// <summary>
         /// (required) INCOTERM<br/>
         /// <br/>

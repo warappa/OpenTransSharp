@@ -18,6 +18,18 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransAgreement
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OpenTransAgreement()
+            : this(null!, DateTime.MinValue, null)
+        { }
+
+        public OpenTransAgreement(string id, DateTime endDate, DateTime? startDate = null)
+        {
+            Id = id;
+            EndDate = endDate;
+            StartDate = startDate;
+        }
+
         /// <summary>
         /// (optional) Agreement type<br/>
         /// <br/>
@@ -66,7 +78,7 @@ namespace OpenTransSharp
         public string? LineId { get; set; }
 
         /// <summary>
-        /// (optional - choice AgreementEndDate/(deprecated)Datetime) Start date of the skeleton agreement<br/>
+        /// (optional - choice AgreementStartDate/(deprecated)Datetimes) Start date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp of the time, when the skeleton agreement begins.<br/>
         /// <br/>
@@ -78,7 +90,7 @@ namespace OpenTransSharp
         public bool StartDateSpecified => StartDate.HasValue;
 
         /// <summary>
-        /// (required - with AgreementEndDate) End date of the skeleton agreement<br/>
+        /// (required - with AgreementStartDate) End date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp for the time when the skeleton agreement ends.<br/>
         /// <br/>
@@ -88,7 +100,7 @@ namespace OpenTransSharp
         public DateTime EndDate { get; set; }
 
         /// <summary>
-        /// (required - deprecated - choice AgreementEndDate/(deprecated)Datetime) End date of the skeleton agreement<br/>
+        /// (required - deprecated - choice AgreementEndDate/(deprecated)Datetimes) End date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp for the time when the skeleton agreement ends.<br/>
         /// <br/>
@@ -98,7 +110,9 @@ namespace OpenTransSharp
         [BMEXmlElement("DATETIME")]
         public List<global::BMEcatSharp.BMEcatDatetime>? Datetimes { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable CS0618 // Type or member is obsolete
         public bool DatetimesSpecified => Datetimes?.Count > 0;
+#pragma warning restore CS0618 // Type or member is obsolete
 
         /// <summary>
         /// (optional) Reference to supplier<br/>

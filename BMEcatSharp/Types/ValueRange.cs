@@ -12,6 +12,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ValueRange
     {
+        public ValueRange()
+            : this(null!, null!)
+        { }
+
+        public ValueRange(Startvalue startvalue, Endvalue endvalue)
+        {
+            Startvalue = startvalue;
+            Endvalue = endvalue;
+        }
+
         /// <summary>
         /// (required) Start value<br/>
         /// <br/>

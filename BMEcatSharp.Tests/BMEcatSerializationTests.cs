@@ -12,7 +12,8 @@ namespace BMEcatSharp.Tests
 {
     public class BMEcatSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
+
         private BMEcatXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 
@@ -77,7 +78,7 @@ namespace BMEcatSharp.Tests
         {
             var order = testConfig.BMEcats.GetBMEcatUpdateProducts();
 
-            var serialized = target.Serialize(order);
+            //var serialized = target.Serialize(order);
             //Debug.WriteLine(serialized);
             order.IsValid(target).Should().Be(true);
         }

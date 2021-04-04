@@ -22,6 +22,19 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductReference()
+            : this(null!, ProductReferenceType.Others)
+        {
+
+        }
+
+        public ProductReference(string productIdTo, ProductReferenceType type)
+        {
+            ProductIdTo = productIdTo;
+            Type = type;
+        }
+
         /// <summary>
         /// (required) Reference type<br/>
         /// <br/>
@@ -93,7 +106,7 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string? CatalogVersionString
         {
-            get => CatalogVersion.ToString();
+            get => CatalogVersion?.ToString();
             set => CatalogVersion = value is null ? null : new Version(value);
         }
 

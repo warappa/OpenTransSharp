@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -11,7 +12,9 @@ namespace BMEcatSharp
     /// </summary>
     public class Authentification
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Authentification()
+            : this(null!, null!)
         {
         }
 

@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,19 @@ namespace BMEcatSharp
     /// </summary>
     public class IppOperation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppOperation()
+            : this(null!, IppOperationType.Create, null!, null!)
+        { }
+        
+        public IppOperation(string id, IppOperationType type, IEnumerable<IppOutbound> outbounds, IEnumerable<IppInbound> inbounds)
+        {
+            Id = id;
+            Type = type;
+            Outbounds = outbounds?.ToList() ?? new();
+            Inbounds = inbounds?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) IPP operation ID<br/>
         /// <br/>
@@ -35,7 +49,7 @@ namespace BMEcatSharp
         public IppOperationType Type { get; set; }
 
         /// <summary>
-        /// (required) Description of the IPP operation<br/>
+        /// (optional) Description of the IPP operation<br/>
         /// <br/>
         /// This element is used to describe the IPP operation.<br/>
         /// <br/>

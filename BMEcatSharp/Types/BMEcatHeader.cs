@@ -14,6 +14,23 @@ namespace BMEcatSharp
     /// </summary>
     public class BMEcatHeader
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEcatHeader()
+            : this(null!, (SupplierIdref)null!)
+        { }
+
+        public BMEcatHeader(Catalog catalog, SupplierIdref supplierIdref)
+        {
+            Catalog = catalog;
+            SupplierIdref = supplierIdref;
+        }
+
+        public BMEcatHeader(Catalog catalog, DocumentCreatorIdref documentCreatorIdref)
+        {
+            Catalog = catalog;
+            DocumentCreatorIdref = documentCreatorIdref;
+        }
+
         /// <summary>
         /// (optional) Generator information<br/>
         /// <br/>
@@ -88,7 +105,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref SupplierIdref { get; set; }
+        public SupplierIdref? SupplierIdref { get; set; } = null!;
 
         /// <summary>
         /// (required - choice (deprecated)Supplier/SupplierIdref/DocumentCreatorIdref) Supplier<br/>
@@ -100,7 +117,7 @@ namespace BMEcatSharp
         /// </summary>
         [Obsolete("The element SUPPLIER will be replaced by the element SUPPLIER_IDREF together with the element PARTY in future versions and will be omitted then.")]
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public Supplier Supplier { get; set; }
+        public Supplier? Supplier { get; set; } = null!;
 
         /// <summary>
         /// (required - choice (deprecated)Supplier/SupplierIdref/DocumentCreatorIdref) Document creator<br/>
@@ -112,7 +129,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("DOCUMENT_CREATOR_IDREF")]
-        public DocumentCreatorIdref DocumentCreatorIdref { get; set; }
+        public DocumentCreatorIdref? DocumentCreatorIdref { get; set; } = null!;
 
         /// <summary>
         /// (optional) Parties<br/>
@@ -123,7 +140,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("PARTIES")]
         [BMEXmlArrayItem("PARTY")]
-        public List<Party> Parties { get; set; } = new List<Party>();
+        public List<Party>? Parties { get; set; } = new List<Party>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool PartiesSpecified => Parties?.Count > 0;
 
@@ -136,7 +153,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("AREAS")]
         [BMEXmlArrayItem("AREA")]
-        public List<Area> Areas { get; set; } = new List<Area>();
+        public List<Area>? Areas { get; set; } = new List<Area>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AreasSpecified => Areas?.Count > 0;
 

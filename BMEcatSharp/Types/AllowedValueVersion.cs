@@ -14,6 +14,16 @@ namespace BMEcatSharp
     /// </summary>
     public class AllowedValueVersion
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AllowedValueVersion()
+            : this(null!)
+        { }
+
+        public AllowedValueVersion(Version version)
+        {
+            Version = version;
+        }
+
         /// <summary>
         /// (required) Version<br/>
         /// <br/>

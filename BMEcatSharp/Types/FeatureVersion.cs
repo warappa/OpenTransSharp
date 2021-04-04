@@ -14,6 +14,15 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureVersion
     {
+        public FeatureVersion()
+            : this(null!)
+        { }
+
+        public FeatureVersion(Version version)
+        {
+            Version = version;
+        }
+
         /// <summary>
         /// (required) Version<br/>
         /// <br/>
@@ -26,7 +35,7 @@ namespace BMEcatSharp
 
         [BMEXmlElement("VERSION")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }
+        public string? VersionForSerialization { get => Version?.ToString(); set => Version = new Version(value); }
 
         /// <summary>
         /// (optional) Version date<br/>

@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -17,6 +18,17 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystemFeatureTemplate
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ClassificationSystemFeatureTemplate()
+            : this(null!, null!)
+        { }
+
+        public ClassificationSystemFeatureTemplate(string id, IEnumerable<MultiLingualString> name)
+        {
+            Id = id;
+            Name = name?.ToList() ?? new List<MultiLingualString>();
+        }
+
         /// <summary>
         /// (required) Feature identifier<br/>
         /// <br/>

@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,17 @@ namespace BMEcatSharp
     /// </summary>
     public class BMEcatContactDetails
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEcatContactDetails()
+            : this(null!, Enumerable.Empty<MultiLingualString>())
+        { }
+
+        public BMEcatContactDetails(string id, IEnumerable<MultiLingualString> surname)
+        {
+            Id = id;
+            Surname = surname.ToList();
+        }
+
         /// <summary>
         /// (required) Contact ID<br/>
         /// <br/>

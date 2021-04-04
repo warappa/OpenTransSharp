@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using BMEcatSharp.Validation;
+﻿using BMEcatSharp.Validation;
 using BMEcatSharp.Xml;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Threading.Tasks;
 
 namespace BMEcatSharp.Samples.AspNetCore.Controllers
 {
@@ -27,7 +26,7 @@ namespace BMEcatSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public async Task<ValidationResult> ViaStream()
+        public ValidationResult ViaStream()
         {
             var serializer = serializerFactory.Create<BMEcatDocument>();
             
@@ -38,7 +37,7 @@ namespace BMEcatSharp.Samples.AspNetCore.Controllers
         }
         
         [HttpPost("via-file")]
-        public async Task<ValidationResult> ViaFile(IFormFile file)
+        public ValidationResult ViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<BMEcatDocument>();
             

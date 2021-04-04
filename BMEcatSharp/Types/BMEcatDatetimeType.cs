@@ -7,6 +7,10 @@ namespace BMEcatSharp
     public enum BMEcatDatetimeType
     {
         [XmlEnum("generation_date")]
-        GenerationDate
+        GenerationDate,
+        [XmlEnum("valid_start_date")]
+        ValidStartDate,
+        [XmlEnum("valid_end_date")]
+        ValidEndDate,
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -11,19 +12,15 @@ namespace BMEcatSharp
     /// </summary>
     public class InternationalRestriction
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public InternationalRestriction()
+            : this(null!, null!)
         {
-
-        }
-
-        public InternationalRestriction(string value)
-        {
-            Value = value;
         }
 
         public InternationalRestriction(string value, string type)
-            : this(value)
         {
+            Value = value;
             Type = type;
         }
 

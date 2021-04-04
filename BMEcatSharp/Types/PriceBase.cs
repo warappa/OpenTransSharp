@@ -12,6 +12,16 @@ namespace BMEcatSharp
     /// </summary>
     public class PriceBase
     {
+        public PriceBase()
+            : this(null!)
+        {
+        }
+
+        public PriceBase(string unit)
+        {
+            Unit = unit;
+        }
+
         /// <summary>
         /// (required) Price unit<br/>
         /// <br/>

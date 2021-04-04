@@ -5,7 +5,7 @@ namespace BMEcatSharp.Internal
 {
     internal class SharedXmlNamespaces
     {
-        internal static XmlSerializerNamespaces Xmlns = new XmlSerializerNamespaces(new[]
+        internal static XmlSerializerNamespaces Xmlns = new(new[]
         {
             new XmlQualifiedName("", "http://www.opentrans.org/XMLSchema/2.1"),
             new XmlQualifiedName("bmecat", "http://www.bmecat.org/bmecat/2005"),
@@ -15,7 +15,7 @@ namespace BMEcatSharp.Internal
             new XmlQualifiedName("xsd", "http://www.w3.org/2001/XMLSchema")
         });
 
-        internal static XmlSerializerNamespaces XmlnsBMEcat = new XmlSerializerNamespaces(new[]
+        internal static XmlSerializerNamespaces XmlnsBMEcat = new(new[]
         {
             new XmlQualifiedName("", "http://www.bmecat.org/bmecat/2005"),
             new XmlQualifiedName("xmime","http://www.w3.org/2005/05/xmlmime"),

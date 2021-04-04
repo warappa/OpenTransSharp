@@ -11,6 +11,20 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationFeature
     {
+        public ConfigurationFeature()
+            : this((FeatureReference)null!)
+        { }
+
+        public ConfigurationFeature(FeatureReference featureReference)
+        {
+            FeatureReference = featureReference;
+        }
+
+        public ConfigurationFeature(FeatureTemplate featureTemplate)
+        {
+            FeatureTemplate = featureTemplate;
+        }
+
         /// <summary>
         /// (required - choice FeatureReference/FeatureTemplate) Reference to a feature<br/>
         /// <br/>
@@ -19,7 +33,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FREF")]
-        public FeatureReference FeatureReference { get; set; }
+        public FeatureReference? FeatureReference { get; set; }
 
         /// <summary>
         /// (required - choice FeatureReference/FeatureTemplate) Feature definition<br/>
@@ -29,7 +43,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FTEMPLATE")]
-        public FeatureTemplate FeatureTemplate { get; set; }
+        public FeatureTemplate? FeatureTemplate { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -11,7 +12,9 @@ namespace BMEcatSharp
     /// </summary>
     public class SupplierIdref : PartyRef<SupplierIdref>
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierIdref()
+            : this(null!)
         {
         }
 
@@ -38,7 +41,7 @@ namespace BMEcatSharp
         /// The most common coding standards are predefined.
         /// </summary>
         [XmlAttribute("type")]
-        public override string Type { get; set; }
+        public override string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>
@@ -52,7 +55,7 @@ namespace BMEcatSharp
         {
             if (idRef is null)
             {
-                return null;
+                return null!;
             }
 
             return new PartyId(idRef.Value, idRef.Type);

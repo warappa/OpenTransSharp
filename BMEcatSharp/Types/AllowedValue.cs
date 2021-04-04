@@ -13,6 +13,16 @@ namespace BMEcatSharp
     /// </summary>
     public class AllowedValue
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AllowedValue()
+            : this(null!)
+        { }
+
+        public AllowedValue(string id)
+        {
+            Id = id;
+        }
+
         /// <summary>
         /// (required) Allowed value ID<br/>
         /// <br/>

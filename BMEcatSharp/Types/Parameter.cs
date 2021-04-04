@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -12,6 +13,17 @@ namespace BMEcatSharp
     /// </summary>
     public class Parameter
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Parameter()
+            : this(null!, null!)
+        { }
+        
+        public Parameter(string symbolRef, string value)
+        {
+            SymbolRef = symbolRef;
+            Value = value;
+        }
+
         /// <summary>
         /// (required) Reference to a parameter<br/>
         /// <br/>

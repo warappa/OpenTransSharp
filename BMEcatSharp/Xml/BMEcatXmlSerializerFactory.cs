@@ -11,7 +11,7 @@ namespace BMEcatSharp.Xml
     public class BMEcatXmlSerializerFactory : IBMEcatXmlSerializerFactory
     {
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN&view=netframework-4.8#dynamically-generated-assemblies
-        protected readonly Hashtable cachedXmlSerializers = new Hashtable();
+        protected readonly Hashtable cachedXmlSerializers = new();
         protected readonly BMEcatOptions options;
         protected readonly IDictionary<string, Type> udxMappings;
 
@@ -76,7 +76,9 @@ namespace BMEcatSharp.Xml
             ConfigureUdx<NewCatalogProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
             ConfigureUdx<UpdatePricesProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
             ConfigureUdx<UpdateProductsProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+#pragma warning disable CS0618 // Type or member is obsolete
             ConfigureUdx<CatalogStructure>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
+#pragma warning restore CS0618 // Type or member is obsolete
         }
 
         protected static void ConfigureUdx<T>(Expression<Func<T, object?>> udxProperty, string tagName, IDictionary<string, Type> userDefinedExtensionTypeMapping, XmlAttributeOverrides overrides)
@@ -96,8 +98,10 @@ namespace BMEcatSharp.Xml
 
         protected static void ConfigureUdx<T>(string headerPropertyName, string headerElementName, IDictionary<string, Type> userDefinedExtensionTypeMapping, XmlAttributeOverrides overrides)
         {
-            var attributes = new XmlAttributes();
-            attributes.XmlArray = new XmlArrayAttribute(headerElementName);
+            var attributes = new XmlAttributes
+            {
+                XmlArray = new XmlArrayAttribute(headerElementName)
+            };
 
             foreach (var mapping in userDefinedExtensionTypeMapping)
             {

@@ -21,6 +21,18 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class NewCatalogProductToCataloggroupMap
     {
+        public NewCatalogProductToCataloggroupMap()
+            : this(null!, null!)
+        {
+
+        }
+
+        public NewCatalogProductToCataloggroupMap(string productId, string catalogGroupId)
+        {
+            ProductId = productId;
+            CatalogGroupId = catalogGroupId;
+        }
+
         /// <summary>
         /// (optional) Mode<br/>
         /// <br/>
@@ -29,7 +41,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlAttribute("mode")]
-        public NewCatalogProductToCataloggroupMapMode Mode { get; set; }
+        public NewCatalogProductToCataloggroupMapMode? Mode { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ModeSpecified => Mode != NewCatalogProductToCataloggroupMapMode.New;
 
@@ -52,7 +64,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref SupplierIdref { get; set; }
+        public SupplierIdref? SupplierIdref { get; set; }
 
         /// <summary>
         /// (required) Catalog group<br/>
@@ -66,7 +78,7 @@ namespace BMEcatSharp
         public string CatalogGroupId { get; set; }
 
         /// <summary>
-        /// (required) Product order<br/>
+        /// (optional) Product order<br/>
         /// <br/>
         /// Order in which the products are represented within a catalog group (CATALOG_STRUCTURE) in the target system.<br/>
         /// When the products are listed they are listed in ascending order (the first product corresponds to the lowest number).<br/>

@@ -35,6 +35,18 @@ namespace BMEcatSharp
     /// </summary>
     public class Catalog
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Catalog()
+            : this(null!, null!, null!)
+        { }
+
+        public Catalog(string id, Version version, Language language)
+        {
+            Id = id;
+            Version = version;
+            Language = language;
+        }
+
         /// <summary>
         /// (required) Language<br/>
         /// <br/>
@@ -77,10 +89,10 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string? VersionForSerializer
         {
-            get => Version?.ToString(2);
+            get => Version?.ToString();
             set
             {
-                Version = value is null ? null : new Version(value);
+                Version = new Version(value);
             }
         }
 
@@ -122,7 +134,9 @@ namespace BMEcatSharp
         [BMEXmlElement("DATE")]
         public BMEcatDatetime? Date { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable CS0618 // Type or member is obsolete
         public bool DateSpecified => Date is object;
+#pragma warning restore CS0618 // Type or member is obsolete
 
         /// <summary>
         /// (optional) Territory<br/>

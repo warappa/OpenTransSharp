@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -17,7 +18,9 @@ namespace BMEcatSharp
     /// </summary>
     public class SupplierPid
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierPid()
+            : this(null!)
         {
         }
 

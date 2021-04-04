@@ -13,6 +13,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationFormula
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ConfigurationFormula()
+            : this(null!)
+        { }
+
+        public ConfigurationFormula(string idref)
+        {
+            Idref = idref;
+        }
+
         /// <summary>
         /// (required) Reference to a formula<br/>
         /// <br/>
@@ -33,7 +43,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("PARAMETERS")]
         [BMEXmlArrayItem("PARAMETER")]
-        public List<Parameter> Parameters { get; set; } = new List<Parameter>();
+        public List<Parameter>? Parameters { get; set; } = new List<Parameter>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ParametersSpecified => Parameters?.Count > 0;
     }

@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -11,6 +12,23 @@ namespace BMEcatSharp
     /// </summary>
     public class AgreementReference
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AgreementReference() 
+        {
+            IdReference = null!;
+        }
+
+        public AgreementReference(string idReference)
+        {
+            IdReference = idReference;
+        }
+
+        public AgreementReference(string idReference, string? lineIdReference)
+            : this(idReference)
+        {
+            LineIdReference = lineIdReference;
+        }
+
         /// <summary>
         /// (required) Skeleton agreement ID reference<br/>
         /// <br/>

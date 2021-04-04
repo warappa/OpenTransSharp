@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -14,6 +15,17 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroup
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ClassificationGroup()
+            : this(null!, Enumerable.Empty<MultiLingualString>())
+        { }
+
+        public ClassificationGroup(ClassificationGroupId id, IEnumerable<MultiLingualString> names)
+        {
+            Id = id;
+            Name = names.ToList();
+        }
+
         /// <summary>
         /// (optional) Group type<br/>
         /// <br/>

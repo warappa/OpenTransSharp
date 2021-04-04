@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -11,6 +12,17 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationInformation
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ConfigurationInformation()
+            : this(null!)
+        {
+        }
+
+        public ConfigurationInformation(string configurationCode)
+        {
+            ConfigurationCode = configurationCode;
+        }
+
         /// <summary>
         /// (required) order number extension<br/>
         /// <br/>

@@ -13,6 +13,16 @@ namespace BMEcatSharp
     /// </summary>
     public class Email
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Email()
+            : this(null!)
+        { }
+
+        public Email(string emailAddress)
+        {
+            EmailAddress = emailAddress;
+        }
+
         /// <summary>
         /// (required) E-mail address<br/>
         /// <br/>

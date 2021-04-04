@@ -40,7 +40,9 @@ namespace BMEcatSharp
         [BMEXmlElement("DATETIME")]
         public List<BMEcatDatetime>? DateTimes { get; set; } = new List<BMEcatDatetime>();
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable CS0618 // Type or member is obsolete
         public bool DateTimesSpecified => DateTimes?.Count > 0;
+#pragma warning restore CS0618 // Type or member is obsolete
 
         /// <summary>
         /// (optional) Daily price<br/>

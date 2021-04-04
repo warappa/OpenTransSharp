@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +13,13 @@ namespace BMEcatSharp
     /// </summary>
     public class LegalInfo
     {
+        public LegalInfo() { }
+
+        public LegalInfo(IEnumerable<AreaLegalInfo> areaLegalInfos)
+        {
+            AreaLegalInfos = areaLegalInfos?.ToList() ?? new();
+        }
+
         /// <summary>
         /// Areas-specific legal information<br/>
         /// <br/>
@@ -21,6 +29,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AREA_LEGAL_INFO")]
-        public List<AreaLegalInfo> AreaLegalInfos { get; set; }
+        public List<AreaLegalInfo> AreaLegalInfos { get; set; } = new List<AreaLegalInfo>();
     }
 }

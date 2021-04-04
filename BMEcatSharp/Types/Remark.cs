@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -23,7 +24,9 @@ namespace BMEcatSharp
     /// </summary>
     public class Remark
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public Remark()
+            : this(null!)
         {
         }
 
@@ -31,6 +34,7 @@ namespace BMEcatSharp
         {
             Value = value;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -54,7 +58,7 @@ namespace BMEcatSharp
         /// For predefined values see <see cref="RemarkTypeValues"/>. Custom values can be used.
         /// </summary>
         [XmlAttribute("type")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>

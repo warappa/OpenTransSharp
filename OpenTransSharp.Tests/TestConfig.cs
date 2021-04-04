@@ -51,7 +51,7 @@ namespace OpenTransSharp.Tests
             model.PriceFlags.AddRange(new[]
             {
                 BMEcats.GetPriceFlag(global::BMEcatSharp.PriceFlagTypes.IncludingPacking, true),
-                BMEcats.GetPriceFlag(global::BMEcatSharp.PriceFlagTypes.IncludingAssurance, false)
+                BMEcats.GetPriceFlag(global::BMEcatSharp.PriceFlagTypes.IncludingDuty, false)
             });
             model.TaxDetailsFixes.Add(GetTaxDetailsFix());
 

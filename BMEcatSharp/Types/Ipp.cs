@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -16,6 +17,17 @@ namespace BMEcatSharp
     /// </summary>
     public class Ipp
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Ipp()
+            : this(null!, null!)
+        { }
+
+        public Ipp(string idref, IEnumerable<string> operationIdrefs)
+        {
+            Idref = idref;
+            OperationIdrefs = operationIdrefs?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (required) Reference to an IPP application<br/>
         /// <br/>

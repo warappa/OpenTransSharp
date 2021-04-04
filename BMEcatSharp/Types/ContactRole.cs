@@ -10,9 +10,10 @@ namespace BMEcatSharp
     /// </summary>
     public class ContactRole
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ContactRole()
+            : this(null!)
         {
-
         }
 
         public ContactRole(string value)

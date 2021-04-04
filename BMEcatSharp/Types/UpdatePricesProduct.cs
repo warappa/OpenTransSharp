@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -15,6 +16,18 @@ namespace BMEcatSharp
     /// </summary>
     public class UpdatePricesProduct
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public UpdatePricesProduct()
+            : this(null!, null!)
+        {
+
+        }
+        public UpdatePricesProduct(SupplierPid supplierPid, IEnumerable<ProductPriceDetails> priceDetails)
+        {
+            SupplierPid = supplierPid;
+            PriceDetails = priceDetails?.ToList() ?? new();
+        }
+
         /// <summary>
         /// (optional) Transfer mode<br/>
         /// <br/>

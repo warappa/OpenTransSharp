@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -11,6 +12,17 @@ namespace BMEcatSharp
     /// </summary>
     public class IppParam
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppParam()
+            : this(null!, null!)
+        { }
+
+        public IppParam(string nameref, string value)
+        {
+            Nameref = nameref;
+            Value = value;
+        }
+
         /// <summary>
         /// (required) Reference to IPP parameter<br/>
         /// <br/>

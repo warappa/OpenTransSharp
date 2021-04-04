@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -14,7 +15,9 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroupId
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationGroupId()
+            : this(ClassificationGroupIdType.Flat, null!)
         {
         }
 

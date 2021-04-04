@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -12,9 +13,10 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class SupplierId
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierId()
+            : this(null!)
         {
-
         }
 
         public SupplierId(string value)

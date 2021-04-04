@@ -15,6 +15,16 @@ namespace BMEcatSharp
     /// </summary>
     public class IppInbound
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppInbound()
+            : this(null!)
+        { }
+
+        public IppInbound(string inboundFormat)
+        {
+            InboundFormat = inboundFormat;
+        }
+
         /// <summary>
         /// (required) Exchange format<br/>
         /// <br/>

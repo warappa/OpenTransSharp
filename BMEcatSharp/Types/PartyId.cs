@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -14,20 +15,22 @@ namespace BMEcatSharp
     /// </summary>
     public class PartyId
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public PartyId()
+            : this(null!)
         {
         }
 
         public PartyId(string value)
         {
-            Value = value ?? throw new ArgumentNullException(nameof(value));
+            Value = value;
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">Einige gängige Kodifikationssysteme sind vordefiniert. Für vordefinierte Werte siehe <see cref="PartyTypeValues"/>, es können aber auch ein eigene Werte verwendet werden.</param>
-        public PartyId(string value, string type)
+        public PartyId(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -67,6 +70,16 @@ namespace BMEcatSharp
 
         public static bool operator ==(PartyId? left, PartyId? right)
         {
+            if (ReferenceEquals(left, right))
+            {
+                return true;
+            }
+            if (ReferenceEquals(left, null) ||
+                ReferenceEquals(right, null))
+            {
+                return false;
+            }
+
             return EqualityComparer<PartyId>.Default.Equals(left, right);
         }
 
@@ -79,7 +92,7 @@ namespace BMEcatSharp
         {
             if (id is null)
             {
-                return null;
+                return null!;
             }
 
             return new PartyIdref(id.Value, id.Type);

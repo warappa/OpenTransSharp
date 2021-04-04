@@ -13,6 +13,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductContacts
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductContacts()
+            : this(null!)
+        { }
+
+        public ProductContacts(PartyIdref partyIdref)
+        {
+            PartyIdref = partyIdref;
+        }
+
         /// <summary>
         /// (required) Reference to a business partner<br/>
         /// <br/>

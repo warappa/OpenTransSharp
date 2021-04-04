@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -14,8 +15,36 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureValue
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FeatureValue()
+            : this((string)null!)
+        { }
+
+        public FeatureValue(string simple)
+        {
+            Simple = simple;
+        }
+
+        public FeatureValue(IEnumerable<MultiLingualString> text)
+        {
+            Text = text?.ToList() ?? new();
+        }
+
+        public FeatureValue(ValueRange range)
+        {
+            Range = range;
+        }
+
+        public static FeatureValue FromIdref(string idref)
+        {
+            return new()
+            {
+                Idref = idref
+            };
+        }
+
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Reference to a value<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Reference to a value<br/>
         /// <br/>
         /// Reference to the unique identifier of a value.<br/>
         /// <br/>
@@ -25,39 +54,39 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_IDREF")]
-        public string Idref { get; set; }
+        public string? Idref { get; set; }
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Atomic value<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Atomic value<br/>
         /// <br/>
         /// A single, atomic value.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_SIMPLE")]
-        public string Simple { get; set; }
+        public string? Simple { get; set; }
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Text value<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Text value<br/>
         /// <br/>
         /// This element contains a text.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_TEXT")]
-        public List<MultiLingualString> Text { get; set; } = new List<MultiLingualString>();
+        public List<MultiLingualString>? Text { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TextSpecified => Text?.Count > 0;
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText,ValueRange) Interval of values<br/>
+        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Interval of values<br/>
         /// <br/>
         /// Definition of an interval of values.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_RANGE")]
-        public ValueRange Range { get; set; }
+        public ValueRange? Range { get; set; }
 
         /// <summary>
         /// (optional) Additonal multimedia information<br/>
@@ -79,7 +108,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONFIG_INFO")]
-        public ConfigurationInformation ConfigurationInformation { get; set; }
+        public ConfigurationInformation? ConfigurationInformation { get; set; }
 
         /// <summary>
         /// (optional) Value order<br/>

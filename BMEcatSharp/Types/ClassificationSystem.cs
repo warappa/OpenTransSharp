@@ -14,6 +14,16 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystem
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ClassificationSystem()
+            : this(null!)
+        { }
+
+        public ClassificationSystem(string name)
+        {
+            Name = name;
+        }
+
         /// <summary>
         /// (required) Classification system name<br/>
         /// <br/>
@@ -25,7 +35,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_NAME")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// (optional) Complete name of the classification system<br/>
@@ -35,7 +45,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_FULLNAME")]
-        public string Fullname { get; set; }
+        public string? Fullname { get; set; }
 
         /// <summary>
         /// (optional - choice ClassificationSystemVersionDetails/(deprecated)ClassificationSystemVersion) Version of the classification system<br/>
@@ -45,7 +55,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_VERSION_DETAILS")]
-        public ClassificationSystemVersionDetails VersionDetails { get; set; }
+        public ClassificationSystemVersionDetails? VersionDetails { get; set; }
 
         /// <summary>
         /// (optional) Version of the classification system<br/>
@@ -60,7 +70,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_VERSION")]
         [Obsolete("The element CLASSIFICATION_SYSTEM_VERSION will be replaced by the element CLASSIFICATION_SYSTEM_VERSION_DETAILS in future versions and will be omitted then.")]
-        public string Version { get; set; }
+        public string? Version { get; set; }
 
         /// <summary>
         /// (optional) Classification system description<br/>
@@ -70,7 +80,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_DESCR")]
-        public string Descripiton { get; set; }
+        public string? Descripiton { get; set; }
 
         /// <summary>
         /// (optional) Reference to classification system party<br/>
@@ -80,7 +90,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_PARTY_IDREF")]
-        public ClassificationSystemPartyIdref ClassificationSystemPartyIdref { get; set; }
+        public ClassificationSystemPartyIdref? ClassificationSystemPartyIdref { get; set; }
 
         /// <summary>
         /// (optional) Number of hierarchical levels<br/>
@@ -110,7 +120,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_SYSTEM_LEVEL_NAMES")]
         [BMEXmlArrayItem("CLASSIFICATION_SYSTEM_LEVEL_NAME")]
-        public List<ClassificationSystemLevelName> LevelNames { get; set; } = new List<ClassificationSystemLevelName>();
+        public List<ClassificationSystemLevelName>? LevelNames { get; set; } = new List<ClassificationSystemLevelName>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LevelNamesSpecified => LevelNames?.Count > 0;
 
@@ -122,7 +132,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_TYPE")]
-        public ClassificationSystemType Type { get; set; }
+        public ClassificationSystemType? Type { get; set; }
 
         /// <summary>
         /// (optional) Allowed values<br/>
@@ -133,7 +143,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("ALLOWED_VALUES")]
         [BMEXmlArrayItem("ALLOWED_VALUE")]
-        public List<AllowedValue> AllowedValues { get; set; } = new List<AllowedValue>();
+        public List<AllowedValue>? AllowedValues { get; set; } = new List<AllowedValue>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool AllowedValuesSpecified => AllowedValues?.Count > 0;
 
@@ -146,7 +156,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("UNITS")]
         [BMEXmlArrayItem("UNIT")]
-        public List<Unit> Units { get; set; } = new List<Unit>();
+        public List<Unit>? Units { get; set; } = new List<Unit>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool UnitsSpecified => Units?.Count > 0;
 
@@ -159,7 +169,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("FT_GROUPS")]
         [BMEXmlArrayItem("FT_GROUP")]
-        public List<FeatureGroup> FeatureGroups { get; set; } = new List<FeatureGroup>();
+        public List<FeatureGroup>? FeatureGroups { get; set; } = new List<FeatureGroup>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FeatureGroupsSpecified => FeatureGroups?.Count > 0;
 
@@ -172,7 +182,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_SYSTEM_FEATURE_TEMPLATES")]
         [BMEXmlArrayItem("CLASSIFICATION_SYSTEM_FEATURE_TEMPLATE")]
-        public List<ClassificationSystemFeatureTemplate> FeatureTemplates { get; set; } = new List<ClassificationSystemFeatureTemplate>();
+        public List<ClassificationSystemFeatureTemplate>? FeatureTemplates { get; set; } = new List<ClassificationSystemFeatureTemplate>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FeatureTemplatesSpecified => FeatureTemplates?.Count > 0;
 
@@ -185,7 +195,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_GROUPS")]
         [BMEXmlArrayItem("CLASSIFICATION_GROUP")]
-        public List<ClassificationGroup> Groups { get; set; } = new List<ClassificationGroup>();
+        public List<ClassificationGroup>? Groups { get; set; } = new List<ClassificationGroup>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool GroupsSpecified => Groups?.Count > 0;
     }

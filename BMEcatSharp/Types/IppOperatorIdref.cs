@@ -45,7 +45,7 @@ namespace BMEcatSharp
         /// See <see cref="PartyTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
-        public override string Type { get => base.Type; set => base.Type = value; }
+        public override string? Type { get => base.Type; set => base.Type = value; }
 
         /// <summary>
         /// (required) Dieses Element enthält einen Verweis auf einen IPP-Anbieter.<br/>
