@@ -13,13 +13,13 @@ namespace OpenTransSharp
     /// An item line contains the requested order information about exactly one item.<br/>
     /// Any number of item lines may be used, but at least one item line must be used.
     /// </summary>
-    public class RfqItem
+    public class RequestForQuotationItem
     {
         /// <summary>
-        /// <inheritdoc cref="RfqItem"/>
+        /// <inheritdoc cref="RequestForQuotationItem"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public RfqItem()
+        public RequestForQuotationItem()
         {
             LineItemId = null!;
             ProductId = null!;
@@ -27,13 +27,13 @@ namespace OpenTransSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="RfqItem"/>
+        /// <inheritdoc cref="RequestForQuotationItem"/>
         /// </summary>
         /// <param name="lineItemId"></param>
         /// <param name="productId"></param>
         /// <param name="quantity"></param>
         /// <param name="orderUnit"></param>
-        public RfqItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit)
+        public RequestForQuotationItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit)
         {
             if (string.IsNullOrWhiteSpace(lineItemId))
             {

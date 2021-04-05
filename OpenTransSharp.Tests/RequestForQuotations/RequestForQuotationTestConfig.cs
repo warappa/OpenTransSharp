@@ -1,44 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OpenTransSharp.Tests.Rfqs
+namespace OpenTransSharp.Tests.RequestForQuotations
 {
-    internal class RfqTestConfig
+    internal class RequestForQuotationTestConfig
     {
         private TestConfig parent;
 
-        public RfqTestConfig(TestConfig parent)
+        public RequestForQuotationTestConfig(TestConfig parent)
         {
             this.parent = parent;
         }
 
-        public Rfq GetRfq()
+        public RequestForQuotation GetRequestForQuotation()
         {
-            var model = new Rfq();
+            var model = new RequestForQuotation();
 
             model.Type = OrderType.Express;
 
             model.Header = GetHeader();
 
-            model.Items.Add(GetRfqItem());
+            model.Items.Add(GetRequestForQuotationItem());
 
             model.Summary = GetSummary();
 
             return model;
         }
 
-        private RfqSummary GetSummary()
+        private RequestForQuotationSummary GetSummary()
         {
-            var model = new RfqSummary();
+            var model = new RequestForQuotationSummary();
 
             model.TotalItemCount = 1;
 
             return model;
         }
 
-        private RfqItem GetRfqItem()
+        private RequestForQuotationItem GetRequestForQuotationItem()
         {
-            var model = new RfqItem();
+            var model = new RequestForQuotationItem();
             model.LineItemId = "1";
             model.ProductId = parent.GetProductId();
             model.Quantity = 2;
@@ -54,9 +54,9 @@ namespace OpenTransSharp.Tests.Rfqs
             return model;
         }
 
-        internal Rfq GetRfqWithUdx()
+        internal RequestForQuotation GetRequestForQuotationWithUdx()
         {
-            var model = GetRfq();
+            var model = GetRequestForQuotation();
 
             model.Header.Information.HeaderUdx.Add(new CustomData()
             {
@@ -87,21 +87,21 @@ namespace OpenTransSharp.Tests.Rfqs
             return model;
         }
 
-        private RfqHeader GetHeader()
+        private RequestForQuotationHeader GetHeader()
         {
-            var header = new RfqHeader();
+            var header = new RequestForQuotationHeader();
 
             header.ControlInformation = parent.GetControlInformation();
 
-            header.Information = GetRfqInformation();
+            header.Information = GetRequestForQuotationInformation();
 
             return header;
         }
 
-        private RfqInformation GetRfqInformation()
+        private RequestForQuotationInformation GetRequestForQuotationInformation()
         {
-            var model = new RfqInformation();
-            model.Id = "RfqId";
+            var model = new RequestForQuotationInformation();
+            model.Id = "RequestForQuotationId";
             model.Date = DateTime.UtcNow;
             model.DeliveryDate = parent.GetDeliveryDate();
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));

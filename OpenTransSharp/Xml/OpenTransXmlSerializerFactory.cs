@@ -43,8 +43,8 @@ namespace OpenTransSharp.Xml
             ConfigureHeaderUdx<RemittanceAdviceInformation>(x => x.HeaderUdx, mappings, overrides);
             ConfigureItemUdx<RemittanceAdviceItem>(x => x.ItemUdx, mappings, overrides);
 
-            ConfigureHeaderUdx<RfqInformation>(x => x.HeaderUdx, mappings, overrides);
-            ConfigureItemUdx<RfqItem>(x => x.ItemUdx, mappings, overrides);
+            ConfigureHeaderUdx<RequestForQuotationInformation>(x => x.HeaderUdx, mappings, overrides);
+            ConfigureItemUdx<RequestForQuotationItem>(x => x.ItemUdx, mappings, overrides);
         }
     }
 }

@@ -7,7 +7,7 @@ using OpenTransSharp.Tests.Orders;
 using OpenTransSharp.Tests.Quotations;
 using OpenTransSharp.Tests.ReceiptAcknowledgements;
 using OpenTransSharp.Tests.RemittanceAdvices;
-using OpenTransSharp.Tests.Rfqs;
+using OpenTransSharp.Tests.RequestForQuotations;
 using System;
 using System.Collections.Generic;
 
@@ -19,7 +19,7 @@ namespace OpenTransSharp.Tests
             : base()
         {
             Orders = new OrderTestConfig(this);
-            Rfqs = new RfqTestConfig(this);
+            RequestForQuotations = new RequestForQuotationTestConfig(this);
             Quotations = new QuotationTestConfig(this);
             OrderChanges = new OrderChangeTestConfig(this);
             OrderResponses = new OrderResponseTestConfig(this);
@@ -59,7 +59,7 @@ namespace OpenTransSharp.Tests
         }
 
         public OrderTestConfig Orders { get; }
-        public RfqTestConfig Rfqs { get; }
+        public RequestForQuotationTestConfig RequestForQuotations { get; }
         public QuotationTestConfig Quotations { get; }
         public OrderChangeTestConfig OrderChanges { get; }
 

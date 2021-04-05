@@ -78,7 +78,7 @@
         /// <br/>
         /// The remark is identified for use in the business document RFQ.
         /// </summary>
-        public const string Rfq = "rfq";
+        public const string RequestForQuotation = "rfq";
         /// <summary>
         /// Transport<br/>
         /// <br/>

@@ -15,27 +15,27 @@ namespace OpenTransSharp
     /// Caution:<br/>
     /// For processing improvement reasons the sorting of the elements has been changed.
     /// </summary>
-    public class RfqInformation
+    public class RequestForQuotationInformation
     {
         /// <summary>
-        /// <inheritdoc cref="RfqInformation"/>
+        /// <inheritdoc cref="RequestForQuotationInformation"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public RfqInformation()
+        public RequestForQuotationInformation()
         {
             Id = null!;
             Currency = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="RfqInformation"/>
+        /// <inheritdoc cref="RequestForQuotationInformation"/>
         /// </summary>
         /// <param name="id"></param>
         /// <param name="date"></param>
         /// <param name="parties"></param>
         /// <param name="orderPartiesReference"></param>
         /// <param name="currency"></param>
-        public RfqInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
+        public RequestForQuotationInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
             OrderPartiesReference orderPartiesReference, string currency)
         {
             if (string.IsNullOrWhiteSpace(id))

@@ -9,19 +9,19 @@ namespace OpenTransSharp
     /// The summary contains information about the number of item lines in the request for quotation.<br/>
     /// This figure is used for control purposes to make sure that all items have been transferred.
     /// </summary>
-    public class RfqSummary
+    public class RequestForQuotationSummary
     {
         /// <summary>
-        /// <inheritdoc cref="RfqSummary"/>
+        /// <inheritdoc cref="RequestForQuotationSummary"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public RfqSummary() { }
+        public RequestForQuotationSummary() { }
 
         /// <summary>
-        /// <inheritdoc cref="RfqSummary"/>
+        /// <inheritdoc cref="RequestForQuotationSummary"/>
         /// </summary>
         /// <param name="totalItemCount"></param>
-        public RfqSummary(int totalItemCount)
+        public RequestForQuotationSummary(int totalItemCount)
         {
             TotalItemCount = totalItemCount;
         }

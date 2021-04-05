@@ -12,19 +12,19 @@ namespace OpenTransSharp
     /// Caution:<br/>
     /// The exception for overwriting on item level (RFQ_ITEM) is the element PARTIAL_SHIPMENT_ALLOWED. In this case the value in the header overwrites the value on item level (RFQ_ITEM).
     /// </summary>
-    public class RfqHeader
+    public class RequestForQuotationHeader
     {
         /// <summary>
-        /// <inheritdoc cref="RfqHeader"/>
+        /// <inheritdoc cref="RequestForQuotationHeader"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public RfqHeader() { }
+        public RequestForQuotationHeader() { }
 
         /// <summary>
-        /// <inheritdoc cref="RfqHeader"/>
+        /// <inheritdoc cref="RequestForQuotationHeader"/>
         /// </summary>
         /// <param name="information"></param>
-        public RfqHeader(RfqInformation information)
+        public RequestForQuotationHeader(RequestForQuotationInformation information)
         {
             Information = information ?? throw new ArgumentNullException(nameof(information));
         }
@@ -42,6 +42,6 @@ namespace OpenTransSharp
         /// Information about this business document.
         /// </summary>
         [XmlElement("RFQ_INFO")]
-        public RfqInformation Information { get; set; } = new RfqInformation();
+        public RequestForQuotationInformation Information { get; set; } = new RequestForQuotationInformation();
     }
 }

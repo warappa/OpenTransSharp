@@ -20,18 +20,18 @@ namespace OpenTransSharp
     /// </summary>
     [XmlRoot(Namespace = "http://www.opentrans.org/XMLSchema/2.1", ElementName = "RFQ")]
     [Serializable]
-    public class Rfq : IOpenTransRoot
+    public class RequestForQuotation : IOpenTransRoot
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = global::BMEcatSharp.Internal.SharedXmlNamespaces.Xmlns;
 
         /// <summary>
-        /// <inheritdoc cref="Rfq"/>
+        /// <inheritdoc cref="RequestForQuotation"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Rfq() { }
+        public RequestForQuotation() { }
         
-        public Rfq(OpenTransVersion version, OrderType type, RfqHeader header, IEnumerable<RfqItem> items, RfqSummary summary)
+        public RequestForQuotation(OpenTransVersion version, OrderType type, RequestForQuotationHeader header, IEnumerable<RequestForQuotationItem> items, RequestForQuotationSummary summary)
         {
             if (items is null)
             {
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// The header level is used to transfer information about business partners and the business document and enter default settings which can be overwritten on item level.
         /// </summary>
         [XmlElement("RFQ_HEADER")]
-        public RfqHeader Header { get; set; } = new RfqHeader();
+        public RequestForQuotationHeader Header { get; set; } = new RequestForQuotationHeader();
 
         /// <summary>
         /// (required) Item level<br/>
@@ -76,7 +76,7 @@ namespace OpenTransSharp
         /// </summary>
         [XmlArray("RFQ_ITEM_LIST")]
         [XmlArrayItem("RFQ_ITEM")]
-        public List<RfqItem> Items { get; set; } = new List<RfqItem>();
+        public List<RequestForQuotationItem> Items { get; set; } = new List<RequestForQuotationItem>();
 
         /// <summary>
         /// (required) Summary<br/>
@@ -84,6 +84,6 @@ namespace OpenTransSharp
         /// Summary of the request for quotation information. The information in this element is redundant.
         /// </summary>
         [XmlElement("RFQ_SUMMARY")]
-        public RfqSummary Summary { get; set; } = new RfqSummary();
+        public RequestForQuotationSummary Summary { get; set; } = new RequestForQuotationSummary();
     }
 }
