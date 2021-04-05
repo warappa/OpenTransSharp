@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -16,13 +17,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ReferenceFeatureGroupId2
     {
+        /// <summary>
+        /// <inheritdoc cref="ReferenceFeatureGroupId2"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ReferenceFeatureGroupId2()
-            : this(null!)
-        { }
-        
+        {
+            Value = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ReferenceFeatureGroupId2"/>
+        /// </summary>
+        /// <param name="value"></param>
         public ReferenceFeatureGroupId2(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 

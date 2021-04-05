@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -11,14 +12,26 @@ namespace BMEcatSharp
     /// </summary>
     public class PriceFormula
     {
+        /// <summary>
+        /// <inheritdoc cref="PriceFormula"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PriceFormula()
-            : this(null!)
         {
+            Idref = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="PriceFormula"/>
+        /// </summary>
+        /// <param name="idRef"></param>
         public PriceFormula(string idRef)
         {
+            if (string.IsNullOrWhiteSpace(idRef))
+            {
+                throw new ArgumentException($"'{nameof(idRef)}' cannot be null or whitespace.", nameof(idRef));
+            }
+
             Idref = idRef;
         }
 

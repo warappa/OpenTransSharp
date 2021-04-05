@@ -12,14 +12,25 @@ namespace BMEcatSharp
     /// </summary>
     public class ValueRange
     {
+        /// <summary>
+        /// <inheritdoc cref="ValueRange"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ValueRange()
-            : this(null!, null!)
-        { }
+        {
+            Startvalue = null!;
+            Endvalue = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ValueRange"/>
+        /// </summary>
+        /// <param name="startvalue"></param>
+        /// <param name="endvalue"></param>
         public ValueRange(Startvalue startvalue, Endvalue endvalue)
         {
-            Startvalue = startvalue;
-            Endvalue = endvalue;
+            Startvalue = startvalue ?? throw new System.ArgumentNullException(nameof(startvalue));
+            Endvalue = endvalue ?? throw new System.ArgumentNullException(nameof(endvalue));
         }
 
         /// <summary>

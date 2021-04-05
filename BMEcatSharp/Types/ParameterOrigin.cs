@@ -18,14 +18,27 @@ namespace BMEcatSharp
     /// </summary>
     public class ParameterOrigin
     {
+        /// <summary>
+        /// <inheritdoc cref="ParameterOrigin"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ParameterOrigin()
-            : this(null!, ParameterOriginType.Config)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ParameterOrigin"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
         public ParameterOrigin(string value, ParameterOriginType type)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Type = type;
             Value = value;
         }

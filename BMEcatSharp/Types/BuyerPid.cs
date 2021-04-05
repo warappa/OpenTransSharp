@@ -16,8 +16,8 @@ namespace BMEcatSharp
     {
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BuyerPid()
-            : this(null!)
         {
+            Value = null!;
         }
 
         public BuyerPid(string value)
@@ -26,11 +26,11 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="BuyerPid"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="BuyerPidTypeValues"/>. Custom values can be used.</param>
-        public BuyerPid(string value, string type)
+        public BuyerPid(string value, string? type)
             : this(value)
         {
             Type = type;

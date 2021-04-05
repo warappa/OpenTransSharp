@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,28 +16,62 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureValue
     {
+        /// <summary>
+        /// <inheritdoc cref="FeatureValue"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public FeatureValue()
-            : this((string)null!)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureValue"/>
+        /// </summary>
+        /// <param name="simple"></param>
         public FeatureValue(string simple)
         {
+            if (string.IsNullOrWhiteSpace(simple))
+            {
+                throw new ArgumentException($"'{nameof(simple)}' cannot be null or whitespace.", nameof(simple));
+            }
+
             Simple = simple;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureValue"/>
+        /// </summary>
+        /// <param name="text"></param>
         public FeatureValue(IEnumerable<MultiLingualString> text)
         {
-            Text = text?.ToList() ?? new();
+            if (text is null)
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
+            Text = text.ToList();
         }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureValue"/>
+        /// </summary>
+        /// <param name="range"></param>
         public FeatureValue(ValueRange range)
         {
-            Range = range;
+            Range = range ?? throw new ArgumentNullException(nameof(range));
         }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureValue"/>
+        /// </summary>
+        /// <param name="idref"></param>
+        /// <returns></returns>
         public static FeatureValue FromIdref(string idref)
         {
+            if (string.IsNullOrWhiteSpace(idref))
+            {
+                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+            }
+
             return new()
             {
                 Idref = idref

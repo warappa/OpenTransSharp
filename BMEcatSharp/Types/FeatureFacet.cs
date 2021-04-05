@@ -12,14 +12,27 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureFacet
     {
+        /// <summary>
+        /// <inheritdoc cref="FeatureFacet"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public FeatureFacet()
-            : this(null!, FeatureFacetType.MinLength)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureFacet"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
         public FeatureFacet(string value, FeatureFacetType type)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Type = type;
             Value = value;
         }

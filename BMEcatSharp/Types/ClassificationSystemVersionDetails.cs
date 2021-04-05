@@ -6,12 +6,25 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
+    /// (Version of the classification system)<br/>
     /// <br/>
+    /// This element contains detailled information on the version of the classification system and its version history.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
     public class ClassificationSystemVersionDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemVersionDetails"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ClassificationSystemVersionDetails() { }
+
+        public ClassificationSystemVersionDetails(Version version)
+        {
+            Version = version ?? throw new ArgumentNullException(nameof(version));
+        }
+
         /// <summary>
         /// (required) Version<br/>
         /// <br/>

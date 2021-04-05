@@ -14,6 +14,21 @@ namespace BMEcatSharp
     public class BMETimeSpan
     {
         /// <summary>
+        /// <inheritdoc cref="BMETimeSpan"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMETimeSpan() { }
+
+        /// <summary>
+        /// <inheritdoc cref="BMETimeSpan"/>
+        /// </summary>
+        /// <param name="timeBase"></param>
+        public BMETimeSpan(BMETimeBase timeBase)
+        {
+            TimeBase = timeBase;
+        }
+
+        /// <summary>
         /// (required) Time base<br/>
         /// <br/>
         /// Time base for a time span or time frame, e.g, hours, weeks.<br/>

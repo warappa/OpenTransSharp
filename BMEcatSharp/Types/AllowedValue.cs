@@ -13,13 +13,26 @@ namespace BMEcatSharp
     /// </summary>
     public class AllowedValue
     {
+        /// <summary>
+        /// <inheritdoc cref="AllowedValue"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public AllowedValue()
-            : this(null!)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="AllowedValue"/>
+        /// </summary>
+        /// <param name="id"></param>
         public AllowedValue(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
         }
 

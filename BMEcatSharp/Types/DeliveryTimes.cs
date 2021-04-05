@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -14,6 +15,26 @@ namespace BMEcatSharp
     /// </summary>
     public class DeliveryTimes
     {
+        /// <summary>
+        /// <inheritdoc cref="DeliveryTimes"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)] 
+        public DeliveryTimes() { }
+
+        /// <summary>
+        /// <inheritdoc cref="DeliveryTimes"/>
+        /// </summary>
+        /// <param name="timeSpans"></param>
+        public DeliveryTimes(IEnumerable<BMETimeSpan> timeSpans)
+        {
+            if (timeSpans is null)
+            {
+                throw new System.ArgumentNullException(nameof(timeSpans));
+            }
+
+            TimeSpans = timeSpans.ToList();
+        }
+
         /// <summary>
         /// (optional - choice Territories/AreaRefs) Territory<br/>
         /// <br/>

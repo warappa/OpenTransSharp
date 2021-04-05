@@ -1,4 +1,6 @@
 ﻿using BMEcatSharp.Xml;
+using System;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -11,18 +13,29 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationFeature
     {
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationFeature"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ConfigurationFeature()
-            : this((FeatureReference)null!)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationFeature"/>
+        /// </summary>
+        /// <param name="featureReference"></param>
         public ConfigurationFeature(FeatureReference featureReference)
         {
-            FeatureReference = featureReference;
+            FeatureReference = featureReference ?? throw new ArgumentNullException(nameof(featureReference));
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationFeature"/>
+        /// </summary>
+        /// <param name="featureTemplate"></param>
         public ConfigurationFeature(FeatureTemplate featureTemplate)
         {
-            FeatureTemplate = featureTemplate;
+            FeatureTemplate = featureTemplate ?? throw new ArgumentNullException(nameof(featureTemplate));
         }
 
         /// <summary>

@@ -12,14 +12,22 @@ namespace BMEcatSharp
     /// </summary>
     public class FormulaVersion
     {
+        /// <summary>
+        /// <inheritdoc cref="FormulaVersion"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public FormulaVersion() 
-            : this(null!)
-        { }
+        {
+            Version = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="FormulaVersion"/>
+        /// </summary>
+        /// <param name="version"></param>
         public FormulaVersion(Version version)
         {
-            Version = version;
+            Version = version ?? throw new ArgumentNullException(nameof(version));
         }
 
         /// <summary>

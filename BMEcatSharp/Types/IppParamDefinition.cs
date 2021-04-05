@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -13,13 +14,26 @@ namespace BMEcatSharp
     /// </summary>
     public class IppParamDefinition : IppParamsBase
     {
+        /// <summary>
+        /// <inheritdoc cref="IppParamDefinition"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppParamDefinition()
-            : this(null!)
-        { }
+        {
+            Name = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="IppParamDefinition"/>
+        /// </summary>
+        /// <param name="name"></param>
         public IppParamDefinition(string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException($"'{nameof(name)}' cannot be null or whitespace.", nameof(name));
+            }
+
             Name = name;
         }
 

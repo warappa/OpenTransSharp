@@ -13,6 +13,21 @@ namespace BMEcatSharp
     public class Endvalue
     {
         /// <summary>
+        /// <inheritdoc cref="Endvalue"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Endvalue() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Endvalue"/>
+        /// </summary>
+        /// <param name="value"></param>
+        public Endvalue(decimal value)
+        {
+            Value = value;
+        }
+
+        /// <summary>
         /// (optional) Interval type<br/>
         /// <br/>
         /// This attribute indicates whether the value is part of the domain or not.

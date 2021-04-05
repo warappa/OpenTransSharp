@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +15,26 @@ namespace BMEcatSharp
     /// </summary>
     public class IppLanguages : IppParamsBase
     {
+        /// <summary>
+        /// <inheritdoc cref="IppLanguages"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public IppLanguages() { }
+
+        /// <summary>
+        /// <inheritdoc cref="IppLanguages"/>
+        /// </summary>
+        /// <param name="languages"></param>
+        public IppLanguages(IEnumerable<Language> languages)
+        {
+            if (languages is null)
+            {
+                throw new ArgumentNullException(nameof(languages));
+            }
+
+            Languages = languages.ToList();
+        }
+
         /// <summary>
         /// (required) Languages<br/>
         /// <br/>

@@ -13,18 +13,37 @@ namespace BMEcatSharp
     /// </summary>
     public class InternationalPid
     {
+        /// <summary>
+        /// <inheritdoc cref="InternationalPid"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InternationalPid()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="InternationalPid"/>
+        /// </summary>
+        /// <param name="value"></param>
         public InternationalPid(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
-        public InternationalPid(string value, string type)
+        /// <summary>
+        /// <inheritdoc cref="InternationalPid"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type">Specification of the underlying standard respectively organisation.<br/>
+        /// <br/>
+        /// See <see cref="InternationalPidTypeValues"/></param>
+        public InternationalPid(string value, string? type)
             : this(value)
         {
             Type = type;

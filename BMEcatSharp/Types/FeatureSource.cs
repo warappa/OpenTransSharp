@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class FeatureSource
     {
         /// <summary>
+        /// <inheritdoc cref="FeatureSource"/>
+        /// </summary>
+        public FeatureSource() { }
+
+        /// <summary>
         /// (optional) Source description<br/>
         /// <br/>
         /// Description of the source, e.g., the name of the document or standard.<br/>

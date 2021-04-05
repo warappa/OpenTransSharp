@@ -18,6 +18,11 @@ namespace BMEcatSharp
     public class CatalogStructure
     {
         /// <summary>
+        /// <inheritdoc cref="CatalogStructure"/>
+        /// </summary>
+        public CatalogStructure() { }
+
+        /// <summary>
         /// (required) Catalog group type<br/>
         /// <br/>
         /// The "type" attribute specifies the position of the group within the catalog tree.<br/>

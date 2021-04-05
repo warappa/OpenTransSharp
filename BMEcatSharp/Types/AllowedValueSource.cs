@@ -14,6 +14,10 @@ namespace BMEcatSharp
     public class AllowedValueSource
     {
         /// <summary>
+        /// <inheritdoc cref="AllowedValueSource"/>
+        /// </summary>
+        public AllowedValueSource() { }
+        /// <summary>
         /// (optional) Source description<br/>
         /// <br/>
         /// Description of the source, e.g., the name of the document or standard.<br/>

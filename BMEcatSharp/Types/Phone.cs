@@ -1,4 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -12,16 +14,21 @@ namespace BMEcatSharp
     /// </summary>
     public class Phone : MultiLingualString
     {
-        public Phone()
-        {
+        /// <summary>
+        /// <inheritdoc cref="Phone"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Phone() { }
 
-        }
-
+        /// <summary>
+        /// <inheritdoc cref="Phone"/>
+        /// </summary>
+        /// <param name="value"></param>
         public Phone(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
             }
 
             Value = value;
@@ -38,7 +45,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(type))
             {
-                throw new System.ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+                throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
             }
 
             Type = type;

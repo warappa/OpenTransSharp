@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +15,25 @@ namespace BMEcatSharp
     /// </summary>
     public class ParameterBasics
     {
+        /// <summary>
+        /// <inheritdoc cref="ParameterBasics"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ParameterBasics() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ParameterBasics"/>
+        /// </summary>
+        /// <param name="name"></param>
+        public ParameterBasics(IEnumerable<MultiLingualString> name)
+        {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            Name = name.ToList();
+        }
         /// <summary>
         /// (required) Parameter name<br/>
         /// <br/>

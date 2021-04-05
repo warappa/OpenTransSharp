@@ -14,14 +14,28 @@ namespace BMEcatSharp
     /// </summary>
     public class BMEcatContactDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="BMEcatContactDetails"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BMEcatContactDetails()
-            : this(null!, Enumerable.Empty<MultiLingualString>())
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="BMEcatContactDetails"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="surname"></param>
         public BMEcatContactDetails(string id, IEnumerable<MultiLingualString> surname)
         {
-            Id = id;
+            if (surname is null)
+            {
+                throw new System.ArgumentNullException(nameof(surname));
+            }
+
+            Id = id ?? throw new System.ArgumentNullException(nameof(id));
             Surname = surname.ToList();
         }
 

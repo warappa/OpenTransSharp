@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -14,6 +15,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductDetails"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductDetails() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ProductDetails"/>
+        /// </summary>
+        /// <param name="descriptionShort"></param>
+        public ProductDetails(IEnumerable<MultiLingualString> descriptionShort)
+        {
+            if (descriptionShort is null)
+            {
+                throw new ArgumentNullException(nameof(descriptionShort));
+            }
+
+            DescriptionShort = descriptionShort.ToList();
+        }
+
         /// <summary>
         /// (required) Short description<br/>
         /// <br/>

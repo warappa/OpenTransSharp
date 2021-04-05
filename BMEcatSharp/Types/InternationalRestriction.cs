@@ -12,14 +12,36 @@ namespace BMEcatSharp
     /// </summary>
     public class InternationalRestriction
     {
+        /// <summary>
+        /// <inheritdoc cref="InternationalRestriction"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InternationalRestriction()
-            : this(null!, null!)
         {
+            Value = null!;
+            Type = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="InternationalRestriction"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type">Specifies the type of international delivery restriction.<br/>
+        /// <br/>
+        /// See <see cref="InternationalRestrictionTypeValues"/>.
+        /// </param>
         public InternationalRestriction(string value, string type)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
+            if (string.IsNullOrWhiteSpace(type))
+            {
+                throw new System.ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+            }
+
             Value = value;
             Type = type;
         }
@@ -27,7 +49,8 @@ namespace BMEcatSharp
         /// <summary>
         /// (required) Type of restriction<br/>
         /// <br/>
-        /// Specifies the type of international delivery restriction.
+        /// Specifies the type of international delivery restriction.<br/>
+        /// <br/>
         /// See <see cref="InternationalRestrictionTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]

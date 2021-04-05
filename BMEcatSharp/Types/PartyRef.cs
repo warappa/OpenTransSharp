@@ -9,14 +9,21 @@ namespace BMEcatSharp
     {
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PartyRef()
-            : this(null!)
-        { }
+        {
+            Value = null!;
+        }
 
         public PartyRef(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
-        public PartyRef(string value, string type)
+
+        public PartyRef(string value, string? type)
             : this(value)
         {
             Type = type;

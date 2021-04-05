@@ -15,13 +15,29 @@ namespace BMEcatSharp
     /// </summary>
     public class IppInbound
     {
+        /// <summary>
+        /// <inheritdoc cref="IppInbound"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppInbound()
-            : this(null!)
-        { }
+        {
+            InboundFormat = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="IppInbound"/>
+        /// </summary>
+        /// <param name="inboundFormat">Exchange format used for implementing the IPP operation, e.g., OCI 4.0 (Open Catalog Interface).<br/>
+        /// <br/>
+        /// <see cref="IppInboundFormatValues"/>.
+        /// </param>
         public IppInbound(string inboundFormat)
         {
+            if (string.IsNullOrWhiteSpace(inboundFormat))
+            {
+                throw new ArgumentException($"'{nameof(inboundFormat)}' cannot be null or whitespace.", nameof(inboundFormat));
+            }
+
             InboundFormat = inboundFormat;
         }
 

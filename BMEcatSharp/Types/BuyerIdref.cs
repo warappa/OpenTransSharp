@@ -12,23 +12,35 @@ namespace BMEcatSharp
     /// </summary>
     public class BuyerIdref : PartyRef<BuyerIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="BuyerIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BuyerIdref()
         {
             Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="BuyerIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public BuyerIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="BuyerIdref"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public BuyerIdref(string value, string type)
+        public BuyerIdref(string value, string? type)
             : this(value)
         {
             Type = type;

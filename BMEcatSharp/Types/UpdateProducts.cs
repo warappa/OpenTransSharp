@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -27,6 +28,28 @@ namespace BMEcatSharp
     /// </summary>
     public class UpdateProducts
     {
+        /// <summary>
+        /// <inheritdoc cref="UpdateProducts"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public UpdateProducts() { }
+
+        /// <summary>
+        /// <inheritdoc cref="UpdateProducts"/>
+        /// </summary>
+        /// <param name="previousVersion"></param>
+        /// <param name="products"></param>
+        public UpdateProducts(int previousVersion, IEnumerable<UpdateProductsProduct> products)
+        {
+            if (products is null)
+            {
+                throw new ArgumentNullException(nameof(products));
+            }
+
+            PreviousVersion = previousVersion;
+            Products = products.ToList();
+        }
+
         /// <summary>
         /// (required) No of previous updates<br/>
         /// <br/>

@@ -12,16 +12,25 @@ namespace BMEcatSharp
     /// </summary>
     public class Authentification
     {
+        /// <summary>
+        /// <inheritdoc cref="Authentification"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Authentification()
-            : this(null!, null!)
         {
+            Login = null!;
+            Password = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Authentification"/>
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="password"></param>
         public Authentification(string login, string password)
         {
-            Login = login;
-            Password = password;
+            Login = login ?? throw new System.ArgumentNullException(nameof(login));
+            Password = password ?? throw new System.ArgumentNullException(nameof(password));
         }
 
         /// <summary>

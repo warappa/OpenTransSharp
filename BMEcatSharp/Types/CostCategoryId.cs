@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -13,15 +14,37 @@ namespace BMEcatSharp
     /// </summary>
     public class CostCategoryId
     {
+        /// <summary>
+        /// <inheritdoc cref="CostCategoryId"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CostCategoryId()
-            : this(null!, CostCategoryIdType.CostCenter)
         {
+            Value = null!;
         }
 
-        public CostCategoryId(string value, CostCategoryIdType type)
+        /// <summary>
+        /// <inheritdoc cref="CostCategoryId"/>
+        /// </summary>
+        /// <param name="value"></param>
+        public CostCategoryId(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="CostCategoryId"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
+        public CostCategoryId(string value, CostCategoryIdType type)
+            : this(value)
+        {
             Type = type;
         }
 
@@ -33,6 +56,8 @@ namespace BMEcatSharp
         /// </summary>
         [XmlAttribute("type")]
         public CostCategoryIdType Type { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TypeSpecified => Type != CostCategoryIdType.Undefined;
 
         /// <summary>
         /// (required)<br/>

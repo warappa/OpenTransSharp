@@ -16,14 +16,26 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class Supplier
     {
+        /// <summary>
+        /// <inheritdoc cref="Supplier"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Supplier()
-            : this(null!)
         {
+            Name = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Supplier"/>
+        /// </summary>
+        /// <param name="name"></param>
         public Supplier(string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException($"'{nameof(name)}' cannot be null or whitespace.", nameof(name));
+            }
+
             Name = name;
         }
 
@@ -60,7 +72,7 @@ namespace BMEcatSharp
         /// </summary>
         [Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("ADDRESS")]
-        public BMEcatAddress? Address { get; set; }
+        public Address? Address { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

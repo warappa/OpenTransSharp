@@ -13,14 +13,26 @@ namespace BMEcatSharp
     /// </summary>
     public class DocumentCreatorIdref
     {
+        /// <summary>
+        /// <inheritdoc cref="DocumentCreatorIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DocumentCreatorIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="DocumentCreatorIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public DocumentCreatorIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -32,7 +44,7 @@ namespace BMEcatSharp
         /// The most common coding standards are predefined.<br/>
         /// <br/>
         /// See <see cref="PartyTypeValues"/>.</param>
-        public DocumentCreatorIdref(string value, string type)
+        public DocumentCreatorIdref(string value, string? type)
             : this(value)
         {
             Type = type;

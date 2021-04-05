@@ -15,18 +15,31 @@ namespace BMEcatSharp
     /// </summary>
     public class PartyId
     {
+        /// <summary>
+        /// <inheritdoc cref="PartyId"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PartyId()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Party"/>
+        /// </summary>
+        /// <param name="value"></param>
         public PartyId(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
+
         /// <summary>
-        /// 
+        /// <inheritdoc cref="Party"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">Einige gängige Kodifikationssysteme sind vordefiniert. Für vordefinierte Werte siehe <see cref="PartyTypeValues"/>, es können aber auch ein eigene Werte verwendet werden.</param>

@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class ClassificationSystemType
     {
         /// <summary>
+        /// <inheritdoc cref="ClassificationSystemType"/>
+        /// </summary>
+        public ClassificationSystemType() { }
+
+        /// <summary>
         /// (optional) Group identifier type<br/>
         /// <br/>
         /// This element specifies the type of the group identifiers contained in CLASSIFICATION_GROUP_ID elements:<br/>

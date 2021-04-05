@@ -13,13 +13,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationFormula
     {
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationFormula"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ConfigurationFormula()
-            : this(null!)
-        { }
+        {
+            Idref = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationFormula"/>
+        /// </summary>
+        /// <param name="idref"></param>
         public ConfigurationFormula(string idref)
         {
+            if (string.IsNullOrWhiteSpace(idref))
+            {
+                throw new System.ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+            }
+
             Idref = idref;
         }
 

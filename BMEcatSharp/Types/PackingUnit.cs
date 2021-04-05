@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml;
@@ -16,21 +17,54 @@ namespace BMEcatSharp
     /// </summary>
     public class PackingUnit
     {
+        /// <summary>
+        /// <inheritdoc cref="PackingUnit"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PackingUnit()
-            : this(1, 0, null!, (SupplierPid)null!)
-        { }
+        {
+            Code = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="PackingUnit"/>
+        /// </summary>
+        /// <param name="minimumQuantity"></param>
+        /// <param name="maximumQuantity"></param>
+        /// <param name="code"></param>
+        /// <param name="supplierPid"></param>
         public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, SupplierPid supplierPid)
         {
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                throw new ArgumentException($"'{nameof(code)}' cannot be null or whitespace.", nameof(code));
+            }
+
             MinimumQuantity = minimumQuantity;
             MaximumQuantity = maximumQuantity;
             Code = code;
-            SupplierPid = supplierPid;
+            SupplierPid = supplierPid ?? throw new ArgumentNullException(nameof(supplierPid));
         }
 
+        /// <summary>
+        /// <inheritdoc cref="PackingUnit"/>
+        /// </summary>
+        /// <param name="minimumQuantity"></param>
+        /// <param name="maximumQuantity"></param>
+        /// <param name="code"></param>
+        /// <param name="supplierPIdref"></param>
         public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, string supplierPIdref)
         {
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                throw new ArgumentException($"'{nameof(code)}' cannot be null or whitespace.", nameof(code));
+            }
+
+            if (string.IsNullOrWhiteSpace(supplierPIdref))
+            {
+                throw new ArgumentException($"'{nameof(supplierPIdref)}' cannot be null or whitespace.", nameof(supplierPIdref));
+            }
+
             MinimumQuantity = minimumQuantity;
             MaximumQuantity = maximumQuantity;
             Code = code;
@@ -78,7 +112,7 @@ namespace BMEcatSharp
         public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
-        /// (required) Supplier's product ID<br/>
+        /// (required - choice SupplierPid/SupplierPidref with SupplierIdref) Supplier's product ID<br/>
         /// <br/>
         /// This element contains the product number issued by the supplier.<br/>
         /// It is determining for ordering the product; it identifies the product in the supplier catalog.<br/>
@@ -99,7 +133,7 @@ namespace BMEcatSharp
         public SupplierPid? SupplierPid { get; set; }
 
         /// <summary>
-        /// (required) Reference to a product number<br/>
+        /// (required - choice SupplierPid/SupplierPidref with SupplierIdref) Reference to a product number<br/>
         /// <br/>
         /// This element provides a reference to a product number of the supplier.<br/>
         /// It contains the unique identifier (SUPPLIER_PID) that is defined in the document.<br/>

@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class TaxDetails
     {
         /// <summary>
+        /// <inheritdoc cref="TaxDetails"/>
+        /// </summary>
+        public TaxDetails() { }
+
+        /// <summary>
         /// (optional) Calculation sequence<br/>
         /// <br/>
         /// This element determines the sequence for applying multiple taxes to a basis.<br/>

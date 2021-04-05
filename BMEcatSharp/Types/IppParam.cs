@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -12,13 +13,33 @@ namespace BMEcatSharp
     /// </summary>
     public class IppParam
     {
+        /// <summary>
+        /// <inheritdoc cref="IppOutboundParams"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppParam()
-            : this(null!, null!)
-        { }
+        {
+            Nameref = null!;
+            Value = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="IppOutboundParams"/>
+        /// </summary>
+        /// <param name="nameref"></param>
+        /// <param name="value"></param>
         public IppParam(string nameref, string value)
         {
+            if (string.IsNullOrWhiteSpace(nameref))
+            {
+                throw new ArgumentException($"'{nameof(nameref)}' cannot be null or whitespace.", nameof(nameref));
+            }
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Nameref = nameref;
             Value = value;
         }

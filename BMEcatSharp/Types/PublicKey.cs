@@ -12,14 +12,18 @@ namespace BMEcatSharp
     /// </summary>
     public class PublicKey
     {
+        /// <summary>
+        /// <inheritdoc cref="PublicKey"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PublicKey()
-            : this(null!, null!)
         {
+            Value = null!;
+            Type = null!;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="PublicKey"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">This attribute indicates the Public Key coding process in which the e-mail is coded.<br/>

@@ -17,15 +17,34 @@ namespace BMEcatSharp
     /// </summary>
     public class Ipp
     {
+        /// <summary>
+        /// <inheritdoc cref="Ipp"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Ipp()
-            : this(null!, null!)
-        { }
+        {
+            Idref = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Ipp"/>
+        /// </summary>
+        /// <param name="idref"></param>
+        /// <param name="operationIdrefs"></param>
         public Ipp(string idref, IEnumerable<string> operationIdrefs)
         {
+            if (string.IsNullOrWhiteSpace(idref))
+            {
+                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+            }
+
+            if (operationIdrefs is null)
+            {
+                throw new ArgumentNullException(nameof(operationIdrefs));
+            }
+
             Idref = idref;
-            OperationIdrefs = operationIdrefs?.ToList() ?? new();
+            OperationIdrefs = operationIdrefs.ToList();
         }
 
         /// <summary>

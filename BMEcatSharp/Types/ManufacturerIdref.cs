@@ -13,24 +13,36 @@ namespace BMEcatSharp
     /// </summary>
     public class ManufacturerIdref : PartyRef<ManufacturerIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="LegalInfo"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ManufacturerIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="LegalInfo"/>
+        /// </summary>
+        /// <param name="value"></param>
         public ManufacturerIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="ManufacturerIdref"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined. See <see cref="PartyTypeValues"/>. Custom values can be used.</param>
-        public ManufacturerIdref(string value, string type)
+        public ManufacturerIdref(string value, string? type)
             : this(value)
         {
             Type = type;

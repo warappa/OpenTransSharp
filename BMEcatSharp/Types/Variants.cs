@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -20,6 +21,28 @@ namespace BMEcatSharp
     public class Variants
     {
         /// <summary>
+        /// <inheritdoc cref="Variants"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Variants() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Variants"/>
+        /// </summary>
+        /// <param name="variantOrder"></param>
+        /// <param name="featureVariants"></param>
+        public Variants(int variantOrder, IEnumerable<Variant> featureVariants)
+        {
+            if (featureVariants is null)
+            {
+                throw new System.ArgumentNullException(nameof(featureVariants));
+            }
+
+            VariantOrder = variantOrder;
+            FeatureVariants = featureVariants.ToList();
+        }
+
+        /// <summary>
         /// (required) Variant<br/>
         /// <br/>
         /// Description of a variant (feature value and product number supplement).
@@ -30,7 +53,7 @@ namespace BMEcatSharp
         public bool FeatureVariantsSpecified => FeatureVariants?.Count > 0;
 
         /// <summary>
-        /// (required) Variant<br/>
+        /// (required) Variant Order<br/>
         /// <br/>
         /// Defines which order is to be used to link the product number supplement (SUPPLIER_AID_SUPPLEMENT) with the basic product number (SUPPLIER_PID); the product number expansions are linked to the value VORDER in ascending order.
         /// </summary>

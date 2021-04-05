@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,15 +14,35 @@ namespace BMEcatSharp
     /// </summary>
     public class IppDefinition
     {
+        /// <summary>
+        /// <inheritdoc cref="IppDefinition"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public IppDefinition() 
-            : this(null!, IppType.AvailabilityRequest)
-        { }
-
-        public IppDefinition(string id, IppType type)
+        public IppDefinition()
         {
+            Id = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IppDefinition"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
+        public IppDefinition(string id, IppType type, IEnumerable<IppOperation> operations)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (operations is null)
+            {
+                throw new System.ArgumentNullException(nameof(operations));
+            }
+
             Id = id;
             Type = type;
+            Operations = operations.ToList();
         }
 
         /// <summary>

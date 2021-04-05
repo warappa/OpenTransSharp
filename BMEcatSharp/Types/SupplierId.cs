@@ -13,14 +13,26 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class SupplierId
     {
+        /// <summary>
+        /// <inheritdoc cref="SupplierId"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierId()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="SupplierId"/>
+        /// </summary>
+        /// <param name="value"></param>
         public SupplierId(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -32,7 +44,7 @@ namespace BMEcatSharp
         /// The most common coding standards are predefined.<br/>
         /// <br/>
         /// See <see cref="PartyTypeValues"/>.</param>
-        public SupplierId(string value, string type)
+        public SupplierId(string value, string? type)
             : this(value)
         {
             Type = type;

@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -15,6 +16,26 @@ namespace BMEcatSharp
     /// </summary>
     public class Party
     {
+        /// <summary>
+        /// <inheritdoc cref="Party"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Party() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Party"/>
+        /// </summary>
+        /// <param name="ids"></param>
+        public Party(IEnumerable<PartyId> ids)
+        {
+            if (ids is null)
+            {
+                throw new System.ArgumentNullException(nameof(ids));
+            }
+
+            Ids = ids.ToList();
+        }
+
         /// <summary>
         /// (required) ID of the business partner<br/>
         /// <br/>
@@ -48,7 +69,7 @@ namespace BMEcatSharp
         /// Address information of a business partner.
         /// </summary>
         [XmlElement("ADDRESS")]
-        public BMEcatAddress? Address { get; set; }
+        public Address? Address { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

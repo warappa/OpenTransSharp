@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -17,14 +18,26 @@ namespace BMEcatSharp
     /// </summary>
     public class Unit
     {
+        /// <summary>
+        /// <inheritdoc cref="Unit"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Unit()
-            : this(null!)
         {
+            Id = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Unit"/>
+        /// </summary>
+        /// <param name="id"></param>
         public Unit(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
         }
 

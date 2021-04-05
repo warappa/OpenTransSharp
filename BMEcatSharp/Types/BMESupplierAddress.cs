@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Address)<br/>
+    /// (Address in context Supplier)<br/>
     /// <br/>
     /// This element is used to transfer address information of a business partner.<br/>
     /// This element will not be used in the future.<br/>
@@ -18,10 +18,26 @@ namespace BMEcatSharp
     public class BMESupplierAddress
     {
         /// <summary>
+        /// <inheritdoc cref="BMESupplierAddress"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMESupplierAddress() { }
+
+        /// <summary>
+        /// <inheritdoc cref="BMESupplierAddress"/>
+        /// </summary>
+        /// <param name="type"></param>
+        public BMESupplierAddress(BMESupplierAddressType type)
+        {
+            Type = type;
+        }
+
+        /// <summary>
         /// (required) Address type<br/>
         /// <br/>
         /// Contains the address type.
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [XmlAttribute("type")]
         public BMESupplierAddressType Type { get; set; }
 

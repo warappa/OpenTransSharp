@@ -5,7 +5,7 @@
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FaxTypeValues
+    public static class FaxTypeValues
     {
         /// <summary>
         /// Office

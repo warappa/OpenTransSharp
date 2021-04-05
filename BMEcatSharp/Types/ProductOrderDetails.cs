@@ -13,13 +13,33 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductOrderDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductOrderDetails"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductOrderDetails()
-            : this(null!, null!)
-        { }
+        {
+            OrderUnit = null!;
+            ContentUnit = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ProductOrderDetails"/>
+        /// </summary>
+        /// <param name="orderUnit"></param>
+        /// <param name="contentUnit"></param>
         public ProductOrderDetails(string orderUnit, string contentUnit)
         {
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new System.ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
+            if (string.IsNullOrWhiteSpace(contentUnit))
+            {
+                throw new System.ArgumentException($"'{nameof(contentUnit)}' cannot be null or whitespace.", nameof(contentUnit));
+            }
+
             OrderUnit = orderUnit;
             ContentUnit = contentUnit;
         }

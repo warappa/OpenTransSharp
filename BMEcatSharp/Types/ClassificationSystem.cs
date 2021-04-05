@@ -14,11 +14,19 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystem
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationSystem()
-            : this(null!)
-        { }
+        {
+            Name = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystem"/>
+        /// </summary>
+        /// <param name="name"></param>
         public ClassificationSystem(string name)
         {
             Name = name;
@@ -35,7 +43,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_NAME")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// (optional) Complete name of the classification system<br/>

@@ -1,5 +1,7 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +14,24 @@ namespace BMEcatSharp
     /// </summary>
     public class IppInboundParams
     {
+        /// <summary>
+        /// <inheritdoc cref="IppInboundParams"/>
+        /// </summary>
+        public IppInboundParams() { }
+
+        /// <summary>
+        /// <inheritdoc cref="IppInboundParams"/>
+        /// </summary>
+        /// <param name="definitions"></param>
+        public IppInboundParams(IEnumerable<IppParamDefinition> definitions)
+        {
+            if (definitions is null)
+            {
+                throw new ArgumentNullException(nameof(definitions));
+            }
+
+            Definitions = definitions.ToList();
+        }
         /// <summary>
         /// (required) Other IPP input parameters<br/>
         /// <br/>

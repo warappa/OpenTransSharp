@@ -12,14 +12,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystemPartyIdref : PartyRef<ClassificationSystemPartyIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemPartyIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationSystemPartyIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemPartyIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public ClassificationSystemPartyIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -28,7 +40,7 @@ namespace BMEcatSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public ClassificationSystemPartyIdref(string value, string type)
+        public ClassificationSystemPartyIdref(string value, string? type)
             : this(value)
         {
             Type = type;

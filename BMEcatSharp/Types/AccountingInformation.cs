@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -14,6 +15,21 @@ namespace BMEcatSharp
     public class AccountingInformation
     {
         /// <summary>
+        /// <inheritdoc cref="AccountingInformation"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AccountingInformation() { }
+
+        /// <summary>
+        /// <inheritdoc cref="AccountingInformation"/>
+        /// </summary>
+        /// <param name="costCategoryId"></param>
+        public AccountingInformation(CostCategoryId costCategoryId)
+        {
+            CostCategoryId = costCategoryId ?? throw new System.ArgumentNullException(nameof(costCategoryId));
+        }
+
+        /// <summary>
         /// (required) Cost category<br/>
         /// <br/>
         /// Number of the cost center to be charged or the project or work order to which the charge must be made.<br/>
@@ -22,10 +38,10 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("COST_CATEGORY_ID")]
-        public CostCategoryId? CostCategoryId { get; set; }
+        public CostCategoryId CostCategoryId { get; set; } = new CostCategoryId();
 
         /// <summary>
-        /// (required) Type of cost <br/>
+        /// (optional) Type of cost <br/>
         /// <br/>
         /// Information about the type of cost, e.g. investment, service, consumption, etc.< br/>
         /// <br/>
@@ -35,7 +51,7 @@ namespace BMEcatSharp
         public string? CostType { get; set; }
 
         /// <summary>
-        /// (required) Cost account<br/>
+        /// (optional) Cost account<br/>
         /// <br/>
         /// Number of the main account to be charged.< br/>
         /// <br/>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -16,6 +17,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductPriceDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductPriceDetails"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductPriceDetails() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ProductPriceDetails"/>
+        /// </summary>
+        /// <param name="productPrices"></param>
+        public ProductPriceDetails(IEnumerable<ProductPrice> productPrices)
+        {
+            if (productPrices is null)
+            {
+                throw new ArgumentNullException(nameof(productPrices));
+            }
+
+            ProductPrices = productPrices.ToList();
+        }
+
         /// <summary>
         /// (optional) Valid start date<br/>
         /// <br/>

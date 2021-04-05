@@ -1,5 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +14,26 @@ namespace BMEcatSharp
     /// </summary>
     public class AreaRef
     {
+        /// <summary>
+        /// <inheritdoc cref="AreaRef"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AreaRef() { }
+
+        /// <summary>
+        /// <inheritdoc cref="AreaRef"/>
+        /// </summary>
+        /// <param name="idrefs"></param>
+        public AreaRef(IEnumerable<string> idrefs)
+        {
+            if (idrefs is null)
+            {
+                throw new System.ArgumentNullException(nameof(idrefs));
+            }
+
+            Idrefs = idrefs.ToList();
+        }
+
         /// <summary>
         /// (required) Reference to an area<br/>
         /// <br/>

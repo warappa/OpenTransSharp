@@ -13,6 +13,21 @@ namespace BMEcatSharp
     public class Startvalue
     {
         /// <summary>
+        /// <inheritdoc cref="Startvalue"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Startvalue() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Startvalue"/>
+        /// </summary>
+        /// <param name="value"></param>
+        public Startvalue(decimal value)
+        {
+            Value = value;
+        }
+
+        /// <summary>
         /// (optional) Interval type<br/>
         /// <br/>
         /// This attribute indicates whether the value is part of the domain or not.

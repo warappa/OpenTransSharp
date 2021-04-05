@@ -15,18 +15,31 @@ namespace BMEcatSharp
     /// </summary>
     public class ParameterDefinition
     {
+        /// <summary>
+        /// <inheritdoc cref="ParameterDefinition"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ParameterDefinition()
-            : this(null!, null!, null!)
         {
-
+            Symbol = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ParameterDefinition"/>
+        /// </summary>
+        /// <param name="symbol"></param>
+        /// <param name="basics"></param>
+        /// <param name="featureReference"></param>
         public ParameterDefinition(string symbol, ParameterBasics basics, FeatureReference featureReference)
         {
+            if (string.IsNullOrWhiteSpace(symbol))
+            {
+                throw new System.ArgumentException($"'{nameof(symbol)}' cannot be null or whitespace.", nameof(symbol));
+            }
+
             Symbol = symbol;
-            Basics = basics;
-            FeatureReference = featureReference;
+            Basics = basics ?? throw new System.ArgumentNullException(nameof(basics));
+            FeatureReference = featureReference ?? throw new System.ArgumentNullException(nameof(featureReference));
         }
 
         /// <summary>
@@ -51,7 +64,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_BASICS")]
-        public ParameterBasics Basics { get; set; }
+        public ParameterBasics Basics { get; set; } = new ParameterBasics();
 
         /// <summary>
         /// (required) Reference to a feature<br/>
@@ -61,7 +74,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FREF")]
-        public FeatureReference FeatureReference { get; set; }
+        public FeatureReference FeatureReference { get; set; } = new FeatureReference();
 
         /// <summary>
         /// (optional) Parameter origin<br/>

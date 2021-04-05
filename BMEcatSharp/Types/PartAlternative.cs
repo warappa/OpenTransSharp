@@ -14,6 +14,25 @@ namespace BMEcatSharp
     public class PartAlternative
     {
         /// <summary>
+        /// <inheritdoc cref="PartAlternative"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PartAlternative()
+        {
+            SupplierPIdref = null!;
+        }
+
+        public PartAlternative(string supplierPIdref)
+        {
+            if (string.IsNullOrWhiteSpace(supplierPIdref))
+            {
+                throw new System.ArgumentException($"'{nameof(supplierPIdref)}' cannot be null or whitespace.", nameof(supplierPIdref));
+            }
+
+            SupplierPIdref = supplierPIdref;
+        }
+
+        /// <summary>
         /// (required) Reference to a product number<br/>
         /// <br/>
         /// This element provides a reference to a product number of the supplier.<br/>
@@ -23,7 +42,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_PIDREF")]
-        public string? SupplierPIdref { get; set; }
+        public string SupplierPIdref { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>

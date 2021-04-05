@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -15,6 +16,125 @@ namespace BMEcatSharp
     /// </summary>
     public class Feature
     {
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Feature() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="values"></param>
+        public Feature(IEnumerable<MultiLingualString> name, IEnumerable<MultiLingualString> values)
+        {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if (values is null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+
+            Name = name.ToList();
+            Values = values.ToList();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="valueIdrefs"></param>
+        public Feature(IEnumerable<MultiLingualString> name, IEnumerable<string> valueIdrefs)
+        {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
+            if (valueIdrefs is null)
+            {
+                throw new ArgumentNullException(nameof(valueIdrefs));
+            }
+
+            Name = name.ToList();
+            ValueIdrefs = valueIdrefs.ToList();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        /// <param name="idref"></param>
+        public Feature(string idref, IEnumerable<MultiLingualString> values)
+        {
+            if (string.IsNullOrWhiteSpace(idref))
+            {
+                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+            }
+
+            if (values is null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+
+            Idref = idref;
+            Values = values.ToList();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        /// <param name="idref"></param>
+        /// <param name="valueIdrefs"></param>
+        public Feature(string idref, IEnumerable<string> valueIdrefs)
+        {
+            if (string.IsNullOrWhiteSpace(idref))
+            {
+                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+            }
+
+            if (valueIdrefs is null)
+            {
+                throw new ArgumentNullException(nameof(valueIdrefs));
+            }
+
+            Idref = idref;
+            ValueIdrefs = valueIdrefs.ToList();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        /// <param name="template"></param>
+        public Feature(FeatureTemplate template, IEnumerable<MultiLingualString> values)
+        {
+            if (values is null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+
+            Template = template ?? throw new ArgumentNullException(nameof(template));
+            Values = values.ToList();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Feature"/>
+        /// </summary>
+        /// <param name="template"></param>
+        public Feature(FeatureTemplate template, IEnumerable<string> valueIdrefs)
+        {
+            if (valueIdrefs is null)
+            {
+                throw new ArgumentNullException(nameof(valueIdrefs));
+            }
+
+            Template = template ?? throw new ArgumentNullException(nameof(template));
+            ValueIdrefs = valueIdrefs.ToList();
+        }
+
         /// <summary>
         /// (required - choice Name/Idref/Template) Feature name<br/>
         /// <br/>

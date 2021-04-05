@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -12,14 +13,33 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureReference
     {
+        /// <summary>
+        /// <inheritdoc cref="FeatureReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public FeatureReference()
-            : this(null!, null!)
         {
+            SystemName = null!;
+            Idref = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureReference"/>
+        /// </summary>
+        /// <param name="systemName"></param>
+        /// <param name="idref"></param>
         public FeatureReference(string systemName, string idref)
         {
+            if (string.IsNullOrWhiteSpace(systemName))
+            {
+                throw new ArgumentException($"'{nameof(systemName)}' cannot be null or whitespace.", nameof(systemName));
+            }
+
+            if (string.IsNullOrWhiteSpace(idref))
+            {
+                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+            }
+
             SystemName = systemName;
             Idref = idref;
         }

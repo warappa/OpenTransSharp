@@ -37,6 +37,11 @@ namespace BMEcatSharp
     public class ProductFeatures
     {
         /// <summary>
+        /// <inheritdoc cref="ProductFeatures"/>
+        /// </summary>
+        public ProductFeatures() { }
+
+        /// <summary>
         /// (optional) Classification or feature system<br/>
         /// <br/>
         /// Name of the referenced classification or feature system<br/>

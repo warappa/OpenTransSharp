@@ -1,5 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +15,26 @@ namespace BMEcatSharp
     /// </summary>
     public class PredefinedConfigurations
     {
+        /// <summary>
+        /// <inheritdoc cref="PredefinedConfigurations"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PredefinedConfigurations() { }
+
+        /// <summary>
+        /// <inheritdoc cref="PredefinedConfigurations"/>
+        /// </summary>
+        /// <param name="configurations"></param>
+        public PredefinedConfigurations(IEnumerable<PredefinedConfiguration> configurations)
+        {
+            if (configurations is null)
+            {
+                throw new ArgumentNullException(nameof(configurations));
+            }
+
+            Configurations = configurations.ToList();
+        }
+
         /// <summary>
         /// (required) Predefined configuration<br/>
         /// <br/>
@@ -30,6 +53,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_COVERAGE")]
-        public PredefinedConfigurationCoverage? Coverage { get; set; } = BMEcatSharp.PredefinedConfigurationCoverage.Partial;
+        public PredefinedConfigurationCoverage? Coverage { get; set; } = PredefinedConfigurationCoverage.Partial;
     }
 }

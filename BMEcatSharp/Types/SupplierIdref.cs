@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -12,23 +13,35 @@ namespace BMEcatSharp
     /// </summary>
     public class SupplierIdref : PartyRef<SupplierIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="SupplierIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="SupplierIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public SupplierIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="SupplierIdref"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public SupplierIdref(string value, string type)
+        public SupplierIdref(string value, string? type)
             : this(value)
         {
             Type = type;

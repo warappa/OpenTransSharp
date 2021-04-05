@@ -14,17 +14,34 @@ namespace BMEcatSharp
     /// </summary>
     public class IppProductconfigIdref : IppParamsBase
     {
+        /// <summary>
+        /// <inheritdoc cref="IppProductconfigIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppProductconfigIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IppProductconfigIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public IppProductconfigIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IppProductconfigIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="occurrence"></param>
         public IppProductconfigIdref(string value, IppOccurrence occurrence)
             : this(value)
         {

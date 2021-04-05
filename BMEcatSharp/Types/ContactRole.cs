@@ -10,20 +10,37 @@ namespace BMEcatSharp
     /// </summary>
     public class ContactRole
     {
+        /// <summary>
+        /// <inheritdoc cref="ContactRole"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ContactRole()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ContactRole"/>
+        /// </summary>
+        /// <param name="value"></param>
         public ContactRole(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ContactRole"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
         public ContactRole(string value, ContactRoleType type)
+            : this(value)
         {
-            Value = value;
             Type = type;
         }
 

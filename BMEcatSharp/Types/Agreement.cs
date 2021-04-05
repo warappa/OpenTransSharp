@@ -16,14 +16,26 @@ namespace BMEcatSharp
     /// </summary>
     public class Agreement
     {
+        /// <summary>
+        /// <inheritdoc cref="Agreement"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Agreement() 
         {
             Id = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Agreement"/>
+        /// </summary>
+        /// <param name="id"></param>
         public Agreement(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
         }
 
@@ -32,7 +44,8 @@ namespace BMEcatSharp
         /// <br/>
         /// Owner of the skeleton agreement.<br/>
         /// If reference is made to skeleton agreements of an intermediary, the element value should point to the intermediary.<br/>
-        /// Some target systems are not in a position to interpret other values than the pre-defined ones.
+        /// Some target systems are not in a position to interpret other values than the pre-defined ones.<br/>
+        /// <br/>
         /// See <see cref="AgreementTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
@@ -75,7 +88,7 @@ namespace BMEcatSharp
         public string? LineId { get; set; }
 
         /// <summary>
-        /// (optional - choice AgreementEndDate/(deprecated)Datetime) Start date of the skeleton agreement<br/>
+        /// (optional - choice EndDate with StartDate/(deprecated)Datetimes) Start date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp of the time, when the skeleton agreement begins.<br/>
         /// <br/>
@@ -87,7 +100,7 @@ namespace BMEcatSharp
         public bool StartDateSpecified => StartDate.HasValue;
 
         /// <summary>
-        /// (required - with AgreementEndDate) End date of the skeleton agreement<br/>
+        /// (required - choice EndDate with StartDate/(deprecated)Datetimes) End date of the skeleton agreement<br/>
         /// <br/>
         /// Unique time stamp for the time when the skeleton agreement ends.<br/>
         /// <br/>

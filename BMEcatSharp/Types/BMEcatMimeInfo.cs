@@ -1,5 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -20,6 +22,26 @@ namespace BMEcatSharp
     /// </summary>
     public class BMEcatMimeInfo
     {
+        /// <summary>
+        /// <inheritdoc cref="BMEcatMimeInfo"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEcatMimeInfo() { }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatMimeInfo"/>
+        /// </summary>
+        /// <param name="mimes"></param>
+        public BMEcatMimeInfo(IEnumerable<BMEcatMime> mimes)
+        {
+            if (mimes is null)
+            {
+                throw new System.ArgumentNullException(nameof(mimes));
+            }
+
+            Mimes = mimes.ToList();
+        }
+
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>

@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +15,43 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductConfigurationDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductConfigurationDetails"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductConfigurationDetails()
+        {
+
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ProductContacts"/>
+        /// </summary>
+        /// <param name="steps"></param>
+        /// <param name="rules"></param>
+        /// <param name="formulas"></param>
+        public ProductConfigurationDetails(IEnumerable<ConfigurationStep> steps, IEnumerable<Term> rules, IEnumerable<ConfigurationFormula> formulas)
+        {
+            if (steps is null)
+            {
+                throw new ArgumentNullException(nameof(steps));
+            }
+
+            if (rules is null)
+            {
+                throw new ArgumentNullException(nameof(rules));
+            }
+
+            if (formulas is null)
+            {
+                throw new ArgumentNullException(nameof(formulas));
+            }
+
+            Steps = steps.ToList();
+            Rules = rules.ToList();
+            Formulas = formulas.ToList();
+        }
+
         /// <summary>
         /// (required) Configuration step<br/>
         /// <br/>

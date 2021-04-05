@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class FormulaSource
     {
         /// <summary>
+        /// <inheritdoc cref="FormulaSource"/>
+        /// </summary>
+        public FormulaSource() { }
+
+        /// <summary>
         /// (optional) Source description<br/>
         /// <br/>
         /// Description of the source, e.g., the name of the document or standard.<br/>

@@ -13,14 +13,22 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductContacts
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductContacts"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductContacts()
-            : this(null!)
-        { }
+        {
+            PartyIdref = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ProductContacts"/>
+        /// </summary>
+        /// <param name="partyIdref"></param>
         public ProductContacts(PartyIdref partyIdref)
         {
-            PartyIdref = partyIdref;
+            PartyIdref = partyIdref ?? throw new System.ArgumentNullException(nameof(partyIdref));
         }
 
         /// <summary>

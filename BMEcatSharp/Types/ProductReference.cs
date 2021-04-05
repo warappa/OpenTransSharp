@@ -22,15 +22,27 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductReference
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductReference()
-            : this(null!, ProductReferenceType.Others)
         {
-
+            ProductIdTo = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ProductReference"/>
+        /// </summary>
+        /// <param name="productIdTo"></param>
+        /// <param name="type"></param>
         public ProductReference(string productIdTo, ProductReferenceType type)
         {
+            if (string.IsNullOrWhiteSpace(productIdTo))
+            {
+                throw new ArgumentException($"'{nameof(productIdTo)}' cannot be null or whitespace.", nameof(productIdTo));
+            }
+
             ProductIdTo = productIdTo;
             Type = type;
         }

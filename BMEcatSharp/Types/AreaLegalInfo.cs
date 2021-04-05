@@ -15,6 +15,11 @@ namespace BMEcatSharp
     public class AreaLegalInfo
     {
         /// <summary>
+        /// <inheritdoc cref="AreaLegalInfo"/>
+        /// </summary>
+        public AreaLegalInfo() { }
+
+        /// <summary>
         /// (optional - choice Territories/AreaRefs) Territory<br/>
         /// <br/>
         /// Territory (i.e. country, state, region) coded according to ISO 3166.<br/>

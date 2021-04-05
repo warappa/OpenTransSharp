@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -18,22 +19,35 @@ namespace BMEcatSharp
     /// </summary>
     public class SupplierPid
     {
+        /// <summary>
+        /// <inheritdoc cref="SupplierPid"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierPid()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="SupplierPid"/>
+        /// </summary>
+        /// <param name="value"></param>
         public SupplierPid(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
-        /// <summary>        
+        /// <summary>       
+        /// <inheritdoc cref="SupplierPid"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="SupplierPidTypeValues"/>. Custom values can be used.</param>
-        public SupplierPid(string value, string type)
+        public SupplierPid(string value, string? type)
             : this(value)
         {
             Type = type;

@@ -12,11 +12,15 @@ namespace BMEcatSharp
     /// </summary>
     public class Fax : MultiLingualString
     {
-        public Fax()
-        {
+        /// <summary>
+        /// <inheritdoc cref="Fax"/>
+        /// </summary>
+        public Fax() { }
 
-        }
-
+        /// <summary>
+        /// <inheritdoc cref="Fax"/>
+        /// </summary>
+        /// <param name="value"></param>
         public Fax(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -28,7 +32,7 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="Fax"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="FaxTypeValues"/>.<br/>
@@ -52,7 +56,9 @@ namespace BMEcatSharp
         /// <summary>
         /// (optional) Phone type<br/>
         /// <br/>
-        /// Specifies the type of the phone number.
+        /// Specifies the type of the phone number.<br/>
+        /// <br/>
+        /// See <see cref="FaxTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public string? Type { get; set; }

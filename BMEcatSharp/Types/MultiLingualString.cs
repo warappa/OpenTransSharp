@@ -7,17 +7,29 @@ namespace BMEcatSharp
 {
     public class MultiLingualString
     {
+        /// <summary>
+        /// <inheritdoc cref="MultiLingualString"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public MultiLingualString()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="MultiLingualString"/>
+        /// </summary>
+        /// <param name="value"></param>
         public MultiLingualString(string value)
         {
             Value = value;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="MultiLingualString"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="language"></param>
         public MultiLingualString(string value, LanguageCodes language)
         {
             Value = value;

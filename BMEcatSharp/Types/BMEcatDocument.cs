@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Internal;
 using BMEcatSharp.Xml;
 using System;
+using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -24,6 +25,59 @@ namespace BMEcatSharp
         public XmlSerializerNamespaces Xmlns = SharedXmlNamespaces.XmlnsBMEcat;
 
         /// <summary>
+        /// <inheritdoc cref="BMEcatDocument"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEcatDocument() { }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatDocument"/>
+        /// </summary>
+        /// <param name="version"></param>
+        /// <param name="header"></param>
+        private BMEcatDocument(BMEcatVersion version, BMEcatHeader header)
+        {
+            Version = version;
+            Header = header ?? throw new ArgumentNullException(nameof(header));
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatDocument"/>
+        /// </summary>
+        /// <param name="version"></param>
+        /// <param name="header"></param>
+        /// <param name="newCatalog"></param>
+        public BMEcatDocument(BMEcatVersion version, BMEcatHeader header, NewCatalog newCatalog)
+            : this(version, header)
+        {
+            NewCatalog = newCatalog ?? throw new ArgumentNullException(nameof(newCatalog));
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatDocument"/>
+        /// </summary>
+        /// <param name="version"></param>
+        /// <param name="header"></param>
+        /// <param name="updateProducts"></param>
+        public BMEcatDocument(BMEcatVersion version, BMEcatHeader header, UpdateProducts updateProducts)
+            : this(version, header)
+        {
+            UpdateProducts = updateProducts ?? throw new ArgumentNullException(nameof(updateProducts));
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatDocument"/>
+        /// </summary>
+        /// <param name="version"></param>
+        /// <param name="header"></param>
+        /// <param name="updatePrices"></param>
+        public BMEcatDocument(BMEcatVersion version, BMEcatHeader header, UpdatePrices updatePrices)
+            : this(version, header)
+        {
+            UpdatePrices = updatePrices ?? throw new ArgumentNullException(nameof(updatePrices));
+        }
+
+        /// <summary>
         /// (required) Version<br/>
         /// <br/>
         /// Specifies the version of the BMEcat standard to which the catalog document corresponds.<br/>
@@ -32,7 +86,6 @@ namespace BMEcatSharp
         /// </summary>
         [XmlAttribute("version")]
         public BMEcatVersion Version { get; set; } = BMEcatVersion.V2005;
-
 
         /// <summary>
         /// (required) Header section<br/>

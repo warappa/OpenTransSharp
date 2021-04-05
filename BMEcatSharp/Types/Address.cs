@@ -12,8 +12,12 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class BMEcatAddress
+    public class Address
     {
+        /// <summary>
+        /// <inheritdoc cref="Address"/>
+        /// </summary>
+        public Address() { }
         /// <summary>
         /// (optional) Address line<br/>
         /// <br/>

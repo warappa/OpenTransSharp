@@ -21,14 +21,33 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class NewCatalogProductToCataloggroupMap
     {
+        /// <summary>
+        /// <inheritdoc cref="NewCatalogProductToCataloggroupMap"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public NewCatalogProductToCataloggroupMap()
-            : this(null!, null!)
         {
-
+            ProductId = null!;
+            CatalogGroupId = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="NewCatalogProductToCataloggroupMap"/>
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="catalogGroupId"></param>
         public NewCatalogProductToCataloggroupMap(string productId, string catalogGroupId)
         {
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                throw new ArgumentException($"'{nameof(productId)}' cannot be null or whitespace.", nameof(productId));
+            }
+
+            if (string.IsNullOrWhiteSpace(catalogGroupId))
+            {
+                throw new ArgumentException($"'{nameof(catalogGroupId)}' cannot be null or whitespace.", nameof(catalogGroupId));
+            }
+
             ProductId = productId;
             CatalogGroupId = catalogGroupId;
         }

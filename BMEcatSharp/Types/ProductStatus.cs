@@ -21,14 +21,17 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductStatus
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductStatus"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductStatus()
-            : this(null!, ProductStatusType.Bargain)
         {
+            Value = null!;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="ProductStatus"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">Type of special status of the product.<br/>

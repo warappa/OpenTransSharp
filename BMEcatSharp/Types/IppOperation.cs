@@ -14,17 +14,43 @@ namespace BMEcatSharp
     /// </summary>
     public class IppOperation
     {
+        /// <summary>
+        /// <inheritdoc cref="IppOperation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppOperation()
-            : this(null!, IppOperationType.Create, null!, null!)
-        { }
-        
+        {
+            Id = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="IppOperation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
+        /// <param name="outbounds"></param>
+        /// <param name="inbounds"></param>
         public IppOperation(string id, IppOperationType type, IEnumerable<IppOutbound> outbounds, IEnumerable<IppInbound> inbounds)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (outbounds is null)
+            {
+                throw new System.ArgumentNullException(nameof(outbounds));
+            }
+
+            if (inbounds is null)
+            {
+                throw new System.ArgumentNullException(nameof(inbounds));
+            }
+
             Id = id;
             Type = type;
-            Outbounds = outbounds?.ToList() ?? new();
-            Inbounds = inbounds?.ToList() ?? new();
+            Outbounds = outbounds.ToList();
+            Inbounds = inbounds.ToList();
         }
 
         /// <summary>

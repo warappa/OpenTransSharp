@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -16,14 +17,26 @@ namespace BMEcatSharp
     /// </summary>
     public class PredefinedConfiguration
     {
+        /// <summary>
+        /// <inheritdoc cref="PredefinedConfiguration"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PredefinedConfiguration()
-            : this(null!)
         {
+            Coverage = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="PredefinedConfiguration"/>
+        /// </summary>
+        /// <param name="coverage"></param>
         public PredefinedConfiguration(string coverage)
         {
+            if (string.IsNullOrWhiteSpace(coverage))
+            {
+                throw new ArgumentException($"'{nameof(coverage)}' cannot be null or whitespace.", nameof(coverage));
+            }
+
             Coverage = coverage;
         }
 

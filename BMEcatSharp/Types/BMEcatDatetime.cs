@@ -21,11 +21,18 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class BMEcatDatetime
     {
+        /// <summary>
+        /// <inheritdoc cref="BMEcatDatetime"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BMEcatDatetime()
-            : this(BMEcatDatetimeType.GenerationDate)
-        { }
+        { 
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="BMEcatDatetime"/>
+        /// </summary>
+        /// <param name="type"></param>
         public BMEcatDatetime(BMEcatDatetimeType type)
         {
             Type = type;

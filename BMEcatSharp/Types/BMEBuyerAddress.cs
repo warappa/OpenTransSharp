@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Address)<br/>
+    /// (Address in context Buyer)<br/>
     /// <br/>
     /// This element is used to transfer address information of a business partner.<br/>
     /// This element will not be used in the future.<br/>
@@ -18,10 +18,26 @@ namespace BMEcatSharp
     public class BMEBuyerAddress
     {
         /// <summary>
+        /// <inheritdoc cref="BMEBuyerAddress"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEBuyerAddress() { }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEBuyerAddress"/>
+        /// </summary>
+        /// <param name="type"></param>
+        public BMEBuyerAddress(BMEBuyerAddressType type)
+        {
+            Type = type;
+        }
+
+        /// <summary>
         /// (required) Address type<br/>
         /// <br/>
         /// Contains the address type.
         /// </summary>
+        [Obsolete("This element will not be used in the future.")]
         [XmlAttribute("type")]
         public BMEBuyerAddressType Type { get; set; }
 
@@ -248,7 +264,7 @@ namespace BMEcatSharp
         public Fax? Fax { get; set; }
 
         /// <summary>
-        /// (required) E-mail address<br/>
+        /// (optional - required if PublicKeys is specified) E-mail address<br/>
         /// <br/>
         /// e-mail address<br/>
         /// The e-mail address refers to the organization only.<br/>
@@ -260,7 +276,7 @@ namespace BMEcatSharp
         public string? Email { get; set; }
 
         /// <summary>
-        /// (optional) Public key<br/>
+        /// (optional - with Email) Public key<br/>
         /// <br/>
         /// Public key, e.g. PGP<br/>
         /// <br/>

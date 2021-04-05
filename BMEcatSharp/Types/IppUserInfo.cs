@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -15,17 +16,34 @@ namespace BMEcatSharp
     /// </summary>
     public class IppUserInfo : IppParamsBase
     {
+        /// <summary>
+        /// <inheritdoc cref="IppUserInfo"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppUserInfo()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IppUserInfo"/>
+        /// </summary>
+        /// <param name="value"></param>
         public IppUserInfo(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IppUserInfo"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="occurrence"></param>
         public IppUserInfo(string value, IppOccurrence occurrence)
             : this(value)
         {

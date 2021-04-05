@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class ClassificationGroupSource
     {
         /// <summary>
+        /// <inheritdoc cref="ClassificationGroupSource"/>
+        /// </summary>
+        public ClassificationGroupSource() { }
+
+        /// <summary>
         /// (optional) Source description<br/>
         /// <br/>
         /// Description of the source, e.g., the name of the document or standard.<br/>

@@ -15,14 +15,25 @@ namespace BMEcatSharp
     /// </summary>
     public class Variant
     {
+        /// <summary>
+        /// <inheritdoc cref="Variant"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Variant()
-            : this(null!)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="Variant"/>
+        /// </summary>
+        /// <param name="featureValues"></param>
         public Variant(IEnumerable<MultiLingualString> featureValues)
         {
-            FeatureValues = featureValues?.ToList() ?? new();
+            if (featureValues is null)
+            {
+                throw new ArgumentNullException(nameof(featureValues));
+            }
+
+            FeatureValues = featureValues.ToList();
         }
 
         /// <summary>

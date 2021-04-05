@@ -334,7 +334,7 @@ namespace BMEcatSharp.Tests
             var model = new IppOutbound();
             model.Format = IppOutboundFormatValues.BMEcat2005;
             model.Params = GetIppOutboundParams();
-            model.Uris.Add("https://someuri/");
+            model.Uri.Add("https://someuri/");
 
             return model;
         }
@@ -400,7 +400,7 @@ namespace BMEcatSharp.Tests
         {
             var model = new IppPriceTypes();
             model.Occurrence = IppOccurrence.Optional;
-            model.PriceTypes.Add(ProductPriceValues.NetCustomer);
+            model.PriceTypes.Add(ProductPriceTypeValues.NetCustomer);
 
             return model;
         }
@@ -784,7 +784,7 @@ namespace BMEcatSharp.Tests
         private ProductPrice GetProductPrice()
         {
             var model = new ProductPrice();
-            model.Type = ProductPriceValues.NetCustomer;
+            model.Type = ProductPriceTypeValues.NetCustomer;
             model.Amount = 5;
             model.Currency = "EUR";
             model.TaxDetails.Add(GetTaxDetails());
@@ -900,9 +900,9 @@ namespace BMEcatSharp.Tests
             return new SupplierIdref("Supplier", PartyTypeValues.SupplierSpecific);
         }
 
-        private BMEcatAddress GetBMEcatAddress()
+        private Address GetBMEcatAddress()
         {
-            var model = new BMEcatAddress();
+            var model = new Address();
             model.Name.Add(new MultiLingualString("Steve", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Stefan", LanguageCodes.deu));
             model.Name2.Add(new MultiLingualString("Steve", LanguageCodes.eng));

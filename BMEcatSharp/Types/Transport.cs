@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -13,14 +14,26 @@ namespace BMEcatSharp
     /// </summary>
     public class Transport
     {
+        /// <summary>
+        /// <inheritdoc cref="Transport"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Transport()
-            : this(null!)
         {
+            Incoterm = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Transport"/>
+        /// </summary>
+        /// <param name="incoterm"></param>
         public Transport(string incoterm)
         {
+            if (string.IsNullOrWhiteSpace(incoterm))
+            {
+                throw new ArgumentException($"'{nameof(incoterm)}' cannot be null or whitespace.", nameof(incoterm));
+            }
+
             Incoterm = incoterm;
         }
 

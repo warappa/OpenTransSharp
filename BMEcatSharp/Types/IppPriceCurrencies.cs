@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class IppPriceCurrencies : IppParamsBase
     {
         /// <summary>
+        /// <inheritdoc cref="IppPriceCurrencies"/>
+        /// </summary>
+        public IppPriceCurrencies() { }
+
+        /// <summary>
         /// (optional) Price currency<br/>
         /// <br/>
         /// Currency of the price.<br/>

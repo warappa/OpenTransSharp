@@ -16,18 +16,37 @@ namespace BMEcatSharp
     /// </summary>
     public class UpdateProductsProduct
     {
+        /// <summary>
+        /// <inheritdoc cref="UpdateProductsProduct"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public UpdateProductsProduct()
-            : this(UpdateProductsProductMode.New, null!, null!, null!, null!)
-        { }
+        {
+            SupplierPid = null!;
+            Details = null!;
+            OrderDetails = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="UpdateProductsProduct"/>
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <param name="supplierPid"></param>
+        /// <param name="details"></param>
+        /// <param name="orderDetails"></param>
+        /// <param name="priceDetails"></param>
         public UpdateProductsProduct(UpdateProductsProductMode mode, SupplierPid supplierPid, ProductDetails details, ProductOrderDetails orderDetails,
             IEnumerable<ProductPriceDetails> priceDetails)
         {
+            if (priceDetails is null)
+            {
+                throw new System.ArgumentNullException(nameof(priceDetails));
+            }
+
             Mode = mode;
-            SupplierPid = supplierPid;
-            Details = details;
-            OrderDetails = orderDetails;
+            SupplierPid = supplierPid ?? throw new System.ArgumentNullException(nameof(supplierPid));
+            Details = details ?? throw new System.ArgumentNullException(nameof(details));
+            OrderDetails = orderDetails ?? throw new System.ArgumentNullException(nameof(orderDetails));
             PriceDetails = priceDetails?.ToList() ?? new();
         }
 

@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace BMEcatSharp
@@ -13,11 +14,24 @@ namespace BMEcatSharp
     /// </summary>
     public class LegalInfo
     {
+        /// <summary>
+        /// <inheritdoc cref="LegalInfo"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public LegalInfo() { }
 
+        /// <summary>
+        /// <inheritdoc cref="LegalInfo"/>
+        /// </summary>
+        /// <param name="areaLegalInfos"></param>
         public LegalInfo(IEnumerable<AreaLegalInfo> areaLegalInfos)
         {
-            AreaLegalInfos = areaLegalInfos?.ToList() ?? new();
+            if (areaLegalInfos is null)
+            {
+                throw new System.ArgumentNullException(nameof(areaLegalInfos));
+            }
+
+            AreaLegalInfos = areaLegalInfos.ToList();
         }
 
         /// <summary>

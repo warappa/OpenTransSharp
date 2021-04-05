@@ -14,13 +14,21 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureVersion
     {
+        /// <summary>
+        /// <inheritdoc cref="FeatureVersion"/>
+        /// </summary>
         public FeatureVersion()
-            : this(null!)
-        { }
+        {
+            Version = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="FeatureVersion"/>
+        /// </summary>
+        /// <param name="version"></param>
         public FeatureVersion(Version version)
         {
-            Version = version;
+            Version = version ?? throw new ArgumentNullException(nameof(version));
         }
 
         /// <summary>

@@ -13,6 +13,11 @@ namespace BMEcatSharp
     public class ProductDimensions
     {
         /// <summary>
+        /// <inheritdoc cref="ProductDimensions"/>
+        /// </summary>
+        public ProductDimensions() { }
+
+        /// <summary>
         /// (optional) Volume<br/>
         /// <br/>
         /// Volume in cubic meters (m³).

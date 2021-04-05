@@ -14,16 +14,31 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroupContacts
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroupContacts"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationGroupContacts() 
-            : this(null!, null!)
-        { }
+        {
+            PartyIdRef = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroupContacts"/>
+        /// </summary>
+        /// <param name="partyIdref"></param>
+        /// <param name="contactIdrefs"></param>
         public ClassificationGroupContacts(PartyIdref partyIdref, IEnumerable<string> contactIdrefs)
         {
-            PartyIdRef = partyIdref;
-            ContactIdrefs = contactIdrefs?.ToList() ?? new List<string>();
+            if (contactIdrefs is null)
+            {
+                throw new System.ArgumentNullException(nameof(contactIdrefs));
+            }
+
+            PartyIdRef = partyIdref ?? throw new System.ArgumentNullException(nameof(partyIdref));
+            ContactIdrefs = contactIdrefs.ToList();
         }
+
         /// <summary>
         /// (required) Reference to a business partner<br/>
         /// <br/>

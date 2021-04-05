@@ -36,6 +36,11 @@ namespace BMEcatSharp
     public class NewCatalog
     {
         /// <summary>
+        /// <inheritdoc cref="NewCatalog"/>
+        /// </summary>
+        public NewCatalog() { }
+
+        /// <summary>
         /// (optional - deprecated) No of previous updates<br/>
         /// <br/>
         /// "prev_version" should not be entered with this transaction; the option of doing so exists here only for reasons of compatibility with 1.01 and "prev_version" must be ignored here; see also "T_UPDATE_PRODUCTS -->prev_version" with T_UPDATE_PRODUCTS and "T_UPDATE_PRICES -->prev_version" with T_UPDATE_PRICES.<br/>

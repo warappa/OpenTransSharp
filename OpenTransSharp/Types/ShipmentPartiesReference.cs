@@ -15,7 +15,6 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ShipmentPartiesReference()
         {
-            DeliveryIdref = null!;
         }
 
         public ShipmentPartiesReference(DeliveryIdref deliveryIdref)
@@ -30,7 +29,7 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref DeliveryIdref { get; set; }
+        public DeliveryIdref DeliveryIdref { get; set; } = new DeliveryIdref();
 
         /// <summary>
         /// (optional) Reference to a final recipient<br/>

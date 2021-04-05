@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,16 +17,29 @@ namespace BMEcatSharp
     /// </summary>
     public class UpdatePricesProduct
     {
+        /// <summary>
+        /// <inheritdoc cref="UpdatePricesProduct"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public UpdatePricesProduct()
-            : this(null!, null!)
         {
-
+            SupplierPid = null!;
         }
+
+        /// <summary>
+        /// <inheritdoc cref="UpdatePricesProduct"/>
+        /// </summary>
+        /// <param name="supplierPid"></param>
+        /// <param name="priceDetails"></param>
         public UpdatePricesProduct(SupplierPid supplierPid, IEnumerable<ProductPriceDetails> priceDetails)
         {
-            SupplierPid = supplierPid;
-            PriceDetails = priceDetails?.ToList() ?? new();
+            if (priceDetails is null)
+            {
+                throw new ArgumentNullException(nameof(priceDetails));
+            }
+
+            SupplierPid = supplierPid ?? throw new ArgumentNullException(nameof(supplierPid));
+            PriceDetails = priceDetails.ToList();
         }
 
         /// <summary>

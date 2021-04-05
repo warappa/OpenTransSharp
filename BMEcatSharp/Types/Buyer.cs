@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using System;
+using System.ComponentModel;
 
 namespace BMEcatSharp
 {
@@ -14,6 +15,26 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future.")]
     public class Buyer
     {
+        /// <summary>
+        /// <inheritdoc cref="Buyer"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Buyer() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Buyer"/>
+        /// </summary>
+        /// <param name="name"></param>
+        public Buyer(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException($"'{nameof(name)}' cannot be null or whitespace.", nameof(name));
+            }
+
+            Name = name;
+        }
+
         /// <summary>
         /// (optional - deprecated) ID of the buying company<br/>
         /// <br/>

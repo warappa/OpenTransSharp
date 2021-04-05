@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -15,6 +16,25 @@ namespace BMEcatSharp
     /// </summary>
     public class IppAuthentificationInfo : IppParamsBase
     {
+        /// <summary>
+        /// <inheritdoc cref="IppAuthentificationInfo"/>
+        /// </summary>
+        public IppAuthentificationInfo() { }
+
+        /// <summary>
+        /// <inheritdoc cref="IppAuthentificationInfo"/>
+        /// </summary>
+        /// <param name="authentifications"></param>
+        public IppAuthentificationInfo(IEnumerable<Authentification> authentifications) 
+        {
+            if (authentifications is null)
+            {
+                throw new System.ArgumentNullException(nameof(authentifications));
+            }
+
+            Authentifications = authentifications.ToList();
+        }
+
         /// <summary>
         /// (optional) Authentification information<br/>
         /// <br/>

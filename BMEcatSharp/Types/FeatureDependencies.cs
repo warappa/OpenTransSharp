@@ -1,5 +1,7 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +14,25 @@ namespace BMEcatSharp
     /// </summary>
     public class FeatureDependencies
     {
+        /// <summary>
+        /// <inheritdoc cref="FeatureDependencies"/>
+        /// </summary>
+        public FeatureDependencies() { }
+
+        /// <summary>
+        /// <inheritdoc cref="FeatureDependencies"/>
+        /// </summary>
+        /// <param name="idrefs"></param>
+        public FeatureDependencies(IEnumerable<string> idrefs)
+        {
+            if (idrefs is null)
+            {
+                throw new ArgumentNullException(nameof(idrefs));
+            }
+
+            Idrefs = idrefs.ToList();
+        }
+
         /// <summary>
         /// (required) Feature reference<br/>
         /// <br/>

@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -12,14 +13,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductPrice
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductPrice"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductPrice()
-            : this(null!)
         {
+            Type = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ProductPrice"/>
+        /// </summary>
+        /// <param name="type"></param>
         public ProductPrice(string type)
         {
+            if (string.IsNullOrWhiteSpace(type))
+            {
+                throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+            }
+
             Type = type;
         }
 
@@ -27,7 +40,7 @@ namespace BMEcatSharp
         /// (required) Price type<br/>
         /// <br/>
         /// Attribute which specifies the type of price.<br/>
-        /// See <see cref="ProductPriceValues"/>.
+        /// See <see cref="ProductPriceTypeValues"/>.
         /// </summary>
         [XmlAttribute("price_type")]
         public string Type { get; set; }

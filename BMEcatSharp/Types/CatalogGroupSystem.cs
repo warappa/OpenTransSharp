@@ -26,6 +26,11 @@ namespace BMEcatSharp
     public class CatalogGroupSystem
     {
         /// <summary>
+        /// <inheritdoc cref="CatalogGroupSystem"/>
+        /// </summary>
+        public CatalogGroupSystem() { }
+
+        /// <summary>
         /// (optional - deprecated) Catalog group system ID<br/>
         /// <br/>
         /// Identification of the catalog group system.<br/>

@@ -9,6 +9,7 @@ namespace BMEcatSharp
     /// </summary>
     public enum CostCategoryIdType
     {
+        Undefined,
         /// <summary>
         /// Cost center<br/>
         /// <br/>

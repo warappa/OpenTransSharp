@@ -18,15 +18,34 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystemFeatureTemplate
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemFeatureTemplate"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationSystemFeatureTemplate()
-            : this(null!, null!)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemFeatureTemplate"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
         public ClassificationSystemFeatureTemplate(string id, IEnumerable<MultiLingualString> name)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (name is null)
+            {
+                throw new System.ArgumentNullException(nameof(name));
+            }
+
             Id = id;
-            Name = name?.ToList() ?? new List<MultiLingualString>();
+            Name = name.ToList();
         }
 
         /// <summary>

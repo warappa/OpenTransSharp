@@ -35,16 +35,32 @@ namespace BMEcatSharp
     /// </summary>
     public class Catalog
     {
+        /// <summary>
+        /// <inheritdoc cref="Catalog"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Catalog()
-            : this(null!, null!, null!)
-        { }
+        {
+            Id = null!;
+            Version = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Catalog"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="version"></param>
+        /// <param name="language"></param>
         public Catalog(string id, Version version, Language language)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or empty.", nameof(id));
+            }
+
             Id = id;
-            Version = version;
-            Language = language;
+            Version = version ?? throw new ArgumentNullException(nameof(version));
+            Language = language ?? throw new ArgumentNullException(nameof(language));
         }
 
         /// <summary>
@@ -55,7 +71,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("LANGUAGE")]
-        public Language Language { get; set; }
+        public Language Language { get; set; } = new Language();
 
         /// <summary>
         /// (required) Catalog ID<br/>

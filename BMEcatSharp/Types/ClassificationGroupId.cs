@@ -15,14 +15,27 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroupId
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroupId"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationGroupId()
-            : this(ClassificationGroupIdType.Flat, null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroupId"/>
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="value"></param>
         public ClassificationGroupId(ClassificationGroupIdType type, string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Type = type;
             Value = value;
         }

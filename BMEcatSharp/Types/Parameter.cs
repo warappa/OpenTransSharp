@@ -13,13 +13,28 @@ namespace BMEcatSharp
     /// </summary>
     public class Parameter
     {
+        /// <summary>
+        /// <inheritdoc cref="Parameter"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Parameter()
-            : this(null!, null!)
-        { }
-        
+        {
+            SymbolRef = null!;
+            Value = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Parameter"/>
+        /// </summary>
+        /// <param name="symbolRef"></param>
+        /// <param name="value"></param>
         public Parameter(string symbolRef, string value)
         {
+            if (string.IsNullOrWhiteSpace(symbolRef))
+            {
+                throw new System.ArgumentException($"'{nameof(symbolRef)}' cannot be null or whitespace.", nameof(symbolRef));
+            }
+
             SymbolRef = symbolRef;
             Value = value;
         }

@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -13,13 +14,33 @@ namespace BMEcatSharp
     /// </summary>
     public class MeansOfTransport
     {
+        /// <summary>
+        /// <inheritdoc cref="MeansOfTransport"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public MeansOfTransport()
-            : this(null!, null!)
-        { }
-        
+        {
+            Id = null!;
+            Type = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="MeansOfTransport"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
         public MeansOfTransport(string id, string type)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (string.IsNullOrWhiteSpace(type))
+            {
+                throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+            }
+
             Id = id;
             Type = type;
         }

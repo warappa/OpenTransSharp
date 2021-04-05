@@ -15,14 +15,22 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroupVersion
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroupVersion"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationGroupVersion()
-            : this(null!)
-        { }
+        {
+            Version = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroupVersion"/>
+        /// </summary>
+        /// <param name="version"></param>
         public ClassificationGroupVersion(Version version)
         {
-            Version = version;
+            Version = version ?? throw new ArgumentNullException(nameof(version));
         }
 
         /// <summary>
@@ -37,7 +45,7 @@ namespace BMEcatSharp
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         [BMEXmlElement("VERSION")]
-        public string VersionForSerialization { get => Version.ToString(); set => Version = new Version(value); }
+        public string VersionForSerialization { get => Version?.ToString()!; set => Version = new Version(value); }
 
         /// <summary>
         /// (optional) Version date<br/>

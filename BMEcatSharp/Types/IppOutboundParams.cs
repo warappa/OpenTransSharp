@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class IppOutboundParams
     {
         /// <summary>
+        /// <inheritdoc cref="IppOutboundParams"/>
+        /// </summary>
+        public IppOutboundParams() { }
+
+        /// <summary>
         /// (optional) IPP languages<br/>
         /// <br/>
         /// List of languages that are supported by the IPP application.<br/>

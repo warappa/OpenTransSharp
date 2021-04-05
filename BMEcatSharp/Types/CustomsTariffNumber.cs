@@ -13,14 +13,26 @@ namespace BMEcatSharp
     /// </summary>
     public class CustomsTariffNumber
     {
+        /// <summary>
+        /// <inheritdoc cref="CustomsTariffNumber"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CustomsTariffNumber()
-            : this(null!)
         {
+            CustomsNumber = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="CustomsTariffNumber"/>
+        /// </summary>
+        /// <param name="customsNumber"></param>
         public CustomsTariffNumber(string customsNumber)
         {
+            if (string.IsNullOrWhiteSpace(customsNumber))
+            {
+                throw new System.ArgumentException($"'{nameof(customsNumber)}' cannot be null or whitespace.", nameof(customsNumber));
+            }
+
             CustomsNumber = customsNumber;
         }
 

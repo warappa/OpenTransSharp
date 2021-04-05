@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -15,6 +16,26 @@ namespace BMEcatSharp
     public class BMEcatMime
     {
         /// <summary>
+        /// <inheritdoc cref="BMEcatMime"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public BMEcatMime() { }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatMime"/>
+        /// </summary>
+        /// <param name="source"></param>
+        public BMEcatMime(IEnumerable<MultiLingualString> source)
+        {
+            if (source is null)
+            {
+                throw new System.ArgumentNullException(nameof(source));
+            }
+
+            Source = source.ToList();
+        }
+
+        /// <summary>
         /// (optional) MIME type<br/>
         /// <br/>
         /// Type of the additional document; this element is oriented towards the mime type usual in the Internet (ftp://ftp.isi.edu/in-notes/rfc1341.txt).<br/>
@@ -25,7 +46,7 @@ namespace BMEcatSharp
         public string? MimeType { get; set; }
 
         /// <summary>
-        /// (required - choice MimeSource/MimeEmbeddeds) Source<br/>
+        /// (required) Source<br/>
         /// <br/>
         /// The relative path and the file name or URL address.<br/>
         /// The MIME_SOURCE string is combined with the base path (MIME_ROOT) specified in the header of the document (attached to it by means of a simple contecatenation).<br/>

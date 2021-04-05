@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -14,6 +16,25 @@ namespace BMEcatSharp
     /// </summary>
     public class FormulaFunction
     {
+        /// <summary>
+        /// <inheritdoc cref="FormulaFunction"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FormulaFunction() { }
+
+        /// <summary>
+        /// <inheritdoc cref="FormulaFunction"/>
+        /// </summary>
+        /// <param name="terms"></param>
+        public FormulaFunction(IEnumerable<Term> terms)
+        {
+            if (terms is null)
+            {
+                throw new ArgumentNullException(nameof(terms));
+            }
+
+            Terms = terms.ToList();
+        }
         /// <summary>
         /// (required) Term<br/>
         /// <br/>

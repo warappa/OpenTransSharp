@@ -12,14 +12,27 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationSystemLevelName
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemLevelName"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationSystemLevelName()
-            : this(0, null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ClassificationSystemLevelName"/>
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="value"></param>
         public ClassificationSystemLevelName(int level, string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Level = level;
             Value = value;
         }

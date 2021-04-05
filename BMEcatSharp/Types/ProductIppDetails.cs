@@ -1,5 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -12,6 +14,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ProductIppDetails
     {
+        /// <summary>
+        /// c
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductIppDetails() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ProductDetails"/>
+        /// </summary>
+        /// <param name="ipps"></param>
+        public ProductIppDetails(IEnumerable<Ipp> ipps)
+        {
+            if (ipps is null)
+            {
+                throw new System.ArgumentNullException(nameof(ipps));
+            }
+
+            Ipps = ipps.ToList();
+        }
+
         /// <summary>
         /// (required) IPP application<br/>
         /// <br/>

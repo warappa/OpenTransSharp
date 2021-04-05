@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class ProductLogisticDetails
     {
         /// <summary>
+        /// <inheritdoc cref="ProductLogisticDetails"/>
+        /// </summary>
+        public ProductLogisticDetails() { }
+
+        /// <summary>
         /// (optional) Information on the customs tariff number.
         /// </summary>
         [BMEXmlElement("CUSTOMS_TARIFF_NUMBER")]

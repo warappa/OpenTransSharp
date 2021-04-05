@@ -1,6 +1,7 @@
 ﻿using BMEcatSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BMEcatSharp
 {
@@ -13,6 +14,25 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationParts
     {
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationParts"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ConfigurationParts() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationParts"/>
+        /// </summary>
+        public ConfigurationParts(IEnumerable<PartAlternative> alternatives) 
+        {
+            if (alternatives is null)
+            {
+                throw new System.ArgumentNullException(nameof(alternatives));
+            }
+
+            Alternatives = alternatives.ToList();
+        }
+
         /// <summary>
         /// (required) Variant components<br/>
         /// <br/>

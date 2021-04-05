@@ -12,17 +12,32 @@ namespace BMEcatSharp
     /// </summary>
     public class AgreementReference
     {
+        /// <summary>
+        /// <inheritdoc cref="AgreementReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public AgreementReference() 
         {
             IdReference = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="AgreementReference"/>
+        /// </summary>
+        /// <param name="idReference"></param>
         public AgreementReference(string idReference)
         {
+            if (string.IsNullOrWhiteSpace(idReference))
+            {
+                throw new System.ArgumentException($"'{nameof(idReference)}' cannot be null or whitespace.", nameof(idReference));
+            }
+
             IdReference = idReference;
         }
 
+        /// <inheritdoc cref="AgreementReference"/>
+        /// <param name="idReference"><inheritdoc cref="IdReference"/></param>
+        /// <param name="lineIdReference"><inheritdoc cref="LineIdReference"/></param>
         public AgreementReference(string idReference, string? lineIdReference)
             : this(idReference)
         {

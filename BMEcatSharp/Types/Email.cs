@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BMEcatSharp
 {
@@ -13,13 +15,29 @@ namespace BMEcatSharp
     /// </summary>
     public class Email
     {
+        private static readonly EmailAddressAttribute validationAttribute = new EmailAddressAttribute();
+
+        /// <summary>
+        /// <inheritdoc cref="Email"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Email()
-            : this(null!)
-        { }
+        {
+            EmailAddress = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Email"/>
+        /// </summary>
+        /// <param name="emailAddress"></param>
         public Email(string emailAddress)
         {
+            if (string.IsNullOrWhiteSpace(emailAddress) ||
+                !validationAttribute.IsValid(emailAddress))
+            {
+                throw new ArgumentException($"'{nameof(emailAddress)}' cannot be null or whitespace.", nameof(emailAddress));
+            }
+
             EmailAddress = emailAddress;
         }
 

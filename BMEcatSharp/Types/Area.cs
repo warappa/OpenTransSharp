@@ -14,13 +14,26 @@ namespace BMEcatSharp
     /// </summary>
     public class Area
     {
+        /// <summary>
+        /// <inheritdoc cref="Area"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Area()
-            : this(null!)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Area"/>
+        /// </summary>
+        /// <param name="id"></param>
         public Area(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
         }
 

@@ -3,7 +3,7 @@
     /// <summary>
     /// For <see cref="ProductPrice.Type"/>.
     /// </summary>
-    public static class ProductPriceValues
+    public static class ProductPriceTypeValues
     {
         /// <summary>
         /// List price<br/>

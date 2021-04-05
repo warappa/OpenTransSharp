@@ -12,14 +12,26 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ConfigurationInformation()
-            : this(null!)
         {
+            ConfigurationCode = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationInformation"/>
+        /// </summary>
+        /// <param name="configurationCode"></param>
         public ConfigurationInformation(string configurationCode)
         {
+            if (string.IsNullOrWhiteSpace(configurationCode))
+            {
+                throw new System.ArgumentException($"'{nameof(configurationCode)}' cannot be null or whitespace.", nameof(configurationCode));
+            }
+
             ConfigurationCode = configurationCode;
         }
 

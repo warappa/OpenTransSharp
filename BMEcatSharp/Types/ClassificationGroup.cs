@@ -15,15 +15,29 @@ namespace BMEcatSharp
     /// </summary>
     public class ClassificationGroup
     {
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroup"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ClassificationGroup()
-            : this(null!, Enumerable.Empty<MultiLingualString>())
-        { }
-
-        public ClassificationGroup(ClassificationGroupId id, IEnumerable<MultiLingualString> names)
         {
-            Id = id;
-            Name = names.ToList();
+            Id = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ClassificationGroup"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        public ClassificationGroup(ClassificationGroupId id, IEnumerable<MultiLingualString> name)
+        {
+            if (name is null)
+            {
+                throw new System.ArgumentNullException(nameof(name));
+            }
+
+            Id = id ?? throw new System.ArgumentNullException(nameof(id));
+            Name = name.ToList();
         }
 
         /// <summary>

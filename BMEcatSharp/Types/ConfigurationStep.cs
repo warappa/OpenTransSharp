@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,27 +15,67 @@ namespace BMEcatSharp
     /// </summary>
     public class ConfigurationStep
     {
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationStep"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ConfigurationStep()
-            : this(null!, null!, 0,0, (ConfigurationFeature)null!)
-        { }
-
-        public ConfigurationStep(string id, IEnumerable<MultiLingualString> header, int minimumOccurance, int maximumOccurance, ConfigurationFeature configurationFeature)
         {
-            Id = id;
-            Header = header?.ToList() ?? new List<MultiLingualString>();
-            MinimumOccurance = minimumOccurance;
-            MaximumOccurance = maximumOccurance;
-            ConfigurationFeature = configurationFeature;
+            Id = null!;
         }
 
-        public ConfigurationStep(string id, IEnumerable<MultiLingualString> header, int minimumOccurance, int maximumOccurance, ConfigurationParts configurationParts)
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationStep"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="header"></param>
+        /// <param name="minimumOccurance"></param>
+        /// <param name="maximumOccurance"></param>
+        /// <param name="configurationFeature"></param>
+        public ConfigurationStep(string id, IEnumerable<MultiLingualString> header, int minimumOccurance, int maximumOccurance, ConfigurationFeature configurationFeature)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (header is null)
+            {
+                throw new ArgumentNullException(nameof(header));
+            }
+
             Id = id;
             Header = header?.ToList() ?? new List<MultiLingualString>();
             MinimumOccurance = minimumOccurance;
             MaximumOccurance = maximumOccurance;
-            ConfigurationParts = configurationParts;
+            ConfigurationFeature = configurationFeature ?? throw new ArgumentNullException(nameof(configurationFeature));
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ConfigurationStep"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="header"></param>
+        /// <param name="minimumOccurance"></param>
+        /// <param name="maximumOccurance"></param>
+        /// <param name="configurationParts"></param>
+        public ConfigurationStep(string id, IEnumerable<MultiLingualString> header, int minimumOccurance, int maximumOccurance, ConfigurationParts configurationParts)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (header is null)
+            {
+                throw new ArgumentNullException(nameof(header));
+            }
+
+            Id = id;
+            Header = header.ToList();
+            MinimumOccurance = minimumOccurance;
+            MaximumOccurance = maximumOccurance;
+            ConfigurationParts = configurationParts ?? throw new ArgumentNullException(nameof(configurationParts));
         }
 
         /// <summary>

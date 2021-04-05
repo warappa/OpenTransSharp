@@ -14,14 +14,22 @@ namespace BMEcatSharp
     /// </summary>
     public class AllowedValueVersion
     {
+        /// <summary>
+        /// <inheritdoc cref="AllowedValueVersion"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public AllowedValueVersion()
-            : this(null!)
-        { }
+        {
+            Version = new Version();
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="AllowedValueVersion"/>
+        /// </summary>
+        /// <param name="version"></param>
         public AllowedValueVersion(Version version)
         {
-            Version = version;
+            Version = version ?? throw new ArgumentNullException(nameof(version));
         }
 
         /// <summary>

@@ -14,21 +14,34 @@ namespace BMEcatSharp
     /// </summary>
     public class BMEcatHeader
     {
+        /// <summary>
+        /// <inheritdoc cref="BMEcatHeader"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BMEcatHeader()
-            : this(null!, (SupplierIdref)null!)
-        { }
-
-        public BMEcatHeader(Catalog catalog, SupplierIdref supplierIdref)
         {
-            Catalog = catalog;
-            SupplierIdref = supplierIdref;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="BMEcatHeader"/>
+        /// </summary>
+        /// <param name="catalog"></param>
+        /// <param name="supplierIdref"></param>
+        public BMEcatHeader(Catalog catalog, SupplierIdref supplierIdref)
+        {
+            Catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+            SupplierIdref = supplierIdref ?? throw new ArgumentNullException(nameof(supplierIdref));
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="BMEcatHeader"/>
+        /// </summary>
+        /// <param name="catalog"></param>
+        /// <param name="documentCreatorIdref"></param>
         public BMEcatHeader(Catalog catalog, DocumentCreatorIdref documentCreatorIdref)
         {
-            Catalog = catalog;
-            DocumentCreatorIdref = documentCreatorIdref;
+            Catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
+            DocumentCreatorIdref = documentCreatorIdref ?? throw new ArgumentNullException(nameof(documentCreatorIdref));
         }
 
         /// <summary>
@@ -49,7 +62,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CATALOG")]
-        public Catalog Catalog { get; set; }
+        public Catalog Catalog { get; set; } = new Catalog();
 
         /// <summary>
         /// (optional - optional choice: BuyerIdref/(deprecated)Buyer) Reference to the buyer<br/>

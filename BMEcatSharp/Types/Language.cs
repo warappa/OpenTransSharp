@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -10,28 +11,54 @@ namespace BMEcatSharp
     /// </summary>
     public class Language
     {
+        /// <summary>
+        /// <inheritdoc cref="Language"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Language()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Language"/>
+        /// </summary>
+        /// <param name="value"></param>
         public Language(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Language"/>
+        /// </summary>
+        /// <param name="value"></param>
         public Language(LanguageCodes value)
             : this(value.ToString())
         {
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Language"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isDefault"></param>
         public Language(string value, bool isDefault)
             : this(value)
         {
             Default = isDefault;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Language"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isDefault"></param>
         public Language(LanguageCodes value, bool isDefault)
             : this(value.ToString(), isDefault)
         {

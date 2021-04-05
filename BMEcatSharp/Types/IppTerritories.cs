@@ -14,6 +14,11 @@ namespace BMEcatSharp
     public class IppTerritories : IppParamsBase
     {
         /// <summary>
+        /// <inheritdoc cref="IppTerritories"/>
+        /// </summary>
+        public IppTerritories() { }
+
+        /// <summary>
         /// (optional) Territory<br/>
         /// <br/>
         /// Territory (i.e. country, state, region) coded according to ISO 3166.<br/>

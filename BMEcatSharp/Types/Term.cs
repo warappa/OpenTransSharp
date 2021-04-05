@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
@@ -15,13 +16,34 @@ namespace BMEcatSharp
     /// </summary>
     public class Term
     {
+        /// <summary>
+        /// <inheritdoc cref="Term"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Term()
-            : this(TermType.Function, null!, null!)
-        { }
+        {
+            Id = null!;
+            Expression = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Term"/>
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="expression"></param>
         public Term(TermType type, string id, string expression)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (string.IsNullOrWhiteSpace(expression))
+            {
+                throw new ArgumentException($"'{nameof(expression)}' cannot be null or whitespace.", nameof(expression));
+            }
+
             Type = type;
             Id = id;
             Expression = expression;

@@ -20,11 +20,17 @@ namespace BMEcatSharp
     [Obsolete("This element will not be used in the future")]
     public class UpdateProductsProductToCataloggroupMap
     {
+        /// <summary>
+        /// <inheritdoc cref="UpdateProductsProductToCataloggroupMap"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public UpdateProductsProductToCataloggroupMap()
-            : this(UpdateProductsProductToCataloggroupMapMode.New)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="UpdateProductsProductToCataloggroupMap"/>
+        /// </summary>
+        /// <param name="mode"></param>
         public UpdateProductsProductToCataloggroupMap(UpdateProductsProductToCataloggroupMapMode mode)
         {
             Mode = mode;

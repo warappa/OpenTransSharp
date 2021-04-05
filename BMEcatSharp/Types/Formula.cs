@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,15 +17,34 @@ namespace BMEcatSharp
     /// </summary>
     public class Formula
     {
+        /// <summary>
+        /// <inheritdoc cref="Formula"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Formula()
-            : this(null!, null!)
-        { }
+        public Formula()            
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Formula"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="parameterDefinitions"></param>
         public Formula(string id, IEnumerable<ParameterDefinition> parameterDefinitions)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parameterDefinitions is null)
+            {
+                throw new ArgumentNullException(nameof(parameterDefinitions));
+            }
+
             Id = id;
-            ParameterDefinitions = parameterDefinitions?.ToList() ?? new();
+            ParameterDefinitions = parameterDefinitions.ToList();
         }
 
         /// <summary>
