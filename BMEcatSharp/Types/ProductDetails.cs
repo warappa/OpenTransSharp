@@ -129,7 +129,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_IDREF")]
-        public ManufacturerIdref? ManufacturerIdRef { get; set; }
+        public ManufacturerIdRef? ManufacturerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Name of manufacturer<br/>

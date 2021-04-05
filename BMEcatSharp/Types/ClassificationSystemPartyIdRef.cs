@@ -5,28 +5,28 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Reference to the supplier)<br/>
-    /// <br/>This element contains a reference to the supplier.<br/>
-    /// The reference has to point to a (PARTY_ID) that is defined in the document (PARTY element).<br/>
+    /// (Reference to classification system party)<br/>
+    /// <br/>
+    /// This element contains a reference to the ID of the organization that creates, maintains and/or provides the classification system.The element has to point to a PARTY_ID within the document.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class SupplierIdref : PartyRef<SupplierIdref>
+    public class ClassificationSystemPartyIdRef : PartyRef<ClassificationSystemPartyIdRef>
     {
         /// <summary>
-        /// <inheritdoc cref="SupplierIdref"/>
+        /// <inheritdoc cref="ClassificationSystemPartyIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public SupplierIdref()
+        public ClassificationSystemPartyIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="SupplierIdref"/>
+        /// <inheritdoc cref="ClassificationSystemPartyIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public SupplierIdref(string value)
+        public ClassificationSystemPartyIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -37,11 +37,11 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="SupplierIdref"/>
+        /// 
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public SupplierIdref(string value, string? type)
+        public ClassificationSystemPartyIdRef(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -64,7 +64,7 @@ namespace BMEcatSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(SupplierIdref idRef)
+        public static explicit operator PartyId(ClassificationSystemPartyIdRef idRef)
         {
             if (idRef is null)
             {

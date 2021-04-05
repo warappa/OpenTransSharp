@@ -112,7 +112,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_IDREF")]
-        public string? GroupIdref { get; set; }
+        public string? GroupIdRef { get; set; }
 
         /// <summary>
         /// (optional) Feature group name<br/>

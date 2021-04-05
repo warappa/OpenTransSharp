@@ -2,32 +2,32 @@
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace BMEcatSharp
 {
     /// <summary>
-    /// (Reference to a final recipient)<br/>
+    /// (Reference to a business partner)<br/>
     /// <br/>
-    /// Reference to a unique identifier of the final recipient.<br/>
-    /// The element has to refer to a PARTY_ID in the same document.<br/>
+    /// This element provides a reference to a business partner.<br/>
+    /// It contains the unique identifier(PARTY_ID) of the respective party(element PARTY).<br/>
     /// <br/>
-    /// XML-namespace: OpenTrans
+    /// XML-namespace: BMECAT
     /// </summary>
-    public class FinalDeliveryIdref : global::BMEcatSharp.PartyRef<FinalDeliveryIdref>
+    public class PartyIdRef : PartyRef<PartyIdRef>
     {
         /// <summary>
-        /// <inheritdoc cref="FinalDeliveryIdref"/>
+        /// <inheritdoc cref="PartyIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public FinalDeliveryIdref()
+        public PartyIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="FinalDeliveryIdref"/>
+        /// <inheritdoc cref="PartyIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public FinalDeliveryIdref(string value)
+        public PartyIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -38,12 +38,12 @@ namespace OpenTransSharp
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="PartyIdRef"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>. Custom values can also be used.</param>
-        public FinalDeliveryIdref(string value, string? type)
+        /// The most common coding standards are predefined. See <see cref="PartyTypeValues"/>. Custom values can be used.</param>
+        public PartyIdRef(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -51,7 +51,7 @@ namespace OpenTransSharp
 
         /// <summary>
         /// (optional) This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>. Custom values can also be used.<br/>
+        /// The most common coding standards are predefined. See <see cref="PartyTypeValues"/>. Custom values can be used.
         /// </summary>
         [XmlAttribute("type")]
         public override string? Type { get; set; }
@@ -64,14 +64,14 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator global::BMEcatSharp.PartyId(FinalDeliveryIdref idRef)
+        public static explicit operator PartyId(PartyIdRef idRef)
         {
             if (idRef is null)
             {
                 return null!;
             }
 
-            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
+            return new PartyId(idRef.Value, idRef.Type);
         }
     }
 }

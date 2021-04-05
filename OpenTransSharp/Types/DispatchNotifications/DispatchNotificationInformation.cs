@@ -22,7 +22,7 @@ namespace OpenTransSharp
         public DispatchNotificationInformation()
         {
             Id = null!;
-            SupplierIdref = null!;
+            SupplierIdRef = null!;
         }
 
         /// <summary>
@@ -30,9 +30,9 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="id"></param>
         /// <param name="parties"></param>
-        /// <param name="supplierIdref"></param>
+        /// <param name="supplierIdRef"></param>
         /// <param name="shipmentPartiesReference"></param>
-        public DispatchNotificationInformation(string id, IEnumerable<OpenTransParty> parties, SupplierIdref supplierIdref,
+        public DispatchNotificationInformation(string id, IEnumerable<OpenTransParty> parties, SupplierIdRef supplierIdRef,
             ShipmentPartiesReference shipmentPartiesReference)
         {
             if (string.IsNullOrWhiteSpace(id))
@@ -47,7 +47,7 @@ namespace OpenTransSharp
 
             Id = id;
             Parties = parties.ToList();
-            SupplierIdref = supplierIdref ?? throw new ArgumentNullException(nameof(supplierIdref));
+            SupplierIdRef = supplierIdRef ?? throw new ArgumentNullException(nameof(supplierIdRef));
             ShipmentPartiesReference = shipmentPartiesReference ?? throw new ArgumentNullException(nameof(shipmentPartiesReference));
         }
 
@@ -121,7 +121,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public global::BMEcatSharp.SupplierIdref SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdRef SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>
@@ -132,7 +132,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public global::BMEcatSharp.BuyerIdref? BuyerIdref { get; set; }
+        public global::BMEcatSharp.BuyerIdRef? BuyerIdRef { get; set; }
 
         /// <summary>
         /// (required) Shipment parties<br/>

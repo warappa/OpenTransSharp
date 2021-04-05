@@ -20,7 +20,7 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ConfigurationFormula()
         {
-            Idref = null!;
+            IdRef = null!;
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace BMEcatSharp
                 throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
             }
 
-            Idref = idref;
+            IdRef = idref;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FORMULA_IDREF")]
-        public string Idref { get; set; }
+        public string IdRef { get; set; }
 
         /// <summary>
         /// (optional) Paramters<br/>

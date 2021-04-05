@@ -118,8 +118,8 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
-            model.PayerIdref = parent.GetPayerIdRef();
-            model.RemitteeIdref = parent.GetRemitteeIdRef();
+            model.PayerIdRef = parent.GetPayerIdRef();
+            model.RemitteeIdRef = parent.GetRemitteeIdRef();
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
             model.Currency = "EUR";
             model.MimeInfo = parent.GetMimeInfo();

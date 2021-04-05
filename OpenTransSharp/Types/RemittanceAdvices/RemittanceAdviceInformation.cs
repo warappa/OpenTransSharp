@@ -31,11 +31,11 @@ namespace OpenTransSharp
         /// <param name="id"></param>
         /// <param name="date"></param>
         /// <param name="parties"></param>
-        /// <param name="payerIdref"></param>
-        /// <param name="remitteeIdref"></param>
+        /// <param name="payerIdRef"></param>
+        /// <param name="remitteeIdRef"></param>
         /// <param name="currency"></param>
         public RemittanceAdviceInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
-            PayerIdref payerIdref, RemitteeIdref remitteeIdref, string currency)
+            PayerIdRef payerIdRef, RemitteeIdRef remitteeIdRef, string currency)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -54,8 +54,8 @@ namespace OpenTransSharp
 
             Id = id;
             Date = date;
-            PayerIdref = payerIdref ?? throw new ArgumentNullException(nameof(payerIdref));
-            RemitteeIdref = remitteeIdref ?? throw new ArgumentNullException(nameof(remitteeIdref));
+            PayerIdRef = payerIdRef ?? throw new ArgumentNullException(nameof(payerIdRef));
+            RemitteeIdRef = remitteeIdRef ?? throw new ArgumentNullException(nameof(remitteeIdRef));
             Currency = currency;
             Parties = parties.ToList();
         }
@@ -134,7 +134,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("PAYER_IDREF")]
-        public PayerIdref PayerIdref { get; set; } = new PayerIdref();
+        public PayerIdRef PayerIdRef { get; set; } = new PayerIdRef();
 
         /// <summary>
         /// (required) Reference to a remittee<br/>
@@ -143,7 +143,7 @@ namespace OpenTransSharp
         /// The elemente refers to the PARTY_ID of the remittee in the same document.
         /// </summary>
         [XmlElement("REMITTEE_IDREF")]
-        public RemitteeIdref RemitteeIdref { get; set; } = new RemitteeIdref();
+        public RemitteeIdRef RemitteeIdRef { get; set; } = new RemitteeIdRef();
 
         /// <summary>
         /// (optional) Reference to invoicing party<br/>
@@ -151,7 +151,7 @@ namespace OpenTransSharp
         /// Reference to an unique identifier of the invoicing party. The element refers to a PARTY_ID in the same document.<br/>
         /// </summary>
         [XmlElement("INVOICE_ISSUER_IDREF")]
-        public InvoiceIssuerIdref? InvoiceIssuerIdref { get; set; }
+        public InvoiceIssuerIdRef? InvoiceIssuerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to the recipient of the invoice<br/>
@@ -160,7 +160,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref? InvoiceRecipientIdref { get; set; }
+        public InvoiceRecipientIdRef? InvoiceRecipientIdRef { get; set; }
 
         /// <summary>
         /// (optional) Document exchange parties<br/>
@@ -179,7 +179,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public global::BMEcatSharp.BuyerIdref? BuyerIdref { get; set; }
+        public global::BMEcatSharp.BuyerIdRef? BuyerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -190,7 +190,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (required) Currency<br/>

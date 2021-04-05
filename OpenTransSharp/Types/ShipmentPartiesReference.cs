@@ -22,10 +22,10 @@ namespace OpenTransSharp
         /// <summary>
         /// <inheritdoc cref="ShipmentPartiesReference"/>
         /// </summary>
-        /// <param name="deliveryIdref"></param>
-        public ShipmentPartiesReference(DeliveryIdref deliveryIdref)
+        /// <param name="deliveryIdRef"></param>
+        public ShipmentPartiesReference(DeliveryIdRef deliveryIdRef)
         {
-            DeliveryIdref = deliveryIdref ?? throw new ArgumentNullException(nameof(deliveryIdref));
+            DeliveryIdRef = deliveryIdRef ?? throw new ArgumentNullException(nameof(deliveryIdRef));
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref DeliveryIdref { get; set; } = new DeliveryIdref();
+        public DeliveryIdRef DeliveryIdRef { get; set; } = new DeliveryIdRef();
 
         /// <summary>
         /// (optional) Reference to a final recipient<br/>
@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("FINAL_DELIVERY_IDREF")]
-        public FinalDeliveryIdref? FinalDeliveryIdref { get; set; }
+        public FinalDeliveryIdRef? FinalDeliveryIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to a carrier<br/>
@@ -53,6 +53,6 @@ namespace OpenTransSharp
         /// This element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("DELIVERER_IDREF")]
-        public DelivererIdref? DelivererIdref { get; set; }
+        public DelivererIdRef? DelivererIdRef { get; set; }
     }
 }

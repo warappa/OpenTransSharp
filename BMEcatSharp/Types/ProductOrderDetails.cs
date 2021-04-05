@@ -90,7 +90,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_PIDREF")]
-        public string? SupplierPIdref { get; set; }
+        public string? SupplierPIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -101,7 +101,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Price quantity<br/>

@@ -83,7 +83,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (required) Catalog group<br/>

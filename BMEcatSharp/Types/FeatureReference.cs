@@ -20,7 +20,7 @@ namespace BMEcatSharp
         public FeatureReference()
         {
             SystemName = null!;
-            Idref = null!;
+            IdRef = null!;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace BMEcatSharp
             }
 
             SystemName = systemName;
-            Idref = idref;
+            IdRef = idref;
         }
 
         /// <summary>
@@ -75,6 +75,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_IDREF")]
-        public string Idref { get; set; }
+        public string IdRef { get; set; }
     }
 }

@@ -5,29 +5,28 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Reference to a business partner)<br/>
-    /// <br/>
-    /// This element provides a reference to a business partner.<br/>
-    /// It contains the unique identifier(PARTY_ID) of the respective party(element PARTY).<br/>
+    /// (Reference to the supplier)<br/>
+    /// <br/>This element contains a reference to the supplier.<br/>
+    /// The reference has to point to a (PARTY_ID) that is defined in the document (PARTY element).<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class PartyIdref : PartyRef<PartyIdref>
+    public class SupplierIdRef : PartyRef<SupplierIdRef>
     {
         /// <summary>
-        /// <inheritdoc cref="PartyIdref"/>
+        /// <inheritdoc cref="SupplierIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public PartyIdref()
+        public SupplierIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="PartyIdref"/>
+        /// <inheritdoc cref="SupplierIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public PartyIdref(string value)
+        public SupplierIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -38,20 +37,21 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="PartyIdref"/>
+        /// <inheritdoc cref="SupplierIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined. See <see cref="PartyTypeValues"/>. Custom values can be used.</param>
-        public PartyIdref(string value, string? type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
+        public SupplierIdRef(string value, string? type)
             : this(value)
         {
             Type = type;
         }
 
         /// <summary>
-        /// (optional) This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined. See <see cref="PartyTypeValues"/>. Custom values can be used.
+        /// (optional) Coding standard<br/>
+        /// <br/>
+        /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
+        /// The most common coding standards are predefined.
         /// </summary>
         [XmlAttribute("type")]
         public override string? Type { get; set; }
@@ -64,7 +64,7 @@ namespace BMEcatSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator PartyId(PartyIdref idRef)
+        public static explicit operator PartyId(SupplierIdRef idRef)
         {
             if (idRef is null)
             {

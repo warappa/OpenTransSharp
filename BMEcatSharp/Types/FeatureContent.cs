@@ -84,7 +84,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_UNIT_IDREF")]
-        public string? UnitIdref { get; set; }
+        public string? UnitIdRef { get; set; }
 
         /// <summary>
         /// (optional) Feature unit<br/>

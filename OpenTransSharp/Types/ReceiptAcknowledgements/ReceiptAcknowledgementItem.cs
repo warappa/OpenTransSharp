@@ -169,7 +169,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to final recipient<br/>
@@ -178,7 +178,7 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref? DeliveryIdref { get; set; }
+        public DeliveryIdRef? DeliveryIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to a final recipient<br/>
@@ -187,7 +187,7 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("FINAL_DELIVERY_IDREF")]
-        public FinalDeliveryIdref? FinalDeliveryIdref { get; set; }
+        public FinalDeliveryIdRef? FinalDeliveryIdRef { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>

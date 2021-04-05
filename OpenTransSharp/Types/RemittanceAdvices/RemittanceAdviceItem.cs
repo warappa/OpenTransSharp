@@ -63,7 +63,7 @@ namespace OpenTransSharp
         /// Reference to an unique identifier of the invoicing party. The element refers to a PARTY_ID in the same document.<br/>
         /// </summary>
         [XmlElement("INVOICE_ISSUER_IDREF")]
-        public InvoiceIssuerIdref? InvoiceIssuerIdref { get; set; }
+        public InvoiceIssuerIdRef? InvoiceIssuerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to the recipient of the invoice<br/>
@@ -72,7 +72,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref? InvoiceRecipientIdref { get; set; }
+        public InvoiceRecipientIdRef? InvoiceRecipientIdRef { get; set; }
 
         /// <summary>
         /// (required) Reference to the recipient of the invoice<br/>

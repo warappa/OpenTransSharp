@@ -20,17 +20,17 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PartAlternative()
         {
-            SupplierPIdref = null!;
+            SupplierPIdRef = null!;
         }
 
-        public PartAlternative(string supplierPIdref)
+        public PartAlternative(string supplierPIdRef)
         {
-            if (string.IsNullOrWhiteSpace(supplierPIdref))
+            if (string.IsNullOrWhiteSpace(supplierPIdRef))
             {
-                throw new ArgumentException($"'{nameof(supplierPIdref)}' cannot be null or whitespace.", nameof(supplierPIdref));
+                throw new ArgumentException($"'{nameof(supplierPIdRef)}' cannot be null or whitespace.", nameof(supplierPIdRef));
             }
 
-            SupplierPIdref = supplierPIdref;
+            SupplierPIdRef = supplierPIdRef;
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_PIDREF")]
-        public string SupplierPIdref { get; set; }
+        public string SupplierPIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -54,7 +54,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Product order<br/>

@@ -103,7 +103,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_PARTY_IDREF")]
-        public ClassificationSystemPartyIdref? ClassificationSystemPartyIdref { get; set; }
+        public ClassificationSystemPartyIdRef? ClassificationSystemPartyIdRef { get; set; }
 
         /// <summary>
         /// (optional) Number of hierarchical levels<br/>

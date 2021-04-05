@@ -22,15 +22,15 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="FeatureDependencies"/>
         /// </summary>
-        /// <param name="idrefs"></param>
-        public FeatureDependencies(IEnumerable<string> idrefs)
+        /// <param name="idRefs"></param>
+        public FeatureDependencies(IEnumerable<string> idRefs)
         {
-            if (idrefs is null)
+            if (idRefs is null)
             {
-                throw new ArgumentNullException(nameof(idrefs));
+                throw new ArgumentNullException(nameof(idRefs));
             }
 
-            Idrefs = idrefs.ToList();
+            IdRefs = idRefs.ToList();
         }
 
         /// <summary>
@@ -41,6 +41,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_IDREF")]
-        public List<string> Idrefs { get; set; } = new List<string>();
+        public List<string> IdRefs { get; set; } = new List<string>();
     }
 }

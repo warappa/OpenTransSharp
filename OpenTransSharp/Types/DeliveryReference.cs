@@ -59,6 +59,6 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref? Idref { get; set; }
+        public DeliveryIdRef? IdRef { get; set; }
     }
 }

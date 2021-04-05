@@ -52,23 +52,23 @@ namespace BMEcatSharp
         /// <param name="minimumQuantity"></param>
         /// <param name="maximumQuantity"></param>
         /// <param name="code"></param>
-        /// <param name="supplierPIdref"></param>
-        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, string supplierPIdref)
+        /// <param name="supplierPIdRef"></param>
+        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, string supplierPIdRef)
         {
             if (string.IsNullOrWhiteSpace(code))
             {
                 throw new ArgumentException($"'{nameof(code)}' cannot be null or whitespace.", nameof(code));
             }
 
-            if (string.IsNullOrWhiteSpace(supplierPIdref))
+            if (string.IsNullOrWhiteSpace(supplierPIdRef))
             {
-                throw new ArgumentException($"'{nameof(supplierPIdref)}' cannot be null or whitespace.", nameof(supplierPIdref));
+                throw new ArgumentException($"'{nameof(supplierPIdRef)}' cannot be null or whitespace.", nameof(supplierPIdRef));
             }
 
             MinimumQuantity = minimumQuantity;
             MaximumQuantity = maximumQuantity;
             Code = code;
-            SupplierPIdref = supplierPIdref;
+            SupplierPIdRef = supplierPIdRef;
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace BMEcatSharp
         public bool DescriptionSpecified => Description?.Count > 0;
 
         /// <summary>
-        /// (required - choice SupplierPid/SupplierPidref with SupplierIdref) Supplier's product ID<br/>
+        /// (required - choice SupplierPid/SupplierPidref with SupplierIdRef) Supplier's product ID<br/>
         /// <br/>
         /// This element contains the product number issued by the supplier.<br/>
         /// It is determining for ordering the product; it identifies the product in the supplier catalog.<br/>
@@ -133,7 +133,7 @@ namespace BMEcatSharp
         public SupplierPid? SupplierPid { get; set; }
 
         /// <summary>
-        /// (required - choice SupplierPid/SupplierPidref with SupplierIdref) Reference to a product number<br/>
+        /// (required - choice SupplierPid/SupplierPidref with SupplierIdRef) Reference to a product number<br/>
         /// <br/>
         /// This element provides a reference to a product number of the supplier.<br/>
         /// It contains the unique identifier (SUPPLIER_PID) that is defined in the document.<br/>
@@ -142,7 +142,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_PIDREF")]
-        public string? SupplierPIdref { get; set; }
+        public string? SupplierPIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -153,6 +153,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; }
+        public SupplierIdRef? SupplierIdRef { get; set; }
     }
 }

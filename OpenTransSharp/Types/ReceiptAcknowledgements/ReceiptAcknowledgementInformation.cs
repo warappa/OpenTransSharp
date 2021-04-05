@@ -118,7 +118,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>
@@ -129,7 +129,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public global::BMEcatSharp.BuyerIdref? BuyerIdref { get; set; }
+        public global::BMEcatSharp.BuyerIdRef? BuyerIdRef { get; set; }
 
         /// <summary>
         /// (required) Shipment parties<br/>

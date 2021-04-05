@@ -23,28 +23,28 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Ipp()
         {
-            Idref = null!;
+            IdRef = null!;
         }
 
         /// <summary>
         /// <inheritdoc cref="Ipp"/>
         /// </summary>
         /// <param name="idref"></param>
-        /// <param name="operationIdrefs"></param>
-        public Ipp(string idref, IEnumerable<string> operationIdrefs)
+        /// <param name="operationIdRefs"></param>
+        public Ipp(string idref, IEnumerable<string> operationIdRefs)
         {
             if (string.IsNullOrWhiteSpace(idref))
             {
                 throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
             }
 
-            if (operationIdrefs is null)
+            if (operationIdRefs is null)
             {
-                throw new ArgumentNullException(nameof(operationIdrefs));
+                throw new ArgumentNullException(nameof(operationIdRefs));
             }
 
-            Idref = idref;
-            OperationIdrefs = operationIdrefs.ToList();
+            IdRef = idref;
+            OperationIdRefs = operationIdRefs.ToList();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_IDREF")]
-        public string Idref { get; set; }
+        public string IdRef { get; set; }
 
         /// <summary>
         /// (required) Reference to an IPP operation<br/>
@@ -67,7 +67,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATION_IDREF")]
-        public List<string> OperationIdrefs { get; set; } = new List<string>();
+        public List<string> OperationIdRefs { get; set; } = new List<string>();
 
         /// <summary>
         /// (optional) Guaranteed response time of the IPP application.<br/>

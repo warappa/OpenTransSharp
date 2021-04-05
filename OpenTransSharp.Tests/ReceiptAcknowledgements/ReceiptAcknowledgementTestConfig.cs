@@ -103,8 +103,8 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
-            model.SupplierIdref = parent.BMEcats.GetSupplierIdRef();
-            model.BuyerIdref = parent.BMEcats.GetBuyerIdref();
+            model.SupplierIdRef = parent.BMEcats.GetSupplierIdRef();
+            model.BuyerIdRef = parent.BMEcats.GetBuyerIdRef();
             model.ShipmentPartiesReference = parent.GetShipmentPartiesReference();
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
             model.MimeInfo = parent.GetMimeInfo();

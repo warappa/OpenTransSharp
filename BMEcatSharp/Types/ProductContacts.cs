@@ -20,16 +20,16 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductContacts()
         {
-            PartyIdref = null!;
+            PartyIdRef = null!;
         }
 
         /// <summary>
         /// <inheritdoc cref="ProductContacts"/>
         /// </summary>
-        /// <param name="partyIdref"></param>
-        public ProductContacts(PartyIdref partyIdref)
+        /// <param name="partyIdRef"></param>
+        public ProductContacts(PartyIdRef partyIdRef)
         {
-            PartyIdref = partyIdref ?? throw new ArgumentNullException(nameof(partyIdref));
+            PartyIdRef = partyIdRef ?? throw new ArgumentNullException(nameof(partyIdRef));
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARTY_IDREF")]
-        public PartyIdref PartyIdref { get; set; }
+        public PartyIdRef PartyIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to a business partner<br/>
@@ -53,10 +53,9 @@ namespace BMEcatSharp
         /// <br/>
         /// In this context the element is used to reference the organisation which is responsible for the specification of the element.
         /// </summary>
-        // TODO: PartyIdref?
         [BMEXmlElement("CONTACT_IDREF")]
-        public List<string> ContactIdrefs { get; set; } = new List<string>();
+        public List<string> ContactIdRefs { get; set; } = new List<string>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ContactIdrefsSpecified => ContactIdrefs?.Count > 0;
+        public bool ContactIdRefsSpecified => ContactIdRefs?.Count > 0;
     }
 }

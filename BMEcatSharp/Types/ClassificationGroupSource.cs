@@ -50,6 +50,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARTY_IDREF")]
-        public PartyIdref? PartyIdref { get; set; }
+        public PartyIdRef? PartyIdRef { get; set; }
     }
 }

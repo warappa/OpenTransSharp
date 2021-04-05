@@ -11,22 +11,22 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureIdref
+    public class FeatureIdRef
     {
         /// <summary>
-        /// <inheritdoc cref="FeatureIdref"/>
+        /// <inheritdoc cref="FeatureIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public FeatureIdref()
+        public FeatureIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="FeatureIdref"/>
+        /// <inheritdoc cref="FeatureIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public FeatureIdref(string value)
+        public FeatureIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {

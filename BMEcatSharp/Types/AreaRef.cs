@@ -24,15 +24,15 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="AreaRef"/>
         /// </summary>
-        /// <param name="idrefs"></param>
-        public AreaRef(IEnumerable<string> idrefs)
+        /// <param name="idRefs"></param>
+        public AreaRef(IEnumerable<string> idRefs)
         {
-            if (idrefs is null)
+            if (idRefs is null)
             {
-                throw new ArgumentNullException(nameof(idrefs));
+                throw new ArgumentNullException(nameof(idRefs));
             }
 
-            Idrefs = idrefs.ToList();
+            IdRefs = idRefs.ToList();
         }
 
         /// <summary>
@@ -46,6 +46,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("AREA_IDREF")]
-        public List<string> Idrefs { get; set; } = new List<string>();
+        public List<string> IdRefs { get; set; } = new List<string>();
     }
 }

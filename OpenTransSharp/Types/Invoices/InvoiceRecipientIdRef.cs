@@ -5,30 +5,30 @@ using System.Xml.Serialization;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Reference to invoicing party)<br/>
+    /// (Reference to the recipient of the invoice)<br/>
     /// <br/>
-    /// Reference to an unique identifier of the invoicing party.<br/>
-    /// The element refers to a PARTY_ID in the same document.<br/>
+    /// Reference to an unique identifier to the recipient of the invoice.<br/>
+    /// The element refers to a PARTY_ID of an invoice recipient in the same document.<br/>
     /// <br/>
     /// Caution:<br/>
-    /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_ISSUER_IDREF is additionally the recipient of the benefit/buyer.
+    /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_RECIPIENT_IDREF is also the supplier.
     /// </summary>
-    public class InvoiceIssuerIdref : global::BMEcatSharp.PartyRef<InvoiceIssuerIdref>
+    public class InvoiceRecipientIdRef : global::BMEcatSharp.PartyRef<InvoiceRecipientIdRef>
     {
         /// <summary>
-        /// <inheritdoc cref="InvoiceIssuerIdref"/>
+        /// <inheritdoc cref="InvoiceRecipientIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public InvoiceIssuerIdref()
+        public InvoiceRecipientIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="InvoiceIssuerIdref"/>
+        /// <inheritdoc cref="InvoiceRecipientIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public InvoiceIssuerIdref(string value)
+        public InvoiceRecipientIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -39,11 +39,11 @@ namespace OpenTransSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="InvoiceIssuerIdref"/>
+        /// <inheritdoc cref="InvoiceRecipientIdRef"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
-        public InvoiceIssuerIdref(string value, string? type)
+        public InvoiceRecipientIdRef(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -55,7 +55,7 @@ namespace OpenTransSharp
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined.<br/>
         /// <br/>
-        /// See <see cref="BMEcatSharp.PartyTypeValues"/>.
+        /// See <see cref="PartyTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public override string? Type { get; set; }
@@ -68,7 +68,7 @@ namespace OpenTransSharp
         [XmlText]
         public override string Value { get; set; }
 
-        public static explicit operator global::BMEcatSharp.PartyId(InvoiceIssuerIdref idRef)
+        public static explicit operator global::BMEcatSharp.PartyId(InvoiceRecipientIdRef idRef)
         {
             if (idRef is null)
             {

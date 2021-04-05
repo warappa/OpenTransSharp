@@ -2,32 +2,32 @@
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace OpenTransSharp
 {
     /// <summary>
-    /// (Document creator)<br/>
+    /// (Reference to the payer)<br/>
     /// <br/>
-    /// This element contains a reference to the document creator.<br/>
-    /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document (element PARTY).<br/>
+    /// Reference to a unique identifier of the payer.<br/>
+    /// The element refers to a PARTY_ID in the same document.<br/>
     /// <br/>
-    /// XML-namespace: BMECAT
+    /// XML-namespace: OpenTrans
     /// </summary>
-    public class DocumentCreatorIdref
+    public class PayerIdRef : global::BMEcatSharp.PartyRef<PayerIdRef>
     {
         /// <summary>
-        /// <inheritdoc cref="DocumentCreatorIdref"/>
+        /// <inheritdoc cref="PayerIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public DocumentCreatorIdref()
+        public PayerIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="DocumentCreatorIdref"/>
+        /// <inheritdoc cref="PayerIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public DocumentCreatorIdref(string value)
+        public PayerIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -41,26 +41,21 @@ namespace BMEcatSharp
         /// 
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined.<br/>
-        /// <br/>
-        /// See <see cref="PartyTypeValues"/>.</param>
-        public DocumentCreatorIdref(string value, string? type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
+        public PayerIdRef(string value, string? type)
             : this(value)
         {
             Type = type;
         }
 
         /// <summary>
-        /// (optional) ID type Coding standard<br/>
+        /// (optional) Coding standard<br/>
         /// <br/>
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined.<br/>
-        /// <br/>
-        /// See <see cref="PartyTypeValues"/>.
+        /// The most common coding standards are predefined.
         /// </summary>
         [XmlAttribute("type")]
-        public string? Type { get; set; }
+        public override string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>
@@ -68,6 +63,16 @@ namespace BMEcatSharp
         /// Max length: 250
         /// </summary>
         [XmlText]
-        public string Value { get; set; }
+        public override string Value { get; set; }
+
+        public static explicit operator global::BMEcatSharp.PartyId(PayerIdRef idRef)
+        {
+            if (idRef is null)
+            {
+                return null!;
+            }
+
+            return new global::BMEcatSharp.PartyId(idRef.Value, idRef.Type);
+        }
     }
 }

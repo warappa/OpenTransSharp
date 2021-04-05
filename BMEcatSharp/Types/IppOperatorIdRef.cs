@@ -12,19 +12,19 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class IppOperatorIdref : PartyRef<IppOperatorIdref>
+    public class IppOperatorIdRef : PartyRef<IppOperatorIdRef>
     {
         /// <summary>
-        /// <inheritdoc cref="IppOperatorIdref"/>
+        /// <inheritdoc cref="IppOperatorIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public IppOperatorIdref() { }
+        public IppOperatorIdRef() { }
 
         /// <summary>
-        /// <inheritdoc cref="IppOperatorIdref"/>
+        /// <inheritdoc cref="IppOperatorIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public IppOperatorIdref(string value)
+        public IppOperatorIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -35,14 +35,14 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="IppOperatorIdref"/>
+        /// <inheritdoc cref="IppOperatorIdRef"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined.<br/>
         /// <br/>
         /// See <see cref="PartyTypeValues"/>.</param>
-        public IppOperatorIdref(string value, string? type)
+        public IppOperatorIdRef(string value, string? type)
             : this(value)
         {
             Type = type;

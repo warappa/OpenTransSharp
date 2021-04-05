@@ -20,19 +20,19 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Verification()
         {
-            PartyIdref = null!;
+            PartyIdRef = null!;
             Report = null!;
         }
 
         /// <summary>
         /// <inheritdoc cref="Verification"/>
         /// </summary>
-        /// <param name="partyIdref"></param>
+        /// <param name="partyIdRef"></param>
         /// <param name="success"></param>
         /// <param name="report"></param>
-        public Verification(VerificationPartyIdRef partyIdref, bool success, VerificationReport report)
+        public Verification(VerificationPartyIdRef partyIdRef, bool success, VerificationReport report)
         {
-            PartyIdref = partyIdref ?? throw new System.ArgumentNullException(nameof(partyIdref));
+            PartyIdRef = partyIdRef ?? throw new System.ArgumentNullException(nameof(partyIdRef));
             Success = success;
             Report = report ?? throw new System.ArgumentNullException(nameof(report));
         }
@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("VERIFICATION_PARTY_IDREF")]
-        public VerificationPartyIdRef PartyIdref { get; set; }
+        public VerificationPartyIdRef PartyIdRef { get; set; }
 
         /// <summary>
         /// (required) Verification result<br/>

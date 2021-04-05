@@ -106,7 +106,7 @@ namespace BMEcatSharp
         public FeatureVersion? Version { get; set; }
 
         /// <summary>
-        /// (optional - choice GroupIdref/GroupName) Feature group ID reference<br/>
+        /// (optional - choice GroupIdRef/GroupName) Feature group ID reference<br/>
         /// <br/>
         /// Reference to the unique ID of a feature group.<br/>
         /// The reference must point to a FT_GROUP_ID, which has been defined in the FT_GROUP element for the respective classification system.<br/>
@@ -114,10 +114,10 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_GROUP_IDREF")]
-        public string? GroupIdref { get; set; }
+        public string? GroupIdRef { get; set; }
 
         /// <summary>
-        /// (optional - choice GroupIdref/GroupName) Feature group name<br/>
+        /// (optional - choice GroupIdRef/GroupName) Feature group name<br/>
         /// <br/>
         /// Specifies the name of the feature group; e.g., "Technical features".<br/>
         /// <br/>
@@ -138,7 +138,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("FT_DEPENDENCIES")]
         [BMEXmlArrayItem("FT_IDREF")]
-        public List<FeatureIdref>? Dependencies { get; set; } = new List<FeatureIdref>();
+        public List<FeatureIdRef>? Dependencies { get; set; } = new List<FeatureIdRef>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DependenciesSpecified => Dependencies?.Count > 0;
 

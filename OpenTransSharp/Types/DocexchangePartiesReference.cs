@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("DOCUMENT_ISSUER_IDREF")]
-        public DocumentIssuerIdref? DocumentIssuerIdref { get; set; }
+        public DocumentIssuerIdRef? DocumentIssuerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to the document recipient<br/>
@@ -39,8 +39,8 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [OpenTransXmlElement("DOCUMENT_RECIPIENT_IDREF")]
-        public List<DocumentRecipientIdref>? DocumentRecipientIdrefs { get; set; } = new List<DocumentRecipientIdref>();
+        public List<DocumentRecipientIdRef>? DocumentRecipientIdRefs { get; set; } = new List<DocumentRecipientIdRef>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DocumentRecipientIdrefsSpecified => DocumentRecipientIdrefs?.Count > 0;
+        public bool DocumentRecipientIdRefsSpecified => DocumentRecipientIdRefs?.Count > 0;
     }
 }

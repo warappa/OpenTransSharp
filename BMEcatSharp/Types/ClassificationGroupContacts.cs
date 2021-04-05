@@ -27,17 +27,17 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="ClassificationGroupContacts"/>
         /// </summary>
-        /// <param name="partyIdref"></param>
-        /// <param name="contactIdrefs"></param>
-        public ClassificationGroupContacts(PartyIdref partyIdref, IEnumerable<string> contactIdrefs)
+        /// <param name="partyIdRef"></param>
+        /// <param name="contactIdRefs"></param>
+        public ClassificationGroupContacts(PartyIdRef partyIdRef, IEnumerable<string> contactIdRefs)
         {
-            if (contactIdrefs is null)
+            if (contactIdRefs is null)
             {
-                throw new ArgumentNullException(nameof(contactIdrefs));
+                throw new ArgumentNullException(nameof(contactIdRefs));
             }
 
-            PartyIdRef = partyIdref ?? throw new ArgumentNullException(nameof(partyIdref));
-            ContactIdrefs = contactIdrefs.ToList();
+            PartyIdRef = partyIdRef ?? throw new ArgumentNullException(nameof(partyIdRef));
+            ContactIdRefs = contactIdRefs.ToList();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARTY_IDREF")]
-        public PartyIdref PartyIdRef { get; set; }
+        public PartyIdRef PartyIdRef { get; set; }
 
         /// <summary>
         /// (required) Reference to a business partner<br/>
@@ -58,6 +58,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_IDREF")]
-        public List<string> ContactIdrefs { get; set; } = new List<string>();
+        public List<string> ContactIdRefs { get; set; } = new List<string>();
     }
 }

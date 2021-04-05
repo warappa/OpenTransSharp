@@ -5,28 +5,29 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Reference to the buyer)<br/>
-    /// <br/>This element contains a reference to the buyer.<br/>
-    /// The reference has to point to a (PARTY_ID) that is defined in the document (PARTY element).<br/>
+    /// (Document creator)<br/>
+    /// <br/>
+    /// This element contains a reference to the document creator.<br/>
+    /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document (element PARTY).<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class BuyerIdref : PartyRef<BuyerIdref>
+    public class DocumentCreatorIdRef
     {
         /// <summary>
-        /// <inheritdoc cref="BuyerIdref"/>
+        /// <inheritdoc cref="DocumentCreatorIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public BuyerIdref()
+        public DocumentCreatorIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="BuyerIdref"/>
+        /// <inheritdoc cref="DocumentCreatorIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public BuyerIdref(string value)
+        public DocumentCreatorIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -37,24 +38,29 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="BuyerIdref"/>
+        /// 
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public BuyerIdref(string value, string? type)
+        /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
+        /// The most common coding standards are predefined.<br/>
+        /// <br/>
+        /// See <see cref="PartyTypeValues"/>.</param>
+        public DocumentCreatorIdRef(string value, string? type)
             : this(value)
         {
             Type = type;
         }
 
         /// <summary>
-        /// (optional) Coding standard<br/>
+        /// (optional) ID type Coding standard<br/>
         /// <br/>
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined.
+        /// The most common coding standards are predefined.<br/>
+        /// <br/>
+        /// See <see cref="PartyTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
-        public override string? Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// (required)<br/>
@@ -62,16 +68,6 @@ namespace BMEcatSharp
         /// Max length: 250
         /// </summary>
         [XmlText]
-        public override string Value { get; set; }
-
-        public static explicit operator PartyId(BuyerIdref idRef)
-        {
-            if (idRef is null)
-            {
-                return null!;
-            }
-
-            return new PartyId(idRef.Value, idRef.Type);
-        }
+        public string Value { get; set; }
     }
 }

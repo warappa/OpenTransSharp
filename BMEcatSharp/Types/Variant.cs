@@ -64,7 +64,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_IDREF")]
-        public List<string> ValueIdrefs { get; set; } = new List<string>();
+        public List<string> ValueIdRefs { get; set; } = new List<string>();
 
         /// <summary>
         /// (required) Article number supplement<br/>

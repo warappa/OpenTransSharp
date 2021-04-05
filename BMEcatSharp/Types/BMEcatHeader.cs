@@ -26,22 +26,22 @@ namespace BMEcatSharp
         /// <inheritdoc cref="BMEcatHeader"/>
         /// </summary>
         /// <param name="catalog"></param>
-        /// <param name="supplierIdref"></param>
-        public BMEcatHeader(Catalog catalog, SupplierIdref supplierIdref)
+        /// <param name="supplierIdRef"></param>
+        public BMEcatHeader(Catalog catalog, SupplierIdRef supplierIdRef)
         {
             Catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
-            SupplierIdref = supplierIdref ?? throw new ArgumentNullException(nameof(supplierIdref));
+            SupplierIdRef = supplierIdRef ?? throw new ArgumentNullException(nameof(supplierIdRef));
         }
 
         /// <summary>
         /// <inheritdoc cref="BMEcatHeader"/>
         /// </summary>
         /// <param name="catalog"></param>
-        /// <param name="documentCreatorIdref"></param>
-        public BMEcatHeader(Catalog catalog, DocumentCreatorIdref documentCreatorIdref)
+        /// <param name="documentCreatorIdRef"></param>
+        public BMEcatHeader(Catalog catalog, DocumentCreatorIdRef documentCreatorIdRef)
         {
             Catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
-            DocumentCreatorIdref = documentCreatorIdref ?? throw new ArgumentNullException(nameof(documentCreatorIdref));
+            DocumentCreatorIdRef = documentCreatorIdRef ?? throw new ArgumentNullException(nameof(documentCreatorIdRef));
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace BMEcatSharp
         public Catalog Catalog { get; set; } = new Catalog();
 
         /// <summary>
-        /// (optional - optional choice: BuyerIdref/(deprecated)Buyer) Reference to the buyer<br/>
+        /// (optional - optional choice: BuyerIdRef/(deprecated)Buyer) Reference to the buyer<br/>
         /// <br/>
         /// Reference to the buyer.<br/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document (PARTY element ).<br/>
@@ -73,10 +73,10 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public BuyerIdref? BuyerIdref { get; set; }
+        public BuyerIdRef? BuyerIdRef { get; set; }
 
         /// <summary>
-        /// (optional - deprecated - optional choice: BuyerIdref/(deprecated)Buyer) Buyer information<br/>
+        /// (optional - deprecated - optional choice: BuyerIdRef/(deprecated)Buyer) Buyer information<br/>
         /// <br/>
         /// Information on the buyer.<br/>
         /// The element BUYER will be replaced by the element BUYER_IDREF together with the element PARTY in future versions and will be omitted then.<br/>
@@ -110,7 +110,7 @@ namespace BMEcatSharp
         public LegalInfo? LegalInfo { get; set; }
 
         /// <summary>
-        /// (required - choice (deprecated)Supplier/SupplierIdref/DocumentCreatorIdref) Reference to supplier<br/>
+        /// (required - choice (deprecated)Supplier/SupplierIdRef/DocumentCreatorIdRef) Reference to supplier<br/>
         /// <br/>
         /// Reference to the supplier.<br/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document(element PARTY).<br/>
@@ -118,10 +118,10 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public SupplierIdref? SupplierIdref { get; set; } = null!;
+        public SupplierIdRef? SupplierIdRef { get; set; } = null!;
 
         /// <summary>
-        /// (required - choice (deprecated)Supplier/SupplierIdref/DocumentCreatorIdref) Supplier<br/>
+        /// (required - choice (deprecated)Supplier/SupplierIdRef/DocumentCreatorIdRef) Supplier<br/>
         /// <br/>
         /// Information on the supplier.<br/>
         /// The element SUPPLIER will be replaced by the element SUPPLIER_IDREF together with the element PARTY in future versions and will be omitted then.<br/>
@@ -133,7 +133,7 @@ namespace BMEcatSharp
         public Supplier? Supplier { get; set; } = null!;
 
         /// <summary>
-        /// (required - choice (deprecated)Supplier/SupplierIdref/DocumentCreatorIdref) Document creator<br/>
+        /// (required - choice (deprecated)Supplier/SupplierIdRef/DocumentCreatorIdRef) Document creator<br/>
         /// <br/>
         /// Reference to the document creator.<bre/>
         /// It contains the unique identifier (PARTY_ID) of the respective party that is defined in the document (element PARTY).<br/>
@@ -142,7 +142,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("DOCUMENT_CREATOR_IDREF")]
-        public DocumentCreatorIdref? DocumentCreatorIdref { get; set; } = null!;
+        public DocumentCreatorIdRef? DocumentCreatorIdRef { get; set; } = null!;
 
         /// <summary>
         /// (optional) Parties<br/>

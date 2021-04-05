@@ -63,23 +63,23 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="FeatureValue"/>
         /// </summary>
-        /// <param name="idref"></param>
+        /// <param name="idRef"></param>
         /// <returns></returns>
-        public static FeatureValue FromIdref(string idref)
+        public static FeatureValue FromIdRef(string idRef)
         {
-            if (string.IsNullOrWhiteSpace(idref))
+            if (string.IsNullOrWhiteSpace(idRef))
             {
-                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+                throw new ArgumentException($"'{nameof(idRef)}' cannot be null or whitespace.", nameof(idRef));
             }
 
             return new()
             {
-                Idref = idref
+                IdRef = idRef
             };
         }
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Reference to a value<br/>
+        /// (required - choice ValueIdRef/ValueSimple/ValueText/ValueRange) Reference to a value<br/>
         /// <br/>
         /// Reference to the unique identifier of a value.<br/>
         /// <br/>
@@ -89,10 +89,10 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_IDREF")]
-        public string? Idref { get; set; }
+        public string? IdRef { get; set; }
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Atomic value<br/>
+        /// (required - choice ValueIdRef/ValueSimple/ValueText/ValueRange) Atomic value<br/>
         /// <br/>
         /// A single, atomic value.<br/>
         /// <br/>
@@ -102,7 +102,7 @@ namespace BMEcatSharp
         public string? Simple { get; set; }
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Text value<br/>
+        /// (required - choice ValueIdRef/ValueSimple/ValueText/ValueRange) Text value<br/>
         /// <br/>
         /// This element contains a text.<br/>
         /// <br/>
@@ -114,7 +114,7 @@ namespace BMEcatSharp
         public bool TextSpecified => Text?.Count > 0;
 
         /// <summary>
-        /// (required - choice ValueIdref/ValueSimple/ValueText/ValueRange) Interval of values<br/>
+        /// (required - choice ValueIdRef/ValueSimple/ValueText/ValueRange) Interval of values<br/>
         /// <br/>
         /// Definition of an interval of values.<br/>
         /// <br/>

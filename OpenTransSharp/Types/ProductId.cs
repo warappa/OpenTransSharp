@@ -50,7 +50,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Configurationcode<br/>

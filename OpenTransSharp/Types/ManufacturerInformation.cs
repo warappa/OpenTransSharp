@@ -20,23 +20,23 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ManufacturerInformation()
         {
-            Idref = null!;
+            IdRef = null!;
             ProductId = null!;
         }
 
         /// <summary>
         /// <inheritdoc cref="ManufacturerInformation"/>
         /// </summary>
-        /// <param name="idref"></param>
+        /// <param name="idRef"></param>
         /// <param name="productId"></param>
-        public ManufacturerInformation(BMEcatSharp.ManufacturerIdref idref, string productId)
+        public ManufacturerInformation(BMEcatSharp.ManufacturerIdRef idRef, string productId)
         {
             if (string.IsNullOrWhiteSpace(productId))
             {
                 throw new ArgumentException($"'{nameof(productId)}' cannot be null or whitespace.", nameof(productId));
             }
 
-            Idref = idref ?? throw new ArgumentNullException(nameof(idref));
+            IdRef = idRef ?? throw new ArgumentNullException(nameof(idRef));
             ProductId = productId;
         }
 
@@ -49,7 +49,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_IDREF")]
-        public global::BMEcatSharp.ManufacturerIdref Idref { get; set; }
+        public global::BMEcatSharp.ManufacturerIdRef IdRef { get; set; }
 
         /// <summary>
         /// (required) Product ID of the manufacturer<br/>

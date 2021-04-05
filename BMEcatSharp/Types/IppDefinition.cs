@@ -75,7 +75,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_OPERATOR_IDREF")]
-        public IppOperatorIdref? OperatorIdref { get; set; }
+        public IppOperatorIdRef? OperatorIdRef { get; set; }
 
         /// <summary>
         /// (optional) Description of the IPP application<br/>

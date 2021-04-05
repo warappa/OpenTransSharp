@@ -76,7 +76,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PRODUCTCONFIG_IDREF")]
-        public IppProductconfigIdref? ProductconfigIdref { get; set; }
+        public IppProductconfigIdRef? ProductconfigIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to an IPP shopping cart<br/>
@@ -86,7 +86,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP_PRODUCTLIST_IDREF")]
-        public IppProductlistIdref? ProductlistIdref { get; set; }
+        public IppProductlistIdRef? ProductlistIdRef { get; set; }
 
         /// <summary>
         /// (optional) IPP user information<br/>

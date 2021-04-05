@@ -44,7 +44,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.OrderReference = parent.GetOrderReference();
             model.ShipmentPartiesReference = new ShipmentPartiesReference
             {
-                DeliveryIdref = parent.GetDeliveryIdref()
+                DeliveryIdRef = parent.GetDeliveryIdRef()
             };
             model.Remarks = parent.GetRemarks();
 
@@ -104,8 +104,8 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.DeliveryDate = parent.GetDeliveryDate();
             model.DocexchangePartiesReference = new DocexchangePartiesReference
             {
-                DocumentIssuerIdref = parent.GetDocumentIssuerIdRef(),
-                DocumentRecipientIdrefs = new List<DocumentRecipientIdref>{
+                DocumentIssuerIdRef = parent.GetDocumentIssuerIdRef(),
+                DocumentRecipientIdRefs = new List<DocumentRecipientIdRef>{
                     parent.GetDocumentRecipientIdRef()
                 }
             };
@@ -116,11 +116,11 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             model.Date = DateTime.UtcNow;
             model.Id = "DispatchNotificationId";
             model.Parties = parent.GetParties();
-            model.SupplierIdref = parent.BMEcats.GetSupplierIdRef();
-            model.BuyerIdref = parent.BMEcats.GetBuyerIdref();
+            model.SupplierIdRef = parent.BMEcats.GetSupplierIdRef();
+            model.BuyerIdRef = parent.BMEcats.GetBuyerIdRef();
             model.ShipmentPartiesReference = new ShipmentPartiesReference
             {
-                DeliveryIdref = parent.GetDeliveryIdref()
+                DeliveryIdRef = parent.GetDeliveryIdRef()
             };
             model.Remarks = new List<Remark>
             {

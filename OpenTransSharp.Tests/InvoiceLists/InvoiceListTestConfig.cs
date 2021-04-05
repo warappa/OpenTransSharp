@@ -81,7 +81,7 @@ namespace OpenTransSharp.Tests.InvoiceLists
             model.TotalTax = parent.GetTotalTax();
             model.Remarks.Add(parent.GetRemark());
             model.AccountingPeriod = parent.GetAccountingPeriod();
-            model.DeliveryIdref = parent.GetDeliveryIdRef();
+            model.DeliveryIdRef = parent.GetDeliveryIdRef();
 
             return model;
         }
@@ -122,21 +122,21 @@ namespace OpenTransSharp.Tests.InvoiceLists
             model.Date = DateTime.UtcNow;
             model.Id = "InvoiceListId";
             model.Parties = parent.GetParties();
-            model.InvoiceRecipientIdref = GetInvoiceRecipientIdref();
-            model.InvoiceIssuerIdref = GetInvoiceIssuerIdref();
+            model.InvoiceRecipientIdRef = GetInvoiceRecipientIdRef();
+            model.InvoiceIssuerIdRef = GetInvoiceIssuerIdRef();
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;
         }
 
-        private InvoiceIssuerIdref GetInvoiceIssuerIdref()
+        private InvoiceIssuerIdRef GetInvoiceIssuerIdRef()
         {
-            return new InvoiceIssuerIdref("invoice issure", PartyTypeValues.PartySpecific);
+            return new InvoiceIssuerIdRef("invoice issure", PartyTypeValues.PartySpecific);
         }
 
-        private InvoiceRecipientIdref GetInvoiceRecipientIdref()
+        private InvoiceRecipientIdRef GetInvoiceRecipientIdRef()
         {
-            return new InvoiceRecipientIdref("invoice recipient", PartyTypeValues.PartySpecific);
+            return new InvoiceRecipientIdRef("invoice recipient", PartyTypeValues.PartySpecific);
         }
     }
 }

@@ -6,30 +6,29 @@ using System.Xml.Serialization;
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Reference to an IPP shopping cart)<br/>
+    /// (Reference to an IPP product configuration)<br/>
     /// <br/>
-    /// This element specifies if and how identifiers of product lists are used with an IPP application call.<br/>
-    /// <br/>
-    /// The element has to be empty and the the attribute "occurance" states wether the transfer of this identifier is mandatory or optional.<br/>
+    /// This element determines if and how identifiers of product configurations have to be used when calling an IPP application.<br/>
+    /// This element must be empty and the occurence-attribute specifies, whether providing such an identifier is optional or mandatory.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class IppProductlistIdref : IppParamsBase
+    public class IppProductconfigIdRef : IppParamsBase
     {
         /// <summary>
-        /// <inheritdoc cref="IppProductlistIdref"/>
+        /// <inheritdoc cref="IppProductconfigIdRef"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public IppProductlistIdref()
+        public IppProductconfigIdRef()
         {
             Value = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="IppProductlistIdref"/>
+        /// <inheritdoc cref="IppProductconfigIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        public IppProductlistIdref(string value)
+        public IppProductconfigIdRef(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -40,11 +39,11 @@ namespace BMEcatSharp
         }
 
         /// <summary>
-        /// <inheritdoc cref="IppProductlistIdref"/>
+        /// <inheritdoc cref="IppProductconfigIdRef"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="occurrence"></param>
-        public IppProductlistIdref(string value, IppOccurrence occurrence)
+        public IppProductconfigIdRef(string value, IppOccurrence occurrence)
             : this(value)
         {
             Occurrence = occurrence;

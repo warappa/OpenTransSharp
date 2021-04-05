@@ -109,9 +109,9 @@ namespace BMEcatSharp.Tests
             return new PriceFlag(includingPacking, value);
         }
 
-        public BuyerIdref GetBuyerIdref()
+        public BuyerIdRef GetBuyerIdRef()
         {
-            return new BuyerIdref("Buyer", PartyTypeValues.CustomerSpecific);
+            return new BuyerIdRef("Buyer", PartyTypeValues.CustomerSpecific);
         }
 
         public Transport GetTransport()
@@ -186,7 +186,7 @@ namespace BMEcatSharp.Tests
             model.Name.Add(new MultiLingualString("Source name", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Quellen-Name", LanguageCodes.deu));
             model.Uri = "https://fake-uri/";
-            model.PartyIdref = (PartyId)parent.BMEcats.GetSupplierIdRef();
+            model.PartyIdRef = (PartyId)parent.BMEcats.GetSupplierIdRef();
 
             return model;
         }
@@ -241,7 +241,7 @@ namespace BMEcatSharp.Tests
             var model = new BMEcatHeader();
 
             model.Catalog = GetCatalog();
-            model.SupplierIdref = parent.BMEcats.GetSupplierIdRef();
+            model.SupplierIdRef = parent.BMEcats.GetSupplierIdRef();
 
             return model;
         }
@@ -274,7 +274,7 @@ namespace BMEcatSharp.Tests
             var model = new IppDefinition();
             model.Id = "Ipp id";
             model.Type = IppType.ProductRequest;
-            model.OperatorIdref = GetIppOperatorIdref();
+            model.OperatorIdRef = GetIppOperatorIdRef();
             model.Description.Add(new MultiLingualString("Ipp description", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("Ipp Beschreibung", LanguageCodes.deu));
             model.Operations.Add(GetIppOperation());
@@ -347,8 +347,8 @@ namespace BMEcatSharp.Tests
             model.PriceCurrencies = GetIppPriceCurrencies();
             model.PriceTypes = GetIppPriceTypes();
             model.SupplierPid = GetIppSupplierPid();
-            model.ProductconfigIdref = GetIppProductconfigIdref();
-            model.ProductlistIdref = GetIppProductlistIdref();
+            model.ProductconfigIdRef = GetIppProductconfigIdRef();
+            model.ProductlistIdRef = GetIppProductlistIdRef();
             model.UserInfo = GetIppUserInfo();
             model.AuthentificationInfo = GetIppAuthentificationInfo();
             model.Definitions.Add(GetIppParamDefinition());
@@ -381,14 +381,14 @@ namespace BMEcatSharp.Tests
             return new IppUserInfo("User info", IppOccurrence.Optional);
         }
 
-        private IppProductlistIdref GetIppProductlistIdref()
+        private IppProductlistIdRef GetIppProductlistIdRef()
         {
-            return new IppProductlistIdref("Product list id", IppOccurrence.Optional);
+            return new IppProductlistIdRef("Product list id", IppOccurrence.Optional);
         }
 
-        private IppProductconfigIdref GetIppProductconfigIdref()
+        private IppProductconfigIdRef GetIppProductconfigIdRef()
         {
-            return new IppProductconfigIdref("Product configuration id", IppOccurrence.Optional);
+            return new IppProductconfigIdRef("Product configuration id", IppOccurrence.Optional);
         }
 
         private IppSupplierPid GetIppSupplierPid()
@@ -432,9 +432,9 @@ namespace BMEcatSharp.Tests
             return model;
         }
 
-        private IppOperatorIdref GetIppOperatorIdref()
+        private IppOperatorIdRef GetIppOperatorIdRef()
         {
-            return new IppOperatorIdref("Ipp operator id", PartyTypeValues.PartySpecific);
+            return new IppOperatorIdRef("Ipp operator id", PartyTypeValues.PartySpecific);
         }
 
         private ClassificationSystem GetClassificationSystem()
@@ -444,7 +444,7 @@ namespace BMEcatSharp.Tests
             model.Fullname = "Classification system full name";
             model.VersionDetails = GetClassificationSystemVersionDetails();
             model.Descripiton = "Classification system description";
-            model.ClassificationSystemPartyIdref = GetClassificationSystemPartyIdref();
+            model.ClassificationSystemPartyIdRef = GetClassificationSystemPartyIdRef();
             model.Levels = 1;
             model.LevelNames.Add(GetClassificationSystemLevelName());
             model.Type = GetClassificationSystemType();
@@ -467,7 +467,7 @@ namespace BMEcatSharp.Tests
             model.Description.Add(new MultiLingualString("Feature description", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("Feature Beschreibung", LanguageCodes.deu));
             model.Version = GetFeatureVersion();
-            model.GroupIdref = "Feature groupd id";
+            model.GroupIdRef = "Feature groupd id";
             model.Dependencies.Add(GetFeatureDependency());
             model.Content = GetFeatureContent();
 
@@ -510,9 +510,9 @@ namespace BMEcatSharp.Tests
             return new FeatureFacet("10", FeatureFacetType.TotalDigits);
         }
 
-        private FeatureIdref GetFeatureDependency()
+        private FeatureIdRef GetFeatureDependency()
         {
-            return new FeatureIdref("Other feature id");
+            return new FeatureIdRef("Other feature id");
         }
 
         private FeatureVersion GetFeatureVersion()
@@ -581,7 +581,7 @@ namespace BMEcatSharp.Tests
             model.Name.Add(new MultiLingualString("External", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Extern", LanguageCodes.deu));
             model.Uri = "ftp://external/";
-            model.PartyIdref = (PartyId)parent.BMEcats.GetSupplierIdRef();
+            model.PartyIdRef = (PartyId)parent.BMEcats.GetSupplierIdRef();
 
             return model;
         }
@@ -616,9 +616,9 @@ namespace BMEcatSharp.Tests
             return model;
         }
 
-        private ClassificationSystemPartyIdref GetClassificationSystemPartyIdref()
+        private ClassificationSystemPartyIdRef GetClassificationSystemPartyIdRef()
         {
-            var model = new ClassificationSystemPartyIdref("Supplier", PartyTypeValues.SupplierSpecific);
+            var model = new ClassificationSystemPartyIdRef("Supplier", PartyTypeValues.SupplierSpecific);
             return model;
         }
 
@@ -685,7 +685,7 @@ namespace BMEcatSharp.Tests
         private ConfigurationFormula GetConfigurationFormula()
         {
             var model = new ConfigurationFormula();
-            model.Idref = "Configuraton formula id";
+            model.IdRef = "Configuraton formula id";
             model.Parameters.Add(GetParameter());
             return model;
         }
@@ -766,7 +766,7 @@ namespace BMEcatSharp.Tests
         {
             var model = new FeatureReference();
             model.SystemName = ReferenceFeatureSystemNameValues.EClass(new Version(4, 1));
-            model.Idref = "Feature id";
+            model.IdRef = "Feature id";
 
             return model;
         }
@@ -895,9 +895,9 @@ namespace BMEcatSharp.Tests
             return model;
         }
 
-        public SupplierIdref GetSupplierIdRef()
+        public SupplierIdRef GetSupplierIdRef()
         {
-            return new SupplierIdref("Supplier", PartyTypeValues.SupplierSpecific);
+            return new SupplierIdRef("Supplier", PartyTypeValues.SupplierSpecific);
         }
 
         private Address GetBMEcatAddress()
@@ -1001,7 +1001,7 @@ namespace BMEcatSharp.Tests
         public PriceFormula GetPriceFormula()
         {
             var model = new PriceFormula();
-            model.Idref = "Formula id";
+            model.IdRef = "Formula id";
             model.Parameters.Add(GetParameter());
 
             return model;

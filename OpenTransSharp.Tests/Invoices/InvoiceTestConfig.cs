@@ -119,8 +119,8 @@ namespace OpenTransSharp.Tests.Invoices
             model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Date = DateTime.UtcNow;
             model.Id = "InvoiceId";
-            model.IssuerIdref = parent.GetInvoiceIssuerIdRef();
-            model.RecipientIdref = parent.GetInvoiceRecipientIdRef();
+            model.IssuerIdRef = parent.GetInvoiceIssuerIdRef();
+            model.RecipientIdRef = parent.GetInvoiceRecipientIdRef();
             model.Parties = parent.GetParties();
             model.Remarks.Add(parent.GetRemark());
 

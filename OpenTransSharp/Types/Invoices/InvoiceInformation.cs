@@ -31,11 +31,11 @@ namespace OpenTransSharp
         /// <param name="id"></param>
         /// <param name="date"></param>
         /// <param name="parties"></param>
-        /// <param name="issuerIdref"></param>
-        /// <param name="recipientIdref"></param>
+        /// <param name="issuerIdRef"></param>
+        /// <param name="recipientIdRef"></param>
         /// <param name="currency"></param>
         public InvoiceInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
-            InvoiceIssuerIdref issuerIdref, InvoiceRecipientIdref recipientIdref,
+            InvoiceIssuerIdRef issuerIdRef, InvoiceRecipientIdRef recipientIdRef,
             string currency)
         {
             if (string.IsNullOrWhiteSpace(id))
@@ -56,8 +56,8 @@ namespace OpenTransSharp
             Id = id;
             Date = date;
             Parties = parties.ToList();
-            IssuerIdref = issuerIdref ?? throw new ArgumentNullException(nameof(issuerIdref));
-            RecipientIdref = recipientIdref ?? throw new ArgumentNullException(nameof(recipientIdref));
+            IssuerIdRef = issuerIdRef ?? throw new ArgumentNullException(nameof(issuerIdRef));
+            RecipientIdRef = recipientIdRef ?? throw new ArgumentNullException(nameof(recipientIdRef));
             Currency = currency;
         }
 
@@ -139,7 +139,7 @@ namespace OpenTransSharp
         /// The element has to refer to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("DELIVERY_IDREF")]
-        public DeliveryIdref? DeliveryIdref { get; set; }
+        public DeliveryIdRef? DeliveryIdRef { get; set; }
 
         /// <summary>
         /// (optional) Language<br/>
@@ -180,7 +180,7 @@ namespace OpenTransSharp
         /// Reference to an unique identifier of the invoicing party. The element refers to a PARTY_ID in the same document.<br/>
         /// </summary>
         [XmlElement("INVOICE_ISSUER_IDREF")]
-        public InvoiceIssuerIdref IssuerIdref { get; set; } = new InvoiceIssuerIdref();
+        public InvoiceIssuerIdRef IssuerIdRef { get; set; } = new InvoiceIssuerIdRef();
 
         /// <summary>
         /// (required) Reference to the recipient of the invoice<br/>
@@ -189,7 +189,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID of an invoice recipient in the same document.
         /// </summary>
         [XmlElement("INVOICE_RECIPIENT_IDREF")]
-        public InvoiceRecipientIdref RecipientIdref { get; set; } = new InvoiceRecipientIdref();
+        public InvoiceRecipientIdRef RecipientIdRef { get; set; } = new InvoiceRecipientIdRef();
 
         /// <summary>
         /// (optional) Reference to the buyer<br/>
@@ -200,7 +200,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("BUYER_IDREF")]
-        public global::BMEcatSharp.BuyerIdref? BuyerIdref { get; set; }
+        public global::BMEcatSharp.BuyerIdRef? BuyerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to supplier<br/>
@@ -211,7 +211,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_IDREF")]
-        public global::BMEcatSharp.SupplierIdref? SupplierIdref { get; set; }
+        public global::BMEcatSharp.SupplierIdRef? SupplierIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to the payer<br/>
@@ -220,7 +220,7 @@ namespace OpenTransSharp
         /// The element refers to a PARTY_ID in the same document.
         /// </summary>
         [XmlElement("PAYER_IDREF")]
-        public PayerIdref? PayerIdref { get; set; }
+        public PayerIdRef? PayerIdRef { get; set; }
 
         /// <summary>
         /// (optional) Reference to a remittee<br/>
@@ -229,7 +229,7 @@ namespace OpenTransSharp
         /// The elemente refers to the PARTY_ID of the remittee in the same document.
         /// </summary>
         [XmlElement("REMITTEE_IDREF")]
-        public RemitteeIdref? RemitteeIdref { get; set; }
+        public RemitteeIdRef? RemitteeIdRef { get; set; }
 
         /// <summary>
         /// (optional) Document exchange parties<br/>

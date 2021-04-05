@@ -47,32 +47,32 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Feature"/>
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="valueIdrefs"></param>
-        public Feature(IEnumerable<MultiLingualString> name, IEnumerable<string> valueIdrefs)
+        /// <param name="valueIdRefs"></param>
+        public Feature(IEnumerable<MultiLingualString> name, IEnumerable<string> valueIdRefs)
         {
             if (name is null)
             {
                 throw new ArgumentNullException(nameof(name));
             }
 
-            if (valueIdrefs is null)
+            if (valueIdRefs is null)
             {
-                throw new ArgumentNullException(nameof(valueIdrefs));
+                throw new ArgumentNullException(nameof(valueIdRefs));
             }
 
             Name = name.ToList();
-            ValueIdrefs = valueIdrefs.ToList();
+            ValueIdRefs = valueIdRefs.ToList();
         }
 
         /// <summary>
         /// <inheritdoc cref="Feature"/>
         /// </summary>
-        /// <param name="idref"></param>
-        public Feature(string idref, IEnumerable<MultiLingualString> values)
+        /// <param name="idRef"></param>
+        public Feature(string idRef, IEnumerable<MultiLingualString> values)
         {
-            if (string.IsNullOrWhiteSpace(idref))
+            if (string.IsNullOrWhiteSpace(idRef))
             {
-                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+                throw new ArgumentException($"'{nameof(idRef)}' cannot be null or whitespace.", nameof(idRef));
             }
 
             if (values is null)
@@ -80,29 +80,29 @@ namespace BMEcatSharp
                 throw new ArgumentNullException(nameof(values));
             }
 
-            Idref = idref;
+            IdRef = idRef;
             Values = values.ToList();
         }
 
         /// <summary>
         /// <inheritdoc cref="Feature"/>
         /// </summary>
-        /// <param name="idref"></param>
-        /// <param name="valueIdrefs"></param>
-        public Feature(string idref, IEnumerable<string> valueIdrefs)
+        /// <param name="idRef"></param>
+        /// <param name="valueIdRefs"></param>
+        public Feature(string idRef, IEnumerable<string> valueIdRefs)
         {
-            if (string.IsNullOrWhiteSpace(idref))
+            if (string.IsNullOrWhiteSpace(idRef))
             {
-                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+                throw new ArgumentException($"'{nameof(idRef)}' cannot be null or whitespace.", nameof(idRef));
             }
 
-            if (valueIdrefs is null)
+            if (valueIdRefs is null)
             {
-                throw new ArgumentNullException(nameof(valueIdrefs));
+                throw new ArgumentNullException(nameof(valueIdRefs));
             }
 
-            Idref = idref;
-            ValueIdrefs = valueIdrefs.ToList();
+            IdRef = idRef;
+            ValueIdRefs = valueIdRefs.ToList();
         }
 
         /// <summary>
@@ -124,19 +124,19 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Feature"/>
         /// </summary>
         /// <param name="template"></param>
-        public Feature(FeatureTemplate template, IEnumerable<string> valueIdrefs)
+        public Feature(FeatureTemplate template, IEnumerable<string> valueIdRefs)
         {
-            if (valueIdrefs is null)
+            if (valueIdRefs is null)
             {
-                throw new ArgumentNullException(nameof(valueIdrefs));
+                throw new ArgumentNullException(nameof(valueIdRefs));
             }
 
             Template = template ?? throw new ArgumentNullException(nameof(template));
-            ValueIdrefs = valueIdrefs.ToList();
+            ValueIdRefs = valueIdRefs.ToList();
         }
 
         /// <summary>
-        /// (required - choice Name/Idref/Template) Feature name<br/>
+        /// (required - choice Name/IdRef/Template) Feature name<br/>
         /// <br/>
         /// Unique name used to describe the feature within the PRODUCT_FEATURES element.<br/>
         /// <br/>
@@ -150,17 +150,17 @@ namespace BMEcatSharp
         public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
 
         /// <summary>
-        /// (required - choice Name/Idref/Template) Feature reference<br/>
+        /// (required - choice Name/IdRef/Template) Feature reference<br/>
         /// <br/>
         /// Reference to the unique ID of a feature (see CLASSIFICATION_SYSTEM_FEATURE_TEMPLATE).<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_IDREF")]
-        public string? Idref { get; set; }
+        public string? IdRef { get; set; }
 
         /// <summary>
-        /// (required - choice Name/Idref/Template) Feature definition<br/>
+        /// (required - choice Name/IdRef/Template) Feature definition<br/>
         /// <br/>
         /// Definition of the feature.<br/>
         /// <br/>
@@ -170,7 +170,7 @@ namespace BMEcatSharp
         public FeatureTemplate? Template { get; set; }
 
         /// <summary>
-        /// (required - choice Values/ValueIdrefs) Feature value<br/>
+        /// (required - choice Values/ValueIdRefs) Feature value<br/>
         /// <br/>
         /// Actual value(s) of the respective feature.<br/>
         /// This element may only be specified if the element VARIANTS is not specified.<br/>
@@ -187,7 +187,7 @@ namespace BMEcatSharp
         public bool ValuesSpecified => Values?.Count > 0;
 
         /// <summary>
-        /// (required) Reference to a value<br/>
+        /// (required - choice Values/ValueIdRefs) Reference to a value<br/>
         /// <br/>
         /// Reference to the unique identifier of a value.<br/>
         /// The reference must point to a value defined in the document (element ALLOWED_VALUE identified by ALLOWED_VALUE_ID).<br/>
@@ -197,10 +197,10 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("VALUE_IDREF")]
-        public List<string>? ValueIdrefs { get; set; } = new List<string>();
+        public List<string>? ValueIdRefs { get; set; } = new List<string>();
 
         /// <summary>
-        /// (required - choice Variants/FValue_ValueIdref) Variants<br/>
+        /// (required - deprecated - choice Variants/Values/ValueIdRefs) Variants<br/>
         /// <br/>
         /// Designation of the variant.<br/>
         /// This element may only be specified if the element FVALUE is not specified.<br/>

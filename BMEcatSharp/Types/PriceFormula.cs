@@ -18,7 +18,7 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PriceFormula()
         {
-            Idref = null!;
+            IdRef = null!;
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace BMEcatSharp
                 throw new ArgumentException($"'{nameof(idRef)}' cannot be null or whitespace.", nameof(idRef));
             }
 
-            Idref = idRef;
+            IdRef = idRef;
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace BMEcatSharp
         /// Reference to the unique identifier of a formula. The reference must point to a formula defined in the document (FORMULA element identified by FORMULA_ID).
         /// </summary>
         [BMEXmlElement("FORMULA_IDREF")]
-        public string Idref { get; set; }
+        public string IdRef { get; set; }
 
         /// <summary>
         /// (optional) Parameters<br/>

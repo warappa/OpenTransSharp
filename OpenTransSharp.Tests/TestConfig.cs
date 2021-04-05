@@ -34,7 +34,7 @@ namespace OpenTransSharp.Tests
         {
             return new DeliveryReference
             {
-                Idref = GetDeliveryIdRef()
+                IdRef = GetDeliveryIdRef()
             };
         }
 
@@ -71,9 +71,9 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public DeliveryIdref GetDeliveryIdRef()
+        public DeliveryIdRef GetDeliveryIdRef()
         {
-            return new DeliveryIdref("Delivery", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new DeliveryIdRef("Delivery", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public AccountingPeriod GetAccountingPeriod()
@@ -85,21 +85,21 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public RemitteeIdref GetRemitteeIdRef()
+        public RemitteeIdRef GetRemitteeIdRef()
         {
-            return new RemitteeIdref("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new RemitteeIdRef("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
-        public PayerIdref GetPayerIdRef()
+        public PayerIdRef GetPayerIdRef()
         {
-            return new PayerIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new PayerIdRef("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public ShipmentPartiesReference GetShipmentPartiesReference()
         {
             return new ShipmentPartiesReference
             {
-                DeliveryIdref = GetDeliveryIdRef()
+                DeliveryIdRef = GetDeliveryIdRef()
             };
         }
 
@@ -109,8 +109,8 @@ namespace OpenTransSharp.Tests
         {
             return new OrderPartiesReference
             {
-                BuyerIdref = BMEcats.GetBuyerIdref(),
-                SupplierIdref = BMEcats.GetSupplierIdRef()
+                BuyerIdRef = BMEcats.GetBuyerIdRef(),
+                SupplierIdRef = BMEcats.GetSupplierIdRef()
             };
         }
 
@@ -152,10 +152,10 @@ namespace OpenTransSharp.Tests
         {
             var model = new DocexchangePartiesReference
             {
-                DocumentIssuerIdref = GetDocumentIssuerIdRef(),
+                DocumentIssuerIdRef = GetDocumentIssuerIdRef(),
 
             };
-            model.DocumentRecipientIdrefs.Add(GetDocumentRecipientIdRef());
+            model.DocumentRecipientIdRefs.Add(GetDocumentRecipientIdRef());
 
             return model;
         }
@@ -245,13 +245,8 @@ namespace OpenTransSharp.Tests
             {
                 SupplierPid = BMEcats.GetSupplierPid("Supplier ProductId", global::BMEcatSharp.SupplierPidTypeValues.SupplierSpecific),
                 ProductType = global::BMEcatSharp.ProductType.Physical,
-                SupplierIdref = BMEcats.GetSupplierIdRef()
+                SupplierIdRef = BMEcats.GetSupplierIdRef()
             };
-        }
-
-        public DeliveryIdref GetDeliveryIdref()
-        {
-            return new DeliveryIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public OpenTransParty GetSupplierParty()
@@ -272,7 +267,7 @@ namespace OpenTransSharp.Tests
             {
                 Ids = new List<global::BMEcatSharp.PartyId>
                 {
-                    (global::BMEcatSharp.PartyId)BMEcats.GetBuyerIdref()
+                    (global::BMEcatSharp.PartyId)BMEcats.GetBuyerIdRef()
                 },
                 Roles = new List<global::BMEcatSharp.PartyRole> { global::BMEcatSharp.PartyRole.Buyer }
             };
@@ -373,14 +368,14 @@ namespace OpenTransSharp.Tests
             return model;
         }
 
-        public InvoiceRecipientIdref GetInvoiceRecipientIdRef()
+        public InvoiceRecipientIdRef GetInvoiceRecipientIdRef()
         {
-            return new InvoiceRecipientIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new InvoiceRecipientIdRef("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
-        public InvoiceIssuerIdref GetInvoiceIssuerIdRef()
+        public InvoiceIssuerIdRef GetInvoiceIssuerIdRef()
         {
-            return new InvoiceIssuerIdref("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new InvoiceIssuerIdRef("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public OpenTransMimeInfo GetMimeInfo()
@@ -429,14 +424,14 @@ namespace OpenTransSharp.Tests
             };
         }
 
-        public DocumentRecipientIdref GetDocumentRecipientIdRef()
+        public DocumentRecipientIdRef GetDocumentRecipientIdRef()
         {
-            return new DocumentRecipientIdref("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new DocumentRecipientIdRef("Buyer", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
-        public DocumentIssuerIdref GetDocumentIssuerIdRef()
+        public DocumentIssuerIdRef GetDocumentIssuerIdRef()
         {
-            return new DocumentIssuerIdref("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
+            return new DocumentIssuerIdRef("Supplier", global::BMEcatSharp.PartyTypeValues.PartySpecific);
         }
 
         public DeliveryDate GetDeliveryDate()
