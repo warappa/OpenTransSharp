@@ -25,7 +25,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="ProductDetails"/>
         /// </summary>
         /// <param name="ipps"></param>
-        public ProductIppDetails(IEnumerable<Ipp> ipps)
+        public ProductIppDetails(IEnumerable<IntegratedProcurementPoint> ipps)
         {
             if (ipps is null)
             {
@@ -43,6 +43,6 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("IPP")]
-        public List<Ipp> Ipps { get; set; } = new List<Ipp>();
+        public List<IntegratedProcurementPoint> Ipps { get; set; } = new List<IntegratedProcurementPoint>();
     }
 }

@@ -17,23 +17,23 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class Ipp
+    public class IntegratedProcurementPoint
     {
         /// <summary>
-        /// <inheritdoc cref="Ipp"/>
+        /// <inheritdoc cref="IntegratedProcurementPoint"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Ipp()
+        public IntegratedProcurementPoint()
         {
             IdRef = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="Ipp"/>
+        /// <inheritdoc cref="IntegratedProcurementPoint"/>
         /// </summary>
         /// <param name="idref"></param>
         /// <param name="operationIdRefs"></param>
-        public Ipp(string idref, IEnumerable<string> operationIdRefs)
+        public IntegratedProcurementPoint(string idref, IEnumerable<string> operationIdRefs)
         {
             if (string.IsNullOrWhiteSpace(idref))
             {

@@ -3,7 +3,9 @@
 namespace BMEcatSharp
 {
     /// <summary>
-    /// Predefined values for <see cref="ProductId.ProductType"/>.<br/>
+    /// Predefined values for <see cref="Catalog.ProductType"/>.<br/>
+    /// Predefined values for <see cref="ProductDetails.Types"/>.<br/>
+    /// Predefined values for <see cref="OpenTransSharp.ProductId.ProductType"/>.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
