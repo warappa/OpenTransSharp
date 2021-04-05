@@ -11,6 +11,8 @@ namespace BMEcatSharp
     /// <summary>
     /// (IPP application)<br/>
     /// <br/>
+    /// IPP: Integrated Procurement Point<br/>
+    /// <br/>
     /// This element is used to overwrite and particularise specifications of an IPP application which have been made in the header in the element IPP_DEFINITION with new specifications on product level.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
