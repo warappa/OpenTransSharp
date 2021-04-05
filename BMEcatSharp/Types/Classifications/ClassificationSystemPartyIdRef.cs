@@ -11,7 +11,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class ClassificationSystemPartyIdRef : PartyRef<ClassificationSystemPartyIdRef>
+    public class ClassificationSystemPartyIdRef : PartyIdRefBase<ClassificationSystemPartyIdRef>
     {
         /// <summary>
         /// <inheritdoc cref="ClassificationSystemPartyIdRef"/>

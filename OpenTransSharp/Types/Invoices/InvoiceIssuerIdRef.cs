@@ -13,7 +13,7 @@ namespace OpenTransSharp
     /// Caution:<br/>
     /// If the document is used as a credit memo or advice of amendment (see also INVOICE_TYPE) the refered party of INVOICE_ISSUER_IDREF is additionally the recipient of the benefit/buyer.
     /// </summary>
-    public class InvoiceIssuerIdRef : global::BMEcatSharp.PartyRef<InvoiceIssuerIdRef>
+    public class InvoiceIssuerIdRef : global::BMEcatSharp.PartyIdRefBase<InvoiceIssuerIdRef>
     {
         /// <summary>
         /// <inheritdoc cref="InvoiceIssuerIdRef"/>

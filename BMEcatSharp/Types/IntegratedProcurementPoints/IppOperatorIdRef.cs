@@ -12,7 +12,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class IppOperatorIdRef : PartyRef<IppOperatorIdRef>
+    public class IppOperatorIdRef : PartyIdRefBase<IppOperatorIdRef>
     {
         /// <summary>
         /// <inheritdoc cref="IppOperatorIdRef"/>

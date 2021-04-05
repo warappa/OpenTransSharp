@@ -4,16 +4,16 @@ using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
-    public abstract class PartyRef<TConcrete>
-        where TConcrete : PartyRef<TConcrete>
+    public abstract class PartyIdRefBase<TConcrete>
+        where TConcrete : PartyIdRefBase<TConcrete>
     {
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public PartyRef()
+        public PartyIdRefBase()
         {
             Value = null!;
         }
 
-        public PartyRef(string value)
+        public PartyIdRefBase(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -23,7 +23,7 @@ namespace BMEcatSharp
             Value = value;
         }
 
-        public PartyRef(string value, string? type)
+        public PartyIdRefBase(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -36,17 +36,17 @@ namespace BMEcatSharp
         [XmlText]
         public virtual string Value { get; set; }
 
-        public static explicit operator PartyRef<TConcrete>(TConcrete from)
+        public static explicit operator PartyIdRefBase<TConcrete>(TConcrete from)
         {
             return from;
         }
 
-        public static explicit operator TConcrete(PartyRef<TConcrete> value)
+        public static explicit operator TConcrete(PartyIdRefBase<TConcrete> value)
         {
             return (TConcrete)value;
         }
 
-        public static explicit operator PartyRef<TConcrete>(PartyId partyId)
+        public static explicit operator PartyIdRefBase<TConcrete>(PartyId partyId)
         {
             if (partyId is null)
             {

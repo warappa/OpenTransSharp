@@ -12,7 +12,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class DeliveryIdRef : global::BMEcatSharp.PartyRef<DeliveryIdRef>
+    public class DeliveryIdRef : global::BMEcatSharp.PartyIdRefBase<DeliveryIdRef>
     {
         /// <summary>
         /// <inheritdoc cref="DeliveryIdRef"/>

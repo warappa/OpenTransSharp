@@ -12,7 +12,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class VerificationPartyIdRef : global::BMEcatSharp.PartyRef<VerificationPartyIdRef>
+    public class VerificationPartyIdRef : global::BMEcatSharp.PartyIdRefBase<VerificationPartyIdRef>
     {
         /// <summary>
         /// <inheritdoc cref="VerificationPartyIdRef"/>

@@ -9,7 +9,7 @@ namespace OpenTransSharp
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class DocumentRecipientIdRef : global::BMEcatSharp.PartyRef<DocumentRecipientIdRef>
+    public class DocumentRecipientIdRef : global::BMEcatSharp.PartyIdRefBase<DocumentRecipientIdRef>
     {
         /// <summary>
         /// <inheritdoc cref="DocumentRecipientIdRef"/>
