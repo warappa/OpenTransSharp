@@ -8,23 +8,23 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ValidationController : ControllerBase
+    public class OrderValidationController : ControllerBase
     {
         private readonly IOpenTransXmlSerializerFactory serializerFactory;
 
-        public ValidationController(IOpenTransXmlSerializerFactory serializerFactory)
+        public OrderValidationController(IOpenTransXmlSerializerFactory serializerFactory)
         {
             this.serializerFactory = serializerFactory ?? throw new ArgumentNullException(nameof(serializerFactory));
         }
 
-        [HttpPost("order-via-model-binding")]
+        [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
         public bool OrderViaModelBinding(Order order)
         {
             return true; // validation implicitly by model binder
         }
 
-        [HttpPost("order-via-stream")]
+        [HttpPost("via-stream")]
         [RawTextRequest]
         public ValidationResult OrderViaStream()
         {
@@ -36,12 +36,12 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
             return order.Validate(serializer);
         }
         
-        [HttpPost("order-via-file")]
+        [HttpPost("via-file")]
         public ValidationResult OrderViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<Order>();
-            
-            var stream = file.OpenReadStream();
+
+            using var stream = file.OpenReadStream();
             var order = serializer.Deserialize<Order>(stream);
 
             return order.Validate(serializer);
