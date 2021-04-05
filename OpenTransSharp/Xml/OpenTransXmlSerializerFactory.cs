@@ -6,7 +6,7 @@ namespace OpenTransSharp.Xml
 {
     public class OpenTransXmlSerializerFactory : BMEcatSharp.Xml.BMEcatXmlSerializerFactory, IOpenTransXmlSerializerFactory
     {
-        public OpenTransXmlSerializerFactory(OpenTransOptions options)
+        public OpenTransXmlSerializerFactory(OpenTransXmlSerializerOptions options)
             : base(options)
         {
             

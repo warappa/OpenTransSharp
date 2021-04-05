@@ -12,18 +12,18 @@ namespace BMEcatSharp.Xml
     {
         // https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN&view=netframework-4.8#dynamically-generated-assemblies
         protected readonly Hashtable cachedXmlSerializers = new();
-        protected readonly BMEcatOptions options;
+        protected readonly BMEcatXmlSerializerOptions options;
         protected readonly IDictionary<string, Type> udxMappings;
 
-        public BMEcatXmlSerializerFactory(BMEcatOptions options)
+        public BMEcatXmlSerializerFactory(BMEcatXmlSerializerOptions options)
         {
             this.options = options;
 
             udxMappings = new Dictionary<string, Type>();
 
-            if (options?.Serialization?.IncludeUdxTypes is object)
+            if (options?.IncludeUdxTypes is object)
             {
-                foreach (var type in options.Serialization.IncludeUdxTypes)
+                foreach (var type in options.IncludeUdxTypes)
                 {
                     var tagName = $"UDX.{type.Name.ToUpperInvariant()}";
                     var root = type.GetCustomAttribute<XmlRootAttribute>();
@@ -62,9 +62,9 @@ namespace BMEcatSharp.Xml
             var overrides = new XmlAttributeOverrides();
             ConfigureUdx(mappings, overrides);
 
-            if (options.Serialization.ConfigureXmlAttributeOverrides is not null)
+            if (options.ConfigureXmlAttributeOverrides is not null)
             {
-                options.Serialization.ConfigureXmlAttributeOverrides(overrides);
+                options.ConfigureXmlAttributeOverrides(overrides);
             }
 
             return new XmlSerializer(type, overrides);

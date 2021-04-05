@@ -25,8 +25,8 @@ namespace BMEcatSharp.Tests
         [SetUp]
         public void Setup()
         {
-            var options = new BMEcatOptions();
-            options.Serialization.IncludeUdxTypes = new[]
+            var options = new BMEcatXmlSerializerOptions();
+            options.IncludeUdxTypes = new[]
             {
                 typeof(CustomData),
                 typeof(CustomData2)

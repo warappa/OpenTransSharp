@@ -1,12 +1,6 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp
+﻿namespace OpenTransSharp
 {
-    public class OpenTransXmlSerializerOptions
+    public class OpenTransXmlSerializerOptions : BMEcatSharp.BMEcatXmlSerializerOptions
     {
-        public Type[]? IncludeUdxTypes { get; set; }
-
-        public Action<XmlAttributeOverrides>? ConfigureXmlAttributeOverrides { get; set; }
     }
 }

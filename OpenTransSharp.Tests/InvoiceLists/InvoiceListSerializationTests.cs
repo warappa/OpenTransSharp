@@ -23,8 +23,8 @@ namespace OpenTransSharp.Tests.InvoiceLists
         [SetUp]
         public void Setup()
         {
-            var options = new OpenTransOptions();
-            options.Serialization.IncludeUdxTypes = new[]
+            var options = new OpenTransXmlSerializerOptions();
+            options.IncludeUdxTypes = new[]
             {
                 typeof(CustomData),
                 typeof(CustomData2)

@@ -12,6 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IOpenTransXmlSerializerFactory, OpenTransXmlSerializerFactory>();
             services.AddOptions<OpenTransOptions>();
             services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value);
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value.Serialization);
 
             if (configureOptions is object)
             {

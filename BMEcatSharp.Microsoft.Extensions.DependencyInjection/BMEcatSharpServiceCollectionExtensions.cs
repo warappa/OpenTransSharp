@@ -12,6 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IBMEcatXmlSerializerFactory, BMEcatXmlSerializerFactory>();
             services.AddOptions<BMEcatOptions>();
             services.AddTransient(sp => sp.GetRequiredService<IOptions<BMEcatOptions>>().Value);
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<BMEcatOptions>>().Value.Serialization);
 
             if (configureOptions is object)
             {
