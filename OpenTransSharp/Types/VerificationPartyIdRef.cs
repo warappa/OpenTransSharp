@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,23 +14,35 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationPartyIdRef : global::BMEcatSharp.PartyRef<VerificationPartyIdRef>
     {
+        /// <summary>
+        /// <inheritdoc cref="VerificationPartyIdRef"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public VerificationPartyIdRef()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="VerificationPartyIdRef"/>
+        /// </summary>
+        /// <param name="value"></param>
         public VerificationPartyIdRef(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="VerificationPartyIdRef"/>
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public VerificationPartyIdRef(string value, string type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
+        public VerificationPartyIdRef(string value, string? type)
             : this(value)
         {
             Type = type;

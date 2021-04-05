@@ -6,12 +6,18 @@ using System.ComponentModel;
 namespace OpenTransSharp
 {
     /// <summary>
-    /// <br/>
+    /// (Term of payment)<br/>
+    /// Information to payment terms<br/>
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
     public class PaymentTerms
     {
+        /// <summary>
+        /// <inheritdoc cref="PaymentTerms"/>
+        /// </summary>
+        public PaymentTerms() { }
+
         /// <summary>
         /// (optional) Term of payment<br/>
         /// <br/>

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -14,7 +16,26 @@ namespace OpenTransSharp
     public class AllowOrChargesFix
     {
         /// <summary>
-        /// Fixed charge or allowance<br/>
+        /// <inheritdoc cref="AllowOrChargeFix"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public AllowOrChargesFix() { }
+
+        /// <summary>
+        /// <inheritdoc cref="AllowOrChargeFix"/>
+        /// </summary>
+        /// <param name="list"></param>
+        public AllowOrChargesFix(IEnumerable<AllowOrCharge> list)
+        {
+            if (list is null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
+            List = list.ToList();
+        }
+        /// <summary>
+        /// (required) Fixed charge or allowance<br/>
         /// <br/>
         /// Description of a fixed surcharge or allowance. Please notice the usage-advice at ALLOW_OR_CHARGE.
         /// </summary>

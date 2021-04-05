@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -29,8 +30,8 @@ namespace BMEcatSharp
         /// <param name="password"></param>
         public Authentification(string login, string password)
         {
-            Login = login ?? throw new System.ArgumentNullException(nameof(login));
-            Password = password ?? throw new System.ArgumentNullException(nameof(password));
+            Login = login ?? throw new ArgumentNullException(nameof(login));
+            Password = password ?? throw new ArgumentNullException(nameof(password));
         }
 
         /// <summary>

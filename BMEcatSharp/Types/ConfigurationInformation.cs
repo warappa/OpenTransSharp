@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -29,7 +30,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(configurationCode))
             {
-                throw new System.ArgumentException($"'{nameof(configurationCode)}' cannot be null or whitespace.", nameof(configurationCode));
+                throw new ArgumentException($"'{nameof(configurationCode)}' cannot be null or whitespace.", nameof(configurationCode));
             }
 
             ConfigurationCode = configurationCode;

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -10,24 +11,36 @@ namespace OpenTransSharp
     /// </summary>
     public class DocumentIssuerIdref : global::BMEcatSharp.PartyRef<DocumentIssuerIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="DocumentIssuerIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DocumentIssuerIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="DocumentIssuerIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public DocumentIssuerIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="DocumentIssuerIdref"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined - see <see cref="PartyTypeValues"/>. Custom values can also be used.</param>
-        public DocumentIssuerIdref(string value, string type)
+        /// The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>. Custom values can also be used.</param>
+        public DocumentIssuerIdref(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -35,7 +48,7 @@ namespace OpenTransSharp
 
         /// <summary>
         /// (optional) This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined - see <see cref="PartyTypeValues"/>. Custom values can also be used.<br/>
+        /// The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>. Custom values can also be used.<br/>
         /// <br/>
         /// Max length: 250
         /// </summary>

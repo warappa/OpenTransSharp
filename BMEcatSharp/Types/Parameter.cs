@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -32,7 +33,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(symbolRef))
             {
-                throw new System.ArgumentException($"'{nameof(symbolRef)}' cannot be null or whitespace.", nameof(symbolRef));
+                throw new ArgumentException($"'{nameof(symbolRef)}' cannot be null or whitespace.", nameof(symbolRef));
             }
 
             SymbolRef = symbolRef;

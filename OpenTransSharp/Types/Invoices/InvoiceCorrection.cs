@@ -13,6 +13,11 @@ namespace OpenTransSharp
     public class InvoiceCorrection
     {
         /// <summary>
+        /// <inheritdoc cref="InvoiceCorrection"/>
+        /// </summary>
+        public InvoiceCorrection() { }
+
+        /// <summary>
         /// (optional) Invoice reference<br/>
         /// <br/>
         /// Information according to the invoice reference.<br/>

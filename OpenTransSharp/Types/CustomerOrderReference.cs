@@ -15,6 +15,11 @@ namespace OpenTransSharp
     public class CustomerOrderReference
     {
         /// <summary>
+        /// <inheritdoc cref="CustomerOrderReference"/>
+        /// </summary>
+        public CustomerOrderReference() { }
+
+        /// <summary>
         /// (optional) Order number of the buyer<br/>
         /// <br/>
         /// Unique order number of the buyer.

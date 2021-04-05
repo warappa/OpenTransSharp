@@ -14,16 +14,27 @@ namespace OpenTransSharp
     /// </summary>
     public class Verification
     {
+        /// <summary>
+        /// <inheritdoc cref="Verification"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Verification()
-            : this(null!, false, null!)
-        { }
+        {
+            PartyIdref = null!;
+            Report = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Verification"/>
+        /// </summary>
+        /// <param name="partyIdref"></param>
+        /// <param name="success"></param>
+        /// <param name="report"></param>
         public Verification(VerificationPartyIdRef partyIdref, bool success, VerificationReport report)
         {
-            PartyIdref = partyIdref;
+            PartyIdref = partyIdref ?? throw new System.ArgumentNullException(nameof(partyIdref));
             Success = success;
-            Report = report;
+            Report = report ?? throw new System.ArgumentNullException(nameof(report));
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace BMEcatSharp
         {
             if (alternatives is null)
             {
-                throw new System.ArgumentNullException(nameof(alternatives));
+                throw new ArgumentNullException(nameof(alternatives));
             }
 
             Alternatives = alternatives.ToList();

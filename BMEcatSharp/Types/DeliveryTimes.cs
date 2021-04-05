@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace BMEcatSharp
         {
             if (timeSpans is null)
             {
-                throw new System.ArgumentNullException(nameof(timeSpans));
+                throw new ArgumentNullException(nameof(timeSpans));
             }
 
             TimeSpans = timeSpans.ToList();

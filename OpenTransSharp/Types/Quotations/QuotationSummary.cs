@@ -12,6 +12,21 @@ namespace OpenTransSharp
     public class QuotationSummary
     {
         /// <summary>
+        /// <inheritdoc cref="QuotationSummary"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public QuotationSummary() { }
+
+        /// <summary>
+        /// <inheritdoc cref="QuotationSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        public QuotationSummary(int totalItemCount)
+        {
+            TotalItemCount = totalItemCount;
+        }
+
+        /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>
         /// Contains the total number of item lines in the business document.<br/>

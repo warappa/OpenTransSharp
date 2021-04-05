@@ -14,13 +14,26 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderHistory
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderHistory"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OrderHistory()
-            : this(null!)
-        { }
+        {
+            OrderId = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OrderHistory"/>
+        /// </summary>
+        /// <param name="orderId"></param>
         public OrderHistory(string orderId)
         {
+            if (string.IsNullOrWhiteSpace(orderId))
+            {
+                throw new ArgumentException($"'{nameof(orderId)}' cannot be null or whitespace.", nameof(orderId));
+            }
+
             OrderId = orderId;
         }
         /// <summary>

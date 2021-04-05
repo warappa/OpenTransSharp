@@ -5,7 +5,7 @@ namespace BMEcatSharp
     /// <summary>
     /// For <see cref="IppOutbound.Format"/>.
     /// </summary>
-    public class IppOutboundFormatValues
+    public static class IppOutboundFormatValues
     {
         /// <summary>
         /// BMEcat<br/>

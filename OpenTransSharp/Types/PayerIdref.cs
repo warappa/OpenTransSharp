@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,14 +14,26 @@ namespace OpenTransSharp
     /// </summary>
     public class PayerIdref : global::BMEcatSharp.PartyRef<PayerIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="PayerIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PayerIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="PayerIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public PayerIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -28,8 +41,8 @@ namespace OpenTransSharp
         /// 
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public PayerIdref(string value, string type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
+        public PayerIdref(string value, string? type)
             : this(value)
         {
             Type = type;

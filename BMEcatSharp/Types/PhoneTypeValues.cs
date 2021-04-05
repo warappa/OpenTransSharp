@@ -5,7 +5,7 @@
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class PhoneTypeValues
+    public static class PhoneTypeValues
     {
         /// <summary>
         /// Mobile telephone

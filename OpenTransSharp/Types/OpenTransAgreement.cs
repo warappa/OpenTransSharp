@@ -18,13 +18,28 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransAgreement
     {
+        /// <summary>
+        /// <inheritdoc cref="OpenTransAgreement"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OpenTransAgreement()
-            : this(null!, DateTime.MinValue, null)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OpenTransAgreement"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="endDate"></param>
+        /// <param name="startDate"></param>
         public OpenTransAgreement(string id, DateTime endDate, DateTime? startDate = null)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
             EndDate = endDate;
             StartDate = startDate;

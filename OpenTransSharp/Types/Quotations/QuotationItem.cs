@@ -14,16 +14,39 @@ namespace OpenTransSharp
     /// </summary>
     public class QuotationItem
     {
+        /// <summary>
+        /// <inheritdoc cref="QuotationItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public QuotationItem()
-            : this(null!, null!, 0, null!)
-        { }
+        {
+            LineItemId = null!;
+            ProductId = null!;
+            OrderUnit = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="QuotationItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="productId"></param>
+        /// <param name="quantity"></param>
+        /// <param name="orderUnit"></param>
         public QuotationItem(string lineItemId, ProductId productId, decimal quantity,
             string orderUnit)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new System.ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new System.ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
             LineItemId = lineItemId;
-            ProductId = productId;
+            ProductId = productId ?? throw new System.ArgumentNullException(nameof(productId));
             Quantity = quantity;
             OrderUnit = orderUnit;
         }

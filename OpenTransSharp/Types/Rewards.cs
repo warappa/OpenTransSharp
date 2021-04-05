@@ -1,6 +1,9 @@
-﻿using OpenTransSharp.Xml;
+﻿using BMEcatSharp;
+using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace OpenTransSharp
 {
@@ -14,6 +17,35 @@ namespace OpenTransSharp
     /// </summary>
     public class Rewards
     {
+        /// <summary>
+        /// <inheritdoc cref="Rewards"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public Rewards() { }
+
+        /// <summary>
+        /// <inheritdoc cref="Rewards"/>
+        /// </summary>
+        /// <param name="points"></param>
+        /// <param name="system"></param>
+        /// <param name="description"></param>
+        public Rewards(decimal points, IEnumerable<MultiLingualString> system, IEnumerable<MultiLingualString> description)
+        {
+            if (system is null)
+            {
+                throw new ArgumentNullException(nameof(system));
+            }
+
+            if (description is null)
+            {
+                throw new ArgumentNullException(nameof(description));
+            }
+
+            Points = points;
+            System = system.ToList();
+            Description = description.ToList();
+        }
+
         /// <summary>
         /// (required) Rewards points<br/>
         /// <br/>
@@ -48,8 +80,8 @@ namespace OpenTransSharp
         /// Description of the rewards system.
         /// </summary>
         [OpenTransXmlElement("REWARDS_DESCR")]
-        public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+        public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool DescriptionsSpecified => Descriptions?.Count > 0;
+        public bool DescriptionSpecified => Description?.Count > 0;
     }
 }

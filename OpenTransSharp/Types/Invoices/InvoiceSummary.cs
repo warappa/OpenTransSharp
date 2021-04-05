@@ -10,11 +10,19 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceSummary"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceSummary()
-            : this(0, 0, 0)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        /// <param name="netValueGoods"></param>
+        /// <param name="totalAmount"></param>
         public InvoiceSummary(int totalItemCount, decimal netValueGoods, decimal totalAmount)
         {
             TotalItemCount = totalItemCount;

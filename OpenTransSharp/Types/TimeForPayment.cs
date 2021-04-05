@@ -17,6 +17,30 @@ namespace OpenTransSharp
     public class TimeForPayment
     {
         /// <summary>
+        /// <inheritdoc cref="TimeForPayment"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public TimeForPayment() { }
+
+        /// <summary>
+        /// <inheritdoc cref="TimeForPayment"/>
+        /// </summary>
+        /// <param name="paymentDate"></param>
+        public TimeForPayment(DateTime paymentDate)
+        {
+            PaymentDate = paymentDate;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="TimeForPayment"/>
+        /// </summary>
+        /// <param name="days"></param>
+        public TimeForPayment(int days)
+        {
+            Days = days;
+        }
+
+        /// <summary>
         /// (required - choice PaymentDate/Days) Time for payment<br/>
         /// <br/>
         /// Time where the payment is supposed to be done.

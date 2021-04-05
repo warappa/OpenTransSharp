@@ -5,7 +5,7 @@
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class BankCodeTypeValues
+    public static class BankCodeTypeValues
     {
         /// <summary>
         /// Bank Identifier Code<br/>

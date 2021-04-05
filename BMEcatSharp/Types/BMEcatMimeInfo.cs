@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace BMEcatSharp
         {
             if (mimes is null)
             {
-                throw new System.ArgumentNullException(nameof(mimes));
+                throw new ArgumentNullException(nameof(mimes));
             }
 
             Mimes = mimes.ToList();

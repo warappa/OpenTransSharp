@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -36,6 +37,16 @@ namespace BMEcatSharp
         /// See <see cref="PublicKeyTypeValues"/>.</param>
         public PublicKey(string value, string type)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
+            if (string.IsNullOrWhiteSpace(type))
+            {
+                throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+            }
+
             Value = value;
             Type = type;
         }

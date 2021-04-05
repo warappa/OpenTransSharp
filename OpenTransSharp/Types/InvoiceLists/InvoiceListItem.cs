@@ -13,18 +13,34 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListItem
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceListItem()
-            : this(null!, 0, 0, null!)
-        { }
+        {
+            LineItemId = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="netValueGoods"></param>
+        /// <param name="totalAmount"></param>
+        /// <param name="totalTax"></param>
         public InvoiceListItem(string lineItemId, decimal netValueGoods, decimal totalAmount,
             TotalTax totalTax)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new System.ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
             LineItemId = lineItemId;
             NetValueGoods = netValueGoods;
             TotalAmount = totalAmount;
-            TotalTax = totalTax;
+            TotalTax = totalTax ?? throw new System.ArgumentNullException(nameof(totalTax));
         }
 
         /// <summary>

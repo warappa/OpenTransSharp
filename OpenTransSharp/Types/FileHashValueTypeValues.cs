@@ -5,7 +5,7 @@
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>
-    public class FileHashValueTypeValues
+    public static class FileHashValueTypeValues
     {
         public const string Sha512 = "SHA512";
         public const string Sha384 = "SHA384";

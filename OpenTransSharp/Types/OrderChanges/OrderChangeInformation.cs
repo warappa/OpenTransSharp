@@ -14,18 +14,41 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderChangeInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderChangeInformation"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public OrderChangeInformation()
-            : this(null!, DateTime.MinValue, 0, null!, null!)
-        { }
+        {
+            OrderId = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OrderChangeInformation"/>
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="date"></param>
+        /// <param name="sequenceId"></param>
+        /// <param name="parties"></param>
+        /// <param name="orderPartiesReference"></param>
         public OrderChangeInformation(string orderId, DateTime date, int sequenceId,
             IEnumerable<OpenTransParty> parties, OrderPartiesReference orderPartiesReference)
         {
+            if (string.IsNullOrWhiteSpace(orderId))
+            {
+                throw new ArgumentException($"'{nameof(orderId)}' cannot be null or whitespace.", nameof(orderId));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
             OrderId = orderId;
             Date = date;
             SequenceId = sequenceId;
-            OrderPartiesReference = orderPartiesReference;
-            Parties = parties?.ToList() ?? new();
+            OrderPartiesReference = orderPartiesReference ?? throw new ArgumentNullException(nameof(orderPartiesReference));
+            Parties = parties.ToList();
         }
 
         /// <summary>

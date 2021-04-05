@@ -1,4 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -12,6 +14,20 @@ namespace OpenTransSharp
     /// </summary>
     public class RfqHeader
     {
+        /// <summary>
+        /// <inheritdoc cref="RfqHeader"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RfqHeader() { }
+
+        /// <summary>
+        /// <inheritdoc cref="RfqHeader"/>
+        /// </summary>
+        /// <param name="information"></param>
+        public RfqHeader(RfqInformation information)
+        {
+            Information = information ?? throw new ArgumentNullException(nameof(information));
+        }
         /// <summary>
         /// (optional) Control information<br/>
         /// <br/>

@@ -18,6 +18,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Address"/>
         /// </summary>
         public Address() { }
+
         /// <summary>
         /// (optional) Address line<br/>
         /// <br/>
@@ -226,7 +227,7 @@ namespace BMEcatSharp
         public Fax? Fax { get; set; }
 
         /// <summary>
-        /// (required) E-mail address<br/>
+        /// (optional - required if PublicKeys is specified) E-mail address<br/>
         /// <br/>
         /// e-mail address<br/>
         /// <br/>

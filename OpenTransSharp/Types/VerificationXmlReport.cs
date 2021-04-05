@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -13,13 +14,26 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationXmlReport
     {
+        /// <summary>
+        /// <inheritdoc cref="VerificationXmlReport"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public VerificationXmlReport()
-            : this(null!)
-        { }
+        {
+            XmlFormat = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="VerificationXmlReport"/>
+        /// </summary>
+        /// <param name="xmlFormat"></param>
         public VerificationXmlReport(string xmlFormat)
         {
+            if (string.IsNullOrWhiteSpace(xmlFormat))
+            {
+                throw new ArgumentException($"'{nameof(xmlFormat)}' cannot be null or whitespace.", nameof(xmlFormat));
+            }
+
             XmlFormat = xmlFormat;
         }
 

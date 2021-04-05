@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -13,14 +14,26 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationProtocol
     {
+        /// <summary>
+        /// <inheritdoc cref="VerificationProtocol"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public VerificationProtocol() 
         {
             ResultCode = null!;
         }
-        
+
+        /// <summary>
+        /// <inheritdoc cref="VerificationProtocol"/>
+        /// </summary>
+        /// <param name="resultCode"></param>
         public VerificationProtocol(string resultCode)
         {
+            if (string.IsNullOrWhiteSpace(resultCode))
+            {
+                throw new ArgumentException($"'{nameof(resultCode)}' cannot be null or whitespace.", nameof(resultCode));
+            }
+
             ResultCode = resultCode;
         }
 

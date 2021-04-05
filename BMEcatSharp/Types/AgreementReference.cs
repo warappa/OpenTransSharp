@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -29,7 +30,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(idReference))
             {
-                throw new System.ArgumentException($"'{nameof(idReference)}' cannot be null or whitespace.", nameof(idReference));
+                throw new ArgumentException($"'{nameof(idReference)}' cannot be null or whitespace.", nameof(idReference));
             }
 
             IdReference = idReference;

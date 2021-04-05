@@ -15,15 +15,30 @@ namespace OpenTransSharp
     /// </summary>
     public class CatalogReference
     {
+        /// <summary>
+        /// <inheritdoc cref="CatalogReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CatalogReference()
-            : this(null!, null!)
-        { }
+        {
+            Id = null!;
+            Version = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="CatalogReference"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="version"></param>
         public CatalogReference(string id, Version version)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
-            Version = version;
+            Version = version ?? throw new ArgumentNullException(nameof(version));
         }
 
         /// <summary>

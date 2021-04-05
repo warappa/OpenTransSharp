@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace BMEcatSharp
         {
             if (featureVariants is null)
             {
-                throw new System.ArgumentNullException(nameof(featureVariants));
+                throw new ArgumentNullException(nameof(featureVariants));
             }
 
             VariantOrder = variantOrder;

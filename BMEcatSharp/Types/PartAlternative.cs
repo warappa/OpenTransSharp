@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -26,7 +27,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(supplierPIdref))
             {
-                throw new System.ArgumentException($"'{nameof(supplierPIdref)}' cannot be null or whitespace.", nameof(supplierPIdref));
+                throw new ArgumentException($"'{nameof(supplierPIdref)}' cannot be null or whitespace.", nameof(supplierPIdref));
             }
 
             SupplierPIdref = supplierPIdref;

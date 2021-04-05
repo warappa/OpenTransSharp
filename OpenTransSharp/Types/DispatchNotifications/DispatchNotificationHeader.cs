@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -11,6 +12,21 @@ namespace OpenTransSharp
     /// </summary>
     public class DispatchNotificationHeader
     {
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationHeader"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public DispatchNotificationHeader() { }
+
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationHeader"/>
+        /// </summary>
+        /// <param name="information"></param>
+        public DispatchNotificationHeader(DispatchNotificationInformation information)
+        {
+            Information = information ?? throw new System.ArgumentNullException(nameof(information));
+        }
+
         /// <summary>
         /// (optional) Control information<br/>
         /// <br/>

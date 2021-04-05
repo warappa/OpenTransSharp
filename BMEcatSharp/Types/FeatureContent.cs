@@ -15,6 +15,17 @@ namespace BMEcatSharp
     public class FeatureContent
     {
         /// <summary>
+        /// <inheritdoc cref="FeatureContent"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public FeatureContent() { }
+        
+        public FeatureContent(FeatureDataTypeValues dataType)
+        {
+            DataType = dataType;
+        }
+
+        /// <summary>
         /// (required) Feature data type<br/>
         /// <br/>
         /// This element contains the data type of the feature.<br/>

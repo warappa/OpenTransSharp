@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,23 +14,35 @@ namespace OpenTransSharp
     /// </summary>
     public class CustomerIdRef : global::BMEcatSharp.PartyRef<CustomerIdRef>
     {
+        /// <summary>
+        /// <inheritdoc cref="CustomerIdRef"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public CustomerIdRef()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ControlInformation"/>
+        /// </summary>
+        /// <param name="value"></param>
         public CustomerIdRef(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="ControlInformation"/>
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public CustomerIdRef(string value, string type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
+        public CustomerIdRef(string value, string? type)
             : this(value)
         {
             Type = type;

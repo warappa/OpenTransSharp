@@ -17,6 +17,21 @@ namespace OpenTransSharp
     public class ProductPriceFix
     {
         /// <summary>
+        /// <inheritdoc cref="ProductPriceFix"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ProductPriceFix() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ProductPriceFix"/>
+        /// </summary>
+        /// <param name="amount"></param>
+        public ProductPriceFix(decimal amount)
+        {
+            Amount = amount;
+        }
+
+        /// <summary>
         /// (required) Price amount<br/>
         /// <br/>
         /// Amount of the price.<br/>

@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace OpenTransSharp
@@ -12,14 +13,19 @@ namespace OpenTransSharp
     /// </summary>
     public class ShipmentPartiesReference
     {
+        /// <summary>
+        /// <inheritdoc cref="ShipmentPartiesReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ShipmentPartiesReference()
-        {
-        }
+        public ShipmentPartiesReference() { }
 
+        /// <summary>
+        /// <inheritdoc cref="ShipmentPartiesReference"/>
+        /// </summary>
+        /// <param name="deliveryIdref"></param>
         public ShipmentPartiesReference(DeliveryIdref deliveryIdref)
         {
-            DeliveryIdref = deliveryIdref;
+            DeliveryIdref = deliveryIdref ?? throw new ArgumentNullException(nameof(deliveryIdref));
         }
 
         /// <summary>

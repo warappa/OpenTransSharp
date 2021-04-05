@@ -12,18 +12,30 @@ namespace OpenTransSharp
     /// </summary>
     public class MimeData
     {
+        /// <summary>
+        /// <inheritdoc cref="MimeData"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public MimeData()
         {
             Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="MimeData"/>
+        /// </summary>
+        /// <param name="value"></param>
         public MimeData(byte[] value)
         {
+            if (value is null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             Value = Convert.ToBase64String(value);
         }
 
-        public MimeData(byte[] value, string contentType)
+        public MimeData(byte[] value, string? contentType)
             : this(value)
         {
             ContentType = contentType;

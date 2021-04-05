@@ -1,4 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -10,6 +12,20 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderChangeHeader
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderChangeHeader"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderChangeHeader() { }
+
+        /// <summary>
+        /// <inheritdoc cref="OrderChangeHeader"/>
+        /// </summary>
+        /// <param name="information"></param>
+        public OrderChangeHeader(OrderChangeInformation information)
+        {
+            Information = information ?? throw new ArgumentNullException(nameof(information));
+        }
         /// <summary>
         /// (optional) Control information<br/>
         /// <br/>

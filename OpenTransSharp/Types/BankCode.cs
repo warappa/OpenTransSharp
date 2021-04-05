@@ -13,14 +13,26 @@ namespace OpenTransSharp
     /// </summary>
     public class BankCode
     {
+        /// <summary>
+        /// <inheritdoc cref="BankCode"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BankCode()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="BankCode"/>
+        /// </summary>
+        /// <param name="value"></param>
         public BankCode(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -30,7 +42,7 @@ namespace OpenTransSharp
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="BankCodeTypeValues"/>.<br/>
         /// Custom values can also be used.</param>
-        public BankCode(string value, string type)
+        public BankCode(string value, string? type)
             : this(value)
         {
             if (string.IsNullOrWhiteSpace(type))

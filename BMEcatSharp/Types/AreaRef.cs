@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace BMEcatSharp
         {
             if (idrefs is null)
             {
-                throw new System.ArgumentNullException(nameof(idrefs));
+                throw new ArgumentNullException(nameof(idrefs));
             }
 
             Idrefs = idrefs.ToList();

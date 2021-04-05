@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace OpenTransSharp
@@ -14,14 +15,27 @@ namespace OpenTransSharp
     /// </summary>
     public class PriceBaseFix
     {
+        /// <summary>
+        /// <inheritdoc cref="PriceBaseFix"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PriceBaseFix()
         {
             Unit = null!;
         }
-        
+
+        /// <summary>
+        /// <inheritdoc cref="PriceBaseFix"/>
+        /// </summary>
+        /// <param name="unitValue"></param>
+        /// <param name="unit"></param>
         public PriceBaseFix(decimal unitValue, string unit)
         {
+            if (string.IsNullOrWhiteSpace(unit))
+            {
+                throw new ArgumentException($"'{nameof(unit)}' cannot be null or whitespace.", nameof(unit));
+            }
+
             UnitValue = unitValue;
             Unit = unit;
         }

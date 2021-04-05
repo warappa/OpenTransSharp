@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace OpenTransSharp
@@ -12,6 +13,9 @@ namespace OpenTransSharp
     /// </summary>
     public class SupplierOrderReference
     {
+        /// <summary>
+        /// <inheritdoc cref="SupplierOrderReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public SupplierOrderReference()
         {
@@ -19,8 +23,23 @@ namespace OpenTransSharp
             LineItemId = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="SupplierOrderReference"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lineItemId"></param>
         public SupplierOrderReference(string id, string lineItemId)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
             Id = id;
             LineItemId = lineItemId;
         }

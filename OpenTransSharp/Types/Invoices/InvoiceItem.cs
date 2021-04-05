@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -14,19 +15,43 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceItem
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceItem()
-            : this(null!, null!, 0, null!, null!, 0)
-        { }
+        {
+            LineItemId = null!;
+            OrderUnit = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="productId"></param>
+        /// <param name="quantity"></param>
+        /// <param name="orderUnit"></param>
+        /// <param name="productPriceFix"></param>
+        /// <param name="priceLineAmount"></param>
         public InvoiceItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
             ProductPriceFix productPriceFix, decimal priceLineAmount)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
             LineItemId = lineItemId;
-            ProductId = productId;
+            ProductId = productId ?? throw new ArgumentNullException(nameof(productId));
             Quantity = quantity;
             OrderUnit = orderUnit;
-            ProductPriceFix = productPriceFix;
+            ProductPriceFix = productPriceFix ?? throw new ArgumentNullException(nameof(productPriceFix));
             PriceLineAmount = priceLineAmount;
         }
 

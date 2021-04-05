@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -9,6 +10,20 @@ namespace OpenTransSharp
     /// </summary>
     public class ReceiptAcknowledgementSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="ReceiptAcknowledgementSummary"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public ReceiptAcknowledgementSummary() { }
+
+        /// <summary>
+        /// <inheritdoc cref="ReceiptAcknowledgementSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        public ReceiptAcknowledgementSummary(int totalItemCount)
+        {
+            TotalItemCount = totalItemCount;
+        }
         /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>

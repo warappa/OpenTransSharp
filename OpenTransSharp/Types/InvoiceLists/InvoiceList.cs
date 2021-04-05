@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -56,6 +58,33 @@ namespace OpenTransSharp
     {
         [XmlNamespaceDeclarations]
         public XmlSerializerNamespaces Xmlns = global::BMEcatSharp.Internal.SharedXmlNamespaces.Xmlns;
+
+        /// <summary>
+        /// <inheritdoc cref="InvoiceList"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceList() { }
+
+        /// <summary>
+        /// <inheritdoc cref="InvoiceList"/>
+        /// </summary>
+        /// <param name="version"></param>
+        /// <param name="header"></param>
+        /// <param name="items"></param>
+        /// <param name="summary"></param>
+        public InvoiceList(OpenTransVersion version, InvoiceListHeader header, IEnumerable<InvoiceListItem> items, InvoiceListSummary summary)
+        {
+            if (items is null)
+            {
+                throw new ArgumentNullException(nameof(items));
+            }
+
+            Version = version;
+            Header = header ?? throw new ArgumentNullException(nameof(header));
+            Items = items.ToList();
+            Summary = summary ?? throw new ArgumentNullException(nameof(summary));
+        }
+
 
         /// <summary>
         /// (required) Indicates the version of the openTRANS® Standard to which the business document corresponds.<br/>

@@ -15,6 +15,9 @@ namespace OpenTransSharp
     /// </summary>
     public class RemittanceAdviceInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="RemittanceAdviceInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RemittanceAdviceInformation() 
         {
@@ -22,15 +25,39 @@ namespace OpenTransSharp
             Currency = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="RemittanceAdviceInformation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="date"></param>
+        /// <param name="parties"></param>
+        /// <param name="payerIdref"></param>
+        /// <param name="remitteeIdref"></param>
+        /// <param name="currency"></param>
         public RemittanceAdviceInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
             PayerIdref payerIdref, RemitteeIdref remitteeIdref, string currency)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
+            if (string.IsNullOrWhiteSpace(currency))
+            {
+                throw new ArgumentException($"'{nameof(currency)}' cannot be null or whitespace.", nameof(currency));
+            }
+
             Id = id;
             Date = date;
-            PayerIdref = payerIdref;
-            RemitteeIdref = remitteeIdref;
+            PayerIdref = payerIdref ?? throw new ArgumentNullException(nameof(payerIdref));
+            RemitteeIdref = remitteeIdref ?? throw new ArgumentNullException(nameof(remitteeIdref));
             Currency = currency;
-            Parties = parties?.ToList() ?? new();
+            Parties = parties.ToList();
         }
 
         /// <summary>

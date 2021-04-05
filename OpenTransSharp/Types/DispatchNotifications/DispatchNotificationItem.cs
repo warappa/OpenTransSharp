@@ -14,20 +14,36 @@ namespace OpenTransSharp
     /// </summary>
     public class DispatchNotificationItem
     {
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DispatchNotificationItem()
-            : this(null!, null!, 0, null!, null!, null!)
-        { }
+        {
+            LineItemId = null!;
+            ProductId = null!;
+            OrderUnit = null!;
+        }
 
         public DispatchNotificationItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
             OrderReference orderReference, ShipmentPartiesReference shipmentPartiesReference)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new System.ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new System.ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
             LineItemId = lineItemId;
-            ProductId = productId;
+            ProductId = productId ?? throw new System.ArgumentNullException(nameof(productId));
             Quantity = quantity;
             OrderUnit = orderUnit;
-            OrderReference = orderReference;
-            ShipmentPartiesReference = shipmentPartiesReference;
+            OrderReference = orderReference ?? throw new System.ArgumentNullException(nameof(orderReference));
+            ShipmentPartiesReference = shipmentPartiesReference ?? throw new System.ArgumentNullException(nameof(shipmentPartiesReference));
         }
 
         /// <summary>

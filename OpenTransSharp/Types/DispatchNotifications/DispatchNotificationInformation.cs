@@ -15,18 +15,40 @@ namespace OpenTransSharp
     /// </summary>
     public class DispatchNotificationInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DispatchNotificationInformation()
-            : this(null!, null!, null!, null!)
-        { }
-        
+        {
+            Id = null!;
+            SupplierIdref = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationInformation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="parties"></param>
+        /// <param name="supplierIdref"></param>
+        /// <param name="shipmentPartiesReference"></param>
         public DispatchNotificationInformation(string id, IEnumerable<OpenTransParty> parties, SupplierIdref supplierIdref,
             ShipmentPartiesReference shipmentPartiesReference)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
             Id = id;
-            Parties = parties?.ToList() ?? new();
-            SupplierIdref = supplierIdref;
-            ShipmentPartiesReference = shipmentPartiesReference;
+            Parties = parties.ToList();
+            SupplierIdref = supplierIdref ?? throw new ArgumentNullException(nameof(supplierIdref));
+            ShipmentPartiesReference = shipmentPartiesReference ?? throw new ArgumentNullException(nameof(shipmentPartiesReference));
         }
 
         /// <summary>

@@ -12,11 +12,16 @@ namespace OpenTransSharp
     /// </summary>
     public class AocOrderUnitsCount
     {
-        public AocOrderUnitsCount()
-        {
+        /// <summary>
+        /// <inheritdoc cref="AocOrderUnitsCount"/>
+        /// </summary>
+        public AocOrderUnitsCount() { }
 
-        }
-
+        /// <summary>
+        /// <inheritdoc cref="AocOrderUnitsCount"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
         public AocOrderUnitsCount(decimal value, AocOrderUnitsCountType type)
         {
             Value = value;

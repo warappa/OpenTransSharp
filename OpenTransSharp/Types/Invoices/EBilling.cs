@@ -10,6 +10,11 @@ namespace OpenTransSharp
     public class EBilling
     {
         /// <summary>
+        /// <inheritdoc cref="EBilling"/>
+        /// </summary>
+        public EBilling() { }
+
+        /// <summary>
         /// (optional) Original invoice<br/>
         /// <br/>
         /// Represents the invoice document in the case that the openTRANS document is not the original invoice(e.g. as .pdf or grafical file).<br/>

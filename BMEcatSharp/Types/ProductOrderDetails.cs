@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -32,12 +33,12 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(orderUnit))
             {
-                throw new System.ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
             }
 
             if (string.IsNullOrWhiteSpace(contentUnit))
             {
-                throw new System.ArgumentException($"'{nameof(contentUnit)}' cannot be null or whitespace.", nameof(contentUnit));
+                throw new ArgumentException($"'{nameof(contentUnit)}' cannot be null or whitespace.", nameof(contentUnit));
             }
 
             OrderUnit = orderUnit;

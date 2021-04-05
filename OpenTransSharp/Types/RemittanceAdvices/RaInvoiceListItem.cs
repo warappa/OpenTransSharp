@@ -10,15 +10,25 @@ namespace OpenTransSharp
     /// </summary>
     public class RaInvoiceListItem
     {
+        /// <summary>
+        /// <inheritdoc cref="RaInvoiceListItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RaInvoiceListItem()
-            : this(null!, null!)
-        { }
+        {
+            InvoiceReference = null!;
+            OriginalInvoiceSummary = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="RaInvoiceListItem"/>
+        /// </summary>
+        /// <param name="invoiceReference"></param>
+        /// <param name="originalInvoiceSummary"></param>
         public RaInvoiceListItem(InvoiceReference invoiceReference, OriginalInvoiceSummary originalInvoiceSummary)
         {
-            InvoiceReference = invoiceReference;
-            OriginalInvoiceSummary = originalInvoiceSummary;
+            InvoiceReference = invoiceReference ?? throw new System.ArgumentNullException(nameof(invoiceReference));
+            OriginalInvoiceSummary = originalInvoiceSummary ?? throw new System.ArgumentNullException(nameof(originalInvoiceSummary));
         }
         /// <summary>
         /// (required) Invoice reference<br/>

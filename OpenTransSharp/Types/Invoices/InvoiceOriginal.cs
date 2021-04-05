@@ -10,14 +10,19 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceOriginal
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceOriginal"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public InvoiceOriginal()
-            : this(null!)
-        { }
-        
+        public InvoiceOriginal() { }
+
+        /// <summary>
+        /// <inheritdoc cref="InvoiceOriginal"/>
+        /// </summary>
+        /// <param name="mime"></param>
         public InvoiceOriginal(OpenTransMime mime)
         {
-            Mime = mime;
+            Mime = mime ?? throw new System.ArgumentNullException(nameof(mime));
         }
 
         /// <summary>

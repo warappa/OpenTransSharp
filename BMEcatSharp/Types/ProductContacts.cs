@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -28,7 +29,7 @@ namespace BMEcatSharp
         /// <param name="partyIdref"></param>
         public ProductContacts(PartyIdref partyIdref)
         {
-            PartyIdref = partyIdref ?? throw new System.ArgumentNullException(nameof(partyIdref));
+            PartyIdref = partyIdref ?? throw new ArgumentNullException(nameof(partyIdref));
         }
 
         /// <summary>

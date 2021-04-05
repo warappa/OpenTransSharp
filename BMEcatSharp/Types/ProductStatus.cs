@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -39,6 +40,11 @@ namespace BMEcatSharp
         /// See <see cref="ProductStatusType"/>.</param>
         public ProductStatus(string value, ProductStatusType type)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
             Type = type;
         }

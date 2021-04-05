@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -10,6 +11,21 @@ namespace OpenTransSharp
     /// </summary>
     public class DispatchNotificationSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationSummary"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public DispatchNotificationSummary() { }
+
+        /// <summary>
+        /// <inheritdoc cref="DispatchNotificationSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        public DispatchNotificationSummary(int totalItemCount)
+        {
+            TotalItemCount = totalItemCount;
+        }
+
         /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>

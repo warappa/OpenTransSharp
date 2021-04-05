@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,14 +14,22 @@ namespace OpenTransSharp
     /// </summary>
     public class RemitteeIdref : global::BMEcatSharp.PartyRef<RemitteeIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="RemitteeIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RemitteeIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
         public RemitteeIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -28,8 +37,8 @@ namespace OpenTransSharp
         /// 
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public RemitteeIdref(string value, string type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
+        public RemitteeIdref(string value, string? type)
             : this(value)
         {
             Type = type;

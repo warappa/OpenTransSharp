@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,21 +18,41 @@ namespace OpenTransSharp
     /// </summary>
     public class Payment
     {
+        /// <summary>
+        /// <inheritdoc cref="Payment"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Payment()
-            : this((Card)null!)
-        { }
+        public Payment() { }
 
+        /// <summary>
+        /// <inheritdoc cref="Payment"/>
+        /// </summary>
+        /// <param name="card"></param>
         public Payment(Card card)
         {
-            Card = card;
+            Card = card ?? throw new ArgumentNullException(nameof(card));
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Payment"/>
+        /// </summary>
+        /// <param name="accounts"></param>
         public Payment(IEnumerable<Account> accounts)
         {
-            Accounts = accounts?.ToList() ?? new();
+            if (accounts is null)
+            {
+                throw new ArgumentNullException(nameof(accounts));
+            }
+
+            Accounts = accounts.ToList();
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Payment"/>
+        /// </summary>
+        /// <param name="debit"></param>
+        /// <param name="cash"></param>
+        /// <param name="check"></param>
         public Payment(bool debit, bool cash, bool check)
         {
             Debit = debit;

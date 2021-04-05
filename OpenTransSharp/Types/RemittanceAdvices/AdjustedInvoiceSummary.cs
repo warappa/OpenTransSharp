@@ -1,26 +1,29 @@
-﻿using OpenTransSharp.Xml;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
     /// <summary>
-    /// (Summary of the original invoice)<br/>
+    /// (Adjusted invoice summary)<br/>
     /// <br/>
-    /// Summary of the original invoice.<br/>
-    /// <br/>
-    /// XML-namespace: OpenTrans
+    /// Total amount, net value and taxes of the revised invoice.
     /// </summary>
-    public class OriginalInvoiceSummary
+    public class AdjustedInvoiceSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="AdjustedInvoiceSummary"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public OriginalInvoiceSummary()
-            : this(0, null!, 0)
-        { }
+        public AdjustedInvoiceSummary() { }
 
-        public OriginalInvoiceSummary(decimal netValueGoods, TotalTax totalTax, decimal totalAmount)
+        /// <summary>
+        /// <inheritdoc cref="AdjustedInvoiceSummary"/>
+        /// </summary>
+        /// <param name="netValueGoods"></param>
+        /// <param name="totalAmount"></param>
+        public AdjustedInvoiceSummary(decimal netValueGoods, decimal totalAmount)
         {
             NetValueGoods = netValueGoods;
-            TotalTax = totalTax;
             TotalAmount = totalAmount;
         }
 
@@ -29,16 +32,16 @@ namespace OpenTransSharp
         /// <br/>
         /// Total amout of all items in this invoice excluding taxes.
         /// </summary>
-        [OpenTransXmlElement("NET_VALUE_GOODS")]
+        [XmlElement("NET_VALUE_GOODS")]
         public decimal NetValueGoods { get; set; }
 
         /// <summary>
-        /// (required) Total taxes <br/>
+        /// (optional) Total taxes <br/>
         /// <br/>
         /// List of the tax amount.
         /// </summary>
-        [OpenTransXmlElement("TOTAL_TAX")]
-        public TotalTax TotalTax { get; set; }
+        [XmlElement("TOTAL_TAX")]
+        public TotalTax? TotalTax { get; set; }
 
         /// <summary>
         /// (required) Total amount<br/>
@@ -50,7 +53,7 @@ namespace OpenTransSharp
         /// Gross price including surcharges, deductions and all taxes.<br/>
         /// Where no price per item can be given as the item level (e.g.bills of materials where explosion is not possible), the total price can be entered here.
         /// </summary>
-        [OpenTransXmlElement("TOTAL_AMOUNT")]
+        [XmlElement("TOTAL_AMOUNT")]
         public decimal TotalAmount { get; set; }
     }
 }

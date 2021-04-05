@@ -18,6 +18,23 @@ namespace OpenTransSharp
     public class DeliveryDate
     {
         /// <summary>
+        /// <inheritdoc cref="DeliveryDate"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public DeliveryDate() { }
+
+        /// <summary>
+        /// <inheritdoc cref="DeliveryDate"/>
+        /// </summary>
+        /// <param name="deliveryStartDate"></param>
+        /// <param name="deliveryEndDate"></param>
+        public DeliveryDate(DateTime deliveryStartDate, DateTime deliveryEndDate)
+        {
+            DeliveryStartDate = deliveryStartDate;
+            DeliveryEndDate = deliveryEndDate;
+        }
+
+        /// <summary>
         /// (optional) Type of delivery date<br/>
         /// <br/>
         /// Specifies the delivery date.

@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -33,10 +34,10 @@ namespace BMEcatSharp
         {
             if (name is null)
             {
-                throw new System.ArgumentNullException(nameof(name));
+                throw new ArgumentNullException(nameof(name));
             }
 
-            Id = id ?? throw new System.ArgumentNullException(nameof(id));
+            Id = id ?? throw new ArgumentNullException(nameof(id));
             Name = name.ToList();
         }
 

@@ -18,6 +18,9 @@ namespace OpenTransSharp
     /// </summary>
     public class DocexchangePartiesReference
     {
+        /// <summary>
+        /// <inheritdoc cref="DocexchangePartiesReference"/>
+        /// </summary>
         public DocexchangePartiesReference() { }
         
         /// <summary>

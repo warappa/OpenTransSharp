@@ -17,24 +17,36 @@ namespace OpenTransSharp
     /// </summary>
     public class BankAccount
     {
+        /// <summary>
+        /// <inheritdoc cref="BankAccount"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BankAccount()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="BankAccount"/>
+        /// </summary>
+        /// <param name="value"></param>
         public BankAccount(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="BankAccount"/>
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="BankAccountTypeValues"/>.<br/>
         /// Custom values can also be used.</param>
-        public BankAccount(string value, string type)
+        public BankAccount(string value, string? type)
             : this(value)
         {
             if (string.IsNullOrWhiteSpace(type))

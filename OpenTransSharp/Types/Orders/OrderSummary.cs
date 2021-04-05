@@ -12,6 +12,21 @@ namespace OpenTransSharp
     public class OrderSummary
     {
         /// <summary>
+        /// <inheritdoc cref="OrderSummary"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderSummary() { }
+
+        /// <summary>
+        /// <inheritdoc cref="OrderSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        public OrderSummary(int totalItemCount)
+        {
+            TotalItemCount = totalItemCount;
+        }
+
+        /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>
         /// Contains the total number of item lines in the business document.<br/>

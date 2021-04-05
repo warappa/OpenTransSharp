@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -10,15 +11,29 @@ namespace OpenTransSharp
     /// </summary>
     public class Account
     {
+        /// <summary>
+        /// <inheritdoc cref="Account"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Account()
-            : this(null!, null!)
-        { }
-        
+        {
+            Holder = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="Account"/>
+        /// </summary>
+        /// <param name="holder"></param>
+        /// <param name="bankAccount"></param>
         public Account(string holder, BankAccount bankAccount)
         {
+            if (string.IsNullOrWhiteSpace(holder))
+            {
+                throw new ArgumentException($"'{nameof(holder)}' cannot be null or whitespace.", nameof(holder));
+            }
+
             Holder = holder;
-            BankAccount = bankAccount;
+            BankAccount = bankAccount ?? throw new ArgumentNullException(nameof(bankAccount));
         }
 
         /// <summary>

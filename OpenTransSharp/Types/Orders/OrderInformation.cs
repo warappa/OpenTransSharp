@@ -14,19 +14,47 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OrderInformation()
-            : this(null!, DateTime.MinValue, null!, null!, null!)
-        { }
+        {
+            Id = null!;
+            Currency = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OrderInformation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="date"></param>
+        /// <param name="parties"></param>
+        /// <param name="orderPartiesReference"></param>
+        /// <param name="currency"></param>
         public OrderInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
             OrderPartiesReference orderPartiesReference, string currency)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
+            if (string.IsNullOrWhiteSpace(currency))
+            {
+                throw new ArgumentException($"'{nameof(currency)}' cannot be null or whitespace.", nameof(currency));
+            }
+
             Id = id;
             Date = date;
-            OrderPartiesReference = orderPartiesReference;
+            OrderPartiesReference = orderPartiesReference ?? throw new ArgumentNullException(nameof(orderPartiesReference));
             Currency = currency;
-            Parties = parties?.ToList() ?? new();
+            Parties = parties.ToList();
         }
 
         /// <summary>

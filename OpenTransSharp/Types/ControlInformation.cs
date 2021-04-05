@@ -4,8 +4,19 @@ using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
+    /// <summary>
+    /// (Control information)<br/>
+    /// <br/>
+    /// Control information for the automatic processing of the business document is stored in the element CONTROL_INFO.<br/>
+    /// If the element CONTROL_INFO is used, at least one of the following elements must be included.
+    /// </summary>
     public class ControlInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="ControlInformation"/>
+        /// </summary>
+        public ControlInformation() { }
+
         /// <summary>
         /// (optional) Interruption of automatic processing in the target system<br/>
         /// <br/>

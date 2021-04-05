@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace OpenTransSharp
@@ -12,14 +13,22 @@ namespace OpenTransSharp
     /// </summary>
     public class SignatureAndVerification
     {
+        /// <summary>
+        /// <inheritdoc cref="SignatureAndVerification"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public SignatureAndVerification()
-            : this(null!)
-        { }
+        {
+            Signature = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="SignatureAndVerification"/>
+        /// </summary>
+        /// <param name="signature"></param>
         public SignatureAndVerification(Signature signature)
         {
-            Signature = signature;
+            Signature = signature ?? throw new ArgumentNullException(nameof(signature));
         }
 
         /// <summary>

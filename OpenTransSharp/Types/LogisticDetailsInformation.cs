@@ -15,6 +15,11 @@ namespace OpenTransSharp
     public class LogisticDetailsInformation
     {
         /// <summary>
+        /// <inheritdoc cref="LogisticDetailsInformation"/>
+        /// </summary>
+        public LogisticDetailsInformation() { }
+
+        /// <summary>
         /// (optional) Country of origin<br/>
         /// <br/>
         /// Contains the country of origin of the product.<br/>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -11,14 +12,22 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceAdjustment
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceAdjustment"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceAdjustment()
         {
             AdjustedInvoiceSummary = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceAdjustment"/>
+        /// </summary>
+        /// <param name="adjustedInvoiceSummary"></param>
         public InvoiceAdjustment(AdjustedInvoiceSummary adjustedInvoiceSummary)
         {
-            AdjustedInvoiceSummary = adjustedInvoiceSummary;
+            AdjustedInvoiceSummary = adjustedInvoiceSummary ?? throw new ArgumentNullException(nameof(adjustedInvoiceSummary));
         }
 
         /// <summary>

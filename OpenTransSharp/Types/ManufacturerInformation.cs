@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -13,15 +14,30 @@ namespace OpenTransSharp
     /// </summary>
     public class ManufacturerInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="ManufacturerInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ManufacturerInformation()
-            : this(null!, null!)
-        { }
-
-        public ManufacturerInformation(BMEcatSharp.ManufacturerIdref idref, string pid)
         {
-            Idref = idref;
-            Pid = pid;
+            Idref = null!;
+            ProductId = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="ManufacturerInformation"/>
+        /// </summary>
+        /// <param name="idref"></param>
+        /// <param name="productId"></param>
+        public ManufacturerInformation(BMEcatSharp.ManufacturerIdref idref, string productId)
+        {
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                throw new ArgumentException($"'{nameof(productId)}' cannot be null or whitespace.", nameof(productId));
+            }
+
+            Idref = idref ?? throw new ArgumentNullException(nameof(idref));
+            ProductId = productId;
         }
 
         /// <summary>
@@ -43,7 +59,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("MANUFACTURER_PID")]
-        public string Pid { get; set; }
+        public string ProductId { get; set; }
 
         /// <summary>
         /// (optional) Manufacturer type description<br/>

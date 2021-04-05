@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -10,6 +11,25 @@ namespace OpenTransSharp
     /// </summary>
     public class RemittanceAdviceSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="RemittanceAdviceSummary"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RemittanceAdviceSummary() { }
+
+        /// <summary>
+        /// <inheritdoc cref="RemittanceAdviceSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        /// <param name="originalSummaryAmount"></param>
+        /// <param name="adjustedSummaryAmount"></param>
+        public RemittanceAdviceSummary(int totalItemCount, decimal originalSummaryAmount, decimal adjustedSummaryAmount)
+        {
+            TotalItemCount = totalItemCount;
+            OriginalSummaryAmount = originalSummaryAmount;
+            AdjustedSummaryAmount = adjustedSummaryAmount;
+        }
+
         /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>

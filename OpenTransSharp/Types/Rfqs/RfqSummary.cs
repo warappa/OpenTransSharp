@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -10,6 +11,21 @@ namespace OpenTransSharp
     /// </summary>
     public class RfqSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="RfqSummary"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public RfqSummary() { }
+
+        /// <summary>
+        /// <inheritdoc cref="RfqSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        public RfqSummary(int totalItemCount)
+        {
+            TotalItemCount = totalItemCount;
+        }
+
         /// <summary>
         /// (required) Number of item lines<br/>
         /// <br/>

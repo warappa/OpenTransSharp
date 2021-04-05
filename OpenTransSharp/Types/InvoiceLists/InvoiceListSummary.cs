@@ -10,17 +10,26 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListSummary
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListSummary"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceListSummary()
-            : this(0, 0, 0, null!)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListSummary"/>
+        /// </summary>
+        /// <param name="totalItemCount"></param>
+        /// <param name="netValueGoods"></param>
+        /// <param name="totalAmount"></param>
+        /// <param name="totalTax"></param>
         public InvoiceListSummary(int totalItemCount, decimal netValueGoods, decimal totalAmount, TotalTax totalTax)
         {
             TotalItemCount = totalItemCount;
             NetValueGoods = netValueGoods;
             TotalAmount = totalAmount;
-            TotalTax = totalTax;
+            TotalTax = totalTax ?? throw new System.ArgumentNullException(nameof(totalTax));
         }
 
         /// <summary>

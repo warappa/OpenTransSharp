@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -14,6 +15,9 @@ namespace OpenTransSharp
     /// </summary>
     public class RfqItem
     {
+        /// <summary>
+        /// <inheritdoc cref="RfqItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RfqItem()
         {
@@ -21,11 +25,28 @@ namespace OpenTransSharp
             ProductId = null!;
             OrderUnit = null!;
         }
-        
+
+        /// <summary>
+        /// <inheritdoc cref="RfqItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="productId"></param>
+        /// <param name="quantity"></param>
+        /// <param name="orderUnit"></param>
         public RfqItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
             LineItemId = lineItemId;
-            ProductId = productId;
+            ProductId = productId ?? throw new ArgumentNullException(nameof(productId));
             Quantity = quantity;
             OrderUnit = orderUnit;
         }

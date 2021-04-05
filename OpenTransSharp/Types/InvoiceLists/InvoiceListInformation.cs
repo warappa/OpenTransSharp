@@ -15,21 +15,51 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceListInformation()
-            : this(null!, DateTime.MinValue, null!, null!, null!, null!, null!)
-        { }
+        {
+            Id = null!;
+            Currency = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListInformation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="date"></param>
+        /// <param name="accountingPeriod"></param>
+        /// <param name="parties"></param>
+        /// <param name="invoiceIssuerIdref"></param>
+        /// <param name="invoiceRecipientIdref"></param>
+        /// <param name="currency"></param>
         public InvoiceListInformation(string id, DateTime date, AccountingPeriod accountingPeriod, IEnumerable<OpenTransParty> parties,
             InvoiceIssuerIdref invoiceIssuerIdref, InvoiceRecipientIdref invoiceRecipientIdref, string currency)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
+            if (string.IsNullOrWhiteSpace(currency))
+            {
+                throw new ArgumentException($"'{nameof(currency)}' cannot be null or whitespace.", nameof(currency));
+            }
+
             Id = id;
             Date = date;
-            AccountingPeriod = accountingPeriod;
-            InvoiceIssuerIdref = invoiceIssuerIdref;
-            InvoiceRecipientIdref = invoiceRecipientIdref;
+            AccountingPeriod = accountingPeriod ?? throw new ArgumentNullException(nameof(accountingPeriod));
+            InvoiceIssuerIdref = invoiceIssuerIdref ?? throw new ArgumentNullException(nameof(invoiceIssuerIdref));
+            InvoiceRecipientIdref = invoiceRecipientIdref ?? throw new ArgumentNullException(nameof(invoiceRecipientIdref));
             Currency = currency;
-            Parties = parties?.ToList() ?? new();
+            Parties = parties.ToList();
         }
 
         /// <summary>

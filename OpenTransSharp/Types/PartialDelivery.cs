@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -11,6 +12,21 @@ namespace OpenTransSharp
     /// </summary>
     public class PartialDelivery
     {
+        /// <summary>
+        /// <inheritdoc cref="PartialDelivery"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PartialDelivery() { }
+
+        /// <summary>
+        /// <inheritdoc cref="PartialDelivery"/>
+        /// </summary>
+        /// <param name="quantity"></param>
+        public PartialDelivery(decimal quantity)
+        {
+            Quantity = quantity;
+        }
+
         /// <summary>
         /// (required) Quantity<br/>
         /// <br/>

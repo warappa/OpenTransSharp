@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -16,15 +17,19 @@ namespace OpenTransSharp
     /// </summary>
     public class MimeEmbedded
     {
+        /// <summary>
+        /// <inheritdoc cref="MimeEmbedded"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public MimeEmbedded()
-            : this(null!)
-        {
-        }
+        public MimeEmbedded() { }
 
+        /// <summary>
+        /// <inheritdoc cref="MimeEmbedded"/>
+        /// </summary>
+        /// <param name="data"></param>
         public MimeEmbedded(MimeData data)
         {
-            Data = data;
+            Data = data ?? throw new ArgumentNullException(nameof(data));
         }
 
         /// <summary>

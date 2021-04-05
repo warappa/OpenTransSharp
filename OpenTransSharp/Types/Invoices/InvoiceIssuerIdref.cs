@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -14,23 +15,35 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceIssuerIdref : global::BMEcatSharp.PartyRef<InvoiceIssuerIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceIssuerIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceIssuerIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceIssuerIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public InvoiceIssuerIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="InvoiceIssuerIdref"/>
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">The most common coding standards are predefined - see <see cref="PartyTypeValues"/>.</param>
-        public InvoiceIssuerIdref(string value, string type)
+        /// <param name="type">The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>.</param>
+        public InvoiceIssuerIdref(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -42,7 +55,7 @@ namespace OpenTransSharp
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined.<br/>
         /// <br/>
-        /// See <see cref="PartyTypeValues"/>.
+        /// See <see cref="BMEcatSharp.PartyTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public override string? Type { get; set; }

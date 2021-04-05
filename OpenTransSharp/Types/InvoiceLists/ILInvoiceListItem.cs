@@ -11,11 +11,23 @@ namespace OpenTransSharp
     /// </summary>
     public class ILInvoiceListItem
     {
+        /// <summary>
+        /// <inheritdoc cref="ILInvoiceListItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ILInvoiceListItem()
-            : this(null!, 0, null!, 0)
-        { }
+        {
+            InvoiceReference = null!;
+        
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ILInvoiceListItem"/>
+        /// </summary>
+        /// <param name="invoiceReference"></param>
+        /// <param name="netValueGoods"></param>
+        /// <param name="totalTax"></param>
+        /// <param name="totalAmount"></param>
         public ILInvoiceListItem(InvoiceReference invoiceReference, decimal netValueGoods, TotalTax totalTax, decimal totalAmount)
         {
             InvoiceReference = invoiceReference;

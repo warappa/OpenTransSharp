@@ -16,6 +16,9 @@ namespace OpenTransSharp
     /// </summary>
     public class Package
     {
+        /// <summary>
+        /// <inheritdoc cref="Package"/>
+        /// </summary>
         public Package() { }
 
         /// <summary>

@@ -13,18 +13,37 @@ namespace OpenTransSharp
     /// </summary>
     public class RemittanceAdviceItem
     {
+        /// <summary>
+        /// <inheritdoc cref="RemittanceAdviceItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RemittanceAdviceItem()
         {
             LineItemId = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="RemittanceAdviceItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="invoiceList"></param>
+        /// <param name="totalAmount"></param>
         public RemittanceAdviceItem(string lineItemId, IEnumerable<RaInvoiceListItem> invoiceList,
             decimal totalAmount)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new System.ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (invoiceList is null)
+            {
+                throw new System.ArgumentNullException(nameof(invoiceList));
+            }
+
             LineItemId = lineItemId;
             TotalAmount = totalAmount;
-            InvoiceList = invoiceList?.ToList() ?? new();
+            InvoiceList = invoiceList.ToList();
         }
         /// <summary>
         /// (required) Item number<br/>

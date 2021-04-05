@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace BMEcatSharp
         {
             if (areaLegalInfos is null)
             {
-                throw new System.ArgumentNullException(nameof(areaLegalInfos));
+                throw new ArgumentNullException(nameof(areaLegalInfos));
             }
 
             AreaLegalInfos = areaLegalInfos.ToList();

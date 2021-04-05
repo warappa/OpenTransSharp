@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -10,14 +11,26 @@ namespace OpenTransSharp
     /// </summary>
     public class PaymentTerm
     {
+        /// <summary>
+        /// <inheritdoc cref="PaymentTerm"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PaymentTerm()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="PaymentTerm"/>
+        /// </summary>
+        /// <param name="value"></param>
         public PaymentTerm(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -26,7 +39,7 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="PaymentTermTypeValues"/>. Custom values can be used.</param>
-        public PaymentTerm(string value, string type)
+        public PaymentTerm(string value, string? type)
             : this(value)
         {
             Type = type;

@@ -36,16 +36,28 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationReport
     {
+        /// <summary>
+        /// <inheritdoc cref="VerificationReport"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public VerificationReport()
-            : this(null!, null!, null!)
-        { }
+        {
+            Attachment = null!;
+            Protocol = null!;
+            XmlReport = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="VerificationReport"/>
+        /// </summary>
+        /// <param name="attachment"></param>
+        /// <param name="protocol"></param>
+        /// <param name="xmlReport"></param>
         public VerificationReport(VerificationAttachment attachment, VerificationProtocol protocol, VerificationXmlReport xmlReport)
         {
-            Attachment = attachment;
-            Protocol = protocol;
-            XmlReport = xmlReport;
+            Attachment = attachment ?? throw new System.ArgumentNullException(nameof(attachment));
+            Protocol = protocol ?? throw new System.ArgumentNullException(nameof(protocol));
+            XmlReport = xmlReport ?? throw new System.ArgumentNullException(nameof(xmlReport));
         }
         /// <summary>
         /// (required) Verification report as (integrated) file<br/>

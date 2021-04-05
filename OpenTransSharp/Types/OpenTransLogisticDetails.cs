@@ -15,6 +15,11 @@ namespace OpenTransSharp
     public class OpenTransLogisticDetails
     {
         /// <summary>
+        /// <inheritdoc cref="OpenTransLogisticDetails"/>
+        /// </summary>
+        public OpenTransLogisticDetails() { }
+
+        /// <summary>
         /// (optional) Information on the customs tariff number.
         /// </summary>
         [BMEXmlElement("CUSTOMS_TARIFF_NUMBER")]

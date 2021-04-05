@@ -15,14 +15,34 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransContactDetails
     {
+        /// <summary>
+        /// <inheritdoc cref="OpenTransContactDetails"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public OpenTransContactDetails()
-            : this(null!, null!)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OpenTransContactDetails"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="surname"></param>
         public OpenTransContactDetails(string id, IEnumerable<BMEcatSharp.MultiLingualString> surname)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (surname is null)
+            {
+                throw new System.ArgumentNullException(nameof(surname));
+            }
+
             Id = id;
-            Surname = surname?.ToList() ?? new();
+            Surname = surname.ToList();
         }
 
         /// <summary>

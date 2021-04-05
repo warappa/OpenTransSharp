@@ -13,6 +13,11 @@ namespace OpenTransSharp
     public class Address
     {
         /// <summary>
+        /// <inheritdoc cref="Address"/>
+        /// </summary>
+        public Address() { }
+
+        /// <summary>
         /// (optional) Address line<br/>
         /// <br/>
         /// First address line, in most cases the name of the organisation<br/>
@@ -232,7 +237,7 @@ namespace OpenTransSharp
         public bool FaxesSpecified => Faxes?.Count > 0;
 
         /// <summary>
-        /// (required) E-mail address<br/>
+        /// (optional - required if PublicKeys is specified) E-mail address<br/>
         /// <br/>
         /// e-mail address<br/>
         /// <br/>

@@ -14,20 +14,46 @@ namespace OpenTransSharp
     /// </summary>
     public class ReceiptAcknowledgementItem
     {
+        /// <summary>
+        /// <inheritdoc cref="ReceiptAcknowledgementItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ReceiptAcknowledgementItem()
-            : this(null!, null!, 0, null!, null!, null!)
-        { }
+        {
+            LineItemId = null!;
+            ProductId = null!;
+            OrderUnit = null!;
+            OrderReference = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ReceiptAcknowledgementItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="productId"></param>
+        /// <param name="quantity"></param>
+        /// <param name="orderUnit"></param>
+        /// <param name="orderReference"></param>
+        /// <param name="deliveryReference"></param>
         public ReceiptAcknowledgementItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
             OrderReference orderReference, DeliveryReference deliveryReference)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
             LineItemId = lineItemId;
-            ProductId = productId;
+            ProductId = productId ?? throw new ArgumentNullException(nameof(productId));
             Quantity = quantity;
             OrderUnit = orderUnit;
-            OrderReference = orderReference;
-            DeliveryReference = deliveryReference;
+            OrderReference = orderReference ?? throw new ArgumentNullException(nameof(orderReference));
+            DeliveryReference = deliveryReference ?? throw new ArgumentNullException(nameof(deliveryReference));
         }
         /// <summary>
         /// (required) Item number<br/>

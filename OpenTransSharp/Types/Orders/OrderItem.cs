@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
@@ -14,15 +15,37 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderItem
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderItem"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OrderItem()
-            : this(null!, null!, null!)
-        { }
+        {
+            LineItemId = null!;
+            ProductId = null!;
+            OrderUnit = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OrderItem"/>
+        /// </summary>
+        /// <param name="lineItemId"></param>
+        /// <param name="productId"></param>
+        /// <param name="orderUnit"></param>
         public OrderItem(string lineItemId, ProductId productId, string orderUnit)
         {
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
             LineItemId = lineItemId;
-            ProductId = productId;
+            ProductId = productId ?? throw new ArgumentNullException(nameof(productId));
             OrderUnit = orderUnit;
         }
         /// <summary>

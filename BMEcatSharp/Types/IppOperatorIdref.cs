@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -27,7 +28,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new System.ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
             }
 
             Value = value;

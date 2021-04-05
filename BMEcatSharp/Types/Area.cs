@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
             }
 
             Id = id;

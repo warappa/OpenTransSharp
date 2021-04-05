@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -32,10 +33,10 @@ namespace BMEcatSharp
         {
             if (contactIdrefs is null)
             {
-                throw new System.ArgumentNullException(nameof(contactIdrefs));
+                throw new ArgumentNullException(nameof(contactIdrefs));
             }
 
-            PartyIdRef = partyIdref ?? throw new System.ArgumentNullException(nameof(partyIdref));
+            PartyIdRef = partyIdref ?? throw new ArgumentNullException(nameof(partyIdref));
             ContactIdrefs = contactIdrefs.ToList();
         }
 

@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -30,7 +31,7 @@ namespace BMEcatSharp
         {
             if (string.IsNullOrWhiteSpace(idref))
             {
-                throw new System.ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
+                throw new ArgumentException($"'{nameof(idref)}' cannot be null or whitespace.", nameof(idref));
             }
 
             Idref = idref;

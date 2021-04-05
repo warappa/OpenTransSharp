@@ -1,4 +1,5 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
 
 namespace BMEcatSharp
@@ -29,8 +30,8 @@ namespace BMEcatSharp
         /// <param name="endvalue"></param>
         public ValueRange(Startvalue startvalue, Endvalue endvalue)
         {
-            Startvalue = startvalue ?? throw new System.ArgumentNullException(nameof(startvalue));
-            Endvalue = endvalue ?? throw new System.ArgumentNullException(nameof(endvalue));
+            Startvalue = startvalue ?? throw new ArgumentNullException(nameof(startvalue));
+            Endvalue = endvalue ?? throw new ArgumentNullException(nameof(endvalue));
         }
 
         /// <summary>

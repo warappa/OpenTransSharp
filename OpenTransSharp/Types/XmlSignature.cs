@@ -1,4 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -13,13 +15,26 @@ namespace OpenTransSharp
     /// </summary>
     public class XmlSignature
     {
+        /// <summary>
+        /// <inheritdoc cref="XmlSignature"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public XmlSignature() 
         {
             Signature = null!;
         }
-        
+
+        /// <summary>
+        /// <inheritdoc cref="XmlSignature"/>
+        /// </summary>
+        /// <param name="signature"></param>
         public XmlSignature(string signature)
         {
+            if (string.IsNullOrWhiteSpace(signature))
+            {
+                throw new ArgumentException($"'{nameof(signature)}' cannot be null or whitespace.", nameof(signature));
+            }
+
             Signature = signature;
         }
 

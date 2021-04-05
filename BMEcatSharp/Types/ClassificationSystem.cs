@@ -29,6 +29,11 @@ namespace BMEcatSharp
         /// <param name="name"></param>
         public ClassificationSystem(string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException($"'{nameof(name)}' cannot be null or whitespace.", nameof(name));
+            }
+
             Name = name;
         }
 

@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -14,6 +15,21 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderHeader
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderHeader"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OrderHeader() { }
+
+        /// <summary>
+        /// <inheritdoc cref="OrderHeader"/>
+        /// </summary>
+        /// <param name="information"></param>
+        public OrderHeader(OrderInformation information)
+        {
+            Information = information ?? throw new System.ArgumentNullException(nameof(information));
+        }
+
         /// <summary>
         /// (optional) Control information<br/>
         /// <br/>

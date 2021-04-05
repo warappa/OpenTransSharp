@@ -15,20 +15,49 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceInformation()
-            : this(null!, DateTime.MinValue, null!, null!, null!, null!)
-        { }
+        {
+            Id = null!;
+            Currency = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceInformation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="date"></param>
+        /// <param name="parties"></param>
+        /// <param name="issuerIdref"></param>
+        /// <param name="recipientIdref"></param>
+        /// <param name="currency"></param>
         public InvoiceInformation(string id, DateTime date, IEnumerable<OpenTransParty> parties,
             InvoiceIssuerIdref issuerIdref, InvoiceRecipientIdref recipientIdref,
             string currency)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
+            if (string.IsNullOrWhiteSpace(currency))
+            {
+                throw new ArgumentException($"'{nameof(currency)}' cannot be null or whitespace.", nameof(currency));
+            }
+
             Id = id;
             Date = date;
-            Parties = parties?.ToList() ?? new();
-            IssuerIdref = issuerIdref;
-            RecipientIdref = recipientIdref;
+            Parties = parties.ToList();
+            IssuerIdref = issuerIdref ?? throw new ArgumentNullException(nameof(issuerIdref));
+            RecipientIdref = recipientIdref ?? throw new ArgumentNullException(nameof(recipientIdref));
             Currency = currency;
         }
 

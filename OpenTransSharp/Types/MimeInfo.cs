@@ -1,5 +1,8 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace OpenTransSharp
 {
@@ -18,6 +21,26 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransMimeInfo
     {
+        /// <summary>
+        /// <inheritdoc cref="OpenTransMimeInfo"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OpenTransMimeInfo() { }
+
+        /// <summary>
+        /// <inheritdoc cref="OpenTransMimeInfo"/>
+        /// </summary>
+        /// <param name="mimes"></param>
+        public OpenTransMimeInfo(IEnumerable<OpenTransMime> mimes)
+        {
+            if (mimes is null)
+            {
+                throw new ArgumentNullException(nameof(mimes));
+            }
+
+            Mimes = mimes.ToList();
+        }
+
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>

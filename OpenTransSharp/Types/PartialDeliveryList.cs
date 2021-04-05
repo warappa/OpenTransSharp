@@ -1,5 +1,8 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace OpenTransSharp
 {
@@ -16,6 +19,25 @@ namespace OpenTransSharp
     /// </summary>
     public class PartialDeliveryList
     {
+        /// <summary>
+        /// <inheritdoc cref="PartialDeliveryList"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public PartialDeliveryList() { }
+
+        /// <summary>
+        /// <inheritdoc cref="PartialDeliveryList"/>
+        /// </summary>
+        /// <param name="partialDeliveries"></param>
+        public PartialDeliveryList(IEnumerable<PartialDelivery> partialDeliveries)
+        {
+            if (partialDeliveries is null)
+            {
+                throw new ArgumentNullException(nameof(partialDeliveries));
+            }
+
+            PartialDeliveries = partialDeliveries.ToList();
+        }
         /// <summary>
         /// (required) Partial shipment<br/>
         /// <br/>

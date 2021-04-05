@@ -13,15 +13,25 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderPartiesReference
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderPartiesReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OrderPartiesReference()
-            : this(null!, null!)
-        { }
+        {
+            BuyerIdref = null!;
+            SupplierIdref = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="OrderPartiesReference"/>
+        /// </summary>
+        /// <param name="buyerIdref"></param>
+        /// <param name="supplierIdref"></param>
         public OrderPartiesReference(BMEcatSharp.BuyerIdref buyerIdref, BMEcatSharp.SupplierIdref supplierIdref)
         {
-            BuyerIdref = buyerIdref;
-            SupplierIdref = supplierIdref;
+            BuyerIdref = buyerIdref ?? throw new System.ArgumentNullException(nameof(buyerIdref));
+            SupplierIdref = supplierIdref ?? throw new System.ArgumentNullException(nameof(supplierIdref));
         }
 
         /// <summary>

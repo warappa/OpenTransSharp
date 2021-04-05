@@ -15,6 +15,11 @@ namespace OpenTransSharp
     public class SourcingInformation
     {
         /// <summary>
+        /// <inheritdoc cref="SourcingInformation"/>
+        /// </summary>
+        public SourcingInformation() {}
+
+        /// <summary>
         /// (optional) Supplier quotation number<br/>
         /// <br/>
         /// Unique quotation number allocated by the supplier.

@@ -1,4 +1,7 @@
 ﻿using OpenTransSharp.Xml;
+using System;
+using System.Collections;
+using System.ComponentModel;
 
 namespace OpenTransSharp
 {
@@ -12,6 +15,21 @@ namespace OpenTransSharp
     /// </summary>
     public class VerificationAttachment
     {
+        /// <summary>
+        /// <inheritdoc cref="VerificationAttachment"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public VerificationAttachment() { }
+
+        /// <summary>
+        /// <inheritdoc cref="VerificationAttachment"/>
+        /// </summary>
+        /// <param name="mime"></param>
+        public VerificationAttachment(OpenTransMime mime)
+        {
+            Mime = mime ?? throw new ArgumentNullException(nameof(mime));
+        }
+
         /// <summary>
         /// (required) Multimedia document<br/>
         /// <br/>

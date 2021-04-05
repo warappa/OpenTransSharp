@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp;
+using System;
 using System.Collections.Generic;
 
 namespace OpenTransSharp.Tests.InvoiceLists
@@ -121,9 +122,21 @@ namespace OpenTransSharp.Tests.InvoiceLists
             model.Date = DateTime.UtcNow;
             model.Id = "InvoiceListId";
             model.Parties = parent.GetParties();
+            model.InvoiceRecipientIdref = GetInvoiceRecipientIdref();
+            model.InvoiceIssuerIdref = GetInvoiceIssuerIdref();
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;
+        }
+
+        private InvoiceIssuerIdref GetInvoiceIssuerIdref()
+        {
+            return new InvoiceIssuerIdref("invoice issure", PartyTypeValues.PartySpecific);
+        }
+
+        private InvoiceRecipientIdref GetInvoiceRecipientIdref()
+        {
+            return new InvoiceRecipientIdref("invoice recipient", PartyTypeValues.PartySpecific);
         }
     }
 }

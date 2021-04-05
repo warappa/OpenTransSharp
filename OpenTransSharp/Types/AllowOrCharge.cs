@@ -17,11 +17,17 @@ namespace OpenTransSharp
     /// </summary>
     public class AllowOrCharge
     {
+        /// <summary>
+        /// <inheritdoc cref="AllowOrCharge"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public AllowOrCharge()
-            : this(AllowOrChargeType.Allowance)
         { }
 
+        /// <summary>
+        /// <inheritdoc cref="AllowOrCharge"/>
+        /// </summary>
+        /// <param name="type"></param>
         public AllowOrCharge(AllowOrChargeType type)
         {
             Type = type;
@@ -33,7 +39,7 @@ namespace OpenTransSharp
         /// Indicates if the element is about an allowance or a surcharge.
         /// </summary>
         [XmlAttribute("type")]
-        public AllowOrChargeType Type { get; set; } = OpenTransSharp.AllowOrChargeType.Surcharge;
+        public AllowOrChargeType Type { get; set; } = AllowOrChargeType.Surcharge;
 
         /// <summary>
         /// (optional) Calculation sequence<br/>

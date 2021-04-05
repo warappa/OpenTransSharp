@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -24,14 +25,26 @@ namespace OpenTransSharp
     /// </summary>
     public class Remark
     {
+        /// <summary>
+        /// <inheritdoc cref="Remark"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Remark()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="Remark"/>
+        /// </summary>
+        /// <param name="value"></param>
         public Remark(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
         /// <summary>
@@ -39,7 +52,7 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">For predefined values see <see cref="RemarkTypeValues"/>. Custom values can be used.</param>
-        public Remark(string value, string type)
+        public Remark(string value, string? type)
             : this(value)
         {
             Type = type;

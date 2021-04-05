@@ -16,11 +16,29 @@ namespace OpenTransSharp
     {
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Card()
-            : this(null!, null!, DateTime.MinValue, null!)
-        { }
+        {
+            Type = null!;
+            Number = null!;
+            HolderName = null!;
+        }
         
         public Card(string type, string number, DateTime expirationDate, string holderName)
         {
+            if (string.IsNullOrWhiteSpace(type))
+            {
+                throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+            }
+
+            if (string.IsNullOrWhiteSpace(number))
+            {
+                throw new ArgumentException($"'{nameof(number)}' cannot be null or whitespace.", nameof(number));
+            }
+
+            if (string.IsNullOrWhiteSpace(holderName))
+            {
+                throw new ArgumentException($"'{nameof(holderName)}' cannot be null or whitespace.", nameof(holderName));
+            }
+
             Type = type;
             Number = number;
             ExpirationDate = expirationDate;

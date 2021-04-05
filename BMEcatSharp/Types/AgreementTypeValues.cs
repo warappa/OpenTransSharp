@@ -1,6 +1,6 @@
 ﻿namespace BMEcatSharp
 {
-    public class AgreementTypeValues
+    public static class AgreementTypeValues
     {
         /// <summary>
         /// Buyer<br/>

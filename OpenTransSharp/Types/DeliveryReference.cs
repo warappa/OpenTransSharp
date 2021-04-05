@@ -13,6 +13,11 @@ namespace OpenTransSharp
     public class DeliveryReference
     {
         /// <summary>
+        /// <inheritdoc cref="DeliveryReference"/>
+        /// </summary>
+        public DeliveryReference() { }
+
+        /// <summary>
         /// (optional) Delivery note number<br/>
         /// <br/>
         /// Unique delivery note number.<br/>

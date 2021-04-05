@@ -16,6 +16,11 @@ namespace OpenTransSharp
     public class ProductId
     {
         /// <summary>
+        /// <inheritdoc cref="ProductId"/>
+        /// </summary>
+        public ProductId() { }
+
+        /// <summary>
         /// (optional) Supplier's product ID<br/>
         /// <br/>
         /// This element contains the product number issued by the supplier.<br/>

@@ -14,18 +14,39 @@ namespace OpenTransSharp
     /// </summary>
     public class ReceiptAcknowledgementInformation
     {
+        /// <summary>
+        /// <inheritdoc cref="ReceiptAcknowledgementInformation"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ReceiptAcknowledgementInformation()
-            : this(null!, DateTime.MinValue, null!, null!)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="ReceiptAcknowledgementInformation"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="receiptDate"></param>
+        /// <param name="parties"></param>
+        /// <param name="shipmentPartiesReference"></param>
         public ReceiptAcknowledgementInformation(string id, DateTime receiptDate, IEnumerable<OpenTransParty> parties,
             ShipmentPartiesReference shipmentPartiesReference)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (parties is null)
+            {
+                throw new ArgumentNullException(nameof(parties));
+            }
+
             Id = id;
             ReceiptDate = receiptDate;
-            ShipmentPartiesReference = shipmentPartiesReference;
-            Parties = parties?.ToList() ?? new();
+            ShipmentPartiesReference = shipmentPartiesReference ?? throw new ArgumentNullException(nameof(shipmentPartiesReference));
+            Parties = parties.ToList();
         }
 
         /// <summary>

@@ -13,12 +13,26 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceReference
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceReference"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public InvoiceReference()
-            : this(null!)
-        { }
+        {
+            Id = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="InvoiceReference"/>
+        /// </summary>
+        /// <param name="id"></param>
         public InvoiceReference(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
             Id = id;
         }
 

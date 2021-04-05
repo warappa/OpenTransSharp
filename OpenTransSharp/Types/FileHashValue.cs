@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -17,13 +18,33 @@ namespace OpenTransSharp
     /// </summary>
     public class FileHashValue
     {
+        /// <summary>
+        /// <inheritdoc cref="FileHashValue"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public FileHashValue()
-            : this(null!, null!)
-        { }
-        
+        {
+            Type = null!;
+            Value = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="FileHashValue"/>
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="value"></param>
         public FileHashValue(string type, string value)
         {
+            if (string.IsNullOrWhiteSpace(type))
+            {
+                throw new ArgumentException($"'{nameof(type)}' cannot be null or whitespace.", nameof(type));
+            }
+
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Type = type;
             Value = value;
         }

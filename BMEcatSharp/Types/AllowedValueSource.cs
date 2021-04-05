@@ -17,6 +17,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="AllowedValueSource"/>
         /// </summary>
         public AllowedValueSource() { }
+
         /// <summary>
         /// (optional) Source description<br/>
         /// <br/>

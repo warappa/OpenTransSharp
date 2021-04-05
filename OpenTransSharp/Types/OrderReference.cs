@@ -14,13 +14,33 @@ namespace OpenTransSharp
     /// </summary>
     public class OrderReference
     {
+        /// <summary>
+        /// <inheritdoc cref="OrderReference"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public OrderReference()
-            : this(null!, null!)
-        { }
-        
+        {
+            Id = null!;
+            LineItemId = null!;
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="OrderReference"/>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lineItemId"></param>
         public OrderReference(string id, string lineItemId)
         {
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            if (string.IsNullOrWhiteSpace(lineItemId))
+            {
+                throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
+            }
+
             Id = id;
             LineItemId = lineItemId;
         }

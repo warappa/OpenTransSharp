@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -10,6 +11,21 @@ namespace OpenTransSharp
     /// </summary>
     public class InvoiceListHeader
     {
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListHeader"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public InvoiceListHeader() { }
+
+        /// <summary>
+        /// <inheritdoc cref="InvoiceListHeader"/>
+        /// </summary>
+        /// <param name="information"></param>
+        public InvoiceListHeader(InvoiceListInformation information)
+        {
+            Information = information ?? throw new System.ArgumentNullException(nameof(information));
+        }
+
         /// <summary>
         /// (optional) Control information<br/>
         /// <br/>

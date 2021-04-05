@@ -1,4 +1,5 @@
 ﻿using OpenTransSharp.Xml;
+using System;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -15,14 +16,23 @@ namespace OpenTransSharp
     /// </summary>
     public class Signature
     {
+        /// <summary>
+        /// <inheritdoc cref="Signature"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public Signature()
-            : this(null!, false)
-        { }
+        {
+            Mime = null!;
+        }
 
+        /// <summary>
+        /// <inheritdoc cref="Signature"/>
+        /// </summary>
+        /// <param name="mime"></param>
+        /// <param name="signatureInOriginal"></param>
         public Signature(OpenTransMime mime, bool signatureInOriginal)
         {
-            Mime = mime;
+            Mime = mime ?? throw new ArgumentNullException(nameof(mime));
             SignatureInOriginal = signatureInOriginal;
         }
 

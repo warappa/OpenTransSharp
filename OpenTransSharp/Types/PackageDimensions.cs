@@ -13,6 +13,11 @@ namespace OpenTransSharp
     public class PackageDimensions
     {
         /// <summary>
+        /// <inheritdoc cref="PackageDimensions"/>
+        /// </summary>
+        public PackageDimensions() { }
+
+        /// <summary>
         /// (optional) Volume<br/>
         /// <br/>
         /// Volume in cubic meters (m³).

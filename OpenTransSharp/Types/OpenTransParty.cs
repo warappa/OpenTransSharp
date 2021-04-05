@@ -1,6 +1,8 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,6 +15,26 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransParty
     {
+        /// <summary>
+        /// <inheritdoc cref="OpenTransParty"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OpenTransParty() { }
+
+        /// <summary>
+        /// <inheritdoc cref="OpenTransParty"/>
+        /// </summary>
+        /// <param name="ids"></param>
+        public OpenTransParty(IEnumerable<BMEcatSharp.PartyId> ids)
+        {
+            if (ids is null)
+            {
+                throw new ArgumentNullException(nameof(ids));
+            }
+
+            Ids = ids.ToList();
+        }
+
         /// <summary>
         /// (required) ID of the business partner<br/>
         /// <br/>

@@ -1,7 +1,10 @@
-﻿using BMEcatSharp.Xml;
+﻿using BMEcatSharp;
+using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace OpenTransSharp
 {
@@ -15,6 +18,40 @@ namespace OpenTransSharp
     /// </summary>
     public class OpenTransMime
     {
+        /// <summary>
+        /// <inheritdoc cref="OpenTransMime"/>
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public OpenTransMime() { }
+
+        /// <summary>
+        /// <inheritdoc cref="OpenTransMime"/>
+        /// </summary>
+        /// <param name="source"></param>
+        public OpenTransMime(IEnumerable<MultiLingualString> source)
+        {
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            Source = source.ToList();
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="OpenTransMime"/>
+        /// </summary>
+        /// <param name="embeddeds"></param>
+        public OpenTransMime(IEnumerable<MimeEmbedded> embeddeds)
+        {
+            if (embeddeds is null)
+            {
+                throw new ArgumentNullException(nameof(embeddeds));
+            }
+
+            Embeddeds = embeddeds.ToList();
+        }
+
         /// <summary>
         /// (optional) MIME type<br/>
         /// <br/>

@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Xml;
 using OpenTransSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -16,6 +17,9 @@ namespace OpenTransSharp
     /// </summary>
     public class ProductComponent
     {
+        /// <summary>
+        /// <inheritdoc cref="ProductComponent"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductComponent()
         {
@@ -24,11 +28,23 @@ namespace OpenTransSharp
             OrderUnit = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="ProductComponent"/>
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="productFeatures"></param>
+        /// <param name="quantity"></param>
+        /// <param name="orderUnit"></param>
         public ProductComponent(ProductId productId, BMEcatSharp.ProductFeatures productFeatures, decimal quantity,
             string orderUnit)
         {
-            ProductId = productId;
-            ProductFeatures = productFeatures;
+            if (string.IsNullOrWhiteSpace(orderUnit))
+            {
+                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
+            }
+
+            ProductId = productId ?? throw new ArgumentNullException(nameof(productId));
+            ProductFeatures = productFeatures ?? throw new ArgumentNullException(nameof(productFeatures));
             Quantity = quantity;
             OrderUnit = orderUnit;
         }

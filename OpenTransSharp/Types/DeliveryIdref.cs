@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -13,14 +14,26 @@ namespace OpenTransSharp
     /// </summary>
     public class DeliveryIdref : global::BMEcatSharp.PartyRef<DeliveryIdref>
     {
+        /// <summary>
+        /// <inheritdoc cref="DeliveryIdref"/>
+        /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public DeliveryIdref()
-            : this(null!)
         {
+            Value = null!;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="DeliveryIdref"/>
+        /// </summary>
+        /// <param name="value"></param>
         public DeliveryIdref(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
+            }
+
             Value = value;
         }
 
@@ -29,8 +42,8 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="type">This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined - see <see cref="PartyTypeValues"/>. Custom values can also be used.</param>
-        public DeliveryIdref(string value, string type)
+        /// The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>. Custom values can also be used.</param>
+        public DeliveryIdref(string value, string? type)
             : this(value)
         {
             Type = type;
@@ -38,7 +51,7 @@ namespace OpenTransSharp
 
         /// <summary>
         /// (optional) This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
-        /// The most common coding standards are predefined - see <see cref="PartyTypeValues"/>. Custom values can also be used.<br/>
+        /// The most common coding standards are predefined - see <see cref="BMEcatSharp.PartyTypeValues"/>. Custom values can also be used.<br/>
         /// </summary>
         [XmlAttribute("type")]
         public override string? Type { get; set; }
