@@ -23,7 +23,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore
         {
             try
             {
-                return base.CanReadType(type);
+                return typeof(IOpenTransRoot).IsAssignableFrom(type);
             }
             catch
             {

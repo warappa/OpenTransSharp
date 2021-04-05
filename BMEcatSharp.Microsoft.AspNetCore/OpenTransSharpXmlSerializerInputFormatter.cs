@@ -23,7 +23,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore
         {
             try
             {
-                return base.CanReadType(type);
+                return typeof(BMEcatDocument) == type;
             }
             catch
             {

@@ -12,6 +12,10 @@ namespace BMEcatSharp.Validation
 {
     public static class ValidationExtensions
     {
+        private static object lockObject = new object();
+
+        private static XmlSchemaSet? cachedSchemaSet;
+
         public static bool IsValid(this BMEcatDocument model, XmlSerializer serializer)
         {
             try
@@ -31,20 +35,10 @@ namespace BMEcatSharp.Validation
         {
             var validationErrors = new List<string>();
 
-            var schemaSet = new XmlSchemaSet
-            {
-                XmlResolver = XmlUtils.XmlResolver
-            };
+            var schemaSet = GetXmlSchemaSet();
 
             try
             {
-                // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
-                schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
-
-                XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005.xsd", schemaSet);
-                // fix udx support in original bmecat
-                XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005_any_udx_extension.xsd", schemaSet);
-
                 using var ms = new MemoryStream();
                 serializer.Serialize(ms, model);
                 ms.Position = 0;
@@ -83,7 +77,40 @@ namespace BMEcatSharp.Validation
             }
             finally
             {
-                schemaSet.ValidationEventHandler -= SchemaSet_ValidationEventHandler;
+            }
+        }
+
+        private static XmlSchemaSet GetXmlSchemaSet()
+        {
+            if (cachedSchemaSet is not null)
+            {
+                return cachedSchemaSet;
+            }
+
+            lock (lockObject)
+            {
+                if (cachedSchemaSet is not null)
+                {
+                    return cachedSchemaSet;
+                }
+
+                var schemaSet = new XmlSchemaSet
+                {
+                    XmlResolver = XmlUtils.XmlResolver
+                };
+
+                // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
+                schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
+
+                XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005.xsd", schemaSet);
+                // fix udx support in original bmecat
+                XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005_any_udx_extension.xsd", schemaSet);
+
+                schemaSet.Compile();
+
+                cachedSchemaSet = schemaSet;
+
+                return cachedSchemaSet;
             }
         }
 
@@ -94,7 +121,7 @@ namespace BMEcatSharp.Validation
                 throw e.Exception;
             }
 
-            Debug.WriteLine("Error: " + e.Exception.Message);
+            // ignore
         }
     }
 }

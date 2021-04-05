@@ -193,7 +193,13 @@ Please note that only dummy-prices and units are used. No price-calculations wer
 			</bmecat:TRANSPORT>
 			<bmecat:INTERNATIONAL_RESTRICTIONS type="national">some restriction</bmecat:INTERNATIONAL_RESTRICTIONS>
 			<REMARKS type="customType">a</REMARKS>
-			<HEADER_UDX>user defined extension on header-level (for example to describe sector-specific things). can be xml. Can be published on opentrans.org to support spreading of sector-specifics.</HEADER_UDX>
+			<!--<HEADER_UDX>user defined extension on header-level (for example to describe sector-specific things). can be xml. Can be published on opentrans.org to support spreading of sector-specifics.</HEADER_UDX>-->
+      <HEADER_UDX>
+        <UDX.ORGANIZATION.CUSTOM_DATA>
+          <UDX.ORGANIZATION.CUSTOM_DATA.NAME>Name 1</UDX.ORGANIZATION.CUSTOM_DATA.NAME>
+          <UDX.ORGANIZATION.CUSTOM_DATA.NAME>Name 2</UDX.ORGANIZATION.CUSTOM_DATA.NAME>
+        </UDX.ORGANIZATION.CUSTOM_DATA>
+      </HEADER_UDX>
 		</ORDER_INFO>
 	</ORDER_HEADER>
 	<ORDER_ITEM_LIST>

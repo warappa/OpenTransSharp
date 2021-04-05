@@ -21,7 +21,7 @@ namespace BMEcatSharp
             }
             catch (InvalidOperationException exc) when (exc.InnerException?.Message.Contains("XmlInclude") == true)
             {
-                throw new InvalidOperationException("A type was not found. Did you include it in OpenTransOptions.IncludeUdxTypes?", exc);
+                throw new InvalidOperationException("A type was not found. Did you include it in BMEcatXmlSerializerOptions.IncludeUdxTypes?", exc);
             }
             ms.Position = 0;
             using var streamReader = new StreamReader(ms);

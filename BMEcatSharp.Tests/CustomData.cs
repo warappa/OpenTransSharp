@@ -3,10 +3,10 @@ using System.Xml.Serialization;
 
 namespace BMEcatSharp.Tests
 {
-    [XmlRoot("UDX.CUSTOM_DATA")]
+    [XmlRoot("UDX.ORGANIZATION.CUSTOM_DATA")]
     public class CustomData
     {
-        [XmlElement("UDX.CUSTOM_DATA.NAME")]
+        [XmlElement("UDX.ORGANIZATION.CUSTOM_DATA.NAME")]
         public List<string> Names { get; set; } = new List<string>();
     }
 }

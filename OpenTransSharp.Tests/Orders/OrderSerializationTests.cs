@@ -5,6 +5,7 @@ using OpenTransSharp.Xml;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Tests.Orders
@@ -69,7 +70,16 @@ namespace OpenTransSharp.Tests.Orders
             var stream = File.Open(@"Orders\sample_order_opentrans_2_1_xml signature.xml", FileMode.Open);
             
             var order = target.Deserialize<Order>(stream);
+
+            order.Header.Information.HeaderUdx.Count.Should().Be(1);
             
+            var udx = order.Header.Information.HeaderUdx.First();
+            udx.GetType().Should().BeAssignableTo<CustomData>();
+            
+            var customData = (CustomData)udx;
+            customData.Names[0].Should().Be("Name 1");
+            customData.Names[1].Should().Be("Name 2");
+
             order.IsValid(target).Should().Be(true);
         }
     }
