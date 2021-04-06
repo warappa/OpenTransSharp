@@ -102,7 +102,7 @@ namespace OpenTransSharp.Validation
                 // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
                 schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
 
-                XmlUtils.GetEmbeddedXsd("file://fake/opentrans_2_1.xsd", schemaSet);
+                XmlUtils.GetEmbeddedXsd("opentrans_2_1.xsd", schemaSet);
 
                 schemaSet.Compile();
 

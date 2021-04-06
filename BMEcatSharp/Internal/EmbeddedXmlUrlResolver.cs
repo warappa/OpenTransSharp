@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -11,16 +12,34 @@ namespace BMEcatSharp.Internal
     {
         private Assembly assembly;
 
+        public const string BaseUri = "embedded://";
+
         public EmbeddedXmlUrlResolver()
         {
             assembly = typeof(EmbeddedXmlUrlResolver).Assembly;
         }
 
+        public override Uri ResolveUri(Uri baseUri, string relativeUri)
+        {
+            var uri = new Uri(BaseUri + "/" + relativeUri);
+            return uri;
+            //return base.ResolveUri(baseUri, relativeUri);
+        }
+
         public Stream GetStream(string resourceName)
         {
-            var embeddedName = FindEmbeddedName(new Uri(resourceName));
+            Debug.WriteLine("Get schema: " + resourceName);
 
-            return assembly.GetManifestResourceStream(embeddedName);
+            var searchName = FindEmbeddedName(resourceName);
+
+            var stream = assembly.GetManifestResourceStream(searchName);
+
+            if (stream is null)
+            {
+                throw new NullReferenceException($"Could not resolve '{resourceName}'");
+            }
+
+            return stream;
         }
 
         public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
@@ -50,8 +69,24 @@ namespace BMEcatSharp.Internal
         private string FindEmbeddedName(Uri absoluteUri)
         {
             var name = absoluteUri.Segments[absoluteUri.Segments.Length - 1];
+
+            return FindEmbeddedName(name);
+        }
+
+        private string FindEmbeddedName(string filenameOrResourceName)
+        {
+
             var embeddedName = assembly.GetManifestResourceNames()
-                .FirstOrDefault(x => x.EndsWith($".{name}"));
+                .FirstOrDefault(x => x == filenameOrResourceName);
+
+            if (embeddedName is null)
+            {
+                filenameOrResourceName = Path.GetFileName(filenameOrResourceName);
+
+                embeddedName = assembly.GetManifestResourceNames()
+                    .FirstOrDefault(x => x.EndsWith($".{filenameOrResourceName}"));
+            }
+
             return embeddedName;
         }
     }

@@ -102,9 +102,9 @@ namespace BMEcatSharp.Validation
                 // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
                 schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
 
-                XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005.xsd", schemaSet);
                 // fix udx support in original bmecat
-                XmlUtils.GetEmbeddedXsd("file://fake/bmecat_2005_any_udx_extension.xsd", schemaSet);
+                XmlUtils.GetEmbeddedXsd("bmecat_2005_any_udx_extension.xsd", schemaSet);
+                //XmlUtils.GetEmbeddedXsd("bmecat_2005.xsd", schemaSet);
 
                 schemaSet.Compile();
 

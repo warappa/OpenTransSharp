@@ -12,13 +12,13 @@ namespace BMEcatSharp.Internal
 
         public static XmlReader GetEmbeddedXsd(string resourceName, XmlSchemaSet schemaSet)
         {
-            var schemaStream = XmlResolver.GetStream(resourceName);
+            var schemaStream = XmlResolver.GetStream(EmbeddedXmlUrlResolver.BaseUri + "/" + resourceName);
             var reader = XmlReader.Create(schemaStream, new XmlReaderSettings
             {
                 DtdProcessing = DtdProcessing.Ignore,
                 CloseInput = true,
-                XmlResolver = XmlResolver
-            });
+                XmlResolver = XmlResolver,
+            }, EmbeddedXmlUrlResolver.BaseUri);
 
             schemaSet.Add(null, reader);
 
@@ -61,7 +61,7 @@ namespace BMEcatSharp.Internal
 
                 // If the element is the root, no index is required
                 return (index == -1) ?
-                    "/" + name : 
+                    "/" + name :
                     string.Format
                     (
                         "/{0}[{1}]",

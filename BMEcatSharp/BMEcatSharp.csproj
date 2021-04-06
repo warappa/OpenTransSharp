@@ -11,7 +11,6 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Content\bmecat_2005.1.xsd" />
     <None Remove="Content\bmecat_2005.xsd" />
     <None Remove="Content\bmecat_2005_any_udx_extension.xsd" />
     <None Remove="Content\opentrans_2_1.xsd" />
@@ -20,9 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Content\bmecat_2005.1.xsd">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Content\bmecat_2005.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
