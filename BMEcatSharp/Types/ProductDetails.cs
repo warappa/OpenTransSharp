@@ -83,7 +83,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element EAN will be replaced by the element INTERNATIONAL_PID with the attribute type = ean in future versions and will be omitted then.")]
+        //[Obsolete("The element EAN will be replaced by the element INTERNATIONAL_PID with the attribute type = ean in future versions and will be omitted then.")]
         [BMEXmlElement("EAN")]
         public string? Ean { get; set; }
 
@@ -139,7 +139,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element MANUFACTURER_NAME will be replaced by the element MANUFACTURER_IDREF together with the element PARTY in future versions and will be omitted then.")]
+        //[Obsolete("The element MANUFACTURER_NAME will be replaced by the element MANUFACTURER_IDREF together with the element PARTY in future versions and will be omitted then.")]
         [BMEXmlElement("MANUFACTURER_NAME")]
         public string? ManufacturerName { get; set; }
 
@@ -185,7 +185,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element DELIVERY_TIME will be replaced by the element LEADTIME in future versions and will be omitted then.")]
+        //[Obsolete("The element DELIVERY_TIME will be replaced by the element LEADTIME in future versions and will be omitted then.")]
         [BMEXmlElement("DELIVERY_TIME")]
         public decimal? DeliveryTime { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

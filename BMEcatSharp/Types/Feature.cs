@@ -208,7 +208,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("Variants will be transfered only with the element PRODUCT_CONFIG_DETAILS in future versions, therefore the element VARIANTS will be omitted then.")]
+        //[Obsolete("Variants will be transfered only with the element PRODUCT_CONFIG_DETAILS in future versions, therefore the element VARIANTS will be omitted then.")]
         [BMEXmlElement("VARIANTS")]
         public Variants? Variants { get; set; }
 

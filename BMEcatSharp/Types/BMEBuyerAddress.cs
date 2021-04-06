@@ -14,7 +14,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class BMEBuyerAddress
     {
         /// <summary>
@@ -37,7 +37,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Contains the address type.
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [XmlAttribute("type")]
         public BMEBuyerAddressType Type { get; set; }
 
@@ -117,7 +117,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element CONTACT will be replaced by the element CONTACT_DETAILS in future versions and will be omitted then.")]
+        //[Obsolete("The element CONTACT will be replaced by the element CONTACT_DETAILS in future versions and will be omitted then.")]
         [BMEXmlElement("CONTACT")]
         public List<MultiLingualString>? Contact { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]

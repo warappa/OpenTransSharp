@@ -10,7 +10,7 @@ namespace BMEcatSharp
     /// This element contains the unique identifier of the supplier, which can be used by the buyer for internal processes; the "type" attribute determines the ID type.<br/>
     /// This element will not be used in the future.
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class SupplierId
     {
         /// <summary>

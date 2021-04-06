@@ -2,7 +2,7 @@
 
 namespace BMEcatSharp
 {
-    [Obsolete("Use NewCatalogProductToCataloggroupMap instead")]
+    //[Obsolete("Use NewCatalogProductToCataloggroupMap instead")]
     public class NewCatalogArticleToCataloggroupMap : NewCatalogProductToCataloggroupMap
     {
     }

@@ -18,7 +18,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class NewCatalogProductToCataloggroupMap
     {
         /// <summary>
@@ -60,9 +60,9 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlAttribute("mode")]
-        public NewCatalogProductToCataloggroupMapMode? Mode { get; set; }
+        public NewCatalogProductToCataloggroupMapMode Mode { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool ModeSpecified => Mode != NewCatalogProductToCataloggroupMapMode.New;
+        public bool ModeSpecified => Mode != NewCatalogProductToCataloggroupMapMode.Undefined;
 
         /// <summary>
         /// (required) Product ID<br/>

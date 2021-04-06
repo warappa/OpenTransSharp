@@ -146,7 +146,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element DATETIME in the context of CATALOG with the attribute 'generation_date' will be replaced by the element GENERATION_DATE in future versions and will be omitted then.")]
+        //[Obsolete("The element DATETIME in the context of CATALOG with the attribute 'generation_date' will be replaced by the element GENERATION_DATE in future versions and will be omitted then.")]
         [BMEXmlElement("DATE")]
         public BMEcatDatetime? Date { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

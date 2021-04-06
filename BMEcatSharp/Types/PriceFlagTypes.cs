@@ -32,7 +32,7 @@ namespace BMEcatSharp
         /// </summary>
         public const string IncludingPacking = "incl_packing";
 
-        [Obsolete("This value has been replaced by the new value PRICE_FLAG -->type =incl_insurance, it will be become obsolete.")]
+        //[Obsolete("This value has been replaced by the new value PRICE_FLAG -->type =incl_insurance, it will be become obsolete.")]
         public const string IncludingAssurance = "incl_assurance";
     }
 }

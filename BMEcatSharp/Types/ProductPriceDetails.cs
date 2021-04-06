@@ -57,7 +57,7 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ValidEndDateSpecified => ValidEndDate.HasValue;
 
-        [Obsolete("The element is used to precisely define a time. It is made up of the three elements date, time and time zone. The element DATETIME in the context of PRODUCT_PRICE_DETAILS with the attributes 'valid_start_date' und 'valid_end_date' will be replaced by the elements VALID_START_DATE and VALID_END_DATE in future versions and will be omitted then.")]
+        //[Obsolete("The element is used to precisely define a time. It is made up of the three elements date, time and time zone. The element DATETIME in the context of PRODUCT_PRICE_DETAILS with the attributes 'valid_start_date' und 'valid_end_date' will be replaced by the elements VALID_START_DATE and VALID_END_DATE in future versions and will be omitted then.")]
         [BMEXmlElement("DATETIME")]
         public List<BMEcatDatetime>? DateTimes { get; set; } = new List<BMEcatDatetime>();
         [EditorBrowsable(EditorBrowsableState.Never)]

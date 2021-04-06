@@ -82,7 +82,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CLASSIFICATION_SYSTEM_VERSION")]
-        [Obsolete("The element CLASSIFICATION_SYSTEM_VERSION will be replaced by the element CLASSIFICATION_SYSTEM_VERSION_DETAILS in future versions and will be omitted then.")]
+        //[Obsolete("The element CLASSIFICATION_SYSTEM_VERSION will be replaced by the element CLASSIFICATION_SYSTEM_VERSION_DETAILS in future versions and will be omitted then.")]
         public string? Version { get; set; }
 
         /// <summary>

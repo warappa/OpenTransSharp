@@ -18,7 +18,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class BMEcatDatetime
     {
         /// <summary>

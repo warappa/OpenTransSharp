@@ -49,7 +49,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The option of doing so exists here only for reasons of compatibility with 1.01 and 'prev_version' must be ignored here.")]
+        //[Obsolete("The option of doing so exists here only for reasons of compatibility with 1.01 and 'prev_version' must be ignored here.")]
         [XmlAttribute("prev_version")]
         public int? PreviousVersion { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -65,7 +65,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("Because of its limitations in comparison to the CLASSIFICATION_SYSTEM element, it has been replaced fully by the revised CLASSIFICATION_SYSTEM element.")]
+        //[Obsolete("Because of its limitations in comparison to the CLASSIFICATION_SYSTEM element, it has been replaced fully by the revised CLASSIFICATION_SYSTEM element.")]
         [XmlAnyElement("FEATURE_SYSTEM")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public XmlElement[]? FeatureSystem { get; set; }
@@ -142,7 +142,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element PRODUCT_TO_CATALOGGROUP_MAP in context T_NEW_CATALOG will be omitted then.")]
+        //[Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element PRODUCT_TO_CATALOGGROUP_MAP in context T_NEW_CATALOG will be omitted then.")]
         [BMEXmlElement("PRODUCT_TO_CATALOGGROUP_MAP")]
         public List<NewCatalogProductToCataloggroupMap>? ProductToCataloggroupMap { get; set; } = new List<NewCatalogProductToCataloggroupMap>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -160,7 +160,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element has been replaced by the PRODUCT in context T_NEW_CATALOG element.")]
+        //[Obsolete("This element has been replaced by the PRODUCT in context T_NEW_CATALOG element.")]
         [BMEXmlElement("ARTICLE")]
         public List<NewCatalogArticle>? Articles { get; set; } = new List<NewCatalogArticle>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -178,7 +178,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element ARTICLE_TO_CATALOGGROUP_MAPin context T_NEW_CATALOG will be omitted then.")]
+        //[Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element ARTICLE_TO_CATALOGGROUP_MAPin context T_NEW_CATALOG will be omitted then.")]
         [BMEXmlElement("Article_TO_CATALOGGROUP_MAP")]
         public List<NewCatalogArticleToCataloggroupMap>? ArticleToCataloggroupMap { get; set; } = new List<NewCatalogArticleToCataloggroupMap>();
         [EditorBrowsable(EditorBrowsableState.Never)]

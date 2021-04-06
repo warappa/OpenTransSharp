@@ -78,7 +78,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("SUPPLIER_AID_SUPPLEMENT")]
-        [Obsolete]
+        //[Obsolete]
         public string? SupplierAidSupplement { get; set; }
     }
 }

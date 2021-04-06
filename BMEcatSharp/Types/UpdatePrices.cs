@@ -81,7 +81,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element has been replaced by the PRODUCT in context T_UPDATE_PRICES element.")]
+        //[Obsolete("This element has been replaced by the PRODUCT in context T_UPDATE_PRICES element.")]
         [BMEXmlElement("ARTICLE")]
         public List<UpdatePricesArticle>? Articles { get; set; } = new List<UpdatePricesArticle>();
         [EditorBrowsable(EditorBrowsableState.Never)]

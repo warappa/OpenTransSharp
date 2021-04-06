@@ -2,7 +2,7 @@
 
 namespace BMEcatSharp
 {
-    [Obsolete("Use UpdatePricesProduct instead.")]
+    //[Obsolete("Use UpdatePricesProduct instead.")]
     public class UpdatePricesArticle : UpdatePricesProduct
     {
 

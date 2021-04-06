@@ -17,7 +17,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future")]
+    //[Obsolete("This element will not be used in the future")]
     public class UpdateProductsProductToCataloggroupMap
     {
         /// <summary>
@@ -51,7 +51,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future")]
+        //[Obsolete("This element will not be used in the future")]
         [BMEXmlElement("PROD_ID")]
         public string? ProductId { get; set; }
 
@@ -75,7 +75,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future")]
+        //[Obsolete("This element will not be used in the future")]
         [BMEXmlElement("CATALOG_GROUP_ID")]
         public string? CatalogGroupId { get; set; }
 
@@ -90,7 +90,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future")]
+        //[Obsolete("This element will not be used in the future")]
         [BMEXmlElement("PRODUCT_ORDER")]
         public int? ProductOrder { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]

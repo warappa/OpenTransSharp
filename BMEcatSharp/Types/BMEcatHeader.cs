@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -83,7 +84,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element BUYER will be replaced by the element BUYER_IDREF together with the element PARTY in future versions and will be omitted then.")]
+        //[Obsolete("The element BUYER will be replaced by the element BUYER_IDREF together with the element PARTY in future versions and will be omitted then.", false)]
         [BMEXmlElement("BUYER")]
         public Buyer? Buyer { get; set; }
 
@@ -128,8 +129,8 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("The element SUPPLIER will be replaced by the element SUPPLIER_IDREF together with the element PARTY in future versions and will be omitted then.")]
-        [BMEXmlElement("SUPPLIER_IDREF")]
+        //[Obsolete("The element SUPPLIER will be replaced by the element SUPPLIER_IDREF together with the element PARTY in future versions and will be omitted then.")]
+        [BMEXmlElement("SUPPLIER")]
         public Supplier? Supplier { get; set; } = null!;
 
         /// <summary>

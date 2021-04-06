@@ -14,7 +14,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class CatalogStructure
     {
         /// <summary>
@@ -30,7 +30,7 @@ namespace BMEcatSharp
         /// It forms the root from which all the other groups branch off and must therefore be the only CATALOG_STRUCTURE element to have the type "root".<br/>
         /// All groups with no children (on the bottom level), in other words all groups which are not referenced by any other groups, must have the type "leaf". All other groups, in other words those which have both parents and children, must be defined by the type "node".
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [XmlAttribute("type")]
         public CatalogStructureType Type { get; set; }
 
@@ -44,7 +44,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_ID")]
         public string? GroupId { get; set; }
 
@@ -56,7 +56,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_NAME")]
         public List<MultiLingualString>? GroupName { get; set; } = new List<MultiLingualString>();
 
@@ -67,7 +67,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_DESCRIPTION")]
         public List<MultiLingualString> GroupDescription { get; set; } = new List<MultiLingualString>();
 
@@ -80,7 +80,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("PARENT_ID")]
         public string? ParentId { get; set; }
 
@@ -91,7 +91,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("GROUP_ORDER")]
         public int? GroupOrder { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -124,7 +124,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlArray("USER_DEFINED_EXTENSIONS")]
         public List<object>? UserDefinedExtensions { get; set; } = new List<object>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -137,7 +137,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("KEYWORD")]
         public List<MultiLingualString>? Keywords { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]

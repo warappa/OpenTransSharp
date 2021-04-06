@@ -12,7 +12,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class Buyer
     {
         /// <summary>
@@ -42,7 +42,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("BUYER_ID")]
         public BuyerId? Id { get; set; }
 
@@ -53,7 +53,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("BUYER_NAME")]
         public string? Name { get; set; }
 
@@ -64,7 +64,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("ADDRESS")]
         public BMEBuyerAddress? Address { get; set; }
     }

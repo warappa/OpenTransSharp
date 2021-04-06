@@ -13,7 +13,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class Supplier
     {
         /// <summary>
@@ -46,7 +46,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("SUPPLIER_ID")]
         public List<SupplierId>? Ids { get; set; } = new List<SupplierId>();
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -59,7 +59,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("SUPPLIER_NAME")]
         public string Name { get; set; }
 
@@ -70,7 +70,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("ADDRESS")]
         public Address? Address { get; set; }
 

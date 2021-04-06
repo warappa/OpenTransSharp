@@ -12,7 +12,7 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [Obsolete("This element will not be used in the future.")]
+    //[Obsolete("This element will not be used in the future.")]
     public class BuyerId
     {
         /// <summary>
@@ -60,7 +60,7 @@ namespace BMEcatSharp
         /// <br/>
         /// See <see cref="PartyTypeValues"/>.
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [XmlAttribute("type")]
         public string? Type { get; set; }
 
@@ -69,7 +69,7 @@ namespace BMEcatSharp
         /// <br/>
         /// Max length: 250
         /// </summary>
-        [Obsolete("This element will not be used in the future.")]
+        //[Obsolete("This element will not be used in the future.")]
         [XmlText]
         public string Value { get; set; }
     }
