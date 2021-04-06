@@ -41,7 +41,7 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
             model.LineItemId = "1";
             model.ProductId = parent.GetProductId();
             model.Quantity = 2;
-            model.OrderUnit = "C62";
+            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
             model.OrderReference = parent.GetOrderReference();
             model.DeliveryReference = parent.GetDeliveryReference();
             model.Remarks.AddRange(parent.GetRemarks());

@@ -21,7 +21,6 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PriceBaseFix()
         {
-            Unit = null!;
         }
 
         /// <summary>
@@ -29,13 +28,8 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="unitValue"></param>
         /// <param name="unit"></param>
-        public PriceBaseFix(decimal unitValue, string unit)
+        public PriceBaseFix(decimal unitValue, BMEcatSharp.PackageUnit unit)
         {
-            if (string.IsNullOrWhiteSpace(unit))
-            {
-                throw new ArgumentException($"'{nameof(unit)}' cannot be null or whitespace.", nameof(unit));
-            }
-
             UnitValue = unitValue;
             Unit = unit;
         }
@@ -61,7 +55,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRICE_UNIT")]
-        public string Unit { get; set; }
+        public BMEcatSharp.PackageUnit Unit { get; set; }
 
         /// <summary>
         /// (optional) Price unit factor<br/>

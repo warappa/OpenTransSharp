@@ -51,10 +51,10 @@ namespace BMEcatSharp
         /// </summary>
         //[Obsolete("The option of doing so exists here only for reasons of compatibility with 1.01 and 'prev_version' must be ignored here.")]
         [XmlAttribute("prev_version")]
-        public int? PreviousVersion { get; set; }
+        public int PreviousVersion { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
-        public bool PreviousVersionSpecified => PreviousVersion.HasValue;
+        public bool PreviousVersionSpecified => PreviousVersion > 0;
 #pragma warning restore CS0618 // Type or member is obsolete
 
         /// <summary>

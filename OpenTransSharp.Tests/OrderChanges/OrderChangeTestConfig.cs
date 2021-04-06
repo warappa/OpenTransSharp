@@ -40,7 +40,7 @@ namespace OpenTransSharp.Tests.OrderChanges
 
             model.DeliveryDate = parent.GetDeliveryDate();
             model.LineItemId = "1";
-            model.OrderUnit = "C62";
+            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
             model.PartialShipmentAllowed = false;
             model.PriceLineAmount = 10;
             model.Quantity = 2;

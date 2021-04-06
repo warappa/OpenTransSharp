@@ -22,20 +22,14 @@ namespace OpenTransSharp
         {
             LineItemId = null!;
             ProductId = null!;
-            OrderUnit = null!;
         }
 
-        public DispatchNotificationItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
+        public DispatchNotificationItem(string lineItemId, ProductId productId, decimal quantity, BMEcatSharp.PackageUnit orderUnit,
             OrderReference orderReference, ShipmentPartiesReference shipmentPartiesReference)
         {
             if (string.IsNullOrWhiteSpace(lineItemId))
             {
                 throw new System.ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
-            }
-
-            if (string.IsNullOrWhiteSpace(orderUnit))
-            {
-                throw new System.ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
             }
 
             LineItemId = lineItemId;
@@ -106,7 +100,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ORDER_UNIT")]
-        public string OrderUnit { get; set; }
+        public BMEcatSharp.PackageUnit OrderUnit { get; set; }
 
         /// <summary>
         /// (optional) Partial shipment list<br/>

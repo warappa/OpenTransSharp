@@ -20,8 +20,6 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public ProductOrderDetails()
         {
-            OrderUnit = null!;
-            ContentUnit = null!;
         }
 
         /// <summary>
@@ -29,18 +27,8 @@ namespace BMEcatSharp
         /// </summary>
         /// <param name="orderUnit"></param>
         /// <param name="contentUnit"></param>
-        public ProductOrderDetails(string orderUnit, string contentUnit)
+        public ProductOrderDetails(PackageUnit orderUnit, PackageUnit contentUnit)
         {
-            if (string.IsNullOrWhiteSpace(orderUnit))
-            {
-                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
-            }
-
-            if (string.IsNullOrWhiteSpace(contentUnit))
-            {
-                throw new ArgumentException($"'{nameof(contentUnit)}' cannot be null or whitespace.", nameof(contentUnit));
-            }
-
             OrderUnit = orderUnit;
             ContentUnit = contentUnit;
         }
@@ -58,7 +46,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ORDER_UNIT")]
-        public string OrderUnit { get; set; }
+        public PackageUnit OrderUnit { get; set; }
 
         /// <summary>
         /// (required) Content of the unit<br/>
@@ -68,7 +56,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTENT_UNIT")]
-        public string ContentUnit { get; set; }
+        public PackageUnit ContentUnit { get; set; }
 
         /// <summary>
         /// (optional) Packing quantity<br/>

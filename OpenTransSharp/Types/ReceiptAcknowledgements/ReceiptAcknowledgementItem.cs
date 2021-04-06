@@ -22,7 +22,6 @@ namespace OpenTransSharp
         {
             LineItemId = null!;
             ProductId = null!;
-            OrderUnit = null!;
             OrderReference = null!;
         }
 
@@ -35,17 +34,12 @@ namespace OpenTransSharp
         /// <param name="orderUnit"></param>
         /// <param name="orderReference"></param>
         /// <param name="deliveryReference"></param>
-        public ReceiptAcknowledgementItem(string lineItemId, ProductId productId, decimal quantity, string orderUnit,
+        public ReceiptAcknowledgementItem(string lineItemId, ProductId productId, decimal quantity, BMEcatSharp.PackageUnit orderUnit,
             OrderReference orderReference, DeliveryReference deliveryReference)
         {
             if (string.IsNullOrWhiteSpace(lineItemId))
             {
                 throw new ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
-            }
-
-            if (string.IsNullOrWhiteSpace(orderUnit))
-            {
-                throw new ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
             }
 
             LineItemId = lineItemId;
@@ -96,7 +90,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ORDER_UNIT")]
-        public string OrderUnit { get; set; }
+        public BMEcatSharp.PackageUnit OrderUnit { get; set; }
 
         /// <summary>
         /// (optional) Delivery completed<br/>

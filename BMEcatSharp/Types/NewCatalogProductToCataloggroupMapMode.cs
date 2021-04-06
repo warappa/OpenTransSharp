@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -9,6 +10,8 @@ namespace BMEcatSharp
     /// </summary>
     public enum NewCatalogProductToCataloggroupMapMode
     {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        Undefined,
         /// <summary>
         /// New<br/>
         /// <br/>

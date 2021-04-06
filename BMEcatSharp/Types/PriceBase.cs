@@ -19,20 +19,14 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PriceBase()
         {
-            Unit = null!;
         }
 
         /// <summary>
         /// <inheritdoc cref="PriceBase"/>
         /// </summary>
         /// <param name="unit"></param>
-        public PriceBase(string unit)
+        public PriceBase(PackageUnit unit)
         {
-            if (string.IsNullOrWhiteSpace(unit))
-            {
-                throw new ArgumentException($"'{nameof(unit)}' cannot be null or whitespace.", nameof(unit));
-            }
-
             Unit = unit;
         }
 
@@ -44,7 +38,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PRICE_UNIT")]
-        public string Unit { get; set; }
+        public PackageUnit Unit { get; set; }
 
         /// <summary>
         /// (optional) Price unit factor<br/>

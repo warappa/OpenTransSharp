@@ -51,7 +51,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PACKING_UNIT_CODE")]
-        public string? PackingUnitCode { get; set; }
+        public BMEcatSharp.PackageUnit? PackingUnitCode { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool PackingUnitCodeSpecified => PackingUnitCode.HasValue;
 
         /// <summary>
         /// (optional) Packing unit description <br/>

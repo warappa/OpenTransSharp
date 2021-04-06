@@ -22,7 +22,6 @@ namespace OpenTransSharp
         {
             LineItemId = null!;
             ProductId = null!;
-            OrderUnit = null!;
         }
 
         /// <summary>
@@ -33,16 +32,11 @@ namespace OpenTransSharp
         /// <param name="quantity"></param>
         /// <param name="orderUnit"></param>
         public QuotationItem(string lineItemId, ProductId productId, decimal quantity,
-            string orderUnit)
+            BMEcatSharp.PackageUnit orderUnit)
         {
             if (string.IsNullOrWhiteSpace(lineItemId))
             {
                 throw new System.ArgumentException($"'{nameof(lineItemId)}' cannot be null or whitespace.", nameof(lineItemId));
-            }
-
-            if (string.IsNullOrWhiteSpace(orderUnit))
-            {
-                throw new System.ArgumentException($"'{nameof(orderUnit)}' cannot be null or whitespace.", nameof(orderUnit));
             }
 
             LineItemId = lineItemId;
@@ -111,7 +105,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("ORDER_UNIT")]
-        public string OrderUnit { get; set; }
+        public BMEcatSharp.PackageUnit OrderUnit { get; set; }
 
         /// <summary>
         /// (optional) Determined product price<br/>

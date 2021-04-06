@@ -1,7 +1,7 @@
 ﻿namespace BMEcatSharp
 {
     /// <summary>
-    /// For <see cref="Unit.System"/>.
+    /// For <see cref="ClassificationUnit.System"/>.
     /// </summary>
     public static class UnitSystemValues
     {

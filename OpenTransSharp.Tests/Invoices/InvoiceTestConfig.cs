@@ -42,7 +42,7 @@ namespace OpenTransSharp.Tests.Invoices
             var model = new InvoiceItem();
 
             model.LineItemId = "1";
-            model.OrderUnit = "C62";
+            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
             model.PriceLineAmount = 10;
             model.Quantity = 2;
             model.ProductPriceFix = parent.GetProductPriceFix();

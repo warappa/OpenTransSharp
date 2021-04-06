@@ -39,7 +39,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
             var model = new DispatchNotificationItem();
 
             model.LineItemId = "1";
-            model.OrderUnit = "C62";
+            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
             model.Quantity = 2;
             model.OrderReference = parent.GetOrderReference();
             model.ShipmentPartiesReference = new ShipmentPartiesReference

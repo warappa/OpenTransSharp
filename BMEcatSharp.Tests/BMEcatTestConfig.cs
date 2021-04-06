@@ -540,9 +540,9 @@ namespace BMEcatSharp.Tests
             return model;
         }
 
-        private Unit GetUnit()
+        private ClassificationUnit GetUnit()
         {
-            var model = new Unit();
+            var model = new ClassificationUnit();
             model.System = UnitSystemValues.SI;
             model.Id = "Unit id";
             model.Name.Add(new MultiLingualString("Piece", LanguageCodes.eng));
@@ -668,6 +668,7 @@ namespace BMEcatSharp.Tests
         private PredefinedConfiguration GetPredefinedConfiguration()
         {
             var model = new PredefinedConfiguration();
+            //model.Code = null!; // for validation debugging purposes
             model.Code = "ConfigCode";
             model.Description.Add(new MultiLingualString("-red", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("-rot", LanguageCodes.deu));
@@ -810,7 +811,7 @@ namespace BMEcatSharp.Tests
         private PriceBase GetPriceBase()
         {
             var model = new PriceBase();
-            model.Unit = "C62";
+            model.Unit = PackageUnit.C62;
             model.UnitFactor = 2;
 
             return model;
@@ -830,8 +831,8 @@ namespace BMEcatSharp.Tests
         private ProductOrderDetails GetProductOrderDetails()
         {
             var model = new ProductOrderDetails();
-            model.OrderUnit = "C62";
-            model.ContentUnit = "C62";
+            model.OrderUnit = PackageUnit.C62;
+            model.ContentUnit = PackageUnit.C62;
 
             return model;
         }

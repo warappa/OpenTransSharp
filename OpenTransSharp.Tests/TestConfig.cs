@@ -121,7 +121,7 @@ namespace OpenTransSharp.Tests
         {
             var model = new PriceBaseFix
             {
-                Unit = "C62",
+                Unit = BMEcatSharp.PackageUnit.C62,
                 UnitFactor = 1,
                 UnitValue = 1
             };

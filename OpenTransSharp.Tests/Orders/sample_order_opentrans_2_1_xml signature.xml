@@ -231,7 +231,7 @@ Please note that only dummy-prices and units are used. No price-calculations wer
 				<FEATURE>
 					<bmecat:FNAME>a</bmecat:FNAME>
 					<bmecat:FVALUE>a</bmecat:FVALUE>
-					<bmecat:FUNIT>a</bmecat:FUNIT>
+					<bmecat:FUNIT>C62</bmecat:FUNIT>
 					<bmecat:FORDER>0</bmecat:FORDER>
 					<bmecat:FDESCR lang="aar">a</bmecat:FDESCR>
 					<bmecat:FVALUE_DETAILS lang="aar">a</bmecat:FVALUE_DETAILS>

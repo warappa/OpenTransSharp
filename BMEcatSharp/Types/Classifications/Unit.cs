@@ -16,22 +16,22 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class Unit
+    public class ClassificationUnit
     {
         /// <summary>
-        /// <inheritdoc cref="Unit"/>
+        /// <inheritdoc cref="ClassificationUnit"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Unit()
+        public ClassificationUnit()
         {
             Id = null!;
         }
 
         /// <summary>
-        /// <inheritdoc cref="Unit"/>
+        /// <inheritdoc cref="ClassificationUnit"/>
         /// </summary>
         /// <param name="id"></param>
-        public Unit(string id)
+        public ClassificationUnit(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {

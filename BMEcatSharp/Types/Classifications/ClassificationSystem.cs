@@ -169,7 +169,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("UNITS")]
         [BMEXmlArrayItem("UNIT")]
-        public List<Unit>? Units { get; set; } = new List<Unit>();
+        public List<ClassificationUnit>? Units { get; set; } = new List<ClassificationUnit>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool UnitsSpecified => Units?.Count > 0;
 

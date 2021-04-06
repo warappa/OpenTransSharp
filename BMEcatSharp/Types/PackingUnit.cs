@@ -23,7 +23,6 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PackingUnit()
         {
-            Code = null!;
         }
 
         /// <summary>
@@ -33,13 +32,8 @@ namespace BMEcatSharp
         /// <param name="maximumQuantity"></param>
         /// <param name="code"></param>
         /// <param name="supplierPid"></param>
-        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, SupplierPid supplierPid)
+        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, PackageUnit code, SupplierPid supplierPid)
         {
-            if (string.IsNullOrWhiteSpace(code))
-            {
-                throw new ArgumentException($"'{nameof(code)}' cannot be null or whitespace.", nameof(code));
-            }
-
             MinimumQuantity = minimumQuantity;
             MaximumQuantity = maximumQuantity;
             Code = code;
@@ -53,13 +47,8 @@ namespace BMEcatSharp
         /// <param name="maximumQuantity"></param>
         /// <param name="code"></param>
         /// <param name="supplierPIdRef"></param>
-        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, string code, string supplierPIdRef)
+        public PackingUnit(decimal minimumQuantity, decimal maximumQuantity, PackageUnit code, string supplierPIdRef)
         {
-            if (string.IsNullOrWhiteSpace(code))
-            {
-                throw new ArgumentException($"'{nameof(code)}' cannot be null or whitespace.", nameof(code));
-            }
-
             if (string.IsNullOrWhiteSpace(supplierPIdRef))
             {
                 throw new ArgumentException($"'{nameof(supplierPIdRef)}' cannot be null or whitespace.", nameof(supplierPIdRef));
@@ -99,7 +88,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PACKING_UNIT_CODE")]
-        public string Code { get; set; }
+        public PackageUnit Code { get; set; }
 
         /// <summary>
         /// (optional) Packing unit description <br/>
