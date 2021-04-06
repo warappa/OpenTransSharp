@@ -23,21 +23,21 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public PredefinedConfiguration()
         {
-            Coverage = null!;
+            Code = null!;
         }
 
         /// <summary>
         /// <inheritdoc cref="PredefinedConfiguration"/>
         /// </summary>
-        /// <param name="coverage"></param>
-        public PredefinedConfiguration(string coverage)
+        /// <param name="code"></param>
+        public PredefinedConfiguration(string code)
         {
-            if (string.IsNullOrWhiteSpace(coverage))
+            if (string.IsNullOrWhiteSpace(code))
             {
-                throw new ArgumentException($"'{nameof(coverage)}' cannot be null or whitespace.", nameof(coverage));
+                throw new ArgumentException($"'{nameof(code)}' cannot be null or whitespace.", nameof(code));
             }
 
-            Coverage = coverage;
+            Code = code;
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PREDEFINED_CONFIG_CODE")]
-        public string Coverage { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// (optional) Name of the configuration<br/>

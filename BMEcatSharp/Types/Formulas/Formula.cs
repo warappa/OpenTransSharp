@@ -86,7 +86,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FORMULA_DESC")]
+        [BMEXmlElement("FORMULA_DESCR")]
         public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool DescriptionSpecified => Description?.Count > 0;

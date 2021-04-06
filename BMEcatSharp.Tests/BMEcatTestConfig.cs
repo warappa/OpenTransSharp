@@ -378,22 +378,22 @@ namespace BMEcatSharp.Tests
 
         private IppUserInfo GetIppUserInfo()
         {
-            return new IppUserInfo("User info", IppOccurrence.Optional);
+            return new IppUserInfo(IppOccurrence.Optional);
         }
 
         private IppProductlistIdRef GetIppProductlistIdRef()
         {
-            return new IppProductlistIdRef("Product list id", IppOccurrence.Optional);
+            return new IppProductlistIdRef(IppOccurrence.Optional);
         }
 
         private IppProductconfigIdRef GetIppProductconfigIdRef()
         {
-            return new IppProductconfigIdRef("Product configuration id", IppOccurrence.Optional);
+            return new IppProductconfigIdRef(IppOccurrence.Optional);
         }
 
         private IppSupplierPid GetIppSupplierPid()
         {
-            return new IppSupplierPid("Supplier pid", IppOccurrence.Optional);
+            return new IppSupplierPid(IppOccurrence.Optional);
         }
 
         private IppPriceTypes GetIppPriceTypes()
@@ -668,6 +668,7 @@ namespace BMEcatSharp.Tests
         private PredefinedConfiguration GetPredefinedConfiguration()
         {
             var model = new PredefinedConfiguration();
+            model.Code = "ConfigCode";
             model.Description.Add(new MultiLingualString("-red", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("-rot", LanguageCodes.deu));
             model.Name.Add(new MultiLingualString("Predefined configuration", LanguageCodes.eng));

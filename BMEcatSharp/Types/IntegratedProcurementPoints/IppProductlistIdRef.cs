@@ -22,21 +22,6 @@ namespace BMEcatSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public IppProductlistIdRef()
         {
-            Value = null!;
-        }
-
-        /// <summary>
-        /// <inheritdoc cref="IppProductlistIdRef"/>
-        /// </summary>
-        /// <param name="value"></param>
-        public IppProductlistIdRef(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException($"'{nameof(value)}' cannot be null or whitespace.", nameof(value));
-            }
-
-            Value = value;
         }
 
         /// <summary>
@@ -44,16 +29,9 @@ namespace BMEcatSharp
         /// </summary>
         /// <param name="value"></param>
         /// <param name="occurrence"></param>
-        public IppProductlistIdRef(string value, IppOccurrence occurrence)
-            : this(value)
+        public IppProductlistIdRef(IppOccurrence occurrence)
         {
             Occurrence = occurrence;
         }
-
-        /// <summary>
-        /// (required)
-        /// </summary>
-        [XmlText]
-        public string Value { get; set; }
     }
 }

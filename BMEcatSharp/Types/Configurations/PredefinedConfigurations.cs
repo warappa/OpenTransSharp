@@ -42,7 +42,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("PREDEFINED_CONFIGS")]
+        [BMEXmlElement("PREDEFINED_CONFIG")]
         public List<PredefinedConfiguration>? Configurations { get; set; } = new List<PredefinedConfiguration>();
 
         /// <summary>

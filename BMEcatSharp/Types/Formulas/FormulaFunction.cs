@@ -46,7 +46,7 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FORMULA_FUNCTION")]
+        [BMEXmlElement("TERM")]
         public List<Term> Terms { get; set; } = new List<Term>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TermsSpecified => Terms?.Count > 0;

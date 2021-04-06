@@ -103,7 +103,8 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FORMULAS")]
+        [BMEXmlArray("FORMULAS")]
+        [BMEXmlArrayItem("FORMULA")]
         public List<Formula>? Formulas { get; set; } = new List<Formula>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FormulasSpecified => Formulas?.Count > 0;
@@ -115,7 +116,8 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("IPP_DEFINITIONS")]
+        [BMEXmlArray("IPP_DEFINITIONS")]
+        [BMEXmlArrayItem("IPP_DEFINITION")]
         public List<IppDefinition>? IppDefinitions { get; set; } = new List<IppDefinition>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool IppDefinitionsSpecified => IppDefinitions?.Count > 0;

@@ -58,24 +58,24 @@ namespace BMEcatSharp
         public string Symbol { get; set; }
 
         /// <summary>
-        /// (required) Basic parameter information<br/>
+        /// (required - choice ParameterBasics/FeatureReference) Basic parameter information<br/>
         /// <br/>
         /// Basic information on the parameter; it is not necessary, if the parameter has been derived from a property of a classification system(then, it is described there).<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("PARAMETER_BASICS")]
-        public ParameterBasics Basics { get; set; } = new ParameterBasics();
+        public ParameterBasics? Basics { get; set; }
 
         /// <summary>
-        /// (required) Reference to a feature<br/>
+        /// (required - choice ParameterBasics/FeatureReference) Reference to a feature<br/>
         /// <br/>
         /// Reference to a feature which is defined in a classification system.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FREF")]
-        public FeatureReference FeatureReference { get; set; } = new FeatureReference();
+        public FeatureReference? FeatureReference { get; set; }
 
         /// <summary>
         /// (optional) Parameter origin<br/>
