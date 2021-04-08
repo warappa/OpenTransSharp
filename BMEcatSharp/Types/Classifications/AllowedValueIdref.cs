@@ -34,9 +34,9 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [XmlAttribute("order")]
-        public int? Order { get; set; }
+        public int Order { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool OrderSpecified => Order.HasValue,
+        public bool OrderSpecified => Order > 0;
 
         /// <summary>
         /// (required)<br/>
