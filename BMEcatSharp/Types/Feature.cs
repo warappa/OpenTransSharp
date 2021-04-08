@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
@@ -224,9 +225,15 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FUNIT")]
-        public Unit? Unit { get; set; }
+        public string? Unit { get; set; }        
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool UnitSpecified => Unit.HasValue;
+        public bool UnitSpecified => Unit is not null;
+        [XmlIgnore]
+        public Unit? UnitAsStandardUnit
+        {
+            get => UnitExtensions.GetStandardUnit(Unit);
+            set => Unit = value.GetXmlName();
+        }
 
         /// <summary>
         /// (optional) Feature order<br/>

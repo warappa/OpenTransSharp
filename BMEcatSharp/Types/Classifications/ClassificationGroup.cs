@@ -232,7 +232,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlArray("CLASSIFICATION_GROUP_FEATURE_TEMPLATES")]
         [BMEXmlArrayItem("CLASSIFICATION_GROUP_FEATURE_TEMPLATE")]
-        public List<string>? FeatureTemplates { get; set; } = new List<string>();
+        public List<ClassificationGroupFeatureTemplate>? FeatureTemplates { get; set; } = new List<ClassificationGroupFeatureTemplate>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FeatureTemplatesSpecified => FeatureTemplates?.Count > 0;
 

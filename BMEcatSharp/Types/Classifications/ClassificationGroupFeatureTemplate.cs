@@ -1,52 +1,130 @@
 ﻿using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
 {
     /// <summary>
-    /// (Feature content definition)<br/>
+    /// (Feature of the group)<br/>
     /// <br/>
-    /// This element contains detailled information on the feature content, e.g., data type, unit of measurement, application, synonyms, and many more characteristics.<br/>
+    /// This element defines a feature being part of the feature list of the group.<br/>
+    /// This is done by referencing the group-independent definition (see CLASSIFICATION_SYSTEM_FEATURE_TEMPLATE element), which can be complemented or replaced, if necessary.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class FeatureContent
+    public class ClassificationGroupFeatureTemplate
     {
         /// <summary>
-        /// <inheritdoc cref="FeatureContent"/>
+        /// <inheritdoc cref="ClassificationGroupFeatureTemplate"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public FeatureContent() { }
-        
-        public FeatureContent(FeatureDataTypeValues dataType)
+        public ClassificationGroupFeatureTemplate()
         {
-            DataType = dataType;
+            FeatureIdref = null!;
+        }
+
+        public ClassificationGroupFeatureTemplate(string featureIdref)
+        {
+            if (string.IsNullOrWhiteSpace(featureIdref))
+            {
+                throw new ArgumentException($"'{nameof(featureIdref)}' cannot be null or whitespace.", nameof(featureIdref));
+            }
+
+            FeatureIdref = featureIdref;
         }
 
         /// <summary>
-        /// (required) Feature data type<br/>
+        /// (required) Feature reference<br/>
         /// <br/>
-        /// This element contains the data type of the feature.<br/>
+        /// Reference to the unique ID of a feature (seeCLASSIFICATION_SYSTEM_FEATURE_TEMPLATE).<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlElement("FT_IDREF")]
+        public string FeatureIdref { get; set; }
+
+        /// <summary>
+        /// (optional) Mandatory feature<br/>
+        /// <br/>
+        /// This element specifies, whether the feature is mandatory or optional; if so, the feature must be used when classifying a respective product.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlElement("FT_MANDATORY")]
+        public bool? Mandatory { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool MandatorySpecified => Mandatory.HasValue;
+
+        /// <summary>
+        /// (optional) Feature data type<br/>
+        /// <br/>
+        /// This element contains the data type of the feature. See also: Permitted values for element FT_DATATYPE.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_DATATYPE")]
-        public FeatureDataTypeValues DataType { get; set; } = new FeatureDataTypeValues();
+        public FeatureDataTypeValues? DataType { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DataTypeSpecified => DataType.HasValue;
 
         /// <summary>
-        /// (optional) Data type restrictions<br/>
+        /// (optional) Feature unit ID reference<br/>
         /// <br/>
-        /// List of data type restrictions.<br/>
+        /// Reference to the unique ID of a unit of measurement.<br/>
+        /// The reference must point to a UNIT_ID, which has been defined in the UNIT element for the respective classification system.<br/>
+        /// This element can only be used for defining features of a classification system.<br/>
+        /// Therefore, it can not used on the product level for defining static features(PRODUCT_FEATURES) or for configuration purposes(CONFIG_FEATURE).<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlArray("FT_FACETS")]
-        [BMEXmlArrayItem("FT_FACET")]
-        public List<FeatureFacet>? Facets { get; set; } = new List<FeatureFacet>();
+        [BMEXmlElement("FT_UNIT_IDREF")]
+        public string? FeatureUnitIdref { get; set; }
+
+        /// <summary>
+        /// (optional) Feature unit <br/>
+        /// <br/>
+        /// Unit of measurement for the feature; the unit should be coded in accordance with the dtUNIT data type.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlElement("FUNIT")]
+        public string? Unit { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool FacetsSpecified => Facets?.Count > 0;
+        public bool UnitSpecified => Unit is not null;
+        [XmlIgnore]
+        public Unit? UnitAsStandardUnit
+        {
+            get => UnitExtensions.GetStandardUnit(Unit);
+            set => Unit = value.GetXmlName();
+        }
+
+        /// <summary>
+        /// (optional) Feature order<br/>
+        /// <br/>
+        /// Defines the order (sequence) in which the feature has to be presented in the target system.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlElement("FT_ORDER")]
+        public int? Order { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool OrderSpecified => Order.HasValue;
+
+        /// <summary>
+        /// (optional) Feature value<br/>
+        /// <br/>
+        /// List of allowed values for the feature.<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlArray("FT_ALLOWED_VALUES")]
+        [BMEXmlArrayItem("ALLOWED_VALUE_IDREF")]
+        public List<AllowedValueIdref>? AllowedValues { get; set; } = new List<AllowedValueIdref>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool AllowedValuesSpecified => AllowedValues?.Count > 0;
 
         /// <summary>
         /// (optional) Feature domain values<br/>
@@ -55,9 +133,9 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlArray("FT_VALUES")]
-        [BMEXmlArrayItem("FT_VALUE")]
+        [BMEXmlElement("FT_VALUES")]
         public List<FeatureValue>? Values { get; set; } = new List<FeatureValue>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ValuesSpecified => Values?.Count > 0;
 
         /// <summary>
@@ -73,75 +151,14 @@ namespace BMEcatSharp
         public bool ValencySpecified => Valency.HasValue;
 
         /// <summary>
-        /// (optional) Feature unit ID reference<br/>
-        /// <br/>
-        /// Reference to the unique ID of a unit of measurement.<br/>
-        /// The reference must point to a UNIT_ID, which has been defined in the UNIT element for the respective classification system.<br/>
-        /// <br/>
-        /// This element can only be used for defining features of a classification system.<br/>
-        /// Therefore, it can not used on the product level for defining static features (PRODUCT_FEATURES) or for configuration purposes (CONFIG_FEATURE).<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [BMEXmlElement("FT_UNIT_IDREF")]
-        public string? UnitIdRef { get; set; }
-
-        /// <summary>
-        /// (optional) Feature unit<br/>
-        /// <br/>
-        /// Unit of measurement for the feature; the unit should be coded in accordance with the dtUNIT (<see cref="BMEcatSharp.Unit"/>) data type.<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [BMEXmlElement("FT_UNIT")]
-        public string? Unit { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool UnitSpecified => Unit is string;
-        [XmlIgnore]
-        public Unit? UnitAsStandardUnit
-        {
-            get => UnitExtensions.GetStandardUnit(Unit);
-            set => Unit = value.GetXmlName();
-        }
-
-        /// <summary>
-        /// (optional) Mandatory feature<br/>
-        /// <br/>
-        /// This element specifies, whether the feature is mandatory or optional; if so, the feature must be used when classifying a respective product.<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [XmlIgnore]
-        public bool? Mandatory { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [BMEXmlElement("FT_MANDATORY")]
-        public string? MandatoryForSerializer { get => Mandatory is null ? null : Mandatory == true ? "true" : "false"; set => Mandatory = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool MandatoryForSerializerSpecified => Mandatory == true;
-
-        /// <summary>
-        /// (optional) Feature order<br/>
-        /// <br/>
-        /// Defines the order (sequence) in which the feature has to be presented in the target system.<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [BMEXmlElement("FT_Order")]
-        public int? Order { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool OrderSpecified => Order.HasValue;
-
-        /// <summary>
-        /// (optional) Feature symbol<br/>
+        /// (optional) Feature symbol <br/>
         /// <br/>
         /// Symbol of the feature.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FT_SYMBOL")]
-        public List<MultiLingualString>? Symbols { get; set; } = new List<MultiLingualString>();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool SymbolsSpecified => Symbols?.Count > 0;
+        public MultiLingualString? Symbol { get; set; }
 
         /// <summary>
         /// (optional) Feature synonyms<br/>
@@ -206,5 +223,19 @@ namespace BMEcatSharp
         public List<MultiLingualString>? Remark { get; set; } = new List<MultiLingualString>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool RemarkSpecified => Remark?.Count > 0;
+
+        /// <summary>
+        /// (optional) Feature dependencies<br/>
+        /// <br/>
+        /// List of features on which the current feature depends.<br/>
+        /// Reference to the unique ID of a feature (seeCLASSIFICATION_SYSTEM_FEATURE_TEMPLATE).<br/>
+        /// <br/>
+        /// XML-namespace: BMECAT
+        /// </summary>
+        [BMEXmlArray("FT_DEPENDENCIES")]
+        [BMEXmlArrayItem("FT_IDREF")]
+        public List<FeatureIdRef>? Dependencies { get; set; } = new List<FeatureIdRef>();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DependenciesSpecified => Dependencies?.Count > 0;
     }
 }
