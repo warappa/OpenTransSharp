@@ -10,13 +10,13 @@ namespace BMEcatSharp.Internal
 {
     internal class EmbeddedXmlUrlResolver : XmlUrlResolver
     {
-        private Assembly assembly;
+        private Assembly[] assemblies;
 
         public const string BaseUri = "embedded://";
 
-        public EmbeddedXmlUrlResolver()
+        public EmbeddedXmlUrlResolver(Assembly[] assemblies = null)
         {
-            assembly = typeof(EmbeddedXmlUrlResolver).Assembly;
+            this.assemblies = assemblies ?? new[] { typeof(EmbeddedXmlUrlResolver).Assembly };
         }
 
         public override Uri ResolveUri(Uri baseUri, string relativeUri)
@@ -26,17 +26,27 @@ namespace BMEcatSharp.Internal
             //return base.ResolveUri(baseUri, relativeUri);
         }
 
-        public Stream GetStream(string resourceName)
+        public Stream? GetStream(string resourceName)
         {
-            Debug.WriteLine("Get schema: " + resourceName);
+            Console.WriteLine("Get schema: " + resourceName);
 
             var searchName = FindEmbeddedName(resourceName);
 
-            var stream = assembly.GetManifestResourceStream(searchName);
-
-            if (stream is null)
+            if (searchName is null)
             {
-                throw new NullReferenceException($"Could not resolve '{resourceName}'");
+                return null;
+            }
+
+            Stream? stream = null;
+
+            foreach (var assembly in assemblies)
+            {
+                stream = assembly.GetManifestResourceStream(searchName);
+
+                if (stream is not null)
+                {
+                    return stream;
+                }
             }
 
             return stream;
@@ -76,15 +86,24 @@ namespace BMEcatSharp.Internal
         private string FindEmbeddedName(string filenameOrResourceName)
         {
 
-            var embeddedName = assembly.GetManifestResourceNames()
+            var embeddedName = assemblies
+                .SelectMany(x => x.GetManifestResourceNames())
                 .FirstOrDefault(x => x == filenameOrResourceName);
 
             if (embeddedName is null)
             {
                 filenameOrResourceName = Path.GetFileName(filenameOrResourceName);
 
-                embeddedName = assembly.GetManifestResourceNames()
-                    .FirstOrDefault(x => x.EndsWith($".{filenameOrResourceName}"));
+                foreach (var assembly in assemblies)
+                {
+                    embeddedName = assembly.GetManifestResourceNames()
+                        .FirstOrDefault(x => x.EndsWith($".{filenameOrResourceName}"));
+
+                    if (embeddedName is not null)
+                    {
+                        break;
+                    }
+                }
             }
 
             return embeddedName;

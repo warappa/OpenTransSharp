@@ -2,7 +2,7 @@
 
 namespace OpenTransSharp.Tests
 {
-    [XmlRoot("UDX.CUSTOM_DATA_2")]
+    [XmlRoot("UDX.ORGANIZATION.CUSTOM_DATA_2")]
     public class CustomData2
     {
         [XmlText]

@@ -30,6 +30,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
                 typeof(CustomData),
                 typeof(CustomData2)
             };
+            options.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
 
             serializerFactory = new OpenTransXmlSerializerFactory(options);
 

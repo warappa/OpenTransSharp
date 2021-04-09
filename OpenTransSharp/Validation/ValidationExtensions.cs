@@ -1,5 +1,6 @@
 ﻿using BMEcatSharp.Internal;
 using BMEcatSharp.Validation;
+using BMEcatSharp.Xml;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,7 +36,7 @@ namespace OpenTransSharp.Validation
         {
             var validationErrors = new List<string>();
 
-            var schemaSet = GetXmlSchemaSet();
+            var schemaSet = GetXmlSchemaSet(serializer);
 
             try
             {
@@ -80,7 +81,7 @@ namespace OpenTransSharp.Validation
             }
         }
 
-        private static XmlSchemaSet GetXmlSchemaSet()
+        private static XmlSchemaSet GetXmlSchemaSet(XmlSerializer serializer)
         {
             if (cachedSchemaSet is not null)
             {
@@ -94,6 +95,8 @@ namespace OpenTransSharp.Validation
                     return cachedSchemaSet;
                 }
 
+                XmlUtils.Initialize(new[] { typeof(BMEcatXmlSerializer).Assembly, typeof(OpenTransAgreement).Assembly });
+
                 var schemaSet = new XmlSchemaSet
                 {
                     XmlResolver = XmlUtils.XmlResolver
@@ -102,7 +105,18 @@ namespace OpenTransSharp.Validation
                 // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
                 schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
 
-                XmlUtils.GetEmbeddedXsd("opentrans_2_1.xsd", schemaSet);
+                if (serializer is BMEcatXmlSerializer ser)
+                {
+                    if (ser.XsdUris is not null)
+                    {
+                        foreach (var uri in ser.XsdUris)
+                        {
+                            XmlUtils.GetXsd(uri.AbsoluteUri, schemaSet);
+                        }
+                    }
+                }
+
+                XmlUtils.GetXsd("opentrans_2_1.xsd", schemaSet);
 
                 schemaSet.Compile();
 

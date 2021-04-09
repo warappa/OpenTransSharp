@@ -30,6 +30,7 @@ namespace OpenTransSharp.Tests.Orders
                 typeof(CustomData),
                 typeof(CustomData2) 
             };
+            options.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
 
             serializerFactory = new OpenTransXmlSerializerFactory(options);
 
@@ -55,13 +56,29 @@ namespace OpenTransSharp.Tests.Orders
         }
 
         [Test]
-        public void Can_validate_Order_with_UDX()
+        public void Can_validate_Order_with_UDX_with_no_error()
         {
             var order = testConfig.Orders.GetOrderWithUdx();
 
-            var serialized = target.Serialize(order);
-            Debug.WriteLine(serialized);
+            //var serialized = target.Serialize(order);
+            //Debug.WriteLine(serialized);
+
             order.IsValid(target).Should().Be(true);
+        }
+        
+
+        [Test]
+        public void Can_validate_Order_with_UDX_with_error()
+        {
+            var order = testConfig.Orders.GetOrderWithUdx();
+            order.Header.Information.HeaderUdx.Add(new CustomData2 { Name = "Too loooong" });
+
+            //var serialized = target.Serialize(order);
+            //Debug.WriteLine(serialized);
+
+            var result = order.Validate(target);
+            result.Errors.Length.Should().BeGreaterThan(0);
+            result.Errors[0].Should().Contain("Too loooong");
         }
 
         [Test]

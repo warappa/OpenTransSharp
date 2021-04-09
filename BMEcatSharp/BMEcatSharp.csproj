@@ -13,9 +13,6 @@
   <ItemGroup>
     <None Remove="Content\bmecat_2005.xsd" />
     <None Remove="Content\bmecat_2005_any_udx_extension.xsd" />
-    <None Remove="Content\opentrans_2_1.xsd" />
-    <None Remove="Content\xmldsig-core-schema.xsd" />
-    <None Remove="Content\xmlmime.xsd" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,15 +20,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Content\bmecat_2005_any_udx_extension.xsd">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\opentrans_2_1.xsd">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\xmldsig-core-schema.xsd">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\xmlmime.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

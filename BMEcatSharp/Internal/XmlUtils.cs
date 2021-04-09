@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
@@ -8,11 +10,23 @@ namespace BMEcatSharp.Internal
 {
     internal static class XmlUtils
     {
-        public static EmbeddedXmlUrlResolver XmlResolver = new EmbeddedXmlUrlResolver();
+        internal static EmbeddedXmlUrlResolver XmlResolver = new EmbeddedXmlUrlResolver();
 
-        public static XmlReader GetEmbeddedXsd(string resourceName, XmlSchemaSet schemaSet)
+        public static void Initialize(Assembly[] assemblies)
         {
-            var schemaStream = XmlResolver.GetStream(EmbeddedXmlUrlResolver.BaseUri + "/" + resourceName);
+            XmlResolver = new EmbeddedXmlUrlResolver(assemblies);
+        }
+
+        internal static XmlReader GetXsd(string uriValue, XmlSchemaSet schemaSet)
+        {
+            if(!uriValue.Contains(":/"))
+            {
+
+                uriValue = EmbeddedXmlUrlResolver.BaseUri + "/" + uriValue;
+            }
+
+            var schemaStream = (Stream)XmlResolver.GetEntity(new Uri(uriValue), null!, typeof(Stream));
+
             var reader = XmlReader.Create(schemaStream, new XmlReaderSettings
             {
                 DtdProcessing = DtdProcessing.Ignore,
@@ -25,8 +39,23 @@ namespace BMEcatSharp.Internal
             return reader;
         }
 
+        //public static XmlReader GetEmbeddedXsd(string resourceName, XmlSchemaSet schemaSet)
+        //{
+        //    var schemaStream = XmlResolver.GetStream(EmbeddedXmlUrlResolver.BaseUri + "/" + resourceName);
+        //    var reader = XmlReader.Create(schemaStream, new XmlReaderSettings
+        //    {
+        //        DtdProcessing = DtdProcessing.Ignore,
+        //        CloseInput = true,
+        //        XmlResolver = XmlResolver,
+        //    }, EmbeddedXmlUrlResolver.BaseUri);
+
+        //    schemaSet.Add(null, reader);
+
+        //    return reader;
+        //}
+
         // https://stackoverflow.com/questions/451950/get-the-xpath-to-an-xelement?noredirect=1&lq=1
-        public static string GetAbsoluteXPath(this XAttribute attribute)
+        internal static string GetAbsoluteXPath(this XAttribute attribute)
         {
             return GetAbsoluteXPath(attribute.Parent) + $"[{attribute.Name.LocalName}]";
         }
@@ -35,7 +64,7 @@ namespace BMEcatSharp.Internal
         /// Get the absolute XPath to a given XElement, including the namespace.
         /// (e.g. "/a:people/b:person[6]/c:name[1]/d:last[1]").
         /// </summary>
-        public static string GetAbsoluteXPath(this XElement element)
+        internal static string GetAbsoluteXPath(this XElement element)
         {
             if (element == null)
             {
@@ -85,7 +114,7 @@ namespace BMEcatSharp.Internal
         /// <param name="element">
         /// The element to get the index of.
         /// </param>
-        public static int IndexPosition(this XElement element)
+        internal static int IndexPosition(this XElement element)
         {
             if (element == null)
             {

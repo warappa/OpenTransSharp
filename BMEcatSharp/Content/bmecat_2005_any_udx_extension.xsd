@@ -27,5 +27,28 @@
         </xsd:extension>
       </xsd:complexContent>
     </xsd:complexType>
+  
+    <xsd:complexType name="udxCATALOGGROUP" mixed="false">
+      <xsd:complexContent>
+        <xsd:extension base="bmecat:udxCATALOGGROUP">
+          <xsd:sequence>
+            <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+          </xsd:sequence>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  
+    <xsd:complexType name="udxCLASSGROUP" mixed="false">
+      <xsd:complexContent>
+        <xsd:extension base="bmecat:udxCLASSGROUP">
+          <xsd:sequence>
+            <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+          </xsd:sequence>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
   </xsd:redefine>
+  
 </xsd:schema>

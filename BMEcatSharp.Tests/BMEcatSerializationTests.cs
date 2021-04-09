@@ -1,4 +1,3 @@
-using BMEcatSharp;
 using BMEcatSharp.Validation;
 using BMEcatSharp.Xml;
 using FluentAssertions;
@@ -32,6 +31,7 @@ namespace BMEcatSharp.Tests
                 typeof(CustomData),
                 typeof(CustomData2)
             };
+            options.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
 
             serializerFactory = new BMEcatXmlSerializerFactory(options);
 
@@ -94,13 +94,28 @@ namespace BMEcatSharp.Tests
         }
 
         [Test]
-        public void Can_validate_BMEcat_with_UDX()
+        public void Can_validate_BMEcat_with_UDX_with_no_error()
         {
             var order = testConfig.BMEcats.GetBMEcatNewCatalogWithUdx();
 
-            var serialized = target.Serialize(order);
-            Debug.WriteLine(serialized);
+            //var serialized = target.Serialize(order);
+            //Debug.WriteLine(serialized);
+
             order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_validate_BMEcat_with_UDX_with_error()
+        {
+            var order = testConfig.BMEcats.GetBMEcatNewCatalogWithUdx();
+            order.Header.UserDefinedExtensions.Add(new CustomData2 { Name = "Too looooong" });
+
+            //var serialized = target.Serialize(order);
+            //Debug.WriteLine(serialized);
+
+            var result = order.Validate(target);
+            result.Errors.Length.Should().BeGreaterThan(0);
+            result.Errors[0].Should().Contain("Too looooong");
         }
 
         [Test]

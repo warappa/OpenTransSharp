@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <None Remove="bmecat-sample.xml" />
+    <None Remove="CustomData.xsd" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="CustomData.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bmecat-sample.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
