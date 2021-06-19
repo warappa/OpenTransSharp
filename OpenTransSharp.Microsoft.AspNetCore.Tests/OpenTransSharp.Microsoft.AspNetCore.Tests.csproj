@@ -12,6 +12,8 @@
     <None Remove="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml" />
     <None Remove="Invoices\sample_invoice_opentrans_2_1 - invalid.xml" />
     <None Remove="Invoices\sample_invoice_opentrans_2_1.xml" />
+    <None Remove="Orders\sample_order_opentrans_2_1_xml signature - invalid.xml" />
+    <None Remove="Orders\sample_order_opentrans_2_1_xml signature.xml" />
     <None Remove="sample_dispatchnotification_opentrans_2_1.xml" />
   </ItemGroup>
 
@@ -32,6 +34,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Invoices\sample_invoice_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Orders\sample_order_opentrans_2_1_xml signature - invalid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Orders\sample_order_opentrans_2_1_xml signature.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
