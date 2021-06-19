@@ -34,30 +34,44 @@ namespace BMEcatSharp.Microsoft.AspNetCore
             }
         }
 
-        protected override XmlSerializer CreateSerializer(Type type)
+        protected override XmlSerializer? CreateSerializer(Type type)
         {
-            return openTransXmlSerializerFactory.Create(type);
+            try
+            {
+                return openTransXmlSerializerFactory.Create(type);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public override async Task<InputFormatterResult> ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
         {
             var result = await base.ReadRequestBodyAsync(context, encoding);
 
-            var serializer = GetCachedSerializer(context.ModelType);
-
-            var xmlValidationResult = (result.Model as BMEcatDocument).Validate(serializer);
-
-            if (!xmlValidationResult.IsValid)
+            if (result.Model is null)
             {
-                foreach (var error in xmlValidationResult.Errors)
-                {
-                    foreach (var message in error.Value)
-                    {
-                        context.ModelState.TryAddModelError(error.Key, message);
-                    }
-                }
+                context.ModelState.TryAddModelError("", $"'{context.ModelType.FullName}' could not be parsed");
+            }
+            else
+            {
+                var serializer = GetCachedSerializer(context.ModelType);
 
-                return InputFormatterResult.Failure();
+                var xmlValidationResult = ((BMEcatDocument)result.Model).Validate(serializer);
+
+                if (!xmlValidationResult.IsValid)
+                {
+                    foreach (var error in xmlValidationResult.Errors)
+                    {
+                        foreach (var message in error.Value)
+                        {
+                            context.ModelState.TryAddModelError(error.Key, message);
+                        }
+                    }
+
+                    return InputFormatterResult.Failure();
+                }
             }
 
             return result;
