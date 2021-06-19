@@ -19,7 +19,7 @@ namespace BMEcatSharp.Internal
 
         internal static XmlReader GetXsd(string uriValue, XmlSchemaSet schemaSet)
         {
-            if(!uriValue.Contains(":/"))
+            if (!uriValue.Contains(":/"))
             {
 
                 uriValue = EmbeddedXmlUrlResolver.BaseUri + "/" + uriValue;
@@ -85,7 +85,7 @@ namespace BMEcatSharp.Internal
                 else
                 {
                     var namespacePrefix = e.GetPrefixOfNamespace(currentNamespace);
-                    name = namespacePrefix + ":" + e.Name.LocalName;
+                    name = (namespacePrefix is null ? "" : namespacePrefix + ":") + e.Name.LocalName;
                 }
 
                 // If the element is the root, no index is required
