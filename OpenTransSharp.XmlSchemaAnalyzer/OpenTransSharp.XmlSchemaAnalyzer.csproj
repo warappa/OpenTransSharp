@@ -3,10 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>OpenTransSharp.XmlSchemaAnalyzer.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\OpenTransSharp\Content\bmecat_2005.1.xsd" Link="bmecat_2005.1.xsd">
+    <None Include="..\BMEcatSharp\Content\bmecat_2005.xsd" Link="bmecat_2005.xsd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\OpenTransSharp\Content\opentrans_2_1.xsd" Link="opentrans_2_1.xsd">
@@ -16,7 +17,9 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
-    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
   </ItemGroup>
 
 </Project>
