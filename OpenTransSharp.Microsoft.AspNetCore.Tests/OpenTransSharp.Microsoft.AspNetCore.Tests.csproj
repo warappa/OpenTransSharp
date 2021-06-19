@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DispatchNotifications\sample_dispatchnotification_opentrans_2_1 - invalid.xml" />
+    <None Remove="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml" />
+    <None Remove="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml" />
+    <None Remove="Invoices\sample_invoice_opentrans_2_1 - invalid.xml" />
+    <None Remove="Invoices\sample_invoice_opentrans_2_1.xml" />
+    <None Remove="sample_dispatchnotification_opentrans_2_1.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DispatchNotifications\sample_dispatchnotification_opentrans_2_1 - invalid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DispatchNotifications\sample_dispatchnotification_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Invoices\sample_invoice_opentrans_2_1 - invalid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Invoices\sample_invoice_opentrans_2_1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.7" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\OpenTransSharp.Samples.AspNetCore\OpenTransSharp.Samples.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>

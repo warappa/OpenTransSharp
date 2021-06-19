@@ -18,6 +18,15 @@ namespace OpenTransSharp.Validation
 
         private static XmlSchemaSet? cachedSchemaSet;
 
+        public static void EnsureValid(this IOpenTransRoot model, XmlSerializer serializer)
+        {
+            var validationResult = model.Validate(serializer);
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+        }
+
         public static bool IsValid(this IOpenTransRoot model, XmlSerializer serializer)
         {
             try

@@ -19,32 +19,32 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
-        public bool RemittanceAdviceViaModelBinding(RemittanceAdvice remittanceAdvice)
+        public void RemittanceAdviceViaModelBinding(RemittanceAdvice remittanceAdvice)
         {
-            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public ValidationResult RemittanceAdviceViaStream()
+        public void RemittanceAdviceViaStream()
         {
             var serializer = serializerFactory.Create<RemittanceAdvice>();
             
             using var stream = Request.BodyReader.AsStream();
             var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
 
-            return remittanceAdvice.Validate(serializer);
+            remittanceAdvice.EnsureValid(serializer);
         }
         
         [HttpPost("via-file")]
-        public ValidationResult RemittanceAdviceViaFile(IFormFile file)
+        public void RemittanceAdviceViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<RemittanceAdvice>();
 
             using var stream = file.OpenReadStream();
             var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
 
-            return remittanceAdvice.Validate(serializer);
+            remittanceAdvice.EnsureValid(serializer);
         }
     }
 }

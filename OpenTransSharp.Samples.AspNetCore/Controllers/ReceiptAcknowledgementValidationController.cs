@@ -19,32 +19,32 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
-        public bool ReceiptAcknowledgementViaModelBinding(ReceiptAcknowledgement receiptAcknowledgement)
+        public void ReceiptAcknowledgementViaModelBinding(ReceiptAcknowledgement receiptAcknowledgement)
         {
-            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public ValidationResult ReceiptAcknowledgementViaStream()
+        public void ReceiptAcknowledgementViaStream()
         {
             var serializer = serializerFactory.Create<ReceiptAcknowledgement>();
             
             using var stream = Request.BodyReader.AsStream();
             var receiptAcknowledgement = serializer.Deserialize<ReceiptAcknowledgement>(stream);
 
-            return receiptAcknowledgement.Validate(serializer);
+            receiptAcknowledgement.EnsureValid(serializer);
         }
         
         [HttpPost("via-file")]
-        public ValidationResult ReceiptAcknowledgementViaFile(IFormFile file)
+        public void ReceiptAcknowledgementViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<ReceiptAcknowledgement>();
 
             using var stream = file.OpenReadStream();
             var receiptAcknowledgement = serializer.Deserialize<ReceiptAcknowledgement>(stream);
 
-            return receiptAcknowledgement.Validate(serializer);
+            receiptAcknowledgement.EnsureValid(serializer);
         }
     }
 }

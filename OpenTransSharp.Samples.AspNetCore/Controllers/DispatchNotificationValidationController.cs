@@ -19,32 +19,32 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
-        public bool DispatchNotificationViaModelBinding(DispatchNotification dispatchNotification)
+        public void DispatchNotificationViaModelBinding(DispatchNotification dispatchNotification)
         {
-            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public ValidationResult DispatchNotificationViaStream()
+        public void DispatchNotificationViaStream()
         {
             var serializer = serializerFactory.Create<DispatchNotification>();
             
             using var stream = Request.BodyReader.AsStream();
             var dispatchNotification = serializer.Deserialize<DispatchNotification>(stream);
 
-            return dispatchNotification.Validate(serializer);
+            dispatchNotification.EnsureValid(serializer);
         }
         
         [HttpPost("via-file")]
-        public ValidationResult DispatchNotificationViaFile(IFormFile file)
+        public void DispatchNotificationViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<DispatchNotification>();
             
             using var stream = file.OpenReadStream();
             var dispatchNotification = serializer.Deserialize<DispatchNotification>(stream);
 
-            return dispatchNotification.Validate(serializer);
+            dispatchNotification.EnsureValid(serializer);
         }
     }
 }

@@ -19,32 +19,32 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
-        public bool RequestForQuotationViaModelBinding(RequestForQuotation requestForQuotation)
+        public void RequestForQuotationViaModelBinding(RequestForQuotation requestForQuotation)
         {
-            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public ValidationResult RequestForQuotationViaStream()
+        public void RequestForQuotationViaStream()
         {
             var serializer = serializerFactory.Create<RequestForQuotation>();
             
             using var stream = Request.BodyReader.AsStream();
             var requestForQuotation = serializer.Deserialize<RequestForQuotation>(stream);
 
-            return requestForQuotation.Validate(serializer);
+            requestForQuotation.EnsureValid(serializer);
         }
         
         [HttpPost("via-file")]
-        public ValidationResult RequestForQuotationViaFile(IFormFile file)
+        public void RequestForQuotationViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<RequestForQuotation>();
 
             using var stream = file.OpenReadStream();
             var requestForQuotation = serializer.Deserialize<RequestForQuotation>(stream);
 
-            return requestForQuotation.Validate(serializer);
+            requestForQuotation.EnsureValid(serializer);
         }
     }
 }

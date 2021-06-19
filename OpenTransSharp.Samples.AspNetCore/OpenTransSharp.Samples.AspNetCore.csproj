@@ -13,4 +13,10 @@
     <ProjectReference Include="..\OpenTransSharp\OpenTransSharp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="CustomData.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

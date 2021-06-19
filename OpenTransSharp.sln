@@ -77,6 +77,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{433033
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMEcatSharp.Microsoft.AspNetCore.Tests", "BMEcatSharp.Microsoft.AspNetCore.Tests\BMEcatSharp.Microsoft.AspNetCore.Tests.csproj", "{8F436F30-F866-4096-8556-488CF9752F8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.Microsoft.AspNetCore.Tests", "OpenTransSharp.Microsoft.AspNetCore.Tests\OpenTransSharp.Microsoft.AspNetCore.Tests.csproj", "{39AB7244-E520-452A-A366-107FEEA326EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,10 @@ Global
 		{8F436F30-F866-4096-8556-488CF9752F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F436F30-F866-4096-8556-488CF9752F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F436F30-F866-4096-8556-488CF9752F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39AB7244-E520-452A-A366-107FEEA326EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AB7244-E520-452A-A366-107FEEA326EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AB7244-E520-452A-A366-107FEEA326EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AB7244-E520-452A-A366-107FEEA326EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +152,7 @@ Global
 		{442F685F-4719-4106-83B3-A10AD652781A} = {A73434BC-1673-4D8D-AA7B-6FFCDAAE378C}
 		{FAF9628D-2A54-48AA-BCD1-247D52C40588} = {CE93CE31-A3B1-4F6C-BF61-ED3E7221F611}
 		{8F436F30-F866-4096-8556-488CF9752F8A} = {A73434BC-1673-4D8D-AA7B-6FFCDAAE378C}
+		{39AB7244-E520-452A-A366-107FEEA326EB} = {A73434BC-1673-4D8D-AA7B-6FFCDAAE378C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {931C047F-C277-410A-8351-D9A71F7B58C7}

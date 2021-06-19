@@ -19,32 +19,32 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
-        public bool OrderResponseViaModelBinding(OrderResponse orderResponse)
+        public void OrderResponseViaModelBinding(OrderResponse orderResponse)
         {
-            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public ValidationResult OrderResponseViaStream()
+        public void OrderResponseViaStream()
         {
             var serializer = serializerFactory.Create<OrderResponse>();
             
             using var stream = Request.BodyReader.AsStream();
             var orderResponse = serializer.Deserialize<OrderResponse>(stream);
 
-            return orderResponse.Validate(serializer);
+            orderResponse.EnsureValid(serializer);
         }
         
         [HttpPost("via-file")]
-        public ValidationResult OrderResponseViaFile(IFormFile file)
+        public void OrderResponseViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<OrderResponse>();
 
             using var stream = file.OpenReadStream();
             var orderResponse = serializer.Deserialize<OrderResponse>(stream);
 
-            return orderResponse.Validate(serializer);
+            orderResponse.EnsureValid(serializer);
         }
     }
 }
