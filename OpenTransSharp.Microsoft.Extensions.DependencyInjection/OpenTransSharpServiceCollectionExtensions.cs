@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class OpenTransSharpServiceCollectionExtensions
     {
-        public static IServiceCollection AddOpenTransSharp(this IServiceCollection services, Action<OpenTransOptions> configureOptions = null)
+        public static IServiceCollection AddOpenTransSharp(this IServiceCollection services, Action<OpenTransOptions>? configureOptions = null)
         {
             services.AddSingleton<IOpenTransXmlSerializerFactory, OpenTransXmlSerializerFactory>();
             services.AddOptions<OpenTransOptions>();

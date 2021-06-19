@@ -14,7 +14,7 @@ namespace BMEcatSharp.Internal
 
         public const string BaseUri = "embedded://";
 
-        public EmbeddedXmlUrlResolver(Assembly[] assemblies = null)
+        public EmbeddedXmlUrlResolver(Assembly[]? assemblies = null)
         {
             this.assemblies = assemblies ?? new[] { typeof(EmbeddedXmlUrlResolver).Assembly };
         }
@@ -54,7 +54,7 @@ namespace BMEcatSharp.Internal
 
         public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
         {
-            object stream = GetStream(absoluteUri.AbsoluteUri);
+            object? stream = GetStream(absoluteUri.AbsoluteUri);
 
             if (stream is null)
             {
@@ -66,7 +66,7 @@ namespace BMEcatSharp.Internal
 
         public override async Task<object> GetEntityAsync(Uri absoluteUri, string role, Type ofObjectToReturn)
         {
-            object stream = GetStream(absoluteUri.AbsoluteUri);
+            object? stream = GetStream(absoluteUri.AbsoluteUri);
 
             if (stream is null)
             {
@@ -76,14 +76,14 @@ namespace BMEcatSharp.Internal
             return stream;
         }
 
-        private string FindEmbeddedName(Uri absoluteUri)
+        private string? FindEmbeddedName(Uri absoluteUri)
         {
             var name = absoluteUri.Segments[absoluteUri.Segments.Length - 1];
 
             return FindEmbeddedName(name);
         }
 
-        private string FindEmbeddedName(string filenameOrResourceName)
+        private string? FindEmbeddedName(string filenameOrResourceName)
         {
 
             var embeddedName = assemblies

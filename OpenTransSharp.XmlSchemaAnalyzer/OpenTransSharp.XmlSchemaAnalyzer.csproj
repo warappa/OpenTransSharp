@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <StartupObject>OpenTransSharp.XmlSchemaAnalyzer.Program</StartupObject>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

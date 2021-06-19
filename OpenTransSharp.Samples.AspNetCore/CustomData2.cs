@@ -6,6 +6,6 @@ namespace OpenTransSharp.Samples.AspNetCore
     public class CustomData2
     {
         [XmlText]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

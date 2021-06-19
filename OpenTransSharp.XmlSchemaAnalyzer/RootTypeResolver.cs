@@ -10,7 +10,7 @@ namespace OpenTransSharp.XmlSchemaAnalyzer
     {
         public IEnumerable<string> GetRootTypes(XDocument doc)
         {
-            var navi = doc.Root.CreateNavigator();
+            var navi = doc.Root!.CreateNavigator();
             var xmlNamespaceManager = new XmlNamespaceManager(navi.NameTable);
             var dict = navi.GetNamespacesInScope(XmlNamespaceScope.All);
             foreach (var pair in dict)

@@ -37,6 +37,11 @@ namespace OpenTransSharp.Validation
         {
             var validationErrors = new List<ValidationError>();
 
+            if (model is null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
             var schemaSet = GetXmlSchemaSet(serializer);
 
             try
