@@ -19,32 +19,33 @@ namespace BMEcatSharp.Samples.AspNetCore.Controllers
 
         [HttpPost("via-model-binding")]
         [Consumes("application/xml")]
-        public bool ViaModelBinding(BMEcatDocument document)
+        public void ViaModelBinding(BMEcatDocument document)
         {
-            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
         [RawTextRequest]
-        public ValidationResult ViaStream()
+        public void ViaStream()
         {
             var serializer = serializerFactory.Create<BMEcatDocument>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var document = serializer.Deserialize<BMEcatDocument>(stream);
 
-            return document.Validate(serializer);
+            //return document.Validate(serializer);
+            document.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
-        public ValidationResult ViaFile(IFormFile file)
+        public void ViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<BMEcatDocument>();
-            
+
             var stream = file.OpenReadStream();
             var document = serializer.Deserialize<BMEcatDocument>(stream);
 
-            return document.Validate(serializer);
+            document.EnsureValid(serializer);
         }
     }
 }

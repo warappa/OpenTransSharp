@@ -39,7 +39,10 @@ namespace OpenTransSharp.Samples.AspNetCore
                 // add custom xsd for validation
                 configure.Serialization.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
             });
-            services.AddControllers()
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<ValidationExceptionFilter>();
+            })
                 // register for proper serialization over API
                 .AddOpenTransSharpXmlSerializer();
 

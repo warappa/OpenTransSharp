@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE BMECAT SYSTEM "http://www.eclass.eu/static/eClassXML/2.0/bmecat/bmecat_2005_tnc.dtd">-->
+<BMECAT version="2005" xmlns="http://www.bmecat.org/bmecat/2005">
+  <HEADER>
+    <CATALOG>
+      <LANGUAGE>eng</LANGUAGE>
+      <CATALOG_ID>QA_CAT_002</CATALOG_ID>
+      <CATALOG_VERSION>001.002</CATALOG_VERSION>
+      <CATALOG_NAME>Office Material</CATALOG_NAME>
+      <DATETIME type="generation_date">
+        <DATE>2004-08-20</DATE>
+        <TIME>10:59:54</TIME>
+        <TIMEZONE>-02:00</TIMEZONE>
+      </DATETIME>
+      <CURRENCY>EUR</CURRENCY>
+    </CATALOG>
+    <BUYER>
+      <BUYER_ID type="buyer_specific">aggibuyer</BUYER_ID>
+      <BUYER_NAME>BuyAll Corp.</BUYER_NAME>
+      <ADDRESS type="buyer">
+        <NAME>BuyAll Corp.</NAME>
+        <CONTACT>Bill Smith</CONTACT>
+      </ADDRESS>
+    </BUYER>
+    <SUPPLIER>
+      <SUPPLIER_NAME>Office Supplies AG</SUPPLIER_NAME>
+    </SUPPLIER>
+    <USER_DEFINED_EXTENSIONS>
+      <UDX.ORGANIZATION.CUSTOM_DATA_2>Too loooong</UDX.ORGANIZATION.CUSTOM_DATA_2>
+    </USER_DEFINED_EXTENSIONS>
+  </HEADER>
+  <T_NEW_CATALOG>
+    <PRODUCT mode="new">
+      <SUPPLIER_PID type="supplier_specific">Q20-P09</SUPPLIER_PID>
+      <PRODUCT_DETAILS>
+        <DESCRIPTION_SHORT>Post-Safe Polythene Envelopes</DESCRIPTION_SHORT>
+        <DESCRIPTION_LONG>
+          All-weather lightweight envelopes protect your contents and save you money.
+          ALL-WEATHER. Once sealed, Post-Safe envelopes are completely waterproof. Your
+          contents won't get damaged.
+        </DESCRIPTION_LONG>
+        <INTERNATIONAL_PID type="ean">9783161484100</INTERNATIONAL_PID>
+        <MANUFACTURER_NAME>Concurrent Limited</MANUFACTURER_NAME>
+      </PRODUCT_DETAILS>
+      <PRODUCT_FEATURES>
+        <REFERENCE_FEATURE_SYSTEM_NAME>UNSPSC-5.02</REFERENCE_FEATURE_SYSTEM_NAME>
+        <REFERENCE_FEATURE_GROUP_ID>44121505</REFERENCE_FEATURE_GROUP_ID>
+      </PRODUCT_FEATURES>
+      <PRODUCT_ORDER_DETAILS>
+        <ORDER_UNIT>C62</ORDER_UNIT>
+        <CONTENT_UNIT>C62</CONTENT_UNIT>
+      </PRODUCT_ORDER_DETAILS>
+      <PRODUCT_PRICE_DETAILS>
+        <PRODUCT_PRICE price_type="net_list">
+          <PRICE_AMOUNT>16.49</PRICE_AMOUNT>
+          <PRICE_CURRENCY>EUR</PRICE_CURRENCY>
+          <LOWER_BOUND>1</LOWER_BOUND>
+        </PRODUCT_PRICE>
+        <PRODUCT_PRICE price_type="net_list">
+          <PRICE_AMOUNT>11.49</PRICE_AMOUNT>
+          <PRICE_CURRENCY>EUR</PRICE_CURRENCY>
+          <LOWER_BOUND>50</LOWER_BOUND>
+        </PRODUCT_PRICE>
+      </PRODUCT_PRICE_DETAILS>
+      <PRODUCT_PRICE_DETAILS>
+        <PRODUCT_PRICE price_type="net_customer">
+          <PRICE_AMOUNT>10.29</PRICE_AMOUNT>
+          <PRICE_CURRENCY>EUR</PRICE_CURRENCY>
+          <LOWER_BOUND>1</LOWER_BOUND>
+        </PRODUCT_PRICE>
+        <PRODUCT_PRICE price_type="net_customer">
+          <PRICE_AMOUNT>9.29</PRICE_AMOUNT>
+          <PRICE_CURRENCY>EUR</PRICE_CURRENCY>
+          <LOWER_BOUND>50</LOWER_BOUND>
+        </PRODUCT_PRICE>
+      </PRODUCT_PRICE_DETAILS>
+      <MIME_INFO>
+        <MIME>
+          <MIME_TYPE>image/gif</MIME_TYPE>
+          <MIME_SOURCE>P09.gif</MIME_SOURCE>
+          <MIME_PURPOSE>normal</MIME_PURPOSE>
+          <MIME_ORDER>1</MIME_ORDER>
+        </MIME>
+        <MIME>
+          <MIME_TYPE>url</MIME_TYPE>
+          <MIME_SOURCE>http://www.bmecat.org</MIME_SOURCE>
+          <MIME_PURPOSE>others</MIME_PURPOSE>
+          <MIME_ORDER>2</MIME_ORDER>
+        </MIME>
+      </MIME_INFO>
+    </PRODUCT>
+  </T_NEW_CATALOG>
+</BMECAT>

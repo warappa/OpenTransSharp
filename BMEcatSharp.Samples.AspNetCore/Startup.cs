@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,7 +40,10 @@ namespace BMEcatSharp.Samples.AspNetCore
                 // add custom xsd for validation
                 configure.Serialization.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
             });
-            services.AddControllers()
+            services.AddControllers(config =>
+            {
+                config.Filters.Add<ValidationExceptionFilter>();
+            })
                 // register for proper serialization over API
                 .AddBMEcatSharpXmlSerializer();
 
