@@ -39,6 +39,12 @@ namespace BMEcatSharp.Samples.AspNetCore
 
                 // add custom xsd for validation
                 configure.Serialization.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
+
+                // add xml-file encodings that must be supported
+                configure.Serialization.SupportedEncodings.Add("iso-8859-1");
+
+                // add xml-file content types that must be supported
+                configure.Serialization.SupportedMediaTypes.Add("text/xml");
             });
             services.AddControllers(config =>
             {

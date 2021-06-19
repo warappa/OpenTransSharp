@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -9,5 +10,7 @@ namespace BMEcatSharp
 
         public Action<XmlAttributeOverrides>? ConfigureXmlAttributeOverrides { get; set; }
         public Uri[]? XsdUris { get; set; }
+        public List<string> SupportedEncodings { get; set; } = new List<string> { "utf-8" };
+        public List<string> SupportedMediaTypes { get; set; } = new List<string> { "application/xml" };
     }
 }

@@ -4,8 +4,10 @@ using Microsoft.Net.Http.Headers;
 using OpenTransSharp.Validation;
 using OpenTransSharp.Xml;
 using System;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp.Microsoft.AspNetCore
@@ -14,12 +16,29 @@ namespace OpenTransSharp.Microsoft.AspNetCore
     {
         private readonly IOpenTransXmlSerializerFactory openTransXmlSerializerFactory;
 
-        public OpenTransSharpXmlSerializerInputFormatter(MvcOptions options, IOpenTransXmlSerializerFactory openTransXmlSerializerFactory)
+        public OpenTransSharpXmlSerializerInputFormatter(MvcOptions options, OpenTransXmlSerializerOptions serializerOptions,
+            IOpenTransXmlSerializerFactory openTransXmlSerializerFactory)
             : base(options)
         {
             this.openTransXmlSerializerFactory = openTransXmlSerializerFactory ?? throw new ArgumentNullException(nameof(openTransXmlSerializerFactory));
 
-            SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/xml"));
+            if (serializerOptions.SupportedMediaTypes is not null)
+            {
+                SupportedEncodings.Clear();
+                foreach (var mediaType in serializerOptions.SupportedMediaTypes)
+                {
+                    SupportedMediaTypes.Add(new MediaTypeHeaderValue(mediaType));
+                }
+            }
+
+            if (serializerOptions.SupportedEncodings is not null)
+            {
+                SupportedEncodings.Clear();
+                foreach (var encoding in serializerOptions.SupportedEncodings)
+                {
+                    SupportedEncodings.Add(Encoding.GetEncoding(encoding));
+                }
+            }
         }
 
         protected override bool CanReadType(Type type)
@@ -75,6 +94,13 @@ namespace OpenTransSharp.Microsoft.AspNetCore
             }
 
             return result;
+        }
+
+        // workaround "only-unicode-supported" bug
+        // https://forums.asp.net/t/2001154.aspx?Web+API+XmlMediaTypeFormatter+ModelBinding+fails+when+posting+XML+using+character+encoding+other+than+default
+        protected override XmlReader CreateXmlReader(Stream readStream, Encoding encoding)
+        {
+            return XmlReader.Create(readStream);
         }
     }
 }
