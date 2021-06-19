@@ -29,13 +29,8 @@ namespace OpenTransSharp
         /// </summary>
         /// <param name="id"></param>
         /// <param name="surname"></param>
-        public OpenTransContactDetails(string id, IEnumerable<BMEcatSharp.MultiLingualString> surname)
+        public OpenTransContactDetails(string? id, IEnumerable<BMEcatSharp.MultiLingualString> surname)
         {
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                throw new System.ArgumentException($"'{nameof(id)}' cannot be null or whitespace.", nameof(id));
-            }
-
             if (surname is null)
             {
                 throw new System.ArgumentNullException(nameof(surname));
@@ -55,7 +50,7 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("CONTACT_ID")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// (required) Contact name<br/>
