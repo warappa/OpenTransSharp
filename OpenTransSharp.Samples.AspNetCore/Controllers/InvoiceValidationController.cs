@@ -21,7 +21,7 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         [Consumes("application/xml")]
         public bool InvoiceViaModelBinding(Invoice invoice)
         {
-            return true; // validation implicitly by model binder
+            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]

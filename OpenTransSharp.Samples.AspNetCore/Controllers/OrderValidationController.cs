@@ -21,7 +21,7 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         [Consumes("application/xml")]
         public bool OrderViaModelBinding(Order order)
         {
-            return true; // validation implicitly by model binder
+            return true; // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
         }
 
         [HttpPost("via-stream")]
