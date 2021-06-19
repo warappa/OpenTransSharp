@@ -20,7 +20,7 @@ namespace OpenTransSharp.XmlSchemaAnalyzer
         [Test]
         public void Can_read_root_types()
         {
-            var xDocBmeCat = XDocument.Load("bmecat_2005.1.xsd");
+            var xDocBmeCat = XDocument.Load("bmecat_2005.xsd");
 
             var types = target.GetRootTypes(xDocBmeCat)
                 .ToList();
@@ -31,7 +31,7 @@ namespace OpenTransSharp.XmlSchemaAnalyzer
         [Test]
         public void Can_get_redefined_types()
         {
-            var xDocBmeCat = XDocument.Load("bmecat_2005.1.xsd");
+            var xDocBmeCat = XDocument.Load("bmecat_2005.xsd");
             var xDocOpenTrans = XDocument.Load("opentrans_2_1.xsd");
 
             var bmeTypes = target.GetRootTypes(xDocBmeCat)
