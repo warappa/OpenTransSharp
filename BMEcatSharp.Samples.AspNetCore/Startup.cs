@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace BMEcatSharp.Samples.AspNetCore
 {
@@ -33,10 +35,19 @@ namespace BMEcatSharp.Samples.AspNetCore
                 {
                     // add overrides
                 };
+
+                // add custom xsd for validation
+                configure.Serialization.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
             });
             services.AddControllers()
                 // register for proper serialization over API
                 .AddBMEcatSharpXmlSerializer();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                // optionally disable model state validation (also for BMEcat/OpenTrans models)
+                //options.SuppressModelStateInvalidFilter = true;
+            });
 
             services.AddSwaggerGen(c =>
             {

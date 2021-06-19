@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema
+  targetNamespace="http://www.bmecat.org/bmecat/2005"
+  xmlns:bmecat="http://www.bmecat.org/bmecat/2005"
+  elementFormDefault="qualified"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  >
+  <xsd:redefine schemaLocation="bmecat_2005.xsd">
+
+    <xsd:complexType name="udxHEADER" mixed="false">
+      <xsd:complexContent>
+        <xsd:extension base="bmecat:udxHEADER">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="udxPRODUCT" mixed="false">
+      <xsd:complexContent>
+        <xsd:extension base="bmecat:udxPRODUCT">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="udxCATALOGGROUP" mixed="false">
+      <xsd:complexContent>
+        <xsd:extension base="bmecat:udxCATALOGGROUP">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="udxCLASSGROUP" mixed="false">
+      <xsd:complexContent>
+        <xsd:extension base="bmecat:udxCLASSGROUP">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:redefine>
+</xsd:schema>

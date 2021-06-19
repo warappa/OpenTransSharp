@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -34,7 +35,7 @@ namespace BMEcatSharp.Validation
 
         public static ValidationResult Validate(this BMEcatDocument model, XmlSerializer serializer)
         {
-            var validationErrors = new List<string>();
+            var validationErrors = new List<ValidationError>();
 
             var schemaSet = GetXmlSchemaSet(serializer);
 
@@ -62,7 +63,7 @@ namespace BMEcatSharp.Validation
                         name = xa.GetAbsoluteXPath();
                     }
 
-                    validationErrors.Add($"{name}: {e.Message}");
+                    validationErrors.Add(new ValidationError(name, e.Message));
                 });
 
                 if (!isValid)
@@ -70,7 +71,9 @@ namespace BMEcatSharp.Validation
                     Debug.WriteLine(string.Join(Environment.NewLine, validationErrors));
                     return new ValidationResult
                     {
-                        Errors = validationErrors.ToArray()
+                        Errors = validationErrors
+                            .GroupBy(x => x.Key)
+                            .ToDictionary(x => x.Key, x => x.Select(x => x.Message).ToArray())
                     };
                 }
 

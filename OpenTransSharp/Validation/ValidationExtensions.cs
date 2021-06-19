@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -34,7 +35,7 @@ namespace OpenTransSharp.Validation
 
         public static ValidationResult Validate(this IOpenTransRoot model, XmlSerializer serializer)
         {
-            var validationErrors = new List<string>();
+            var validationErrors = new List<ValidationError>();
 
             var schemaSet = GetXmlSchemaSet(serializer);
 
@@ -47,7 +48,7 @@ namespace OpenTransSharp.Validation
                 using var reader = new StreamReader(ms);
                 var document = XDocument.Load(reader);
                 var isValid = true;
-                
+
                 document.Validate(schemaSet, (s, e) =>
                 {
                     isValid = false;
@@ -62,7 +63,7 @@ namespace OpenTransSharp.Validation
                         name = xa.GetAbsoluteXPath();
                     }
 
-                    validationErrors.Add($"{name}: {e.Message}");
+                    validationErrors.Add(new ValidationError(name, e.Message));
                 });
 
                 if (!isValid)
@@ -70,7 +71,9 @@ namespace OpenTransSharp.Validation
                     Debug.WriteLine(string.Join(Environment.NewLine, validationErrors));
                     return new ValidationResult
                     {
-                        Errors = validationErrors.ToArray()
+                        Errors = validationErrors
+                            .GroupBy(x => x.Key)
+                            .ToDictionary(x => x.Key, x => x.Select(x => x.Message).ToArray())
                     };
                 }
 

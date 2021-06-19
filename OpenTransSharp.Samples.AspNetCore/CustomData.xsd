@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema
+  targetNamespace="http://www.opentrans.org/XMLSchema/2.1"
+  xmlns:opentrans="http://www.opentrans.org/XMLSchema/2.1"
+  elementFormDefault="qualified"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  >
+  <xsd:redefine schemaLocation="opentrans_2_1.xsd">
+
+    <xsd:complexType name="udxHEADER" mixed="false">
+      <xsd:complexContent>
+        <xsd:restriction base="opentrans:udxHEADER">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="udxITEM" mixed="false">
+      <xsd:complexContent>
+        <xsd:restriction base="opentrans:udxITEM">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="udxREPORT" mixed="false">
+      <xsd:complexContent>
+        <xsd:restriction base="opentrans:udxREPORT">
+          <xsd:choice maxOccurs="unbounded">
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA_2">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10"/>
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="UDX.ORGANIZATION.CUSTOM_DATA.NAME" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+          <xsd:anyAttribute processContents="lax"/>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    
+  </xsd:redefine>
+</xsd:schema>

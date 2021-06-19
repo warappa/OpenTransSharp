@@ -114,8 +114,8 @@ namespace BMEcatSharp.Tests
             //Debug.WriteLine(serialized);
 
             var result = order.Validate(target);
-            result.Errors.Length.Should().BeGreaterThan(0);
-            result.Errors[0].Should().Contain("Too looooong");
+            result.Errors.Any().Should().Be(true);
+            result.Errors.First().Value[0].Should().Contain("Too looooong");
         }
 
         [Test]

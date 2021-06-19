@@ -77,8 +77,8 @@ namespace OpenTransSharp.Tests.Orders
             //Debug.WriteLine(serialized);
 
             var result = order.Validate(target);
-            result.Errors.Length.Should().BeGreaterThan(0);
-            result.Errors[0].Should().Contain("Too loooong");
+            result.Errors.Any().Should().Be(true);
+            result.Errors.First().Value[0].Should().Contain("Too loooong");
         }
 
         [Test]

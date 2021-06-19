@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BMEcatSharp.Validation
 {
     public class ValidationResult
     {
-        public bool IsValid => Errors.Length == 0;
-        public string[] Errors { get; set; } = Array.Empty<string>();
+        public bool IsValid => Errors.Keys.Count == 0;
+        public Dictionary<string, string[]> Errors { get; set; } = new Dictionary<string, string[]>();
     }
 }
