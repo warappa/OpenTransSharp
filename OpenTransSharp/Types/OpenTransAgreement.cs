@@ -50,8 +50,8 @@ namespace OpenTransSharp
         /// <br/>
         /// Owner of the skeleton agreement.<br/>
         /// If reference is made to skeleton agreements of an intermediary, the element value should point to the intermediary.<br/>
-        /// Some target systems are not in a position to interpret other values than the pre-defined ones.
-        /// See <see cref="AgreementTypeValues"/>.
+        /// Some target systems are not <inheritdoc/> a position to interpret other values than the pre-defined ones.
+        /// See <see cref="BMEcatSharp.AgreementTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public string? Type { get; set; }

@@ -69,6 +69,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Feature"/>
         /// </summary>
         /// <param name="idRef"></param>
+        /// <param name="values"></param>
         public Feature(string idRef, IEnumerable<MultiLingualString> values)
         {
             if (string.IsNullOrWhiteSpace(idRef))
@@ -110,6 +111,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Feature"/>
         /// </summary>
         /// <param name="template"></param>
+        /// <param name="values"></param>
         public Feature(FeatureTemplate template, IEnumerable<MultiLingualString> values)
         {
             if (values is null)
@@ -125,6 +127,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Feature"/>
         /// </summary>
         /// <param name="template"></param>
+        /// <param name="valueIdRefs"></param>
         public Feature(FeatureTemplate template, IEnumerable<string> valueIdRefs)
         {
             if (valueIdRefs is null)

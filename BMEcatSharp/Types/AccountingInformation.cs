@@ -33,7 +33,7 @@ namespace BMEcatSharp
         /// (required) Cost category<br/>
         /// <br/>
         /// Number of the cost center to be charged or the project or work order to which the charge must be made.<br/>
-        /// The type of cost category is fixed by the attribute "type".< br/>
+        /// The type of cost category is fixed by the attribute "type".<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
@@ -43,7 +43,7 @@ namespace BMEcatSharp
         /// <summary>
         /// (optional) Type of cost <br/>
         /// <br/>
-        /// Information about the type of cost, e.g. investment, service, consumption, etc.< br/>
+        /// Information about the type of cost, e.g. investment, service, consumption, etc.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
@@ -53,7 +53,7 @@ namespace BMEcatSharp
         /// <summary>
         /// (optional) Cost account<br/>
         /// <br/>
-        /// Number of the main account to be charged.< br/>
+        /// Number of the main account to be charged.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>

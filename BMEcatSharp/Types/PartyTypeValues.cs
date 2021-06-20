@@ -20,7 +20,7 @@
         /// </summary>
         public const string CustomerSpecific = "customer_specific";
         /// <summary>
-        /// Dun & Bradstreet<br/>
+        /// Dun &amp; Bradstreet<br/>
         /// <br/>
         /// DUNS-Number (see also http://dbuk.dnb.com/english/DataBase/duns.html).
         /// </summary>

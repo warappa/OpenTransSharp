@@ -1,7 +1,7 @@
 ﻿namespace BMEcatSharp
 {
     /// <summary>
-    /// For <see cref="TaxDetailsFix.Category"/>.<br/>
+    /// For <see cref="TaxDetails.Category"/>.<br/>
     /// <br/>
     /// XML-namespace: OpenTrans
     /// </summary>

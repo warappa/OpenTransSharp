@@ -8,7 +8,7 @@ namespace BMEcatSharp
 {
     /// <summary>
     /// (Configuration step)<br/>
-    /// <br/
+    /// <br/>
     /// This element contains information on a configuration step.<br/>
     /// <br/>
     /// XML-namespace: BMECAT

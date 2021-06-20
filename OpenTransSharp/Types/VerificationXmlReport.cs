@@ -41,7 +41,7 @@ namespace OpenTransSharp
         /// (required) Multimedia document<br/>
         /// <br/>
         /// The element describes the XML-structure in REPORT_UDX.<br/>
-        /// Notice: the standard-format for the name should follow "<Name>-<Major Version>.<Minor Version>".<br/>
+        /// Notice: the standard-format for the name should follow "&lt;Name&gt;-&lt;Major Version&gt;.&lt;Minor Version&gt;".<br/>
         /// <br/>
         /// Example: SigRepo-7.14.
         /// </summary>

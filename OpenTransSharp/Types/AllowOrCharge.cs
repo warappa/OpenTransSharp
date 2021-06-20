@@ -68,7 +68,7 @@ namespace OpenTransSharp
         /// (optional) Allowance or surcharge-type<br/>
         /// <br/>
         /// Typification of the type of the allowance or surcharge (e.g. freight, postage and packing,...).<br/>
-        /// See <see cref="AllowOrChargetypeValues"/>.
+        /// See <see cref="AllowOrChargeTypeValues"/>.
         /// </summary>
         [XmlElement("ALLOW_OR_CHARGE_TYPE")]
         public string? SpecificType { get; set; }

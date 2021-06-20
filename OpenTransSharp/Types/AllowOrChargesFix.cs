@@ -16,13 +16,13 @@ namespace OpenTransSharp
     public class AllowOrChargesFix
     {
         /// <summary>
-        /// <inheritdoc cref="AllowOrChargeFix"/>
+        /// <inheritdoc cref="AllowOrChargesFix"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public AllowOrChargesFix() { }
 
         /// <summary>
-        /// <inheritdoc cref="AllowOrChargeFix"/>
+        /// <inheritdoc cref="AllowOrChargesFix"/>
         /// </summary>
         /// <param name="list"></param>
         public AllowOrChargesFix(IEnumerable<AllowOrCharge> list)

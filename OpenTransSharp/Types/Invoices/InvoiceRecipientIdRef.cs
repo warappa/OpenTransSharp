@@ -55,7 +55,7 @@ namespace OpenTransSharp
         /// This attribute is used to state the coding standard to which the identifier (PARTY_ID) adheres.<br/>
         /// The most common coding standards are predefined.<br/>
         /// <br/>
-        /// See <see cref="PartyTypeValues"/>.
+        /// See <see cref="BMEcatSharp.PartyTypeValues"/>.
         /// </summary>
         [XmlAttribute("type")]
         public override string? Type { get; set; }

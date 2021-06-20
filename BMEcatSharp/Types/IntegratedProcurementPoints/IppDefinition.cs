@@ -29,6 +29,7 @@ namespace BMEcatSharp
         /// </summary>
         /// <param name="id"></param>
         /// <param name="type"></param>
+        /// <param name="operations"></param>
         public IppDefinition(string id, IppType type, IEnumerable<IppOperation> operations)
         {
             if (string.IsNullOrWhiteSpace(id))

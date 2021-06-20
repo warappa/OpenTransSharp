@@ -116,7 +116,7 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool LanguagesSpecified => Languages?.Count > 0;
 
-        // <summary>
+        /// <summary>
         /// (optional) MIME root directory<br/>
         /// <br/>
         /// A relative directory can be entered here (and/or a URI), i.e. one to which the relative paths in MIME_SOURCE refer.<br/>

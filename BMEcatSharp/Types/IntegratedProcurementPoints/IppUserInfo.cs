@@ -27,7 +27,6 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="IppUserInfo"/>
         /// </summary>
-        /// <param name="value"></param>
         /// <param name="occurrence"></param>
         public IppUserInfo(IppOccurrence occurrence)
         {

@@ -51,7 +51,7 @@ namespace OpenTransSharp
         /// 
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="type">For predefined values see <see cref="RemarkTypeValues"/>. Custom values can be used.</param>
+        /// <param name="type">For predefined values see <see cref="BMEcatSharp.RemarkTypeValues"/>. Custom values can be used.</param>
         public Remark(string value, string? type)
             : this(value)
         {
@@ -67,7 +67,7 @@ namespace OpenTransSharp
         /// <br/>
         /// Example: type= deliverynote means that the remark entered appears on the delivery note, e.g. "Please ring at the ramp and ask for Mr Miller".<br/>
         /// <br/>
-        /// For predefined values see <see cref="RemarkTypeValues"/>. Custom values can be used.
+        /// For predefined values see <see cref="BMEcatSharp.RemarkTypeValues"/>. Custom values can be used.
         /// </summary>
         [XmlAttribute("type")]
         public string? Type { get; set; }

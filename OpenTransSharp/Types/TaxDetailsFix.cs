@@ -43,7 +43,7 @@ namespace OpenTransSharp
         /// The specification should take place, if possible, by using a common code.<br/>
         /// The list of predefined values contains codes that should be used within the European Union (see also http://europa.eu.int/comm/taxation_customs/taxation/vat/how_vat_works/rates/index_en.htm).<br/>
         /// <br/>
-        /// See <see cref="TaxCategoryValues"/>.
+        /// See <see cref="BMEcatSharp.TaxCategoryValues"/>.
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>

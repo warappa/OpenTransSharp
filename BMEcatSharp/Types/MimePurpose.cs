@@ -3,7 +3,7 @@
 namespace BMEcatSharp
 {
     /// <summary>
-    /// Permitted values vor <see cref="Mime.Purpose"/>.<br/>
+    /// Permitted values vor <see cref="BMEcatMime.Purpose"/>.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
