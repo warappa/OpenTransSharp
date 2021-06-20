@@ -28,8 +28,6 @@ namespace BMEcatSharp.Internal
 
         public Stream? GetStream(string resourceName)
         {
-            Console.WriteLine("Get schema: " + resourceName);
-
             var searchName = FindEmbeddedName(resourceName);
 
             if (searchName is null)

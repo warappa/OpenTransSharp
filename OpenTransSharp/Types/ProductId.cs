@@ -128,7 +128,7 @@ namespace OpenTransSharp
         public bool DescriptionShortsSpecified => DescriptionShorts?.Count > 0;
 
         /// <summary>
-        /// (optional ) Long description<br/>
+        /// (optional) Long description<br/>
         /// <br/>
         /// This element contains the long description of the product.<br/>
         /// <br/>
