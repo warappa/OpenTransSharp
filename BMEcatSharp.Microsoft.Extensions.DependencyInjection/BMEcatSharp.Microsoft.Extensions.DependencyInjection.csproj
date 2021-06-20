@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0</TargetFrameworks>
+    <PackageTags>bmecat bmecat-2005</PackageTags>
+    <Description>Microsoft.Extensions.DependencyInjection support for BMEcatSharp</Description>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">

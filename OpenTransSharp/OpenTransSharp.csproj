@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <PackageTags>opentrans opentrans-21</PackageTags>
+    <Description>Read/edit/write/validate openTRANS 2.1 xml files.</Description>
   </PropertyGroup>
 
   <ItemGroup>
