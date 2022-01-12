@@ -1,7 +1,6 @@
 <Project>
-
   <PropertyGroup>
-    <Version>1.0.0-pre1</Version>
+    <Version>1.0.0-pre2</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
@@ -13,60 +12,12 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
-      1.0.0-pre1
-      OpenTransSharp and BMEcatSharp
-      
-      This project enables reading, editing, writing and validating openTRANS® 2.1 and BMEcat® 2005 files.
-      While developing, your IntelliSense is enriched with contents of the official specification-documents.
-      It also provides seamless integration into Microsoft.Extensions.DependencyInjection and ASP.NET Core.
-
-      This project is built on the .NET platform and uses the MPL 2.0 license (see https://github.com/warappa/OpenTransSharp#mpl-20-tldr for what that means for you).
-
-      NuGet packages of this project
-      * BMEcatSharp
-      * BMEcatSharp.Microsoft.Extensions.DependencyInjection
-      * BMEcatSharp.Microsoft.AspNetCore
-      * OpenTransSharp
-      * OpenTransSharp.Microsoft.Extensions.DependencyInjection
-      * OpenTransSharp.Microsoft.AspNetCore
-
-      Features:
-      * Compatible with .NET Standard 2.0, .NET Core 2.1+ or .NET 5+
-      * Rich IntelliSense extended with contents of the official specification-documents
-      ** Meaning of elements/attributes
-      ** Required elements
-      ** Choices between elements
-      * Reading/editing/writing BMEcat®- and openTRANS®-files
-      ** Enums where possible, like `LanguageCodes`, `Unit`, `PackageUnit`, `CountryCode`, `OrderType`, `MimePurpose`, `PartyRole`,... and many more
-      * Validation against official XSDs
-      ** Including adding custom XSD validations (see UDX below)
-      * Proper support for User-Defined-Extension data (UDX)
-      ** Enhance your documents with custom data
-      * Microsoft.Extensions.DependencyInjection integration
-      ** Extension methods for service registration (with optional options)
-      * ASP.NET Core integration
-      ** Model-binding support
-      ** Model state support
-      ** Custom encodings and content-types support
-      * BMEcat® 2005 support
-      ** Module Classification Systems, Catalog Groups Systems, and Feature Systems
-      ** Module Product Configuration
-      ** Module Price Formulas
-      ** Module Integrated Procurement Point
-      ** Multilingual Strings
-      * openTRANS® 2.1 support
-      ** RFQ (request for quotation)
-      ** Quotation
-      ** Order
-      ** Order-Change
-      ** Order-Response (confirmation of order)
-      ** Dispatch-Notification
-      ** Receipt-Acknowledgement (acknowledgement of receipt of goods)
-      ** Invoice
-      ** Invoice-List (collective invoice)
-      ** Remittance-Advice (Notification or remittance)
-      ** Multilingual Strings
-    </PackageReleaseNotes>
+		1.0.0-pre2
+		- #2: Invalid XML Mapping for ClassificationGroupFeatureTemplate.Values
+		- #3: DOCTYPE Causes Exception
+		- #4: Drop support for now unsupported .NET Core 2.1
+		- #5: Add proper support for .NET 6
+	</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
