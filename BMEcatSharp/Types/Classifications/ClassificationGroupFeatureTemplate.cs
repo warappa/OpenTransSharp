@@ -133,7 +133,8 @@ namespace BMEcatSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("FT_VALUES")]
+        [BMEXmlArray("FT_VALUES")]
+        [BMEXmlArrayItem("FT_VALUE")]
         public List<FeatureValue>? Values { get; set; } = new List<FeatureValue>();
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ValuesSpecified => Values?.Count > 0;
