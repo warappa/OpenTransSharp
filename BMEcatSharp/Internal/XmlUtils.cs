@@ -21,7 +21,6 @@ namespace BMEcatSharp.Internal
         {
             if (!uriValue.Contains(":/"))
             {
-
                 uriValue = EmbeddedXmlUrlResolver.BaseUri + "/" + uriValue;
             }
 

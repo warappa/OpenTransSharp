@@ -1,4 +1,5 @@
-﻿using BMEcatSharp.Validation;
+﻿using BMEcatSharp.Internal;
+using BMEcatSharp.Validation;
 using BMEcatSharp.Xml;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -102,7 +103,14 @@ namespace BMEcatSharp.Microsoft.AspNetCore
         // https://forums.asp.net/t/2001154.aspx?Web+API+XmlMediaTypeFormatter+ModelBinding+fails+when+posting+XML+using+character+encoding+other+than+default
         protected override XmlReader CreateXmlReader(Stream readStream, Encoding encoding)
         {
-            return XmlReader.Create(readStream);
+            var reader = XmlReader.Create(readStream, new XmlReaderSettings
+            {
+                DtdProcessing = DtdProcessing.Ignore,
+                CloseInput = false,
+                XmlResolver = XmlUtils.XmlResolver,
+            }, EmbeddedXmlUrlResolver.BaseUri);
+
+            return reader;
         }
     }
 }
