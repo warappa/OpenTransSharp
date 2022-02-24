@@ -89,7 +89,7 @@ namespace BMEcatSharp
         /// <br/>
         /// The product is a service.
         /// </summary>
-        [XmlEnum("ervice")]
+        [XmlEnum("service")]
         Service
     }
 }
