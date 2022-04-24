@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.0-pre2</Version>
+    <Version>1.0.0-pre3</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -17,11 +17,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
-		1.0.0-pre2
-		- #2: Invalid XML Mapping for ClassificationGroupFeatureTemplate.Values
-		- #3: DOCTYPE Causes Exception
-		- #4: Drop support for now unsupported .NET Core 2.1
-		- #5: Add proper support for .NET 6
+		1.0.0-pre3
+		- #7: Wrong Spelling of Service
 	</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	<IncludeSymbols>true</IncludeSymbols>
