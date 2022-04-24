@@ -3,7 +3,12 @@
     <Version>1.0.0-pre2</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Shared NuGet Package Information">
+	<PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <Authors>David Rettenbacher</Authors>
     <Company />
     <Copyright>Copyright © David Rettenbacher 2021</Copyright>
@@ -19,8 +24,13 @@
 		- #5: Add proper support for .NET 6
 	</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
+  <ItemGroup Label="SourceLink Support">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+  </ItemGroup>
 
 </Project>
