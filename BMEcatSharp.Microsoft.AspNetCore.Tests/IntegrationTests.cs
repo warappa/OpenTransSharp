@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using NUnit.Framework;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -33,7 +34,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("validation/via-stream", content);
-            result.StatusCode.Should().Be(200);
+            result.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
@@ -45,7 +46,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("validation/via-stream", content);
-            result.StatusCode.Should().Be(400);
+            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
             var error = await GetValidationResult(result);
             error.Errors.First().Value[0].Should().Contain("MaxLength");
@@ -60,7 +61,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("validation/via-model-binding", content);
-            result.StatusCode.Should().Be(200);
+            result.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
@@ -72,7 +73,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("validation/via-model-binding", content);
-            result.StatusCode.Should().Be(400);
+            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
             var error = await GetValidationResult(result);
             error.Errors.ElementAt(1).Value[0].Should().Contain("MaxLength");
@@ -89,7 +90,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
             };
 
             var result = await client.PostAsync("validation/via-file", content);
-            result.StatusCode.Should().Be(200);
+            result.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
@@ -103,7 +104,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
             };
 
             var result = await client.PostAsync("validation/via-file", content);
-            result.StatusCode.Should().Be(400);
+            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
             
             var error = await GetValidationResult(result);
             error.Errors.First().Value[0].Should().Contain("MaxLength");

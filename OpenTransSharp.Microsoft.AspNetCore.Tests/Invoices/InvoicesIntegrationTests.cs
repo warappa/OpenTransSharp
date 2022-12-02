@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Text;
+using System.Net;
 
 namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
 {
@@ -34,7 +35,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("InvoiceValidation/via-stream", content);
-            result.StatusCode.Should().Be(200);
+            result.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
@@ -46,7 +47,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("InvoiceValidation/via-stream", content);
-            result.StatusCode.Should().Be(400);
+            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
             var error = await GetValidationResult(result);
             error.Errors.First().Value[0].Should().Contain("MaxLength");
@@ -65,7 +66,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
 
             var result = await client.PostAsync("InvoiceValidation/via-model-binding", content);
             var r = await result.Content.ReadAsStringAsync();
-            result.StatusCode.Should().Be(200);
+            result.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
@@ -77,7 +78,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
             content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
 
             var result = await client.PostAsync("InvoiceValidation/via-model-binding", content);
-            result.StatusCode.Should().Be(400);
+            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
             var error = await GetValidationResult(result);
             error.Errors.ElementAt(1).Value[0].Should().Contain("MaxLength");
@@ -95,7 +96,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
 
             var result = await client.PostAsync("InvoiceValidation/via-file", content);
             var r = await result.Content.ReadAsStringAsync();
-            result.StatusCode.Should().Be(200);
+            result.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
@@ -109,7 +110,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.Invoices
             };
 
             var result = await client.PostAsync("InvoiceValidation/via-file", content);
-            result.StatusCode.Should().Be(400);
+            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
             var error = await GetValidationResult(result);
             error.Errors.First().Value[0].Should().Contain("MaxLength");
