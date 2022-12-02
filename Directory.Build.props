@@ -3,15 +3,16 @@
     <Version>1.0.0-pre3</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
-  
+
   <PropertyGroup Label="Shared NuGet Package Information">
-	<PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <Authors>David Rettenbacher</Authors>
     <Company />
-    <Copyright>Copyright © David Rettenbacher 2021</Copyright>
+    <Copyright>Copyright © David Rettenbacher 2022</Copyright>
     <PackageProjectUrl>https://github.com/warappa/OpenTransSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/warappa/OpenTransSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -21,8 +22,8 @@
 		- #7: Wrong Spelling of Service
 	</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	<IncludeSymbols>true</IncludeSymbols>
-	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 

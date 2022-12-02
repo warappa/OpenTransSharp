@@ -75,9 +75,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{433033
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMEcatSharp.Microsoft.AspNetCore.Tests", "BMEcatSharp.Microsoft.AspNetCore.Tests\BMEcatSharp.Microsoft.AspNetCore.Tests.csproj", "{8F436F30-F866-4096-8556-488CF9752F8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMEcatSharp.Microsoft.AspNetCore.Tests", "BMEcatSharp.Microsoft.AspNetCore.Tests\BMEcatSharp.Microsoft.AspNetCore.Tests.csproj", "{8F436F30-F866-4096-8556-488CF9752F8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTransSharp.Microsoft.AspNetCore.Tests", "OpenTransSharp.Microsoft.AspNetCore.Tests\OpenTransSharp.Microsoft.AspNetCore.Tests.csproj", "{39AB7244-E520-452A-A366-107FEEA326EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTransSharp.Microsoft.AspNetCore.Tests", "OpenTransSharp.Microsoft.AspNetCore.Tests\OpenTransSharp.Microsoft.AspNetCore.Tests.csproj", "{39AB7244-E520-452A-A366-107FEEA326EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24B51074-CF87-43D1-8986-281986172618}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
