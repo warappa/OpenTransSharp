@@ -29,13 +29,13 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         public void ReceiptAcknowledgementViaStream()
         {
             var serializer = serializerFactory.Create<ReceiptAcknowledgement>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var receiptAcknowledgement = serializer.Deserialize<ReceiptAcknowledgement>(stream);
 
             receiptAcknowledgement.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
         public void ReceiptAcknowledgementViaFile(IFormFile file)
         {

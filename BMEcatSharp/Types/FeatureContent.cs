@@ -19,7 +19,7 @@ namespace BMEcatSharp
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public FeatureContent() { }
-        
+
         public FeatureContent(FeatureDataTypeValues dataType)
         {
             DataType = dataType;

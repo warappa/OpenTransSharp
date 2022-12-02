@@ -17,7 +17,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="AgreementReference"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public AgreementReference() 
+        public AgreementReference()
         {
             IdReference = null!;
         }

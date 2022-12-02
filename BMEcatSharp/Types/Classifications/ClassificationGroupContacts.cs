@@ -19,7 +19,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="ClassificationGroupContacts"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ClassificationGroupContacts() 
+        public ClassificationGroupContacts()
         {
             PartyIdRef = null!;
         }

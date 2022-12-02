@@ -12,7 +12,7 @@ namespace OpenTransSharp.Tests.Orders
 {
     public class OrderSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 
@@ -28,7 +28,7 @@ namespace OpenTransSharp.Tests.Orders
             options.IncludeUdxTypes = new[]
             {
                 typeof(CustomData),
-                typeof(CustomData2) 
+                typeof(CustomData2)
             };
             options.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
 
@@ -65,7 +65,7 @@ namespace OpenTransSharp.Tests.Orders
 
             order.IsValid(target).Should().Be(true);
         }
-        
+
 
         [Test]
         public void Can_validate_Order_with_UDX_with_error()
@@ -85,14 +85,14 @@ namespace OpenTransSharp.Tests.Orders
         public void Can_deserialize_sample_order()
         {
             var stream = File.Open(@"Orders\sample_order_opentrans_2_1_xml signature.xml", FileMode.Open);
-            
+
             var order = target.Deserialize<Order>(stream);
 
             order.Header.Information.HeaderUdx.Count.Should().Be(1);
-            
+
             var udx = order.Header.Information.HeaderUdx.First();
             udx.GetType().Should().BeAssignableTo<CustomData>();
-            
+
             var customData = (CustomData)udx;
             customData.Names[0].Should().Be("Name 1");
             customData.Names[1].Should().Be("Name 2");

@@ -10,7 +10,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
 {
     public class RemittanceAdviceSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 

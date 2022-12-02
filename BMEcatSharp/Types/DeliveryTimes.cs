@@ -19,7 +19,7 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="DeliveryTimes"/>
         /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)] 
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public DeliveryTimes() { }
 
         /// <summary>

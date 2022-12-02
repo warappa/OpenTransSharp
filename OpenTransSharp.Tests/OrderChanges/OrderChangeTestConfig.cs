@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.OrderChanges
 {
     internal class OrderChangeTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public OrderChangeTestConfig(TestConfig parent)
         {

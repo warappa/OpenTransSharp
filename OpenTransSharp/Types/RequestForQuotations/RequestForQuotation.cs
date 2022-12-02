@@ -30,7 +30,7 @@ namespace OpenTransSharp
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public RequestForQuotation() { }
-        
+
         public RequestForQuotation(OpenTransVersion version, OrderType type, RequestForQuotationHeader header, IEnumerable<RequestForQuotationItem> items, RequestForQuotationSummary summary)
         {
             if (items is null)

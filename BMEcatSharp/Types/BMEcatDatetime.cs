@@ -26,7 +26,7 @@ namespace BMEcatSharp
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public BMEcatDatetime()
-        { 
+        {
         }
 
         /// <summary>

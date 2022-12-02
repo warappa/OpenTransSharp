@@ -22,7 +22,7 @@ namespace OpenTransSharp
         /// <inheritdoc cref="DocexchangePartiesReference"/>
         /// </summary>
         public DocexchangePartiesReference() { }
-        
+
         /// <summary>
         /// (optional) Reference to the document issuer<br/>
         /// <br/>

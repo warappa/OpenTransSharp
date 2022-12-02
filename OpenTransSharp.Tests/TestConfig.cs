@@ -133,7 +133,7 @@ namespace OpenTransSharp.Tests
         public InvoiceListTestConfig InvoiceLists { get; }
 
         public RemittanceAdviceTestConfig RemittanceAdvices { get; }
-        
+
         public TaxDetailsFix GetTaxDetailsFix()
         {
             var model = new TaxDetailsFix();
@@ -271,7 +271,7 @@ namespace OpenTransSharp.Tests
                 },
                 Roles = new List<global::BMEcatSharp.PartyRole> { global::BMEcatSharp.PartyRole.Buyer }
             };
-            
+
             model.Addresses.Add(GetAddress());
             model.Addresses.Add(GetAddress());
             model.Accounts.Add(GetAccount());

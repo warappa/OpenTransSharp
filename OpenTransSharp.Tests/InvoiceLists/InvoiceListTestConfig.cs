@@ -6,7 +6,7 @@ namespace OpenTransSharp.Tests.InvoiceLists
 {
     internal class InvoiceListTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public InvoiceListTestConfig(TestConfig parent)
         {

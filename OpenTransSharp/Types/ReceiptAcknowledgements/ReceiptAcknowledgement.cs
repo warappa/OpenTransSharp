@@ -44,7 +44,7 @@ namespace OpenTransSharp
         /// <param name="header"></param>
         /// <param name="items"></param>
         /// <param name="summary"></param>
-        public ReceiptAcknowledgement(OpenTransVersion version, ReceiptAcknowledgementHeader header, IEnumerable<ReceiptAcknowledgementItem> items, 
+        public ReceiptAcknowledgement(OpenTransVersion version, ReceiptAcknowledgementHeader header, IEnumerable<ReceiptAcknowledgementItem> items,
             ReceiptAcknowledgementSummary summary)
         {
             if (items is null)

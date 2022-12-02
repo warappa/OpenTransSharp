@@ -14,7 +14,7 @@ namespace BMEcatSharp.Validation
 {
     public static class ValidationExtensions
     {
-        private static object lockObject = new object();
+        private static readonly object lockObject = new object();
 
         private static XmlSchemaSet? cachedSchemaSet;
 

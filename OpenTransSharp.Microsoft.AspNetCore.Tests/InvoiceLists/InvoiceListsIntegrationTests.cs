@@ -1,15 +1,15 @@
-using OpenTransSharp.Samples.AspNetCore;
-using OpenTransSharp.Validation;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using NUnit.Framework;
+using OpenTransSharp.Samples.AspNetCore;
+using OpenTransSharp.Validation;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Net;
 
 namespace OpenTransSharp.Microsoft.AspNetCore.Tests.InvoiceLists
 {
@@ -107,7 +107,7 @@ namespace OpenTransSharp.Microsoft.AspNetCore.Tests.InvoiceLists
 
             var result = await client.PostAsync("InvoiceListValidation/via-file", content);
             result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            
+
             var error = await GetValidationResult(result);
             error.Errors.First().Value[0].Should().Contain("MaxLength");
         }

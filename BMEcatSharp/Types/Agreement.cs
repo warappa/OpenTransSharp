@@ -20,7 +20,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="Agreement"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public Agreement() 
+        public Agreement()
         {
             Id = null!;
         }

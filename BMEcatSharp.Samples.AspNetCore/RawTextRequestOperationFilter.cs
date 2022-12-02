@@ -10,7 +10,7 @@ namespace BMEcatSharp.Samples.AspNetCore
         {
             var rawTextRequestAttribute = context.MethodInfo.GetCustomAttributes(true)
                .SingleOrDefault((attribute) => attribute is RawTextRequestAttribute) as RawTextRequestAttribute;
-            
+
             if (rawTextRequestAttribute != null)
             {
                 operation.RequestBody = new OpenApiRequestBody();

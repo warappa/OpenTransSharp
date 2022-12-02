@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BMEcatSharp.Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using BMEcatSharp.Microsoft.AspNetCore;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

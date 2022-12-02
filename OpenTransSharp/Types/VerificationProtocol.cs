@@ -18,7 +18,7 @@ namespace OpenTransSharp
         /// <inheritdoc cref="VerificationProtocol"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public VerificationProtocol() 
+        public VerificationProtocol()
         {
             ResultCode = null!;
         }

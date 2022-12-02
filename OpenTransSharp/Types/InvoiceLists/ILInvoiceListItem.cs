@@ -18,7 +18,7 @@ namespace OpenTransSharp
         public ILInvoiceListItem()
         {
             InvoiceReference = null!;
-        
+
         }
 
         /// <summary>

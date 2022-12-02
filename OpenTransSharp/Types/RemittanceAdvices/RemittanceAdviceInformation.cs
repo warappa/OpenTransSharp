@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// <inheritdoc cref="RemittanceAdviceInformation"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public RemittanceAdviceInformation() 
+        public RemittanceAdviceInformation()
         {
             Id = null!;
             Currency = null!;

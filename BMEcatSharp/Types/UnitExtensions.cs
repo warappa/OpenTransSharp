@@ -27,7 +27,7 @@ namespace BMEcatSharp
             var attribute = (XmlEnumAttribute)attributes[0];
             return attribute.Name;
         }
-        
+
         public static Unit? GetStandardUnit(string? unitString)
         {
             return unitString is null ? null : Enum.TryParse<Unit>(unitString, out var parsedUnit) ? parsedUnit : null;

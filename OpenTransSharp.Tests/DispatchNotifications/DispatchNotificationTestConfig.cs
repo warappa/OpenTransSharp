@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 {
     internal class DispatchNotificationTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public DispatchNotificationTestConfig(TestConfig parent)
         {

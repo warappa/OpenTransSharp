@@ -10,7 +10,7 @@ namespace OpenTransSharp.Tests.RequestForQuotations
 {
     public class RequestForQuotationSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 

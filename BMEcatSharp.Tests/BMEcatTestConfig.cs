@@ -252,7 +252,7 @@ namespace BMEcatSharp.Tests
             model.ClassificationSystem.Add(GetClassificationSystem());
             model.IppDefinitions.Add(GetIppDefinition());
             model.Formulas.Add(GetFormula());
-            
+
             return model;
         }
 
@@ -278,7 +278,7 @@ namespace BMEcatSharp.Tests
             model.Description.Add(new MultiLingualString("Ipp Operation Beschreibung", LanguageCodes.deu));
             model.Outbounds.Add(GetIppOutbound());
             model.Inbounds.Add(GetIppInbound());
-            
+
             return model;
         }
 

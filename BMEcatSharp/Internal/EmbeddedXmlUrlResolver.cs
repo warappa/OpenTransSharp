@@ -10,7 +10,7 @@ namespace BMEcatSharp.Internal
 {
     internal class EmbeddedXmlUrlResolver : XmlUrlResolver
     {
-        private Assembly[] assemblies;
+        private readonly Assembly[] assemblies;
 
         public const string BaseUri = "embedded://";
 

@@ -51,7 +51,7 @@ namespace OpenTransSharp
 
             Version = version;
             Header = header ?? throw new ArgumentNullException(nameof(header));
-            Items = items.ToList();            
+            Items = items.ToList();
             Summary = summary ?? throw new ArgumentNullException(nameof(summary));
         }
 

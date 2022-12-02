@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BMEcatSharp.Xml;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using BMEcatSharp.Xml;
 
 namespace BMEcatSharp.Microsoft.AspNetCore
 {

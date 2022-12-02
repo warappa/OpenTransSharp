@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.Quotations
 {
     internal class QuotationTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public QuotationTestConfig(TestConfig parent)
         {

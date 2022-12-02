@@ -228,7 +228,7 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("FUNIT")]
-        public string? Unit { get; set; }        
+        public string? Unit { get; set; }
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool UnitSpecified => Unit is not null;
         [XmlIgnore]

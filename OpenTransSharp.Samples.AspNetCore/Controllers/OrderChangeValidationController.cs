@@ -29,13 +29,13 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         public void OrderChangeViaStream()
         {
             var serializer = serializerFactory.Create<OrderChange>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var orderChange = serializer.Deserialize<OrderChange>(stream);
 
             orderChange.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
         public void OrderChangeViaFile(IFormFile file)
         {

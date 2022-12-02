@@ -17,7 +17,7 @@ namespace OpenTransSharp
         /// <summary>
         /// <inheritdoc cref="SourcingInformation"/>
         /// </summary>
-        public SourcingInformation() {}
+        public SourcingInformation() { }
 
         /// <summary>
         /// (optional) Supplier quotation number<br/>

@@ -6,7 +6,7 @@ namespace BMEcatSharp
     /// For <see cref="PriceFlag"/>.
     /// </summary>
     public static class PriceFlagTypes
-    {   
+    {
         /// <summary>
         /// Including duty<br/>
         /// <br/>

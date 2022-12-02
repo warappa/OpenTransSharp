@@ -24,7 +24,7 @@ namespace BMEcatSharp
         /// <summary>
         /// <inheritdoc cref="ConfigurationParts"/>
         /// </summary>
-        public ConfigurationParts(IEnumerable<PartAlternative> alternatives) 
+        public ConfigurationParts(IEnumerable<PartAlternative> alternatives)
         {
             if (alternatives is null)
             {

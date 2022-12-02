@@ -10,7 +10,7 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
 {
     public class ReceiptAcknowledgementSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 

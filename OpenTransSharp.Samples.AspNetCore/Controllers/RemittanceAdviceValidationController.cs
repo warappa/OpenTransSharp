@@ -29,13 +29,13 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         public void RemittanceAdviceViaStream()
         {
             var serializer = serializerFactory.Create<RemittanceAdvice>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
 
             remittanceAdvice.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
         public void RemittanceAdviceViaFile(IFormFile file)
         {

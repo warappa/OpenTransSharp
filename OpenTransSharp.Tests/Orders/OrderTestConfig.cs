@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.Orders
 {
     internal class OrderTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public OrderTestConfig(TestConfig parent)
         {
@@ -113,7 +113,7 @@ namespace OpenTransSharp.Tests.Orders
             model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
             model.OrderPartiesReference = parent.GetOrderPartiesReference();
-            model.DocexchangePartiesReference =parent.GetDocexchangePartiesReference();
+            model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
             model.Currency = "EUR";
             model.MimeInfo = parent.GetMimeInfo();
             model.Remarks.AddRange(parent.GetRemarks());

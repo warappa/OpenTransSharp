@@ -29,13 +29,13 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         public void RequestForQuotationViaStream()
         {
             var serializer = serializerFactory.Create<RequestForQuotation>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var requestForQuotation = serializer.Deserialize<RequestForQuotation>(stream);
 
             requestForQuotation.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
         public void RequestForQuotationViaFile(IFormFile file)
         {

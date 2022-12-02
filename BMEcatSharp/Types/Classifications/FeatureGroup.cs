@@ -19,7 +19,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="FeatureGroup"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public FeatureGroup() 
+        public FeatureGroup()
         {
             Id = null!;
         }

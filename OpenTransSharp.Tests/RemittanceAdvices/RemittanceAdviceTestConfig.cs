@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
 {
     internal class RemittanceAdviceTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public RemittanceAdviceTestConfig(TestConfig parent)
         {

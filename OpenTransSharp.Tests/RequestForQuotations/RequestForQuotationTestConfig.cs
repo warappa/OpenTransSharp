@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.RequestForQuotations
 {
     internal class RequestForQuotationTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public RequestForQuotationTestConfig(TestConfig parent)
         {
@@ -43,7 +43,7 @@ namespace OpenTransSharp.Tests.RequestForQuotations
             model.ProductId = parent.GetProductId();
             model.Quantity = 2;
             model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.ProductPriceFix =parent.GetProductPriceFix();
+            model.ProductPriceFix = parent.GetProductPriceFix();
             model.PriceLineAmount = 10;
             model.PartialShipmentAllowed = false;
             model.DeliveryDate = parent.GetDeliveryDate();
@@ -108,7 +108,7 @@ namespace OpenTransSharp.Tests.RequestForQuotations
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();
             model.Parties.AddRange(parent.GetParties());
-            model.OrderPartiesReference = parent.GetOrderPartiesReference();;
+            model.OrderPartiesReference = parent.GetOrderPartiesReference(); ;
             model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
             model.Currency = "EUR";
             model.MimeInfo = parent.GetMimeInfo();

@@ -10,7 +10,7 @@ namespace OpenTransSharp.Tests.OrderChanges
 {
     public class OrderChangeSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 

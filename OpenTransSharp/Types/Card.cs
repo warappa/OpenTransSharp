@@ -21,7 +21,7 @@ namespace OpenTransSharp
             Number = null!;
             HolderName = null!;
         }
-        
+
         public Card(string type, string number, DateTime expirationDate, string holderName)
         {
             if (string.IsNullOrWhiteSpace(type))

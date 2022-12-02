@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.OrderResponses
 {
     internal class OrderResponseTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public OrderResponseTestConfig(TestConfig parent)
         {

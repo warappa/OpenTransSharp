@@ -19,7 +19,7 @@ namespace OpenTransSharp
         /// <inheritdoc cref="XmlSignature"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public XmlSignature() 
+        public XmlSignature()
         {
             Signature = null!;
         }

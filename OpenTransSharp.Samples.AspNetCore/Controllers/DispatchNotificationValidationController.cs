@@ -29,18 +29,18 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         public void DispatchNotificationViaStream()
         {
             var serializer = serializerFactory.Create<DispatchNotification>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var dispatchNotification = serializer.Deserialize<DispatchNotification>(stream);
 
             dispatchNotification.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
         public void DispatchNotificationViaFile(IFormFile file)
         {
             var serializer = serializerFactory.Create<DispatchNotification>();
-            
+
             using var stream = file.OpenReadStream();
             var dispatchNotification = serializer.Deserialize<DispatchNotification>(stream);
 

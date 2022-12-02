@@ -9,7 +9,7 @@ namespace OpenTransSharp.Xml
         public OpenTransXmlSerializerFactory(OpenTransXmlSerializerOptions options)
             : base(options)
         {
-            
+
         }
 
         protected override void ConfigureUdx(IDictionary<string, Type> mappings, XmlAttributeOverrides overrides)

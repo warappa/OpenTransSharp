@@ -16,7 +16,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="FormulaVersion"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public FormulaVersion() 
+        public FormulaVersion()
         {
             Version = null!;
         }

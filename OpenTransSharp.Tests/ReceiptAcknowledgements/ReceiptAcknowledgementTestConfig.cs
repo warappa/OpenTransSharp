@@ -5,7 +5,7 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
 {
     internal class ReceiptAcknowledgementTestConfig
     {
-        private TestConfig parent;
+        private readonly TestConfig parent;
 
         public ReceiptAcknowledgementTestConfig(TestConfig parent)
         {

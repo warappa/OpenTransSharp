@@ -11,7 +11,7 @@ namespace OpenTransSharp.Tests.Invoices
 {
     public class InvoiceSerializationTests
     {
-        private TestConfig testConfig;
+        private readonly TestConfig testConfig;
         private OpenTransXmlSerializerFactory serializerFactory;
         private XmlSerializer target;
 

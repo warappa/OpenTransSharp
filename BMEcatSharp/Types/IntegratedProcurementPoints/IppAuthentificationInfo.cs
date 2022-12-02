@@ -26,7 +26,7 @@ namespace BMEcatSharp
         /// <inheritdoc cref="IppAuthentificationInfo"/>
         /// </summary>
         /// <param name="authentifications"></param>
-        public IppAuthentificationInfo(IEnumerable<Authentification> authentifications) 
+        public IppAuthentificationInfo(IEnumerable<Authentification> authentifications)
         {
             if (authentifications is null)
             {

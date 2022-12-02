@@ -29,13 +29,13 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         public void InvoiceListViaStream()
         {
             var serializer = serializerFactory.Create<InvoiceList>();
-            
+
             using var stream = Request.BodyReader.AsStream();
             var invoiceList = serializer.Deserialize<InvoiceList>(stream);
 
             invoiceList.EnsureValid(serializer);
         }
-        
+
         [HttpPost("via-file")]
         public void InvoiceListViaFile(IFormFile file)
         {

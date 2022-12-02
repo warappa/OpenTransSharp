@@ -105,7 +105,7 @@ namespace BMEcatSharp.Microsoft.AspNetCore.Tests
 
             var result = await client.PostAsync("validation/via-file", content);
             result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            
+
             var error = await GetValidationResult(result);
             error.Errors.First().Value[0].Should().Contain("MaxLength");
         }
