@@ -1,0 +1,1 @@
+dotnet pack ../src/OpenTransSharp.sln -c Release -o %LOCAL_NUGET_DIRECTORY%
