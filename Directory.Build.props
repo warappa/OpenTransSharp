@@ -19,7 +19,7 @@
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
       1.0.0
-      - Update to .NET 7
+      - Support for .NET 7
       - Separated dependencies by target framework
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

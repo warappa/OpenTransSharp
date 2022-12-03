@@ -1,4 +1,10 @@
 ### OpenTransSharp and BMEcatSharp
+[![openTRANS](https://img.shields.io/badge/openTRANS-2.1-%230b0?color=%230b0&labelColor=7D8D75)](https://de.wikipedia.org/wiki/OpenTRANS) 
+[![BMEcat](https://img.shields.io/badge/BMEcat-%202005-%230b0?color=%230b0&labelColor=7D8D75)](https://de.wikipedia.org/wiki/BMEcat)
+[![Supports .NET](https://img.shields.io/badge/-.NET%20Standard%202.0%20%7C%20%20.NET%20Core%203.1+%20%7C%20.NET%205+-%230b0?color=%230b0&logo=dotnet&labelColor=5A27D5)](https://www.nuget.org/packages?q=id%3Aopentranssharp+id%3Abmecatsharp)  
+[![NuGet](https://img.shields.io/nuget/v/OpenTransSharp.svg?logo=nuget&labelColor=04487D)](https://www.nuget.org/packages?q=id%3Aopentranssharp+id%3Abmecatsharp)
+ [![Downloads](https://img.shields.io/nuget/dt/OpenTransSharp?logo=nuget&labelColor=04487D)](https://www.nuget.org/packages?q=id%3Aopentranssharp+id%3Abmecatsharp)
+[![MPL-2.0 License](https://img.shields.io/github/license/warappa/OpenTransSharp?color=%230b0&logo=internetarchive)](https://github.com/warappa/OpenTransSharp/blob/main/LICENSE.md)  
 
 #### About This Project
 
@@ -10,7 +16,7 @@ This project is built on the **[.NET](https://dot.net)** platform and uses the *
 
 #### Features
 
-* Compatible with **.NET Standard 2.0**, **.NET Core 2.1+** or **.NET 5+**
+* Compatible with **.NET Standard 2.0**, **.NET Core 3.1+** or **.NET 5+**
 * **Rich IntelliSense** extended with contents of the official specification-documents
   * Meaning of elements/attributes
   * Required elements
@@ -181,7 +187,7 @@ order.EnsureValid(serializer);
 
 ### Setup Your Project
 
-BMEcatSharp and OpenTransSharp can be used in any **.NET Standard 2.0** compatible, **.NET Core 2.1+** or **.NET 5** project.
+BMEcatSharp and OpenTransSharp can be used in any **.NET Standard 2.0** compatible, **.NET Core 3.1+** or **.NET 5** project.
 
 **Note**: For **complete samples** of how to use this library, please see the code samples in this repository under
 
@@ -326,22 +332,22 @@ var serializerFactory = new OpenTransXmlSerializerFactory(options);
 
 #### Prerequisites
 
-* Ensure you have **.NET SDK 5.0+** installed (see https://dot.net)
+* Ensure you have **.NET SDK 7.0+** installed (see https://dot.net)
 
 * Checkout this repository to your computer
 
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/de/downloads/) if you want to build or develop with it
+* Install [Visual Studio 2022](https://visualstudio.microsoft.com/de/downloads/) if you want to build or develop with it
 
-  **Note**: Visual Studio 2019 *Community Edition* is free for private use or small teams
+  **Note**: Visual Studio 2022 *Community Edition* is free for private use or small teams
 
 #### Building with the command line
 
 1. Open command prompt and navigate to your checkout-directory
 2. Run `dotnet build`
 
-#### Building with Visual Studio 2019
+#### Building with Visual Studio 2022
 
-1. Open `OpenTransSharp.sln` with Visual Studio 2019
+1. Open `OpenTransSharp.sln` with Visual Studio 2022
 2. In main menu click `Build` > `Build Solution` (or press <kbd>CTRL+SHIFT+B</kbd>)
 
 ### About BMEcat® and openTRANS®
@@ -351,7 +357,7 @@ In short:
 * BMEcat® is about **product catalogs**
 * openTRANS® is about **ordering products** (optionally from BMEcat® catalogs)
 
-For more information about openTRANS® and BMEcat® see here:
+For more information about openTRANS® and BMEcat® see below.
 
 ##### Official Information
 
@@ -376,7 +382,7 @@ https://de.wikipedia.org/wiki/BMEcat
 
 ### Licenses
 
-**Copyright 2021 David Rettenbacher**
+**Copyright 2021-2022 David Rettenbacher**
 
 The license of this project is **MPL 2.0**. If not stated otherwise in individual files, this license applies to all files of this project. 
 
