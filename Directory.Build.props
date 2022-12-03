@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.0-pre3</Version>
+    <Version>1.0.0</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -18,9 +18,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
-		1.0.0-pre3
-		- #7: Wrong Spelling of Service
-	</PackageReleaseNotes>
+      1.0.0
+      - Update to .NET 7
+      - Separated dependencies by target framework
+    </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
