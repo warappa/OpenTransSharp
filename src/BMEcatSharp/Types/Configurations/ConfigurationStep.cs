@@ -132,6 +132,8 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlElement("STEP_ORDER")]
         public int? Order { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool OrderSpecified => Order.HasValue;
 
         /// <summary>
         /// (optional) Configuration type<br/>

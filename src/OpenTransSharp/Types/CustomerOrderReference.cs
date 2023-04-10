@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace OpenTransSharp
 {
@@ -45,6 +46,8 @@ namespace OpenTransSharp
         /// </summary>
         [OpenTransXmlElement("ORDER_DATE")]
         public DateTime? Date { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DateSpecified => Date.HasValue;
 
         /// <summary>
         /// (optional) Description of the order<br/>

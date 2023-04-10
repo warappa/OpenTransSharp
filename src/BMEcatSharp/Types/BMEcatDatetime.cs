@@ -67,6 +67,7 @@ namespace BMEcatSharp
         /// </summary>
         [BMEXmlElement("TIME")]
         public DateTime? Time { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool TimeSpecified => Time.HasValue;
 
         /// <summary>

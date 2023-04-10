@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -66,6 +67,8 @@ namespace OpenTransSharp
         /// </summary>
         [XmlElement("DISPATCHNOTIFICATION_DATE")]
         public DateTime? Date { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DateSpecified => Date.HasValue;
 
         /// <summary>
         /// (optional) Language<br/>
