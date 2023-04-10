@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -19,6 +19,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
+      1.0.1
+      - #10: Fix missing serializer mappings of nullable primitive types
+      
       1.0.0
       - Support for .NET 7
       - Separated dependencies by target framework
