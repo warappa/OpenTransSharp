@@ -1,9 +1,10 @@
+using BMEcatSharp;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenTransSharp.Validation;
 using OpenTransSharp.Xml;
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
@@ -66,7 +67,6 @@ namespace OpenTransSharp.Tests.Orders
             order.IsValid(target).Should().Be(true);
         }
 
-
         [Test]
         public void Can_validate_Order_with_UDX_with_error()
         {
@@ -98,6 +98,31 @@ namespace OpenTransSharp.Tests.Orders
             customData.Names[1].Should().Be("Name 2");
 
             order.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
+        public void Can_serialize_Order_with_all_optional_values_empty()
+        {
+            var order = testConfig.Orders.GetMinimalValidOrder();
+
+            var serialized = target.Serialize(order);
+            var validationResult = serialized.ValidateSerialized(target);
+
+            validationResult.Errors.Should().BeEmpty();
+            validationResult.IsValid.Should().BeTrue();
+        }
+
+        [Test]
+        public void Can_serialize_CustomerOrderReference_with_all_optional_values_empty()
+        {
+            var subTypeTarget = serializerFactory.Create<CustomerOrderReference>();
+
+            var data = new CustomerOrderReference();
+
+            var serialized = subTypeTarget.Serialize(data);
+            var validationResult = serialized.ValidateSerialized(subTypeTarget);
+
+            validationResult.IsValid.Should().BeTrue();
         }
     }
 }

@@ -136,5 +136,20 @@ namespace BMEcatSharp.Tests
 
             document.IsValid(target).Should().Be(true);
         }
+
+        [Test]
+        public void Can_serialize_ClassificationGroupFeatureTemplate_with_all_optional_values_empty()
+        {
+            var subTypeTarget = serializerFactory.Create<ClassificationGroupFeatureTemplate>();
+
+            var data = new ClassificationGroupFeatureTemplate
+            {
+                FeatureIdref = "featureIdref"
+            };
+            var serialized = subTypeTarget.Serialize(data);
+            var validationResult = serialized.ValidateSerialized(subTypeTarget);
+
+            validationResult.IsValid.Should().BeTrue();
+        }
     }
 }

@@ -28,4 +28,8 @@
     <ProjectReference Include="..\BMEcatSharp\BMEcatSharp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="OpenTransSharp.Tests"/>
+  </ItemGroup>
+
 </Project>

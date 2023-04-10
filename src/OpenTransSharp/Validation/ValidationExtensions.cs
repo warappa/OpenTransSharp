@@ -60,42 +60,69 @@ namespace OpenTransSharp.Validation
                 ms.Position = 0;
 
                 using var reader = new StreamReader(ms);
-                var document = XDocument.Load(reader);
-                var isValid = true;
-
-                document.Validate(schemaSet, (s, e) =>
-                {
-                    isValid = false;
-
-                    var name = "";
-                    if (s is XElement xe)
-                    {
-                        name = xe.GetAbsoluteXPath();
-                    }
-                    else if (s is XAttribute xa)
-                    {
-                        name = xa.GetAbsoluteXPath();
-                    }
-
-                    validationErrors.Add(new ValidationError(name, e.Message));
-                });
-
-                if (!isValid)
-                {
-                    Debug.WriteLine(string.Join(Environment.NewLine, validationErrors));
-                    return new ValidationResult
-                    {
-                        Errors = validationErrors
-                            .GroupBy(x => x.Key)
-                            .ToDictionary(x => x.Key, x => x.Select(x => x.Message).ToArray())
-                    };
-                }
-
-                return new ValidationResult();
+                return ValidateWithReader(validationErrors, schemaSet, reader);
             }
             finally
             {
             }
+        }
+
+        internal static ValidationResult ValidateSerialized(this string model, XmlSerializer serializer)
+        {
+            var validationErrors = new List<ValidationError>();
+
+            if (model is null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
+            var schemaSet = GetXmlSchemaSet(serializer);
+
+            try
+            {
+                using var reader = new StringReader(model);
+
+                return ValidateWithReader(validationErrors, schemaSet, reader);
+            }
+            finally
+            {
+            }
+        }
+
+        private static ValidationResult ValidateWithReader(List<ValidationError> validationErrors, XmlSchemaSet schemaSet, TextReader reader)
+        {
+            var document = XDocument.Load(reader);
+            var isValid = true;
+
+            document.Validate(schemaSet, (s, e) =>
+            {
+                isValid = false;
+
+                var name = "";
+                if (s is XElement xe)
+                {
+                    name = xe.GetAbsoluteXPath();
+                }
+                else if (s is XAttribute xa)
+                {
+                    name = xa.GetAbsoluteXPath();
+                }
+
+                validationErrors.Add(new ValidationError(name, e.Message));
+            });
+
+            if (!isValid)
+            {
+                Debug.WriteLine(string.Join(Environment.NewLine, validationErrors));
+                return new ValidationResult
+                {
+                    Errors = validationErrors
+                        .GroupBy(x => x.Key)
+                        .ToDictionary(x => x.Key, x => x.Select(x => x.Message).ToArray())
+                };
+            }
+
+            return new ValidationResult();
         }
 
         private static XmlSchemaSet GetXmlSchemaSet(XmlSerializer serializer)

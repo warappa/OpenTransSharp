@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BMEcatSharp;
+using System;
 using System.Collections.Generic;
 
 namespace OpenTransSharp.Tests.Orders
@@ -117,6 +118,23 @@ namespace OpenTransSharp.Tests.Orders
             model.Currency = "EUR";
             model.MimeInfo = parent.GetMimeInfo();
             model.Remarks.AddRange(parent.GetRemarks());
+
+            return model;
+        }
+
+        internal Order GetMinimalValidOrder()
+        {
+            var model = new Order
+            {
+                Items = new List<OrderItem>
+                {
+                    new OrderItem("1", new ProductId(), PackageUnit.C62)
+                }
+            };
+            model.Header.Information.Id = "test";
+            model.Header.Information.Parties.Add(new OpenTransParty { Ids = new List<PartyId> { new PartyId("a") } });
+            model.Header.Information.OrderPartiesReference.BuyerIdRef = new BuyerIdRef("a");
+            model.Header.Information.OrderPartiesReference.SupplierIdRef = new SupplierIdRef("a");
 
             return model;
         }
