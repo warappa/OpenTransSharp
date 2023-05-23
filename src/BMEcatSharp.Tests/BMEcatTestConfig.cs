@@ -237,7 +237,7 @@ namespace BMEcatSharp.Tests
         {
             var model = new Catalog();
 
-            model.Language = new Language(LanguageCodes.deu);
+            model.Languages.Add(new Language(LanguageCodes.deu));
             model.Id = GetCatalogId();
             model.Version = new Version("1.1");
 

@@ -60,18 +60,18 @@ namespace BMEcatSharp
 
             Id = id;
             Version = version ?? throw new ArgumentNullException(nameof(version));
-            Language = language ?? throw new ArgumentNullException(nameof(language));
+            Languages.Add(language ?? throw new ArgumentNullException(nameof(language)));
         }
 
         /// <summary>
-        /// (required) Language<br/>
+        /// (required) Languages<br/>
         /// <br/>
         /// Specification of used languages, especially the default language of all language-dependent information.<br/>
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("LANGUAGE")]
-        public Language Language { get; set; } = new Language();
+        public List<Language> Languages { get; set; } = new List<Language>();
 
         /// <summary>
         /// (required) Catalog ID<br/>

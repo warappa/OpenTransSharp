@@ -138,6 +138,26 @@ namespace BMEcatSharp.Tests
         }
 
         [Test]
+        public void Can_deserialize_BMEcat_with_multiple_catalog_languages()
+        {
+            var stream = File.Open(@"bmecat-sample.xml", FileMode.Open);
+
+            var document = target.Deserialize<BMEcatDocument>(stream);
+
+            var catalog = document.Header.Catalog;
+            catalog.Languages.Count.Should().Be(2);
+            var language1 = catalog.Languages[0];
+            var language2 = catalog.Languages[1];
+
+            language1.Value.Should().Be("eng");
+            language1.Default.Should().Be(true);
+
+            language2.Value.Should().Be("deu");
+
+            document.IsValid(target).Should().Be(true);
+        }
+
+        [Test]
         public void Can_serialize_ClassificationGroupFeatureTemplate_with_all_optional_values_empty()
         {
             var subTypeTarget = serializerFactory.Create<ClassificationGroupFeatureTemplate>();

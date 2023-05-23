@@ -3,7 +3,8 @@
 <BMECAT version="2005" xmlns="http://www.bmecat.org/bmecat/2005">
   <HEADER>
     <CATALOG>
-      <LANGUAGE>eng</LANGUAGE>
+      <LANGUAGE default="true">eng</LANGUAGE>
+	  <LANGUAGE>deu</LANGUAGE>
       <CATALOG_ID>QA_CAT_002</CATALOG_ID>
       <CATALOG_VERSION>001.002</CATALOG_VERSION>
       <CATALOG_NAME>Office Material</CATALOG_NAME>
