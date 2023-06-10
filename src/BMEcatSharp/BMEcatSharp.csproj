@@ -10,8 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
   </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="BMEcatSharp.Tests"/>
+  </ItemGroup>
+	
   <ItemGroup>
     <None Remove="Content\bmecat_2005.xsd" />
     <None Remove="Content\bmecat_2005_any_udx_extension.xsd" />
@@ -24,10 +29,6 @@
     <EmbeddedResource Include="Content\bmecat_2005_any_udx_extension.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <InternalsVisibleTo Include="BMEcatSharp.Tests"/>
   </ItemGroup>
 
 </Project>

@@ -73,6 +73,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4330336E-F5AC-4B4D-ADDF-5BA589253795}"
 	ProjectSection(SolutionItems) = preProject
 		..\Directory.Build.props = ..\Directory.Build.props
+		..\Directory.Packages.props = ..\Directory.Packages.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMEcatSharp.Microsoft.AspNetCore.Tests", "BMEcatSharp.Microsoft.AspNetCore.Tests\BMEcatSharp.Microsoft.AspNetCore.Tests.csproj", "{8F436F30-F866-4096-8556-488CF9752F8A}"

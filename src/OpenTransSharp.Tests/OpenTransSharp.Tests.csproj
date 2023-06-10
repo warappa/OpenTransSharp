@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="DispatchNotifications\sample_dispatchnotification_opentrans_2_1.xml" />
     <None Remove="InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml" />
     <None Remove="Invoices\sample_invoice_opentrans_2_1.xml" />
@@ -31,13 +38,6 @@
     <Content Include="Orders\sample_order_opentrans_2_1_xml signature.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="6.8.0" />
-    <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,6 +7,15 @@
     <PackageTags>opentrans opentrans-21</PackageTags>
     <Description>Read/edit/write/validate openTRANS 2.1 xml files.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BMEcatSharp\BMEcatSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="OpenTransSharp.Tests"/>
+    <InternalsVisibleTo Include="OpenTransSharp.Tests" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Content\opentrans_2_1.xsd" />
@@ -18,18 +27,6 @@
     <EmbeddedResource Include="Content\opentrans_2_1.xsd" />
     <EmbeddedResource Include="Content\xmldsig-core-schema.xsd" />
     <EmbeddedResource Include="Content\xmlmime.xsd" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BMEcatSharp\BMEcatSharp.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <InternalsVisibleTo Include="OpenTransSharp.Tests"/>
   </ItemGroup>
 
 </Project>
