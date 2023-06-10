@@ -859,7 +859,7 @@ namespace BMEcatSharp.Tests
             return new ContactRole("Contact", global::BMEcatSharp.ContactRoleType.Technical);
         }
 
-        public PublicKey GetPublicKey(string type = null)
+        public PublicKey GetPublicKey(string? type = null)
         {
             return new PublicKey("1234", type ?? global::BMEcatSharp.PublicKeyTypeValues.PGP(new Version(6, 5, 1)));
         }
