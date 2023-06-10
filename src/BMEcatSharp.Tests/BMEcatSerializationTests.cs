@@ -167,7 +167,7 @@ namespace BMEcatSharp.Tests
                 FeatureIdref = "featureIdref"
             };
             var serialized = subTypeTarget.Serialize(data);
-            var validationResult = serialized.ValidateSerialized(subTypeTarget);
+            var validationResult = serialized.ValidateBMECatDocument(subTypeTarget);
 
             validationResult.IsValid.Should().BeTrue();
         }

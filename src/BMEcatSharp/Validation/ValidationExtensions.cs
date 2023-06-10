@@ -27,6 +27,15 @@ namespace BMEcatSharp.Validation
             }
         }
 
+        public static void EnsureValidBMEcatDocument(this string model, XmlSerializer serializer)
+        {
+            var validationResult = model.ValidateBMECatDocument(serializer);
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+        }
+
         public static bool IsValid(this BMEcatDocument model, XmlSerializer serializer)
         {
             try
@@ -63,7 +72,7 @@ namespace BMEcatSharp.Validation
             }
         }
 
-        internal static ValidationResult ValidateSerialized(this string model, XmlSerializer serializer)
+        public static ValidationResult ValidateBMECatDocument(this string model, XmlSerializer serializer)
         {
             var validationErrors = new List<ValidationError>();
 

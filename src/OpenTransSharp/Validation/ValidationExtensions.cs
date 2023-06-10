@@ -26,6 +26,15 @@ namespace OpenTransSharp.Validation
                 throw new ValidationException(validationResult.Errors);
             }
         }
+        
+        public static void EnsureValidOpenTransDocument(this string model, XmlSerializer serializer)
+        {
+            var validationResult = model.ValidateOpenTransDocument(serializer);
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+        }
 
         public static bool IsValid(this IOpenTransRoot model, XmlSerializer serializer)
         {
@@ -67,7 +76,7 @@ namespace OpenTransSharp.Validation
             }
         }
 
-        internal static ValidationResult ValidateSerialized(this string model, XmlSerializer serializer)
+        public static ValidationResult ValidateOpenTransDocument(this string model, XmlSerializer serializer)
         {
             var validationErrors = new List<ValidationError>();
 

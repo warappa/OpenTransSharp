@@ -46,5 +46,13 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
 
             quotation.EnsureValid(serializer);
         }
+
+        [HttpPost("via-text")]
+        public void OrderViaFile([FromForm(Name = "content")] string content)
+        {
+            var serializer = serializerFactory.Create<Quotation>();
+
+            content.EnsureValidOpenTransDocument(serializer);
+        }
     }
 }

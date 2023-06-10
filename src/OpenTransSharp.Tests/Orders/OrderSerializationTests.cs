@@ -106,7 +106,7 @@ namespace OpenTransSharp.Tests.Orders
             var order = testConfig.Orders.GetMinimalValidOrder();
 
             var serialized = target.Serialize(order);
-            var validationResult = serialized.ValidateSerialized(target);
+            var validationResult = serialized.ValidateOpenTransDocument(target);
 
             validationResult.Errors.Should().BeEmpty();
             validationResult.IsValid.Should().BeTrue();
@@ -120,7 +120,7 @@ namespace OpenTransSharp.Tests.Orders
             var data = new CustomerOrderReference();
 
             var serialized = subTypeTarget.Serialize(data);
-            var validationResult = serialized.ValidateSerialized(subTypeTarget);
+            var validationResult = serialized.ValidateOpenTransDocument(subTypeTarget);
 
             validationResult.IsValid.Should().BeTrue();
         }
