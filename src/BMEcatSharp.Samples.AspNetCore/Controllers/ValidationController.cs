@@ -49,7 +49,7 @@ namespace BMEcatSharp.Samples.AspNetCore.Controllers
         }
 
         [HttpPost("via-text")]
-        public void OrderViaFile([FromForm(Name = "content")] string content)
+        public void ViaText([FromForm(Name = "content")] string content)
         {
             var serializer = serializerFactory.Create<BMEcatDocument>();
 

@@ -48,7 +48,7 @@ namespace OpenTransSharp.Samples.AspNetCore.Controllers
         }
 
         [HttpPost("via-text")]
-        public void OrderViaFile([FromForm(Name = "content")] string content)
+        public void OrderViaText([FromForm(Name = "content")] string content)
         {
             var serializer = serializerFactory.Create<Order>();
 
