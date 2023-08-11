@@ -382,7 +382,7 @@ https://de.wikipedia.org/wiki/BMEcat
 
 ### Licenses
 
-**Copyright 2021-2022 David Rettenbacher**
+**Copyright 2021-2023 David Rettenbacher**
 
 The license of this project is **MPL 2.0**. If not stated otherwise in individual files, this license applies to all files of this project. 
 
