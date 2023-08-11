@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -15,18 +15,15 @@
     <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <Authors>David Rettenbacher</Authors>
     <Company />
-    <Copyright>Copyright © David Rettenbacher 2022</Copyright>
+    <Copyright>Copyright © David Rettenbacher 2021-2023</Copyright>
     <PackageProjectUrl>https://github.com/warappa/OpenTransSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/warappa/OpenTransSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
-      1.0.1
-      - #10: Fix missing serializer mappings of nullable primitive types
-
-      1.0.0
-      - Support for .NET 7
-      - Separated dependencies by target framework
+      1.0.2
+      - #11: BMEcat header catalog language should be a list
+      - #13: Undeserializable content can now be validated with additional extension method
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>true</IncludeSymbols>
