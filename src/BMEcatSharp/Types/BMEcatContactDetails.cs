@@ -163,6 +163,8 @@ namespace BMEcatSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EMAILS")]
-        public Email? Email { get; set; }
+        public List<Email>? Emails { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EmailsSpecified => Emails?.Count > 0;
     }
 }

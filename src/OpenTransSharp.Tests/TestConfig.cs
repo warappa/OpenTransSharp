@@ -336,8 +336,10 @@ namespace OpenTransSharp.Tests
             model.Phones.Add(BMEcats.GetPhone(global::BMEcatSharp.PhoneTypeValues.Office));
             model.Faxes.Add(BMEcats.GetFax());
             model.Faxes.Add(BMEcats.GetFax(global::BMEcatSharp.FaxTypeValues.Private));
-            model.Email = "mail@example.com";
-            model.PublicKeys.Add(BMEcats.GetPublicKey());
+            model.Emails.Add(new BMEcatSharp.Email("mail@example.com")
+            {
+                PublicKeys = [BMEcats.GetPublicKey()]
+            });
             model.Url = "https://example.com";
             model.Remarks.Add(new global::BMEcatSharp.MultiLingualString("Remark"));
             model.Remarks.Add(new global::BMEcatSharp.MultiLingualString("Bemerkung", global::BMEcatSharp.LanguageCodes.deu));
@@ -362,7 +364,7 @@ namespace OpenTransSharp.Tests
             model.Faxes.Add(BMEcats.GetFax());
             model.Faxes.Add(BMEcats.GetFax(global::BMEcatSharp.FaxTypeValues.Private));
             model.Url = "https://example.com";
-            model.Email = BMEcats.GetEmail();
+            model.Emails = BMEcats.GetEmails();
             model.Authentification = BMEcats.GetAuthentification();
 
             return model;

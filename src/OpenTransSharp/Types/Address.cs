@@ -1,6 +1,10 @@
-﻿using BMEcatSharp.Xml;
+﻿using BMEcatSharp;
+using BMEcatSharp.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace OpenTransSharp
@@ -12,10 +16,17 @@ namespace OpenTransSharp
     /// </summary>
     public class Address
     {
+        private bool emailsInitialized;
+        private bool emailComponentsInitialized;
+
         /// <summary>
         /// <inheritdoc cref="Address"/>
         /// </summary>
-        public Address() { }
+        public Address()
+        {
+            emailsInitialized = false;
+            emailComponentsInitialized = false;
+        }
 
         /// <summary>
         /// (optional) Address line<br/>
@@ -236,6 +247,7 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FaxesSpecified => Faxes?.Count > 0;
 
+        private List<Email>? emails;
         /// <summary>
         /// (optional - required if PublicKeys is specified) E-mail address<br/>
         /// <br/>
@@ -243,20 +255,115 @@ namespace OpenTransSharp
         /// <br/>
         /// XML-namespace: BMECAT
         /// </summary>
-        [BMEXmlElement("EMAIL")]
-        public string? Email { get; set; }
+        [XmlIgnore]
+        public List<Email>? Emails
+        {
+            get
+            {
+                if (emails is null)
+                {
+                    EmailComponentsToEmails();
+                }
+                return emails;
+            }
+            set
+            {
+                emails = value;
+                EmailsToEmailComponents();
+            }
+        }
 
-        /// <summary>
-        /// (optional) Public key<br/>
-        /// <br/>
-        /// Public key, e.g. PGP<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [BMEXmlElement("PUBLIC_KEY")]
-        public List<global::BMEcatSharp.PublicKey>? PublicKeys { get; set; } = new List<global::BMEcatSharp.PublicKey>();
+        private List<EmailComponent>? emailComponents;
+
+        [BMEXmlElement(Type = typeof(EmailAddress), ElementName = "EMAIL")]
+        [BMEXmlElement(Type = typeof(PublicKey), ElementName = "PUBLIC_KEY")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool PublicKeysSpecified => PublicKeys?.Count > 0;
+        public List<EmailComponent>? EmailComponents
+        {
+            get
+            {
+                if (emailComponents is null)
+                {
+                    EmailsToEmailComponents();
+                }
+
+                return emailComponents;
+            }
+            set
+            {
+                emailComponents = value!;
+            }
+        }
+
+        private void EmailComponentsToEmails()
+        {
+            emails ??= new List<Email>();
+            emails.Clear();
+            if (emailComponents?.Count > 0)
+            {
+                emails ??= new List<Email>();
+
+                Email? email = null;
+                for (var i = 0; i < emailComponents.Count; i++)
+                {
+                    var component = emailComponents[i];
+                    if (component is EmailAddress emailAddress)
+                    {
+                        if (email is not null)
+                        {
+                            emails.Add(email);
+                        }
+                        email = new Email();
+                        email.EmailAddress = emailAddress.Value;
+                    }
+                    else if (component is PublicKey publicKey)
+                    {
+                        email?.PublicKeys!.Add(publicKey);
+                    }
+                }
+
+                if (email is not null)
+                {
+                    emails.Add(email);
+                }
+            }
+        }
+
+        public bool EmailComponentsSpecified
+        {
+            get
+            {
+                // HACK: called just before the payload gets serialized
+                if (Emails is not null)
+                {
+                    EmailsToEmailComponents();
+                }
+
+                if (EmailComponents?.Count > 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        private void EmailsToEmailComponents()
+        {
+            if (emails is null)
+            {
+                emailComponents = null;
+                return;
+            }
+
+            emailComponents ??= new List<EmailComponent>();
+            emailComponents.Clear();
+            foreach (var email in emails)
+            {
+                emailComponents.Add(new EmailAddress { Value = email.EmailAddress });
+                emailComponents.AddRange(email.PublicKeys);
+            }
+        }
 
         /// <summary>
         /// (optional) Internet address<br/>
@@ -285,3 +392,62 @@ namespace OpenTransSharp
         public bool RemarksSpecified => Remarks?.Count > 0;
     }
 }
+
+//public class EmailPublicKey : IXmlSerializable
+//{
+//    private static XmlSerializer _publicKeySerializer = new XmlSerializer(typeof(PublicKey), "http://www.bmecat.org/bmecat/2005");
+//    /// <summary>
+//    /// (optional - required if PublicKeys is specified) E-mail address<br/>
+//    /// <br/>
+//    /// e-mail address<br/>
+//    /// <br/>
+//    /// XML-namespace: BMECAT
+//    /// </summary>
+//    public string? Email { get; set; }
+
+//    /// <summary>
+//    /// (optional) Public key<br/>
+//    /// <br/>
+//    /// Public key, e.g. PGP<br/>
+//    /// <br/>
+//    /// XML-namespace: BMECAT
+//    /// </summary>
+//    public List<global::BMEcatSharp.PublicKey>? PublicKeys { get; set; } = new List<global::BMEcatSharp.PublicKey>();
+//    [EditorBrowsable(EditorBrowsableState.Never)]
+//    public bool PublicKeysSpecified => PublicKeys?.Count > 0;
+
+//    public XmlSchema GetSchema()
+//    {
+//        return null!;
+//    }
+
+//    public void ReadXml(XmlReader reader)
+//    {
+//        reader.MoveToContent();
+//        Email = (string?)reader.ReadElementContentAs(typeof(string), null);
+
+//        if (reader.IsStartElement() &&
+//            reader.LocalName == "PUBLIC_KEY")
+//        {
+//            var can = _publicKeySerializer.CanDeserialize(reader);
+//            while (reader.NodeType != XmlNodeType.EndElement &&
+//                reader.LocalName == "PUBLIC_KEY")
+//            {
+//                var publicKey = (PublicKey)_publicKeySerializer.Deserialize(reader);
+//                PublicKeys!.Add(publicKey);
+//            }
+//        }
+//    }
+
+//    public void WriteXml(XmlWriter writer)
+//    {
+//        writer.WriteElementString("EMAIL", Email);
+//        if (PublicKeys is not null)
+//        {
+//            foreach (var publicKey in PublicKeys)
+//            {
+//                _publicKeySerializer.Serialize(writer, publicKey);
+//            }
+//        }
+//    }
+//}

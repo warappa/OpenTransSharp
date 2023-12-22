@@ -849,7 +849,7 @@ namespace BMEcatSharp.Tests
             model.Phone = GetPhone();
             model.Fax = GetFax();
             model.Url = "https://example.com";
-            model.Email = GetEmail();
+            model.Emails = GetEmails();
 
             return model;
         }
@@ -872,6 +872,11 @@ namespace BMEcatSharp.Tests
         public Phone GetPhone(string type = "mobile")
         {
             return new Phone("+43123456789", type);
+        }
+
+        public List<Email> GetEmails()
+        {
+            return [GetEmail()];
         }
 
         public Email GetEmail()
@@ -919,8 +924,7 @@ namespace BMEcatSharp.Tests
             model.VatId = "UID1234";
             model.Phone = GetPhone();
             model.Fax = GetFax();
-            model.Email = "mail@example.com";
-            model.PublicKeys.Add(GetPublicKey());
+            model.Emails = GetEmails();
             model.Url = "https://example.com";
             model.Remarks.Add(new MultiLingualString("Remark"));
             model.Remarks.Add(new MultiLingualString("Bemerkung", LanguageCodes.deu));

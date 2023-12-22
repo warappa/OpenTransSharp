@@ -81,8 +81,8 @@ Please note that only dummy-prices and units are used. No price-calculations wer
 							<bmecat:EMAILS>
 								<bmecat:EMAIL>a</bmecat:EMAIL>
 								<bmecat:PUBLIC_KEY type="a">a</bmecat:PUBLIC_KEY>
-								<bmecat:EMAIL>a</bmecat:EMAIL>
-								<bmecat:PUBLIC_KEY type="a">a</bmecat:PUBLIC_KEY>
+								<bmecat:EMAIL>b</bmecat:EMAIL>
+								<bmecat:PUBLIC_KEY type="b">b</bmecat:PUBLIC_KEY>
 							</bmecat:EMAILS>
 							<bmecat:AUTHENTIFICATION>
 								<bmecat:LOGIN>a</bmecat:LOGIN>
@@ -107,7 +107,10 @@ Please note that only dummy-prices and units are used. No price-calculations wer
 						<bmecat:PHONE type="office">a</bmecat:PHONE>
 						<bmecat:FAX type="office">a</bmecat:FAX>
 						<bmecat:EMAIL>general-mail</bmecat:EMAIL>
-						<bmecat:PUBLIC_KEY type="a">a</bmecat:PUBLIC_KEY>
+						<bmecat:PUBLIC_KEY type="c">c2</bmecat:PUBLIC_KEY>
+						<bmecat:PUBLIC_KEY type="d">d2</bmecat:PUBLIC_KEY>
+						<bmecat:EMAIL>general-mail 2</bmecat:EMAIL>
+						<bmecat:PUBLIC_KEY type="c2">c22</bmecat:PUBLIC_KEY>
 						<bmecat:URL>a</bmecat:URL>
 						<bmecat:ADDRESS_REMARKS>a</bmecat:ADDRESS_REMARKS>
 					</ADDRESS>

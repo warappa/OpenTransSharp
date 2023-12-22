@@ -1,8 +1,11 @@
-﻿using BMEcatSharp.Xml;
+﻿using BMEcatSharp;
+using BMEcatSharp.Xml;
+using OpenTransSharp;
 using OpenTransSharp.Xml;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace OpenTransSharp
 {
@@ -167,7 +170,9 @@ namespace OpenTransSharp
         /// XML-namespace: BMECAT
         /// </summary>
         [BMEXmlElement("EMAILS")]
-        public global::BMEcatSharp.Email? Email { get; set; }
+        public List<Email>? Emails { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool EmailsSpecified => Emails?.Count > 0;
 
         /// <summary>
         /// (optional) Authentification information<br/>

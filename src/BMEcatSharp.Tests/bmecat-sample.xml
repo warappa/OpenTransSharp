@@ -21,11 +21,34 @@
       <ADDRESS type="buyer">
         <NAME>BuyAll Corp.</NAME>
         <CONTACT>Bill Smith</CONTACT>
+		<EMAIL>general-mail</EMAIL>
+		<PUBLIC_KEY type="c">c2</PUBLIC_KEY>
+		<PUBLIC_KEY type="d">d2</PUBLIC_KEY>
+		<EMAIL>general-mail 2</EMAIL>
+		<PUBLIC_KEY type="c2">c22</PUBLIC_KEY>
       </ADDRESS>
     </BUYER>
     <SUPPLIER>
       <SUPPLIER_NAME>Office Supplies AG</SUPPLIER_NAME>
+	  <ADDRESS type="supplier">
+	      <EMAIL>general-mail</EMAIL>
+	      <PUBLIC_KEY type="c">c2</PUBLIC_KEY>
+	      <PUBLIC_KEY type="d">d2</PUBLIC_KEY>
+	      <EMAIL>general-mail 2</EMAIL>
+	      <PUBLIC_KEY type="c2">c22</PUBLIC_KEY>
+	  </ADDRESS>
     </SUPPLIER>
+	  <PARTIES>
+		  <PARTY>
+			  <ADDRESS>
+			      <EMAIL>general-mail</EMAIL>
+			      <PUBLIC_KEY type="c">c2</PUBLIC_KEY>
+			      <PUBLIC_KEY type="d">d2</PUBLIC_KEY>
+			      <EMAIL>general-mail 2</EMAIL>
+			      <PUBLIC_KEY type="c2">c22</PUBLIC_KEY>
+			  </ADDRESS>
+		  </PARTY>
+	  </PARTIES>
     <USER_DEFINED_EXTENSIONS>
       <UDX.ORGANIZATION.CUSTOM_DATA>
         <UDX.ORGANIZATION.CUSTOM_DATA.NAME>Name 1</UDX.ORGANIZATION.CUSTOM_DATA.NAME>

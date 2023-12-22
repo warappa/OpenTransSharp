@@ -171,5 +171,83 @@ namespace BMEcatSharp.Tests
 
             validationResult.IsValid.Should().BeTrue();
         }
+
+        [Test]
+        public void Ticket14_Can_use_multiple_emails_in_party_contact_data()
+        {
+            var stream = File.Open(@"bmecat-sample.xml", FileMode.Open);
+
+            var order = target.Deserialize<BMEcatDocument>(stream);
+
+            var generalEmails = order.Header.Parties[0].Address.Emails;
+            generalEmails.Count.Should().Be(2);
+            var generalEmail = generalEmails[0].EmailAddress;
+            var generalPublicKeys = generalEmails[0].PublicKeys;
+
+            var generalEmail2 = generalEmails[1].EmailAddress;
+            var generalPublicKeys2 = generalEmails[1].PublicKeys;
+
+            generalEmail.Should().Be("general-mail");
+            generalPublicKeys[0].Type.Should().Be("c");
+            generalPublicKeys[0].Value.Should().Be("c2");
+            generalPublicKeys[1].Type.Should().Be("d");
+            generalPublicKeys[1].Value.Should().Be("d2");
+
+            generalEmail2.Should().Be("general-mail 2");
+            generalPublicKeys2[0].Type.Should().Be("c2");
+            generalPublicKeys2[0].Value.Should().Be("c22");
+        }
+
+        [Test]
+        public void Ticket14_Can_use_multiple_emails_in_buyer_data()
+        {
+            var stream = File.Open(@"bmecat-sample.xml", FileMode.Open);
+
+            var order = target.Deserialize<BMEcatDocument>(stream);
+
+            var generalEmails = order.Header.Buyer.Address.Emails;
+            generalEmails.Count.Should().Be(2);
+            var generalEmail = generalEmails[0].EmailAddress;
+            var generalPublicKeys = generalEmails[0].PublicKeys;
+
+            var generalEmail2 = generalEmails[1].EmailAddress;
+            var generalPublicKeys2 = generalEmails[1].PublicKeys;
+
+            generalEmail.Should().Be("general-mail");
+            generalPublicKeys[0].Type.Should().Be("c");
+            generalPublicKeys[0].Value.Should().Be("c2");
+            generalPublicKeys[1].Type.Should().Be("d");
+            generalPublicKeys[1].Value.Should().Be("d2");
+
+            generalEmail2.Should().Be("general-mail 2");
+            generalPublicKeys2[0].Type.Should().Be("c2");
+            generalPublicKeys2[0].Value.Should().Be("c22");
+        }
+
+        [Test]
+        public void Ticket14_Can_use_multiple_emails_in_supplier_data()
+        {
+            var stream = File.Open(@"bmecat-sample.xml", FileMode.Open);
+
+            var order = target.Deserialize<BMEcatDocument>(stream);
+
+            var generalEmails = order.Header.Supplier.Address.Emails;
+            generalEmails.Count.Should().Be(2);
+            var generalEmail = generalEmails[0].EmailAddress;
+            var generalPublicKeys = generalEmails[0].PublicKeys;
+
+            var generalEmail2 = generalEmails[1].EmailAddress;
+            var generalPublicKeys2 = generalEmails[1].PublicKeys;
+
+            generalEmail.Should().Be("general-mail");
+            generalPublicKeys[0].Type.Should().Be("c");
+            generalPublicKeys[0].Value.Should().Be("c2");
+            generalPublicKeys[1].Type.Should().Be("d");
+            generalPublicKeys[1].Value.Should().Be("d2");
+
+            generalEmail2.Should().Be("general-mail 2");
+            generalPublicKeys2[0].Type.Should().Be("c2");
+            generalPublicKeys2[0].Value.Should().Be("c22");
+        }
     }
 }

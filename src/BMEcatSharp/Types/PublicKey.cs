@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BMEcatSharp.Xml;
+using System;
 using System.ComponentModel;
+using System.Net.Mail;
 using System.Xml.Serialization;
 
 namespace BMEcatSharp
@@ -11,7 +13,8 @@ namespace BMEcatSharp
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class PublicKey
+    [BMEXmlRoot("PUBLIC_KEY")]
+    public class PublicKey : EmailComponent
     {
         /// <summary>
         /// <inheritdoc cref="PublicKey"/>
