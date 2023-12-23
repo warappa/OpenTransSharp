@@ -72,7 +72,7 @@ namespace BMEcatSharp
         /// </summary>
         //[Obsolete("This element will not be used in the future.")]
         [BMEXmlElement("ADDRESS")]
-        public Address? Address { get; set; }
+        public BMESupplierAddress? Address { get; set; }
 
         /// <summary>
         /// (optional) Additional multimedia information<br/>
