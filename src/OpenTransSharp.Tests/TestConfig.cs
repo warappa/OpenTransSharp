@@ -340,6 +340,10 @@ namespace OpenTransSharp.Tests
             {
                 PublicKeys = [BMEcats.GetPublicKey()]
             });
+            model.Emails.Add(new BMEcatSharp.Email("mail.2@example.com")
+            {
+                PublicKeys = [BMEcats.GetPublicKey("etc"), BMEcats.GetPublicKey("etc2")]
+            });
             model.Url = "https://example.com";
             model.Remarks.Add(new global::BMEcatSharp.MultiLingualString("Remark"));
             model.Remarks.Add(new global::BMEcatSharp.MultiLingualString("Bemerkung", global::BMEcatSharp.LanguageCodes.deu));

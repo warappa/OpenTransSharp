@@ -126,7 +126,7 @@ namespace OpenTransSharp.Tests.Orders
         }
 
         [Test]
-        public void Ticket14_Can_use_multiple_emails_in_contact_data()
+        public void Ticket14_Can_use_multiple_emails_in_address_data()
         {
             var stream = File.Open(@"Orders\sample_order_opentrans_2_1_xml signature.xml", FileMode.Open);
 
@@ -149,6 +149,37 @@ namespace OpenTransSharp.Tests.Orders
             generalEmail2.Should().Be("general-mail 2");
             generalPublicKeys2[0].Type.Should().Be("c2");
             generalPublicKeys2[0].Value.Should().Be("c22");
+        }
+
+        [Test]
+        public void Ticket14_Can_use_multiple_emails_in_contact_data()
+        {
+            var order = testConfig.Orders.GetOrder();
+
+            var generalEmails = order.Header.Information.Parties[0].Addresses[0].Emails;
+            var contactEmails = order.Header.Information.Parties[0].Addresses[0].ContactDetails[0].Emails;
+
+            generalEmails.Count.Should().Be(2);
+            var generalEmail = generalEmails[0].EmailAddress;
+            var generalPublicKeys = generalEmails[0].PublicKeys;
+
+            var generalEmail2 = generalEmails[1].EmailAddress;
+            var generalPublicKeys2 = generalEmails[1].PublicKeys;
+
+            generalEmail.Should().Be("mail@example.com");
+            generalPublicKeys[0].Type.Should().Be("PGP-6.5.1");
+            generalPublicKeys[0].Value.Should().Be("1234");
+
+            generalEmail2.Should().Be("mail.2@example.com");
+            generalPublicKeys2[0].Type.Should().Be("etc");
+            generalPublicKeys2[0].Value.Should().Be("1234");
+            generalPublicKeys2[1].Type.Should().Be("etc2");
+            generalPublicKeys2[1].Value.Should().Be("1234");
+
+            var contactEmail1 = contactEmails[0];
+
+            contactEmail1.EmailAddress.Should().Be("mail@example.com");
+            contactEmail1.PublicKeys.Count.Should().Be(2);
         }
     }
 }
