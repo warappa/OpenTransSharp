@@ -241,14 +241,14 @@ namespace BMEcatSharp
             {
                 if (emails is null)
                 {
-                    EmailComponentsToEmails();
+                    EmailComponent.EmailComponentsToEmails(ref emailComponents, ref emails);
                 }
                 return emails;
             }
             set
             {
                 emails = value;
-                EmailsToEmailComponents();
+                EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
             }
         }
 
@@ -263,7 +263,7 @@ namespace BMEcatSharp
             {
                 if (emailComponents is null)
                 {
-                    EmailsToEmailComponents();
+                    EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
                 }
 
                 return emailComponents;
@@ -274,39 +274,7 @@ namespace BMEcatSharp
             }
         }
 
-        private void EmailComponentsToEmails()
-        {
-            emails ??= new List<Email>();
-            emails.Clear();
-            if (emailComponents?.Count > 0)
-            {
-                emails ??= new List<Email>();
-
-                Email? email = null;
-                for (var i = 0; i < emailComponents.Count; i++)
-                {
-                    var component = emailComponents[i];
-                    if (component is EmailAddress emailAddress)
-                    {
-                        if (email is not null)
-                        {
-                            emails.Add(email);
-                        }
-                        email = new Email();
-                        email.EmailAddress = emailAddress.Value;
-                    }
-                    else if (component is PublicKey publicKey)
-                    {
-                        email?.PublicKeys!.Add(publicKey);
-                    }
-                }
-
-                if (email is not null)
-                {
-                    emails.Add(email);
-                }
-            }
-        }
+        
 
         public bool EmailComponentsSpecified
         {
@@ -315,7 +283,7 @@ namespace BMEcatSharp
                 // HACK: called just before the payload gets serialized
                 if (Emails is not null)
                 {
-                    EmailsToEmailComponents();
+                    EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
                 }
 
                 if (EmailComponents?.Count > 0)
@@ -324,23 +292,6 @@ namespace BMEcatSharp
                 }
 
                 return false;
-            }
-        }
-
-        private void EmailsToEmailComponents()
-        {
-            if (emails is null)
-            {
-                emailComponents = null;
-                return;
-            }
-
-            emailComponents ??= new List<EmailComponent>();
-            emailComponents.Clear();
-            foreach (var email in emails)
-            {
-                emailComponents.Add(new EmailAddress { Value = email.EmailAddress });
-                emailComponents.AddRange(email.PublicKeys);
             }
         }
 
