@@ -257,17 +257,7 @@ namespace BMEcatSharp
         [BMEXmlElement(Type = typeof(EmailAddress), ElementName = "EMAIL")]
         [BMEXmlElement(Type = typeof(PublicKey), ElementName = "PUBLIC_KEY")]
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public List<EmailComponent>? EmailComponents
-        {
-            get
-            {
-                return emailComponents;
-            }
-            set
-            {
-                emailComponents = value!;
-            }
-        }
+        public List<EmailComponent>? EmailComponents { get => emailComponents; set => emailComponents = value; }
 
         public bool EmailComponentsSpecified
         {
