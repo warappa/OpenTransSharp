@@ -274,11 +274,6 @@ namespace OpenTransSharp
         {
             get
             {
-                if (emailComponents is null)
-                {
-                    EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
-                }
-
                 return emailComponents;
             }
             set
