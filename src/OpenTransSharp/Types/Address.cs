@@ -16,16 +16,12 @@ namespace OpenTransSharp
     /// </summary>
     public class Address
     {
-        private bool emailsInitialized;
-        private bool emailComponentsInitialized;
-
         /// <summary>
         /// <inheritdoc cref="Address"/>
         /// </summary>
         public Address()
         {
-            emailsInitialized = false;
-            emailComponentsInitialized = false;
+            emails = new Lazy<List<Email>?>(() => EmailComponent.EmailComponentsToEmails(emailComponents));
         }
 
         /// <summary>
@@ -247,7 +243,7 @@ namespace OpenTransSharp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool FaxesSpecified => Faxes?.Count > 0;
 
-        private List<Email>? emails;
+        private Lazy<List<Email>?> emails;
         /// <summary>
         /// (optional - required if PublicKeys is specified) E-mail address<br/>
         /// <br/>
@@ -260,16 +256,12 @@ namespace OpenTransSharp
         {
             get
             {
-                if (emails is null)
-                {
-                    EmailComponent.EmailComponentsToEmails(ref emailComponents, ref emails);
-                }
-                return emails;
+                return emails.Value;
             }
             set
             {
-                emails = value;
-                EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
+                emails = new Lazy<List<Email>?>(() => value);
+                EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
             }
         }
 
@@ -284,7 +276,7 @@ namespace OpenTransSharp
             {
                 if (emailComponents is null)
                 {
-                    EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
+                    EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
                 }
 
                 return emailComponents;
@@ -300,12 +292,9 @@ namespace OpenTransSharp
             get
             {
                 // HACK: called just before the payload gets serialized
-                if (Emails is not null)
-                {
-                    EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
-                }
+                EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
 
-                if (EmailComponents?.Count > 0)
+                if (emailComponents?.Count > 0)
                 {
                     return true;
                 }

@@ -21,13 +21,17 @@ namespace BMEcatSharp
         /// <inheritdoc cref="BMESupplierAddress"/>
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public BMESupplierAddress() { }
+        public BMESupplierAddress()
+        {
+            emails = new Lazy<List<Email>?>(() => EmailComponent.EmailComponentsToEmails(emailComponents));
+        }
 
         /// <summary>
         /// <inheritdoc cref="BMESupplierAddress"/>
         /// </summary>
         /// <param name="type"></param>
         public BMESupplierAddress(BMESupplierAddressType type)
+            : this()
         {
             Type = type;
         }
@@ -263,7 +267,7 @@ namespace BMEcatSharp
         [BMEXmlElement("FAX")]
         public Fax? Fax { get; set; }
 
-        private List<Email>? emails;
+        private Lazy<List<Email>?> emails;
 
         /// <summary>
         /// (required) E-mail address<br/>
@@ -279,16 +283,12 @@ namespace BMEcatSharp
         {
             get
             {
-                if (emails is null)
-                {
-                    EmailComponent.EmailComponentsToEmails(ref emailComponents, ref emails);
-                }
-                return emails;
+                return emails.Value;
             }
             set
             {
-                emails = value;
-                EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
+                emails = new Lazy<List<Email>?>(() => value);
+                EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
             }
         }
 
@@ -303,7 +303,7 @@ namespace BMEcatSharp
             {
                 if (emailComponents is null)
                 {
-                    EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
+                    EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
                 }
 
                 return emailComponents;
@@ -319,12 +319,9 @@ namespace BMEcatSharp
             get
             {
                 // HACK: called just before the payload gets serialized
-                if (Emails is not null)
-                {
-                    EmailComponent.EmailsToEmailComponents(ref emails, ref emailComponents);
-                }
+                EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
 
-                if (EmailComponents?.Count > 0)
+                if (emailComponents?.Count > 0)
                 {
                     return true;
                 }

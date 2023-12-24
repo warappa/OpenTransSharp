@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -10,31 +11,29 @@ namespace BMEcatSharp
     public abstract class EmailComponent
     {
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public static void EmailsToEmailComponents(ref List<Email>? emails, ref List<EmailComponent>? emailComponents)
+        public static void EmailsToEmailComponents(Lazy<List<Email>?> emails, ref List<EmailComponent>? emailComponents)
         {
-            if (emails is null)
+            if (!emails.IsValueCreated ||
+                emails.Value is null)
             {
-                emailComponents = null;
+                emailComponents = [];
                 return;
             }
 
             emailComponents ??= new List<EmailComponent>();
             emailComponents.Clear();
-            foreach (var email in emails)
+            foreach (var email in emails.Value)
             {
                 emailComponents.Add(new EmailAddress { Value = email.EmailAddress });
                 emailComponents.AddRange(email.PublicKeys);
             }
         }
 
-        public static void EmailComponentsToEmails(ref List<EmailComponent>? emailComponents, ref List<Email>? emails)
+        public static List<Email>? EmailComponentsToEmails(List<EmailComponent>? emailComponents)
         {
-            emails ??= new List<Email>();
-            emails.Clear();
+            var emails = new List<Email>();
             if (emailComponents?.Count > 0)
             {
-                emails ??= new List<Email>();
-
                 Email? email = null;
                 for (var i = 0; i < emailComponents.Count; i++)
                 {
@@ -59,6 +58,8 @@ namespace BMEcatSharp
                     emails.Add(email);
                 }
             }
+
+            return emails;
         }
     }
 }
