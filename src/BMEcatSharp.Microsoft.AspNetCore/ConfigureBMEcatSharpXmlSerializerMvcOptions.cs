@@ -2,25 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-namespace BMEcatSharp.Microsoft.AspNetCore
+namespace BMEcatSharp.Microsoft.AspNetCore;
+
+public class ConfigureBMEcatSharpXmlSerializerMvcOptions : IConfigureOptions<MvcOptions>
 {
-    public class ConfigureBMEcatSharpXmlSerializerMvcOptions : IConfigureOptions<MvcOptions>
+    private readonly IBMEcatXmlSerializerFactory openTransXmlSerializerFactory;
+    private readonly BMEcatXmlSerializerOptions serializerOptions;
+
+    public ConfigureBMEcatSharpXmlSerializerMvcOptions(IBMEcatXmlSerializerFactory openTransXmlSerializerFactory,
+        BMEcatXmlSerializerOptions serializerOptions)
     {
-        private readonly IBMEcatXmlSerializerFactory openTransXmlSerializerFactory;
-        private readonly BMEcatXmlSerializerOptions serializerOptions;
+        this.openTransXmlSerializerFactory = openTransXmlSerializerFactory ?? throw new System.ArgumentNullException(nameof(openTransXmlSerializerFactory));
+        this.serializerOptions = serializerOptions ?? throw new System.ArgumentNullException(nameof(serializerOptions));
+    }
 
-        public ConfigureBMEcatSharpXmlSerializerMvcOptions(IBMEcatXmlSerializerFactory openTransXmlSerializerFactory,
-            BMEcatXmlSerializerOptions serializerOptions)
-        {
-            this.openTransXmlSerializerFactory = openTransXmlSerializerFactory ?? throw new System.ArgumentNullException(nameof(openTransXmlSerializerFactory));
-            this.serializerOptions = serializerOptions ?? throw new System.ArgumentNullException(nameof(serializerOptions));
-        }
+    public void Configure(MvcOptions options)
+    {
+        var inputFormatter = new BMEcatSharpXmlSerializerInputFormatter(options, serializerOptions, openTransXmlSerializerFactory);
 
-        public void Configure(MvcOptions options)
-        {
-            var inputFormatter = new BMEcatSharpXmlSerializerInputFormatter(options, serializerOptions, openTransXmlSerializerFactory);
-
-            options.InputFormatters.Add(inputFormatter);
-        }
+        options.InputFormatters.Add(inputFormatter);
     }
 }

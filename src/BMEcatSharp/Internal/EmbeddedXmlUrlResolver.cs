@@ -6,105 +6,104 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace BMEcatSharp.Internal
+namespace BMEcatSharp.Internal;
+
+internal class EmbeddedXmlUrlResolver : XmlUrlResolver
 {
-    internal class EmbeddedXmlUrlResolver : XmlUrlResolver
+    private readonly Assembly[] assemblies;
+
+    public const string BaseUri = "embedded://";
+
+    public EmbeddedXmlUrlResolver(Assembly[]? assemblies = null)
     {
-        private readonly Assembly[] assemblies;
+        this.assemblies = assemblies ?? [typeof(EmbeddedXmlUrlResolver).Assembly];
+    }
 
-        public const string BaseUri = "embedded://";
+    public override Uri ResolveUri(Uri baseUri, string relativeUri)
+    {
+        var uri = new Uri(BaseUri + "/" + relativeUri);
+        return uri;
+        //return base.ResolveUri(baseUri, relativeUri);
+    }
 
-        public EmbeddedXmlUrlResolver(Assembly[]? assemblies = null)
+    public Stream? GetStream(string resourceName)
+    {
+        var searchName = FindEmbeddedName(resourceName);
+
+        if (searchName is null)
         {
-            this.assemblies = assemblies ?? [typeof(EmbeddedXmlUrlResolver).Assembly];
+            return null;
         }
 
-        public override Uri ResolveUri(Uri baseUri, string relativeUri)
-        {
-            var uri = new Uri(BaseUri + "/" + relativeUri);
-            return uri;
-            //return base.ResolveUri(baseUri, relativeUri);
-        }
+        Stream? stream = null;
 
-        public Stream? GetStream(string resourceName)
+        foreach (var assembly in assemblies)
         {
-            var searchName = FindEmbeddedName(resourceName);
+            stream = assembly.GetManifestResourceStream(searchName);
 
-            if (searchName is null)
+            if (stream is not null)
             {
-                return null;
+                return stream;
             }
+        }
 
-            Stream? stream = null;
+        return stream;
+    }
+
+    public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
+    {
+        object? stream = GetStream(absoluteUri.AbsoluteUri);
+
+        if (stream is null)
+        {
+            stream = base.GetEntity(absoluteUri, role, ofObjectToReturn);
+        }
+
+        return stream;
+    }
+
+    public override async Task<object> GetEntityAsync(Uri absoluteUri, string role, Type ofObjectToReturn)
+    {
+        object? stream = GetStream(absoluteUri.AbsoluteUri);
+
+        if (stream is null)
+        {
+            stream = await base.GetEntityAsync(absoluteUri, role, ofObjectToReturn);
+        }
+
+        return stream;
+    }
+
+    private string? FindEmbeddedName(Uri absoluteUri)
+    {
+        var name = absoluteUri.Segments[absoluteUri.Segments.Length - 1];
+
+        return FindEmbeddedName(name);
+    }
+
+    private string? FindEmbeddedName(string filenameOrResourceName)
+    {
+
+        var embeddedName = assemblies
+            .SelectMany(x => x.GetManifestResourceNames())
+            .FirstOrDefault(x => x == filenameOrResourceName);
+
+        if (embeddedName is null)
+        {
+            filenameOrResourceName = Path.GetFileName(filenameOrResourceName);
 
             foreach (var assembly in assemblies)
             {
-                stream = assembly.GetManifestResourceStream(searchName);
+                embeddedName = assembly.GetManifestResourceNames()
+                    .FirstOrDefault(x => x.EndsWith($".{filenameOrResourceName}"));
 
-                if (stream is not null)
+                if (embeddedName is not null)
                 {
-                    return stream;
+                    break;
                 }
             }
-
-            return stream;
         }
 
-        public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
-        {
-            object? stream = GetStream(absoluteUri.AbsoluteUri);
-
-            if (stream is null)
-            {
-                stream = base.GetEntity(absoluteUri, role, ofObjectToReturn);
-            }
-
-            return stream;
-        }
-
-        public override async Task<object> GetEntityAsync(Uri absoluteUri, string role, Type ofObjectToReturn)
-        {
-            object? stream = GetStream(absoluteUri.AbsoluteUri);
-
-            if (stream is null)
-            {
-                stream = await base.GetEntityAsync(absoluteUri, role, ofObjectToReturn);
-            }
-
-            return stream;
-        }
-
-        private string? FindEmbeddedName(Uri absoluteUri)
-        {
-            var name = absoluteUri.Segments[absoluteUri.Segments.Length - 1];
-
-            return FindEmbeddedName(name);
-        }
-
-        private string? FindEmbeddedName(string filenameOrResourceName)
-        {
-
-            var embeddedName = assemblies
-                .SelectMany(x => x.GetManifestResourceNames())
-                .FirstOrDefault(x => x == filenameOrResourceName);
-
-            if (embeddedName is null)
-            {
-                filenameOrResourceName = Path.GetFileName(filenameOrResourceName);
-
-                foreach (var assembly in assemblies)
-                {
-                    embeddedName = assembly.GetManifestResourceNames()
-                        .FirstOrDefault(x => x.EndsWith($".{filenameOrResourceName}"));
-
-                    if (embeddedName is not null)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            return embeddedName;
-        }
+        return embeddedName;
     }
 }

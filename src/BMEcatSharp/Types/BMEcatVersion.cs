@@ -1,10 +1,9 @@
 ﻿using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+public enum BMEcatVersion
 {
-    public enum BMEcatVersion
-    {
-        [XmlEnum("2005")]
-        V2005
-    }
+    [XmlEnum("2005")]
+    V2005
 }

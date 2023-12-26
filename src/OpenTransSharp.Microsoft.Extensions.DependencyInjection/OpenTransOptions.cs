@@ -1,7 +1,6 @@
-﻿namespace OpenTransSharp
+﻿namespace OpenTransSharp;
+
+public class OpenTransOptions
 {
-    public class OpenTransOptions
-    {
-        public OpenTransXmlSerializerOptions Serialization { get; set; } = new OpenTransXmlSerializerOptions();
-    }
+    public OpenTransXmlSerializerOptions Serialization { get; set; } = new OpenTransXmlSerializerOptions();
 }

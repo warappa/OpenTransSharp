@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace BMEcatSharp.Xml
+namespace BMEcatSharp.Xml;
+
+public interface IBMEcatXmlSerializerFactory
 {
-    public interface IBMEcatXmlSerializerFactory
-    {
-        XmlSerializer Create(Type type);
-        XmlSerializer Create<T>();
-    }
+    XmlSerializer Create(Type type);
+    XmlSerializer Create<T>();
 }

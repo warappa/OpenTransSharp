@@ -3,65 +3,64 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+[XmlInclude(typeof(EmailAddress))]
+[XmlInclude(typeof(PublicKey))]
+[EditorBrowsable(EditorBrowsableState.Never)]
+public abstract class EmailComponent
 {
-    [XmlInclude(typeof(EmailAddress))]
-    [XmlInclude(typeof(PublicKey))]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public abstract class EmailComponent
+    public static void EmailsToEmailComponents(Lazy<List<Email>?> emails, ref List<EmailComponent>? emailComponents)
     {
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public static void EmailsToEmailComponents(Lazy<List<Email>?> emails, ref List<EmailComponent>? emailComponents)
+        if (!emails.IsValueCreated ||
+            emails.Value is null)
         {
-            if (!emails.IsValueCreated ||
-                emails.Value is null)
-            {
-                emailComponents = [];
-                return;
-            }
-
-            emailComponents ??= new List<EmailComponent>();
-            emailComponents.Clear();
-            foreach (var email in emails.Value)
-            {
-                emailComponents.Add(new EmailAddress { Value = email.EmailAddress });
-                emailComponents.AddRange(email.PublicKeys);
-            }
+            emailComponents = [];
+            return;
         }
 
-        public static List<Email>? EmailComponentsToEmails(List<EmailComponent>? emailComponents)
+        emailComponents ??= new List<EmailComponent>();
+        emailComponents.Clear();
+        foreach (var email in emails.Value)
         {
-            var emails = new List<Email>();
-            if (emailComponents?.Count > 0)
-            {
-                Email? email = null;
-                for (var i = 0; i < emailComponents.Count; i++)
-                {
-                    var component = emailComponents[i];
-                    if (component is EmailAddress emailAddress)
-                    {
-                        if (email is not null)
-                        {
-                            emails.Add(email);
-                        }
-                        email = new Email
-                        {
-                            EmailAddress = emailAddress.Value
-                        };
-                    }
-                    else if (component is PublicKey publicKey)
-                    {
-                        email?.PublicKeys!.Add(publicKey);
-                    }
-                }
+            emailComponents.Add(new EmailAddress { Value = email.EmailAddress });
+            emailComponents.AddRange(email.PublicKeys);
+        }
+    }
 
-                if (email is not null)
+    public static List<Email>? EmailComponentsToEmails(List<EmailComponent>? emailComponents)
+    {
+        var emails = new List<Email>();
+        if (emailComponents?.Count > 0)
+        {
+            Email? email = null;
+            for (var i = 0; i < emailComponents.Count; i++)
+            {
+                var component = emailComponents[i];
+                if (component is EmailAddress emailAddress)
                 {
-                    emails.Add(email);
+                    if (email is not null)
+                    {
+                        emails.Add(email);
+                    }
+                    email = new Email
+                    {
+                        EmailAddress = emailAddress.Value
+                    };
+                }
+                else if (component is PublicKey publicKey)
+                {
+                    email?.PublicKeys!.Add(publicKey);
                 }
             }
 
-            return emails;
+            if (email is not null)
+            {
+                emails.Add(email);
+            }
         }
+
+        return emails;
     }
 }

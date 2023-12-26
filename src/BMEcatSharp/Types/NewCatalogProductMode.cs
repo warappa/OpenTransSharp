@@ -1,20 +1,19 @@
 ﻿using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+/// <summary>
+/// For <see cref="NewCatalogProduct.Mode"/>
+/// </summary>
+public enum NewCatalogProductMode
 {
     /// <summary>
-    /// For <see cref="NewCatalogProduct.Mode"/>
+    /// Insert product<br/>
+    /// <br/>
+    /// In the context of the T_NEW_CATALOG transaction, determing the transfer mode is not necessary, otherwise it is always 'new'.<br/>
+    /// <br/>
+    /// See also example (combination of different transactions)".
     /// </summary>
-    public enum NewCatalogProductMode
-    {
-        /// <summary>
-        /// Insert product<br/>
-        /// <br/>
-        /// In the context of the T_NEW_CATALOG transaction, determing the transfer mode is not necessary, otherwise it is always 'new'.<br/>
-        /// <br/>
-        /// See also example (combination of different transactions)".
-        /// </summary>
-        [XmlEnum("new")]
-        New
-    }
+    [XmlEnum("new")]
+    New
 }

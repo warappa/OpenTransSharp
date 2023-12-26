@@ -4,55 +4,54 @@ using OpenTransSharp.Validation;
 using OpenTransSharp.Xml;
 using System;
 
-namespace OpenTransSharp.Samples.AspNetCore.Controllers
+namespace OpenTransSharp.Samples.AspNetCore.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class RemittanceAdviceValidationController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class RemittanceAdviceValidationController : ControllerBase
+    private readonly IOpenTransXmlSerializerFactory serializerFactory;
+
+    public RemittanceAdviceValidationController(IOpenTransXmlSerializerFactory serializerFactory)
     {
-        private readonly IOpenTransXmlSerializerFactory serializerFactory;
+        this.serializerFactory = serializerFactory ?? throw new ArgumentNullException(nameof(serializerFactory));
+    }
 
-        public RemittanceAdviceValidationController(IOpenTransXmlSerializerFactory serializerFactory)
-        {
-            this.serializerFactory = serializerFactory ?? throw new ArgumentNullException(nameof(serializerFactory));
-        }
+    [HttpPost("via-model-binding")]
+    [Consumes("application/xml")]
+    public void RemittanceAdviceViaModelBinding(RemittanceAdvice remittanceAdvice)
+    {
+        // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+    }
 
-        [HttpPost("via-model-binding")]
-        [Consumes("application/xml")]
-        public void RemittanceAdviceViaModelBinding(RemittanceAdvice remittanceAdvice)
-        {
-            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
-        }
+    [HttpPost("via-stream")]
+    [RawTextRequest]
+    public void RemittanceAdviceViaStream()
+    {
+        var serializer = serializerFactory.Create<RemittanceAdvice>();
 
-        [HttpPost("via-stream")]
-        [RawTextRequest]
-        public void RemittanceAdviceViaStream()
-        {
-            var serializer = serializerFactory.Create<RemittanceAdvice>();
+        using var stream = Request.BodyReader.AsStream();
+        var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
 
-            using var stream = Request.BodyReader.AsStream();
-            var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
+        remittanceAdvice.EnsureValid(serializer);
+    }
 
-            remittanceAdvice.EnsureValid(serializer);
-        }
+    [HttpPost("via-file")]
+    public void RemittanceAdviceViaFile(IFormFile file)
+    {
+        var serializer = serializerFactory.Create<RemittanceAdvice>();
 
-        [HttpPost("via-file")]
-        public void RemittanceAdviceViaFile(IFormFile file)
-        {
-            var serializer = serializerFactory.Create<RemittanceAdvice>();
+        using var stream = file.OpenReadStream();
+        var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
 
-            using var stream = file.OpenReadStream();
-            var remittanceAdvice = serializer.Deserialize<RemittanceAdvice>(stream);
+        remittanceAdvice.EnsureValid(serializer);
+    }
 
-            remittanceAdvice.EnsureValid(serializer);
-        }
+    [HttpPost("via-text")]
+    public void RemittanceAdviceViaText([FromForm(Name = "content")] string content)
+    {
+        var serializer = serializerFactory.Create<RemittanceAdvice>();
 
-        [HttpPost("via-text")]
-        public void RemittanceAdviceViaText([FromForm(Name = "content")] string content)
-        {
-            var serializer = serializerFactory.Create<RemittanceAdvice>();
-
-            content.EnsureValidOpenTransDocument(serializer);
-        }
+        content.EnsureValidOpenTransDocument(serializer);
     }
 }

@@ -3,23 +3,22 @@ using OpenTransSharp;
 using OpenTransSharp.Xml;
 using System;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection;
+
+public static class OpenTransSharpServiceCollectionExtensions
 {
-    public static class OpenTransSharpServiceCollectionExtensions
+    public static IServiceCollection AddOpenTransSharp(this IServiceCollection services, Action<OpenTransOptions>? configureOptions = null)
     {
-        public static IServiceCollection AddOpenTransSharp(this IServiceCollection services, Action<OpenTransOptions>? configureOptions = null)
+        services.AddSingleton<IOpenTransXmlSerializerFactory, OpenTransXmlSerializerFactory>();
+        services.AddOptions<OpenTransOptions>();
+        services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value);
+        services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value.Serialization);
+
+        if (configureOptions is object)
         {
-            services.AddSingleton<IOpenTransXmlSerializerFactory, OpenTransXmlSerializerFactory>();
-            services.AddOptions<OpenTransOptions>();
-            services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value);
-            services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value.Serialization);
-
-            if (configureOptions is object)
-            {
-                services.Configure(configureOptions);
-            }
-
-            return services;
+            services.Configure(configureOptions);
         }
+
+        return services;
     }
 }

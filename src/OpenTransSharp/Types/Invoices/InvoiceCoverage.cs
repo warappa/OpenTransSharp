@@ -1,25 +1,24 @@
 ﻿using System.Xml.Serialization;
 
-namespace OpenTransSharp
+namespace OpenTransSharp;
+
+/// <summary>
+/// For <see cref="InvoiceInformation.Coverage"/>.
+/// </summary>
+public enum InvoiceCoverage
 {
     /// <summary>
-    /// For <see cref="InvoiceInformation.Coverage"/>.
+    /// Individual invoice<br/>
+    /// <br/>
+    /// The invoice comprises of items refering to one order.
     /// </summary>
-    public enum InvoiceCoverage
-    {
-        /// <summary>
-        /// Individual invoice<br/>
-        /// <br/>
-        /// The invoice comprises of items refering to one order.
-        /// </summary>
-        [XmlEnum("single")]
-        Single,
-        /// <summary>
-        /// Collective invoice<br/>
-        /// <br/>
-        /// The invoice comprises of items refering to several orders.
-        /// </summary>
-        [XmlEnum("collective")]
-        Collective,
-    }
+    [XmlEnum("single")]
+    Single,
+    /// <summary>
+    /// Collective invoice<br/>
+    /// <br/>
+    /// The invoice comprises of items refering to several orders.
+    /// </summary>
+    [XmlEnum("collective")]
+    Collective,
 }

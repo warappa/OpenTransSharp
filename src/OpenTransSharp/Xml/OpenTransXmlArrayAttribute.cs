@@ -1,22 +1,21 @@
 ﻿using System.Xml.Serialization;
 
-namespace OpenTransSharp.Xml
+namespace OpenTransSharp.Xml;
+
+public class OpenTransXmlArrayAttribute : XmlArrayAttribute
 {
-    public class OpenTransXmlArrayAttribute : XmlArrayAttribute
+    public OpenTransXmlArrayAttribute()
     {
-        public OpenTransXmlArrayAttribute()
-        {
-            Init();
-        }
+        Init();
+    }
 
-        public OpenTransXmlArrayAttribute(string elementName) : base(elementName)
-        {
-            Init();
-        }
+    public OpenTransXmlArrayAttribute(string elementName) : base(elementName)
+    {
+        Init();
+    }
 
-        private void Init()
-        {
-            Namespace = "http://www.opentrans.org/XMLSchema/2.1";
-        }
+    private void Init()
+    {
+        Namespace = "http://www.opentrans.org/XMLSchema/2.1";
     }
 }

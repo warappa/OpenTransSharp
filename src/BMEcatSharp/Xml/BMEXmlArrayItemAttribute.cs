@@ -1,33 +1,32 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace BMEcatSharp.Xml
+namespace BMEcatSharp.Xml;
+
+public class BMEXmlArrayItemAttribute : XmlArrayItemAttribute
 {
-    public class BMEXmlArrayItemAttribute : XmlArrayItemAttribute
+    public BMEXmlArrayItemAttribute()
     {
-        public BMEXmlArrayItemAttribute()
-        {
-            Init();
-        }
+        Init();
+    }
 
-        public BMEXmlArrayItemAttribute(string elementName) : base(elementName)
-        {
-            Init();
-        }
+    public BMEXmlArrayItemAttribute(string elementName) : base(elementName)
+    {
+        Init();
+    }
 
-        public BMEXmlArrayItemAttribute(Type type) : base(type)
-        {
-            Init();
-        }
+    public BMEXmlArrayItemAttribute(Type type) : base(type)
+    {
+        Init();
+    }
 
-        public BMEXmlArrayItemAttribute(string elementName, Type type) : base(elementName, type)
-        {
-            Init();
-        }
+    public BMEXmlArrayItemAttribute(string elementName, Type type) : base(elementName, type)
+    {
+        Init();
+    }
 
-        private void Init()
-        {
-            Namespace = "http://www.bmecat.org/bmecat/2005";
-        }
+    private void Init()
+    {
+        Namespace = "http://www.bmecat.org/bmecat/2005";
     }
 }

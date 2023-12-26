@@ -2,146 +2,145 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenTransSharp.Tests.InvoiceLists
+namespace OpenTransSharp.Tests.InvoiceLists;
+
+internal class InvoiceListTestConfig
 {
-    internal class InvoiceListTestConfig
+    private readonly TestConfig parent;
+
+    public InvoiceListTestConfig(TestConfig parent)
     {
-        private readonly TestConfig parent;
+        this.parent = parent;
+    }
 
-        public InvoiceListTestConfig(TestConfig parent)
+    public InvoiceList GetInvoiceList()
+    {
+        var model = new InvoiceList
         {
-            this.parent = parent;
-        }
+            Header = GetHeader()
+        };
 
-        public InvoiceList GetInvoiceList()
+        model.Items.Add(GetInvoiceListItem());
+
+        model.Summary = GetSummary();
+
+        return model;
+    }
+
+    internal InvoiceList GetInvoiceListWithUdx()
+    {
+        var model = GetInvoiceList();
+
+        model.Header.Information.HeaderUdx.Add(new CustomData()
         {
-            var model = new InvoiceList
+            Names = new List<string>
             {
-                Header = GetHeader()
-            };
-
-            model.Items.Add(GetInvoiceListItem());
-
-            model.Summary = GetSummary();
-
-            return model;
-        }
-
-        internal InvoiceList GetInvoiceListWithUdx()
+                "Name 1",
+                "Name 2"
+            }
+        });
+        model.Header.Information.HeaderUdx.Add(new CustomData2()
         {
-            var model = GetInvoiceList();
+            Name = "Name 3"
+        });
 
-            model.Header.Information.HeaderUdx.Add(new CustomData()
-            {
-                Names = new List<string>
-                {
-                    "Name 1",
-                    "Name 2"
-                }
-            });
-            model.Header.Information.HeaderUdx.Add(new CustomData2()
-            {
-                Name = "Name 3"
-            });
-
-            model.Items[0].ItemUdx.Add(new CustomData()
-            {
-                Names = new List<string>
-                {
-                    "Name 1",
-                    "Name 2"
-                }
-            });
-            model.Items[0].ItemUdx.Add(new CustomData2()
-            {
-                Name = "Name 3"
-            });
-
-            return model;
-        }
-
-        private InvoiceListSummary GetSummary()
+        model.Items[0].ItemUdx.Add(new CustomData()
         {
-            var model = new InvoiceListSummary
+            Names = new List<string>
             {
-                TotalItemCount = 1,
-                TotalAmount = 1,
-                TotalTax = parent.GetTotalTax()
-            };
-
-            return model;
-        }
-
-        private InvoiceListItem GetInvoiceListItem()
+                "Name 1",
+                "Name 2"
+            }
+        });
+        model.Items[0].ItemUdx.Add(new CustomData2()
         {
-            var model = new InvoiceListItem
-            {
-                LineItemId = "1"
-            };
-            model.InvoiceList.Add(GetILInvoiceListItem());
-            model.NetValueGoods = 10;
-            model.TotalAmount = 10;
-            model.TotalTax = parent.GetTotalTax();
-            model.Remarks.Add(parent.GetRemark());
-            model.AccountingPeriod = parent.GetAccountingPeriod();
-            model.DeliveryIdRef = parent.GetDeliveryIdRef();
+            Name = "Name 3"
+        });
 
-            return model;
-        }
+        return model;
+    }
 
-        private ILInvoiceListItem GetILInvoiceListItem()
+    private InvoiceListSummary GetSummary()
+    {
+        var model = new InvoiceListSummary
         {
-            return new ILInvoiceListItem
-            {
-                InvoiceReference = parent.GetInvoiceReference(),
-                NetValueGoods = 1,
-                TotalTax = parent.GetTotalTax(),
-                TotalAmount = 1
-            };
-        }
+            TotalItemCount = 1,
+            TotalAmount = 1,
+            TotalTax = parent.GetTotalTax()
+        };
 
-        private InvoiceListHeader GetHeader()
+        return model;
+    }
+
+    private InvoiceListItem GetInvoiceListItem()
+    {
+        var model = new InvoiceListItem
         {
-            var header = new InvoiceListHeader
-            {
-                ControlInformation = parent.GetControlInformation(),
+            LineItemId = "1"
+        };
+        model.InvoiceList.Add(GetILInvoiceListItem());
+        model.NetValueGoods = 10;
+        model.TotalAmount = 10;
+        model.TotalTax = parent.GetTotalTax();
+        model.Remarks.Add(parent.GetRemark());
+        model.AccountingPeriod = parent.GetAccountingPeriod();
+        model.DeliveryIdRef = parent.GetDeliveryIdRef();
 
-                Information = GetInvoiceListInformation()
-            };
+        return model;
+    }
 
-            return header;
-        }
-
-        private InvoiceListInformation GetInvoiceListInformation()
+    private ILInvoiceListItem GetILInvoiceListItem()
+    {
+        return new ILInvoiceListItem
         {
-            var model = new InvoiceListInformation
-            {
-                Currency = "EUR",
-                DocexchangePartiesReference = parent.GetDocexchangePartiesReference(),
-                AccountingPeriod = parent.GetAccountingPeriod()
-            };
-            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
-            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
-            model.MimeInfo = parent.GetMimeInfo();
-            model.MimeRoot = parent.BMEcats.GetMimeRoot();
-            model.Date = DateTime.UtcNow;
-            model.Id = "InvoiceListId";
-            model.Parties = parent.GetParties();
-            model.InvoiceRecipientIdRef = GetInvoiceRecipientIdRef();
-            model.InvoiceIssuerIdRef = GetInvoiceIssuerIdRef();
-            model.Remarks.AddRange(parent.GetRemarks());
+            InvoiceReference = parent.GetInvoiceReference(),
+            NetValueGoods = 1,
+            TotalTax = parent.GetTotalTax(),
+            TotalAmount = 1
+        };
+    }
 
-            return model;
-        }
-
-        private InvoiceIssuerIdRef GetInvoiceIssuerIdRef()
+    private InvoiceListHeader GetHeader()
+    {
+        var header = new InvoiceListHeader
         {
-            return new InvoiceIssuerIdRef("invoice issure", PartyTypeValues.PartySpecific);
-        }
+            ControlInformation = parent.GetControlInformation(),
 
-        private InvoiceRecipientIdRef GetInvoiceRecipientIdRef()
+            Information = GetInvoiceListInformation()
+        };
+
+        return header;
+    }
+
+    private InvoiceListInformation GetInvoiceListInformation()
+    {
+        var model = new InvoiceListInformation
         {
-            return new InvoiceRecipientIdRef("invoice recipient", PartyTypeValues.PartySpecific);
-        }
+            Currency = "EUR",
+            DocexchangePartiesReference = parent.GetDocexchangePartiesReference(),
+            AccountingPeriod = parent.GetAccountingPeriod()
+        };
+        model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+        model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+        model.MimeInfo = parent.GetMimeInfo();
+        model.MimeRoot = parent.BMEcats.GetMimeRoot();
+        model.Date = DateTime.UtcNow;
+        model.Id = "InvoiceListId";
+        model.Parties = parent.GetParties();
+        model.InvoiceRecipientIdRef = GetInvoiceRecipientIdRef();
+        model.InvoiceIssuerIdRef = GetInvoiceIssuerIdRef();
+        model.Remarks.AddRange(parent.GetRemarks());
+
+        return model;
+    }
+
+    private InvoiceIssuerIdRef GetInvoiceIssuerIdRef()
+    {
+        return new InvoiceIssuerIdRef("invoice issure", PartyTypeValues.PartySpecific);
+    }
+
+    private InvoiceRecipientIdRef GetInvoiceRecipientIdRef()
+    {
+        return new InvoiceRecipientIdRef("invoice recipient", PartyTypeValues.PartySpecific);
     }
 }

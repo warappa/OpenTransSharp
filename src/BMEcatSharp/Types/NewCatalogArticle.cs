@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+//[Obsolete("Use NewCatalogProduct instead")]
+public class NewCatalogArticle : NewCatalogProduct
 {
-    //[Obsolete("Use NewCatalogProduct instead")]
-    public class NewCatalogArticle : NewCatalogProduct
-    {
-    }
 }

@@ -2,14 +2,13 @@
 
 [assembly: InternalsVisibleTo("OpenTransSharp.Tests")]
 
-namespace BMEcatSharp.Tests
+namespace BMEcatSharp.Tests;
+
+internal class TestConfig
 {
-    internal class TestConfig
+    public TestConfig()
     {
-        public TestConfig()
-        {
-            BMEcats = new BMEcatTestConfig(this);
-        }
-        public BMEcatTestConfig BMEcats { get; }
+        BMEcats = new BMEcatTestConfig(this);
     }
+    public BMEcatTestConfig BMEcats { get; }
 }

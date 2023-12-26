@@ -122,7 +122,7 @@ csharp_style_prefer_readonly_struct = true:suggestion
 # Code-block preferences
 csharp_prefer_braces = true:silent
 csharp_prefer_simple_using_statement = true:suggestion
-csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_namespace_declarations = file_scoped:warning
 
 csharp_style_prefer_method_group_conversion = false:none
 # IDE0200: Remove unnecessary lambda expression

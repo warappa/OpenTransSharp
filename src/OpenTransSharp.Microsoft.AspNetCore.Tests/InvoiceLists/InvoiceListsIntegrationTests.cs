@@ -11,115 +11,114 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace OpenTransSharp.Microsoft.AspNetCore.Tests.InvoiceLists
+namespace OpenTransSharp.Microsoft.AspNetCore.Tests.InvoiceLists;
+
+public class InvoiceListsIntegrationTests
 {
-    public class InvoiceListsIntegrationTests
+    private WebApplicationFactory<Startup> factory;
+    private HttpClient client;
+
+    [SetUp]
+    public void Setup()
     {
-        private WebApplicationFactory<Startup> factory;
-        private HttpClient client;
+        factory = new WebApplicationFactory<Startup>();
+        client = factory.CreateClient();
+    }
 
-        [SetUp]
-        public void Setup()
+    [Test]
+    public async Task Can_parse_valid_InvoiceList_via_stream()
+    {
+        using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml");
+
+        var content = new StreamContent(stream);
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
+
+        var result = await client.PostAsync("InvoiceListValidation/via-stream", content);
+        result.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+
+    [Test]
+    public async Task Cannot_parse_invalid_InvoiceList_via_stream()
+    {
+        using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml");
+
+        var content = new StreamContent(stream);
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
+
+        var result = await client.PostAsync("InvoiceListValidation/via-stream", content);
+        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+
+        var error = await GetValidationResult(result);
+        error.Errors.First().Value[0].Should().Contain("MaxLength");
+    }
+
+    [Test]
+    public async Task Can_parse_valid_InvoiceList_via_model_binding()
+    {
+        using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml");
+
+        var content = new StreamContent(stream);
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
+
+        var result = await client.PostAsync("InvoiceListValidation/via-model-binding", content);
+        var r = await result.Content.ReadAsStringAsync();
+        result.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+
+    [Test]
+    public async Task Cannot_parse_invalid_InvoiceList_via_model_binding()
+    {
+        using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml");
+
+        var content = new StreamContent(stream);
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
+
+        var result = await client.PostAsync("InvoiceListValidation/via-model-binding", content);
+        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+
+        var error = await GetValidationResult(result);
+        error.Errors.ElementAt(1).Value[0].Should().Contain("MaxLength");
+    }
+
+    [Test]
+    public async Task Can_parse_valid_InvoiceList_via_file()
+    {
+        using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml");
+
+        var content = new MultipartFormDataContent
         {
-            factory = new WebApplicationFactory<Startup>();
-            client = factory.CreateClient();
-        }
+            {new StreamContent(stream), "file", @"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml"}
+        };
 
-        [Test]
-        public async Task Can_parse_valid_InvoiceList_via_stream()
+        var result = await client.PostAsync("InvoiceListValidation/via-file", content);
+        var r = await result.Content.ReadAsStringAsync();
+        result.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+
+    [Test]
+    public async Task Cannot_parse_invalid_InvoiceList_via_file()
+    {
+        using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml");
+
+        var content = new MultipartFormDataContent
         {
-            using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml");
+            {new StreamContent(stream), "file", @"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml"}
+        };
 
-            var content = new StreamContent(stream);
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
+        var result = await client.PostAsync("InvoiceListValidation/via-file", content);
+        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
-            var result = await client.PostAsync("InvoiceListValidation/via-stream", content);
-            result.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
+        var error = await GetValidationResult(result);
+        error.Errors.First().Value[0].Should().Contain("MaxLength");
+    }
 
-        [Test]
-        public async Task Cannot_parse_invalid_InvoiceList_via_stream()
+    private static async Task<ValidationResult> GetValidationResult(HttpResponseMessage result)
+    {
+        var errorJson = await result.Content.ReadAsStringAsync();
+        var error = JsonSerializer.Deserialize<ValidationResult>(errorJson, new JsonSerializerOptions
         {
-            using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml");
-
-            var content = new StreamContent(stream);
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
-
-            var result = await client.PostAsync("InvoiceListValidation/via-stream", content);
-            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-
-            var error = await GetValidationResult(result);
-            error.Errors.First().Value[0].Should().Contain("MaxLength");
-        }
-
-        [Test]
-        public async Task Can_parse_valid_InvoiceList_via_model_binding()
-        {
-            using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml");
-
-            var content = new StreamContent(stream);
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
-
-            var result = await client.PostAsync("InvoiceListValidation/via-model-binding", content);
-            var r = await result.Content.ReadAsStringAsync();
-            result.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
-
-        [Test]
-        public async Task Cannot_parse_invalid_InvoiceList_via_model_binding()
-        {
-            using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml");
-
-            var content = new StreamContent(stream);
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
-
-            var result = await client.PostAsync("InvoiceListValidation/via-model-binding", content);
-            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-
-            var error = await GetValidationResult(result);
-            error.Errors.ElementAt(1).Value[0].Should().Contain("MaxLength");
-        }
-
-        [Test]
-        public async Task Can_parse_valid_InvoiceList_via_file()
-        {
-            using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml");
-
-            var content = new MultipartFormDataContent
-            {
-                {new StreamContent(stream), "file", @"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml"}
-            };
-
-            var result = await client.PostAsync("InvoiceListValidation/via-file", content);
-            var r = await result.Content.ReadAsStringAsync();
-            result.StatusCode.Should().Be(HttpStatusCode.OK);
-        }
-
-        [Test]
-        public async Task Cannot_parse_invalid_InvoiceList_via_file()
-        {
-            using var stream = File.OpenRead(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml");
-
-            var content = new MultipartFormDataContent
-            {
-                {new StreamContent(stream), "file", @"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1 - invalid.xml"}
-            };
-
-            var result = await client.PostAsync("InvoiceListValidation/via-file", content);
-            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-
-            var error = await GetValidationResult(result);
-            error.Errors.First().Value[0].Should().Contain("MaxLength");
-        }
-
-        private static async Task<ValidationResult> GetValidationResult(HttpResponseMessage result)
-        {
-            var errorJson = await result.Content.ReadAsStringAsync();
-            var error = JsonSerializer.Deserialize<ValidationResult>(errorJson, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
-            return error;
-        }
+            PropertyNameCaseInsensitive = true
+        });
+        return error;
     }
 }

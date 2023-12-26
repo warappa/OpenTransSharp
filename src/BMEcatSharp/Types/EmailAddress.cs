@@ -2,13 +2,12 @@
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+[BMEXmlRoot("EMAIL")]
+[EditorBrowsable(EditorBrowsableState.Never)]
+public class EmailAddress : EmailComponent
 {
-    [BMEXmlRoot("EMAIL")]
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public class EmailAddress : EmailComponent
-    {
-        [XmlText]
-        public string Value { get; set; }
-    }
+    [XmlText]
+    public string Value { get; set; }
 }

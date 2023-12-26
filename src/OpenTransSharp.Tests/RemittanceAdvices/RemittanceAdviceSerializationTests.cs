@@ -6,63 +6,62 @@ using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp.Tests.RemittanceAdvices
+namespace OpenTransSharp.Tests.RemittanceAdvices;
+
+public class RemittanceAdviceSerializationTests
 {
-    public class RemittanceAdviceSerializationTests
+    private readonly TestConfig testConfig;
+    private OpenTransXmlSerializerFactory serializerFactory;
+    private XmlSerializer target;
+
+    public RemittanceAdviceSerializationTests()
     {
-        private readonly TestConfig testConfig;
-        private OpenTransXmlSerializerFactory serializerFactory;
-        private XmlSerializer target;
+        testConfig = new TestConfig();
+    }
 
-        public RemittanceAdviceSerializationTests()
+    [SetUp]
+    public void Setup()
+    {
+        var options = new OpenTransXmlSerializerOptions
         {
-            testConfig = new TestConfig();
-        }
+            IncludeUdxTypes =
+            [
+                typeof(CustomData),
+                typeof(CustomData2)
+            ],
+            XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
+        };
 
-        [SetUp]
-        public void Setup()
-        {
-            var options = new OpenTransXmlSerializerOptions
-            {
-                IncludeUdxTypes =
-                [
-                    typeof(CustomData),
-                    typeof(CustomData2)
-                ],
-                XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
-            };
+        serializerFactory = new OpenTransXmlSerializerFactory(options);
 
-            serializerFactory = new OpenTransXmlSerializerFactory(options);
+        target = serializerFactory.Create<RemittanceAdvice>();
+    }
 
-            target = serializerFactory.Create<RemittanceAdvice>();
-        }
+    [Test]
+    public void Can_serialize_RemittanceAdvice()
+    {
+        var order = testConfig.RemittanceAdvices.GetRemittanceAdvice();
 
-        [Test]
-        public void Can_serialize_RemittanceAdvice()
-        {
-            var order = testConfig.RemittanceAdvices.GetRemittanceAdvice();
+        Action action = () => target.Serialize(order);
+        action.Should().NotThrow();
+    }
 
-            Action action = () => target.Serialize(order);
-            action.Should().NotThrow();
-        }
+    [Test]
+    public void Can_validate_RemittanceAdvice()
+    {
+        var order = testConfig.RemittanceAdvices.GetRemittanceAdvice();
 
-        [Test]
-        public void Can_validate_RemittanceAdvice()
-        {
-            var order = testConfig.RemittanceAdvices.GetRemittanceAdvice();
+        //var serialized = target.Serialize(order);
+        order.IsValid(target).Should().Be(true);
+    }
 
-            //var serialized = target.Serialize(order);
-            order.IsValid(target).Should().Be(true);
-        }
+    [Test]
+    public void Can_validate_RemittanceAdvice_with_UDX()
+    {
+        var order = testConfig.RemittanceAdvices.GetRemittanceAdviceWithUdx();
 
-        [Test]
-        public void Can_validate_RemittanceAdvice_with_UDX()
-        {
-            var order = testConfig.RemittanceAdvices.GetRemittanceAdviceWithUdx();
-
-            var serialized = target.Serialize(order);
-            Debug.WriteLine(serialized);
-            order.IsValid(target).Should().Be(true);
-        }
+        var serialized = target.Serialize(order);
+        Debug.WriteLine(serialized);
+        order.IsValid(target).Should().Be(true);
     }
 }

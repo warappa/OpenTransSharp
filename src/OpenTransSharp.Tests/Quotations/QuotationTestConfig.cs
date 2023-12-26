@@ -1,125 +1,124 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OpenTransSharp.Tests.Quotations
+namespace OpenTransSharp.Tests.Quotations;
+
+internal class QuotationTestConfig
 {
-    internal class QuotationTestConfig
+    private readonly TestConfig parent;
+
+    public QuotationTestConfig(TestConfig parent)
     {
-        private readonly TestConfig parent;
+        this.parent = parent;
+    }
 
-        public QuotationTestConfig(TestConfig parent)
+    public Quotation GetQuotation()
+    {
+        var model = new Quotation
         {
-            this.parent = parent;
-        }
+            Header = GetHeader()
+        };
 
-        public Quotation GetQuotation()
+        model.Items.Add(GetQuotationItem());
+
+        model.Summary = GetSummary();
+
+        return model;
+    }
+
+    private QuotationSummary GetSummary()
+    {
+        var model = new QuotationSummary
         {
-            var model = new Quotation
-            {
-                Header = GetHeader()
-            };
+            TotalItemCount = 1
+        };
 
-            model.Items.Add(GetQuotationItem());
+        return model;
+    }
 
-            model.Summary = GetSummary();
-
-            return model;
-        }
-
-        private QuotationSummary GetSummary()
+    private QuotationItem GetQuotationItem()
+    {
+        var model = new QuotationItem
         {
-            var model = new QuotationSummary
-            {
-                TotalItemCount = 1
-            };
+            LineItemId = "1",
+            ProductId = parent.GetProductId(),
+            Quantity = 2,
+            OrderUnit = BMEcatSharp.PackageUnit.C62,
+            ProductPriceFix = parent.GetProductPriceFix(),
+            PriceLineAmount = 10,
+            PartialShipmentAllowed = false,
+            DeliveryDate = parent.GetDeliveryDate(),
+            Transport = parent.BMEcats.GetTransport()
+        };
+        model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
+        model.Remarks.AddRange(parent.GetRemarks());
 
-            return model;
-        }
+        return model;
+    }
 
-        private QuotationItem GetQuotationItem()
+    internal Quotation GetQuotationWithUdx()
+    {
+        var model = GetQuotation();
+
+        model.Header.Information.HeaderUdx.Add(new CustomData()
         {
-            var model = new QuotationItem
+            Names = new List<string>
             {
-                LineItemId = "1",
-                ProductId = parent.GetProductId(),
-                Quantity = 2,
-                OrderUnit = BMEcatSharp.PackageUnit.C62,
-                ProductPriceFix = parent.GetProductPriceFix(),
-                PriceLineAmount = 10,
-                PartialShipmentAllowed = false,
-                DeliveryDate = parent.GetDeliveryDate(),
-                Transport = parent.BMEcats.GetTransport()
-            };
-            model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
-            model.Remarks.AddRange(parent.GetRemarks());
-
-            return model;
-        }
-
-        internal Quotation GetQuotationWithUdx()
+                "Name 1",
+                "Name 2"
+            }
+        });
+        model.Header.Information.HeaderUdx.Add(new CustomData2()
         {
-            var model = GetQuotation();
+            Name = "Name 3"
+        });
 
-            model.Header.Information.HeaderUdx.Add(new CustomData()
-            {
-                Names = new List<string>
-                {
-                    "Name 1",
-                    "Name 2"
-                }
-            });
-            model.Header.Information.HeaderUdx.Add(new CustomData2()
-            {
-                Name = "Name 3"
-            });
-
-            model.Items[0].ItemUdx.Add(new CustomData()
-            {
-                Names = new List<string>
-                {
-                    "Name 1",
-                    "Name 2"
-                }
-            });
-            model.Items[0].ItemUdx.Add(new CustomData2()
-            {
-                Name = "Name 3"
-            });
-
-            return model;
-        }
-
-        private QuotationHeader GetHeader()
+        model.Items[0].ItemUdx.Add(new CustomData()
         {
-            var header = new QuotationHeader
+            Names = new List<string>
             {
-                ControlInformation = parent.GetControlInformation(),
-
-                Information = GetQuotationInformation()
-            };
-
-            return header;
-        }
-
-        private QuotationInformation GetQuotationInformation()
+                "Name 1",
+                "Name 2"
+            }
+        });
+        model.Items[0].ItemUdx.Add(new CustomData2()
         {
-            var model = new QuotationInformation
-            {
-                Id = "QuotationId",
-                Date = DateTime.UtcNow,
-                DeliveryDate = parent.GetDeliveryDate()
-            };
-            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
-            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
-            model.MimeRoot = parent.BMEcats.GetMimeRoot();
-            model.Parties.AddRange(parent.GetParties());
-            model.OrderPartiesReference = parent.GetOrderPartiesReference();
-            model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
-            model.Currency = "EUR";
-            model.MimeInfo = parent.GetMimeInfo();
-            model.Remarks.AddRange(parent.GetRemarks());
+            Name = "Name 3"
+        });
 
-            return model;
-        }
+        return model;
+    }
+
+    private QuotationHeader GetHeader()
+    {
+        var header = new QuotationHeader
+        {
+            ControlInformation = parent.GetControlInformation(),
+
+            Information = GetQuotationInformation()
+        };
+
+        return header;
+    }
+
+    private QuotationInformation GetQuotationInformation()
+    {
+        var model = new QuotationInformation
+        {
+            Id = "QuotationId",
+            Date = DateTime.UtcNow,
+            DeliveryDate = parent.GetDeliveryDate()
+        };
+        model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+        model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+        model.MimeRoot = parent.BMEcats.GetMimeRoot();
+        model.Parties.AddRange(parent.GetParties());
+        model.OrderPartiesReference = parent.GetOrderPartiesReference();
+        model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
+        model.Currency = "EUR";
+        model.MimeInfo = parent.GetMimeInfo();
+        model.Remarks.AddRange(parent.GetRemarks());
+
+        return model;
     }
 }

@@ -1,6 +1,5 @@
-﻿namespace OpenTransSharp.Validation
+﻿namespace OpenTransSharp.Validation;
+
+public class ValidationResult : BMEcatSharp.Validation.ValidationResult
 {
-    public class ValidationResult : BMEcatSharp.Validation.ValidationResult
-    {
-    }
 }

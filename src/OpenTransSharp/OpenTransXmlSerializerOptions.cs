@@ -1,6 +1,5 @@
-﻿namespace OpenTransSharp
+﻿namespace OpenTransSharp;
+
+public class OpenTransXmlSerializerOptions : BMEcatSharp.BMEcatXmlSerializerOptions
 {
-    public class OpenTransXmlSerializerOptions : BMEcatSharp.BMEcatXmlSerializerOptions
-    {
-    }
 }

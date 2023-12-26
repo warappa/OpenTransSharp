@@ -1,22 +1,21 @@
 ﻿using System.Xml.Serialization;
 
-namespace BMEcatSharp.Xml
+namespace BMEcatSharp.Xml;
+
+public class BMEXmlArrayAttribute : XmlArrayAttribute
 {
-    public class BMEXmlArrayAttribute : XmlArrayAttribute
+    public BMEXmlArrayAttribute()
     {
-        public BMEXmlArrayAttribute()
-        {
-            Init();
-        }
+        Init();
+    }
 
-        public BMEXmlArrayAttribute(string elementName) : base(elementName)
-        {
-            Init();
-        }
+    public BMEXmlArrayAttribute(string elementName) : base(elementName)
+    {
+        Init();
+    }
 
-        private void Init()
-        {
-            Namespace = "http://www.bmecat.org/bmecat/2005";
-        }
+    private void Init()
+    {
+        Namespace = "http://www.bmecat.org/bmecat/2005";
     }
 }

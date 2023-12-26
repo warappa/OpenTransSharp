@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+//[Obsolete("Use NewCatalogProductToCataloggroupMap instead")]
+public class NewCatalogArticleToCataloggroupMap : NewCatalogProductToCataloggroupMap
 {
-    //[Obsolete("Use NewCatalogProductToCataloggroupMap instead")]
-    public class NewCatalogArticleToCataloggroupMap : NewCatalogProductToCataloggroupMap
-    {
-    }
 }

@@ -1,6 +1,5 @@
-﻿namespace OpenTransSharp.Xml
+﻿namespace OpenTransSharp.Xml;
+
+public interface IOpenTransXmlSerializerFactory : BMEcatSharp.Xml.IBMEcatXmlSerializerFactory
 {
-    public interface IOpenTransXmlSerializerFactory : BMEcatSharp.Xml.IBMEcatXmlSerializerFactory
-    {
-    }
 }

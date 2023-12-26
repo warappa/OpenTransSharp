@@ -1,135 +1,134 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OpenTransSharp.Tests.Invoices
+namespace OpenTransSharp.Tests.Invoices;
+
+internal class InvoiceTestConfig
 {
-    internal class InvoiceTestConfig
+    private readonly TestConfig parent;
+
+    public InvoiceTestConfig(TestConfig parent)
     {
-        private readonly TestConfig parent;
+        this.parent = parent;
+    }
 
-        public InvoiceTestConfig(TestConfig parent)
+    public Invoice GetInvoice()
+    {
+        var model = new Invoice
         {
-            this.parent = parent;
-        }
+            Header = GetHeader()
+        };
 
-        public Invoice GetInvoice()
+        model.Items.Add(GetInvoiceItem());
+
+        model.Summary = GetSummary();
+
+        return model;
+    }
+
+    private InvoiceSummary GetSummary()
+    {
+        var model = new InvoiceSummary
         {
-            var model = new Invoice
-            {
-                Header = GetHeader()
-            };
+            TotalItemCount = 1,
+            NetValueGoods = 1,
+            TotalAmount = 1,
+            TotalTax = parent.GetTotalTax()
+        };
 
-            model.Items.Add(GetInvoiceItem());
+        return model;
+    }
 
-            model.Summary = GetSummary();
-
-            return model;
-        }
-
-        private InvoiceSummary GetSummary()
+    private InvoiceItem GetInvoiceItem()
+    {
+        var model = new InvoiceItem
         {
-            var model = new InvoiceSummary
-            {
-                TotalItemCount = 1,
-                NetValueGoods = 1,
-                TotalAmount = 1,
-                TotalTax = parent.GetTotalTax()
-            };
+            LineItemId = "1",
+            OrderUnit = BMEcatSharp.PackageUnit.C62,
+            PriceLineAmount = 10,
+            Quantity = 2,
+            ProductPriceFix = parent.GetProductPriceFix(),
+            Remarks = parent.GetRemarks(),
+            ProductId = parent.GetProductId()
+        };
 
-            return model;
-        }
+        return model;
+    }
 
-        private InvoiceItem GetInvoiceItem()
+    internal Invoice GetInvoiceWithUdx()
+    {
+        var model = GetInvoice();
+
+        model.Header.Information.HeaderUdx.Add(new CustomData()
         {
-            var model = new InvoiceItem
+            Names = new List<string>
             {
-                LineItemId = "1",
-                OrderUnit = BMEcatSharp.PackageUnit.C62,
-                PriceLineAmount = 10,
-                Quantity = 2,
-                ProductPriceFix = parent.GetProductPriceFix(),
-                Remarks = parent.GetRemarks(),
-                ProductId = parent.GetProductId()
-            };
-
-            return model;
-        }
-
-        internal Invoice GetInvoiceWithUdx()
+                "Name 1",
+                "Name 2"
+            }
+        });
+        model.Header.Information.HeaderUdx.Add(new CustomData2()
         {
-            var model = GetInvoice();
+            Name = "Name 3"
+        });
 
-            model.Header.Information.HeaderUdx.Add(new CustomData()
-            {
-                Names = new List<string>
-                {
-                    "Name 1",
-                    "Name 2"
-                }
-            });
-            model.Header.Information.HeaderUdx.Add(new CustomData2()
-            {
-                Name = "Name 3"
-            });
-
-            model.Items[0].ItemUdx.Add(new CustomData()
-            {
-                Names = new List<string>
-                {
-                    "Name 1",
-                    "Name 2"
-                }
-            });
-            model.Items[0].ItemUdx.Add(new CustomData2()
-            {
-                Name = "Name 3"
-            });
-
-            return model;
-        }
-
-        private InvoiceHeader GetHeader()
+        model.Items[0].ItemUdx.Add(new CustomData()
         {
-            var header = new InvoiceHeader
+            Names = new List<string>
             {
-                ControlInformation = parent.GetControlInformation(),
-
-                Information = GetInvoiceInformation(),
-
-                OrderHistory = GetOrderHistory()
-            };
-
-            return header;
-        }
-
-        private OrderHistory GetOrderHistory()
+                "Name 1",
+                "Name 2"
+            }
+        });
+        model.Items[0].ItemUdx.Add(new CustomData2()
         {
-            return new OrderHistory
-            {
-                OrderId = "OrderId"
-            };
-        }
+            Name = "Name 3"
+        });
 
-        private InvoiceInformation GetInvoiceInformation()
+        return model;
+    }
+
+    private InvoiceHeader GetHeader()
+    {
+        var header = new InvoiceHeader
         {
-            var model = new InvoiceInformation
-            {
-                Currency = "EUR",
-                DeliveryDate = parent.GetDeliveryDate(),
-                DocexchangePartiesReference = parent.GetDocexchangePartiesReference()
-            };
-            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
-            model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
-            model.MimeInfo = parent.GetMimeInfo();
-            model.MimeRoot = parent.BMEcats.GetMimeRoot();
-            model.Date = DateTime.UtcNow;
-            model.Id = "InvoiceId";
-            model.IssuerIdRef = parent.GetInvoiceIssuerIdRef();
-            model.RecipientIdRef = parent.GetInvoiceRecipientIdRef();
-            model.Parties = parent.GetParties();
-            model.Remarks.Add(parent.GetRemark());
+            ControlInformation = parent.GetControlInformation(),
 
-            return model;
-        }
+            Information = GetInvoiceInformation(),
+
+            OrderHistory = GetOrderHistory()
+        };
+
+        return header;
+    }
+
+    private OrderHistory GetOrderHistory()
+    {
+        return new OrderHistory
+        {
+            OrderId = "OrderId"
+        };
+    }
+
+    private InvoiceInformation GetInvoiceInformation()
+    {
+        var model = new InvoiceInformation
+        {
+            Currency = "EUR",
+            DeliveryDate = parent.GetDeliveryDate(),
+            DocexchangePartiesReference = parent.GetDocexchangePartiesReference()
+        };
+        model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
+        model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
+        model.MimeInfo = parent.GetMimeInfo();
+        model.MimeRoot = parent.BMEcats.GetMimeRoot();
+        model.Date = DateTime.UtcNow;
+        model.Id = "InvoiceId";
+        model.IssuerIdRef = parent.GetInvoiceIssuerIdRef();
+        model.RecipientIdRef = parent.GetInvoiceRecipientIdRef();
+        model.Parties = parent.GetParties();
+        model.Remarks.Add(parent.GetRemark());
+
+        return model;
     }
 }

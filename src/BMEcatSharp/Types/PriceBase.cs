@@ -2,57 +2,56 @@
 using System;
 using System.ComponentModel;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+/// <summary>
+/// (Price basis)<br/>
+/// <br/>
+/// This element contains the price basis consisting of price unit and price factor, it defines the basis of a price.<br/>
+/// <br/>
+/// XML-namespace: BMECAT
+/// </summary>
+public class PriceBase
 {
     /// <summary>
-    /// (Price basis)<br/>
+    /// <inheritdoc cref="PriceBase"/>
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public PriceBase()
+    {
+    }
+
+    /// <summary>
+    /// <inheritdoc cref="PriceBase"/>
+    /// </summary>
+    /// <param name="unit"></param>
+    public PriceBase(PackageUnit unit)
+    {
+        Unit = unit;
+    }
+
+    /// <summary>
+    /// (required) Price unit<br/>
     /// <br/>
-    /// This element contains the price basis consisting of price unit and price factor, it defines the basis of a price.<br/>
+    /// Unit of measurement on which the price is calculated.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    public class PriceBase
-    {
-        /// <summary>
-        /// <inheritdoc cref="PriceBase"/>
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public PriceBase()
-        {
-        }
+    [BMEXmlElement("PRICE_UNIT")]
+    public PackageUnit Unit { get; set; }
 
-        /// <summary>
-        /// <inheritdoc cref="PriceBase"/>
-        /// </summary>
-        /// <param name="unit"></param>
-        public PriceBase(PackageUnit unit)
-        {
-            Unit = unit;
-        }
-
-        /// <summary>
-        /// (required) Price unit<br/>
-        /// <br/>
-        /// Unit of measurement on which the price is calculated.<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [BMEXmlElement("PRICE_UNIT")]
-        public PackageUnit Unit { get; set; }
-
-        /// <summary>
-        /// (optional) Price unit factor<br/>
-        /// <br/>
-        /// The price factor is the conversion factor for price unit and order unit.<br/>
-        /// The underlying formula is: <b>PRICE_UNIT = PRICE_UNIT_FACTOR * ORDER_UNIT</b><br/>
-        /// <br/>
-        /// Default value: 1<br/>
-        /// <br/>
-        /// XML-namespace: BMECAT
-        /// </summary>
-        [BMEXmlElement("PRICE_UNIT_FACTOR")]
-        public decimal? UnitFactor { get; set; }
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool UnitFactorSpecified => UnitFactor.HasValue;
-    }
+    /// <summary>
+    /// (optional) Price unit factor<br/>
+    /// <br/>
+    /// The price factor is the conversion factor for price unit and order unit.<br/>
+    /// The underlying formula is: <b>PRICE_UNIT = PRICE_UNIT_FACTOR * ORDER_UNIT</b><br/>
+    /// <br/>
+    /// Default value: 1<br/>
+    /// <br/>
+    /// XML-namespace: BMECAT
+    /// </summary>
+    [BMEXmlElement("PRICE_UNIT_FACTOR")]
+    public decimal? UnitFactor { get; set; }
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public bool UnitFactorSpecified => UnitFactor.HasValue;
 }

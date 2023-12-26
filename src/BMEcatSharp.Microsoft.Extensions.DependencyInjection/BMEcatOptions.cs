@@ -1,7 +1,6 @@
-﻿namespace BMEcatSharp
+﻿namespace BMEcatSharp;
+
+public class BMEcatOptions
 {
-    public class BMEcatOptions
-    {
-        public BMEcatXmlSerializerOptions Serialization { get; set; } = new BMEcatXmlSerializerOptions();
-    }
+    public BMEcatXmlSerializerOptions Serialization { get; set; } = new BMEcatXmlSerializerOptions();
 }

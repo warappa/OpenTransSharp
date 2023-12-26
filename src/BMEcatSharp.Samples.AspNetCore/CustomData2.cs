@@ -1,11 +1,10 @@
 ﻿using System.Xml.Serialization;
 
-namespace BMEcatSharp.Samples.AspNetCore
+namespace BMEcatSharp.Samples.AspNetCore;
+
+[XmlRoot("UDX.ORGANIZATION.CUSTOM_DATA_2")]
+public class CustomData2
 {
-    [XmlRoot("UDX.ORGANIZATION.CUSTOM_DATA_2")]
-    public class CustomData2
-    {
-        [XmlText]
-        public string? Name { get; set; }
-    }
+    [XmlText]
+    public string? Name { get; set; }
 }

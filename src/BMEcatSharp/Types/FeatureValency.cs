@@ -1,25 +1,24 @@
 ﻿using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+/// <summary>
+/// For <see cref="FeatureContent.Valency"/>.
+/// </summary>
+public enum FeatureValency
 {
     /// <summary>
-    /// For <see cref="FeatureContent.Valency"/>.
+    /// Univalent<br/>
+    /// <br/>
+    /// The feature can only have one value.
     /// </summary>
-    public enum FeatureValency
-    {
-        /// <summary>
-        /// Univalent<br/>
-        /// <br/>
-        /// The feature can only have one value.
-        /// </summary>
-        [XmlEnum("univalent")]
-        Univalent,
-        /// <summary>
-        /// Univalent<br/>
-        /// <br/>
-        /// The feature can have more than one value.
-        /// </summary>
-        [XmlEnum("multivalent")]
-        Multivalent
-    }
+    [XmlEnum("univalent")]
+    Univalent,
+    /// <summary>
+    /// Univalent<br/>
+    /// <br/>
+    /// The feature can have more than one value.
+    /// </summary>
+    [XmlEnum("multivalent")]
+    Multivalent
 }

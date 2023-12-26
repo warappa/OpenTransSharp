@@ -1,7 +1,6 @@
-﻿namespace OpenTransSharp
-{
-    public interface IOpenTransRoot
-    {
+﻿namespace OpenTransSharp;
 
-    }
+public interface IOpenTransRoot
+{
+
 }

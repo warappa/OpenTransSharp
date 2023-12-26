@@ -6,63 +6,62 @@ using System;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp.Tests.RequestForQuotations
+namespace OpenTransSharp.Tests.RequestForQuotations;
+
+public class RequestForQuotationSerializationTests
 {
-    public class RequestForQuotationSerializationTests
+    private readonly TestConfig testConfig;
+    private OpenTransXmlSerializerFactory serializerFactory;
+    private XmlSerializer target;
+
+    public RequestForQuotationSerializationTests()
     {
-        private readonly TestConfig testConfig;
-        private OpenTransXmlSerializerFactory serializerFactory;
-        private XmlSerializer target;
+        testConfig = new TestConfig();
+    }
 
-        public RequestForQuotationSerializationTests()
+    [SetUp]
+    public void Setup()
+    {
+        var options = new OpenTransXmlSerializerOptions
         {
-            testConfig = new TestConfig();
-        }
+            IncludeUdxTypes =
+            [
+                typeof(CustomData),
+                typeof(CustomData2)
+            ],
+            XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
+        };
 
-        [SetUp]
-        public void Setup()
-        {
-            var options = new OpenTransXmlSerializerOptions
-            {
-                IncludeUdxTypes =
-                [
-                    typeof(CustomData),
-                    typeof(CustomData2)
-                ],
-                XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
-            };
+        serializerFactory = new OpenTransXmlSerializerFactory(options);
 
-            serializerFactory = new OpenTransXmlSerializerFactory(options);
+        target = serializerFactory.Create<RequestForQuotation>();
+    }
 
-            target = serializerFactory.Create<RequestForQuotation>();
-        }
+    [Test]
+    public void Can_serialize_RequestForQuotation()
+    {
+        var order = testConfig.RequestForQuotations.GetRequestForQuotation();
 
-        [Test]
-        public void Can_serialize_RequestForQuotation()
-        {
-            var order = testConfig.RequestForQuotations.GetRequestForQuotation();
+        Action action = () => target.Serialize(order);
+        action.Should().NotThrow();
+    }
 
-            Action action = () => target.Serialize(order);
-            action.Should().NotThrow();
-        }
+    [Test]
+    public void Can_validate_RequestForQuotation()
+    {
+        var order = testConfig.RequestForQuotations.GetRequestForQuotation();
 
-        [Test]
-        public void Can_validate_RequestForQuotation()
-        {
-            var order = testConfig.RequestForQuotations.GetRequestForQuotation();
+        //var serialized = target.Serialize(order);
+        order.IsValid(target).Should().Be(true);
+    }
 
-            //var serialized = target.Serialize(order);
-            order.IsValid(target).Should().Be(true);
-        }
+    [Test]
+    public void Can_validate_RequestForQuotation_with_UDX()
+    {
+        var order = testConfig.RequestForQuotations.GetRequestForQuotationWithUdx();
 
-        [Test]
-        public void Can_validate_RequestForQuotation_with_UDX()
-        {
-            var order = testConfig.RequestForQuotations.GetRequestForQuotationWithUdx();
-
-            var serialized = target.Serialize(order);
-            Debug.WriteLine(serialized);
-            order.IsValid(target).Should().Be(true);
-        }
+        var serialized = target.Serialize(order);
+        Debug.WriteLine(serialized);
+        order.IsValid(target).Should().Be(true);
     }
 }

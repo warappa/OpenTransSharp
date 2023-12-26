@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+/// <summary>
+/// For <see cref="BMEBuyerAddress"/>.
+/// </summary>
+//[Obsolete("This element will not be used in the future.")]
+public enum BMEBuyerAddressType
 {
-    /// <summary>
-    /// For <see cref="BMEBuyerAddress"/>.
-    /// </summary>
+    [XmlEnum("buyer")]
     //[Obsolete("This element will not be used in the future.")]
-    public enum BMEBuyerAddressType
-    {
-        [XmlEnum("buyer")]
-        //[Obsolete("This element will not be used in the future.")]
-        Buyer
-    }
+    Buyer
 }

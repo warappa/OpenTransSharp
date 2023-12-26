@@ -1,27 +1,26 @@
 ﻿using System.Xml.Serialization;
 
-namespace BMEcatSharp
+namespace BMEcatSharp;
+
+/// <summary>
+/// For <see cref="NewCatalogProductToCataloggroupMap.Mode"/>.<br/>
+/// <br/>
+/// XML-namespace: BMECAT
+/// </summary>
+public enum UpdateProductsProductToCataloggroupMapMode
 {
     /// <summary>
-    /// For <see cref="NewCatalogProductToCataloggroupMap.Mode"/>.<br/>
+    /// New<br/>
     /// <br/>
-    /// XML-namespace: BMECAT
+    /// Assignment of the product to a catalog group is redefined.
     /// </summary>
-    public enum UpdateProductsProductToCataloggroupMapMode
-    {
-        /// <summary>
-        /// New<br/>
-        /// <br/>
-        /// Assignment of the product to a catalog group is redefined.
-        /// </summary>
-        [XmlEnum("new")]
-        New,
-        /// <summary>
-        /// Delete<br/>
-        /// <br/>
-        /// The existing assignment is deleted.
-        /// </summary>
-        [XmlEnum("delete")]
-        Delete
-    }
+    [XmlEnum("new")]
+    New,
+    /// <summary>
+    /// Delete<br/>
+    /// <br/>
+    /// The existing assignment is deleted.
+    /// </summary>
+    [XmlEnum("delete")]
+    Delete
 }

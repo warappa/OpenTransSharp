@@ -4,55 +4,54 @@ using OpenTransSharp.Validation;
 using OpenTransSharp.Xml;
 using System;
 
-namespace OpenTransSharp.Samples.AspNetCore.Controllers
+namespace OpenTransSharp.Samples.AspNetCore.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class OrderValidationController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class OrderValidationController : ControllerBase
+    private readonly IOpenTransXmlSerializerFactory serializerFactory;
+
+    public OrderValidationController(IOpenTransXmlSerializerFactory serializerFactory)
     {
-        private readonly IOpenTransXmlSerializerFactory serializerFactory;
+        this.serializerFactory = serializerFactory ?? throw new ArgumentNullException(nameof(serializerFactory));
+    }
 
-        public OrderValidationController(IOpenTransXmlSerializerFactory serializerFactory)
-        {
-            this.serializerFactory = serializerFactory ?? throw new ArgumentNullException(nameof(serializerFactory));
-        }
+    [HttpPost("via-model-binding")]
+    [Consumes("application/xml")]
+    public void OrderViaModelBinding(Order order)
+    {
+        // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
+    }
 
-        [HttpPost("via-model-binding")]
-        [Consumes("application/xml")]
-        public void OrderViaModelBinding(Order order)
-        {
-            // validation implicitly by model binder, otherwise see ApiBehaviorOptions.SuppressModelStateInvalidFilter
-        }
+    [HttpPost("via-stream")]
+    [RawTextRequest]
+    public void OrderViaStream()
+    {
+        var serializer = serializerFactory.Create<Order>();
 
-        [HttpPost("via-stream")]
-        [RawTextRequest]
-        public void OrderViaStream()
-        {
-            var serializer = serializerFactory.Create<Order>();
+        using var stream = Request.BodyReader.AsStream();
+        var order = serializer.Deserialize<Order>(stream);
 
-            using var stream = Request.BodyReader.AsStream();
-            var order = serializer.Deserialize<Order>(stream);
+        order.EnsureValid(serializer);
+    }
 
-            order.EnsureValid(serializer);
-        }
+    [HttpPost("via-file")]
+    public void OrderViaFile(IFormFile file)
+    {
+        var serializer = serializerFactory.Create<Order>();
 
-        [HttpPost("via-file")]
-        public void OrderViaFile(IFormFile file)
-        {
-            var serializer = serializerFactory.Create<Order>();
+        using var stream = file.OpenReadStream();
+        var order = serializer.Deserialize<Order>(stream);
 
-            using var stream = file.OpenReadStream();
-            var order = serializer.Deserialize<Order>(stream);
+        order.EnsureValid(serializer);
+    }
 
-            order.EnsureValid(serializer);
-        }
+    [HttpPost("via-text")]
+    public void OrderViaText([FromForm(Name = "content")] string content)
+    {
+        var serializer = serializerFactory.Create<Order>();
 
-        [HttpPost("via-text")]
-        public void OrderViaText([FromForm(Name = "content")] string content)
-        {
-            var serializer = serializerFactory.Create<Order>();
-
-            content.EnsureValidOpenTransDocument(serializer);
-        }
+        content.EnsureValidOpenTransDocument(serializer);
     }
 }

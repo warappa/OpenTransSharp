@@ -7,73 +7,72 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace OpenTransSharp.Tests.InvoiceLists
+namespace OpenTransSharp.Tests.InvoiceLists;
+
+public class InvoiceListSerializationTests
 {
-    public class InvoiceListSerializationTests
+    private readonly TestConfig testConfig;
+    private OpenTransXmlSerializerFactory serializerFactory;
+    private XmlSerializer target;
+
+    public InvoiceListSerializationTests()
     {
-        private readonly TestConfig testConfig;
-        private OpenTransXmlSerializerFactory serializerFactory;
-        private XmlSerializer target;
+        testConfig = new TestConfig();
+    }
 
-        public InvoiceListSerializationTests()
+    [SetUp]
+    public void Setup()
+    {
+        var options = new OpenTransXmlSerializerOptions
         {
-            testConfig = new TestConfig();
-        }
+            IncludeUdxTypes =
+            [
+                typeof(CustomData),
+                typeof(CustomData2)
+            ],
+            XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
+        };
 
-        [SetUp]
-        public void Setup()
-        {
-            var options = new OpenTransXmlSerializerOptions
-            {
-                IncludeUdxTypes =
-                [
-                    typeof(CustomData),
-                    typeof(CustomData2)
-                ],
-                XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
-            };
+        serializerFactory = new OpenTransXmlSerializerFactory(options);
 
-            serializerFactory = new OpenTransXmlSerializerFactory(options);
+        target = serializerFactory.Create<InvoiceList>();
+    }
 
-            target = serializerFactory.Create<InvoiceList>();
-        }
+    [Test]
+    public void Can_serialize_InvoiceList()
+    {
+        var order = testConfig.InvoiceLists.GetInvoiceList();
 
-        [Test]
-        public void Can_serialize_InvoiceList()
-        {
-            var order = testConfig.InvoiceLists.GetInvoiceList();
+        Action action = () => target.Serialize(order);
+        action.Should().NotThrow();
+    }
 
-            Action action = () => target.Serialize(order);
-            action.Should().NotThrow();
-        }
+    [Test]
+    public void Can_validate_InvoiceList()
+    {
+        var order = testConfig.InvoiceLists.GetInvoiceList();
 
-        [Test]
-        public void Can_validate_InvoiceList()
-        {
-            var order = testConfig.InvoiceLists.GetInvoiceList();
+        //var serialized = target.Serialize(order);
+        order.IsValid(target).Should().Be(true);
+    }
 
-            //var serialized = target.Serialize(order);
-            order.IsValid(target).Should().Be(true);
-        }
+    [Test]
+    public void Can_validate_InvoiceList_with_UDX()
+    {
+        var order = testConfig.InvoiceLists.GetInvoiceListWithUdx();
 
-        [Test]
-        public void Can_validate_InvoiceList_with_UDX()
-        {
-            var order = testConfig.InvoiceLists.GetInvoiceListWithUdx();
+        var serialized = target.Serialize(order);
+        Debug.WriteLine(serialized);
+        order.IsValid(target).Should().Be(true);
+    }
 
-            var serialized = target.Serialize(order);
-            Debug.WriteLine(serialized);
-            order.IsValid(target).Should().Be(true);
-        }
+    [Test]
+    public void Can_deserialize_sample_InvoiceList()
+    {
+        var stream = File.Open(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml", FileMode.Open);
 
-        [Test]
-        public void Can_deserialize_sample_InvoiceList()
-        {
-            var stream = File.Open(@"InvoiceLists\sample_invoicelist_credit_card_statement_opentrans_2_1.xml", FileMode.Open);
+        var invoiceList = target.Deserialize<InvoiceList>(stream);
 
-            var invoiceList = target.Deserialize<InvoiceList>(stream);
-
-            invoiceList.IsValid(target).Should().Be(true);
-        }
+        invoiceList.IsValid(target).Should().Be(true);
     }
 }
