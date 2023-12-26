@@ -25,13 +25,15 @@ namespace OpenTransSharp.Tests.Orders
         [SetUp]
         public void Setup()
         {
-            var options = new OpenTransXmlSerializerOptions();
-            options.IncludeUdxTypes = new[]
+            var options = new OpenTransXmlSerializerOptions
             {
-                typeof(CustomData),
-                typeof(CustomData2)
+                IncludeUdxTypes = new[]
+                {
+                    typeof(CustomData),
+                    typeof(CustomData2)
+                },
+                XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") }
             };
-            options.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
 
             serializerFactory = new OpenTransXmlSerializerFactory(options);
 

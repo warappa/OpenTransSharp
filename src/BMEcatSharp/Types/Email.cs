@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.Xml;
 
 namespace BMEcatSharp
 {

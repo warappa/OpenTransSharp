@@ -19,30 +19,33 @@ namespace BMEcatSharp.Tests
 
         public BMEcatDocument GetBMEcatNewCatalog()
         {
-            var model = new BMEcatDocument();
-
-            model.Header = GetHeader();
-            model.NewCatalog = GetNewCatalog();
+            var model = new BMEcatDocument
+            {
+                Header = GetHeader(),
+                NewCatalog = GetNewCatalog()
+            };
 
             return model;
         }
 
         public BMEcatDocument GetBMEcatUpdateProducts()
         {
-            var model = new BMEcatDocument();
-
-            model.Header = GetHeader();
-            model.UpdateProducts = GetUpdateProducts();
+            var model = new BMEcatDocument
+            {
+                Header = GetHeader(),
+                UpdateProducts = GetUpdateProducts()
+            };
 
             return model;
         }
 
         public BMEcatDocument GetBMEcatUpdatePrices()
         {
-            var model = new BMEcatDocument();
-
-            model.Header = GetHeader();
-            model.UpdatePrices = GetUpdatePrices();
+            var model = new BMEcatDocument
+            {
+                Header = GetHeader(),
+                UpdatePrices = GetUpdatePrices()
+            };
 
 
             return model;
@@ -50,8 +53,10 @@ namespace BMEcatSharp.Tests
 
         private UpdatePrices GetUpdatePrices()
         {
-            var model = new UpdatePrices();
-            model.PreviousVersion = 1;
+            var model = new UpdatePrices
+            {
+                PreviousVersion = 1
+            };
             //model.Formulas.Add(GetFormula());
             model.Products.Add(GetUpdatePricesProduct());
             return model;
@@ -59,8 +64,10 @@ namespace BMEcatSharp.Tests
 
         private UpdatePricesProduct GetUpdatePricesProduct()
         {
-            var model = new UpdatePricesProduct();
-            model.SupplierPid = GetSupplierPid();
+            var model = new UpdatePricesProduct
+            {
+                SupplierPid = GetSupplierPid()
+            };
             model.PriceDetails.Add(GetProductPriceDetails());
 
             return model;
@@ -68,8 +75,10 @@ namespace BMEcatSharp.Tests
 
         private UpdateProducts GetUpdateProducts()
         {
-            var model = new UpdateProducts();
-            model.PreviousVersion = 1;
+            var model = new UpdateProducts
+            {
+                PreviousVersion = 1
+            };
             //model.Formulas.Add(GetFormula());
             model.Products.Add(GetUpdateProductsProduct());
             return model;
@@ -77,11 +86,13 @@ namespace BMEcatSharp.Tests
 
         private UpdateProductsProduct GetUpdateProductsProduct()
         {
-            var model = new UpdateProductsProduct();
-            model.Mode = UpdateProductsProductMode.Update;
-            model.SupplierPid = GetSupplierPid();
-            model.Details = GetProductDetails();
-            model.OrderDetails = GetProductOrderDetails();
+            var model = new UpdateProductsProduct
+            {
+                Mode = UpdateProductsProductMode.Update,
+                SupplierPid = GetSupplierPid(),
+                Details = GetProductDetails(),
+                OrderDetails = GetProductOrderDetails()
+            };
             model.PriceDetails.Add(GetProductPriceDetails());
 
             return model;
@@ -89,9 +100,11 @@ namespace BMEcatSharp.Tests
 
         private Formula GetFormula()
         {
-            var model = new Formula();
-            model.Id = "Formula id";
-            model.Version = GetFormulaVersion();
+            var model = new Formula
+            {
+                Id = "Formula id",
+                Version = GetFormulaVersion()
+            };
             model.Name.Add(new MultiLingualString("Formula name", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Formel Name", LanguageCodes.deu));
             model.Description.Add(new MultiLingualString("Formula description", LanguageCodes.eng));
@@ -132,13 +145,15 @@ namespace BMEcatSharp.Tests
 
         private ParameterDefinition GetParameterDefinintion()
         {
-            var model = new ParameterDefinition();
-            model.Symbol = "$";
-            model.Basics = GetParameterBasics();
-            model.Origin = GetParameterOrigin();
-            model.DefaultValue = "false";
-            model.Meaning = ParameterMeaning.AllowOrCharge;
-            model.Order = 1;
+            var model = new ParameterDefinition
+            {
+                Symbol = "$",
+                Basics = GetParameterBasics(),
+                Origin = GetParameterOrigin(),
+                DefaultValue = "false",
+                Meaning = ParameterMeaning.AllowOrCharge,
+                Order = 1
+            };
 
             return model;
         }
@@ -171,11 +186,13 @@ namespace BMEcatSharp.Tests
 
         private Term GetTerm()
         {
-            var model = new Term();
-            model.Type = TermType.Constraint;
-            model.Id = "Term id";
-            model.Condition = "$ > 5";
-            model.Expression = "true";
+            var model = new Term
+            {
+                Type = TermType.Constraint,
+                Id = "Term id",
+                Condition = "$ > 5",
+                Expression = "true"
+            };
 
             return model;
         }
@@ -193,12 +210,14 @@ namespace BMEcatSharp.Tests
 
         private FormulaVersion GetFormulaVersion()
         {
-            var model = new FormulaVersion();
-            model.Version = new Version(2, 1);
-            model.VersionDate = DateTime.UtcNow;
-            model.Revision = "2";
-            model.RevisionDate = DateTime.UtcNow.AddDays(-1);
-            model.OriginalDate = DateTime.UtcNow.AddDays(-2);
+            var model = new FormulaVersion
+            {
+                Version = new Version(2, 1),
+                VersionDate = DateTime.UtcNow,
+                Revision = "2",
+                RevisionDate = DateTime.UtcNow.AddDays(-1),
+                OriginalDate = DateTime.UtcNow.AddDays(-2)
+            };
 
             return model;
         }
@@ -225,10 +244,11 @@ namespace BMEcatSharp.Tests
 
         private BMEcatHeader GetHeader()
         {
-            var model = new BMEcatHeader();
-
-            model.Catalog = GetCatalog();
-            model.SupplierIdRef = parent.BMEcats.GetSupplierIdRef();
+            var model = new BMEcatHeader
+            {
+                Catalog = GetCatalog(),
+                SupplierIdRef = parent.BMEcats.GetSupplierIdRef()
+            };
 
             return model;
         }
@@ -258,10 +278,12 @@ namespace BMEcatSharp.Tests
 
         private IppDefinition GetIppDefinition()
         {
-            var model = new IppDefinition();
-            model.Id = "Ipp id";
-            model.Type = IppType.ProductRequest;
-            model.OperatorIdRef = GetIppOperatorIdRef();
+            var model = new IppDefinition
+            {
+                Id = "Ipp id",
+                Type = IppType.ProductRequest,
+                OperatorIdRef = GetIppOperatorIdRef()
+            };
             model.Description.Add(new MultiLingualString("Ipp description", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("Ipp Beschreibung", LanguageCodes.deu));
             model.Operations.Add(GetIppOperation());
@@ -271,9 +293,11 @@ namespace BMEcatSharp.Tests
 
         private IppOperation GetIppOperation()
         {
-            var model = new IppOperation();
-            model.Id = "Ipp operation id";
-            model.Type = IppOperationType.Show;
+            var model = new IppOperation
+            {
+                Id = "Ipp operation id",
+                Type = IppOperationType.Show
+            };
             model.Description.Add(new MultiLingualString("Ipp operation description", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("Ipp Operation Beschreibung", LanguageCodes.deu));
             model.Outbounds.Add(GetIppOutbound());
@@ -284,10 +308,12 @@ namespace BMEcatSharp.Tests
 
         private IppInbound GetIppInbound()
         {
-            var model = new IppInbound();
-            model.InboundFormat = IppInboundFormatValues.Mail;
-            model.InboundParams = GetIppInboundParams();
-            model.ResponseTime = TimeSpan.FromMinutes(1);
+            var model = new IppInbound
+            {
+                InboundFormat = IppInboundFormatValues.Mail,
+                InboundParams = GetIppInboundParams(),
+                ResponseTime = TimeSpan.FromMinutes(1)
+            };
 
             return model;
         }
@@ -318,9 +344,11 @@ namespace BMEcatSharp.Tests
 
         private IppOutbound GetIppOutbound()
         {
-            var model = new IppOutbound();
-            model.Format = IppOutboundFormatValues.BMEcat2005;
-            model.Params = GetIppOutboundParams();
+            var model = new IppOutbound
+            {
+                Format = IppOutboundFormatValues.BMEcat2005,
+                Params = GetIppOutboundParams()
+            };
             model.Uri.Add("https://someuri/");
 
             return model;
@@ -328,16 +356,18 @@ namespace BMEcatSharp.Tests
 
         private IppOutboundParams GetIppOutboundParams()
         {
-            var model = new IppOutboundParams();
-            model.Languages = GetIppLanguages();
-            model.Territories = GetIppTerritories();
-            model.PriceCurrencies = GetIppPriceCurrencies();
-            model.PriceTypes = GetIppPriceTypes();
-            model.SupplierPid = GetIppSupplierPid();
-            model.ProductconfigIdRef = GetIppProductconfigIdRef();
-            model.ProductlistIdRef = GetIppProductlistIdRef();
-            model.UserInfo = GetIppUserInfo();
-            model.AuthentificationInfo = GetIppAuthentificationInfo();
+            var model = new IppOutboundParams
+            {
+                Languages = GetIppLanguages(),
+                Territories = GetIppTerritories(),
+                PriceCurrencies = GetIppPriceCurrencies(),
+                PriceTypes = GetIppPriceTypes(),
+                SupplierPid = GetIppSupplierPid(),
+                ProductconfigIdRef = GetIppProductconfigIdRef(),
+                ProductlistIdRef = GetIppProductlistIdRef(),
+                UserInfo = GetIppUserInfo(),
+                AuthentificationInfo = GetIppAuthentificationInfo()
+            };
             model.Definitions.Add(GetIppParamDefinition());
 
             return model;
@@ -345,9 +375,11 @@ namespace BMEcatSharp.Tests
 
         private IppParamDefinition GetIppParamDefinition()
         {
-            var model = new IppParamDefinition();
-            model.Occurrence = IppOccurrence.Mandatory;
-            model.Name = "Param name";
+            var model = new IppParamDefinition
+            {
+                Occurrence = IppOccurrence.Mandatory,
+                Name = "Param name"
+            };
             model.Description.Add(new MultiLingualString("Ipp param description"));
             model.Description.Add(new MultiLingualString("Ipp Parameter Beschreibung", LanguageCodes.deu));
 
@@ -356,8 +388,10 @@ namespace BMEcatSharp.Tests
 
         private IppAuthentificationInfo GetIppAuthentificationInfo()
         {
-            var model = new IppAuthentificationInfo();
-            model.Occurrence = IppOccurrence.Optional;
+            var model = new IppAuthentificationInfo
+            {
+                Occurrence = IppOccurrence.Optional
+            };
             model.Authentifications.Add(GetAuthentification());
 
             return model;
@@ -385,8 +419,10 @@ namespace BMEcatSharp.Tests
 
         private IppPriceTypes GetIppPriceTypes()
         {
-            var model = new IppPriceTypes();
-            model.Occurrence = IppOccurrence.Optional;
+            var model = new IppPriceTypes
+            {
+                Occurrence = IppOccurrence.Optional
+            };
             model.PriceTypes.Add(ProductPriceTypeValues.NetCustomer);
 
             return model;
@@ -394,8 +430,10 @@ namespace BMEcatSharp.Tests
 
         private IppPriceCurrencies GetIppPriceCurrencies()
         {
-            var model = new IppPriceCurrencies();
-            model.Occurrence = IppOccurrence.Mandatory;
+            var model = new IppPriceCurrencies
+            {
+                Occurrence = IppOccurrence.Mandatory
+            };
             model.PriceCurrencies.Add("EUR");
 
             return model;
@@ -403,8 +441,10 @@ namespace BMEcatSharp.Tests
 
         private IppTerritories GetIppTerritories()
         {
-            var model = new IppTerritories();
-            model.Occurrence = IppOccurrence.Optional;
+            var model = new IppTerritories
+            {
+                Occurrence = IppOccurrence.Optional
+            };
             model.Territories.Add(CountryCode.AT);
 
             return model;
@@ -412,8 +452,10 @@ namespace BMEcatSharp.Tests
 
         private IppLanguages GetIppLanguages()
         {
-            var model = new IppLanguages();
-            model.Occurrence = IppOccurrence.Optional;
+            var model = new IppLanguages
+            {
+                Occurrence = IppOccurrence.Optional
+            };
             model.Languages.Add(new Language(LanguageCodes.eng));
 
             return model;
@@ -426,13 +468,15 @@ namespace BMEcatSharp.Tests
 
         private ClassificationSystem GetClassificationSystem()
         {
-            var model = new ClassificationSystem();
-            model.Name = ClassificationSystemNameValues.EClass(new Version(2, 1));
-            model.Fullname = "Classification system full name";
-            model.VersionDetails = GetClassificationSystemVersionDetails();
-            model.Descripiton = "Classification system description";
-            model.ClassificationSystemPartyIdRef = GetClassificationSystemPartyIdRef();
-            model.Levels = 1;
+            var model = new ClassificationSystem
+            {
+                Name = ClassificationSystemNameValues.EClass(new Version(2, 1)),
+                Fullname = "Classification system full name",
+                VersionDetails = GetClassificationSystemVersionDetails(),
+                Descripiton = "Classification system description",
+                ClassificationSystemPartyIdRef = GetClassificationSystemPartyIdRef(),
+                Levels = 1
+            };
             model.LevelNames.Add(GetClassificationSystemLevelName());
             model.Type = GetClassificationSystemType();
             model.AllowedValues.Add(GetAllowedValue());
@@ -445,8 +489,10 @@ namespace BMEcatSharp.Tests
 
         private ClassificationSystemFeatureTemplate GetClassificationSystemFeatureTemplate()
         {
-            var model = new ClassificationSystemFeatureTemplate();
-            model.Id = "Feature id";
+            var model = new ClassificationSystemFeatureTemplate
+            {
+                Id = "Feature id"
+            };
             model.Name.Add(new MultiLingualString("Feature name", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Feature Name", LanguageCodes.deu));
             model.Shortname.Add(new MultiLingualString("Feature group", LanguageCodes.eng));
@@ -463,8 +509,10 @@ namespace BMEcatSharp.Tests
 
         private FeatureContent GetFeatureContent()
         {
-            var model = new FeatureContent();
-            model.DataType = FeatureDataTypeValues.DateTime;
+            var model = new FeatureContent
+            {
+                DataType = FeatureDataTypeValues.DateTime
+            };
             model.Facets.Add(GetFeatureTemplateFacet());
             model.Values.Add(GetFeatureTemplateValue());
 
@@ -473,21 +521,25 @@ namespace BMEcatSharp.Tests
 
         private FeatureValue GetFeatureTemplateValue()
         {
-            var model = new FeatureValue();
-            model.Simple = "10";
-            model.MimeInfo = GetBMEcatMimeInfo();
-            model.ConfigurationInformation = GetConfigInfo();
-            model.Order = 1;
-            model.DefaultFlag = true;
+            var model = new FeatureValue
+            {
+                Simple = "10",
+                MimeInfo = GetBMEcatMimeInfo(),
+                ConfigurationInformation = GetConfigInfo(),
+                Order = 1,
+                DefaultFlag = true
+            };
 
             return model;
         }
 
         private ConfigurationInformation GetConfigInfo()
         {
-            var model = new ConfigurationInformation();
-            model.ConfigurationCode = "-red";
-            model.ProductPriceDetails = GetProductPriceDetails();
+            var model = new ConfigurationInformation
+            {
+                ConfigurationCode = "-red",
+                ProductPriceDetails = GetProductPriceDetails()
+            };
 
             return model;
         }
@@ -504,20 +556,24 @@ namespace BMEcatSharp.Tests
 
         private FeatureVersion GetFeatureVersion()
         {
-            var model = new FeatureVersion();
-            model.Version = new Version(2, 1);
-            model.VersionDate = DateTime.UtcNow;
-            model.Revision = "1";
-            model.RevisionDate = DateTime.UtcNow.AddDays(1);
-            model.OriginalDate = DateTime.UtcNow.AddDays(-1);
+            var model = new FeatureVersion
+            {
+                Version = new Version(2, 1),
+                VersionDate = DateTime.UtcNow,
+                Revision = "1",
+                RevisionDate = DateTime.UtcNow.AddDays(1),
+                OriginalDate = DateTime.UtcNow.AddDays(-1)
+            };
 
             return model;
         }
 
         private FeatureGroup GetFeatureGroup()
         {
-            var model = new FeatureGroup();
-            model.Id = "Feature group id";
+            var model = new FeatureGroup
+            {
+                Id = "Feature group id"
+            };
             model.Name.Add(new MultiLingualString("Feature group name", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Feature Gruppenname", LanguageCodes.deu));
             model.Description.Add(new MultiLingualString("Feature group description", LanguageCodes.eng));
@@ -529,9 +585,11 @@ namespace BMEcatSharp.Tests
 
         private ClassificationUnit GetUnit()
         {
-            var model = new ClassificationUnit();
-            model.System = UnitSystemValues.SI;
-            model.Id = "Unit id";
+            var model = new ClassificationUnit
+            {
+                System = UnitSystemValues.SI,
+                Id = "Unit id"
+            };
             model.Name.Add(new MultiLingualString("Piece", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Stück", LanguageCodes.deu));
             model.Shortname.Add(new MultiLingualString("pcs", LanguageCodes.eng));
@@ -546,8 +604,10 @@ namespace BMEcatSharp.Tests
 
         private AllowedValue GetAllowedValue()
         {
-            var model = new AllowedValue();
-            model.Id = "Allowed Value ID";
+            var model = new AllowedValue
+            {
+                Id = "Allowed Value ID"
+            };
             model.Name.Add(new MultiLingualString("Allowed value", LanguageCodes.eng));
             model.Name.Add(new MultiLingualString("Erlaubter Wert", LanguageCodes.deu));
             model.Version = GetAllowedValueVersion();
@@ -575,24 +635,28 @@ namespace BMEcatSharp.Tests
 
         private AllowedValueVersion GetAllowedValueVersion()
         {
-            var model = new AllowedValueVersion();
-            model.Version = new Version(2, 1);
-            model.VersionDate = DateTime.UtcNow;
-            model.Revision = "1";
-            model.RevisionDate = DateTime.UtcNow.AddDays(1);
-            model.OriginalDate = DateTime.UtcNow.AddDays(-1);
+            var model = new AllowedValueVersion
+            {
+                Version = new Version(2, 1),
+                VersionDate = DateTime.UtcNow,
+                Revision = "1",
+                RevisionDate = DateTime.UtcNow.AddDays(1),
+                OriginalDate = DateTime.UtcNow.AddDays(-1)
+            };
 
             return model;
         }
 
         private ClassificationSystemType GetClassificationSystemType()
         {
-            var model = new ClassificationSystemType();
-            model.GroupidHierarchy = true;
-            model.MappingType = MappingType.Multiple;
-            model.MappingLevel = MappingLevel.Leaf;
-            model.Balancedtree = true;
-            model.Inheritance = true;
+            var model = new ClassificationSystemType
+            {
+                GroupidHierarchy = true,
+                MappingType = MappingType.Multiple,
+                MappingLevel = MappingLevel.Leaf,
+                Balancedtree = true,
+                Inheritance = true
+            };
 
             return model;
         }
@@ -611,22 +675,25 @@ namespace BMEcatSharp.Tests
 
         private ClassificationSystemVersionDetails GetClassificationSystemVersionDetails()
         {
-            var model = new ClassificationSystemVersionDetails();
-            model.Version = new Version("2.1");
-            model.VersionDate = DateTime.UtcNow;
-            model.Revision = "3";
-            model.RevisionDate = DateTime.UtcNow.AddDays(-1);
-            model.OriginalDate = DateTime.UtcNow.AddDays(-2);
+            var model = new ClassificationSystemVersionDetails
+            {
+                Version = new Version("2.1"),
+                VersionDate = DateTime.UtcNow,
+                Revision = "3",
+                RevisionDate = DateTime.UtcNow.AddDays(-1),
+                OriginalDate = DateTime.UtcNow.AddDays(-2)
+            };
             return model;
         }
 
         private NewCatalogProduct GetProduct()
         {
-            var model = new NewCatalogProduct();
-
-            model.SupplierPid = GetSupplierPid();
-            model.Details = GetProductDetails();
-            model.OrderDetails = GetProductOrderDetails();
+            var model = new NewCatalogProduct
+            {
+                SupplierPid = GetSupplierPid(),
+                Details = GetProductDetails(),
+                OrderDetails = GetProductOrderDetails()
+            };
             model.PriceDetails.Add(GetProductPriceDetails());
             model.ConfigDetails = GetProductConfigDetails();
 
@@ -646,17 +713,21 @@ namespace BMEcatSharp.Tests
 
         private PredefinedConfigurations GetPredefinedConfigurations()
         {
-            var model = new PredefinedConfigurations();
-            model.Coverage = PredefinedConfigurationCoverage.Partial;
+            var model = new PredefinedConfigurations
+            {
+                Coverage = PredefinedConfigurationCoverage.Partial
+            };
             model.Configurations.Add(GetPredefinedConfiguration());
             return model;
         }
 
         private PredefinedConfiguration GetPredefinedConfiguration()
         {
-            var model = new PredefinedConfiguration();
-            //model.Code = null!; // for validation debugging purposes
-            model.Code = "ConfigCode";
+            var model = new PredefinedConfiguration
+            {
+                //model.Code = null!; // for validation debugging purposes
+                Code = "ConfigCode"
+            };
             model.Description.Add(new MultiLingualString("-red", LanguageCodes.eng));
             model.Description.Add(new MultiLingualString("-rot", LanguageCodes.deu));
             model.Name.Add(new MultiLingualString("Predefined configuration", LanguageCodes.eng));
@@ -673,27 +744,33 @@ namespace BMEcatSharp.Tests
 
         private ConfigurationFormula GetConfigurationFormula()
         {
-            var model = new ConfigurationFormula();
-            model.IdRef = "Configuraton formula id";
+            var model = new ConfigurationFormula
+            {
+                IdRef = "Configuraton formula id"
+            };
             model.Parameters.Add(GetParameter());
             return model;
         }
 
         private Term GetConfigurationRule()
         {
-            var model = new Term();
-            model.Type = TermType.Constraint;
-            model.Id = "Rule id";
-            model.Condition = "$ < 5";
-            model.Expression = "true";
+            var model = new Term
+            {
+                Type = TermType.Constraint,
+                Id = "Rule id",
+                Condition = "$ < 5",
+                Expression = "true"
+            };
 
             return model;
         }
 
         private ConfigurationStep GetConfigurationStep()
         {
-            var model = new ConfigurationStep();
-            model.Id = "Step id";
+            var model = new ConfigurationStep
+            {
+                Id = "Step id"
+            };
             model.Header.Add(new MultiLingualString("This is a step"));
             model.Header.Add(new MultiLingualString("Das ist ein Schritt", LanguageCodes.deu));
             model.DescriptionShort.Add(new MultiLingualString("A short description", LanguageCodes.eng));
@@ -713,18 +790,22 @@ namespace BMEcatSharp.Tests
 
         private ConfigurationFeature GetConfigurationFeature()
         {
-            var model = new ConfigurationFeature();
-            //model.FeatureReference = GetFeatureReference();
-            model.FeatureTemplate = GetFeatureTemplate();
-            model.MimeInfo = GetBMEcatMimeInfo();
+            var model = new ConfigurationFeature
+            {
+                //model.FeatureReference = GetFeatureReference();
+                FeatureTemplate = GetFeatureTemplate(),
+                MimeInfo = GetBMEcatMimeInfo()
+            };
 
             return model;
         }
 
         private FeatureTemplate GetFeatureTemplate()
         {
-            var model = new FeatureTemplate();
-            model.Id = "Feature id";
+            var model = new FeatureTemplate
+            {
+                Id = "Feature id"
+            };
             model.Name.Add(new MultiLingualString("Feature"));
             model.Name.Add(new MultiLingualString("Feature", LanguageCodes.deu));
             model.Shortname.Add(new MultiLingualString("Feature short name"));
@@ -741,30 +822,36 @@ namespace BMEcatSharp.Tests
 
         private FeatureVersion GetFeatureTemplateVersion()
         {
-            var model = new FeatureVersion();
-            model.Version = new Version(2, 1);
-            model.VersionDate = DateTime.UtcNow;
-            model.Revision = "2";
-            model.RevisionDate = DateTime.UtcNow;
-            model.OriginalDate = DateTime.UtcNow.AddDays(-1);
+            var model = new FeatureVersion
+            {
+                Version = new Version(2, 1),
+                VersionDate = DateTime.UtcNow,
+                Revision = "2",
+                RevisionDate = DateTime.UtcNow,
+                OriginalDate = DateTime.UtcNow.AddDays(-1)
+            };
 
             return model;
         }
 
         private FeatureReference GetFeatureReference()
         {
-            var model = new FeatureReference();
-            model.SystemName = ReferenceFeatureSystemNameValues.EClass(new Version(4, 1));
-            model.IdRef = "Feature id";
+            var model = new FeatureReference
+            {
+                SystemName = ReferenceFeatureSystemNameValues.EClass(new Version(4, 1)),
+                IdRef = "Feature id"
+            };
 
             return model;
         }
 
         private ProductPriceDetails GetProductPriceDetails()
         {
-            var model = new ProductPriceDetails();
-            model.ValidStartDate = DateTime.UtcNow;
-            model.DailyPrice = false;
+            var model = new ProductPriceDetails
+            {
+                ValidStartDate = DateTime.UtcNow,
+                DailyPrice = false
+            };
             model.ProductPrices.Add(GetProductPrice());
 
             return model;
@@ -772,10 +859,12 @@ namespace BMEcatSharp.Tests
 
         private ProductPrice GetProductPrice()
         {
-            var model = new ProductPrice();
-            model.Type = ProductPriceTypeValues.NetCustomer;
-            model.Amount = 5;
-            model.Currency = "EUR";
+            var model = new ProductPrice
+            {
+                Type = ProductPriceTypeValues.NetCustomer,
+                Amount = 5,
+                Currency = "EUR"
+            };
             model.TaxDetails.Add(GetTaxDetails());
             model.Factor = 1;
             model.LowerBound = 2;
@@ -788,27 +877,33 @@ namespace BMEcatSharp.Tests
 
         private PriceFlag GetPriceFlag()
         {
-            var model = new PriceFlag();
-            model.Type = PriceFlagTypes.IncludingPacking;
-            model.Value = true;
+            var model = new PriceFlag
+            {
+                Type = PriceFlagTypes.IncludingPacking,
+                Value = true
+            };
 
             return model;
         }
 
         private PriceBase GetPriceBase()
         {
-            var model = new PriceBase();
-            model.Unit = PackageUnit.C62;
-            model.UnitFactor = 2;
+            var model = new PriceBase
+            {
+                Unit = PackageUnit.C62,
+                UnitFactor = 2
+            };
 
             return model;
         }
 
         private TaxDetails GetTaxDetails()
         {
-            var model = new TaxDetails();
-            model.Category = TaxCategoryValues.StandardRate;
-            model.Tax = 1;
+            var model = new TaxDetails
+            {
+                Category = TaxCategoryValues.StandardRate,
+                Tax = 1
+            };
             model.Jurisdiction.Add(new MultiLingualString("Vienna"));
             model.Jurisdiction.Add(new MultiLingualString("Wien", LanguageCodes.deu));
 
@@ -817,9 +912,11 @@ namespace BMEcatSharp.Tests
 
         private ProductOrderDetails GetProductOrderDetails()
         {
-            var model = new ProductOrderDetails();
-            model.OrderUnit = PackageUnit.C62;
-            model.ContentUnit = PackageUnit.C62;
+            var model = new ProductOrderDetails
+            {
+                OrderUnit = PackageUnit.C62,
+                ContentUnit = PackageUnit.C62
+            };
 
             return model;
         }
@@ -836,8 +933,10 @@ namespace BMEcatSharp.Tests
 
         private BMEcatContactDetails GetBMEcatContactDetails()
         {
-            var model = new BMEcatContactDetails();
-            model.Id = "Contact id";
+            var model = new BMEcatContactDetails
+            {
+                Id = "Contact id"
+            };
             model.Surname.Add(new MultiLingualString("Surname"));
             model.Surname.Add(new MultiLingualString("Nachname", LanguageCodes.deu));
             model.FirstName.Add(new MultiLingualString("Steve", LanguageCodes.eng));
@@ -881,8 +980,10 @@ namespace BMEcatSharp.Tests
 
         public Email GetEmail()
         {
-            var model = new Email();
-            model.EmailAddress = "mail@example.com";
+            var model = new Email
+            {
+                EmailAddress = "mail@example.com"
+            };
             model.PublicKeys.Add(GetPublicKey());
             model.PublicKeys.Add(GetPublicKey("etc"));
 
@@ -993,8 +1094,10 @@ namespace BMEcatSharp.Tests
 
         public PriceFormula GetPriceFormula()
         {
-            var model = new PriceFormula();
-            model.IdRef = "Formula id";
+            var model = new PriceFormula
+            {
+                IdRef = "Formula id"
+            };
             model.Parameters.Add(GetParameter());
 
             return model;
@@ -1002,9 +1105,11 @@ namespace BMEcatSharp.Tests
 
         public Parameter GetParameter()
         {
-            var model = new Parameter();
-            model.SymbolRef = "$";
-            model.Value = "10";
+            var model = new Parameter
+            {
+                SymbolRef = "$",
+                Value = "10"
+            };
 
             return model;
         }

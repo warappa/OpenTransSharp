@@ -15,9 +15,10 @@ namespace OpenTransSharp.Tests.InvoiceLists
 
         public InvoiceList GetInvoiceList()
         {
-            var model = new InvoiceList();
-
-            model.Header = GetHeader();
+            var model = new InvoiceList
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetInvoiceListItem());
 
@@ -61,20 +62,22 @@ namespace OpenTransSharp.Tests.InvoiceLists
 
         private InvoiceListSummary GetSummary()
         {
-            var model = new InvoiceListSummary();
-
-            model.TotalItemCount = 1;
-            model.TotalAmount = 1;
-            model.TotalTax = parent.GetTotalTax();
+            var model = new InvoiceListSummary
+            {
+                TotalItemCount = 1,
+                TotalAmount = 1,
+                TotalTax = parent.GetTotalTax()
+            };
 
             return model;
         }
 
         private InvoiceListItem GetInvoiceListItem()
         {
-            var model = new InvoiceListItem();
-
-            model.LineItemId = "1";
+            var model = new InvoiceListItem
+            {
+                LineItemId = "1"
+            };
             model.InvoiceList.Add(GetILInvoiceListItem());
             model.NetValueGoods = 10;
             model.TotalAmount = 10;
@@ -99,22 +102,24 @@ namespace OpenTransSharp.Tests.InvoiceLists
 
         private InvoiceListHeader GetHeader()
         {
-            var header = new InvoiceListHeader();
+            var header = new InvoiceListHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
-
-            header.Information = GetInvoiceListInformation();
+                Information = GetInvoiceListInformation()
+            };
 
             return header;
         }
 
         private InvoiceListInformation GetInvoiceListInformation()
         {
-            var model = new InvoiceListInformation();
-
-            model.Currency = "EUR";
-            model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
-            model.AccountingPeriod = parent.GetAccountingPeriod();
+            var model = new InvoiceListInformation
+            {
+                Currency = "EUR",
+                DocexchangePartiesReference = parent.GetDocexchangePartiesReference(),
+                AccountingPeriod = parent.GetAccountingPeriod()
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();

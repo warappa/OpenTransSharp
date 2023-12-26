@@ -44,8 +44,10 @@ namespace BMEcatSharp
                         {
                             emails.Add(email);
                         }
-                        email = new Email();
-                        email.EmailAddress = emailAddress.Value;
+                        email = new Email
+                        {
+                            EmailAddress = emailAddress.Value
+                        };
                     }
                     else if (component is PublicKey publicKey)
                     {

@@ -14,9 +14,10 @@ namespace OpenTransSharp.Tests.OrderResponses
 
         public OrderResponse GetOrderResponse()
         {
-            var model = new OrderResponse();
-
-            model.Header = GetHeader();
+            var model = new OrderResponse
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetOrderResponseItem());
 
@@ -27,24 +28,26 @@ namespace OpenTransSharp.Tests.OrderResponses
 
         private OrderResponseSummary GetSummary()
         {
-            var model = new OrderResponseSummary();
-
-            model.TotalItemCount = 1;
+            var model = new OrderResponseSummary
+            {
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private OrderResponseItem GetOrderResponseItem()
         {
-            var model = new OrderResponseItem();
-
-            model.LineItemId = "1";
-            model.ProductId = parent.GetProductId();
-            model.Quantity = 2;
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.ProductPriceFix = parent.GetProductPriceFix();
-            model.PriceLineAmount = 10;
-            model.DeliveryDate = parent.GetDeliveryDate();
+            var model = new OrderResponseItem
+            {
+                LineItemId = "1",
+                ProductId = parent.GetProductId(),
+                Quantity = 2,
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                ProductPriceFix = parent.GetProductPriceFix(),
+                PriceLineAmount = 10,
+                DeliveryDate = parent.GetDeliveryDate()
+            };
             model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
             model.Remarks.AddRange(parent.GetRemarks());
 
@@ -86,21 +89,24 @@ namespace OpenTransSharp.Tests.OrderResponses
 
         private OrderResponseHeader GetHeader()
         {
-            var header = new OrderResponseHeader();
+            var header = new OrderResponseHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
-
-            header.Information = GetOrderResponseInformation();
+                Information = GetOrderResponseInformation()
+            };
 
             return header;
         }
 
         private OrderResponseInformation GetOrderResponseInformation()
         {
-            var model = new OrderResponseInformation();
-            model.OrderId = "OrderResponseId";
-            model.Date = DateTime.UtcNow;
-            model.DeliveryDate = parent.GetDeliveryDate();
+            var model = new OrderResponseInformation
+            {
+                OrderId = "OrderResponseId",
+                Date = DateTime.UtcNow,
+                DeliveryDate = parent.GetDeliveryDate()
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();

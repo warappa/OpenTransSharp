@@ -15,11 +15,12 @@ namespace OpenTransSharp.Tests.Orders
 
         public Order GetOrder()
         {
-            var model = new Order();
+            var model = new Order
+            {
+                Type = OrderType.Express,
 
-            model.Type = OrderType.Express;
-
-            model.Header = GetHeader();
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetOrderItem());
 
@@ -30,26 +31,29 @@ namespace OpenTransSharp.Tests.Orders
 
         private OrderSummary GetSummary()
         {
-            var model = new OrderSummary();
-
-            model.TotalAmount = 10;
-            model.TotalItemCount = 1;
+            var model = new OrderSummary
+            {
+                TotalAmount = 10,
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private OrderItem GetOrderItem()
         {
-            var model = new OrderItem();
-            model.LineItemId = "1";
-            model.ProductId = parent.GetProductId();
-            model.Quantity = 2;
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.ProductPriceFix = parent.GetProductPriceFix();
-            model.PriceLineAmount = 10;
-            model.PartialShipmentAllowed = false;
-            model.DeliveryDate = parent.GetDeliveryDate();
-            model.Transport = parent.BMEcats.GetTransport();
+            var model = new OrderItem
+            {
+                LineItemId = "1",
+                ProductId = parent.GetProductId(),
+                Quantity = 2,
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                ProductPriceFix = parent.GetProductPriceFix(),
+                PriceLineAmount = 10,
+                PartialShipmentAllowed = false,
+                DeliveryDate = parent.GetDeliveryDate(),
+                Transport = parent.BMEcats.GetTransport()
+            };
             model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
             model.Remarks.AddRange(parent.GetRemarks());
 
@@ -91,24 +95,26 @@ namespace OpenTransSharp.Tests.Orders
 
         private OrderHeader GetHeader()
         {
-            var header = new OrderHeader();
+            var header = new OrderHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
+                SourcingInformation = parent.GetSourcingInformation(),
 
-            header.SourcingInformation = parent.GetSourcingInformation();
-
-            header.Information = GetOrderInformation();
+                Information = GetOrderInformation()
+            };
 
             return header;
         }
 
         private OrderInformation GetOrderInformation()
         {
-            var model = new OrderInformation();
-
-            model.Id = "OrderId";
-            model.Date = DateTime.UtcNow;
-            model.DeliveryDate = parent.GetDeliveryDate();
+            var model = new OrderInformation
+            {
+                Id = "OrderId",
+                Date = DateTime.UtcNow,
+                DeliveryDate = parent.GetDeliveryDate()
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();

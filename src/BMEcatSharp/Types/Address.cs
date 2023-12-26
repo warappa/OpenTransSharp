@@ -265,7 +265,7 @@ namespace BMEcatSharp
             {
                 // HACK: called just before the payload gets serialized
                 EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
-                
+
                 if (emailComponents?.Count > 0)
                 {
                     return true;

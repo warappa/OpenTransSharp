@@ -14,9 +14,10 @@ namespace OpenTransSharp.Tests.Quotations
 
         public Quotation GetQuotation()
         {
-            var model = new Quotation();
-
-            model.Header = GetHeader();
+            var model = new Quotation
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetQuotationItem());
 
@@ -27,26 +28,28 @@ namespace OpenTransSharp.Tests.Quotations
 
         private QuotationSummary GetSummary()
         {
-            var model = new QuotationSummary();
-
-            model.TotalItemCount = 1;
+            var model = new QuotationSummary
+            {
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private QuotationItem GetQuotationItem()
         {
-            var model = new QuotationItem();
-
-            model.LineItemId = "1";
-            model.ProductId = parent.GetProductId();
-            model.Quantity = 2;
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.ProductPriceFix = parent.GetProductPriceFix();
-            model.PriceLineAmount = 10;
-            model.PartialShipmentAllowed = false;
-            model.DeliveryDate = parent.GetDeliveryDate();
-            model.Transport = parent.BMEcats.GetTransport();
+            var model = new QuotationItem
+            {
+                LineItemId = "1",
+                ProductId = parent.GetProductId(),
+                Quantity = 2,
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                ProductPriceFix = parent.GetProductPriceFix(),
+                PriceLineAmount = 10,
+                PartialShipmentAllowed = false,
+                DeliveryDate = parent.GetDeliveryDate(),
+                Transport = parent.BMEcats.GetTransport()
+            };
             model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
             model.Remarks.AddRange(parent.GetRemarks());
 
@@ -88,21 +91,24 @@ namespace OpenTransSharp.Tests.Quotations
 
         private QuotationHeader GetHeader()
         {
-            var header = new QuotationHeader();
+            var header = new QuotationHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
-
-            header.Information = GetQuotationInformation();
+                Information = GetQuotationInformation()
+            };
 
             return header;
         }
 
         private QuotationInformation GetQuotationInformation()
         {
-            var model = new QuotationInformation();
-            model.Id = "QuotationId";
-            model.Date = DateTime.UtcNow;
-            model.DeliveryDate = parent.GetDeliveryDate();
+            var model = new QuotationInformation
+            {
+                Id = "QuotationId",
+                Date = DateTime.UtcNow,
+                DeliveryDate = parent.GetDeliveryDate()
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();

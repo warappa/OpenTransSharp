@@ -14,11 +14,12 @@ namespace OpenTransSharp.Tests.RequestForQuotations
 
         public RequestForQuotation GetRequestForQuotation()
         {
-            var model = new RequestForQuotation();
+            var model = new RequestForQuotation
+            {
+                Type = OrderType.Express,
 
-            model.Type = OrderType.Express;
-
-            model.Header = GetHeader();
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetRequestForQuotationItem());
 
@@ -29,25 +30,28 @@ namespace OpenTransSharp.Tests.RequestForQuotations
 
         private RequestForQuotationSummary GetSummary()
         {
-            var model = new RequestForQuotationSummary();
-
-            model.TotalItemCount = 1;
+            var model = new RequestForQuotationSummary
+            {
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private RequestForQuotationItem GetRequestForQuotationItem()
         {
-            var model = new RequestForQuotationItem();
-            model.LineItemId = "1";
-            model.ProductId = parent.GetProductId();
-            model.Quantity = 2;
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.ProductPriceFix = parent.GetProductPriceFix();
-            model.PriceLineAmount = 10;
-            model.PartialShipmentAllowed = false;
-            model.DeliveryDate = parent.GetDeliveryDate();
-            model.Transport = parent.BMEcats.GetTransport();
+            var model = new RequestForQuotationItem
+            {
+                LineItemId = "1",
+                ProductId = parent.GetProductId(),
+                Quantity = 2,
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                ProductPriceFix = parent.GetProductPriceFix(),
+                PriceLineAmount = 10,
+                PartialShipmentAllowed = false,
+                DeliveryDate = parent.GetDeliveryDate(),
+                Transport = parent.BMEcats.GetTransport()
+            };
             model.SpecialTreatmentClasses.Add(parent.BMEcats.GetSpecialTreatmentClass());
             model.Remarks.AddRange(parent.GetRemarks());
 
@@ -89,21 +93,24 @@ namespace OpenTransSharp.Tests.RequestForQuotations
 
         private RequestForQuotationHeader GetHeader()
         {
-            var header = new RequestForQuotationHeader();
+            var header = new RequestForQuotationHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
-
-            header.Information = GetRequestForQuotationInformation();
+                Information = GetRequestForQuotationInformation()
+            };
 
             return header;
         }
 
         private RequestForQuotationInformation GetRequestForQuotationInformation()
         {
-            var model = new RequestForQuotationInformation();
-            model.Id = "RequestForQuotationId";
-            model.Date = DateTime.UtcNow;
-            model.DeliveryDate = parent.GetDeliveryDate();
+            var model = new RequestForQuotationInformation
+            {
+                Id = "RequestForQuotationId",
+                Date = DateTime.UtcNow,
+                DeliveryDate = parent.GetDeliveryDate()
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();

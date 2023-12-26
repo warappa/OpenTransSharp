@@ -14,9 +14,10 @@ namespace OpenTransSharp.Tests.Invoices
 
         public Invoice GetInvoice()
         {
-            var model = new Invoice();
-
-            model.Header = GetHeader();
+            var model = new Invoice
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetInvoiceItem());
 
@@ -27,27 +28,29 @@ namespace OpenTransSharp.Tests.Invoices
 
         private InvoiceSummary GetSummary()
         {
-            var model = new InvoiceSummary();
-
-            model.TotalItemCount = 1;
-            model.NetValueGoods = 1;
-            model.TotalAmount = 1;
-            model.TotalTax = parent.GetTotalTax();
+            var model = new InvoiceSummary
+            {
+                TotalItemCount = 1,
+                NetValueGoods = 1,
+                TotalAmount = 1,
+                TotalTax = parent.GetTotalTax()
+            };
 
             return model;
         }
 
         private InvoiceItem GetInvoiceItem()
         {
-            var model = new InvoiceItem();
-
-            model.LineItemId = "1";
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.PriceLineAmount = 10;
-            model.Quantity = 2;
-            model.ProductPriceFix = parent.GetProductPriceFix();
-            model.Remarks = parent.GetRemarks();
-            model.ProductId = parent.GetProductId();
+            var model = new InvoiceItem
+            {
+                LineItemId = "1",
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                PriceLineAmount = 10,
+                Quantity = 2,
+                ProductPriceFix = parent.GetProductPriceFix(),
+                Remarks = parent.GetRemarks(),
+                ProductId = parent.GetProductId()
+            };
 
             return model;
         }
@@ -87,13 +90,14 @@ namespace OpenTransSharp.Tests.Invoices
 
         private InvoiceHeader GetHeader()
         {
-            var header = new InvoiceHeader();
+            var header = new InvoiceHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
+                Information = GetInvoiceInformation(),
 
-            header.Information = GetInvoiceInformation();
-
-            header.OrderHistory = GetOrderHistory();
+                OrderHistory = GetOrderHistory()
+            };
 
             return header;
         }
@@ -108,11 +112,12 @@ namespace OpenTransSharp.Tests.Invoices
 
         private InvoiceInformation GetInvoiceInformation()
         {
-            var model = new InvoiceInformation();
-
-            model.Currency = "EUR";
-            model.DeliveryDate = parent.GetDeliveryDate();
-            model.DocexchangePartiesReference = parent.GetDocexchangePartiesReference();
+            var model = new InvoiceInformation
+            {
+                Currency = "EUR",
+                DeliveryDate = parent.GetDeliveryDate(),
+                DocexchangePartiesReference = parent.GetDocexchangePartiesReference()
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeInfo = parent.GetMimeInfo();

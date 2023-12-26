@@ -14,9 +14,10 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
 
         public ReceiptAcknowledgement GetReceiptAcknowledgement()
         {
-            var model = new ReceiptAcknowledgement();
-
-            model.Header = GetHeader();
+            var model = new ReceiptAcknowledgement
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetReceiptAcknowledgementItem());
 
@@ -27,23 +28,25 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
 
         private ReceiptAcknowledgementSummary GetSummary()
         {
-            var model = new ReceiptAcknowledgementSummary();
-
-            model.TotalItemCount = 1;
+            var model = new ReceiptAcknowledgementSummary
+            {
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private ReceiptAcknowledgementItem GetReceiptAcknowledgementItem()
         {
-            var model = new ReceiptAcknowledgementItem();
-
-            model.LineItemId = "1";
-            model.ProductId = parent.GetProductId();
-            model.Quantity = 2;
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.OrderReference = parent.GetOrderReference();
-            model.DeliveryReference = parent.GetDeliveryReference();
+            var model = new ReceiptAcknowledgementItem
+            {
+                LineItemId = "1",
+                ProductId = parent.GetProductId(),
+                Quantity = 2,
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                OrderReference = parent.GetOrderReference(),
+                DeliveryReference = parent.GetDeliveryReference()
+            };
             model.Remarks.AddRange(parent.GetRemarks());
 
             return model;
@@ -84,21 +87,24 @@ namespace OpenTransSharp.Tests.ReceiptAcknowledgements
 
         private ReceiptAcknowledgementHeader GetHeader()
         {
-            var header = new ReceiptAcknowledgementHeader();
+            var header = new ReceiptAcknowledgementHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
-
-            header.Information = GetReceiptAcknowledgementInformation();
+                Information = GetReceiptAcknowledgementInformation()
+            };
 
             return header;
         }
 
         private ReceiptAcknowledgementInformation GetReceiptAcknowledgementInformation()
         {
-            var model = new ReceiptAcknowledgementInformation();
-            model.Id = "ReceiptAcknowledgementId";
-            model.Date = DateTime.UtcNow;
-            model.ReceiptDate = DateTime.UtcNow;
+            var model = new ReceiptAcknowledgementInformation
+            {
+                Id = "ReceiptAcknowledgementId",
+                Date = DateTime.UtcNow,
+                ReceiptDate = DateTime.UtcNow
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();

@@ -12,13 +12,17 @@ namespace BMEcatSharp.Samples.AspNetCore
             var ex = context.Exception;
             if (ex is ValidationException v)
             {
-                var jsonResult = new JsonResult(new ValidationResult()
+                var validationResult = new ValidationResult()
                 {
                     Errors = v.Errors
-                });
-                jsonResult.StatusCode = (int)HttpStatusCode.BadRequest;
-                context.Result = jsonResult;
+                };
 
+                var jsonResult = new JsonResult(validationResult)
+                {
+                    StatusCode = (int)HttpStatusCode.BadRequest
+                };
+
+                context.Result = jsonResult;
                 context.ExceptionHandled = true;
             }
         }

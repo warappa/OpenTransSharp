@@ -14,9 +14,10 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
 
         public RemittanceAdvice GetRemittanceAdvice()
         {
-            var model = new RemittanceAdvice();
-
-            model.Header = GetHeader();
+            var model = new RemittanceAdvice
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetRemittanceAdviceItem());
 
@@ -27,18 +28,20 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
 
         private RemittanceAdviceSummary GetSummary()
         {
-            var model = new RemittanceAdviceSummary();
-
-            model.TotalItemCount = 1;
+            var model = new RemittanceAdviceSummary
+            {
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private RemittanceAdviceItem GetRemittanceAdviceItem()
         {
-            var model = new RemittanceAdviceItem();
-
-            model.LineItemId = "1";
+            var model = new RemittanceAdviceItem
+            {
+                LineItemId = "1"
+            };
             model.InvoiceList.Add(GetRaInvoiceListItem());
             model.TotalAmount = 1;
             model.Remarks.AddRange(parent.GetRemarks());
@@ -100,20 +103,23 @@ namespace OpenTransSharp.Tests.RemittanceAdvices
 
         private RemittanceAdviceHeader GetHeader()
         {
-            var header = new RemittanceAdviceHeader();
+            var header = new RemittanceAdviceHeader
+            {
+                ControlInformation = parent.GetControlInformation(),
 
-            header.ControlInformation = parent.GetControlInformation();
-
-            header.Information = GetRemittanceAdviceInformation();
+                Information = GetRemittanceAdviceInformation()
+            };
 
             return header;
         }
 
         private RemittanceAdviceInformation GetRemittanceAdviceInformation()
         {
-            var model = new RemittanceAdviceInformation();
-            model.Id = "RemittanceAdviceId";
-            model.Date = DateTime.UtcNow;
+            var model = new RemittanceAdviceInformation
+            {
+                Id = "RemittanceAdviceId",
+                Date = DateTime.UtcNow
+            };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.eng));
             model.MimeRoot = parent.BMEcats.GetMimeRoot();

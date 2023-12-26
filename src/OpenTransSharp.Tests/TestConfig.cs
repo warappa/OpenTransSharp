@@ -136,9 +136,11 @@ namespace OpenTransSharp.Tests
 
         public TaxDetailsFix GetTaxDetailsFix()
         {
-            var model = new TaxDetailsFix();
-            model.Type = "vat";
-            model.CalculationSequence = 1;
+            var model = new TaxDetailsFix
+            {
+                Type = "vat",
+                CalculationSequence = 1
+            };
             model.Jurisdiction.Add(new global::BMEcatSharp.MultiLingualString("Austria", global::BMEcatSharp.LanguageCodes.eng));
             model.Jurisdiction.Add(new global::BMEcatSharp.MultiLingualString("Österreich", global::BMEcatSharp.LanguageCodes.deu));
             model.Tax = 0.20m;
@@ -162,8 +164,10 @@ namespace OpenTransSharp.Tests
 
         public AllowOrCharge GetAllowOrCharge()
         {
-            var model = new AllowOrCharge();
-            model.Type = AllowOrChargeType.Allowance;
+            var model = new AllowOrCharge
+            {
+                Type = AllowOrChargeType.Allowance
+            };
             model.Names.AddRange(new[]
             {
                 new global::BMEcatSharp.MultiLingualString("Kugelschreiber", global::BMEcatSharp.LanguageCodes.deu),
@@ -210,9 +214,9 @@ namespace OpenTransSharp.Tests
             var model = new CatalogReference
             {
                 Id = "2021-02",
-                Version = new Version(2, 1)
+                Version = new Version(2, 1),
+                Name = new global::BMEcatSharp.MultiLingualString("Test Catalog 2021", global::BMEcatSharp.LanguageCodes.eng)
             };
-            model.Name = new global::BMEcatSharp.MultiLingualString("Test Catalog 2021", global::BMEcatSharp.LanguageCodes.eng);
 
             return model;
         }
@@ -283,12 +287,14 @@ namespace OpenTransSharp.Tests
 
         private Account GetAccount()
         {
-            var model = new Account();
-            model.Holder = "Holder";
-            model.BankAccount = GetBankAccount();
-            model.BankCode = GetBankCode();
-            model.BankName = "Reiffeisen";
-            model.BankCountry = global::BMEcatSharp.CountryCode.AT;
+            var model = new Account
+            {
+                Holder = "Holder",
+                BankAccount = GetBankAccount(),
+                BankCode = GetBankCode(),
+                BankName = "Reiffeisen",
+                BankCountry = global::BMEcatSharp.CountryCode.AT
+            };
 
             return model;
         }
@@ -353,8 +359,10 @@ namespace OpenTransSharp.Tests
 
         private OpenTransContactDetails GetContactDetails()
         {
-            var model = new OpenTransContactDetails();
-            model.Id = "Contact id";
+            var model = new OpenTransContactDetails
+            {
+                Id = "Contact id"
+            };
             model.Surname.Add(new global::BMEcatSharp.MultiLingualString("Surname"));
             model.Surname.Add(new global::BMEcatSharp.MultiLingualString("Nachname", global::BMEcatSharp.LanguageCodes.deu));
             model.FirstName.Add(new global::BMEcatSharp.MultiLingualString("Steve", global::BMEcatSharp.LanguageCodes.eng));
@@ -442,9 +450,10 @@ namespace OpenTransSharp.Tests
 
         public DeliveryDate GetDeliveryDate()
         {
-            var model = new DeliveryDate();
-
-            model.DeliveryStartDate = DateTime.UtcNow.AddDays(2);
+            var model = new DeliveryDate
+            {
+                DeliveryStartDate = DateTime.UtcNow.AddDays(2)
+            };
             model.DeliveryEndDate = model.DeliveryStartDate.AddDays(3);
             model.Type = DeliveryDateType.Optional;
 
@@ -453,18 +462,21 @@ namespace OpenTransSharp.Tests
 
         public SourcingInformation GetSourcingInformation()
         {
-            var model = new SourcingInformation();
-
-            model.CatalogReference = GetCatalogReference();
+            var model = new SourcingInformation
+            {
+                CatalogReference = GetCatalogReference()
+            };
 
             return model;
         }
         public ControlInformation GetControlInformation()
         {
-            var controlInformation = new ControlInformation();
-            controlInformation.GenerationDate = DateTime.UtcNow;
-            controlInformation.GeneratorInfo = "Testing";
-            controlInformation.StopAutomaticProcessing = "For unit tests only";
+            var controlInformation = new ControlInformation
+            {
+                GenerationDate = DateTime.UtcNow,
+                GeneratorInfo = "Testing",
+                StopAutomaticProcessing = "For unit tests only"
+            };
 
             return controlInformation;
         }

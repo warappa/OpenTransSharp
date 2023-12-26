@@ -14,9 +14,10 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 
         public DispatchNotification GetDispatchNotification()
         {
-            var model = new DispatchNotification();
-
-            model.Header = GetHeader();
+            var model = new DispatchNotification
+            {
+                Header = GetHeader()
+            };
 
             model.Items.Add(GetDispatchNotificationItem());
 
@@ -27,28 +28,30 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 
         private DispatchNotificationSummary GetSummary()
         {
-            var model = new DispatchNotificationSummary();
-
-            model.TotalItemCount = 1;
+            var model = new DispatchNotificationSummary
+            {
+                TotalItemCount = 1
+            };
 
             return model;
         }
 
         private DispatchNotificationItem GetDispatchNotificationItem()
         {
-            var model = new DispatchNotificationItem();
-
-            model.LineItemId = "1";
-            model.OrderUnit = BMEcatSharp.PackageUnit.C62;
-            model.Quantity = 2;
-            model.OrderReference = parent.GetOrderReference();
-            model.ShipmentPartiesReference = new ShipmentPartiesReference
+            var model = new DispatchNotificationItem
             {
-                DeliveryIdRef = parent.GetDeliveryIdRef()
-            };
-            model.Remarks = parent.GetRemarks();
+                LineItemId = "1",
+                OrderUnit = BMEcatSharp.PackageUnit.C62,
+                Quantity = 2,
+                OrderReference = parent.GetOrderReference(),
+                ShipmentPartiesReference = new ShipmentPartiesReference
+                {
+                    DeliveryIdRef = parent.GetDeliveryIdRef()
+                },
+                Remarks = parent.GetRemarks(),
 
-            model.ProductId = parent.GetProductId();
+                ProductId = parent.GetProductId()
+            };
 
             return model;
         }
@@ -88,25 +91,28 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 
         private DispatchNotificationHeader GetHeader()
         {
-            var header = new DispatchNotificationHeader();
+            var header = new DispatchNotificationHeader
+            {
+                ControlInformation = GetControlInformation(),
 
-            header.ControlInformation = GetControlInformation();
-
-            header.Information = GetDispatchNotificationInformation();
+                Information = GetDispatchNotificationInformation()
+            };
 
             return header;
         }
 
         private DispatchNotificationInformation GetDispatchNotificationInformation()
         {
-            var model = new DispatchNotificationInformation();
-
-            model.DeliveryDate = parent.GetDeliveryDate();
-            model.DocexchangePartiesReference = new DocexchangePartiesReference
+            var model = new DispatchNotificationInformation
             {
-                DocumentIssuerIdRef = parent.GetDocumentIssuerIdRef(),
-                DocumentRecipientIdRefs = new List<DocumentRecipientIdRef>{
-                    parent.GetDocumentRecipientIdRef()
+                DeliveryDate = parent.GetDeliveryDate(),
+                DocexchangePartiesReference = new DocexchangePartiesReference
+                {
+                    DocumentIssuerIdRef = parent.GetDocumentIssuerIdRef(),
+                    DocumentRecipientIdRefs = new List<DocumentRecipientIdRef>
+                    {
+                        parent.GetDocumentRecipientIdRef()
+                    }
                 }
             };
             model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
@@ -133,10 +139,12 @@ namespace OpenTransSharp.Tests.DispatchNotifications
 
         private ControlInformation GetControlInformation()
         {
-            var controlInformation = new ControlInformation();
-            controlInformation.GenerationDate = DateTime.UtcNow;
-            controlInformation.GeneratorInfo = "Testing";
-            controlInformation.StopAutomaticProcessing = "For unit tests only";
+            var controlInformation = new ControlInformation
+            {
+                GenerationDate = DateTime.UtcNow,
+                GeneratorInfo = "Testing",
+                StopAutomaticProcessing = "For unit tests only"
+            };
 
             return controlInformation;
         }
