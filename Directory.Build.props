@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -26,9 +26,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
-      1.0.2
-      - #11: BMEcat header catalog language should be a list
-      - #13: Undeserializable content can now be validated with additional extension method
+      1.0.3
+      - #14: ORDER Document type EMAIL differences
+      - #15: Flaky Tests Due To Build Acceleration
+      - #16: Only Support Officially Supported .NET Versions
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>true</IncludeSymbols>
