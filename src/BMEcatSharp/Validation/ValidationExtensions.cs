@@ -14,10 +14,6 @@ namespace BMEcatSharp.Validation
 {
     public static class ValidationExtensions
     {
-        private static readonly object lockObject = new object();
-
-        private static XmlSchemaSet? cachedSchemaSet;
-
         public static void EnsureValid(this BMEcatDocument model, XmlSerializer serializer)
         {
             var validationResult = model.Validate(serializer);
@@ -132,46 +128,31 @@ namespace BMEcatSharp.Validation
 
         private static XmlSchemaSet GetXmlSchemaSet(XmlSerializer serializer)
         {
-            if (cachedSchemaSet is not null)
+            var schemaSet = new XmlSchemaSet
             {
-                return cachedSchemaSet;
-            }
+                XmlResolver = XmlUtils.XmlResolver
+            };
 
-            lock (lockObject)
+            // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
+            schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
+
+            if (serializer is BMEcatXmlSerializer ser)
             {
-                if (cachedSchemaSet is not null)
+                if (ser.XsdUris is not null)
                 {
-                    return cachedSchemaSet;
-                }
-
-                var schemaSet = new XmlSchemaSet
-                {
-                    XmlResolver = XmlUtils.XmlResolver
-                };
-
-                // avoid "has already been declared" error - https://stackoverflow.com/questions/10871182/the-global-attribute-http-www-w3-org-xml-1998-namespacelang-has-already-bee
-                schemaSet.ValidationEventHandler += SchemaSet_ValidationEventHandler;
-
-                if (serializer is BMEcatXmlSerializer ser)
-                {
-                    if (ser.XsdUris is not null)
+                    foreach (var uri in ser.XsdUris)
                     {
-                        foreach (var uri in ser.XsdUris)
-                        {
-                            XmlUtils.GetXsd(uri.AbsoluteUri, schemaSet);
-                        }
+                        XmlUtils.GetXsd(uri.AbsoluteUri, schemaSet);
                     }
                 }
-
-                // fix udx support in original bmecat (if not redefined by custom xsds)
-                XmlUtils.GetXsd("bmecat_2005_any_udx_extension.xsd", schemaSet);
-
-                schemaSet.Compile();
-
-                cachedSchemaSet = schemaSet;
-
-                return cachedSchemaSet;
             }
+
+            // fix udx support in original bmecat (if not redefined by custom xsds)
+            XmlUtils.GetXsd("bmecat_2005_any_udx_extension.xsd", schemaSet);
+
+            schemaSet.Compile();
+
+            return schemaSet;
         }
 
         private static void SchemaSet_ValidationEventHandler(object sender, ValidationEventArgs e)
