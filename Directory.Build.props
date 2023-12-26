@@ -11,6 +11,11 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
 
+  <PropertyGroup Label="Workaround flaky tests">
+    <!-- Work around flaky tests https://github.com/warappa/OpenTransSharp/issues/15 -->
+    <AccelerateBuildsInVisualStudio>false</AccelerateBuildsInVisualStudio>
+  </PropertyGroup>
+
   <PropertyGroup Label="Shared NuGet Package Information">
     <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <Authors>David Rettenbacher</Authors>
