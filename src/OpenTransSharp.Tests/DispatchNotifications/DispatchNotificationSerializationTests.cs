@@ -1,12 +1,3 @@
-using FluentAssertions;
-using NUnit.Framework;
-using OpenTransSharp.Validation;
-using OpenTransSharp.Xml;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Xml.Serialization;
-
 namespace OpenTransSharp.Tests.DispatchNotifications;
 
 public class DispatchNotificationSerializationTests

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.DispatchNotifications;
+﻿namespace OpenTransSharp.Tests.DispatchNotifications;
 
 internal class DispatchNotificationTestConfig
 {

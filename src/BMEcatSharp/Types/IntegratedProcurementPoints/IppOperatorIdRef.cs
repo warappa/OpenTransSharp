@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Reference to IPP provider)<br/>

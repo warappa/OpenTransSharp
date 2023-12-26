@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Product ID of the buying company)<br/>

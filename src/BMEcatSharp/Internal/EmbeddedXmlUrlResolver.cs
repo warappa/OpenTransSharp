@@ -1,12 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Xml;
-
-namespace BMEcatSharp.Internal;
+﻿namespace BMEcatSharp.Internal;
 
 internal class EmbeddedXmlUrlResolver : XmlUrlResolver
 {

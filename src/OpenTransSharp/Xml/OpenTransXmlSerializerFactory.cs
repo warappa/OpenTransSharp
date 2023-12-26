@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp.Xml;
+﻿namespace OpenTransSharp.Xml;
 
 public class OpenTransXmlSerializerFactory : BMEcatSharp.Xml.BMEcatXmlSerializerFactory, IOpenTransXmlSerializerFactory
 {

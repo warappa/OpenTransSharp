@@ -1,10 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Reference to a skeleton agreement)<br/>

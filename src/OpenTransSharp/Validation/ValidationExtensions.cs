@@ -1,16 +1,4 @@
-﻿using BMEcatSharp.Internal;
-using BMEcatSharp.Validation;
-using BMEcatSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Xml.Linq;
-using System.Xml.Schema;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp.Validation;
+﻿namespace OpenTransSharp.Validation;
 
 public static class ValidationExtensions
 {

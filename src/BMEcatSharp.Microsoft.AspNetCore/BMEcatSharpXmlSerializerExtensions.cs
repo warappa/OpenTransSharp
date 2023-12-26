@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 
 public static class BMEcatSharpXmlSerializerExtensions
 {

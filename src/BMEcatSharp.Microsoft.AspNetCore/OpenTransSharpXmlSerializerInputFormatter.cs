@@ -1,17 +1,4 @@
-﻿using BMEcatSharp.Internal;
-using BMEcatSharp.Validation;
-using BMEcatSharp.Xml;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.Net.Http.Headers;
-using System;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp.Microsoft.AspNetCore;
+﻿namespace BMEcatSharp.Microsoft.AspNetCore;
 
 public class BMEcatSharpXmlSerializerInputFormatter : XmlSerializerInputFormatter
 {

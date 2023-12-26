@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 public abstract class PartyIdRefBase<TConcrete>
     where TConcrete : PartyIdRefBase<TConcrete>

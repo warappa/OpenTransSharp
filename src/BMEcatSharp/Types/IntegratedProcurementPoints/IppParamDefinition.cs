@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Other IPP input parameters)<br/>

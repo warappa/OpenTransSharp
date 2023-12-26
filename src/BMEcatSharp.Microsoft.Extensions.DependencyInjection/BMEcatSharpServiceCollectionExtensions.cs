@@ -1,9 +1,4 @@
-﻿using BMEcatSharp;
-using BMEcatSharp.Xml;
-using Microsoft.Extensions.Options;
-using System;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 
 public static class BMEcatSharpServiceCollectionExtensions
 {

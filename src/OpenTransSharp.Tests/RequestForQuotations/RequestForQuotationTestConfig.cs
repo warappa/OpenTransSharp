@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.RequestForQuotations;
+﻿namespace OpenTransSharp.Tests.RequestForQuotations;
 
 internal class RequestForQuotationTestConfig
 {

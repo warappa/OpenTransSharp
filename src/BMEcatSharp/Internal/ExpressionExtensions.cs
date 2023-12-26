@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Reflection;
-
-namespace BMEcatSharp.Internal;
+﻿namespace BMEcatSharp.Internal;
 
 internal static class ExpressionExtensions
 {

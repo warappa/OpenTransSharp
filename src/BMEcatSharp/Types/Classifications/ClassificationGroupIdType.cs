@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// For <see cref="ClassificationGroupId.Type"/>.

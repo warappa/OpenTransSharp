@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// Role of party<br/>

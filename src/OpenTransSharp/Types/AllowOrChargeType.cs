@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// <br/>

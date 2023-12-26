@@ -1,8 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using OpenTransSharp.Xml;
-using System.ComponentModel;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Business partners)<br/>

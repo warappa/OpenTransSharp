@@ -1,8 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.ComponentModel;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Parameter)<br/>

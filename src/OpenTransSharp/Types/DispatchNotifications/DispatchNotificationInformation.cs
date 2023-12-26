@@ -1,13 +1,4 @@
-﻿using BMEcatSharp;
-using BMEcatSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Dispatch notification information)<br/>

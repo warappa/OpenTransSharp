@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Reference to an (electronic) product catalog)<br/>

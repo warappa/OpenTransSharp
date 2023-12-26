@@ -1,10 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.ComponentModel;
-using System.Net.Mail;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Public key)<br/>

@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Manufacturer information)<br/>

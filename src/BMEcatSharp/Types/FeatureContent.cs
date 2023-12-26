@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Feature content definition)<br/>

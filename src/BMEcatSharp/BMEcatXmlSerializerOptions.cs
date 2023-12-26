@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 public class BMEcatXmlSerializerOptions
 {

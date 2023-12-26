@@ -1,7 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System.ComponentModel;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Package dimensions)<br/>

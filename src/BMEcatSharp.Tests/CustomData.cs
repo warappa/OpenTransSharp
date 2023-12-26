@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp.Tests;
+﻿namespace BMEcatSharp.Tests;
 
 [XmlRoot("UDX.ORGANIZATION.CUSTOM_DATA")]
 public class CustomData

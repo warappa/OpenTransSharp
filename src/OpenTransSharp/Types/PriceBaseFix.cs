@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using OpenTransSharp.Xml;
-using System;
-using System.ComponentModel;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Fixed price base)<br/>

@@ -1,9 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Date)<br/>

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.Invoices;
+﻿namespace OpenTransSharp.Tests.Invoices;
 
 internal class InvoiceTestConfig
 {

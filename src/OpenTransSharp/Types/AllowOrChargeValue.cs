@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Allowance or surcharge value)<br/>

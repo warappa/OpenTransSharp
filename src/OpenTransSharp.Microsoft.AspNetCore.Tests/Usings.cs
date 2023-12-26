@@ -1,0 +1,13 @@
+﻿global using FluentAssertions;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using NUnit.Framework;
+global using OpenTransSharp.Samples.AspNetCore;
+global using OpenTransSharp.Validation;
+global using System.IO;
+global using System.Linq;
+global using System.Net;
+global using System.Net.Http;
+global using System.Net.Http.Headers;
+global using System.Text;
+global using System.Text.Json;
+global using System.Threading.Tasks;

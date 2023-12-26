@@ -1,8 +1,4 @@
-﻿using BMEcatSharp;
-using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.Orders;
+﻿namespace OpenTransSharp.Tests.Orders;
 
 internal class OrderTestConfig
 {

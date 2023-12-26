@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// Predefined values for <see cref="Catalog.ProductType"/>.<br/>

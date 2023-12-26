@@ -1,7 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System.ComponentModel;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Product dimensions)<br/>

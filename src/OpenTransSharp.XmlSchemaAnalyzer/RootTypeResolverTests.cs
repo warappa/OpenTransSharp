@@ -1,10 +1,4 @@
-﻿using FluentAssertions;
-using NUnit.Framework;
-using System.Diagnostics;
-using System.Linq;
-using System.Xml.Linq;
-
-namespace OpenTransSharp.XmlSchemaAnalyzer;
+﻿namespace OpenTransSharp.XmlSchemaAnalyzer;
 
 [TestFixture]
 public class RootTypeResolverTests

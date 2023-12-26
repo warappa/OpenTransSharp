@@ -1,6 +1,4 @@
-﻿using OpenTransSharp.Xml;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Delivery reference)<br/>

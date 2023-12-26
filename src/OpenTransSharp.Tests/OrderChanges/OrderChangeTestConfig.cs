@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.OrderChanges;
+﻿namespace OpenTransSharp.Tests.OrderChanges;
 
 internal class OrderChangeTestConfig
 {

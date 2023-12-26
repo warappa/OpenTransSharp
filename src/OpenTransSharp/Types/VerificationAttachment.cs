@@ -1,9 +1,4 @@
-﻿using OpenTransSharp.Xml;
-using System;
-using System.Collections;
-using System.ComponentModel;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Verification report as (integrated) file)<br/>

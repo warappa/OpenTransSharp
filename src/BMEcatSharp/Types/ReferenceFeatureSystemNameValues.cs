@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// For <see cref="ProductFeatures.SystemName"/>.<br/>

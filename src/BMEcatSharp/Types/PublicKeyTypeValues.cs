@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// For <see cref="PublicKey.Type"/>.<br/>

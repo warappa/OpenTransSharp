@@ -1,10 +1,4 @@
-﻿using OpenTransSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.InteropServices.ComTypes;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Customer order reference)<br/>

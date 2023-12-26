@@ -1,7 +1,4 @@
-﻿using System.Xml;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp.Internal;
+﻿namespace BMEcatSharp.Internal;
 
 internal class SharedXmlNamespaces
 {

@@ -1,11 +1,4 @@
-﻿using BMEcatSharp.Internal;
-using System;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Xml;
-using System.Xml.Serialization;
-
-[assembly: InternalsVisibleTo("BMEcatSharp.Microsoft.AspNetCore")]
+﻿[assembly: InternalsVisibleTo("BMEcatSharp.Microsoft.AspNetCore")]
 [assembly: InternalsVisibleTo("OpenTransSharp.Microsoft.AspNetCore")]
 
 namespace BMEcatSharp;

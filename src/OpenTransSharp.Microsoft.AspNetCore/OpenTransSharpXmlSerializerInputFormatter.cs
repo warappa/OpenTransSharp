@@ -1,17 +1,4 @@
-﻿using BMEcatSharp.Internal;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.Net.Http.Headers;
-using OpenTransSharp.Validation;
-using OpenTransSharp.Xml;
-using System;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp.Microsoft.AspNetCore;
+﻿namespace OpenTransSharp.Microsoft.AspNetCore;
 
 public class OpenTransSharpXmlSerializerInputFormatter : XmlSerializerInputFormatter
 {

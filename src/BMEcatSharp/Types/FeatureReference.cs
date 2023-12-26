@@ -1,7 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.ComponentModel;
-// TODO: recheck
+﻿// TODO: recheck
 namespace BMEcatSharp;
 
 /// <summary>

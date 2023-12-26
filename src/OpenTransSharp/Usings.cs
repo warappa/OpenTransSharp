@@ -1,0 +1,15 @@
+﻿global using BMEcatSharp;
+global using BMEcatSharp.Internal;
+global using BMEcatSharp.Validation;
+global using BMEcatSharp.Xml;
+global using OpenTransSharp.Xml;
+global using System;
+global using System.Collections.Generic;
+global using System.ComponentModel;
+global using System.Diagnostics;
+global using System.IO;
+global using System.Linq;
+global using System.Text;
+global using System.Xml.Linq;
+global using System.Xml.Schema;
+global using System.Xml.Serialization;

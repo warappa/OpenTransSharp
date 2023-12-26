@@ -1,8 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-
-namespace BMEcatSharp.Microsoft.AspNetCore;
+﻿namespace BMEcatSharp.Microsoft.AspNetCore;
 
 public class ConfigureBMEcatSharpXmlSerializerMvcOptions : IConfigureOptions<MvcOptions>
 {

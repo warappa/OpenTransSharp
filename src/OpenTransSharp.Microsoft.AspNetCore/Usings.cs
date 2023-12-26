@@ -1,0 +1,15 @@
+﻿global using BMEcatSharp.Internal;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.Formatters;
+global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using Microsoft.Extensions.Options;
+global using Microsoft.Net.Http.Headers;
+global using OpenTransSharp.Microsoft.AspNetCore;
+global using OpenTransSharp.Validation;
+global using OpenTransSharp.Xml;
+global using System;
+global using System.IO;
+global using System.Text;
+global using System.Threading.Tasks;
+global using System.Xml;
+global using System.Xml.Serialization;

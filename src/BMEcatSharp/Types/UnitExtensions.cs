@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 public static class UnitExtensions
 {

@@ -1,16 +1,3 @@
-using BMEcatSharp.Samples.AspNetCore;
-using BMEcatSharp.Validation;
-using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
-using NUnit.Framework;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text.Json;
-using System.Threading.Tasks;
-
 namespace BMEcatSharp.Microsoft.AspNetCore.Tests;
 
 public class IntegrationTests

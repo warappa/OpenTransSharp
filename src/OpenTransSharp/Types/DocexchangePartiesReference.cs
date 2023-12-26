@@ -1,8 +1,4 @@
-﻿using OpenTransSharp.Xml;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Document exchange parties)<br/>

@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// For <see cref="DeliveryDate.Type"/>.<br/>

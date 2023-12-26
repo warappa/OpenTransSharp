@@ -1,8 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Classification system type)<br/>

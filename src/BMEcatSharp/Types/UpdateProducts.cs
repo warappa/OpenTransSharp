@@ -1,12 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Xml;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (Transaction area 'product update')<br/>

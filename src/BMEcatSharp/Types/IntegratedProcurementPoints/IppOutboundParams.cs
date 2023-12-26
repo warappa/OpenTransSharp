@@ -1,8 +1,4 @@
-﻿using BMEcatSharp.Xml;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// (IPP input parameters)<br/>

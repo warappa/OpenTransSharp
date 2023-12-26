@@ -1,0 +1,10 @@
+﻿global using BMEcatSharp;
+global using FluentAssertions;
+global using NUnit.Framework;
+global using OpenTransSharp.Validation;
+global using OpenTransSharp.Xml;
+global using System;
+global using System.Collections.Generic;
+global using System.Diagnostics;
+global using System.IO;
+global using System.Xml.Serialization;

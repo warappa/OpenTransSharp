@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Fixed charge or allowance)<br/>

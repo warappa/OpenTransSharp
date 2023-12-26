@@ -1,8 +1,4 @@
-﻿using BMEcatSharp;
-using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.InvoiceLists;
+﻿namespace OpenTransSharp.Tests.InvoiceLists;
 
 internal class InvoiceListTestConfig
 {

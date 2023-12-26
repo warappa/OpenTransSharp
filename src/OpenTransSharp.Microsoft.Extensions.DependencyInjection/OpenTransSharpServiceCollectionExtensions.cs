@@ -1,9 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using OpenTransSharp;
-using OpenTransSharp.Xml;
-using System;
-
-namespace Microsoft.Extensions.DependencyInjection;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 
 public static class OpenTransSharpServiceCollectionExtensions
 {

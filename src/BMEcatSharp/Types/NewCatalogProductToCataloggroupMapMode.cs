@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 /// <summary>
 /// For <see cref="NewCatalogProductToCataloggroupMap.Mode"/>.<br/>

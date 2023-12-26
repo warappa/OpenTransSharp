@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp;
+﻿namespace OpenTransSharp;
 
 /// <summary>
 /// (Reference to the recipient of the invoice)<br/>

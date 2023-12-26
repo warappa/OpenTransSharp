@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.ReceiptAcknowledgements;
+﻿namespace OpenTransSharp.Tests.ReceiptAcknowledgements;
 
 internal class ReceiptAcknowledgementTestConfig
 {

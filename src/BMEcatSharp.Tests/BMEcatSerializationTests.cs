@@ -1,13 +1,3 @@
-using BMEcatSharp.Validation;
-using BMEcatSharp.Xml;
-using FluentAssertions;
-using NUnit.Framework;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Xml.Serialization;
-
 namespace BMEcatSharp.Tests;
 
 public class BMEcatSerializationTests

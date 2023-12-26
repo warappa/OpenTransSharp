@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp.Xml;
+﻿namespace BMEcatSharp.Xml;
 
 public class BMEXmlElementAttribute : XmlElementAttribute
 {

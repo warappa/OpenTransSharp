@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OpenTransSharp.Tests.RemittanceAdvices;
+﻿namespace OpenTransSharp.Tests.RemittanceAdvices;
 
 internal class RemittanceAdviceTestConfig
 {

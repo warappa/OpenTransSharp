@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace BMEcatSharp;
+﻿namespace BMEcatSharp;
 
 //[Obsolete("This element will not be used in the future.")]
 public enum BMEcatDatetimeType

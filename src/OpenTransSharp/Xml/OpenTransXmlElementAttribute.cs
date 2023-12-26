@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml.Serialization;
-
-namespace OpenTransSharp.Xml;
+﻿namespace OpenTransSharp.Xml;
 
 public class OpenTransXmlElementAttribute : XmlElementAttribute
 {

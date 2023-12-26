@@ -1,12 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Schema;
-
-namespace BMEcatSharp.Internal;
+﻿namespace BMEcatSharp.Internal;
 
 internal static class XmlUtils
 {
