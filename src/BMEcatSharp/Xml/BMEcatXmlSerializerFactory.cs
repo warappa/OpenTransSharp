@@ -13,13 +13,13 @@ public class BMEcatXmlSerializerFactory : IBMEcatXmlSerializerFactory
 
         udxMappings = new Dictionary<string, Type>();
 
-        if (options?.IncludeUdxTypes is object)
+        if (options?.IncludeUdxTypes is not null)
         {
             foreach (var type in options.IncludeUdxTypes)
             {
                 var tagName = $"UDX.{type.Name.ToUpperInvariant()}";
                 var root = type.GetCustomAttribute<XmlRootAttribute>();
-                if (root is object)
+                if (root is not null)
                 {
                     tagName = root.ElementName;
                 }

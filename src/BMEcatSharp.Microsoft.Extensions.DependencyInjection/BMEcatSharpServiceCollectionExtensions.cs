@@ -9,7 +9,7 @@ public static class BMEcatSharpServiceCollectionExtensions
         services.AddTransient(sp => sp.GetRequiredService<IOptions<BMEcatOptions>>().Value);
         services.AddTransient(sp => sp.GetRequiredService<IOptions<BMEcatOptions>>().Value.Serialization);
 
-        if (configureOptions is object)
+        if (configureOptions is not null)
         {
             services.Configure(configureOptions);
         }

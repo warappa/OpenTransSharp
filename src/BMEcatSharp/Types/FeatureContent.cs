@@ -91,7 +91,7 @@ public class FeatureContent
     [BMEXmlElement("FT_UNIT")]
     public string? Unit { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public bool UnitSpecified => Unit is string;
+    public bool UnitSpecified => Unit is not null;
     [XmlIgnore]
     public Unit? UnitAsStandardUnit
     {

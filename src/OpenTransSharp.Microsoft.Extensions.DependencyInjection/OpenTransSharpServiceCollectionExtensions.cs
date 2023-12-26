@@ -9,7 +9,7 @@ public static class OpenTransSharpServiceCollectionExtensions
         services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value);
         services.AddTransient(sp => sp.GetRequiredService<IOptions<OpenTransOptions>>().Value.Serialization);
 
-        if (configureOptions is object)
+        if (configureOptions is not null)
         {
             services.Configure(configureOptions);
         }
