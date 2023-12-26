@@ -24,12 +24,12 @@ namespace OpenTransSharp.Tests.OrderResponses
         {
             var options = new OpenTransXmlSerializerOptions
             {
-                IncludeUdxTypes = new[]
-                {
+                IncludeUdxTypes =
+                [
                     typeof(CustomData),
                     typeof(CustomData2)
-                },
-                XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") }
+                ],
+                XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
             };
 
             serializerFactory = new OpenTransXmlSerializerFactory(options);

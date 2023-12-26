@@ -132,7 +132,7 @@ namespace OpenTransSharp.Validation
 
         private static XmlSchemaSet GetXmlSchemaSet(XmlSerializer serializer)
         {
-            XmlUtils.Initialize(new[] { typeof(BMEcatXmlSerializer).Assembly, typeof(OpenTransAgreement).Assembly });
+            XmlUtils.Initialize([typeof(BMEcatXmlSerializer).Assembly, typeof(OpenTransAgreement).Assembly]);
 
             var schemaSet = new XmlSchemaSet
             {

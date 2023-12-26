@@ -27,12 +27,12 @@ namespace BMEcatSharp.Tests
         {
             var options = new BMEcatXmlSerializerOptions
             {
-                IncludeUdxTypes = new[]
-                {
+                IncludeUdxTypes =
+                [
                     typeof(CustomData),
                     typeof(CustomData2)
-                },
-                XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") }
+                ],
+                XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")]
             };
 
             serializerFactory = new BMEcatXmlSerializerFactory(options);

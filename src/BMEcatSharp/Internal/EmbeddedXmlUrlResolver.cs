@@ -16,7 +16,7 @@ namespace BMEcatSharp.Internal
 
         public EmbeddedXmlUrlResolver(Assembly[]? assemblies = null)
         {
-            this.assemblies = assemblies ?? new[] { typeof(EmbeddedXmlUrlResolver).Assembly };
+            this.assemblies = assemblies ?? [typeof(EmbeddedXmlUrlResolver).Assembly];
         }
 
         public override Uri ResolveUri(Uri baseUri, string relativeUri)

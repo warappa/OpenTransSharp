@@ -24,11 +24,11 @@ namespace OpenTransSharp.Samples.AspNetCore
             services.AddOpenTransSharp(configure =>
             {
                 // register your custom UDX (user defined extension) types here
-                configure.Serialization.IncludeUdxTypes = new[]
-                {
+                configure.Serialization.IncludeUdxTypes =
+                [
                     typeof(CustomData),
                     typeof(CustomData2)
-                };
+                ];
 
                 // if you need more control here the overrides can be customized
                 configure.Serialization.ConfigureXmlAttributeOverrides = overrides =>
@@ -37,7 +37,7 @@ namespace OpenTransSharp.Samples.AspNetCore
                 };
 
                 // add custom xsd for validation
-                configure.Serialization.XsdUris = new[] { new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd") };
+                configure.Serialization.XsdUris = [new Uri($"file://{Environment.CurrentDirectory.Replace("\\", "/")}/CustomData.xsd")];
 
                 // add xml-file encodings that must be supported
                 configure.Serialization.SupportedEncodings.Add("iso-8859-1");
