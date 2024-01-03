@@ -254,6 +254,7 @@ public class Address
         set
         {
             emails = new Lazy<List<Email>?>(() => value);
+            _ = emails.Value; // trigger value evaluation
             EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
         }
     }

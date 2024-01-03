@@ -241,4 +241,27 @@ public class BMEcatSerializationTests
         generalPublicKeys2[0].Type.Should().Be("c2");
         generalPublicKeys2[0].Value.Should().Be("c22");
     }
+
+    [Test]
+    public void Ticket17_Directly_set_Emails_property_is_serialized_even_if_not_accessed_before_serialization()
+    {
+        string[] emailAddresses = ["email@example.com", "email.2@example.com"];
+        var address = new Address
+        {
+            Emails = emailAddresses.Select(s => new Email
+            {
+                EmailAddress = s
+            }).ToList()
+        };
+
+        var options = new BMEcatXmlSerializerOptions();
+        var serializerFactory = new BMEcatXmlSerializerFactory(options);
+
+        var serializer = serializerFactory.Create<Address>();
+
+        var serializedContent = serializer.Serialize(address);
+
+        serializedContent.Should().Contain("email@example.com");
+        serializedContent.Should().Contain("email.2@example.com");
+    }
 }
