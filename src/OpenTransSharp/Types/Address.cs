@@ -254,7 +254,6 @@ public class Address
         set
         {
             emails = new Lazy<List<Email>?>(() => value);
-            _ = emails.Value; // trigger value evaluation
             EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
         }
     }
@@ -271,7 +270,7 @@ public class Address
         get
         {
             // HACK: called just before the payload gets serialized
-            EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
+            EmailComponent.EmailsToEmailComponentsIfValueIsCreated(emails, ref emailComponents);
 
             if (emailComponents?.Count > 0)
             {
