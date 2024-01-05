@@ -21,12 +21,8 @@ internal static class ExpressionExtensions
         }
 
         var body = expression.Body as MemberExpression ?? (expression.Body as UnaryExpression)?.Operand as MemberExpression;
-        var propertyInfo = body?.Member as PropertyInfo;
-
-        if (propertyInfo == null)
-        {
+        var propertyInfo = body?.Member as PropertyInfo ??
             throw new ArgumentException("The given expression does not contain a property.");
-        }
 
         return propertyInfo;
     }

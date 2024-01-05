@@ -54,7 +54,7 @@ public class Signature
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [OpenTransXmlElement("SIGNATURE_IN_ORIGINAL")]
-    public string SignatureInOriginalForSerializer { get => SignatureInOriginal == true ? "true" : "false"; set => SignatureInOriginal = value.ToLowerInvariant() == "true" ? true : false; }
+    public string SignatureInOriginalForSerializer { get => SignatureInOriginal == true ? "true" : "false"; set => SignatureInOriginal = value.ToLowerInvariant() == "true"; }
 
     /// <summary>
     /// (optional) Integrated signature<br/>

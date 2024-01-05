@@ -44,24 +44,16 @@ internal class EmbeddedXmlUrlResolver : XmlUrlResolver
 
     public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
     {
-        object? stream = GetStream(absoluteUri.AbsoluteUri);
-
-        if (stream is null)
-        {
-            stream = base.GetEntity(absoluteUri, role, ofObjectToReturn);
-        }
+        var stream = GetStream(absoluteUri.AbsoluteUri) ??
+            base.GetEntity(absoluteUri, role, ofObjectToReturn);
 
         return stream;
     }
 
     public override async Task<object> GetEntityAsync(Uri absoluteUri, string role, Type ofObjectToReturn)
     {
-        object? stream = GetStream(absoluteUri.AbsoluteUri);
-
-        if (stream is null)
-        {
-            stream = await base.GetEntityAsync(absoluteUri, role, ofObjectToReturn);
-        }
+        var stream = GetStream(absoluteUri.AbsoluteUri) ??
+            await base.GetEntityAsync(absoluteUri, role, ofObjectToReturn);
 
         return stream;
     }

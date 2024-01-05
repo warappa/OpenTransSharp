@@ -79,7 +79,7 @@ public class Payment
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [OpenTransXmlElement("DEBIT")]
-    public string? DebitForSerializer { get => Debit is null ? null : Debit == true ? "true" : "false"; set => Debit = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? DebitForSerializer { get => Debit is null ? null : Debit == true ? "true" : "false"; set => Debit = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DebitForSerializerSpecified => Debit == true;
 
@@ -93,7 +93,7 @@ public class Payment
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [OpenTransXmlElement("CHECK")]
-    public string? CheckForSerializer { get => Check is null ? null : Check == true ? "true" : "false"; set => Check = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? CheckForSerializer { get => Check is null ? null : Check == true ? "true" : "false"; set => Check = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CheckForSerializerSpecified => Check == true;
 
@@ -107,7 +107,7 @@ public class Payment
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [OpenTransXmlElement("CASH")]
-    public string? CashForSerializer { get => Cash is null ? null : Cash == true ? "true" : "false"; set => Cash = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? CashForSerializer { get => Cash is null ? null : Cash == true ? "true" : "false"; set => Cash = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CashForSerializerSpecified => Cash == true;
 
@@ -121,7 +121,7 @@ public class Payment
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [OpenTransXmlElement("CENTRAL_REGULATION")]
-    public string CentralRegulationForSerializer { get => CentralRegulation == true ? "true" : "false"; set => CentralRegulation = value.ToLowerInvariant() == "true" ? true : false; }
+    public string CentralRegulationForSerializer { get => CentralRegulation == true ? "true" : "false"; set => CentralRegulation = value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CentralRegulationForSerializerSpecified => CentralRegulation == true;
 

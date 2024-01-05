@@ -53,7 +53,7 @@ public class Verification
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [OpenTransXmlElement("VERIFICATION_SUCCESS")]
-    public string SuccessForSerializer { get => Success == true ? "true" : "false"; set => Success = value.ToLowerInvariant() == "true" ? true : false; }
+    public string SuccessForSerializer { get => Success == true ? "true" : "false"; set => Success = value.ToLowerInvariant() == "true"; }
 
     /// <summary>
     /// (required) Verification report<br/>

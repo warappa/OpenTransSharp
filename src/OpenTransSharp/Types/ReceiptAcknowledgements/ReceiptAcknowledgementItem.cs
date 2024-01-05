@@ -98,7 +98,7 @@ public class ReceiptAcknowledgementItem
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [XmlElement("DELIVERY_COMPLETED")]
-    public string? DeliveryCompletedForSerializer { get => DeliveryCompleted is null ? null : DeliveryCompleted == true ? "true" : "false"; set => DeliveryCompleted = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? DeliveryCompletedForSerializer { get => DeliveryCompleted is null ? null : DeliveryCompleted == true ? "true" : "false"; set => DeliveryCompleted = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DeliveryCompletedForSerializerSpecified => DeliveryCompleted == true;
 

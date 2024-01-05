@@ -183,9 +183,7 @@ public class ProductDetails
     [BMEXmlElement("DELIVERY_TIME")]
     public decimal? DeliveryTime { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool DeliveryTimeSpecified => DeliveryTime.HasValue;
-#pragma warning restore CS0618 // Type or member is obsolete
 
     /// <summary>
     /// (optional) Special treatment class<br/>

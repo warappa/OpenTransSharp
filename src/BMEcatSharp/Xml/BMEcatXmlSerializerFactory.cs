@@ -71,9 +71,7 @@ public class BMEcatXmlSerializerFactory : IBMEcatXmlSerializerFactory
         ConfigureUdx<NewCatalogProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
         ConfigureUdx<UpdatePricesProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
         ConfigureUdx<UpdateProductsProduct>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
-#pragma warning disable CS0618 // Type or member is obsolete
         ConfigureUdx<CatalogStructure>(x => x.UserDefinedExtensions, "USER_DEFINED_EXTENSIONS", mappings, overrides);
-#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     protected static void ConfigureUdx<T>(Expression<Func<T, object?>> udxProperty, string tagName, IDictionary<string, Type> userDefinedExtensionTypeMapping, XmlAttributeOverrides overrides)

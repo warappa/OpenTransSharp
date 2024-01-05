@@ -59,7 +59,7 @@ public class OpenTransAgreement
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [XmlAttribute("default")]
-    public string? DefaultForSerializer { get => Default is null ? null : Default == true ? "true" : "false"; set => Default = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? DefaultForSerializer { get => Default is null ? null : Default == true ? "true" : "false"; set => Default = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DefaultForSerializerSpecified => Default == true;
 
@@ -118,9 +118,7 @@ public class OpenTransAgreement
     [BMEXmlElement("DATETIME")]
     public List<global::BMEcatSharp.BMEcatDatetime>? Datetimes { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool DatetimesSpecified => Datetimes?.Count > 0;
-#pragma warning restore CS0618 // Type or member is obsolete
 
     /// <summary>
     /// (optional) Reference to supplier<br/>

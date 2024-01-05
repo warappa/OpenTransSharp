@@ -2,14 +2,12 @@
 
 public class BMEcatSharpXmlSerializerInputFormatter : XmlSerializerInputFormatter
 {
-    private readonly BMEcatXmlSerializerOptions serializerOptions;
     private readonly IBMEcatXmlSerializerFactory openTransXmlSerializerFactory;
 
     public BMEcatSharpXmlSerializerInputFormatter(MvcOptions options, BMEcatXmlSerializerOptions serializerOptions,
         IBMEcatXmlSerializerFactory openTransXmlSerializerFactory)
         : base(options)
     {
-        this.serializerOptions = serializerOptions ?? throw new ArgumentNullException(nameof(serializerOptions));
         this.openTransXmlSerializerFactory = openTransXmlSerializerFactory ?? throw new ArgumentNullException(nameof(openTransXmlSerializerFactory));
 
         if (serializerOptions.SupportedMediaTypes is not null)

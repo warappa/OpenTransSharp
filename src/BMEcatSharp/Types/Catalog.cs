@@ -144,9 +144,7 @@ public class Catalog
     [BMEXmlElement("DATE")]
     public BMEcatDatetime? Date { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool DateSpecified => Date is not null;
-#pragma warning restore CS0618 // Type or member is obsolete
 
     /// <summary>
     /// (optional) Territory<br/>

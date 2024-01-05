@@ -12,7 +12,7 @@ public class ReferenceFeatureSystemNameValues
     /// <br/>
     /// Reference to the classification system CPV (Common Procurement Vocabulary) with version date (e.g., CPV-2003-12-16); see siehe http://simap.eu.int.
     /// </summary>
-    public static string CPV(DateTime date) => $"CPV-{date.ToString("yyyy-MM-dd")}";
+    public static string CPV(DateTime date) => $"CPV-{date:yyyy-MM-dd}";
 
     /// <summary>
     /// eCl@ss<br/>
@@ -26,7 +26,7 @@ public class ReferenceFeatureSystemNameValues
     /// <br/>
     /// Reference to the classification system eOTD (ECCMA Open Technical Dictionary) with version date (e.g., EOTD-2004-08-01); see http://www.eccma.org.
     /// </summary>
-    public static string EOTD(DateTime date) => $"EOTD-{date.ToString("yyyy-MM-dd")}";
+    public static string EOTD(DateTime date) => $"EOTD-{date:yyyy-MM-dd}";
 
     /// <summary>
     /// ETIM<br/>
@@ -68,7 +68,7 @@ public class ReferenceFeatureSystemNameValues
     /// <br/>
     /// Reference to the classification system UNSPSC with major version x and minor version y (e.g., UNSPSC-6.0801); see http://www.unspsc.org.
     /// </summary>
-    public static string UNSPSC(Version version) => $"UNSPSC-{version.Major}.{version.Minor.ToString().PadLeft(4)}";
+    public static string UNSPSC(Version version) => $"UNSPSC-{version.Major}.{version.Minor,4}";
 
     /// <summary>
     /// Proprietary classification system.<br/>

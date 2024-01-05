@@ -17,7 +17,7 @@ public static class IppOutboundFormatValues
     /// <br/>
     /// Use of the exchange format cXML by Ariba (e.g., CXML-1.2.011; see also http://www.cxml.org).
     /// </summary>
-    public static string CXML(Version version) => $"CXML-{version.Major}.{version.Minor}.{version.Revision.ToString().PadLeft(3)}";
+    public static string CXML(Version version) => $"CXML-{version.Major}.{version.Minor}.{version.Revision,3}";
 
     /// <summary>
     /// OCI<br/>

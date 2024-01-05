@@ -157,7 +157,7 @@ public class QuotationItem
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [XmlElement("PARTIAL_SHIPMENT")] // Yes, without "_ALLOWED"...
-    public string? PartialShipmentAllowedForSerializer { get => PartialShipmentAllowed is null ? null : PartialShipmentAllowed == true ? "true" : "false"; set => PartialShipmentAllowed = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? PartialShipmentAllowedForSerializer { get => PartialShipmentAllowed is null ? null : PartialShipmentAllowed == true ? "true" : "false"; set => PartialShipmentAllowed = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PartialShipmentAllowedForSerializerSpecified => PartialShipmentAllowed == true;
 

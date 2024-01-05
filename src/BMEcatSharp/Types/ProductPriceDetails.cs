@@ -54,9 +54,7 @@ public class ProductPriceDetails
     [BMEXmlElement("DATETIME")]
     public List<BMEcatDatetime>? DateTimes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool DateTimesSpecified => DateTimes?.Count > 0;
-#pragma warning restore CS0618 // Type or member is obsolete
 
     /// <summary>
     /// (optional) Daily price<br/>
@@ -70,7 +68,7 @@ public class ProductPriceDetails
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [BMEXmlElement("DAILY_PRICE")]
-    public string? DailyPriceForSerializer { get => DailyPrice is null ? null : DailyPrice == true ? "true" : "false"; set => DailyPrice = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? DailyPriceForSerializer { get => DailyPrice is null ? null : DailyPrice == true ? "true" : "false"; set => DailyPrice = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DailyPriceForSerializerSpecified => DailyPrice == true;
 

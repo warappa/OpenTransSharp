@@ -110,7 +110,7 @@ public class FeatureContent
     public bool? Mandatory { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     [BMEXmlElement("FT_MANDATORY")]
-    public string? MandatoryForSerializer { get => Mandatory is null ? null : Mandatory == true ? "true" : "false"; set => Mandatory = value is null ? null : value.ToLowerInvariant() == "true" ? true : false; }
+    public string? MandatoryForSerializer { get => Mandatory is null ? null : Mandatory == true ? "true" : "false"; set => Mandatory = value is null ? null : value.ToLowerInvariant() == "true"; }
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool MandatoryForSerializerSpecified => Mandatory == true;
 

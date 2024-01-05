@@ -13,7 +13,7 @@ public static class IppInboundFormatValues
     /// <summary>
     /// Nutzung des Austauschformates cXML von Ariba (z.B. CXML-1.2.011; siehe auch http://www.cxml.org) .
     /// </summary>
-    public static string CXML(Version version) => $"CXML-{version.Major}.{version.Minor}.{version.Revision.ToString().PadLeft(3)}";
+    public static string CXML(Version version) => $"CXML-{version.Major}.{version.Minor}.{version.Revision,3}";
 
     /// <summary>
     /// Nutzung des Austauschformates OCI (Open Catalog Interface) von SAP (z.B. OCI-2.0B oder OCI-4.0; siehe auch http://help.sap.com/saphelp_crm20c/helpdata/en/0F/F2573901F0FE7CE10000000A114084/frameset.htm)

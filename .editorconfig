@@ -6,6 +6,10 @@ indent_size = 2
 indent_style = space
 tab_width = 2
 
+[src/OpenTransSharp.Samples.AspNetCore/Controllers/*.cs]
+# IDE0060: Remove unused parameter
+dotnet_diagnostic.IDE0060.severity = none
+
 # C# files
 [*.cs]
 
@@ -61,6 +65,9 @@ dotnet_style_prefer_compound_assignment = true
 dotnet_style_prefer_collection_expression = true
 dotnet_diagnostic.IDE0028.severity = warning
 
+# Null check can be simplified
+dotnet_diagnostic.IDE0041.severity = warning
+
 # Use conditional expression for assignment
 dotnet_style_prefer_conditional_expression_over_assignment = false:none
 dotnet_diagnostic.IDE0045.severity = none
@@ -75,6 +82,15 @@ dotnet_style_prefer_inferred_tuple_names = true
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true
 dotnet_style_prefer_simplified_boolean_expressions = true
 dotnet_style_prefer_simplified_interpolation = true
+
+# IDE0071: Interpoliation can be simplified
+dotnet_diagnostic.IDE0071.severity = warning
+
+# Conditional expression can be simplified
+dotnet_diagnostic.IDE0075.severity = warning
+
+# Remove unnecessary suppression
+dotnet_diagnostic.IDE0079.severity = warning
 
 # Field preferences
 dotnet_style_readonly_field = true
@@ -156,7 +172,7 @@ dotnet_diagnostic.IDE0058.severity = none
 dotnet_diagnostic.IDE0150.severity = warning
 
 # IDE0290 Use primary constructor
-dotnet_diagnostic.IDE0290.severity = suggestion
+dotnet_diagnostic.IDE0290.severity = none
 
 # 'using' directive preferences
 csharp_using_directive_placement = outside_namespace:warning

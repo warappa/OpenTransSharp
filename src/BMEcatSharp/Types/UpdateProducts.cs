@@ -90,9 +90,7 @@ public class UpdateProducts
     [BMEXmlElement("PRODUCT_TO_CATALOGGROUP_MAP")]
     public List<UpdateProductsProductToCataloggroupMap>? ProductToCataloggroupMap { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool ProductToCataloggroupMapSpecified => ProductToCataloggroupMap?.Count > 0;
-#pragma warning restore CS0618 // Type or member is obsolete
 
     /// <summary>
     /// (optional - deprecated - choice Product/Article) Article<br/>
@@ -108,9 +106,7 @@ public class UpdateProducts
     [BMEXmlElement("ARTICLE")]
     public List<UpdateProductsArticle>? Articles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticlesSpecified => Articles?.Count > 0;
-#pragma warning restore CS0618 // Type or member is obsolete
 
     /// <summary>
     /// (optional - deprecated - use with (deprecated) <see cref="Articles"/>) Assigning products to catalog groups<br/>
@@ -126,7 +122,5 @@ public class UpdateProducts
     [BMEXmlElement("Article_TO_CATALOGGROUP_MAP")]
     public List<UpdateProductsArticleToCataloggroupMap>? ArticleToCataloggroupMap { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticleToCataloggroupMapSpecified => ArticleToCataloggroupMap?.Count > 0;
-#pragma warning restore CS0618 // Type or member is obsolete
 }

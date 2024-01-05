@@ -59,5 +59,5 @@ public class PriceFlag
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     [XmlText]
-    public string ValueForSerializer { get => Value == true ? "true" : "false"; set => Value = value.ToLowerInvariant() == "true" ? true : false; }
+    public string ValueForSerializer { get => Value == true ? "true" : "false"; set => Value = value.ToLowerInvariant() == "true"; }
 }
