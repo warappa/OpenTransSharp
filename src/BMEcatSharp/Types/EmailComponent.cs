@@ -6,10 +6,21 @@
 public abstract class EmailComponent
 {
     [EditorBrowsable(EditorBrowsableState.Never)]
+    public static void EmailsToEmailComponentsIfValueIsCreated(Lazy<List<Email>?> emails, ref List<EmailComponent>? emailComponents)
+    {
+        if (!emails.IsValueCreated)
+        {
+            emailComponents = [];
+            return;
+        }
+
+        EmailsToEmailComponents(emails, ref emailComponents);
+    }
+
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public static void EmailsToEmailComponents(Lazy<List<Email>?> emails, ref List<EmailComponent>? emailComponents)
     {
-        if (!emails.IsValueCreated ||
-            emails.Value is null)
+        if (emails.Value is null)
         {
             emailComponents = [];
             return;

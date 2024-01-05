@@ -174,4 +174,27 @@ public class OrderSerializationTests
         contactEmail1.EmailAddress.Should().Be("mail@example.com");
         contactEmail1.PublicKeys.Count.Should().Be(2);
     }
+
+    [Test]
+    public void Ticket17_Directly_set_Address_Emails_property_is_serialized_even_if_not_accessed_before_serialization()
+    {
+        string[] emailAddresses = ["email@example.com", "email.2@example.com"];
+        var address = new Address
+        {
+            Emails = emailAddresses.Select(s => new Email
+            {
+                EmailAddress = s
+            }).ToList()
+        };
+
+        var options = new OpenTransXmlSerializerOptions();
+        var serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+        var serializer = serializerFactory.Create<Address>();
+
+        var serializedContent = serializer.Serialize(address);
+
+        serializedContent.Should().Contain("email@example.com");
+        serializedContent.Should().Contain("email.2@example.com");
+    }
 }

@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("OpenTransSharp.Tests")]
+﻿[assembly: InternalsVisibleTo("OpenTransSharp.Tests")]
 
 namespace BMEcatSharp.Tests;
 

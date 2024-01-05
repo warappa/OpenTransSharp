@@ -298,7 +298,7 @@ public class BMEBuyerAddress
         get
         {
             // HACK: called just before the payload gets serialized
-            EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
+            EmailComponent.EmailsToEmailComponentsIfValueIsCreated(emails, ref emailComponents);
 
             if (emailComponents?.Count > 0)
             {
