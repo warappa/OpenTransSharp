@@ -121,5 +121,5 @@ public class ILInvoiceListItem
     /// The element can be used directly for transactions in IL_INVOICE_LIST_ITEM and as summary in the element INVOICELIST_ITEM.
     /// </summary>
     [XmlElement("REWARDS")]
-    public List<Rewards>? Rewards { get; set; } = new List<Rewards>();
+    public List<Rewards>? Rewards { get; set; } = [];
 }

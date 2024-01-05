@@ -70,7 +70,7 @@ public class RemittanceAdvice : IOpenTransRoot
     /// </summary>
     [XmlArray("REMITTANCEADVICE_ITEM_LIST")]
     [XmlArrayItem("REMITTANCEADVICE_ITEM")]
-    public List<RemittanceAdviceItem> Items { get; set; } = new List<RemittanceAdviceItem>();
+    public List<RemittanceAdviceItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

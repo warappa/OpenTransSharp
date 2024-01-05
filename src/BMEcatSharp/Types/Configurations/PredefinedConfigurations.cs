@@ -37,7 +37,7 @@ public class PredefinedConfigurations
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PREDEFINED_CONFIG")]
-    public List<PredefinedConfiguration>? Configurations { get; set; } = new List<PredefinedConfiguration>();
+    public List<PredefinedConfiguration>? Configurations { get; set; } = [];
 
     /// <summary>
     /// (optional) Predefined configuration<br/>

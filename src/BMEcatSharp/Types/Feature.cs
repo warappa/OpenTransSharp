@@ -144,7 +144,7 @@ public class Feature
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FNAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
 
     /// <summary>
     /// (required - choice Name/IdRef/Template) Feature reference<br/>
@@ -179,7 +179,7 @@ public class Feature
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FVALUE")]
-    public List<MultiLingualString>? Values { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Values { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ValuesSpecified => Values?.Count > 0;
 
@@ -194,7 +194,7 @@ public class Feature
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("VALUE_IDREF")]
-    public List<string>? ValueIdRefs { get; set; } = new List<string>();
+    public List<string>? ValueIdRefs { get; set; } = [];
 
     /// <summary>
     /// (required - deprecated - choice Variants/Values/ValueIdRefs) Variants<br/>
@@ -253,7 +253,7 @@ public class Feature
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FDESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -267,7 +267,7 @@ public class Feature
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FVALUE_DETAILS")]
-    public List<MultiLingualString>? ValueDetails { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? ValueDetails { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ValueDetailsSpecified => ValueDetails?.Count > 0;
 

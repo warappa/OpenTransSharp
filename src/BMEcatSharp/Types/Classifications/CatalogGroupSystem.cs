@@ -44,7 +44,7 @@ public class CatalogGroupSystem
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("GROUP_SYSTEM_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -56,7 +56,7 @@ public class CatalogGroupSystem
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CATALOG_STRUCTURE")]
-    public List<CatalogStructure>? CatalogStructures { get; set; } = new List<CatalogStructure>();
+    public List<CatalogStructure>? CatalogStructures { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CatalogStructuresSpecified => CatalogStructures?.Count > 0;
 
@@ -68,7 +68,7 @@ public class CatalogGroupSystem
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("GROUP_SYSTEM_DESCRIPTION")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 }

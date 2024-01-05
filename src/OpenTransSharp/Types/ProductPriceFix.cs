@@ -52,7 +52,7 @@ public class ProductPriceFix
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRICE_FLAG")]
-    public List<global::BMEcatSharp.PriceFlag> PriceFlags { get; set; } = new List<global::BMEcatSharp.PriceFlag>();
+    public List<global::BMEcatSharp.PriceFlag> PriceFlags { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PriceFlagsSpecified => PriceFlags?.Count > 0;
 
@@ -62,7 +62,7 @@ public class ProductPriceFix
     /// Information to an applied tax.
     /// </summary>
     [OpenTransXmlElement("TAX_DETAILS_FIX")]
-    public List<TaxDetailsFix> TaxDetailsFixes { get; set; } = new List<TaxDetailsFix>();
+    public List<TaxDetailsFix> TaxDetailsFixes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TaxDetailsFixesSpecified => TaxDetailsFixes?.Count > 0;
 

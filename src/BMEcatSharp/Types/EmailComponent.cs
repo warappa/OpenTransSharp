@@ -26,7 +26,7 @@ public abstract class EmailComponent
             return;
         }
 
-        emailComponents ??= new List<EmailComponent>();
+        emailComponents ??= [];
         emailComponents.Clear();
         foreach (var email in emails.Value)
         {

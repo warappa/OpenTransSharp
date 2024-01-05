@@ -88,7 +88,7 @@ public class OrderReference
     /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
     /// </summary>
     [OpenTransXmlElement("AGREEMENT")]
-    public List<OpenTransAgreement>? Agreements { get; set; } = new List<OpenTransAgreement>();
+    public List<OpenTransAgreement>? Agreements { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AgreementsSpecified => Agreements?.Count > 0;
 

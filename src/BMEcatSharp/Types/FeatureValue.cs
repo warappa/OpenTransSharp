@@ -102,7 +102,7 @@ public class FeatureValue
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("VALUE_TEXT")]
-    public List<MultiLingualString>? Text { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Text { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TextSpecified => Text?.Count > 0;
 

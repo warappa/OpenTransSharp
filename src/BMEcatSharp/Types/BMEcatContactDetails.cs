@@ -54,7 +54,7 @@ public class BMEcatContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONTACT_NAME")]
-    public List<MultiLingualString>? Surname { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Surname { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SurnameSpecified => Surname?.Count > 0;
 
@@ -66,7 +66,7 @@ public class BMEcatContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FIRST_NAME")]
-    public List<MultiLingualString>? FirstName { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? FirstName { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FirstNameSpecified => FirstName?.Count > 0;
 
@@ -78,7 +78,7 @@ public class BMEcatContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TITLE")]
-    public List<MultiLingualString>? Title { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Title { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TitleSpecified => Title?.Count > 0;
 
@@ -90,7 +90,7 @@ public class BMEcatContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ACADEMIC_TITLE")]
-    public List<MultiLingualString>? AcademicTitle { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? AcademicTitle { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AcademicTitleSpecified => AcademicTitle?.Count > 0;
 
@@ -102,7 +102,7 @@ public class BMEcatContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONTACT_ROLE")]
-    public List<ContactRole>? ContactRoles { get; set; } = new List<ContactRole>();
+    public List<ContactRole>? ContactRoles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ContactRolesSpecified => ContactRoles?.Count > 0;
 
@@ -114,7 +114,7 @@ public class BMEcatContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONTACT_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 

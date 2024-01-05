@@ -63,7 +63,7 @@ public class ProductId
     /// The usage of the term is common, however the lot number is a character sequence and therefore can contain alphanumeric characters.
     /// </summary>
     [OpenTransXmlElement("LOT_NUMBER")]
-    public List<string>? LotNumbers { get; set; } = new List<string>();
+    public List<string>? LotNumbers { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool LotNumbersSpecified => LotNumbers?.Count > 0;
 
@@ -74,7 +74,7 @@ public class ProductId
     /// The term is commonly used, nevertheless a serial number can alos consist of alphanumeric characters.
     /// </summary>
     [OpenTransXmlElement("SERIAL_NUMBER")]
-    public List<string>? SerialNumbers { get; set; } = new List<string>();
+    public List<string>? SerialNumbers { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SerialNumbersSpecified => SerialNumbers?.Count > 0;
 
@@ -87,7 +87,7 @@ public class ProductId
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("INTERNATIONAL_PID")]
-    public List<global::BMEcatSharp.InternationalPid>? InternationalPids { get; set; } = new List<global::BMEcatSharp.InternationalPid>();
+    public List<global::BMEcatSharp.InternationalPid>? InternationalPids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InternationalPidsSpecified => InternationalPids?.Count > 0;
 
@@ -101,7 +101,7 @@ public class ProductId
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("BUYER_PID")]
-    public List<global::BMEcatSharp.BuyerPid>? BuyerPids { get; set; } = new List<global::BMEcatSharp.BuyerPid>();
+    public List<global::BMEcatSharp.BuyerPid>? BuyerPids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool BuyerPidsSpecified => BuyerPids?.Count > 0;
 
@@ -118,7 +118,7 @@ public class ProductId
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("DESCRIPTION_SHORT")]
-    public List<global::BMEcatSharp.MultiLingualString>? DescriptionShorts { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? DescriptionShorts { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionShortsSpecified => DescriptionShorts?.Count > 0;
 
@@ -139,7 +139,7 @@ public class ProductId
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("DESCRIPTION_LONG")]
-    public List<global::BMEcatSharp.MultiLingualString>? DescriptionLongs { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? DescriptionLongs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionLongsSpecified => DescriptionLongs?.Count > 0;
 

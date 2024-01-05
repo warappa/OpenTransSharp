@@ -135,7 +135,7 @@ public class Agreement
     /// This element is used to describe the skeleton agreement.
     /// </summary>
     [BMEXmlElement("AGREEMENT_DESCR")]
-    public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 

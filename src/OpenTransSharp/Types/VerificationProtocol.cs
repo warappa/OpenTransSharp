@@ -47,7 +47,7 @@ public class VerificationProtocol
     /// Description of a protocol record in a human-readable form.<br/>
     /// </summary>
     [OpenTransXmlElement("RESULT_DESCR")]
-    public List<global::BMEcatSharp.Language>? ResultDescriptions { get; set; } = new List<global::BMEcatSharp.Language>();
+    public List<global::BMEcatSharp.Language>? ResultDescriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ResultDescriptionsSpecified => ResultDescriptions?.Count > 0;
 }

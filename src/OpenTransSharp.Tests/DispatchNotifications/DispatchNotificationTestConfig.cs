@@ -59,11 +59,11 @@ internal class DispatchNotificationTestConfig
 
         model.Header.Information.HeaderUdx.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         model.Header.Information.HeaderUdx.Add(new CustomData2()
         {
@@ -72,11 +72,11 @@ internal class DispatchNotificationTestConfig
 
         model.Items[0].ItemUdx.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         model.Items[0].ItemUdx.Add(new CustomData2()
         {
@@ -106,10 +106,10 @@ internal class DispatchNotificationTestConfig
             DocexchangePartiesReference = new DocexchangePartiesReference
             {
                 DocumentIssuerIdRef = parent.GetDocumentIssuerIdRef(),
-                DocumentRecipientIdRefs = new List<DocumentRecipientIdRef>
-                {
+                DocumentRecipientIdRefs =
+                [
                     parent.GetDocumentRecipientIdRef()
-                }
+                ]
             }
         };
         model.Languages.Add(new global::BMEcatSharp.Language(global::BMEcatSharp.LanguageCodes.deu, true));
@@ -125,11 +125,11 @@ internal class DispatchNotificationTestConfig
         {
             DeliveryIdRef = parent.GetDeliveryIdRef()
         };
-        model.Remarks = new List<Remark>
-        {
+        model.Remarks =
+        [
             new Remark("Handle with care", global::BMEcatSharp.RemarkTypeValues.Transport),
             new Remark("Ring 4 times", global::BMEcatSharp.RemarkTypeValues.DeliveryNote)
-        };
+        ];
 
         return model;
     }

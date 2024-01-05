@@ -49,7 +49,7 @@ public class CustomerOrderReference
     /// Textual description of the order.
     /// </summary>
     [OpenTransXmlElement("ORDER_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 

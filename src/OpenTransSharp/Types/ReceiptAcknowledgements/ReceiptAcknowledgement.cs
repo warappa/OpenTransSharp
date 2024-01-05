@@ -75,7 +75,7 @@ public class ReceiptAcknowledgement : IOpenTransRoot
     /// </summary>
     [XmlArray("RECEIPTACKNOWLEDGEMENT_ITEM_LIST")]
     [XmlArrayItem("RECEIPTACKNOWLEDGEMENT_ITEM")]
-    public List<ReceiptAcknowledgementItem> Items { get; set; } = new List<ReceiptAcknowledgementItem>();
+    public List<ReceiptAcknowledgementItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

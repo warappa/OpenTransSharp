@@ -46,7 +46,7 @@ public class OrderHistory
     /// Here the order number of the original ordering party can be set down.
     /// </summary>
     [XmlElement("ALT_CUSTOMER_ORDER_ID")]
-    public List<string>? AlternativeCustomerOrderId { get; set; } = new List<string>();
+    public List<string>? AlternativeCustomerOrderId { get; set; } = [];
 
     /// <summary>
     /// (optional) Supplier order number<br/>
@@ -72,7 +72,7 @@ public class OrderHistory
     /// Textual description of the order.
     /// </summary>
     [BMEXmlElement("ORDER_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? OrderDescription { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? OrderDescription { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool OrderDescriptionSpecified => OrderDescription?.Count > 0;
 
@@ -102,7 +102,7 @@ public class OrderHistory
     /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
     /// </summary>
     [XmlElement("AGREEMENT")]
-    public List<global::BMEcatSharp.Agreement>? Agreements { get; set; } = new List<global::BMEcatSharp.Agreement>();
+    public List<global::BMEcatSharp.Agreement>? Agreements { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AgreementsSpecified => Agreements?.Count > 0;
 

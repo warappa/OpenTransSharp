@@ -19,7 +19,7 @@ public class PaymentTerms
     /// The information can be given according to UN/ECE or be company-specific.
     /// </summary>
     [OpenTransXmlElement("PAYMENT_TERM")]
-    public List<PaymentTerm>? PaymentTermList { get; set; } = new List<PaymentTerm>();
+    public List<PaymentTerm>? PaymentTermList { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PaymentTermListSpecified => PaymentTermList?.Count > 0;
 
@@ -29,7 +29,7 @@ public class PaymentTerms
     /// Information to time-related payment details like period for payment, early payment discounts.
     /// </summary>
     [OpenTransXmlElement("TIME_FOR_PAYMENT")]
-    public List<TimeForPayment>? TimeForPayments { get; set; } = new List<TimeForPayment>();
+    public List<TimeForPayment>? TimeForPayments { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TimeForPaymentsSpecified => TimeForPayments?.Count > 0;
 

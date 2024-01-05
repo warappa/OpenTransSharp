@@ -3,7 +3,7 @@
 public class BMEcatXmlSerializerFactory : IBMEcatXmlSerializerFactory
 {
     // https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?redirectedfrom=MSDN&view=netframework-4.8#dynamically-generated-assemblies
-    protected readonly Hashtable cachedXmlSerializers = new();
+    protected readonly Hashtable cachedXmlSerializers = [];
     protected readonly BMEcatXmlSerializerOptions options;
     protected readonly IDictionary<string, Type> udxMappings;
 

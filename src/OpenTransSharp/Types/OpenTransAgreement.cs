@@ -139,7 +139,7 @@ public class OpenTransAgreement
     /// This element is used to describe the skeleton agreement.
     /// </summary>
     [OpenTransXmlElement("AGREEMENT_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 

@@ -73,5 +73,5 @@ public class IppOutbound
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_URI")]
-    public List<MultiLingualString> Uri { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> Uri { get; set; } = [];
 }

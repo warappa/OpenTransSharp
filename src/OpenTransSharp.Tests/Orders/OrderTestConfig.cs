@@ -62,11 +62,11 @@ internal class OrderTestConfig
 
         order.Header.Information.HeaderUdx.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         order.Header.Information.HeaderUdx.Add(new CustomData2()
         {
@@ -75,11 +75,11 @@ internal class OrderTestConfig
 
         order.Items[0].ItemUdx.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         order.Items[0].ItemUdx.Add(new CustomData2()
         {
@@ -128,13 +128,13 @@ internal class OrderTestConfig
     {
         var model = new Order
         {
-            Items = new List<OrderItem>
-            {
+            Items =
+            [
                 new OrderItem("1", new ProductId(), PackageUnit.C62)
-            }
+            ]
         };
         model.Header.Information.Id = "test";
-        model.Header.Information.Parties.Add(new OpenTransParty { Ids = new List<PartyId> { new PartyId("a") } });
+        model.Header.Information.Parties.Add(new OpenTransParty { Ids = [new PartyId("a")] });
         model.Header.Information.OrderPartiesReference.BuyerIdRef = new BuyerIdRef("a");
         model.Header.Information.OrderPartiesReference.SupplierIdRef = new SupplierIdRef("a");
 

@@ -71,7 +71,7 @@ public class NewCatalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CLASSIFICATION_SYSTEM")]
-    public List<ClassificationSystem>? ClassificationSystem { get; set; } = new List<ClassificationSystem>();
+    public List<ClassificationSystem>? ClassificationSystem { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ClassificationSystemSpecified => ClassificationSystem?.Count > 0;
 
@@ -98,7 +98,7 @@ public class NewCatalog
     /// </summary>
     [BMEXmlArray("FORMULAS")]
     [BMEXmlArrayItem("FORMULA")]
-    public List<Formula>? Formulas { get; set; } = new List<Formula>();
+    public List<Formula>? Formulas { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FormulasSpecified => Formulas?.Count > 0;
 
@@ -111,7 +111,7 @@ public class NewCatalog
     /// </summary>
     [BMEXmlArray("IPP_DEFINITIONS")]
     [BMEXmlArrayItem("IPP_DEFINITION")]
-    public List<IppDefinition>? IppDefinitions { get; set; } = new List<IppDefinition>();
+    public List<IppDefinition>? IppDefinitions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool IppDefinitionsSpecified => IppDefinitions?.Count > 0;
 
@@ -123,7 +123,7 @@ public class NewCatalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT")]
-    public List<NewCatalogProduct>? Products { get; set; } = new List<NewCatalogProduct>();
+    public List<NewCatalogProduct>? Products { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ProductsSpecified => Products?.Count > 0;
 
@@ -137,7 +137,7 @@ public class NewCatalog
     /// </summary>
     //[Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element PRODUCT_TO_CATALOGGROUP_MAP in context T_NEW_CATALOG will be omitted then.")]
     [BMEXmlElement("PRODUCT_TO_CATALOGGROUP_MAP")]
-    public List<NewCatalogProductToCataloggroupMap>? ProductToCataloggroupMap { get; set; } = new List<NewCatalogProductToCataloggroupMap>();
+    public List<NewCatalogProductToCataloggroupMap>? ProductToCataloggroupMap { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ProductToCataloggroupMapSpecified => ProductToCataloggroupMap?.Count > 0;
@@ -155,7 +155,7 @@ public class NewCatalog
     /// </summary>
     //[Obsolete("This element has been replaced by the PRODUCT in context T_NEW_CATALOG element.")]
     [BMEXmlElement("ARTICLE")]
-    public List<NewCatalogArticle>? Articles { get; set; } = new List<NewCatalogArticle>();
+    public List<NewCatalogArticle>? Articles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticlesSpecified => Articles?.Count > 0;
@@ -173,7 +173,7 @@ public class NewCatalog
     /// </summary>
     //[Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element ARTICLE_TO_CATALOGGROUP_MAPin context T_NEW_CATALOG will be omitted then.")]
     [BMEXmlElement("Article_TO_CATALOGGROUP_MAP")]
-    public List<NewCatalogArticleToCataloggroupMap>? ArticleToCataloggroupMap { get; set; } = new List<NewCatalogArticleToCataloggroupMap>();
+    public List<NewCatalogArticleToCataloggroupMap>? ArticleToCataloggroupMap { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticleToCataloggroupMapSpecified => ArticleToCataloggroupMap?.Count > 0;

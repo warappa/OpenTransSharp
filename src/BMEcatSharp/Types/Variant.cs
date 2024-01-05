@@ -43,7 +43,7 @@ public class Variant
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FVALUE")]
-    public List<MultiLingualString> FeatureValues { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> FeatureValues { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeatureValuesSpecified => FeatureValues?.Count > 0;
 
@@ -58,7 +58,7 @@ public class Variant
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("VALUE_IDREF")]
-    public List<string> ValueIdRefs { get; set; } = new List<string>();
+    public List<string> ValueIdRefs { get; set; } = [];
 
     /// <summary>
     /// (required) Article number supplement<br/>

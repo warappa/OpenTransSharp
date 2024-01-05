@@ -80,7 +80,7 @@ public class Order : IOpenTransRoot
     /// </summary>
     [XmlArray("ORDER_ITEM_LIST")]
     [XmlArrayItem("ORDER_ITEM")]
-    public List<OrderItem> Items { get; set; } = new List<OrderItem>();
+    public List<OrderItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

@@ -3,5 +3,5 @@
 public class ValidationResult
 {
     public bool IsValid => Errors.Keys.Count == 0;
-    public Dictionary<string, string[]> Errors { get; set; } = new Dictionary<string, string[]>();
+    public Dictionary<string, string[]> Errors { get; set; } = [];
 }

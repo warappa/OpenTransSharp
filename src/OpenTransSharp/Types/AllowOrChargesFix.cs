@@ -34,7 +34,7 @@ public class AllowOrChargesFix
     /// Description of a fixed surcharge or allowance. Please notice the usage-advice at ALLOW_OR_CHARGE.
     /// </summary>
     [XmlElement("ALLOW_OR_CHARGE")]
-    public List<AllowOrCharge> List { get; set; } = new List<AllowOrCharge>();
+    public List<AllowOrCharge> List { get; set; } = [];
 
     /// <summary>
     /// (optional) Total amount of the allowances and surcharges<br/>

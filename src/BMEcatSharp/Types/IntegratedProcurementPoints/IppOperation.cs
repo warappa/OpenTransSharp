@@ -77,7 +77,7 @@ public class IppOperation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_OPERATION_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -89,7 +89,7 @@ public class IppOperation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_OUTBOUND")]
-    public List<IppOutbound> Outbounds { get; set; } = new List<IppOutbound>();
+    public List<IppOutbound> Outbounds { get; set; } = [];
 
     /// <summary>
     /// (required) IPP return<br/>
@@ -99,5 +99,5 @@ public class IppOperation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_INBOUND")]
-    public List<IppInbound> Inbounds { get; set; } = new List<IppInbound>();
+    public List<IppInbound> Inbounds { get; set; } = [];
 }

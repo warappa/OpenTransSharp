@@ -115,7 +115,7 @@ public class ClassificationGroupFeatureTemplate
     /// </summary>
     [BMEXmlArray("FT_ALLOWED_VALUES")]
     [BMEXmlArrayItem("ALLOWED_VALUE_IDREF")]
-    public List<AllowedValueIdref>? AllowedValues { get; set; } = new List<AllowedValueIdref>();
+    public List<AllowedValueIdref>? AllowedValues { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AllowedValuesSpecified => AllowedValues?.Count > 0;
 
@@ -128,7 +128,7 @@ public class ClassificationGroupFeatureTemplate
     /// </summary>
     [BMEXmlArray("FT_VALUES")]
     [BMEXmlArrayItem("FT_VALUE")]
-    public List<FeatureValue>? Values { get; set; } = new List<FeatureValue>();
+    public List<FeatureValue>? Values { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ValuesSpecified => Values?.Count > 0;
 
@@ -163,7 +163,7 @@ public class ClassificationGroupFeatureTemplate
     /// </summary>
     [BMEXmlArray("FT_SYNONYMS")]
     [BMEXmlArrayItem("SYNONYM")]
-    public List<MultiLingualString>? Synonyms { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Synonyms { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SynonymsSpecified => Synonyms?.Count > 0;
 
@@ -200,7 +200,7 @@ public class ClassificationGroupFeatureTemplate
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_NOTE")]
-    public List<MultiLingualString>? Notes { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Notes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NotesSpecified => Notes?.Count > 0;
 
@@ -214,7 +214,7 @@ public class ClassificationGroupFeatureTemplate
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_REMARK")]
-    public List<MultiLingualString>? Remark { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Remark { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarkSpecified => Remark?.Count > 0;
 
@@ -228,7 +228,7 @@ public class ClassificationGroupFeatureTemplate
     /// </summary>
     [BMEXmlArray("FT_DEPENDENCIES")]
     [BMEXmlArrayItem("FT_IDREF")]
-    public List<FeatureIdRef>? Dependencies { get; set; } = new List<FeatureIdRef>();
+    public List<FeatureIdRef>? Dependencies { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DependenciesSpecified => Dependencies?.Count > 0;
 }

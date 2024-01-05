@@ -75,7 +75,7 @@ public class OrderResponse : IOpenTransRoot
     /// </summary>
     [XmlArray("ORDERRESPONSE_ITEM_LIST")]
     [XmlArrayItem("ORDERRESPONSE_ITEM")]
-    public List<OrderResponseItem> Items { get; set; } = new List<OrderResponseItem>();
+    public List<OrderResponseItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

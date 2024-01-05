@@ -187,11 +187,11 @@ internal class TestConfig : BMEcatSharp.Tests.TestConfig
 
     public List<OpenTransParty> GetParties()
     {
-        return new List<OpenTransParty>
-        {
+        return
+        [
             GetBuyerParty(),
             GetSupplierParty()
-        };
+        ];
     }
 
     public TotalTax GetTotalTax()
@@ -230,10 +230,10 @@ internal class TestConfig : BMEcatSharp.Tests.TestConfig
 
     public List<Remark> GetRemarks()
     {
-        return new List<Remark>
-        {
+        return
+        [
             GetRemark()
-        };
+        ];
     }
 
     public Remark GetRemark()
@@ -255,11 +255,11 @@ internal class TestConfig : BMEcatSharp.Tests.TestConfig
     {
         return new OpenTransParty
         {
-            Roles = new List<global::BMEcatSharp.PartyRole> { global::BMEcatSharp.PartyRole.Supplier },
-            Ids = new List<global::BMEcatSharp.PartyId>
-            {
+            Roles = [global::BMEcatSharp.PartyRole.Supplier],
+            Ids =
+            [
                 (global::BMEcatSharp.PartyId)BMEcats.GetSupplierIdRef()
-            }
+            ]
         };
     }
 
@@ -267,11 +267,11 @@ internal class TestConfig : BMEcatSharp.Tests.TestConfig
     {
         var model = new OpenTransParty
         {
-            Ids = new List<global::BMEcatSharp.PartyId>
-            {
+            Ids =
+            [
                 (global::BMEcatSharp.PartyId)BMEcats.GetBuyerIdRef()
-            },
-            Roles = new List<global::BMEcatSharp.PartyRole> { global::BMEcatSharp.PartyRole.Buyer }
+            ],
+            Roles = [global::BMEcatSharp.PartyRole.Buyer]
         };
 
         model.Addresses.Add(GetAddress());
@@ -403,21 +403,21 @@ internal class TestConfig : BMEcatSharp.Tests.TestConfig
     {
         return new OpenTransMime
         {
-            AlternativeTexts = new List<global::BMEcatSharp.MultiLingualString>
-            {
+            AlternativeTexts =
+            [
                 new global::BMEcatSharp.MultiLingualString("Bitte Lesen", global::BMEcatSharp.LanguageCodes.deu),
                 new global::BMEcatSharp.MultiLingualString("Readme", global::BMEcatSharp.LanguageCodes.eng)
-            },
-            Descriptions = new List<global::BMEcatSharp.MultiLingualString>
-            {
+            ],
+            Descriptions =
+            [
                 new global::BMEcatSharp.MultiLingualString("Eine Text Datei", global::BMEcatSharp.LanguageCodes.deu),
                 new global::BMEcatSharp.MultiLingualString("A text file", global::BMEcatSharp.LanguageCodes.eng)
-            },
+            ],
             Purpose = global::BMEcatSharp.MimePurpose.Others,
             //MimeSource = new global::BMEcatSharp.MultiLingualString("ftp://server/de/", global::BMEcatSharp.LanguageCodes.deu),
             MimeType = "text/plain",
-            Embeddeds = new List<MimeEmbedded>
-            {
+            Embeddeds =
+            [
                 new MimeEmbedded
                 {
                     FileName = "Lies mich.txt",
@@ -432,7 +432,7 @@ internal class TestConfig : BMEcatSharp.Tests.TestConfig
                     FileSize = 22,
                     Data = MimeData.FromText("Well done, you read it")
                 }
-            }
+            ]
         };
     }
 

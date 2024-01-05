@@ -117,7 +117,7 @@ public class UpdatePricesProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_PRICE_DETAILS")]
-    public List<ProductPriceDetails> PriceDetails { get; set; } = new List<ProductPriceDetails>();
+    public List<ProductPriceDetails> PriceDetails { get; set; } = [];
 
     /// <summary>
     /// (optional) User-defined extension<br/>
@@ -136,7 +136,7 @@ public class UpdatePricesProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlArray("USER_DEFINED_EXTENSIONS")]
-    public List<object>? UserDefinedExtensions { get; set; } = new List<object>();
+    public List<object>? UserDefinedExtensions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UserDefinedExtensionsSpecified => UserDefinedExtensions?.Count > 0;
 }

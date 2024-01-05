@@ -39,7 +39,7 @@ public class ConfigurationStep
         }
 
         Id = id;
-        Header = header?.ToList() ?? new List<MultiLingualString>();
+        Header = header?.ToList() ?? [];
         MinimumOccurance = minimumOccurance;
         MaximumOccurance = maximumOccurance;
         ConfigurationFeature = configurationFeature ?? throw new ArgumentNullException(nameof(configurationFeature));
@@ -90,7 +90,7 @@ public class ConfigurationStep
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("STEP_HEADER")]
-    public List<MultiLingualString> Header { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> Header { get; set; } = [];
 
     /// <summary>
     /// (optional) Configuration step short description<br/>
@@ -100,7 +100,7 @@ public class ConfigurationStep
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("STEP_DESCR_SHORT")]
-    public List<MultiLingualString>? DescriptionShort { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? DescriptionShort { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionShortSpecified => DescriptionShort?.Count > 0;
 
@@ -112,7 +112,7 @@ public class ConfigurationStep
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("STEP_DESCR_LONG")]
-    public List<MultiLingualString>? DescriptionLong { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? DescriptionLong { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionLongSpecified => DescriptionLong?.Count > 0;
 

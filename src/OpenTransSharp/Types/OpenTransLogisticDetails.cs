@@ -18,7 +18,7 @@ public class OpenTransLogisticDetails
     /// (optional) Information on the customs tariff number.
     /// </summary>
     [BMEXmlElement("CUSTOMS_TARIFF_NUMBER")]
-    public List<global::BMEcatSharp.CustomsTariffNumber>? CustomsTariffNumbers { get; set; } = new List<global::BMEcatSharp.CustomsTariffNumber>();
+    public List<global::BMEcatSharp.CustomsTariffNumber>? CustomsTariffNumbers { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CustomsTariffNumbersSpecified => CustomsTariffNumbers?.Count > 0;
 
@@ -42,7 +42,7 @@ public class OpenTransLogisticDetails
     /// Contains the country of origin of the product. By using a subdivision code it is possible to reference a region.
     /// </summary>
     [BMEXmlElement("COUNTRY_OF_ORIGIN")]
-    public List<global::BMEcatSharp.CountryCode>? CountryOfOrigins { get; set; } = new List<global::BMEcatSharp.CountryCode>();
+    public List<global::BMEcatSharp.CountryCode>? CountryOfOrigins { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CountryOfOriginsSpecified => CountryOfOrigins?.Count > 0;
 
@@ -69,7 +69,7 @@ public class OpenTransLogisticDetails
     /// Information about the terms of transport.
     /// </summary>
     [BMEXmlElement("TRANSPORT")]
-    public List<global::BMEcatSharp.Transport>? Transports { get; set; } = new List<global::BMEcatSharp.Transport>();
+    public List<global::BMEcatSharp.Transport>? Transports { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TransportsSpecified => Transports?.Count > 0;
 
@@ -80,7 +80,7 @@ public class OpenTransLogisticDetails
     /// </summary>
     [OpenTransXmlArray("PACKAGE_INFO")]
     [OpenTransXmlArrayItem("PACKAGE")]
-    public List<Package> PackageInfos { get; set; } = new List<Package>();
+    public List<Package> PackageInfos { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PackageInfosSpecified => PackageInfos?.Count > 0;
 
@@ -90,7 +90,7 @@ public class OpenTransLogisticDetails
     /// Means of transport with which the goods to be delivered are´transported.
     /// </summary>
     [BMEXmlElement("MEANS_OF_TRANSPORT")]
-    public List<global::BMEcatSharp.MeansOfTransport> MeansOfTransports { get; set; } = new List<global::BMEcatSharp.MeansOfTransport>();
+    public List<global::BMEcatSharp.MeansOfTransport> MeansOfTransports { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool MeansOfTransportsSpecified => MeansOfTransports?.Count > 0;
 }

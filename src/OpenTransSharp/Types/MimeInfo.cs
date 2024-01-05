@@ -42,5 +42,5 @@ public class OpenTransMimeInfo
     /// The file itself is can be referenced and transferred separately or direclty binary-coded in the document via the element MIME_EMBEDDED.
     /// </summary>
     [OpenTransXmlElement("MIME")]
-    public List<OpenTransMime> Mimes { get; set; } = new List<OpenTransMime>();
+    public List<OpenTransMime> Mimes { get; set; } = [];
 }

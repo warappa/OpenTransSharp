@@ -37,7 +37,7 @@ public class OpenTransParty
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PARTY_ID")]
-    public List<global::BMEcatSharp.PartyId> Ids { get; set; } = new List<global::BMEcatSharp.PartyId>();
+    public List<global::BMEcatSharp.PartyId> Ids { get; set; } = [];
 
     /// <summary>
     /// (optional) Role of the business partner<br/>
@@ -51,7 +51,7 @@ public class OpenTransParty
     /// Max length: 20
     /// </summary>
     [XmlElement("PARTY_ROLE")]
-    public List<global::BMEcatSharp.PartyRole>? Roles { get; set; } = new List<global::BMEcatSharp.PartyRole>();
+    public List<global::BMEcatSharp.PartyRole>? Roles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RolesSpecified => Roles?.Count > 0;
 
@@ -61,7 +61,7 @@ public class OpenTransParty
     /// Address information of a business partner.
     /// </summary>
     [XmlElement("ADDRESS")]
-    public List<Address>? Addresses { get; set; } = new List<Address>();
+    public List<Address>? Addresses { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AddressesSpecified => Addresses?.Count > 0;
 
@@ -71,7 +71,7 @@ public class OpenTransParty
     /// Bank account details.
     /// </summary>
     [XmlElement("ACCOUNT")]
-    public List<Account>? Accounts { get; set; } = new List<Account>();
+    public List<Account>? Accounts { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AccountsSpecified => Accounts?.Count > 0;
 

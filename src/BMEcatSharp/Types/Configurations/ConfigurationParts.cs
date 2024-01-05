@@ -36,7 +36,7 @@ public class ConfigurationParts
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PART_ALTERNATIVE")]
-    public List<PartAlternative> Alternatives { get; set; } = new List<PartAlternative>();
+    public List<PartAlternative> Alternatives { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AlternativesSpecified => Alternatives?.Count > 0;
 

@@ -50,7 +50,7 @@ public class IppParamDefinition : IppParamsBase
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_PARAM_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 }

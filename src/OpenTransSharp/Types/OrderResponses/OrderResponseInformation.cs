@@ -76,7 +76,7 @@ public class OrderResponseInformation
     /// Here the order number of the original ordering party can be set down.
     /// </summary>
     [XmlElement("ALT_CUSTOMER_ORDER_ID")]
-    public List<string>? AlternativeCustomerOrderId { get; set; } = new List<string>();
+    public List<string>? AlternativeCustomerOrderId { get; set; } = [];
 
     /// <summary>
     /// (optional) Supplier order number<br/>
@@ -116,7 +116,7 @@ public class OrderResponseInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("LANGUAGE")]
-    public List<global::BMEcatSharp.Language>? Languages { get; set; } = new List<global::BMEcatSharp.Language>();
+    public List<global::BMEcatSharp.Language>? Languages { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool LanguagesSpecified => Languages?.Count > 0;
 
@@ -139,7 +139,7 @@ public class OrderResponseInformation
     /// </summary>
     [XmlArray("PARTIES")]
     [XmlArrayItem("PARTY")]
-    public List<OpenTransParty> Parties { get; set; } = new List<OpenTransParty>();
+    public List<OpenTransParty> Parties { get; set; } = [];
 
     /// <summary>
     /// (required) Business partners<br/>
@@ -184,7 +184,7 @@ public class OrderResponseInformation
     /// Remark related to a business document.
     /// </summary>
     [XmlElement("REMARKS")]
-    public List<Remark> Remarks { get; set; } = new List<Remark>();
+    public List<Remark> Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -200,7 +200,7 @@ public class OrderResponseInformation
     /// The definition of user-defined extensions takes place by additional XML DTD or XML-Schema files.
     /// </summary>
     [XmlArray("HEADER_UDX")]
-    public List<object>? HeaderUdx { get; set; } = new List<object>();
+    public List<object>? HeaderUdx { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool HeaderUdxSpecified => HeaderUdx?.Count > 0;
 }

@@ -40,7 +40,7 @@ public class UpdateProductsProduct
         SupplierPid = supplierPid ?? throw new ArgumentNullException(nameof(supplierPid));
         Details = details ?? throw new ArgumentNullException(nameof(details));
         OrderDetails = orderDetails ?? throw new ArgumentNullException(nameof(orderDetails));
-        PriceDetails = priceDetails?.ToList() ?? new();
+        PriceDetails = priceDetails?.ToList() ?? [];
     }
 
     /// <summary>
@@ -128,7 +128,7 @@ public class UpdateProductsProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_FEATURES")]
-    public List<ProductFeatures>? Features { get; set; } = new List<ProductFeatures>();
+    public List<ProductFeatures>? Features { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeaturesSpecified => Features?.Count > 0;
 
@@ -153,7 +153,7 @@ public class UpdateProductsProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_PRICE_DETAILS")]
-    public List<ProductPriceDetails> PriceDetails { get; set; } = new List<ProductPriceDetails>();
+    public List<ProductPriceDetails> PriceDetails { get; set; } = [];
 
     /// <summary>
     /// (optional) Additional multimedia information<br/>
@@ -183,7 +183,7 @@ public class UpdateProductsProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlArray("USER_DEFINED_EXTENSIONS")]
-    public List<object>? UserDefinedExtensions { get; set; } = new List<object>();
+    public List<object>? UserDefinedExtensions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UserDefinedExtensionsSpecified => UserDefinedExtensions?.Count > 0;
 
@@ -195,7 +195,7 @@ public class UpdateProductsProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_REFERENCE")]
-    public List<ProductReference>? References { get; set; } = new List<ProductReference>();
+    public List<ProductReference>? References { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ReferencesSpecified => References?.Count > 0;
 

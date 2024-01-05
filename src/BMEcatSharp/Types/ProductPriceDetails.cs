@@ -52,7 +52,7 @@ public class ProductPriceDetails
 
     //[Obsolete("The element is used to precisely define a time. It is made up of the three elements date, time and time zone. The element DATETIME in the context of PRODUCT_PRICE_DETAILS with the attributes 'valid_start_date' und 'valid_end_date' will be replaced by the elements VALID_START_DATE and VALID_END_DATE in future versions and will be omitted then.")]
     [BMEXmlElement("DATETIME")]
-    public List<BMEcatDatetime>? DateTimes { get; set; } = new List<BMEcatDatetime>();
+    public List<BMEcatDatetime>? DateTimes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool DateTimesSpecified => DateTimes?.Count > 0;
@@ -80,5 +80,5 @@ public class ProductPriceDetails
     /// Definition of a price for the product.
     /// </summary>
     [BMEXmlElement("PRODUCT_PRICE")]
-    public List<ProductPrice> ProductPrices { get; set; } = new List<ProductPrice>();
+    public List<ProductPrice> ProductPrices { get; set; } = [];
 }

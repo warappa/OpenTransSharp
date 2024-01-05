@@ -51,7 +51,7 @@ public class CustomsTariffNumber
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TERRITORY")]
-    public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();
+    public List<CountryCode>? Territories { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TerritoriesSpecified => Territories?.Count > 0;
 

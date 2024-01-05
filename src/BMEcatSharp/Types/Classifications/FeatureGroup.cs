@@ -58,7 +58,7 @@ public class FeatureGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_GROUP_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -70,7 +70,7 @@ public class FeatureGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_GROUP_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -83,7 +83,7 @@ public class FeatureGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_GROUP_PARENT_ID")]
-    public List<string>? ParentIds { get; set; } = new List<string>();
+    public List<string>? ParentIds { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ParentIdsSpecified => ParentIds?.Count > 0;
 }

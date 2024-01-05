@@ -37,7 +37,7 @@ public class IppLanguages : IppParamsBase
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("LANGUAGE")]
-    public List<Language> Languages { get; set; } = new List<Language>();
+    public List<Language> Languages { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool LanguagesSpecified => Languages?.Count > 0;
 }

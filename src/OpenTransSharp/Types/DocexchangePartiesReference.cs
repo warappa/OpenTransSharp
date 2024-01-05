@@ -35,7 +35,7 @@ public class DocexchangePartiesReference
     /// The element refers to a PARTY_ID in the same document.
     /// </summary>
     [OpenTransXmlElement("DOCUMENT_RECIPIENT_IDREF")]
-    public List<DocumentRecipientIdRef>? DocumentRecipientIdRefs { get; set; } = new List<DocumentRecipientIdRef>();
+    public List<DocumentRecipientIdRef>? DocumentRecipientIdRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DocumentRecipientIdRefsSpecified => DocumentRecipientIdRefs?.Count > 0;
 }

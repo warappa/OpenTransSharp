@@ -69,7 +69,7 @@ public class DispatchNotificationItem
     /// </summary>
     [OpenTransXmlArray("PRODUCT_COMPONENTS")]
     [OpenTransXmlArrayItem("PRODUCT_COMPONENT")]
-    public List<ProductComponent>? ProductComponents { get; set; } = new List<ProductComponent>();
+    public List<ProductComponent>? ProductComponents { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ProductComponentsSpecified => ProductComponents?.Count > 0;
 
@@ -196,7 +196,7 @@ public class DispatchNotificationItem
     /// Remark related to a business document.
     /// </summary>
     [OpenTransXmlElement("REMARKS")]
-    public List<Remark>? Remarks { get; set; } = new List<Remark>();
+    public List<Remark>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -216,7 +216,7 @@ public class DispatchNotificationItem
     /// The definition of user-defined extensions takes place by additional XML DTD or XML.
     /// </summary>
     [OpenTransXmlArray("ITEM_UDX")]
-    public List<object>? ItemUdx { get; set; } = new List<object>();
+    public List<object>? ItemUdx { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ItemUdxSpecified => ItemUdx?.Count > 0;
 }

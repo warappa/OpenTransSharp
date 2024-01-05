@@ -64,7 +64,7 @@ public class UpdateProducts
     /// </summary>
     [BMEXmlArray("FORMULAS")]
     [BMEXmlArrayItem("FORMULA")]
-    public List<Formula> Formulas { get; set; } = new List<Formula>();
+    public List<Formula> Formulas { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FormulasSpecified => Formulas?.Count > 0;
 
@@ -76,7 +76,7 @@ public class UpdateProducts
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT")]
-    public List<UpdateProductsProduct> Products { get; set; } = new List<UpdateProductsProduct>();
+    public List<UpdateProductsProduct> Products { get; set; } = [];
 
     /// <summary>
     /// (optional - deprecated - use with Product) Mapping to catalog group<br/>
@@ -88,7 +88,7 @@ public class UpdateProducts
     /// </summary>
     //[Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element PRODUCT_TO_CATALOGGROUP_MAP in context T_NEW_CATALOG will be omitted then.")]
     [BMEXmlElement("PRODUCT_TO_CATALOGGROUP_MAP")]
-    public List<UpdateProductsProductToCataloggroupMap>? ProductToCataloggroupMap { get; set; } = new List<UpdateProductsProductToCataloggroupMap>();
+    public List<UpdateProductsProductToCataloggroupMap>? ProductToCataloggroupMap { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ProductToCataloggroupMapSpecified => ProductToCataloggroupMap?.Count > 0;
@@ -106,7 +106,7 @@ public class UpdateProducts
     /// </summary>
     //[Obsolete("This element has been replaced by the PRODUCT in context T_NEW_CATALOG element.")]
     [BMEXmlElement("ARTICLE")]
-    public List<UpdateProductsArticle>? Articles { get; set; } = new List<UpdateProductsArticle>();
+    public List<UpdateProductsArticle>? Articles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticlesSpecified => Articles?.Count > 0;
@@ -124,7 +124,7 @@ public class UpdateProducts
     /// </summary>
     //[Obsolete("Catalog group systems will be transfered only with the element CLASSIFICATION_SYSTEM in future versions, therefore the element ARTICLE_TO_CATALOGGROUP_MAPin context T_NEW_CATALOG will be omitted then.")]
     [BMEXmlElement("Article_TO_CATALOGGROUP_MAP")]
-    public List<UpdateProductsArticleToCataloggroupMap>? ArticleToCataloggroupMap { get; set; } = new List<UpdateProductsArticleToCataloggroupMap>();
+    public List<UpdateProductsArticleToCataloggroupMap>? ArticleToCataloggroupMap { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticleToCataloggroupMapSpecified => ArticleToCataloggroupMap?.Count > 0;

@@ -68,7 +68,7 @@ public class TaxDetails
     /// </summary>
     [BMEXmlElement("EXEMPTION_REASON")]
     public string? ExemptionReason { get; set; }
-    public List<MultiLingualString>? ExemptionReasons { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? ExemptionReasons { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ExemptionReasonsSpecified => ExemptionReasons?.Count > 0;
 
@@ -78,7 +78,7 @@ public class TaxDetails
     /// Tax jurisdiction.
     /// </summary>
     [BMEXmlElement("JURISDICTION")]
-    public List<MultiLingualString>? Jurisdiction { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Jurisdiction { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool JurisdictionSpecified => Jurisdiction?.Count > 0;
 }

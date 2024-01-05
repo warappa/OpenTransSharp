@@ -52,7 +52,7 @@ public class CatalogStructure
     /// </summary>
     //[Obsolete("This element will not be used in the future.")]
     [BMEXmlElement("GROUP_NAME")]
-    public List<MultiLingualString>? GroupName { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? GroupName { get; set; } = [];
 
     /// <summary>
     /// (required - deprecated) Group description <br/>
@@ -63,7 +63,7 @@ public class CatalogStructure
     /// </summary>
     //[Obsolete("This element will not be used in the future.")]
     [BMEXmlElement("GROUP_DESCRIPTION")]
-    public List<MultiLingualString> GroupDescription { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> GroupDescription { get; set; } = [];
 
     /// <summary>
     /// (required - deprecated) Superordinate leven<br/>
@@ -120,7 +120,7 @@ public class CatalogStructure
     /// </summary>
     //[Obsolete("This element will not be used in the future.")]
     [BMEXmlArray("USER_DEFINED_EXTENSIONS")]
-    public List<object>? UserDefinedExtensions { get; set; } = new List<object>();
+    public List<object>? UserDefinedExtensions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UserDefinedExtensionsSpecified => UserDefinedExtensions?.Count > 0;
 
@@ -133,7 +133,7 @@ public class CatalogStructure
     /// </summary>
     //[Obsolete("This element will not be used in the future.")]
     [BMEXmlElement("KEYWORD")]
-    public List<MultiLingualString>? Keywords { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Keywords { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool KeywordsSpecified => Keywords?.Count > 0;
 }

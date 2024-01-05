@@ -54,7 +54,7 @@ public class ProductConfigurationDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONFIG_STEP")]
-    public List<ConfigurationStep> Steps { get; set; } = new List<ConfigurationStep>();
+    public List<ConfigurationStep> Steps { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool StepsSpecified => Steps?.Count > 0;
 
@@ -94,7 +94,7 @@ public class ProductConfigurationDetails
     /// </summary>
     [BMEXmlArray("CONFIG_RULES")]
     [BMEXmlArrayItem("TERM")]
-    public List<Term> Rules { get; set; } = new List<Term>();
+    public List<Term> Rules { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RulesSpecified => Rules?.Count > 0;
 
@@ -107,7 +107,7 @@ public class ProductConfigurationDetails
     /// </summary>
     [BMEXmlArray("CONFIG_FORMULAS")]
     [BMEXmlArrayItem("CONFIG_FORMULA")]
-    public List<ConfigurationFormula> Formulas { get; set; } = new List<ConfigurationFormula>();
+    public List<ConfigurationFormula> Formulas { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FormulasSpecified => Formulas?.Count > 0;
 }

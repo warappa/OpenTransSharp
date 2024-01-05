@@ -123,7 +123,7 @@ public class ProductReference
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("REFERENCE_DESCR")]
-    public List<MultiLingualString>? ReferenceDescription { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? ReferenceDescription { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ReferenceDescriptionSpecified => ReferenceDescription?.Count > 0;
 

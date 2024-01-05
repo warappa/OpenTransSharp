@@ -65,7 +65,7 @@ public class Quotation : IOpenTransRoot
     /// </summary>
     [XmlArray("QUOTATION_ITEM_LIST")]
     [XmlArrayItem("QUOTATION_ITEM")]
-    public List<QuotationItem> Items { get; set; } = new List<QuotationItem>();
+    public List<QuotationItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

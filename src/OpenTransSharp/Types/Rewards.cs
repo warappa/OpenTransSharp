@@ -63,7 +63,7 @@ public class Rewards
     /// Name of the rewards system, e.g. frequent flyer program.
     /// </summary>
     [OpenTransXmlElement("REWARDS_SYSTEM")]
-    public List<global::BMEcatSharp.MultiLingualString>? System { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? System { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SystemSpecified => System?.Count > 0;
 
@@ -73,7 +73,7 @@ public class Rewards
     /// Description of the rewards system.
     /// </summary>
     [OpenTransXmlElement("REWARDS_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 }

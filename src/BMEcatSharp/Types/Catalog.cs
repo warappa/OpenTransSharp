@@ -65,7 +65,7 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("LANGUAGE")]
-    public List<Language> Languages { get; set; } = new List<Language>();
+    public List<Language> Languages { get; set; } = [];
 
     /// <summary>
     /// (required) Catalog ID<br/>
@@ -115,7 +115,7 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CATALOG_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -158,7 +158,7 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TERRITORY")]
-    public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();
+    public List<CountryCode>? Territories { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TerritoriesSpecified => Territories?.Count > 0;
 
@@ -173,7 +173,7 @@ public class Catalog
     /// </summary>
     [BMEXmlArray("AREA_REFS")]
     [BMEXmlArrayItem("AREA_IDREF")]
-    public List<string>? AreaRefs { get; set; } = new List<string>();
+    public List<string>? AreaRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AreaRefsSpecified => AreaRefs?.Count > 0;
 
@@ -200,7 +200,7 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_ROOT")]
-    public List<MultiLingualString>? MimeRoot { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? MimeRoot { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool MimeRootSpecified => MimeRoot?.Count > 0;
 
@@ -212,7 +212,7 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRICE_FLAG")]
-    public List<PriceFlag>? PriceFlags { get; set; } = new List<PriceFlag>();
+    public List<PriceFlag>? PriceFlags { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PriceFlagsSpecified => PriceFlags?.Count > 0;
 
@@ -285,7 +285,7 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("DELIVERY_TIMES")]
-    public List<DeliveryTimes>? DeliveryTimes { get; set; } = new List<DeliveryTimes>();
+    public List<DeliveryTimes>? DeliveryTimes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DeliveryTimesSpecified => DeliveryTimes?.Count > 0;
 

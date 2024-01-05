@@ -116,7 +116,7 @@ public class InvoiceListItem
     /// </summary>
     [XmlArray("IL_INVOICE_LIST")]
     [XmlArrayItem("IL_INVOICE_LIST_ITEM")]
-    public List<ILInvoiceListItem> InvoiceList { get; set; } = new List<ILInvoiceListItem>();
+    public List<ILInvoiceListItem> InvoiceList { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InvoiceListSpecified => InvoiceList?.Count > 0;
 
@@ -233,7 +233,7 @@ public class InvoiceListItem
     /// The element can be used directly for transactions in IL_INVOICE_LIST_ITEM and as summary in the element INVOICELIST_ITEM.
     /// </summary>
     [XmlElement("REWARDS")]
-    public List<Rewards>? Rewards { get; set; } = new List<Rewards>();
+    public List<Rewards>? Rewards { get; set; } = [];
 
     /// <summary>
     /// (optional) Additional multimedia information<br/>
@@ -249,7 +249,7 @@ public class InvoiceListItem
     /// Remark related to a business document.
     /// </summary>
     [XmlElement("REMARKS")]
-    public List<Remark>? Remarks { get; set; } = new List<Remark>();
+    public List<Remark>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -269,7 +269,7 @@ public class InvoiceListItem
     /// The definition of user-defined extensions takes place by additional XML DTD or XML.
     /// </summary>
     [XmlArray("ITEM_UDX")]
-    public List<object>? ItemUdx { get; set; } = new List<object>();
+    public List<object>? ItemUdx { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ItemUdxSpecified => ItemUdx?.Count > 0;
 }

@@ -22,7 +22,7 @@ public class AllowedValueSource
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("SOURCE_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 

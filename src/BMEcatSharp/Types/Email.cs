@@ -56,7 +56,7 @@ public class Email
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PUBLIC_KEY")]
-    public List<PublicKey>? PublicKeys { get; set; } = new List<PublicKey>();
+    public List<PublicKey>? PublicKeys { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PublicKeysSpecified => PublicKeys?.Count > 0;
 }

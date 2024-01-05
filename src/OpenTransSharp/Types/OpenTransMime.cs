@@ -64,7 +64,7 @@ public class OpenTransMime
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_SOURCE")]
-    public List<global::BMEcatSharp.MultiLingualString>? Source { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Source { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SourceSpecified => Source?.Count > 0;
 
@@ -74,7 +74,7 @@ public class OpenTransMime
     /// Element contains a hash value related to an external file
     /// </summary>
     [OpenTransXmlElement("FILE_HASH_VALUE")]
-    public List<FileHashValue>? FileHashValues { get; set; } = new List<FileHashValue>();
+    public List<FileHashValue>? FileHashValues { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FileHashValuesSpecified => FileHashValues?.Count > 0;
 
@@ -84,7 +84,7 @@ public class OpenTransMime
     /// Element containing a binary-coded file and additional information.
     /// </summary>
     [OpenTransXmlElement("MIME_EMBEDDED")]
-    public List<MimeEmbedded> Embeddeds { get; set; } = new List<MimeEmbedded>();
+    public List<MimeEmbedded> Embeddeds { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool EmbeddedsSpecified => Embeddeds?.Count > 0;
 
@@ -96,7 +96,7 @@ public class OpenTransMime
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
@@ -108,7 +108,7 @@ public class OpenTransMime
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_ALT")]
-    public List<global::BMEcatSharp.MultiLingualString>? AlternativeTexts { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? AlternativeTexts { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AlternativeTextsSpecified => AlternativeTexts?.Count > 0;
 

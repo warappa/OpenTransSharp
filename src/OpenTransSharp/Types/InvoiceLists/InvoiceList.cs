@@ -104,7 +104,7 @@ public class InvoiceList : IOpenTransRoot
     /// </summary>
     [XmlArray("INVOICELIST_ITEM_LIST")]
     [XmlArrayItem("INVOICELIST_ITEM")]
-    public List<InvoiceListItem> Items { get; set; } = new List<InvoiceListItem>();
+    public List<InvoiceListItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

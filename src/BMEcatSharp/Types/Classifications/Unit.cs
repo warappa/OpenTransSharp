@@ -67,7 +67,7 @@ public class ClassificationUnit
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("UNIT_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -79,7 +79,7 @@ public class ClassificationUnit
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("UNIT_SHORTNAME")]
-    public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Shortname { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ShortnameSpecified => Shortname?.Count > 0;
 
@@ -91,7 +91,7 @@ public class ClassificationUnit
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("UNIT_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 

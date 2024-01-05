@@ -35,5 +35,5 @@ public class TotalTax
     /// Information to an applied tax.
     /// </summary>
     [OpenTransXmlElement("TAX_DETAILS_FIX")]
-    public List<TaxDetailsFix> TaxDetailsFixes { get; set; } = new List<TaxDetailsFix>();
+    public List<TaxDetailsFix> TaxDetailsFixes { get; set; } = [];
 }

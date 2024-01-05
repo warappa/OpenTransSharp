@@ -7,5 +7,5 @@ namespace OpenTransSharp.Samples.AspNetCore;
 public class CustomData
 {
     [XmlElement("UDX.ORGANIZATION.CUSTOM_DATA.NAME")]
-    public List<string> Names { get; set; } = new List<string>();
+    public List<string> Names { get; set; } = [];
 }

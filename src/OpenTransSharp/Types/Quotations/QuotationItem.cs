@@ -74,7 +74,7 @@ public class QuotationItem
     /// </summary>
     [OpenTransXmlArray("PRODUCT_COMPONENTS")]
     [OpenTransXmlArrayItem("PRODUCT_COMPONENT")]
-    public List<ProductComponent>? ProductComponents { get; set; } = new List<ProductComponent>();
+    public List<ProductComponent>? ProductComponents { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ProductComponentsSpecified => ProductComponents?.Count > 0;
 
@@ -128,7 +128,7 @@ public class QuotationItem
     /// Information on the skeleton agreement which serves as a basis for the validity of the business document.
     /// </summary>
     [XmlElement("AGREEMENT")]
-    public List<global::BMEcatSharp.Agreement>? Agreements { get; set; } = new List<global::BMEcatSharp.Agreement>();
+    public List<global::BMEcatSharp.Agreement>? Agreements { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AgreementsSpecified => Agreements?.Count > 0;
 
@@ -207,7 +207,7 @@ public class QuotationItem
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("INTERNALTIONAL_RESTRICTIONS")]
-    public List<global::BMEcatSharp.InternationalRestriction>? InternationalRestrictions { get; set; } = new List<global::BMEcatSharp.InternationalRestriction>();
+    public List<global::BMEcatSharp.InternationalRestriction>? InternationalRestrictions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InternationalRestrictionsSpecified => InternationalRestrictions?.Count > 0;
 
@@ -219,7 +219,7 @@ public class QuotationItem
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("SPECIAL_TREATMENT_CLASS")]
-    public List<global::BMEcatSharp.SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<global::BMEcatSharp.SpecialTreatmentClass>();
+    public List<global::BMEcatSharp.SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SpecialTreatmentClassesSpecified => SpecialTreatmentClasses?.Count > 0;
 
@@ -237,7 +237,7 @@ public class QuotationItem
     /// Remark related to a business document.
     /// </summary>
     [XmlElement("REMARKS")]
-    public List<Remark>? Remarks { get; set; } = new List<Remark>();
+    public List<Remark>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -257,7 +257,7 @@ public class QuotationItem
     /// The definition of user-defined extensions takes place by additional XML DTD or XML.
     /// </summary>
     [XmlArray("ITEM_UDX")]
-    public List<object>? ItemUdx { get; set; } = new List<object>();
+    public List<object>? ItemUdx { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ItemUdxSpecified => ItemUdx?.Count > 0;
 }

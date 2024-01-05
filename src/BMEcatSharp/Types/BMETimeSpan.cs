@@ -90,7 +90,7 @@ public class BMETimeSpan
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("SUB_TIME_SPANS")]
-    public List<BMETimeSpan>? SubTimeSpans { get; set; } = new List<BMETimeSpan>();
+    public List<BMETimeSpan>? SubTimeSpans { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SubTimeSpansSpecified => SubTimeSpans?.Count > 0;
 }

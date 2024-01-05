@@ -103,7 +103,7 @@ public class TaxDetailsFix
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("EXEMPTION_REASON")]
-    public List<global::BMEcatSharp.MultiLingualString>? ExemptionReason { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? ExemptionReason { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ExemptionReasonSpecified => ExemptionReason?.Count > 0;
 
@@ -113,7 +113,7 @@ public class TaxDetailsFix
     /// Tax jurisdiction.
     /// </summary>
     [BMEXmlElement("JURISDICTION")]
-    public List<global::BMEcatSharp.MultiLingualString>? Jurisdiction { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Jurisdiction { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool JurisdictionSpecified => Jurisdiction?.Count > 0;
 }

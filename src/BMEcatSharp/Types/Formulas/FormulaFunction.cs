@@ -41,7 +41,7 @@ public class FormulaFunction
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TERM")]
-    public List<Term> Terms { get; set; } = new List<Term>();
+    public List<Term> Terms { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TermsSpecified => Terms?.Count > 0;
 }

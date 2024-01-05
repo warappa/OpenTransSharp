@@ -103,7 +103,7 @@ public class ClassificationGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CLASSIFICATION_GROUP_NAME")]
-    public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> Name { get; set; } = [];
 
     /// <summary>
     /// (optional) Group short name<br/>
@@ -113,7 +113,7 @@ public class ClassificationGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CLASSIFICATION_GROUP_SHORTNAME")]
-    public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Shortname { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ShortnameSpecified => Shortname?.Count > 0;
 
@@ -127,7 +127,7 @@ public class ClassificationGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CLASSIFICATION_GROUP_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -151,7 +151,7 @@ public class ClassificationGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CLASSIFICATION_GROUP_NOTE")]
-    public List<MultiLingualString>? Note { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Note { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NoteSpecified => Note?.Count > 0;
 
@@ -165,7 +165,7 @@ public class ClassificationGroup
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CLASSIFICATION_GROUP_REMARK")]
-    public List<MultiLingualString>? Remark { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Remark { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarkSpecified => Remark?.Count > 0;
 
@@ -212,7 +212,7 @@ public class ClassificationGroup
     /// </summary>
     [BMEXmlArray("CLASSIFICATION_GROUP_SYNONYMS")]
     [BMEXmlArrayItem("SYNONYM")]
-    public List<string>? Synonyms { get; set; } = new List<string>();
+    public List<string>? Synonyms { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SynonymsSpecified => Synonyms?.Count > 0;
 
@@ -225,7 +225,7 @@ public class ClassificationGroup
     /// </summary>
     [BMEXmlArray("CLASSIFICATION_GROUP_FEATURE_TEMPLATES")]
     [BMEXmlArrayItem("CLASSIFICATION_GROUP_FEATURE_TEMPLATE")]
-    public List<ClassificationGroupFeatureTemplate>? FeatureTemplates { get; set; } = new List<ClassificationGroupFeatureTemplate>();
+    public List<ClassificationGroupFeatureTemplate>? FeatureTemplates { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeatureTemplatesSpecified => FeatureTemplates?.Count > 0;
 
@@ -259,7 +259,7 @@ public class ClassificationGroup
     /// This enables the user to define even complex structures according to his own requirements.
     /// </summary>
     [XmlArray("CLASSIFICATION_GROUP_UDX")]
-    public List<object>? Udx { get; set; } = new List<object>();
+    public List<object>? Udx { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UdxSpecified => Udx?.Count > 0;
 }

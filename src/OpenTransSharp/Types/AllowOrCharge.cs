@@ -56,7 +56,7 @@ public class AllowOrCharge
     /// Short name for the allowance or surcharge (e.g. freight, packaging, ...).
     /// </summary>
     [XmlElement("ALLOW_OR_CHARGE_NAME")]
-    public List<global::BMEcatSharp.MultiLingualString>? Names { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Names { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NamesSpecified => Names?.Count > 0;
 
@@ -78,7 +78,7 @@ public class AllowOrCharge
     /// Examples: In case of island-surcharges the name of the island can be quoted here or the contract reference in case of project reimbursements.<br/>
     /// </summary>
     [XmlElement("ALLOW_OR_CHARGE_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 

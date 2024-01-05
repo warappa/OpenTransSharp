@@ -58,7 +58,7 @@ public class ProductFeatures
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("REFERENCE_FEATURE_GROUP_ID")]
-    public List<ReferenceFeatureGroupId>? GroupIds { get; set; } = new List<ReferenceFeatureGroupId>();
+    public List<ReferenceFeatureGroupId>? GroupIds { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool GroupIdsSpecified => GroupIds?.Count > 0;
 
@@ -75,7 +75,7 @@ public class ProductFeatures
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("REFERENCE_FEATURE_GROUP_NAME")]
-    public List<MultiLingualString>? GroupNames { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? GroupNames { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool GroupNamesSpecified => GroupNames?.Count > 0;
 
@@ -91,7 +91,7 @@ public class ProductFeatures
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("REFERENCE_FEATURE_GROUP_ID2")]
-    public List<ReferenceFeatureGroupId2>? GroupId2s { get; set; } = new List<ReferenceFeatureGroupId2>();
+    public List<ReferenceFeatureGroupId2>? GroupId2s { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool GroupId2sSpecified => GroupId2s?.Count > 0;
 
@@ -114,7 +114,7 @@ public class ProductFeatures
     /// Information about a single product feature.
     /// </summary>
     [XmlElement("FEATURE")]
-    public List<Feature> Features { get; set; } = new List<Feature>();
+    public List<Feature> Features { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeaturesSpecified => Features?.Count > 0;
 }

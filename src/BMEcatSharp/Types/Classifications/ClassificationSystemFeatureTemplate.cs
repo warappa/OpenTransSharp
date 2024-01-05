@@ -62,7 +62,7 @@ public class ClassificationSystemFeatureTemplate
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_NAME")]
-    public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> Name { get; set; } = [];
 
     /// <summary>
     /// (optional) Feature short name<br/>
@@ -72,7 +72,7 @@ public class ClassificationSystemFeatureTemplate
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_SHORTNAME")]
-    public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Shortname { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ShortnameSpecified => Shortname?.Count > 0;
 
@@ -85,7 +85,7 @@ public class ClassificationSystemFeatureTemplate
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -118,7 +118,7 @@ public class ClassificationSystemFeatureTemplate
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_GROUP_NAME")]
-    public List<MultiLingualString>? GroupName { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? GroupName { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool GroupNameSpecified => GroupName?.Count > 0;
 
@@ -132,7 +132,7 @@ public class ClassificationSystemFeatureTemplate
     /// </summary>
     [BMEXmlArray("FT_DEPENDENCIES")]
     [BMEXmlArrayItem("FT_IDREF")]
-    public List<FeatureIdRef>? Dependencies { get; set; } = new List<FeatureIdRef>();
+    public List<FeatureIdRef>? Dependencies { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DependenciesSpecified => Dependencies?.Count > 0;
 

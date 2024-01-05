@@ -90,7 +90,7 @@ public class BMEcatHeader
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("AGREEMENT")]
-    public List<Agreement>? Agreements { get; set; } = new List<Agreement>();
+    public List<Agreement>? Agreements { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AgreementsSpecified => Agreements?.Count > 0;
 
@@ -148,7 +148,7 @@ public class BMEcatHeader
     /// </summary>
     [BMEXmlArray("PARTIES")]
     [BMEXmlArrayItem("PARTY")]
-    public List<Party>? Parties { get; set; } = new List<Party>();
+    public List<Party>? Parties { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PartiesSpecified => Parties?.Count > 0;
 
@@ -161,7 +161,7 @@ public class BMEcatHeader
     /// </summary>
     [BMEXmlArray("AREAS")]
     [BMEXmlArrayItem("AREA")]
-    public List<Area>? Areas { get; set; } = new List<Area>();
+    public List<Area>? Areas { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AreasSpecified => Areas?.Count > 0;
 
@@ -182,7 +182,7 @@ public class BMEcatHeader
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlArray("USER_DEFINED_EXTENSIONS")]
-    public List<object>? UserDefinedExtensions { get; set; } = new List<object>();
+    public List<object>? UserDefinedExtensions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UserDefinedExtensionsSpecified => UserDefinedExtensions?.Count > 0;
 }

@@ -50,7 +50,7 @@ public class BMEcatMime
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_SOURCE")]
-    public List<MultiLingualString>? Source { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Source { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SourceSpecified => Source?.Count > 0;
 
@@ -62,7 +62,7 @@ public class BMEcatMime
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_DESCR")]
-    public List<MultiLingualString>? Descriptions { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
@@ -74,7 +74,7 @@ public class BMEcatMime
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME_ALT")]
-    public List<MultiLingualString>? AlternativeTexts { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? AlternativeTexts { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AlternativeTextsSpecified => AlternativeTexts?.Count > 0;
 

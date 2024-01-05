@@ -69,7 +69,7 @@ public class DispatchNotificationInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("LANGUAGE")]
-    public List<global::BMEcatSharp.Language>? Languages { get; set; } = new List<global::BMEcatSharp.Language>();
+    public List<global::BMEcatSharp.Language>? Languages { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool LanguagesSpecified => Languages?.Count > 0;
 
@@ -104,7 +104,7 @@ public class DispatchNotificationInformation
     /// </summary>
     [XmlArray("PARTIES")]
     [XmlArrayItem("PARTY")]
-    public List<OpenTransParty> Parties { get; set; } = new List<OpenTransParty>();
+    public List<OpenTransParty> Parties { get; set; } = [];
 
     /// <summary>
     /// (required) Reference to supplier<br/>
@@ -177,7 +177,7 @@ public class DispatchNotificationInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("INTERNALTIONAL_RESTRICTIONS")]
-    public List<global::BMEcatSharp.InternationalRestriction> InternationalRestrictions { get; set; } = new List<global::BMEcatSharp.InternationalRestriction>();
+    public List<global::BMEcatSharp.InternationalRestriction> InternationalRestrictions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InternationalRestrictionsSpecified => InternationalRestrictions?.Count > 0;
 
@@ -195,7 +195,7 @@ public class DispatchNotificationInformation
     /// Remark related to a business document.
     /// </summary>
     [XmlElement("REMARKS")]
-    public List<Remark> Remarks { get; set; } = new List<Remark>();
+    public List<Remark> Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -211,7 +211,7 @@ public class DispatchNotificationInformation
     /// The definition of user-defined extensions takes place by additional XML DTD or XML-Schema files.
     /// </summary>
     [XmlArray("HEADER_UDX")]
-    public List<object>? HeaderUdx { get; set; } = new List<object>();
+    public List<object>? HeaderUdx { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool HeaderUdxSpecified => HeaderUdx?.Count > 0;
 }

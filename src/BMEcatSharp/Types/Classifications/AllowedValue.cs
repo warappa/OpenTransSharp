@@ -51,7 +51,7 @@ public class AllowedValue
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ALLOWED_VALUE_NAME")]
-    public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> Name { get; set; } = [];
 
     /// <summary>
     /// (optional) Version of the allowed value<br/>
@@ -71,7 +71,7 @@ public class AllowedValue
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ALLOWED_VALUE_SHORTNAME")]
-    public List<MultiLingualString>? Shortname { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Shortname { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ShortnameSpecified => Shortname?.Count > 0;
 
@@ -86,7 +86,7 @@ public class AllowedValue
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ALLOWED_VALUE_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -99,7 +99,7 @@ public class AllowedValue
     /// </summary>
     [BMEXmlArray("ALLOWED_VALUE_SYNONYMS")]
     [BMEXmlArrayItem("SYNONYM")]
-    public List<MultiLingualString>? Synonyms { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Synonyms { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SynonymsSpecified => Synonyms?.Count > 0;
 

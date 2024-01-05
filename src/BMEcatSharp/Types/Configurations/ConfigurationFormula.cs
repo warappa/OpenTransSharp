@@ -52,7 +52,7 @@ public class ConfigurationFormula
     /// </summary>
     [BMEXmlArray("PARAMETERS")]
     [BMEXmlArrayItem("PARAMETER")]
-    public List<Parameter>? Parameters { get; set; } = new List<Parameter>();
+    public List<Parameter>? Parameters { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ParametersSpecified => Parameters?.Count > 0;
 }

@@ -38,5 +38,5 @@ public class PartialDeliveryList
     /// Information to a partial shipment.
     /// </summary>
     [OpenTransXmlElement("PARTIAL_DELIVERY")]
-    public List<PartialDelivery> PartialDeliveries { get; set; } = new List<PartialDelivery>();
+    public List<PartialDelivery> PartialDeliveries { get; set; } = [];
 }

@@ -54,7 +54,7 @@ public class PredefinedConfiguration
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PREDEFINED_CONFIG_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -66,7 +66,7 @@ public class PredefinedConfiguration
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PREDEFINED_CONFIG_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -123,7 +123,7 @@ public class PredefinedConfiguration
     /// The underlying standard respectively organisation is given in the 'type' attribute.
     /// </summary>
     [BMEXmlElement("INTERNATIONAL_PID")]
-    public List<InternationalPid>? InternationalPids { get; set; } = new List<InternationalPid>();
+    public List<InternationalPid>? InternationalPids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InternationalPidsSpecified => InternationalPids?.Count > 0;
 }

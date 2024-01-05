@@ -61,11 +61,11 @@ internal class RequestForQuotationTestConfig
 
         model.Header.Information.HeaderUdx.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         model.Header.Information.HeaderUdx.Add(new CustomData2()
         {
@@ -74,11 +74,11 @@ internal class RequestForQuotationTestConfig
 
         model.Items[0].ItemUdx.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         model.Items[0].ItemUdx.Add(new CustomData2()
         {

@@ -24,7 +24,7 @@ public class Package
     /// Max length: 50
     /// </summary>
     [OpenTransXmlElement("PACKAGE_ID")]
-    public List<string>? Ids { get; set; } = new List<string>();
+    public List<string>? Ids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool IdsSpecified => Ids?.Count > 0;
 
@@ -34,7 +34,7 @@ public class Package
     /// Textual description of the package.
     /// </summary>
     [OpenTransXmlElement("PACKAGE_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 
@@ -56,7 +56,7 @@ public class Package
     /// Description of the packing unit, i.e. explaination, additional information, hints etc.
     /// </summary>
     [BMEXmlElement("PACKING_UNIT_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? PackingUnitDescriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? PackingUnitDescriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PackingUnitDescriptionsSpecified => PackingUnitDescriptions?.Count > 0;
 
@@ -95,7 +95,7 @@ public class Package
     /// The element refers to an ID (MEANS_OF_TRANSPORT_ID) in the same document.<br/>
     /// </summary>
     [OpenTransXmlElement("MEANS_OF_TRANSPORT_IDREF")]
-    public List<MeansOfTransportIdRef>? MeansOfTransportIdRefs { get; set; } = new List<MeansOfTransportIdRef>();
+    public List<MeansOfTransportIdRef>? MeansOfTransportIdRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool MeansOfTransportIdRefsSpecified => MeansOfTransportIdRefs?.Count > 0;
 
@@ -107,7 +107,7 @@ public class Package
     /// </summary>
     [OpenTransXmlArray("SUB_PACKAGES")]
     [OpenTransXmlArrayItem("PACKAGE")]
-    public List<Package> SubPackages { get; set; } = new List<Package>();
+    public List<Package> SubPackages { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SubPackagesSpecified => SubPackages?.Count > 0;
 }

@@ -89,7 +89,7 @@ public class PackingUnit
     /// Description of the packing unit, i.e. explaination, additional information, hints etc.
     /// </summary>
     [XmlElement("PACKING_UNIT_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 

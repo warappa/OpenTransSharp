@@ -67,7 +67,7 @@ public class Payment
     /// Bank account details.
     /// </summary>
     [OpenTransXmlElement("ACCOUNT")]
-    public List<Account>? Accounts { get; set; } = new List<Account>();
+    public List<Account>? Accounts { get; set; } = [];
 
     /// <summary>
     /// (required - choice Card/Account/Debit/Check/Cash) Debit notification<br/>

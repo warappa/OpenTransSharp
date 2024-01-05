@@ -46,5 +46,5 @@ public class BMEcatMimeInfo
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MIME")]
-    public List<BMEcatMime> Mimes { get; set; } = new List<BMEcatMime>();
+    public List<BMEcatMime> Mimes { get; set; } = [];
 }

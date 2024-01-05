@@ -35,5 +35,5 @@ public class IppInboundParams
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_PARAM_DEFINITION")]
-    public List<IppParamDefinition> Definitions { get; set; } = new List<IppParamDefinition>();
+    public List<IppParamDefinition> Definitions { get; set; } = [];
 }

@@ -6,6 +6,6 @@ public class BMEcatXmlSerializerOptions
 
     public Action<XmlAttributeOverrides>? ConfigureXmlAttributeOverrides { get; set; }
     public Uri[]? XsdUris { get; set; }
-    public List<string> SupportedEncodings { get; set; } = new List<string> { "utf-8" };
-    public List<string> SupportedMediaTypes { get; set; } = new List<string> { "application/xml" };
+    public List<string> SupportedEncodings { get; set; } = ["utf-8"];
+    public List<string> SupportedMediaTypes { get; set; } = ["application/xml"];
 }

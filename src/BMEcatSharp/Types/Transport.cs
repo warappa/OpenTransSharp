@@ -59,7 +59,7 @@ public class Transport
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TRANSPORT_REMARK")]
-    public List<MultiLingualString>? Remarks { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 }

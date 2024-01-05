@@ -73,7 +73,7 @@ public class DispatchNotification : IOpenTransRoot
     /// </summary>
     [XmlArray("DISPATCHNOTIFICATION_ITEM_LIST")]
     [XmlArrayItem("DISPATCHNOTIFICATION_ITEM")]
-    public List<DispatchNotificationItem> Items { get; set; } = new List<DispatchNotificationItem>();
+    public List<DispatchNotificationItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

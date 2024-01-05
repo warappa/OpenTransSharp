@@ -73,7 +73,7 @@ public class OrderChange : IOpenTransRoot
     /// </summary>
     [XmlArray("ORDERCHANGE_ITEM_LIST")]
     [XmlArrayItem("ORDER_ITEM")]
-    public List<OrderItem> Items { get; set; } = new List<OrderItem>();
+    public List<OrderItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

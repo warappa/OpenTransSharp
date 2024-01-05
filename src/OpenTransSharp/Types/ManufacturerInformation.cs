@@ -65,7 +65,7 @@ public class ManufacturerInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MANUFACTURER_TYPE_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? TypeDescriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? TypeDescriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TypeDescriptionsSpecified => TypeDescriptions?.Count > 0;
 }

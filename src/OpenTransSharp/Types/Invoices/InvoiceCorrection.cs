@@ -27,7 +27,7 @@ public class InvoiceCorrection
     /// Textual description for the reason of the adjustment.
     /// </summary>
     [XmlElement("ADJUSTMENT_REASON_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? AdjustmentReasonDescriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? AdjustmentReasonDescriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AdjustmentReasonDescriptionsSpecified => AdjustmentReasonDescriptions?.Count > 0;
 

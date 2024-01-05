@@ -25,7 +25,7 @@ public class IppPriceTypes : IppParamsBase
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRICE_TYPE")]
-    public List<string>? PriceTypes { get; set; } = new List<string>();
+    public List<string>? PriceTypes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PriceTypesSpecified => PriceTypes?.Count > 0;
 }

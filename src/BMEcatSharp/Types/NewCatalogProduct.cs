@@ -125,7 +125,7 @@ public class NewCatalogProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_FEATURES")]
-    public List<ProductFeatures>? Features { get; set; } = new List<ProductFeatures>();
+    public List<ProductFeatures>? Features { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ProductFeaturesSpecified => Features?.Count > 0;
 
@@ -149,7 +149,7 @@ public class NewCatalogProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_PRICE_DETAILS")]
-    public List<ProductPriceDetails> PriceDetails { get; set; } = new List<ProductPriceDetails>();
+    public List<ProductPriceDetails> PriceDetails { get; set; } = [];
 
     /// <summary>
     /// (optional) Additional multimedia information<br/>
@@ -177,7 +177,7 @@ public class NewCatalogProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlArray("USER_DEFINED_EXTENSIONS")]
-    public List<object>? UserDefinedExtensions { get; set; } = new List<object>();
+    public List<object>? UserDefinedExtensions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UserDefinedExtensionsSpecified => UserDefinedExtensions?.Count > 0;
 
@@ -189,7 +189,7 @@ public class NewCatalogProduct
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_REFERENCE")]
-    public List<ProductReference>? References { get; set; } = new List<ProductReference>();
+    public List<ProductReference>? References { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ReferencesSpecified => References?.Count > 0;
 

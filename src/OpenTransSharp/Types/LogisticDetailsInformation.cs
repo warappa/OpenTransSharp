@@ -23,7 +23,7 @@ public class LogisticDetailsInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("COUNTRY_OF_ORIGIN")]
-    public List<global::BMEcatSharp.CountryCode>? CountriesOfOrigins { get; set; } = new List<global::BMEcatSharp.CountryCode>();
+    public List<global::BMEcatSharp.CountryCode>? CountriesOfOrigins { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CountriesOfOriginsSpecified => CountriesOfOrigins?.Count > 0;
 
@@ -35,7 +35,7 @@ public class LogisticDetailsInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TRANSPORT")]
-    public List<global::BMEcatSharp.Transport>? Transports { get; set; } = new List<global::BMEcatSharp.Transport>();
+    public List<global::BMEcatSharp.Transport>? Transports { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TransportsSpecified => Transports?.Count > 0;
 
@@ -46,7 +46,7 @@ public class LogisticDetailsInformation
     /// </summary>
     [OpenTransXmlArray("PACKAGE_INFO")]
     [OpenTransXmlArrayItem("PACKAGE")]
-    public List<Package>? Packages { get; set; } = new List<Package>();
+    public List<Package>? Packages { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PackagesSpecified => Packages?.Count > 0;
 
@@ -58,7 +58,7 @@ public class LogisticDetailsInformation
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MEANS_OF_TRANSPORT")]
-    public List<global::BMEcatSharp.MeansOfTransport>? MeansOfTransports { get; set; } = new List<global::BMEcatSharp.MeansOfTransport>();
+    public List<global::BMEcatSharp.MeansOfTransport>? MeansOfTransports { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool MeansOfTransportsSpecified => MeansOfTransports?.Count > 0;
 }

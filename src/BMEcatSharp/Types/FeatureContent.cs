@@ -39,7 +39,7 @@ public class FeatureContent
     /// </summary>
     [BMEXmlArray("FT_FACETS")]
     [BMEXmlArrayItem("FT_FACET")]
-    public List<FeatureFacet>? Facets { get; set; } = new List<FeatureFacet>();
+    public List<FeatureFacet>? Facets { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FacetsSpecified => Facets?.Count > 0;
 
@@ -52,7 +52,7 @@ public class FeatureContent
     /// </summary>
     [BMEXmlArray("FT_VALUES")]
     [BMEXmlArrayItem("FT_VALUE")]
-    public List<FeatureValue>? Values { get; set; } = new List<FeatureValue>();
+    public List<FeatureValue>? Values { get; set; } = [];
     public bool ValuesSpecified => Values?.Count > 0;
 
     /// <summary>
@@ -134,7 +134,7 @@ public class FeatureContent
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_SYMBOL")]
-    public List<MultiLingualString>? Symbols { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Symbols { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SymbolsSpecified => Symbols?.Count > 0;
 
@@ -147,7 +147,7 @@ public class FeatureContent
     /// </summary>
     [BMEXmlArray("FT_SYNONYMS")]
     [BMEXmlArrayItem("SYNONYM")]
-    public List<MultiLingualString>? Synonyms { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Synonyms { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SynonymsSpecified => Synonyms?.Count > 0;
 
@@ -184,7 +184,7 @@ public class FeatureContent
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_NOTE")]
-    public List<MultiLingualString>? Notes { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Notes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NotesSpecified => Notes?.Count > 0;
 
@@ -198,7 +198,7 @@ public class FeatureContent
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_REMARK")]
-    public List<MultiLingualString>? Remark { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Remark { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarkSpecified => Remark?.Count > 0;
 }

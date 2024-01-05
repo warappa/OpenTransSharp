@@ -80,7 +80,7 @@ public class IppDefinition
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -92,5 +92,5 @@ public class IppDefinition
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_OPERATION")]
-    public List<IppOperation> Operations { get; set; } = new List<IppOperation>();
+    public List<IppOperation> Operations { get; set; } = [];
 }

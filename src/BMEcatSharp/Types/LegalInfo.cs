@@ -38,5 +38,5 @@ public class LegalInfo
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("AREA_LEGAL_INFO")]
-    public List<AreaLegalInfo> AreaLegalInfos { get; set; } = new List<AreaLegalInfo>();
+    public List<AreaLegalInfo> AreaLegalInfos { get; set; } = [];
 }

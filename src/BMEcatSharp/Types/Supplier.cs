@@ -43,7 +43,7 @@ public class Supplier
     /// </summary>
     //[Obsolete("This element will not be used in the future.")]
     [BMEXmlElement("SUPPLIER_ID")]
-    public List<SupplierId>? Ids { get; set; } = new List<SupplierId>();
+    public List<SupplierId>? Ids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool IdsSpecified => Ids?.Count > 0;
 

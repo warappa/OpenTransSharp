@@ -52,5 +52,5 @@ public class ClassificationGroupContacts
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONTACT_IDREF")]
-    public List<string> ContactIdRefs { get; set; } = new List<string>();
+    public List<string> ContactIdRefs { get; set; } = [];
 }

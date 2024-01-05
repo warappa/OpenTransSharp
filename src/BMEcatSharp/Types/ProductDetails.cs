@@ -41,7 +41,7 @@ public class ProductDetails
     /// Abbreviations of essential product characteristics should be avoided (e.g., bw for black and white). However, abbreviations of organisations and standards can be used (e.g., ISO, VDE).
     /// </summary>
     [BMEXmlElement("DESCRIPTION_SHORT")]
-    public List<MultiLingualString> DescriptionShort { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> DescriptionShort { get; set; } = [];
 
     /// <summary>
     /// (optional) Long description<br/>
@@ -54,7 +54,7 @@ public class ProductDetails
     /// Example: '&lt;' = &amp;lt; or '&gt;' = &amp;gt;
     /// </summary>
     [BMEXmlElement("DESCRIPTION_LONG")]
-    public List<MultiLingualString>? DescriptionLong { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? DescriptionLong { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionLongSpecified => DescriptionLong?.Count > 0;
 
@@ -65,7 +65,7 @@ public class ProductDetails
     /// The underlying standard respectively organisation is given in the 'type' attribute.
     /// </summary>
     [BMEXmlElement("INTERNATIONAL_PID")]
-    public List<InternationalPid>? InternationalPids { get; set; } = new List<InternationalPid>();
+    public List<InternationalPid>? InternationalPids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InternationalPidsSpecified => InternationalPids?.Count > 0;
 
@@ -100,7 +100,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("BUYER_PID")]
-    public List<BuyerPid>? BuyerPids { get; set; } = new List<BuyerPid>();
+    public List<BuyerPid>? BuyerPids { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool BuyerPidsSpecified => BuyerPids?.Count > 0;
 
@@ -146,7 +146,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("MANUFACTURER_TYPE_DESCR")]
-    public List<MultiLingualString>? ManufacturerTypeDescription { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? ManufacturerTypeDescription { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ManufacturerTypeDescriptionSpecified => ManufacturerTypeDescription?.Count > 0;
 
@@ -196,7 +196,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("SPECIAL_TREATMENT_CLASS")]
-    public List<SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = new List<SpecialTreatmentClass>();
+    public List<SpecialTreatmentClass>? SpecialTreatmentClasses { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SpecialTreatmentClassesSpecified => SpecialTreatmentClasses?.Count > 0;
 
@@ -208,7 +208,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("KEYWORD")]
-    public List<MultiLingualString>? Keywords { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Keywords { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool KeywordsSpecified => Keywords?.Count > 0;
 
@@ -220,7 +220,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("REMARK")]
-    public List<MultiLingualString>? Remarks { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 
@@ -233,7 +233,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("SEGMENT")]
-    public List<MultiLingualString>? Segment { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Segment { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SegmentSpecified => Segment?.Count > 0;
 
@@ -270,7 +270,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_STATUS")]
-    public List<ProductStatus>? Statuses { get; set; } = new List<ProductStatus>();
+    public List<ProductStatus>? Statuses { get; set; } = [];
     public bool StatusesSpecified => Statuses?.Count > 0;
 
     /// <summary>
@@ -281,7 +281,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("INTERNALTIONAL_RESTRICTIONS")]
-    public List<InternationalRestriction> InternationalRestrictions { get; set; } = new List<InternationalRestriction>();
+    public List<InternationalRestriction> InternationalRestrictions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool InternationalRestrictionsSpecified => InternationalRestrictions?.Count > 0;
 
@@ -304,7 +304,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("AGREEMENT_REF")]
-    public List<AgreementReference>? AgreementRefs { get; set; } = new List<AgreementReference>();
+    public List<AgreementReference>? AgreementRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AgreementRefsSpecified => AgreementRefs?.Count > 0;
 
@@ -316,7 +316,7 @@ public class ProductDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT_TYPE")]
-    public List<ProductType>? Types { get; set; } = new List<ProductType>();
+    public List<ProductType>? Types { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TypesSpecified => Types?.Count > 0;
 

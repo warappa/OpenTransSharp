@@ -50,7 +50,7 @@ public class UpdatePrices
     /// </summary>
     [BMEXmlArray("FORMULAS")]
     [BMEXmlArrayItem("FORMULA")]
-    public List<Formula>? Formulas { get; set; } = new List<Formula>();
+    public List<Formula>? Formulas { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FormulasSpecified => Formulas?.Count > 0;
 
@@ -62,7 +62,7 @@ public class UpdatePrices
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRODUCT")]
-    public List<UpdatePricesProduct>? Products { get; set; } = new List<UpdatePricesProduct>();
+    public List<UpdatePricesProduct>? Products { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ProductsSpecified => Products?.Count > 0;
 
@@ -75,7 +75,7 @@ public class UpdatePrices
     /// </summary>
     //[Obsolete("This element has been replaced by the PRODUCT in context T_UPDATE_PRICES element.")]
     [BMEXmlElement("ARTICLE")]
-    public List<UpdatePricesArticle>? Articles { get; set; } = new List<UpdatePricesArticle>();
+    public List<UpdatePricesArticle>? Articles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
 #pragma warning disable CS0618 // Type or member is obsolete
     public bool ArticlesSpecified => Articles?.Count > 0;

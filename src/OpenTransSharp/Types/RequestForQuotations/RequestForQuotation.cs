@@ -71,7 +71,7 @@ public class RequestForQuotation : IOpenTransRoot
     /// </summary>
     [XmlArray("RFQ_ITEM_LIST")]
     [XmlArrayItem("RFQ_ITEM")]
-    public List<RequestForQuotationItem> Items { get; set; } = new List<RequestForQuotationItem>();
+    public List<RequestForQuotationItem> Items { get; set; } = [];
 
     /// <summary>
     /// (required) Summary<br/>

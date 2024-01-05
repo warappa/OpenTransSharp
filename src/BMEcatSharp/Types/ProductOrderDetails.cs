@@ -151,7 +151,7 @@ public class ProductOrderDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PACKING_UNITS")]
-    public List<PackingUnit>? PackingUnits { get; set; } = new List<PackingUnit>();
+    public List<PackingUnit>? PackingUnits { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PackingUnitsSpecified => PackingUnits?.Count > 0;
 }

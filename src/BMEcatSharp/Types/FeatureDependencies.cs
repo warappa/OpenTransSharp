@@ -36,5 +36,5 @@ public class FeatureDependencies
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FT_IDREF")]
-    public List<string> IdRefs { get; set; } = new List<string>();
+    public List<string> IdRefs { get; set; } = [];
 }

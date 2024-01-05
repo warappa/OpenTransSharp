@@ -37,7 +37,7 @@ public class ParameterBasics
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PARAMETER_NAME")]
-    public List<MultiLingualString> Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString> Name { get; set; } = [];
 
     /// <summary>
     /// (optional) Parameter description<br/>
@@ -47,7 +47,7 @@ public class ParameterBasics
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PARAMETER_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -60,7 +60,7 @@ public class ParameterBasics
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PARAMETER_UNIT")]
-    public List<MultiLingualString>? Unit { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Unit { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UnitSpecified => Unit?.Count > 0;
 

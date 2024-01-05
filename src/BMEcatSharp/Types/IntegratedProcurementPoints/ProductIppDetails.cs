@@ -37,5 +37,5 @@ public class ProductIppDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP")]
-    public List<IntegratedProcurementPoint> Ipps { get; set; } = new List<IntegratedProcurementPoint>();
+    public List<IntegratedProcurementPoint> Ipps { get; set; } = [];
 }

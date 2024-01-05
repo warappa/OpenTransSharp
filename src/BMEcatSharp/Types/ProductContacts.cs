@@ -49,7 +49,7 @@ public class ProductContacts
     /// In this context the element is used to reference the organisation which is responsible for the specification of the element.
     /// </summary>
     [BMEXmlElement("CONTACT_IDREF")]
-    public List<string> ContactIdRefs { get; set; } = new List<string>();
+    public List<string> ContactIdRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ContactIdRefsSpecified => ContactIdRefs?.Count > 0;
 }

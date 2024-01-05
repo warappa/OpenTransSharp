@@ -39,7 +39,7 @@ public class Party
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PARTY_ID")]
-    public List<PartyId> Ids { get; set; } = new List<PartyId>();
+    public List<PartyId> Ids { get; set; } = [];
 
     /// <summary>
     /// (optional) Role of the business partner<br/>
@@ -53,7 +53,7 @@ public class Party
     /// Max length: 20
     /// </summary>
     [XmlElement("PARTY_ROLE")]
-    public List<PartyRole>? Roles { get; set; } = new List<PartyRole>();
+    public List<PartyRole>? Roles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RolesSpecified => Roles?.Count > 0;
 

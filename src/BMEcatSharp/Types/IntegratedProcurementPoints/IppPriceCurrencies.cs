@@ -23,7 +23,7 @@ public class IppPriceCurrencies : IppParamsBase
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PRICE_CURRENCY")]
-    public List<string>? PriceCurrencies { get; set; } = new List<string>();
+    public List<string>? PriceCurrencies { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PriceCurrenciesSpecified => PriceCurrencies?.Count > 0;
 }

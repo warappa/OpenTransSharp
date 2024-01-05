@@ -18,7 +18,7 @@ public class ProductLogisticDetails
     /// (optional) Information on the customs tariff number.
     /// </summary>
     [BMEXmlElement("CUSTOMS_TARIFF_NUMBER")]
-    public List<CustomsTariffNumber>? CustomsTariffNumbers { get; set; } = new List<CustomsTariffNumber>();
+    public List<CustomsTariffNumber>? CustomsTariffNumbers { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CustomsTariffNumbersSpecified => CustomsTariffNumbers?.Count > 0;
 
@@ -42,7 +42,7 @@ public class ProductLogisticDetails
     /// Contains the country of origin of the product. By using a subdivision code it is possible to reference a region.
     /// </summary>
     [BMEXmlElement("COUNTRY_OF_ORIGIN")]
-    public List<CountryCode>? CountryOfOrigins { get; set; } = new List<CountryCode>();
+    public List<CountryCode>? CountryOfOrigins { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CountryOfOriginsSpecified => CountryOfOrigins?.Count > 0;
 
@@ -62,7 +62,7 @@ public class ProductLogisticDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("DELIVERY_TIMES")]
-    public List<DeliveryTimes>? DeliveryTimes { get; set; } = new List<DeliveryTimes>();
+    public List<DeliveryTimes>? DeliveryTimes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DeliveryTimesSpecified => DeliveryTimes?.Count > 0;
 
@@ -80,7 +80,7 @@ public class ProductLogisticDetails
     /// Means of transport with which the goods to be delivered are´transported.
     /// </summary>
     [BMEXmlElement("MEANS_OF_TRANSPORT")]
-    public List<MeansOfTransport> MeansOfTransports { get; set; } = new List<MeansOfTransport>();
+    public List<MeansOfTransport> MeansOfTransports { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool MeansOfTransportsSpecified => MeansOfTransports?.Count > 0;
 }

@@ -25,7 +25,7 @@ public class AreaLegalInfo
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TERRITORY")]
-    public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();
+    public List<CountryCode>? Territories { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TerritoriesSpecified => Territories?.Count > 0;
 
@@ -40,7 +40,7 @@ public class AreaLegalInfo
     /// </summary>
     [BMEXmlArray("AREA_REFS")]
     [BMEXmlArrayItem("AREA_IDREF")]
-    public List<string>? AreaRefs { get; set; } = new List<string>();
+    public List<string>? AreaRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AreaRefsSpecified => AreaRefs?.Count > 0;
 
@@ -52,7 +52,7 @@ public class AreaLegalInfo
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("LEGAL_TEXT")]
-    public List<MultiLingualString>? LegalText { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? LegalText { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool LegalTextSpecified => LegalText?.Count > 0;
 

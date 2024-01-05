@@ -61,7 +61,7 @@ public class IntegratedProcurementPoint
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_OPERATION_IDREF")]
-    public List<string> OperationIdRefs { get; set; } = new List<string>();
+    public List<string> OperationIdRefs { get; set; } = [];
 
     /// <summary>
     /// (optional) Guaranteed response time of the IPP application.<br/>
@@ -96,7 +96,7 @@ public class IntegratedProcurementPoint
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_URI")]
-    public List<string>? Uris { get; set; } = new List<string>();
+    public List<string>? Uris { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UrisSpecified => Uris?.Count > 0;
 
@@ -108,7 +108,7 @@ public class IntegratedProcurementPoint
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("IPP_PARAM")]
-    public List<IppParam>? Parameters { get; set; } = new List<IppParam>();
+    public List<IppParam>? Parameters { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ParametersSpecified => Parameters?.Count > 0;
 }

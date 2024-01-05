@@ -71,7 +71,7 @@ public class ProductPrice
     /// Specification of one applicapable tax.
     /// </summary>
     [BMEXmlElement("TAX_DETAILS")]
-    public List<TaxDetails>? TaxDetails { get; set; } = new List<TaxDetails>();
+    public List<TaxDetails>? TaxDetails { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TaxDetailsSpecified => TaxDetails?.Count > 0;
 
@@ -121,7 +121,7 @@ public class ProductPrice
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TERRITORY")]
-    public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();
+    public List<CountryCode>? Territories { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TerritoriesSpecified => Territories?.Count > 0;
 
@@ -134,7 +134,7 @@ public class ProductPrice
     /// </summary>
     [BMEXmlArray("AREA_REFS")]
     [BMEXmlArrayItem("AREA_IDREF")]
-    public List<string>? AreaRefs { get; set; } = new List<string>();
+    public List<string>? AreaRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AreaRefsSpecified => AreaRefs?.Count > 0;
 
@@ -152,7 +152,7 @@ public class ProductPrice
     /// Base of a price (e.g. with/without freight).
     /// </summary>
     [XmlElement("PRICE_FLAG")]
-    public List<PriceFlag>? PriceFlags { get; set; } = new List<PriceFlag>();
+    public List<PriceFlag>? PriceFlags { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PriceFlagsSpecified => PriceFlags?.Count > 0;
 }

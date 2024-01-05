@@ -54,7 +54,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONTACT_NAME")]
-    public List<global::BMEcatSharp.MultiLingualString>? Surname { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Surname { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool SurnameSpecified => Surname?.Count > 0;
 
@@ -66,7 +66,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FIRST_NAME")]
-    public List<global::BMEcatSharp.MultiLingualString>? FirstName { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? FirstName { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FirstNameSpecified => FirstName?.Count > 0;
 
@@ -78,7 +78,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TITLE")]
-    public List<global::BMEcatSharp.MultiLingualString>? Title { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Title { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TitleSpecified => Title?.Count > 0;
 
@@ -90,7 +90,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ACADEMIC_TITLE")]
-    public List<global::BMEcatSharp.MultiLingualString>? AcademicTitle { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? AcademicTitle { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AcademicTitleSpecified => AcademicTitle?.Count > 0;
 
@@ -102,7 +102,7 @@ public class OpenTransContactDetails
     /// XML-namespace: OpenTrans
     /// </summary>
     [OpenTransXmlElement("CONTACT_ROLE")]
-    public List<global::BMEcatSharp.ContactRole>? ContactRoles { get; set; } = new List<global::BMEcatSharp.ContactRole>();
+    public List<global::BMEcatSharp.ContactRole>? ContactRoles { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ContactRolesSpecified => ContactRoles?.Count > 0;
 
@@ -114,7 +114,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CONTACT_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -126,7 +126,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PHONE")]
-    public List<global::BMEcatSharp.Phone>? Phones { get; set; } = new List<global::BMEcatSharp.Phone>();
+    public List<global::BMEcatSharp.Phone>? Phones { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PhonesSpecified => Phones?.Count > 0;
 
@@ -138,7 +138,7 @@ public class OpenTransContactDetails
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FAX")]
-    public List<global::BMEcatSharp.Fax>? Faxes { get; set; } = new List<global::BMEcatSharp.Fax>();
+    public List<global::BMEcatSharp.Fax>? Faxes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FaxesSpecified => Faxes?.Count > 0;
 

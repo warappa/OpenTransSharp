@@ -69,7 +69,7 @@ public class Formula
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FORMULA_NAME")]
-    public List<MultiLingualString>? Name { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -81,7 +81,7 @@ public class Formula
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FORMULA_DESCR")]
-    public List<MultiLingualString>? Description { get; set; } = new List<MultiLingualString>();
+    public List<MultiLingualString>? Description { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionSpecified => Description?.Count > 0;
 
@@ -125,5 +125,5 @@ public class Formula
     /// </summary>
     [BMEXmlArray("PARAMETER_DEFINITIONS")]
     [BMEXmlArrayItem("PARAMETER_DEFINITION")]
-    public List<ParameterDefinition> ParameterDefinitions { get; set; } = new List<ParameterDefinition>();
+    public List<ParameterDefinition> ParameterDefinitions { get; set; } = [];
 }

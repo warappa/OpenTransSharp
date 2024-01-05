@@ -225,11 +225,11 @@ internal class BMEcatTestConfig
 
         model.Header.UserDefinedExtensions.Add(new CustomData()
         {
-            Names = new List<string>
-            {
+            Names =
+            [
                 "Name 1",
                 "Name 2"
-            }
+            ]
         });
         model.Header.UserDefinedExtensions.Add(new CustomData2()
         {

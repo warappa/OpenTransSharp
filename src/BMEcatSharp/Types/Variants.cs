@@ -43,7 +43,7 @@ public class Variants
     /// Description of a variant (feature value and product number supplement).
     /// </summary>
     [BMEXmlElement("VARIANT")]
-    public List<Variant> FeatureVariants { get; set; } = new List<Variant>();
+    public List<Variant> FeatureVariants { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeatureVariantsSpecified => FeatureVariants?.Count > 0;
 

@@ -99,7 +99,7 @@ public class InvoiceReference
     /// Textual description of the invoice.
     /// </summary>
     [XmlElement("INVOICE_DESCR")]
-    public List<global::BMEcatSharp.MultiLingualString> Descriptions { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString> Descriptions { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DescriptionsSpecified => Descriptions?.Count > 0;
 }

@@ -27,7 +27,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("NAME")]
-    public List<global::BMEcatSharp.MultiLingualString>? Name { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Name { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool NameSpecified => Name?.Count > 0;
 
@@ -41,7 +41,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("NAME2")]
-    public List<global::BMEcatSharp.MultiLingualString>? Name2 { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Name2 { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool Name2Specified => Name2?.Count > 0;
 
@@ -55,7 +55,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("NAME3")]
-    public List<global::BMEcatSharp.MultiLingualString>? Name3 { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Name3 { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool Name3Specified => Name3?.Count > 0;
 
@@ -69,7 +69,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("DEPARTMENT")]
-    public List<global::BMEcatSharp.MultiLingualString>? Department { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Department { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool DepartmentSpecified => Department?.Count > 0;
 
@@ -79,7 +79,7 @@ public class Address
     /// Information on a contact person.
     /// </summary>
     [XmlElement("CONTACT_DETAILS")]
-    public List<OpenTransContactDetails>? ContactDetails { get; set; } = new List<OpenTransContactDetails>();
+    public List<OpenTransContactDetails>? ContactDetails { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ContactDetailsSpecified => ContactDetails?.Count > 0;
 
@@ -93,7 +93,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("STREET")]
-    public List<global::BMEcatSharp.MultiLingualString>? Street { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Street { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool StreetSpecified => Street?.Count > 0;
 
@@ -107,7 +107,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ZIP")]
-    public List<global::BMEcatSharp.MultiLingualString>? Zip { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Zip { get; set; } = [];
 
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ZipSpecified => Zip?.Count > 0;
@@ -122,7 +122,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("BOXNO")]
-    public List<global::BMEcatSharp.MultiLingualString>? BoxNo { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? BoxNo { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool BoxNoSpecified => BoxNo?.Count > 0;
 
@@ -136,7 +136,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ZIPBOX")]
-    public List<global::BMEcatSharp.MultiLingualString>? ZipBox { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? ZipBox { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ZipBoxSpecified => ZipBox?.Count > 0;
 
@@ -150,7 +150,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("CITY")]
-    public List<global::BMEcatSharp.MultiLingualString>? City { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? City { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CitySpecified => City?.Count > 0;
 
@@ -164,7 +164,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("STATE")]
-    public List<global::BMEcatSharp.MultiLingualString>? State { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? State { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool StateSpecified => State?.Count > 0;
 
@@ -178,7 +178,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("COUNTRY")]
-    public List<global::BMEcatSharp.MultiLingualString>? Country { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Country { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool CountrySpecified => Country?.Count > 0;
 
@@ -220,7 +220,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("PHONE")]
-    public List<global::BMEcatSharp.Phone>? Phones { get; set; } = new List<global::BMEcatSharp.Phone>();
+    public List<global::BMEcatSharp.Phone>? Phones { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool PhonesSpecified => Phones?.Count > 0;
 
@@ -232,7 +232,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("FAX")]
-    public List<global::BMEcatSharp.Fax>? Faxes { get; set; } = new List<global::BMEcatSharp.Fax>();
+    public List<global::BMEcatSharp.Fax>? Faxes { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FaxesSpecified => Faxes?.Count > 0;
 
@@ -303,7 +303,7 @@ public class Address
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("ADDRESS_REMARKS")]
-    public List<global::BMEcatSharp.MultiLingualString>? Remarks { get; set; } = new List<global::BMEcatSharp.MultiLingualString>();
+    public List<global::BMEcatSharp.MultiLingualString>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
 }

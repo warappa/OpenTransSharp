@@ -128,7 +128,7 @@ public class ClassificationSystem
     /// </summary>
     [BMEXmlArray("CLASSIFICATION_SYSTEM_LEVEL_NAMES")]
     [BMEXmlArrayItem("CLASSIFICATION_SYSTEM_LEVEL_NAME")]
-    public List<ClassificationSystemLevelName>? LevelNames { get; set; } = new List<ClassificationSystemLevelName>();
+    public List<ClassificationSystemLevelName>? LevelNames { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool LevelNamesSpecified => LevelNames?.Count > 0;
 
@@ -151,7 +151,7 @@ public class ClassificationSystem
     /// </summary>
     [BMEXmlArray("ALLOWED_VALUES")]
     [BMEXmlArrayItem("ALLOWED_VALUE")]
-    public List<AllowedValue>? AllowedValues { get; set; } = new List<AllowedValue>();
+    public List<AllowedValue>? AllowedValues { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AllowedValuesSpecified => AllowedValues?.Count > 0;
 
@@ -164,7 +164,7 @@ public class ClassificationSystem
     /// </summary>
     [BMEXmlArray("UNITS")]
     [BMEXmlArrayItem("UNIT")]
-    public List<ClassificationUnit>? Units { get; set; } = new List<ClassificationUnit>();
+    public List<ClassificationUnit>? Units { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool UnitsSpecified => Units?.Count > 0;
 
@@ -177,7 +177,7 @@ public class ClassificationSystem
     /// </summary>
     [BMEXmlArray("FT_GROUPS")]
     [BMEXmlArrayItem("FT_GROUP")]
-    public List<FeatureGroup>? FeatureGroups { get; set; } = new List<FeatureGroup>();
+    public List<FeatureGroup>? FeatureGroups { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeatureGroupsSpecified => FeatureGroups?.Count > 0;
 
@@ -190,7 +190,7 @@ public class ClassificationSystem
     /// </summary>
     [BMEXmlArray("CLASSIFICATION_SYSTEM_FEATURE_TEMPLATES")]
     [BMEXmlArrayItem("CLASSIFICATION_SYSTEM_FEATURE_TEMPLATE")]
-    public List<ClassificationSystemFeatureTemplate>? FeatureTemplates { get; set; } = new List<ClassificationSystemFeatureTemplate>();
+    public List<ClassificationSystemFeatureTemplate>? FeatureTemplates { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool FeatureTemplatesSpecified => FeatureTemplates?.Count > 0;
 
@@ -203,7 +203,7 @@ public class ClassificationSystem
     /// </summary>
     [BMEXmlArray("CLASSIFICATION_GROUPS")]
     [BMEXmlArrayItem("CLASSIFICATION_GROUP")]
-    public List<ClassificationGroup>? Groups { get; set; } = new List<ClassificationGroup>();
+    public List<ClassificationGroup>? Groups { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool GroupsSpecified => Groups?.Count > 0;
 }

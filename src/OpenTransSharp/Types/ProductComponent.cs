@@ -64,7 +64,7 @@ public class ProductComponent
     /// </summary>
     [OpenTransXmlArray("PRODUCT_COMPONENTS")]
     [OpenTransXmlArrayItem("PRODUCT_COMPONENT")]
-    public List<ProductComponent>? ProductComponents { get; set; } = new List<ProductComponent>();
+    public List<ProductComponent>? ProductComponents { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool ProductComponentsSpecified => ProductComponents?.Count > 0;
 

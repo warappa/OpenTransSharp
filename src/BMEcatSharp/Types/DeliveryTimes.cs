@@ -40,7 +40,7 @@ public class DeliveryTimes
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TERRITORY")]
-    public List<CountryCode>? Territories { get; set; } = new List<CountryCode>();
+    public List<CountryCode>? Territories { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TerritoriesSpecified => Territories?.Count > 0;
 
@@ -55,7 +55,7 @@ public class DeliveryTimes
     /// </summary>
     [BMEXmlArray("AREA_REFS")]
     [BMEXmlArrayItem("AREA_IDREF")]
-    public List<string>? AreaRefs { get; set; } = new List<string>();
+    public List<string>? AreaRefs { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool AreaRefsSpecified => AreaRefs?.Count > 0;
 
@@ -69,7 +69,7 @@ public class DeliveryTimes
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TIME_SPAN")]
-    public List<BMETimeSpan>? TimeSpans { get; set; } = new List<BMETimeSpan>();
+    public List<BMETimeSpan>? TimeSpans { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool TimeSpansSpecified => TimeSpans?.Count > 0;
 
