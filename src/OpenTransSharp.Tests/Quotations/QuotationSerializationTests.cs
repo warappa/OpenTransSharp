@@ -56,4 +56,14 @@ public class QuotationSerializationTests
         Debug.WriteLine(serialized);
         order.IsValid(target).Should().Be(true);
     }
+
+    [Test]
+    public void Can_deserialize_Quotation_Emails_Ticket_19()
+    {
+        var quotation = File.ReadAllText("""Quotations\ticket_19_deserialize_email.xml""");
+        var deserialized = target.Deserialize<Quotation>(quotation);
+        
+        var serialized = target.Serialize(deserialized);
+        serialized.Should().Contain("general-mail");
+    }
 }

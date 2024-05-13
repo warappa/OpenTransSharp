@@ -1,3 +1,4 @@
+using BMEcatSharp;
 using System.Linq;
 
 namespace OpenTransSharp.Tests.Orders;
@@ -196,5 +197,87 @@ public class OrderSerializationTests
 
         serializedContent.Should().Contain("email@example.com");
         serializedContent.Should().Contain("email.2@example.com");
+    }
+
+    [Test]
+    public void Ticket19_deserialized_and_immediately_serialized_address_keeps_email_values()
+    {   
+        var options = new OpenTransXmlSerializerOptions();
+        var serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+        var serializer = serializerFactory.Create<Address>();
+
+        var addressString = """
+            <ADDRESS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentrans.org/XMLSchema/2.1"
+                xmlns:bmecat="http://www.bmecat.org/bmecat/2005">
+            	<CONTACT_DETAILS>
+            		<bmecat:CONTACT_ID>general-id</bmecat:CONTACT_ID>
+            		<bmecat:CONTACT_NAME>general-name</bmecat:CONTACT_NAME>
+            	</CONTACT_DETAILS>
+            	<bmecat:EMAIL>general-mail</bmecat:EMAIL>
+            </ADDRESS>
+            """;
+        var deserialized = serializer.Deserialize<Address>(addressString);
+
+        var serializedContent = serializer.Serialize(deserialized);
+
+        serializedContent.Should().Contain("general-mail");
+    }
+
+    [Test]
+    public void Ticket19_deserialized_and_immediately_serialized_address_keeps_email_values_while_accessing_emails_inbetween()
+    {
+        var options = new OpenTransXmlSerializerOptions();
+        var serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+        var serializer = serializerFactory.Create<Address>();
+
+        var addressString = """
+            <ADDRESS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentrans.org/XMLSchema/2.1"
+                xmlns:bmecat="http://www.bmecat.org/bmecat/2005">
+            	<CONTACT_DETAILS>
+            		<bmecat:CONTACT_ID>general-id</bmecat:CONTACT_ID>
+            		<bmecat:CONTACT_NAME>general-name</bmecat:CONTACT_NAME>
+            	</CONTACT_DETAILS>
+            	<bmecat:EMAIL>general-mail</bmecat:EMAIL>
+            </ADDRESS>
+            """;
+        var deserialized = serializer.Deserialize<Address>(addressString);
+
+        var emails = deserialized.Emails;
+
+        var serializedContent = serializer.Serialize(deserialized);
+
+        serializedContent.Should().Contain("general-mail");
+    }
+
+    [Test]
+    public void Ticket19_deserialized_and_immediately_serialized_address_keeps_email_values_while_mutating_emails_inbetween()
+    {
+        var options = new OpenTransXmlSerializerOptions();
+        var serializerFactory = new OpenTransXmlSerializerFactory(options);
+
+        var serializer = serializerFactory.Create<Address>();
+
+        var addressString = """
+            <ADDRESS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.opentrans.org/XMLSchema/2.1"
+                xmlns:bmecat="http://www.bmecat.org/bmecat/2005">
+            	<CONTACT_DETAILS>
+            		<bmecat:CONTACT_ID>general-id</bmecat:CONTACT_ID>
+            		<bmecat:CONTACT_NAME>general-name</bmecat:CONTACT_NAME>
+            	</CONTACT_DETAILS>
+            	<bmecat:EMAIL>general-mail</bmecat:EMAIL>
+            </ADDRESS>
+            """;
+        var deserialized = serializer.Deserialize<Address>(addressString);
+
+        var emails = deserialized.Emails;
+        emails.Clear();
+        emails.Add(new Email("another-email@gmail.com"));
+
+        var serializedContent = serializer.Serialize(deserialized);
+
+        serializedContent.Should().NotContain("general-mail");
+        serializedContent.Should().Contain("another-email@gmail.com");
     }
 }

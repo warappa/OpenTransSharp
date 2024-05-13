@@ -7,6 +7,7 @@ namespace OpenTransSharp;
 /// <br/>
 /// This element is used to transfer address information of a business partner.
 /// </summary>
+[OpenTransXmlRoot("ADDRESS")]
 public class Address
 {
     /// <summary>
@@ -270,7 +271,7 @@ public class Address
         get
         {
             // HACK: called just before the payload gets serialized
-            EmailComponent.EmailsToEmailComponentsIfValueIsCreated(emails, ref emailComponents);
+            EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
 
             if (emailComponents?.Count > 0)
             {
