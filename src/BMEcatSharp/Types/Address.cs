@@ -258,7 +258,7 @@ public class Address
         get
         {
             // HACK: called just before the payload gets serialized
-            EmailComponent.EmailsToEmailComponentsIfValueIsCreated(emails, ref emailComponents);
+            EmailComponent.EmailsToEmailComponents(emails, ref emailComponents);
 
             if (emailComponents?.Count > 0)
             {

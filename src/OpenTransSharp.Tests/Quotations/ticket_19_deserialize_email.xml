@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<QUOTATION xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bmecat="http://www.bmecat.org/bmecat/2005" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsig="http://www.w3.org/2000/09/xmldsig#" version="2.1" xmlns="http://www.opentrans.org/XMLSchema/2.1">
+	<QUOTATION_HEADER>
+		<QUOTATION_INFO>
+			<QUOTATION_ID>149136</QUOTATION_ID>
+			<QUOTATION_DATE>2024-01-11T00:00:00</QUOTATION_DATE>
+			<bmecat:VALID_START_DATE>2024-01-11T00:00:00</bmecat:VALID_START_DATE>
+			<bmecat:VALID_END_DATE>2024-01-31T00:00:00</bmecat:VALID_END_DATE>
+			<PARTIES>
+				<PARTY>
+					<bmecat:PARTY_ID type="supplier_specific">123456</bmecat:PARTY_ID>
+					<PARTY_ROLE>buyer</PARTY_ROLE>
+					<ADDRESS>
+						<CONTACT_DETAILS>
+							<bmecat:CONTACT_ID>general-id</bmecat:CONTACT_ID>
+							<bmecat:CONTACT_NAME>general-name</bmecat:CONTACT_NAME>
+						</CONTACT_DETAILS>
+						<bmecat:EMAIL>general-mail</bmecat:EMAIL>
+					</ADDRESS>
+				</PARTY>
+				<PARTY>
+					<bmecat:PARTY_ID type="supplier_specific">400302</bmecat:PARTY_ID>
+					<PARTY_ROLE>delivery</PARTY_ROLE>
+				</PARTY>
+				<PARTY>
+					<bmecat:PARTY_ID type="supplier_specific">400302</bmecat:PARTY_ID>
+					<PARTY_ROLE>invoice_recipient</PARTY_ROLE>
+				</PARTY>
+				<PARTY>
+					<bmecat:PARTY_ID type="buyer_specific">400302</bmecat:PARTY_ID>
+					<PARTY_ROLE>supplier</PARTY_ROLE>
+				</PARTY>
+			</PARTIES>
+			<ORDER_PARTIES_REFERENCE>
+				<bmecat:BUYER_IDREF type="buyer_specific">400302</bmecat:BUYER_IDREF>
+				<bmecat:SUPPLIER_IDREF type="supplier_specific">400302</bmecat:SUPPLIER_IDREF>
+				<INVOICE_RECIPIENT_IDREF>400302</INVOICE_RECIPIENT_IDREF>
+			</ORDER_PARTIES_REFERENCE>
+			<bmecat:CURRENCY>EUR</bmecat:CURRENCY>
+			<bmecat:TRANSPORT>
+				<bmecat:INCOTERM>FCA</bmecat:INCOTERM>
+				<bmecat:TRANSPORT_REMARK lang="deu">UPS</bmecat:TRANSPORT_REMARK>
+			</bmecat:TRANSPORT>
+			<REMARKS type="dispatchnotification">8 weeks</REMARKS>
+		</QUOTATION_INFO>
+	</QUOTATION_HEADER>
+	<QUOTATION_ITEM_LIST>
+		<QUOTATION_ITEM>
+			<LINE_ITEM_ID>1.0</LINE_ITEM_ID>
+			<PRODUCT_ID>
+				<bmecat:SUPPLIER_PID>N01.544.660.13.004</bmecat:SUPPLIER_PID>
+				<bmecat:DESCRIPTION_SHORT lang="deu">Mitnehmer</bmecat:DESCRIPTION_SHORT>
+			</PRODUCT_ID>
+			<QUANTITY>24</QUANTITY>
+			<bmecat:ORDER_UNIT>C62</bmecat:ORDER_UNIT>
+			<PRICE_LINE_AMOUNT>2500.8</PRICE_LINE_AMOUNT>
+			<DELIVERY_DATE>
+				<DELIVERY_START_DATE>2024-05-03T16:45:36.3398861+02:00</DELIVERY_START_DATE>
+				<DELIVERY_END_DATE>2024-05-03T16:45:36.3398882+02:00</DELIVERY_END_DATE>
+			</DELIVERY_DATE>
+		</QUOTATION_ITEM>
+	</QUOTATION_ITEM_LIST>
+	<QUOTATION_SUMMARY>
+		<TOTAL_ITEM_NUM>1</TOTAL_ITEM_NUM>
+	</QUOTATION_SUMMARY>
+</QUOTATION>
