@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.4</Version>
+    <Version>1.0.5-pre1</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -26,8 +26,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>bmecat bmecat-2005 opentrans opentrans-21</PackageTags>
     <PackageReleaseNotes>
-      1.0.4
-      - #17: Email fields XML serialization
+      1.0.5
+      - #19: Quotation document - email deserialization
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>true</IncludeSymbols>
