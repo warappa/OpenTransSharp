@@ -50,28 +50,113 @@ public class BMEcatDatetime
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
+    [XmlIgnore]
+    public DateTimeOffset Value { get; set; }
+
     [BMEXmlElement("DATE")]
-    public DateTime Date { get; set; }
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public string Date
+    {
+        get => Value.ToString("yyyy-MM-dd");
+        set
+        {
+            var strs = value.Split(['-'], StringSplitOptions.RemoveEmptyEntries);
+            if (strs.Length == 3)
+            {
+                Value = new DateTimeOffset(
+                    int.Parse(strs[0]),
+                    int.Parse(strs[1]),
+                    int.Parse(strs[2]),
+                    Value.Hour,
+                    Value.Minute,
+                    Value.Second,
+                    Value.Offset);
+            }
+            else
+            {
+                throw new InvalidOperationException("Wrong format for DATE");
+            }
+        }
+    }
 
     /// <summary>
-    /// (required - choice Date/Time/Timezone - deprecated) Time<br/>
+    /// (optional - choice Date/Time/Timezone - deprecated) Time<br/>
     /// <br/>
     /// Element for time.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TIME")]
-    public DateTime? Time { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public bool TimeSpecified => Time.HasValue;
+    public string? Time
+    {
+        get => Value.ToString("HH:mm:ss");
+        set
+        {
+            var strs = value?.Split([':'], StringSplitOptions.RemoveEmptyEntries);
+            var hour = 0;
+            var minute = 0;
+            var second = 0;
+            if (strs?.Length == 3)
+            {
+                hour = int.Parse(strs[0]);
+                minute = int.Parse(strs[1]);
+                second = int.Parse(strs[2]);
+            }
+            else if (strs is not null)
+            {
+                throw new InvalidOperationException("Wrong format for TIME");
+            }
+
+            Value = new DateTimeOffset(
+                Value.Year,
+                Value.Month,
+                Value.Day,
+                hour,
+                minute,
+                second,
+                Value.Offset);
+        }
+    }
 
     /// <summary>
-    /// (required - choice Date/Time/Timezone - deprecated) Time zone<br/>
+    /// (optional - choice Date/Time/Timezone - deprecated) Time zone<br/>
     /// <br/>
     /// Element for timezone.<br/>
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
     [BMEXmlElement("TIMEZONE")]
-    public string? Timezone { get; set; }
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public string? Timezone
+    {
+        get => $"{(Value.Offset.Hours < 0 ? "-" : "+")}{Value.Offset:hh\\:mm}";
+        set
+        {
+            var strs = value?.Split([':'], StringSplitOptions.RemoveEmptyEntries);
+            var offset = TimeSpan.Zero;
+            if (strs?.Length == 2)
+            {
+                offset = new TimeSpan(int.Parse(strs[0]), int.Parse(strs[1]), 0);
+            }
+            else if (strs?.Length == 1 &&
+                value == "Z")
+            {
+                offset = TimeSpan.Zero;
+            }
+            else if (strs is not null)
+            {
+                throw new InvalidOperationException("Wrong format for TIMEZONE");
+            }
+
+            Value = new DateTimeOffset(
+                Value.Year,
+                Value.Month,
+                Value.Day,
+                Value.Hour,
+                Value.Minute,
+                Value.Second,
+                offset);
+        }
+    }
 }
