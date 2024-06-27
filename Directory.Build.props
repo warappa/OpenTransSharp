@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.5-pre1</Version>
+    <Version>1.0.5</Version>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -28,6 +28,7 @@
     <PackageReleaseNotes>
       1.0.5
       - #19: Quotation document - email deserialization
+      - #21: Fix serialization of DATETIME in CATALOG
     </PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <IncludeSymbols>true</IncludeSymbols>
