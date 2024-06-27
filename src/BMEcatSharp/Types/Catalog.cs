@@ -141,10 +141,10 @@ public class Catalog
     /// XML-namespace: BMECAT
     /// </summary>
     //[Obsolete("The element DATETIME in the context of CATALOG with the attribute 'generation_date' will be replaced by the element GENERATION_DATE in future versions and will be omitted then.")]
-    [BMEXmlElement("DATE")]
-    public BMEcatDatetime? Date { get; set; }
+    [BMEXmlElement("DATETIME")]
+    public BMEcatDatetime? DateTime { get; set; }
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public bool DateSpecified => Date is not null;
+    public bool DateTimeSpecified => DateTime is not null;
 
     /// <summary>
     /// (optional) Territory<br/>
