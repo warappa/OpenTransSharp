@@ -269,4 +269,52 @@ public class BMEcatSerializationTests
         serializedContent.Should().Contain("email@example.com");
         serializedContent.Should().Contain("email.2@example.com");
     }
+
+    [Test]
+    public void PR26_RemarksHasRightElementName()
+    {
+        // Arrange
+        var order = testConfig.BMEcats.GetBMEcatNewCatalog();
+
+        var productDetails = new ProductDetails
+        {
+            DescriptionShort =
+            [
+                new MultiLingualString("test" , LanguageCodes.deu)
+            ],
+        };
+
+        order.NewCatalog.Products.Add(new NewCatalogProduct
+        {
+            SupplierPid = new SupplierPid("123", SupplierPidTypeValues.Ean.ToString()),
+            OrderDetails = new ProductOrderDetails(),
+            PriceDetails =
+            [
+                new ProductPriceDetails
+                {
+                    ProductPrices =
+                    [
+                        new ProductPrice()
+                        {
+                            Amount = 1m,
+                            Type = ProductPriceTypeValues.GrosList
+                        }
+                    ]
+                }
+            ],
+
+            Details = productDetails
+        });
+
+        // Act
+        productDetails.Remarks =
+        [
+            new MultiLingualString("Product Details DE", LanguageCodes.deu),
+            new MultiLingualString("Product Details EN", LanguageCodes.eng)
+        ];
+
+        // Assert
+        var validationResult = order.Validate(target);
+        validationResult.IsValid.Should().Be(true);
+    }
 }

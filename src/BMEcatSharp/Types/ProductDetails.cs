@@ -217,7 +217,7 @@ public class ProductDetails
     /// <br/>
     /// XML-namespace: BMECAT
     /// </summary>
-    [BMEXmlElement("REMARK")]
+    [BMEXmlElement("REMARKS")]
     public List<MultiLingualString>? Remarks { get; set; } = [];
     [EditorBrowsable(EditorBrowsableState.Never)]
     public bool RemarksSpecified => Remarks?.Count > 0;
